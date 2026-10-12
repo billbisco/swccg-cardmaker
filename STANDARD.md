@@ -119,3 +119,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   icon = the Pilot helmet icon, as printed. `{ovs}` = the slip's own set sphere printed inline ("the (V) version");
   `_italic_` works in titles, banners and captions (_Imperial_-Class Star Destroyer). Slip crops: heading + whole slip
   incl. the caption strip (per-box height). Wiki hubs keep the old page's history sections under "== History ==".
+- Rev 8 (Bill 2026-10-12): game text breaks lines exactly where the slip does. `slip_lines.py N` reads the Remaster
+  PDF's text layer (pdftotext -bbox-layout, lines grouped by slip box) and stores `game_text_lines` in each card JSON;
+  the renderer uses those breaks (white-space:pre) and only shrinks the font if a line would not fit ("Trash Compactor,"
+  stays on one line). Icons: the black square with a green lightsaber in game text is the Permanent Weapon icon, not
+  Warrior (K'lor'slug, Han Seeker). Defensive Shields are unique even when the printed Effect is not (I Find Your Lack
+  Of Faith Disturbing); Local Trouble is not unique. Expanded prose capitalises a sentence that starts with ▲/▼ ("Take…").

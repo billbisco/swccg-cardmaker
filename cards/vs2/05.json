@@ -23,5 +23,6 @@
  "virtual_set": 2,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": "Lore: curly single quotes around 'alternative' as printed. Slip text ends 'this Effect lost.' (no 'is') — transcribed as printed."
+ "notes": "Lore: curly single quotes around 'alternative' as printed. Slip text ends 'this Effect lost.' (no 'is') — transcribed as printed.",
+ "game_text_lines": "Use 2 Force to deploy on an Imperial leader of ability\n< 5 or a senator. That character’s game text is\ncanceled. If present with another Demotion, this Effect\nlost."
 }

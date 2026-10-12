@@ -38,5 +38,6 @@
   "src": "src/vs3/ANH-L-commandervandenwillard.gif",
   "modern": "src/vs3/modern/V11-L-commandervandenwillard.gif"
  },
- "notes": "Inline icon in 'non-[icon] Leia' is the black square with a diagonal green-white blade = Permanent Weapon icon (wiki stub wrongly expands it as 'non-unique'). 'Leader' and 'spy' are bold on the printed card. Third stat box blank. 745 px scan carries a 'D-E1' label; printed face is src/vs3/ANH-L-commandervandenwillard-decipher-archive.gif."
+ "notes": "Inline icon in 'non-[icon] Leia' is the black square with a diagonal green-white blade = Permanent Weapon icon (wiki stub wrongly expands it as 'non-unique'). 'Leader' and 'spy' are bold on the printed card. Third stat box blank. 745 px scan carries a 'D-E1' label; printed face is src/vs3/ANH-L-commandervandenwillard-decipher-archive.gif.",
+ "game_text_lines": "Leia is defense value and forfeit +3. Your\nsenators at battleground sites and characters at\nYavin 4 locations are forfeit +2. Once per game,\nmay ▲ a non-{permanent-weapon} Leia."
 }

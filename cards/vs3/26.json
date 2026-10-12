@@ -23,5 +23,6 @@
   "src": "src/vs3/Premiere-D-adisturbanceintheforce.gif",
   "modern": null
  },
- "notes": "Premiere card: empty expansion ring. Printed lore quote is typeset as double curly quotes with a spaced ellipsis '“. . . as if' (wiki has '...'). Wiki default page (stub-linked) uses the 745 px Premiere-D-adisturbanceintheforce.gif which carries a 'D-E1' label; the printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-adisturbanceintheforce-pre.gif), modern=null. No immunity icon on this slip."
+ "notes": "Premiere card: empty expansion ring. Printed lore quote is typeset as double curly quotes with a spaced ellipsis '“. . . as if' (wiki has '...'). Wiki default page (stub-linked) uses the 745 px Premiere-D-adisturbanceintheforce.gif which carries a 'D-E1' label; the printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-adisturbanceintheforce-pre.gif), modern=null. No immunity icon on this slip.",
+ "game_text_lines": "Deploy on table. Whenever you verify opponent’s\nReserve Deck, may place a card there with “podracer”\nin game text out of play or retrieve 1 Force."
 }

@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-D-ootagootasolo.gif",
   "modern": "src/vs3/modern/V10-D-ootagootasolo.gif"
  },
- "notes": "Slip prints the title WITH the question mark both in the heading and the bottom strip ('Oo-ta Goo-ta, Solo? (V)'); src/slips/vs3/index.json and the wiki stub title drop the '?'. Non-unique (no dot). Printed base is a USED INTERRUPT; slip banner is USED OR LOST INTERRUPT with USED:/LOST: lines. No icon column. Base scan only 350 px. Modern = Virtual Set 10 remake (745 px)."
+ "notes": "Slip prints the title WITH the question mark both in the heading and the bottom strip ('Oo-ta Goo-ta, Solo? (V)'); src/slips/vs3/index.json and the wiki stub title drop the '?'. Non-unique (no dot). Printed base is a USED INTERRUPT; slip banner is USED OR LOST INTERRUPT with USED:/LOST: lines. No icon column. Base scan only 350 px. Modern = Virtual Set 10 remake (745 px).",
+ "game_text_lines": "USED: During battle at a site where your alien bounty\nhunter (except Boba Fett) is with opponent’s smuggler,\nopponent may not draw more than one battle destiny.\nLOST: During a battle at a site where you have an alien\nbounty hunter, add one battle destiny."
 }

@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-D-hyperwavescan.gif",
   "modern": "src/vs3/modern/V21-D-hyperwavescan.gif"
  },
- "notes": "Non-unique. Base scan 350 px only (copyright read as 1996). Modern remake Hyperwave Scan (V), Virtual Set 21 (745 px). Immunity icons on the slip (letter in a red circle with a red slash) tokened as {alter}/{control}/{sense} per caller's convention (other helpers' files use {icon:immune-alter} style)."
+ "notes": "Non-unique. Base scan 350 px only (copyright read as 1996). Modern remake Hyperwave Scan (V), Virtual Set 21 (745 px). Immunity icons on the slip (letter in a red circle with a red slash) tokened as {alter}/{control}/{sense} per caller's convention (other helpers' files use {icon:immune-alter} style).",
+ "game_text_lines": "Deploy on table. During opponent’s move phase, may\nuse 3 Force to peek at opponent’s hand or place a\nPolitical Effect (and all cards on it) in owner’s Used\nPile. Unless you have 13 or more cards in hand,\nopponent may not place those cards in Used Pile. {alter}"
 }

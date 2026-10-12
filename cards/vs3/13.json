@@ -23,5 +23,6 @@
   "src": "src/vs3/Premiere-L-leiassportingblaster.gif",
   "modern": "src/vs3/modern/VB1-L-leiassportingblaster-pre.gif"
  },
- "notes": "Title apostrophe is curly on the slip (Leia’s); wiki page title uses a straight one. Base: Premiere (empty expansion ring), copyright 1995 read off the 745 px scan. Wiki default page is the Glossary 2.0 errata text; printed face is 'Leia's Sporting Blaster (Original)' (also downloaded: Premiere-L-leiassportingblaster-decipher-archive.gif, 350 px) — lore identical. No modern 'Virtual Set N' remake; the only PC remake is Virtual Block 1 (VB1-…-pre.gif, 350 px preview), downloaded as modern. ‘break cover’ in single curly quotes on the slip."
+ "notes": "Title apostrophe is curly on the slip (Leia’s); wiki page title uses a straight one. Base: Premiere (empty expansion ring), copyright 1995 read off the 745 px scan. Wiki default page is the Glossary 2.0 errata text; printed face is 'Leia's Sporting Blaster (Original)' (also downloaded: Premiere-L-leiassportingblaster-decipher-archive.gif, 350 px) — lore identical. No modern 'Virtual Set N' remake; the only PC remake is Virtual Block 1 (VB1-…-pre.gif, 350 px preview), downloaded as modern. ‘break cover’ in single curly quotes on the slip.",
+ "game_text_lines": "Deploy on Leia or your non-droid Undercover spy. May\ntarget a character or creature for free. Draw destiny.\nTarget lost if destiny > defense value. During\nopponent’s move phase, if on your Undercover spy,\nmay ‘break cover’ to fire."
 }

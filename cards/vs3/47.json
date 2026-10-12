@@ -39,5 +39,6 @@
   "src": "src/vs3/Jedi-D-tarkin.gif",
   "modern": "src/vs3/modern/V4-D-tarkin.gif"
  },
- "notes": "Locked reference cards/tarkin-v-vs3.json — stats, text, deploy/forfeit, icons, copyright all match it; 'leader' bold taken from that reference (not resolvable on the 350 px scan). Imperial disc top-left; expansion ring icon = Premium (Jedi Pack). The wiki page 'Tarkin' does not exist — base is 'Tarkin (Jedi Pack)'. Modern = Virtual Set 4 remake V4-D-tarkin.gif (745 px), the art the reference render uses."
+ "notes": "Locked reference cards/tarkin-v-vs3.json — stats, text, deploy/forfeit, icons, copyright all match it; 'leader' bold taken from that reference (not resolvable on the 350 px scan). Imperial disc top-left; expansion ring icon = Premium (Jedi Pack). The wiki page 'Tarkin' does not exist — base is 'Tarkin (Jedi Pack)'. Modern = Virtual Set 4 remake V4-D-tarkin.gif (745 px), the art the reference render uses.",
+ "game_text_lines": "Adds one battle destiny if with Vader (or a Rebel\nat a mobile site). Jar Jar and opponent’s spies\nmay not deploy to Death Star. Once per game,\nmay ▲ Hyperwave Scan, Put All Sections On\nAlert, or an ISB agent."
 }

@@ -8,7 +8,7 @@
  "stats": [],
  "deploy": null,
  "forfeit": null,
- "game_text": "Deploy on table. If your character in battle is about to be lost before the damage segment, it is instead lost at end of battle (if forfeited, forfeit for 0). Non-Jedi, non-{warrior} characters may not have their deploy cost modified by Bad Feeling Have I. {alter}",
+ "game_text": "Deploy on table. If your character in battle is about to be lost before the damage segment, it is instead lost at end of battle (if forfeited, forfeit for 0). Non-Jedi, non-{permanent-weapon} characters may not have their deploy cost modified by Bad Feeling Have I. {alter}",
  "icons": [],
  "scomp": false,
  "affiliation": null,
@@ -23,5 +23,6 @@
  "virtual_set": 2,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": "Title uses curly apostrophes on the slip (K’lor’slug); wiki page title uses straight ones. Inline black square with a green diagonal lightsaber after 'non-' is the Light Side warrior icon → {warrior}. Red circle-slash A at the end → {alter}. Lore corrected from scan: 'Dejarik' is printed bold, 'Noe’ha’on' has curly apostrophes, 'Lays eggs – hundreds' is an en-dash (wiki: plain hyphen). Base scan 745 px; copyright line read as 1995. Modern: V0-L-klorslug.gif (745) used; VB1-L-klorslug-pre.gif (350) also in modern/."
+ "notes": "Title uses curly apostrophes on the slip (K’lor’slug); wiki page title uses straight ones. Inline black square with a green diagonal lightsaber after 'non-' is the Light Side warrior icon → {permanent-weapon}. Red circle-slash A at the end → {alter}. Lore corrected from scan: 'Dejarik' is printed bold, 'Noe’ha’on' has curly apostrophes, 'Lays eggs – hundreds' is an en-dash (wiki: plain hyphen). Base scan 745 px; copyright line read as 1995. Modern: V0-L-klorslug.gif (745) used; VB1-L-klorslug-pre.gif (350) also in modern/.",
+ "game_text_lines": "Deploy on table. If your character in battle is about to\nbe lost before the damage segment, it is instead lost\nat end of battle (if forfeited, forfeit for 0). Non-Jedi,\nnon-{permanent-weapon} characters may not have their deploy cost\nmodified by Bad Feeling Have I. {alter}"
 }

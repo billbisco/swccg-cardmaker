@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-L-mercsunlet.gif",
   "modern": null
  },
- "notes": "Non-unique (no dot). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter} per the caller's convention (cards 09/10 used {icon:immune-alter}). Copyright 1996 read off the 745 px scan. Wiki default page is Glossary 2.0 errata text; printed face 'Merc Sunlet (Original)' (ANH-L-mercsunlet-decipher-archive.gif, 350 px, also downloaded) — lore identical. No modern remake exists ('Merc Sunlet (V)' page missing) → modern null."
+ "notes": "Non-unique (no dot). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter} per the caller's convention (cards 09/10 used {icon:immune-alter}). Copyright 1996 read off the 745 px scan. Wiki default page is Glossary 2.0 errata text; printed face 'Merc Sunlet (Original)' (ANH-L-mercsunlet-decipher-archive.gif, 350 px, also downloaded) — lore identical. No modern remake exists ('Merc Sunlet (V)' page missing) → modern null.",
+ "game_text_lines": "Deploy on table. Out Of Commission is canceled. Unless\nopponent has more cards in Lost Pile than you,\nwhenever you lose Force, may use X Force and place\nany X cards from your Lost Pile out of play to reduce\nthe loss by X. {alter}"
 }

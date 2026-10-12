@@ -36,5 +36,6 @@
   "src": "src/vs3/ANH-D-hemdazon.gif",
   "modern": null
  },
- "notes": "Single Alien disc. Third stat box printed blank; icon column empty (set symbol only). Printed card has POWER * (slip gives 2). Base scan 350 px only (copyright read as 1996). No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-hemdazon-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+ "notes": "Single Alien disc. Third stat box printed blank; icon column empty (set symbol only). Printed card has POWER * (slip gives 2). Base scan 350 px only (copyright read as 1996). No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-hemdazon-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null.",
+ "game_text_lines": "During your deploy phase, may stack ‘salt’ (a card\nfrom hand) face down under Hem. Your total battle\ndestiny here is +1 for each ‘salt’ card. During your\ncontrol phase (or if Hem lost), may place all ‘salt’\ncards in your Used Pile."
 }

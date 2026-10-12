@@ -8,7 +8,7 @@
  "stats": [],
  "deploy": null,
  "forfeit": null,
- "game_text": "Use 1 Force to deploy to an unoccupied site. Deploys and moves like an Undercover spy. If present with {warrior} Han or a smuggler of ability < 3, this weapon and that character are lost (“all cards” situation).",
+ "game_text": "Use 1 Force to deploy to an unoccupied site. Deploys and moves like an Undercover spy. If present with {permanent-weapon} Han or a smuggler of ability < 3, this weapon and that character are lost (“all cards” situation).",
  "icons": [],
  "scomp": false,
  "affiliation": null,
@@ -23,5 +23,6 @@
  "virtual_set": 2,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": "Non-unique (no dot). Inline grey square with a green-bladed lightsaber before 'Han' → {warrior} per the run's convention (inline lightsaber square = warrior icon; i.e. 'a warrior Han'). Curly double quotes around “all cards”. A small brown sphere is printed in the middle of the bottom strip between the caption and the number (sheet artifact, not transcribed). Lore corrected from scan: ‘remote.’ in curly single quotes (wiki straight quotes). Base scan 745 px (Premiere-D-hanseeker.gif) carries a 'D-E1' label — top half is the printed face; copyright line legible: 1995. No 350 archive face listed. Modern remake is Block-era only (VB1-D-hanseeker-pre.gif, 348×490) — used as modern."
+ "notes": "Non-unique (no dot). Inline grey square with a green-bladed lightsaber before 'Han' → {permanent-weapon} per the run's convention (inline lightsaber square = warrior icon; i.e. 'a warrior Han'). Curly double quotes around “all cards”. A small brown sphere is printed in the middle of the bottom strip between the caption and the number (sheet artifact, not transcribed). Lore corrected from scan: ‘remote.’ in curly single quotes (wiki straight quotes). Base scan 745 px (Premiere-D-hanseeker.gif) carries a 'D-E1' label — top half is the printed face; copyright line legible: 1995. No 350 archive face listed. Modern remake is Block-era only (VB1-D-hanseeker-pre.gif, 348×490) — used as modern.",
+ "game_text_lines": "Use 1 Force to deploy to an unoccupied site. Deploys\nand moves like an Undercover spy. If present with {permanent-weapon}\nHan or a smuggler of ability < 3, this weapon and that\ncharacter are lost (“all cards” situation)."
 }

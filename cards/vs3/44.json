@@ -38,5 +38,6 @@
   "src": "src/vs3/ANH-D-reservepilot.gif",
   "modern": null
  },
- "notes": "Imperial disc top-left. Third stat box printed blank. Text opens with the yellow pilot-power icon then '2.'. Only wiki scan (349x489) carries an 'E' label bottom-right (Decipher errata reprint face; lore/art identical, printed ability 1 vs slip ability 2 is the slip's change); no separate -decipher-archive file exists. Modern remake is Block-era only (VB1 -pre), modern=null."
+ "notes": "Imperial disc top-left. Third stat box printed blank. Text opens with the yellow pilot-power icon then '2.'. Only wiki scan (349x489) carries an 'E' label bottom-right (Decipher errata reprint face; lore/art identical, printed ability 1 vs slip ability 2 is the slip's change); no separate -decipher-archive file exists. Modern remake is Block-era only (VB1 -pre), modern=null.",
+ "game_text_lines": "{pilot:2}. While piloting at a system, your total battle\ndestiny here is cumulatively +1. If a battle at a\nsystem just ended, may deploy (for free) aboard a\nstarship from which you forfeited a pilot character."
 }

@@ -36,5 +36,6 @@
   "src": "src/vs3/ANH-D-dannikjerriko.gif",
   "modern": "src/vs3/modern/V15-D-dannikjerriko.gif"
  },
- "notes": "Single Alien disc top-left (grey Alien frame). Icon column on the slip is empty (no pilot/warrior icons). Printed lore uses double curly quotes around “eat the soup” (wiki single). Wiki default page (stub-linked, Glossary 2.0 text) uses the 745 px ANH-D-dannikjerriko.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake: Dannik Jerriko (V), Virtual Set 15 (745 px)."
+ "notes": "Single Alien disc top-left (grey Alien frame). Icon column on the slip is empty (no pilot/warrior icons). Printed lore uses double curly quotes around “eat the soup” (wiki single). Wiki default page (stub-linked, Glossary 2.0 text) uses the 745 px ANH-D-dannikjerriko.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake: Dannik Jerriko (V), Virtual Set 15 (745 px).",
+ "game_text_lines": "If present where you just won a battle, may use 1\nForce to place a card from opponent’s Lost Pile\nout of play."
 }

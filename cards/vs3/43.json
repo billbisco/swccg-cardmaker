@@ -36,5 +36,6 @@
   "src": "src/vs3/ANH-D-reegesk.gif",
   "modern": null
  },
- "notes": "Single Alien disc top-left. Third stat box printed blank. No icon column (set symbol only). Base scan only 350 px — cannot tell whether 'thief' / 'scavenger' are bold on the printed card (wiki lists them as characteristics); left plain. Modern remake is Block-era only (VB1 -pre, 350 px), modern=null."
+ "notes": "Single Alien disc top-left. Third stat box printed blank. No icon column (set symbol only). Base scan only 350 px — cannot tell whether 'thief' / 'scavenger' are bold on the printed card (wiki lists them as characteristics); left plain. Modern remake is Block-era only (VB1 -pre, 350 px), modern=null.",
+ "game_text_lines": "During opponent’s turn, if present at a battleground\nsite, may steal a device, droid, starfighter, vehicle,\nor weapon in opponent’s Lost Pile into your hand."
 }

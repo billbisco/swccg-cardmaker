@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-L-grapplinghook.gif",
   "modern": "src/vs3/modern/V21-L-grapplinghook.gif"
  },
- "notes": "Non-unique (no dot). The slip's IMMEDIATE EFFECT banner has the blue Grabber (hand) icon at its right end, same as the printed card — not in the icon column, so icons=[]; render it in the banner. Wiki base page lists the 350 px -decipher-archive gif (also downloaded); used the 745 px ANH-L-grapplinghook.gif which carries a 'D-E2' label. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}."
+ "notes": "Non-unique (no dot). The slip's IMMEDIATE EFFECT banner has the blue Grabber (hand) icon at its right end, same as the printed card — not in the icon column, so icons=[]; render it in the banner. Wiki base page lists the 350 px -decipher-archive gif (also downloaded); used the 745 px ANH-L-grapplinghook.gif which carries a 'D-E2' label. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}.",
+ "game_text_lines": "If opponent just played an Interrupt, unless three\nGrappling Hooks on table, use 1 Force to deploy on table\nand stack that Interrupt here. Other copies of stacked\nInterrupt are destiny -3. {icon:immune-control}"
 }

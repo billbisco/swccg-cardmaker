@@ -23,5 +23,6 @@
   "src": "src/vs3/Jedi-L-forluck.gif",
   "modern": "src/vs3/modern/V0-L-forluck.gif"
  },
- "notes": "Jedi Pack card; copyright line on the scan reads 1996 (as Tarkin). 745 px scan carries a 'D-E1' label. Expansion ring icon = Premium. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}."
+ "notes": "Jedi Pack card; copyright line on the scan reads 1996 (as Tarkin). 745 px scan carries a 'D-E1' label. Expansion ring icon = Premium. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}.",
+ "game_text_lines": "Deploy on table. Once during your control phase, if\nopponent occupies a non-battleground location, may\npeek at top two cards of your Reserve Deck and take\none into hand. {icon:immune-alter}"
 }

@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-L-scannertechs.gif",
   "modern": "src/vs3/modern/V21-L-scannertechs.gif"
  },
- "notes": "Non-unique (no dot). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter} per the caller's convention (cards 09/10 used {icon:immune-alter}). Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible on the scan."
+ "notes": "Non-unique (no dot). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter} per the caller's convention (cards 09/10 used {icon:immune-alter}). Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible on the scan.",
+ "game_text_lines": "Deploy on table. During opponent’s move phase, may\nuse 3 Force to peek at opponent’s hand or place a\nPolitical Effect (and all cards on it) in owner’s Used\nPile. Unless you have 13 or more cards in hand,\nopponent may not place those cards in Used Pile. {alter}"
 }

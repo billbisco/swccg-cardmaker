@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-D-comewithme.gif",
   "modern": null
  },
- "notes": "Non-unique. Wiki default page (stub-linked, Glossary Supplement text) uses the 745 px ANH-D-comewithme.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-comewithme-pre.gif), modern=null. No immunity icon on this slip."
+ "notes": "Non-unique. Wiki default page (stub-linked, Glossary Supplement text) uses the 745 px ANH-D-comewithme.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-comewithme-pre.gif), modern=null. No immunity icon on this slip.",
+ "game_text_lines": "Deploy on Vader or your admiral. During your deploy\nphase, may ▼ an Imperial pilot here. During any control\nphase, may place this Effect in Used Pile to take an\nImperial pilot on table into hand (place all cards on that\ncharacter in owner’s Used Pile)."
 }

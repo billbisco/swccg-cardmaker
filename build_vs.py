@@ -48,7 +48,7 @@ def template_for(c: dict) -> str:
 
 
 def convert(c: dict, vs: int) -> dict:
-    gt = c["game_text"]
+    gt = c.get("game_text_lines") or c["game_text"]   # the slip's own line breaks when slip_lines.py has recorded them
     for k, v in TOKEN_FIX.items():
         gt = gt.replace(k, v)
     t = template_for(c)
