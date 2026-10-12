@@ -43,4 +43,4 @@ python3 render.py cards/tarkin-v-vs3.json
 ## Licence
 
 MIT for the code and docs (see LICENSE). Card art, text and designs belong to Lucasfilm and Decipher; frames derive
-from Bardez's free templates; fonts are not open source (FONTS.md).
+from Bardez's free templates
