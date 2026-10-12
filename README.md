@@ -19,7 +19,7 @@ Review of the first set: [Original Virtual Set 3 remaster review](https://wiki.s
 - The PC's Virtual Set 3 graphic design team (Michael Erisman, Dennis Hes, Jerry Jensen, Henk Maul, John Millet) and
   proofing team, and the card concept authors credited on individual slips (e.g. Eric Hunter, Wokling (V)).
 - The **SWCCG Wiki** (wiki.swccg.com) preserves the scans, slips, sheets and templates this project reads.
-- Built by Bill Bisco with Claude (Anthropic). Not endorsed by Lucasfilm, Disney, Decipher or the Players Committee.
+- Built by Bill Bisco with AI Assistance. Not endorsed by anyone else.
 
 ## Layout
 
