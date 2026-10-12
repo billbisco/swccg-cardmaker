@@ -12,7 +12,8 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Jedi Pack": "icons/set-premium-grainy.png", "Hoth": "icons/set-hoth-bardez.png", "Dagobah": "icons/set-dagobah.png",
     "Special Edition": "icons/set-se-grainy.png", "Endor": "icons/set-endor-grainy.png",
 }
-TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}"}
+TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
+             "{icon:virtual-set symbol}": "{ovs}"}
 
 
 def template_for(c: dict) -> str:
@@ -33,8 +34,10 @@ def template_for(c: dict) -> str:
         if "alien" in aff:
             return "ds-character-alien"
         return "ds-character-imperial"
-    if "starfighter" in st or "starship" in st:
-        return f"{side}-starship-starfighter"
+    if "vehicle" in st:
+        return f"{side}-vehicle"
+    if "starfighter" in st or "starship" in st or "capital" in st:
+        return f"{side}-starship-starfighter"   # one starship icon for starfighters and capitals on the printed cards
     if "shield" in st:
         return f"{side}-shield"
     if "weapon" in st or "device" in st:

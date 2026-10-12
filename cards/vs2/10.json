@@ -1,0 +1,27 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Into The Garbage Chute, Flyboy",
+ "caption": "Into The Garbage Chute, Flyboy (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Add one battle destiny at Incinerator, Trash Compactor, Watto’s Junkyard, or a swamp.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Leia led an unorthodox escape into a “garbage masher” on the detention level. “What an incredible smell you’ve discovered!”",
+ "destiny": "6",
+ "base_page": "Into The Garbage Chute, Flyboy",
+ "art": {
+  "src": "src/vs2/10-Premiere-L-intothegarbagechuteflyboy.gif",
+  "modern": "src/vs2/modern/10-VB1-L-intothegarbagechuteflyboy-pre.gif"
+ },
+ "id": "vs2-10",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore: curly double quotes as printed (wiki has single). Base scan only at 350 px."
+}

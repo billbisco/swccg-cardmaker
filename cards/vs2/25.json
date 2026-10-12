@@ -1,0 +1,27 @@
+{
+ "number": "25",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Yavin Sentry",
+ "caption": "•Yavin Sentry (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Opponent must first use X Force to deploy a non-unique card (except a Jawa or Tusken Raider) to a location, where X = the number of copies of that card at that location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Rebel sentries are stationed on raised sensor platforms. On watch for Imperial scouts and other hazards, they supplement data gathered by Yavin Base’s main sensors.",
+ "destiny": "3",
+ "base_page": "Yavin Sentry",
+ "art": {
+  "src": "src/vs2/25-Premiere-L-yavinsentry.gif",
+  "modern": "src/vs2/modern/25-VSh-L-yavinsentry-pre.gif"
+ },
+ "id": "vs2-25",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Slip banner is DEFENSIVE SHIELD (printed card is an Effect). Lore matches the scan (curly apostrophe in Base’s). Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern remake is the Virtual Shields card (VSh-L-yavinsentry-pre.gif, 350 px) — used as modern; VD-L-yavinsentrygoldenrod.gif (745) is a different combo card (Yavin Sentry & Goldenrod), not downloaded."
+}

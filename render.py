@@ -208,6 +208,22 @@ TEMPLATES = {
         "scomp": (170, 1694),
         "ctype_spacing": 3,
     },
+    "ls-vehicle": {   # Bardez "LS - Starship" frame (empty ring) + the vehicle type icon cut from the PC's Blizzard 2 scan
+        "frame": ("frames/ls-vehicle.png", 65, 73),
+        "art": (255, 662, 1137, 709), "title": (398, 200, 880, 90), "destiny": (1321, 208, 99, 101), "lore": (321, 385, 1010, 185),
+        "card_type": (270, 1462, 1114, 61), "stats_y": 1582, "stats": [(270, 270), (600, 340), (985, 385)],
+        "game_text": (349, 1729, 982, 279), "deploy": (203, 1835, 59, 81), "forfeit": (208, 1929, 47, 85),
+        "icon_slots": [(1357, 1722), (1357, 1821)], "set_icon_abs": (1363, 1926), "expansion_ring": (1381, 405),
+        "copyright_x": 1416, "dark_text": True, "lore_indent": 0, "scomp": (184, 1694), "ctype_spacing": 3,
+    },
+    "ds-vehicle": {
+        "frame": ("frames/ds-vehicle.png", 139, 148),
+        "art": (241, 667, 1134, 710), "title": (398, 200, 880, 90), "destiny": (1305, 210, 100, 100), "lore": (316, 390, 985, 178),
+        "card_type": (262, 1462, 1100, 61), "stats_y": 1588, "stats": [(268, 262), (581, 330), (962, 381)],
+        "game_text": (344, 1732, 925, 265), "deploy": (199, 1826, 45, 82), "forfeit": (199, 1932, 46, 84),
+        "icon_slots": [(1356, 1722), (1356, 1822)], "set_icon_abs": (1363, 1926), "expansion_ring": (1382, 405),
+        "copyright_x": 1416, "scomp": (170, 1694), "ctype_spacing": 3,
+    },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
     # The frame is assembled per card (force icons, packed icon boxes, scomp rings) by loc_frame().
@@ -254,6 +270,7 @@ ICON_FILES = {
     "lightsaber": "icons/inline-permanent-weapon.png", "permanent-weapon": "icons/inline-permanent-weapon.png",
     "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
+    "permanent-pilot": "icons/pilot.png", "permanent-pilot-light": "icons/pilot-light-745.png",   # same helmet icon as Pilot on the printed cards
 }
 
 
@@ -264,6 +281,9 @@ def data_uri(path: Path) -> str:
 
 def icon_img(name: str, h: int = 64) -> str:
     return f'<img class="gt-icon" src="{data_uri(ASSETS / ICON_FILES[name])}" style="height:{h}px">'
+
+
+card_ctx: dict = {}   # set by render() so tokens can see the card (virtual_set for {ovs})
 
 
 def game_text_html(text: str) -> str:
@@ -279,6 +299,8 @@ def game_text_html(text: str) -> str:
         elif name in ("alter", "control", "sense"):
             # the slips' red "no" circle with the letter: drawn (transparent), not a pasted raster
             out.append(f'<span class="noicon"><span class="nol">{name[0].upper()}</span></span>')
+        elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
+            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/set-{arg}-grainy.png")}" style="height:56px">')
         else:
@@ -295,6 +317,11 @@ def game_text_html(text: str) -> str:
 
 def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def esc_i(s: str) -> str:
+    """esc() plus _italic_ markup (the slips italicise ship names in titles/banners: _Imperial_-Class Star Destroyer)."""
+    return re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", esc(s))
 
 
 def art_crop(card: dict) -> str:
@@ -456,6 +483,7 @@ def sys_frame(card: dict, t: dict) -> Path:
 
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
+    card_ctx.clear(); card_ctx.update(card)
     fonts = {
         "Fiorello": "fonts/Fiorello CG Condensed Regular.otf",
         "AGLightCn": "fonts/Akzidenz-Grotesk BQ Light Conde.otf",
@@ -492,20 +520,20 @@ def build_html(card: dict) -> str:
         nbox = len([i for i in card.get("light_icons", []) if i != "scomp"])
         x0, y, h = t["ls_bar"]
         x1 = t["ls_bar_x1"] if nbox == 0 else fx + t["ls_slot0"] - (nbox - 1) * t["slot_pitch"] - 55 + t["frame_off"][0]
-        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{esc(card["title"])}</div>')
+        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{esc_i(card["title"])}</div>')
         nbox = len([i for i in card.get("dark_icons", []) if i != "scomp"])
         dx, dy_, dw, dh = t["ds_bar"]
         dx0 = dx if nbox == 0 else t["frame_off"][0] + t["ds_slot0"] + (nbox - 1) * t["slot_pitch"] + 55
-        parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{esc(card["title"])}</div>')
+        parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{esc_i(card["title"])}</div>')
         lx, ly_, lw, lh = t["ls_text"]
         parts.append(f'<div class="ltext fit" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
         tx, ty, tw, th = t["ds_text"]
         parts.append(f'<div class="dtext fit" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
     elif t.get("system"):
         x, y, w, h = t["ls_bar"]
-        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc(card["title"])}</div>')
+        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc_i(card["title"])}</div>')
         x, y, w, h = t["ds_bar"]
-        parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc(card["title"])}</div>')
+        parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc_i(card["title"])}</div>')
         x, y, w, h = t["ls_text"]
         parts.append(f'<div class="ltext fit" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
         x, y, w, h = t["ds_text"]
@@ -516,7 +544,7 @@ def build_html(card: dict) -> str:
             x, y, w, h = t["ds_parsec"]
             parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
     else:
-        parts.append(f'<div class="title" style="position:absolute;{box("title")}">{esc(card["title"])}</div>')
+        parts.append(f'<div class="title" style="position:absolute;{box("title")}">{esc_i(card["title"])}</div>')
     if card.get("destiny"):
         dv = esc(card["destiny"])
         if " or " in dv:   # multi-value destiny (R2-D2 "2 or 5"): the printed pill is widened to the left
@@ -544,7 +572,7 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="stat" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
                          f'<span class="lab">{esc(label)}</span>{"<span class=val>" + esc(value) + "</span>" if value else ""}</div>')
     if "card_type" in t and card.get("card_type"):
-        parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc(card["card_type"])}</div>')
+        parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc_i(card["card_type"])}</div>')
     if card.get("banner_icon") and "banner_icon" in t:
         bx, by = t["banner_icon"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box-effect.png")}" style="position:absolute;left:{bx}px;top:{by}px">')

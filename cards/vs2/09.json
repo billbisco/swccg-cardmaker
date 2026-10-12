@@ -1,0 +1,27 @@
+{
+ "number": "9",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Han’s Dice",
+ "caption": "Han’s Dice (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Once per turn, if just drawn for destiny, may take this Interrupt into hand to cancel and redraw that destiny._ OR Cancel Watto’s Chance Cube. OR If your character of ability > 2 is in battle, use 1 Force to cancel and redraw a just drawn destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A pair of dice dangling above the _Millennium Falcon’s_ cockpit, for luck. “I’ve never seen anything to make me believe there’s one, all-powerful Force controlling everything.”",
+ "destiny": "3",
+ "base_page": "Han's Dice",
+ "art": {
+  "src": "src/vs2/09-Premiere-L-hansdice.gif",
+  "modern": "src/vs2/modern/09-V13-L-hansdice.gif"
+ },
+ "id": "vs2-09",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "First sentence of the slip text is printed in italics. Lore corrected from scan: 'above the Millennium Falcon’s' (wiki omits 'the'), Millennium Falcon’s italic, curly double quotes. Base scan only at 350 px. Modern: V13-L-hansdice.gif (745) used; VB1-L-hansdice-pre.gif (350) also in modern/."
+}

@@ -1,0 +1,27 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Jawa Siesta",
+ "caption": "•Jawa Siesta (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your unique (•) Jawas are defense value +1. During battles at exterior Tatooine sites where your unique (•) Jawa is participating, may add one destiny to your total power.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Three Jawas take a cool, energy-saving nap in the noon-day suns at Mos Eisley.",
+ "destiny": "3",
+ "base_page": "Jawa Siesta",
+ "art": {
+  "src": "src/vs2/11-Premiere-L-jawasiesta.gif",
+  "modern": "src/vs2/modern/11-VB1-L-jawasiesta-pre.gif"
+ },
+ "id": "vs2-11",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore matches the scan. Base scan only at 350 px. Modern remake is Block-era only (VB1-L-jawasiesta-pre.gif, 350 px) — used as modern, as 02/04 did."
+}

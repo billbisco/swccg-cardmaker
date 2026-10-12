@@ -113,3 +113,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   at the full 80 px, "or" at 46, in a black pill with a 6 px silver outline that replaces the ring.
 
 - Rev 6 (2026-10-12, Bill on BoShek (V)): the ▲/▼ triangles sat too low and too small. Now 0.88em DejaVu Sans, raised 0.14em so the base sits on the baseline and the apex reaches cap height, as the slips print them. Re-rendered every VS1/VS3 card that uses them (23 files).
+- Rev 7 (VS2 run, 2026-10-12): vehicle templates (`ls-vehicle`/`ds-vehicle` = the starship frames with the vehicle type
+  icon cut from the PC's 745 px Blizzard 2 scan); capital ships use the starship frame — the printed cards use one
+  starship icon for starfighters and capitals (checked on Black 2 / Blockade Support Ship). `permanent-pilot` column
+  icon = the Pilot helmet icon, as printed. `{ovs}` = the slip's own set sphere printed inline ("the (V) version");
+  `_italic_` works in titles, banners and captions (_Imperial_-Class Star Destroyer). Slip crops: heading + whole slip
+  incl. the caption strip (per-box height). Wiki hubs keep the old page's history sections under "== History ==".

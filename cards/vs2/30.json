@@ -1,0 +1,42 @@
+{
+ "number": "30",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Djas Puhr",
+ "caption": "•Djas Puhr (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "4",
+ "game_text": "Power +3 under ‘nighttime conditions’. Blaster Rifle deploys and fires for free on (and is a matching weapon for) Djas Puhr. Immune to attrition < 3 (< 5 while armed with a weapon).",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Male Sakiyan, a race often employed as assassins. *Bounty hunter.* Incredible infrared, peripheral vision. Has excellent aural and olfactory senses. Often tracks by scent.",
+ "destiny": "1",
+ "base_page": "Djas Puhr",
+ "art": {
+  "src": "src/vs2/30-Premiere-D-djaspuhr.gif",
+  "modern": "src/vs2/modern/30-V1-D-djaspuhr.gif"
+ },
+ "id": "vs2-30",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Third stat box FORCE-SENSITIVE (label only). Icon column: one warrior icon. Curly single quotes around ‘nighttime conditions’ with the period outside, as printed. Lore corrected from scan: 'infrared, peripheral vision' has a comma (wiki omits it); 'Bounty hunter.' is bold on the V1 remake's lore box and appears heavier on the 350 scan — marked bold. Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern: V1-D-djaspuhr.gif (745) used; VB1-D-djaspuhr-pre.gif (350) also in modern/."
+}

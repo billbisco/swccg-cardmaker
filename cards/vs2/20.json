@@ -1,0 +1,27 @@
+{
+ "number": "20",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "Return Of A Jedi",
+ "caption": "Return Of A Jedi (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▼ (or retrieve) Obi-Wan, Obi-Wan’s Cape, or Obi-Wan’s Lightsaber. OR Unless Inner Strength on table, use 1 Force to cancel a just drawn weapon destiny targeting Obi-Wan (or a just drawn duel or lightsaber combat destiny if Obi-Wan is participating).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Where did you dig up that old fossil?” “I don’t think he exists anymore.” “Surely he must be dead by now.” “I can’t believe he’s gone.” “Oh, he’s not dead, not yet.” Obi’s back!",
+ "destiny": "3",
+ "base_page": "Return Of A Jedi",
+ "art": {
+  "src": "src/vs2/20-Premiere-L-returnofajedi.gif",
+  "modern": "src/vs2/modern/20-V17-L-returnofajedi.gif"
+ },
+ "id": "vs2-20",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Lore corrected from scan: all five quotations use curly double quotes and curly apostrophes (wiki straight single quotes). Base scan only at 350 px. Modern: V17-L-returnofajedi.gif (745) used; VB1-L-returnofajedi-pre.gif (350) also in modern/."
+}

@@ -1,0 +1,39 @@
+{
+ "number": "2",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Biggs Darklighter",
+ "caption": "•Biggs Darklighter (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "{pilot:2}. Deploys free to Beggar’s Canyon, Red 3, or same location as Fel or Hobbie. While piloting Red 3, it has a {nav}. During your control phase, may ▲ one Old Times.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Piloted Red 3 at Battle of Yavin. Childhood friend of Luke. Led mutiny on _Rand Ecliptic_ and theft of _Ecliptic_ from shipyards on Bestine. _Ecliptic_ Evaders emblem on helmet.",
+ "destiny": "2",
+ "base_page": "Biggs Darklighter",
+ "art": {
+  "src": "src/vs2/02-Premiere-L-biggsdarklighter.gif",
+  "modern": "src/vs2/modern/02-VB1-L-biggsdarklighter-pre.gif"
+ },
+ "id": "vs2-02",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Third stat box on the slip is printed blank (no label). Inline red/green square after 'it has a' is the nav-computer icon ({nav}). Lore: scan italicises Rand Ecliptic / Ecliptic / Ecliptic (wiki has no italics)."
+}

@@ -1,0 +1,27 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "We’re All Gonna Be A Lot Thinner!",
+ "caption": "We’re All Gonna Be A Lot Thinner! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Play at the start of your activate phase. When you activate Force this turn, use your opponent’s Force icons instead of your own.\nLOST: Cancel Into The Garbage Chute, Flyboy.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Trash compactors crush waste before it is jettisoned into space. Magnetically sealed to prevent leakage. R2-D2 saved the day by shutting down compactor 3263827.",
+ "destiny": "6",
+ "base_page": "We're All Gonna Be A Lot Thinner!",
+ "art": {
+  "src": "src/vs2/50-Premiere-D-wereallgonnabealotthinner.gif",
+  "modern": "src/vs2/modern/50-VB1-D-wereallgonnabealotthinner-pre.gif"
+ },
+ "id": "vs2-50",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Slip banner is USED OR LOST INTERRUPT (printed card is a Lost Interrupt); USED:/LOST: lines separated by \\n. Title/caption apostrophe is curly (’) on the slip (wiki page title uses a straight one). Icon column empty (only the set symbol); no scomp ring. Lore matches the scan. Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-D-wereallgonnabealotthinner-pre.gif, 350 px) — used as modern."
+}

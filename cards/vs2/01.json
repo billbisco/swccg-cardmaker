@@ -1,0 +1,27 @@
+{
+ "number": "1",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Affect Mind",
+ "caption": "•Affect Mind (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Unless Inner Strength on table, opponent may use only one combat card per turn. While opponent has 2 Dark Jedi on Naboo, you lose no more than 2 Force to Force drains at opponent’s Naboo sites. Let Them Make The First Move may target only droids and spies.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“What was that?” The Jedi power known as “affect mind” is often used to create minor distractions, allowing Jedi to elude enemies rather than engage them in battle.",
+ "destiny": "5",
+ "base_page": "Affect Mind",
+ "art": {
+  "src": "src/vs2/01-Premiere-L-affectmind.gif",
+  "modern": "src/vs2/modern/01-VSh-L-affectmind-pre.gif"
+ },
+ "id": "vs2-01",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore: wiki prints the two quotations with single quotes; the scan has curly double quotes (corrected). Modern remake is the Virtual Shields card (VSh-L-affectmind-pre.gif, 350 px); no VB1/V0 image exists."
+}

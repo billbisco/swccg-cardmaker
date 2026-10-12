@@ -1,0 +1,42 @@
+{
+ "number": "33",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•General Tagge",
+ "caption": "•General Tagge (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "During your control phase, may use 1 Force to ▲ an Imperial trooper without armor. Once per game, may place all your non-{alter} Effects in Used Pile.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Oversees defense operations of Death Star. Outstanding tactician. No-nonsense *leader*. Member of House of Tagge, a powerful noble family and corporate conglomerate.",
+ "destiny": "1",
+ "base_page": "General Tagge",
+ "art": {
+  "src": "src/vs2/33-Premiere-D-generaltagge.gif",
+  "modern": "src/vs2/modern/33-V21-D-generaltagge.gif"
+ },
+ "id": "vs2-33",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Third stat box FORCE-ATTUNED (label only). Red circle-slash A inline after 'non-' → {alter} ('non-{alter} Effects'). Icon column: one warrior icon (blue square, blaster). No scomp ring. Lore: 'leader' is printed bold on the V21 remake's lore box and reads heavier on the 350 scan — marked bold; otherwise matches the wiki. Base scan only at 350 px (Premiere-D-generaltagge.gif). Copyright year 1995 (Premiere), not legible at this size. Modern: V21-D-generaltagge.gif (745) used; VB1-D-generaltagge-pre.gif (350) also in modern/."
+}

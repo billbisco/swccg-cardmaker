@@ -1,0 +1,43 @@
+{
+ "number": "26",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Admiral Motti",
+ "caption": "•Admiral Motti (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:2}. _Imperial_-class Star Destroyers are deploy -2 to same system.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Senior Navy commander of Death Star. Believes in technology; ridiculed the Force. Ambitious *leader*. Promoted due to support of New Order, not military skills. Hates Vader.",
+ "destiny": "1",
+ "base_page": "Admiral Motti",
+ "art": {
+  "src": "src/vs2/26-Premiere-D-admiralmotti.gif",
+  "modern": "src/vs2/modern/26-V0-D-admiralmotti.gif"
+ },
+ "id": "vs2-26",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Third stat box FORCE-ATTUNED (label only). Inline yellow pilot icon followed by '2.' → {pilot:2}. 'Imperial' is italic on the slip. Lore corrected from the 745 scan: 'technology; ridiculed the Force' (semicolon, lowercase r; wiki has a full stop and capital R) and 'leader' is printed bold. Base scan 745 px (Premiere-D-admiralmotti.gif) carries a 'D-E1' label (Decipher errata printing) — top half is the printed face; copyright line legible: 1995. Modern: V0-D-admiralmotti.gif (745) used; VB1-D-admiralmotti-pre.gif (346×486) also downloaded to modern/. VB6 'Admiral Motti, Battlestation Coordinator' is a different card, not downloaded."
+}

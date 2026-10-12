@@ -1,0 +1,27 @@
+{
+ "number": "8",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "Han’s Back",
+ "caption": "Han’s Back (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▼ (or retrieve) Han’s Heavy Blaster Pistol, _Falcon_, or Han. OR If opponent just drew weapon destiny targeting _Falcon_ or Han, cancel and redraw that destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Didn’t we just leave this party?”",
+ "destiny": "3",
+ "base_page": "Han's Back",
+ "art": {
+  "src": "src/vs2/08-Premiere-L-hansback.gif",
+  "modern": "src/vs2/modern/08-VB1-L-hansback-pre.gif"
+ },
+ "id": "vs2-08",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore: curly double quotes as printed (wiki has single). Base scan only at 350 px."
+}

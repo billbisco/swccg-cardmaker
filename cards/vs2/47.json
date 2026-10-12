@@ -1,0 +1,27 @@
+{
+ "number": "47",
+ "side": "Dark",
+ "slip_type": "Utinni Effect",
+ "card_type": "UTINNI EFFECT",
+ "title": "•Tactical Re-Call",
+ "caption": "•Tactical Re-Call (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 2 Force to deploy on opponent’s site. Target opponent’s leader at a site or character at the Galactic Senate. Target’s game text is canceled. Utinni Effect canceled when reached by target.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Sophisticated communication equipment hidden in the ruins of the extinct Massassi race is used to coordinate forces and to re-call Rebel officers for debriefing and orders.",
+ "destiny": "4",
+ "base_page": "Tactical Re-Call",
+ "art": {
+  "src": "src/vs2/47-Premiere-D-tacticalrecall.gif",
+  "modern": "src/vs2/modern/47-VB1-D-tacticalrecall-pre.gif"
+ },
+ "id": "vs2-47",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique (one dot). Icon column empty (only the set symbol); no scomp ring. Lore matches the scan. Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-D-tacticalrecall-pre.gif, 350 px) — used as modern."
+}

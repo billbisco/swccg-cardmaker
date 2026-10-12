@@ -1,0 +1,27 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "Leia’s Back",
+ "caption": "Leia’s Back (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▼ (or retrieve) Leia’s Blaster Rifle, Leia’s Sporting Blaster, or Leia. OR If you just initiated a Force drain where Leia is present, use 2 Force to make that Force drain +2.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“It’s not over yet!”",
+ "destiny": "3",
+ "base_page": "Leia's Back",
+ "art": {
+  "src": "src/vs2/13-Premiere-L-leiasback.gif",
+  "modern": "src/vs2/modern/13-VB1-L-leiasback-pre.gif"
+ },
+ "id": "vs2-13",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Lore corrected from scan: curly double quotes and curly apostrophe (wiki has straight single quotes). Base scan only at 350 px. Modern remake is Block-era only (VB1 -pre, 350 px) — used as modern."
+}

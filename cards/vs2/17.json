@@ -1,0 +1,27 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Panic",
+ "caption": "Panic (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ a device or a non-lightsaber weapon. OR If opponent just initiated a battle or Force drain at a system or sector, ▼ (as a ‘react’) an unpiloted Rebel starfighter and a pilot of ability < 3 (simultaneously). {sense}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Cornered by Imperial troops, Han’s gambler reflexes led him to do what comes naturally – attack! Surprise assaults work... sometimes.",
+ "destiny": "4",
+ "base_page": "Panic",
+ "art": {
+  "src": "src/vs2/17-Premiere-L-panic.gif",
+  "modern": "src/vs2/modern/17-VB1-L-panic-pre.gif"
+ },
+ "id": "vs2-17",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Red circle-slash S at the end → {sense}. Lore corrected from scan: curly apostrophe in 'Han’s', en-dash before 'attack!' (wiki: hyphen), and the printed ellipsis is spaced with a space before 'sometimes' ('work. . . sometimes'; wiki has 'work...sometimes') — kept as 'work... sometimes'. Wiki base page lists the 350 px Premiere-L-panic-decipher-archive.gif; used the 745 px Premiere-L-panic.gif instead. Modern remake is Block-era only (VB1 -pre, 350 px) — used as modern."
+}

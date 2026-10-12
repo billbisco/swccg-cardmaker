@@ -1,0 +1,27 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Emergency Deployment",
+ "caption": "Emergency Deployment (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ a device or a non-lightsaber weapon. OR If opponent just initiated a battle or Force drain at a system or sector, ▼ (as a ‘react’) an unpiloted TIE and a pilot of ability < 3 (simultaneously). {sense}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "TIE fighters are stored in large racks far above the hangar deck. Catapulted into space by powerful tractor beam generators, TIEs can quickly scramble to engage the enemy.",
+ "destiny": "3",
+ "base_page": "Emergency Deployment",
+ "art": {
+  "src": "src/vs2/31-Premiere-D-emergencydeployment.gif",
+  "modern": "src/vs2/modern/31-VB1-D-emergencydeployment-pre.gif"
+ },
+ "id": "vs2-31",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Text starts with the ▲ triangle. Red circle-slash S at the end of the text → {sense}. Curly single quotes around ‘react’ (closing quote before the parenthesis). Lore matches the scan. Base scan 745 px (Premiere-D-emergencydeployment.gif) carries a 'D-E1' label (Decipher errata printing: text says 'reveal up to 3 cards' where the archive face says 'draw') — top half is the printed face; copyright line legible: 1995. The 350 px printed archive face (Premiere-D-emergencydeployment-decipher-archive.gif, the wiki's base page image) also downloaded to src/vs2/, not used. Modern remake is Block-era only (VB1-D-emergencydeployment-pre.gif, 350 px) — used as modern."
+}

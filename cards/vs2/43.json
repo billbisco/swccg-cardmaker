@@ -1,0 +1,42 @@
+{
+ "number": "43",
+ "side": "Dark",
+ "slip_type": "Transport Vehicle",
+ "card_type": "TRANSPORT VEHICLE",
+ "title": "Sandcrawler",
+ "caption": "Sandcrawler (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "3"
+  ],
+  [
+   "LANDSPEED",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "3",
+ "game_text": "Permanent driver provides no ability. May add 7 passengers. Jawas at same site are power +1 and forfeit +2. During your deploy phase, may ▼ a Jawa here.",
+ "icons": [
+  "permanent-pilot"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Warren-like, enclosed homes for Jawa tribes. Protect against Tusken Raiders, krayt dragons, etc. 36 meters long. 17 meters tall. Originally mining vehicles. No two look alike.",
+ "destiny": "2",
+ "base_page": "Sandcrawler (Dark)",
+ "art": {
+  "src": "src/vs2/43-Premiere-D-sandcrawler.gif",
+  "modern": "src/vs2/modern/43-VB1-D-sandcrawler-pre.gif"
+ },
+ "id": "vs2-43",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "DARK side Sandcrawler (wiki base page 'Sandcrawler (Dark)'; the Light one is slip 22). Non-unique (no dot). Slip text is identical to the Light slip 22. Icon column: one icon, a yellow square with a black pilot helmet = the Permanent Pilot (driver) icon → 'permanent-pilot'. No scomp ring. Deploy 3 / forfeit 3 on the slip (printed card forfeit 5). Lore corrected from scan: 'Warren-like, enclosed' has a comma (wiki omits it) and '36 meters long. 17 meters tall.' (wiki has the typo '36 meters longs,' with a comma). Base scan: the wiki has only ONE Dark Sandcrawler image, Premiere-D-sandcrawler.gif (350 px), and it is the PC Errata face (tagged 'E', errata game text in the bottom half); its top half (title, lore, art, destiny) is the printed face, so it is used. The wiki base page's |image= points at the LIGHT archive scan (Premiere-L-sandcrawler-decipher-archive.gif) — a wiki error, not downloaded here. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-D-sandcrawler-pre.gif, 350 px) — used as modern."
+}

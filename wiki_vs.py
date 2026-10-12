@@ -30,6 +30,11 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
                        "Premium slip sheet (PC 2002 branding; PDF distill Feb 2005 on local copy)": "Premium slip sheet (PC 2002 branding)",
                        "! Card !! 1A / early !! Premium !! Later (Block-era proxy)": "! Card !! 1A / early !! Premium !! Virtual Block 1",
                        "(composite overlays; card-page thumbs now use Legacy slip crops)": ""}),
+    2: dict(sheet=("https://web.archive.org/web/20071024153738/http://www.swccgpc.com/Resources/VirtualCards2.pdf", "VirtualCards2.pdf", "24 October 2007", "4 December 2006"),
+            legal="1 June 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards2.pdf VirtualCards2.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal banner: tournament-legal 1 June 2002, Regional 8 June 2002.",
+            ordinal="second", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #34 on 28 July 2007", pack="VS2O-pack.png", symbol="VS2O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Light/Dark same-name slips (Sandcrawler, Utinni!) are disambiguated in page titles.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -43,10 +48,13 @@ CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else 
 TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immediate Effect"), "USED INTERRUPT": ("Interrupt", "Used Interrupt"),
              "LOST INTERRUPT": ("Interrupt", "Lost Interrupt"), "USED OR LOST INTERRUPT": ("Interrupt", "Used or Lost Interrupt"),
              "DEFENSIVE SHIELD": ("Defensive Shield", None), "CHARACTER WEAPON": ("Weapon", "Character Weapon"), "AUTOMATED WEAPON": ("Weapon", "Automated Weapon"),
-             "DEVICE": ("Device", None)}
+             "DEVICE": ("Device", None), "UTINNI EFFECT": ("Effect", "Utinni Effect"), "TRANSPORT VEHICLE": ("Vehicle", "Transport"),
+             "COMBAT VEHICLE": ("Vehicle", "Combat"), "CREATURE VEHICLE": ("Vehicle", "Creature"), "SHUTTLE VEHICLE": ("Vehicle", "Shuttle"),
+             "POLITICAL EFFECT": ("Effect", "Political Effect"), "MOBILE EFFECT": ("Effect", "Mobile Effect"), "EPIC EVENT": ("Epic Event", None),
+             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None)}
 ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Maintenance]",
              "nav": "[[Nav Computer]]", "set": None}
-COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astromech"}
+COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astromech", "permanent-pilot": "[[Permanent Pilot]]", "nav": "[[Nav Computer]]"}
 
 
 def pronoun(c):
@@ -56,11 +64,11 @@ def pronoun(c):
 def expand(c: dict) -> str:
     """Slip shorthand → prose, following the sheet's ICON KEY (what GEMP's legacy texts do too)."""
     t = c["game_text"]
-    for a, b in {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}"}.items():
+    for a, b in {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}", "{icon:virtual-set symbol}": "{ovs}"}.items():
         t = t.replace(a, b)
     t = re.sub(r"\{pilot:(\d)\}, (\d): _Falcon_\.", lambda m: f"Adds {m.group(1)} to power of anything he pilots ({m.group(2)} if ''Falcon'').", t)
     t = re.sub(r"\{pilot:(\d)\}\.?", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots.", t)
-    t = t.replace(" is {alter}.", " is immune to Alter.")
+    t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("{ovs} ", "[Virtual] ")
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
     t = re.sub(r"\{set:anh\}", "[A New Hope]", t)
     t = re.sub(r"\{([\w-]+)\}", lambda m: ICON_WORD.get(m.group(1), f"[{m.group(1).title()}]"), t)
@@ -102,13 +110,16 @@ for n in range(1, NCARDS + 1):
     safe = re.sub(r"[^A-Za-z0-9]+", "_", c["title"].replace("•", "")).strip("_")
     rem = f"OVS{VS}-{n:02d}-{safe}-remaster.webp"
     banner = (c.get("card_type") or "").upper()
-    if banner.startswith("STARFIGHTER"):
-        typ, sub, model = "Starship", "Starfighter", banner.split(":", 1)[1].strip().title().replace("X-Wing", "X-wing")
+    banner = banner.replace("_", "")
+    if banner.startswith("STARFIGHTER") or banner.startswith("CAPITAL") or banner.startswith("SQUADRON"):
+        typ, sub, model = "Starship", banner.split(":", 1)[0].strip().title(), banner.split(":", 1)[1].strip().title().replace("X-Wing", "X-wing").replace("Tie/Ln", "TIE/ln")
     elif banner:
         typ, sub = TYPE_PAGE[banner]; model = ""
     else:
         typ, sub, model = "Character", (c.get("affiliation") or "").replace(" + ", "/"), ""
     sub_link = {"Alien/Rebel": "Alien"}.get(sub, sub)
+    if typ == "Vehicle":
+        sub_link = "Vehicle"
     type_cell = f"[[{typ}]]" if not sub else f"[[{sub_link}|{sub}]]" if typ == "Character" else f"[[{sub_link}|{sub}]]"
     gt = expand(c)
     stats = dict(c.get("stats") or [])
@@ -135,7 +146,9 @@ for n in range(1, NCARDS + 1):
 |power={stats.get('POWER', '')}
 |ability={stats.get('ABILITY', '')}
 |maneuver={stats.get('MANEUVER', '')}
+|armor={stats.get('ARMOR', '')}
 |hyperspeed={stats.get('HYPERSPEED', '')}
+|landspeed={stats.get('LANDSPEED', '')}
 |deploy={c.get('deploy') or ''}
 |forfeit={c.get('forfeit') or ''}
 |icons={icons}

@@ -1,0 +1,42 @@
+{
+ "number": "22",
+ "side": "Light",
+ "slip_type": "Transport Vehicle",
+ "card_type": "TRANSPORT VEHICLE",
+ "title": "Sandcrawler",
+ "caption": "Sandcrawler (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "3"
+  ],
+  [
+   "LANDSPEED",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "3",
+ "game_text": "Permanent driver provides no ability. May add 7 passengers. Jawas at same site are power +1 and forfeit +2. During your deploy phase, may ▼ a Jawa here.",
+ "icons": [
+  "permanent-pilot"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Warren-like, enclosed homes for Jawa tribes. Protects against Tatooine predators. Originally mining vehicles. Jawas claimed them when mines abandoned. No two look alike.",
+ "destiny": "2",
+ "base_page": "Sandcrawler",
+ "art": {
+  "src": "src/vs2/22-Premiere-L-sandcrawler-decipher-archive.gif",
+  "modern": "src/vs2/modern/22-VB1-L-sandcrawler-pre.gif"
+ },
+ "id": "vs2-22",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "LIGHT side Sandcrawler (wiki base page 'Sandcrawler'; the Dark one is 'Sandcrawler (Dark)', slip 43). Non-unique (no dot). Icon column: one icon, a yellow square with a black pilot helmet = the Permanent Pilot (driver) icon → named 'permanent-pilot'. No scomp ring. Deploy 3 / forfeit 3 on the slip (printed card forfeit 5). The crop cuts the bottom strip: caption read as 'Sandcrawler (V)' from the partially visible strip and the slip title; number 22 from the filename/sheet order. Lore corrected from scan: 'Warren-like, enclosed' has a comma (wiki omits it). Base scan: Premiere-L-sandcrawler-decipher-archive.gif (367×506 incl. grey border) is the printed face and the widest; the 350 px Premiere-L-sandcrawler.gif is the PC Errata face (tagged 'E') — also downloaded to src/vs2/, not used. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-L-sandcrawler-pre.gif, 350×489) — used as modern."
+}
