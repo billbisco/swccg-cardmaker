@@ -1,0 +1,27 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "Rebel Reinforcements",
+ "caption": "Rebel Reinforcements (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Once per game, if opponent has more cards with ability on table than you, draw destiny and retrieve up to that number of Rebels and/or Rebel starships (may take one retrieved card into hand).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Rebels rely on hidden ‘cells’ of undercover operatives. Striking from hidden bases, troops or starfighters can arrive in a battle zone at any time.",
+ "destiny": "4",
+ "base_page": "Rebel Reinforcements",
+ "art": {
+  "src": "src/vs2/18-Premiere-L-rebelreinforcements.gif",
+  "modern": "src/vs2/modern/18-VB1-L-rebelreinforcements-pre.gif"
+ },
+ "id": "vs2-18",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Lore corrected from scan: ‘cells’ has curly single quotes (wiki straight). Base scan only at 350 px. Modern remake is Block-era only (VB1 -pre, 350 px) — used as modern; a VB6 combo image (commando training & rebel reinforcements) also exists but is a two-card sheet, not downloaded."
+}

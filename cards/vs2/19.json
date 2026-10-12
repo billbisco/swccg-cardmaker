@@ -1,0 +1,38 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Rebel Trooper",
+ "caption": "Rebel Trooper (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "2",
+ "game_text": "_When drawn for weapon or battle destiny, destiny +2._ While present at a site and armed with a blaster rifle, forfeit +2 and draws one battle destiny if unable to otherwise.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Corellian Corvette trooper Ensign Chad Hilse, an Alderaanian, typifies the loyal Rebel volunteers dedicated to defeating the Empire. Trained in starship and ground combat.",
+ "destiny": "1",
+ "base_page": "Rebel Trooper",
+ "art": {
+  "src": "src/vs2/19-Premiere-L-rebeltrooper.gif",
+  "modern": "src/vs2/modern/19-VB1-L-rebeltrooper-pre.gif"
+ },
+ "id": "vs2-19",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). First sentence of the slip text ('When drawn for weapon or battle destiny, destiny +2.') is printed in italics. Third stat box on the slip is printed blank. Icon column: one warrior icon. Lore matches the scan. Base scan only at 350 px. Modern remake is Block-era only (VB1 -pre, 350 px) — used as modern."
+}

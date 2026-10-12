@@ -1,0 +1,27 @@
+{
+ "number": "23",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Special Modifications",
+ "caption": "•Special Modifications (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your starships about to be lost during the weapons segment of battle remain in play instead. May place this Effect in Lost Pile to make your starship immune to attrition for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Han’s “special modifications” for _Millennium Falcon_ included security mechanisms, deflector shields, hull plating, faster hyperdrive and enhanced weapons.",
+ "destiny": "3",
+ "base_page": "Special Modifications",
+ "art": {
+  "src": "src/vs2/23-Premiere-L-specialmodifications.gif",
+  "modern": "src/vs2/modern/23-VB1-L-specialmodifications-pre.gif"
+ },
+ "id": "vs2-23",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore corrected from scan: curly double quotes around “special modifications” (wiki straight single quotes), 'for Millennium Falcon' with NO 'the' (wiki inserts 'the'), and Millennium Falcon is italic on the card. Base scan only at 348×488. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1 -pre, 348 px) — used as modern."
+}

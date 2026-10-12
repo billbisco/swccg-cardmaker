@@ -1,0 +1,27 @@
+{
+ "number": "24",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Utinni!",
+ "caption": "Utinni! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ an Utinni Effect. OR ▲ a non-unique and/or a unique (•) Jawa.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jawa trade language word for “Come here!” Jawas work communally and scavenge for equipment.",
+ "destiny": "4",
+ "base_page": "Utinni!",
+ "art": {
+  "src": "src/vs2/24-Premiere-L-utinni.gif",
+  "modern": "src/vs2/modern/24-V19-L-utinni.gif"
+ },
+ "id": "vs2-24",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "LIGHT side Utinni! (wiki base page 'Utinni!'; Dark is 'Utinni! (Dark)', slip 49). Non-unique (no dot). Lore corrected from scan: curly double quotes around “Come here!” (wiki single quotes). Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern: V19-L-utinni.gif (745) used; VB1-L-utinni-pre.gif (350) also downloaded to modern/."
+}

@@ -1,0 +1,27 @@
+{
+ "number": "4",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "Cantina Brawl",
+ "caption": "Cantina Brawl (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If a battle was just initiated at an interior site where both players have a participating character armed with a weapon, your weapon destiny draws there are +1 (+3 if at Cantina) for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“...watch your step. This place can be a little rough.” The Mos Eisley Cantina harbors smugglers, thieves, cutthroats, criminals, mercenaries and bounty hunters!",
+ "destiny": "5",
+ "base_page": "Cantina Brawl",
+ "art": {
+  "src": "src/vs2/04-Premiere-L-cantinabrawl.gif",
+  "modern": "src/vs2/modern/04-VB1-L-cantinabrawl-pre.gif"
+ },
+ "id": "vs2-04",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore corrected from scan: wiki omits 'mercenaries' ('cutthroats, criminals, mercenaries and bounty hunters!') and uses single quotes; scan has curly double quotes. Base scan only at 350 px."
+}

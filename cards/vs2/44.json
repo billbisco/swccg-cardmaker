@@ -1,0 +1,27 @@
+{
+ "number": "44",
+ "side": "Dark",
+ "slip_type": "Utinni Effect",
+ "card_type": "UTINNI EFFECT",
+ "title": "•Send A Detachment Down",
+ "caption": "•Send A Detachment Down (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on opponent’s card (a device, droid, or weapon) that may be stolen by a character. Target your trooper at another location. When reached by target, place this Utinni Effect on target; target is power +2, steals opponent’s card, and you may retrieve 3 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Vader sent Imperial stormtroopers to the surface of Tatooine in search of the stolen Death Star plans. “There’ll be no one to stop us this time.”",
+ "destiny": "4",
+ "base_page": "Send A Detachment Down",
+ "art": {
+  "src": "src/vs2/44-Premiere-D-sendadetachmentdown.gif",
+  "modern": "src/vs2/modern/44-V21-D-sendadetachmentdown.gif"
+ },
+ "id": "vs2-44",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique (one dot). Icon column empty (only the set symbol); no scomp ring. Lore corrected from scan: the quotation is in curly double quotes “…” and 'There’ll' has a curly apostrophe (wiki uses straight single quotes). Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern: V21-D-sendadetachmentdown.gif (745, Virtual Set 21) used; VB1-D-sendadetachmentdown-pre.gif (350) also downloaded to modern/."
+}

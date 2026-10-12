@@ -1,0 +1,27 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•K’lor’slug",
+ "caption": "•K’lor’slug (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. If your character in battle is about to be lost before the damage segment, it is instead lost at end of battle (if forfeited, forfeit for 0). Non-Jedi, non-{warrior} characters may not have their deploy cost modified by Bad Feeling Have I. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "*Dejarik* of venomous swamp creature from Noe’ha’on. Keen senses of smell and vision. Dangerous hunter. Lays eggs – hundreds of ravenously hungry hatchlings.",
+ "destiny": "3",
+ "base_page": "K'lor'slug",
+ "art": {
+  "src": "src/vs2/12-Premiere-L-klorslug.gif",
+  "modern": "src/vs2/modern/12-V0-L-klorslug.gif"
+ },
+ "id": "vs2-12",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Title uses curly apostrophes on the slip (K’lor’slug); wiki page title uses straight ones. Inline black square with a green diagonal lightsaber after 'non-' is the Light Side warrior icon → {warrior}. Red circle-slash A at the end → {alter}. Lore corrected from scan: 'Dejarik' is printed bold, 'Noe’ha’on' has curly apostrophes, 'Lays eggs – hundreds' is an en-dash (wiki: plain hyphen). Base scan 745 px; copyright line read as 1995. Modern: V0-L-klorslug.gif (745) used; VB1-L-klorslug-pre.gif (350) also in modern/."
+}

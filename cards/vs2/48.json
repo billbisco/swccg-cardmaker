@@ -1,0 +1,27 @@
+{
+ "number": "48",
+ "side": "Dark",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "The Empire’s Back",
+ "caption": "The Empire’s Back (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▼ (or retrieve) Motti, Tagge, Tarkin, or Vader. OR Once during your control phase, for each battleground controlled by Motti, Tagge, Tarkin, or Vader, opponent loses 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“No star system will dare oppose the Emperor now.”",
+ "destiny": "3",
+ "base_page": "The Empire's Back",
+ "art": {
+  "src": "src/vs2/48-Premiere-D-theempiresback.gif",
+  "modern": "src/vs2/modern/48-V23-D-theempiresback.gif"
+ },
+ "id": "vs2-48",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Title/caption apostrophe is curly (’) on the slip (wiki page title uses a straight one). Text contains the ▼ triangle inline. Icon column empty (only the set symbol); no scomp ring. Lore corrected from scan: curly double quotes “…” (wiki straight single quotes). Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern: V23-D-theempiresback.gif (745, Virtual Set 23) used; VB1-D-theempiresback-pre.gif (350) also downloaded to modern/."
+}

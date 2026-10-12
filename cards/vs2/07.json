@@ -1,0 +1,38 @@
+{
+ "number": "7",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•General Dodonna",
+ "caption": "•General Dodonna (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "During your control phase, if at a Rebel Base location, may use 1 Force to ▲ one Colonel Feyn Gospic, an Admiral’s Order, or a Rebel pilot of ability < 3.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Skilled tactician and natural leader. Planned attack on Death Star after analyzing technical readouts provided by Princess Leia. Star Destroyer captain during Old Republic.",
+ "destiny": "2",
+ "base_page": "General Dodonna",
+ "art": {
+  "src": "src/vs2/07-Premiere-L-generaldodonna.gif",
+  "modern": "src/vs2/modern/07-V9-L-generaldodonna.gif"
+ },
+ "id": "vs2-07",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Third stat box on the slip is printed blank. Base scan only at 350 px. Modern: V9-L-generaldodonna.gif (745) used; VB1-L-generaldodonna-pre.gif (350) also downloaded to modern/."
+}

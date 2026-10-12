@@ -1,0 +1,38 @@
+{
+ "number": "45",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Stormtrooper",
+ "caption": "Stormtrooper (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "2",
+ "game_text": "_When drawn for weapon or battle destiny, destiny +2._ While present at a site and armed with a blaster rifle, forfeit +2 and draws one battle destiny if unable to otherwise.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "One of countless elite shock troops totally loyal to the Emperor. Unquestioningly follow orders. Willing to sacrifice their lives to accomplish a mission. First-strike forces.",
+ "destiny": "1",
+ "base_page": "Stormtrooper",
+ "art": {
+  "src": "src/vs2/45-Premiere-D-stormtrooper.gif",
+  "modern": "src/vs2/modern/45-VB1-D-stormtrooper-pre.gif"
+ },
+ "id": "vs2-45",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). First sentence of the slip text ('When drawn for weapon or battle destiny, destiny +2.') is printed in italics. Third stat box on the slip is printed blank (no label). Icon column: one warrior icon (blue square with blaster rifle). No scomp ring. Lore corrected from scan (three wiki errors): 'One of countless' (wiki 'One of the countless'), 'Unquestioningly follow orders' (wiki 'follows'), 'First-strike forces.' (wiki 'force'). Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-D-stormtrooper-pre.gif, 350 px) — used as modern (V4 Stormtrooper Patrol is a different card)."
+}

@@ -1,0 +1,39 @@
+{
+ "number": "28",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Commander Praji",
+ "caption": "•Commander Praji (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. During your control phase (twice if aboard _Devastator_), may use 1 Force to ▲ an Imperial pilot of ability < 3.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Vader’s aide on the _Devastator_. Personally supervised search for Death Star plans on Tatooine by Vader’s order. Was graduated with honors from Imperial Navy Academy on Carida.",
+ "destiny": "2",
+ "base_page": "Commander Praji",
+ "art": {
+  "src": "src/vs2/28-Premiere-D-commanderpraji.gif",
+  "modern": "src/vs2/modern/28-V21-D-commanderpraji.gif"
+ },
+ "id": "vs2-28",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Third stat box on the slip is printed blank. Inline yellow pilot icon followed by '2.' → {pilot:2}. 'Devastator' italic on the slip. Lore: scan italicises Devastator (wiki has no italics; the italic period after it is typed outside the markup); curly apostrophes. Wiki default page 'Commander Praji' is the Glossary 2.0 errata wording with the 745 px Premiere-D-commanderpraji.gif (labelled 'D-E1'); the printed archive face is Premiere-D-commanderpraji-decipher-archive.gif (350) — also downloaded to src/vs2/. Top half (title, lore, art, destiny) identical on both; 745 used as src; copyright legible: 1995. Modern: V21-D-commanderpraji.gif (745) used; VB1-D-commanderpraji-pre.gif (350) also in modern/."
+}

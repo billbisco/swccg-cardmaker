@@ -1,0 +1,27 @@
+{
+ "number": "5",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Demotion",
+ "caption": "Demotion (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 2 Force to deploy on an Imperial leader of ability < 5 or a senator. That character’s game text is canceled. If present with another Demotion, this Effect lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Repercussions for failure are severe in the Imperial military. Many officers prefer demotion to ‘alternative’ punishment from Darth Vader.",
+ "destiny": "3",
+ "base_page": "Demotion",
+ "art": {
+  "src": "src/vs2/05-Premiere-L-demotion.gif",
+  "modern": "src/vs2/modern/05-VB1-L-demotion-pre.gif"
+ },
+ "id": "vs2-05",
+ "virtual_set": 2,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Lore: curly single quotes around 'alternative' as printed. Slip text ends 'this Effect lost.' (no 'is') — transcribed as printed."
+}
