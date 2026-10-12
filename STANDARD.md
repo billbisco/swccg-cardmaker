@@ -125,3 +125,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   stays on one line). Icons: the black square with a green lightsaber in game text is the Permanent Weapon icon, not
   Warrior (K'lor'slug, Han Seeker). Defensive Shields are unique even when the printed Effect is not (I Find Your Lack
   Of Faith Disturbing); Local Trouble is not unique. Expanded prose capitalises a sentence that starts with ▲/▼ ("Take…").
+- Rev 8a (Bill 2026-10-12, Han's Dice): `_italic_`/`*bold*` spans may cross the slip's line breaks — the markup regex
+  runs with re.S, otherwise the underscores print. Apply scripts: never `set -e` around `importImages --overwrite` —
+  it exits non-zero when a file is unchanged and the page edits after it were silently skipped; check the log for
+  the DONE line of every step. Every wiki change must be verified live after the batch (view the stub, not just the log).
