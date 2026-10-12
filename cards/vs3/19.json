@@ -24,5 +24,5 @@
   "modern": "src/vs3/modern/V1-L-sabotage.gif"
  },
  "notes": "Slip banner is LOST INTERRUPT (printed card is a Used Interrupt). Inline icon is a black square with a diagonal green-tipped blaster = the permanent-weapon icon ({permanent-weapon}); wiki stub just says [weapon]. 'destiny -X' printed with a plain hyphen, no space. Lore 'slicing' in single quotes on the card (typed curly). Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible.",
- "game_text_lines": "Target an opponent’s device or non-superlaser weapon\ncard. Draw destiny. Target lost if destiny -X < target’s\ndestiny number, where X = the number of your spies\non table. OR Cancel the targeting of a {permanent-weapon}\nweapon at\nsame site as your spy."
+ "game_text_lines": "Target an opponent’s device or non-superlaser weapon\ncard. Draw destiny. Target lost if destiny -X < target’s\ndestiny number, where X = the number of your spies\non table. OR Cancel the targeting of a {permanent-weapon} weapon at\nsame site as your spy."
 }

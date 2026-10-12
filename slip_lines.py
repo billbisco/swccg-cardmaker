@@ -105,7 +105,14 @@ def main():
         pg, bx, by, bw, bh = boxes[int(n) - 1]
         inside = [l for l in all_lines if l[0] == pg and bx - 2 <= l[1] <= bx + bw and by - 2 <= l[2] <= by + bh]
         inside.sort(key=lambda l: (round(l[2]), l[1]))
-        lines = [l[3] for l in inside]
+        # an inline icon splits one printed line into two text runs at the same y: merge runs whose yMin is within 3 pt
+        merged = []
+        for l in inside:
+            if merged and abs(merged[-1][2] - l[2]) < 3:
+                merged[-1] = (l[0], merged[-1][1], merged[-1][2], merged[-1][3] + l[3])
+            else:
+                merged.append(l)
+        lines = [l[3] for l in merged]
         paras = c["game_text"].split("\n")
         out_paras, report = [], []
         for para in paras:
