@@ -129,3 +129,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   runs with re.S, otherwise the underscores print. Apply scripts: never `set -e` around `importImages --overwrite` —
   it exits non-zero when a file is unchanged and the page edits after it were silently skipped; check the log for
   the DONE line of every step. Every wiki change must be verified live after the batch (view the stub, not just the log).
+- Rev 8b (Bill 2026-10-12): slip crops are made by `crop_slips.py N` (heading + slip only: columns outside the slip's
+  own span and the previous slip's caption bar are whited out; stale crop files from earlier runs must be deleted —
+  a `NN-*` glob otherwise picks the old one). `slip_lines.py` merges text runs split by an inline icon so a line like
+  "opponent's [icon] weapon destiny" stays one line.
