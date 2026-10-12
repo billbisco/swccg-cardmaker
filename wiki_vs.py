@@ -19,12 +19,31 @@ GEMPSET = f"11{VS:02d}"
 
 def newtitle(old: str) -> str:
     return old.replace(f" (Virtual Set {VS})", SUFFIX) if old.endswith(f" (Virtual Set {VS})") else old
-SHEET = {3: ("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006")}[VS]
+META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official text as of"), legal date + its source, ordinal, remaster note
+    1: dict(sheet=("https://web.archive.org/web/20071024153847/http://www.swccgpc.com/Resources/VirtualCards1.pdf", "VirtualCards1.pdf", "24 October 2007", "4 December 2006"),
+            legal="9 March 2002", legal_ref="[https://web.archive.org/web/20020611031545/http://decipher.com/starwars/cardlists/index.html Decipher Star Wars CCG cardlists index] (Internet Archive, 11 June 2002) — \"Virtual Card Set #1 – 12 cards. Tournament-legal 03-09-02.\"",
+            ordinal="first", remaster="the December 2006 ''Legacy'' sheet: cover, set symbol and the slips shown below", pack="VS1-Legacy-pack.png", symbol="VS1-Legacy-set-symbol.png",
+            title_fix={1: "BoShek (V)"}, already_renamed=True,
+            carry_fix={"|| Later redesign || Later PC packaging proxies || Gap flagged: virtual-slips CDN Cloudflare-blocked; Legacy Block 1 <code>-pre.gif</code> proxies (not 2002 Premium).": "|| Virtual Block 1 || The same twelve slips reissued as [[Virtual Block 1]] cards after the 2009 reorganisation || <code>VB1-…-pre.gif</code> card images",
+                       "Premium+Decipher composites (File:VS1O-*-composite.png) exist separately; composite QA is paused. This gallery is hub-only slip comparison across printable styles.": "",
+                       "Same twelve titles appear in multiple printable packaging styles. ": "The same twelve titles appear in several printable packaging styles.",
+                       "Premium slip sheet (PC 2002 branding; PDF distill Feb 2005 on local copy)": "Premium slip sheet (PC 2002 branding)",
+                       "! Card !! 1A / early !! Premium !! Later (Block-era proxy)": "! Card !! 1A / early !! Premium !! Virtual Block 1",
+                       "(composite overlays; card-page thumbs now use Legacy slip crops)": ""}),
+    3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
+            legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
+            ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
+            title_fix={}, already_renamed=False),
+}[VS]
+SHEET = META["sheet"]
+NCARDS = len(list((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")))
 stubs = {int(v["image"][5:7]): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
+CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else ""   # current hub page: its history sections are carried over
 
 TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immediate Effect"), "USED INTERRUPT": ("Interrupt", "Used Interrupt"),
              "LOST INTERRUPT": ("Interrupt", "Lost Interrupt"), "USED OR LOST INTERRUPT": ("Interrupt", "Used or Lost Interrupt"),
-             "DEFENSIVE SHIELD": ("Defensive Shield", None), "CHARACTER WEAPON": ("Weapon", "Character Weapon"), "AUTOMATED WEAPON": ("Weapon", "Automated Weapon")}
+             "DEFENSIVE SHIELD": ("Defensive Shield", None), "CHARACTER WEAPON": ("Weapon", "Character Weapon"), "AUTOMATED WEAPON": ("Weapon", "Automated Weapon"),
+             "DEVICE": ("Device", None)}
 ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Maintenance]",
              "nav": "[[Nav Computer]]", "set": None}
 COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astromech"}
@@ -66,10 +85,20 @@ def lore_wiki(l: str) -> str:
 
 rows = {"Light": [], "Dark": []}
 tsv = []
-for n in range(1, 51):
+moves = [] if META["already_renamed"] else [f"{OLDSET}|{SET}", f"Talk:{OLDSET}|Talk:{SET}"] + [f"{k}|{newtitle(k)}" for k, v in stubs.values()]
+def page_of(n):
+    pg = newtitle(stubs[n][0])
+    return META["title_fix"][n] + pg[pg.index(" (V)") + 4:] if n in META["title_fix"] else pg
+
+
+for n in range(1, NCARDS + 1):
     c = json.loads((ROOT / f"cards/vs{VS}/{n:02d}.json").read_text(encoding="utf-8"))
     page, s = stubs[n]
     page = newtitle(page)
+    if n in META["title_fix"]:   # stub titled differently from the printed card (e.g. "Bo Shek" → "BoShek")
+        s = dict(s, title=META["title_fix"][n])
+        old_page, page = page, META["title_fix"][n] + page[page.index(" (V)") + 4:]
+        moves.append(f"{old_page}|{page}")
     safe = re.sub(r"[^A-Za-z0-9]+", "_", c["title"].replace("•", "")).strip("_")
     rem = f"OVS{VS}-{n:02d}-{safe}-remaster.webp"
     banner = (c.get("card_type") or "").upper()
@@ -112,8 +141,8 @@ for n in range(1, 51):
 |icons={icons}
 |version_label=virtual
 |set_band=Virtual
-|prev={newtitle(s.get('prev') or '')}
-|next={newtitle(s.get('next') or '')}
+|prev={page_of(n - 1) if n > 1 else ''}
+|next={page_of(n + 1) if n < NCARDS else ''}
 |lore={lore_wiki(c.get('lore'))}
 |game_text={gt}
 |printings='''{SET}''' (slip {n:02d}) — this page
@@ -130,6 +159,30 @@ for n in range(1, 51):
     rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{s['image']}|320px|link={page}]] || [[File:{rem}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
 
 
+DROP_LINES = ("QA paused", "QA is paused", "Do not collapse", "normalized to the same display size", "Card-list thumbs use", "Individual card pages use")
+
+
+def carried() -> str:
+    """History/provenance sections of the current hub page, kept under == History == (everything except the card list,
+    sources, set-symbol gallery and the old hub boilerplate)."""
+    if not CARRY:
+        return ""
+    keep, out = False, []
+    for line in CARRY.splitlines():
+        m = re.match(r"^== (.+?) ==$", line)
+        if m:
+            keep = m.group(1).strip() not in ("Card list", "Sources", "See also", "References", "Set symbol and pack example", "Cards")
+            if keep:
+                out.append(f"=== {m.group(1).strip()} ===")
+            continue
+        if keep and not any(x in line for x in DROP_LINES):
+            out.append(line)
+    text = "\n".join(out).strip()
+    for a, b in META.get("carry_fix", {}).items():
+        text = text.replace(a, b)
+    return f"== History ==\n{text}\n\n" if text else ""
+
+
 def table(side):
     return "{| class=\"wikitable\" style=\"width:auto\"\n! # !! Slip !! Remaster !! Card !! Type !! Game text\n" + "\n".join(rows[side]) + "\n|}"
 
@@ -138,7 +191,7 @@ page = f"""{{{{Hatnote|1=The {YEAR} Players Committee set, numbered before the 2
 {{| class="wikitable expansion-infobox"
 ! colspan="2" | {SET}
 |-
-| colspan="2" style="text-align:center;" | [[File:VS{VS}O-pack.png|200px]]<br />[[File:VS{VS}O-set-symbol.png|48px]]
+| colspan="2" style="text-align:center;" | [[File:{META['pack']}|200px]]<br />[[File:{META['symbol']}|48px]]
 |-
 ! Code
 || OVS{VS} · GEMP set {GEMPSET}
@@ -150,16 +203,16 @@ page = f"""{{{{Hatnote|1=The {YEAR} Players Committee set, numbered before the 2
 || [[:Category:Virtual Original sets|Virtual Original]] (2002–2009)
 |-
 ! Legal
-|| 20 September 2002<ref name="cdn">[https://res.starwarsccg.org/legacyblocks/VirtualCards{VS}.pdf VirtualCards{VS}.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.</ref>
+|| {META['legal']}<ref name="legal">{META['legal_ref']}</ref>
 |-
 ! Remaster sheet
-|| Official text as of {SHEET[3]}; errata to #39 on 28 July 2007<ref name="ia">[{SHEET[0]} {SHEET[1]}] (swccgpc.com, Internet Archive {SHEET[2]}) — the December 2006 Remaster sheet: cover, set symbol and the slips shown below.</ref>
+|| Official text as of {SHEET[3]}<ref name="ia">[{SHEET[0]} {SHEET[1]}] (swccgpc.com, Internet Archive {SHEET[2]}) — {META['remaster']}.</ref>
 |-
 ! Cards
-|| 50 (25 Light, 25 Dark)
+|| {NCARDS} ({len(rows['Light'])} Light, {len(rows['Dark'])} Dark)
 |}}
 
-'''Virtual Set {VS}: {SETNAME}''' is the third of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. Each of its 50 cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed. The set became tournament-legal on 20 September 2002.<ref name="cdn" /> In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here.<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].
+'''Virtual Set {VS}: {SETNAME}''' is the {META['ordinal']} of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. Each of its {NCARDS} cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed. The set became tournament-legal on {META['legal']}.<ref name="legal" /> In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here.<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].
 
 The second image in each row is a full-card remaster: the printed Decipher card with the slip re-typeset at 600 DPI in the style of the Committee's later Holotable cards, made for the wiki in 2026 (see [[Typography of Star Wars CCG cards]]). These are fan reconstructions, not Committee products. Game text is written out the way the sheet's icon key defines its shorthand.
 
@@ -170,7 +223,7 @@ The second image in each row is a full-card remaster: the printed Decipher card 
 === [[Dark|Dark Side]] ===
 {table('Dark')}
 
-== See also ==
+{carried()}== See also ==
 * [[Virtual Sets (2002-2009)]] · [[History of the Players Committee]]
 * [[Virtual card icons]] · [[Defensive Shields]] · [[Virtual Shields]]
 
@@ -182,7 +235,6 @@ The second image in each row is a full-card remaster: the printed Decipher card 
 """
 (OUT / "page.wiki").write_text(page, encoding="utf-8")
 tsv.insert(0, f"{SET}\t{OUT.name}/page.wiki")
-moves = [f"{OLDSET}|{SET}", f"Talk:{OLDSET}|Talk:{SET}"] + [f"{k}|{newtitle(k)}" for k, v in stubs.values()]
 (OUT / "moves.txt").write_text("\n".join(moves) + "\n", encoding="utf-8")
 (OUT / f"y-vs{VS}wiki.tsv").write_text("\n".join(tsv) + "\n", encoding="utf-8")
 print(len(tsv), "pages")

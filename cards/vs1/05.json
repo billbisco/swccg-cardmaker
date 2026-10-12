@@ -1,0 +1,43 @@
+{
+ "number": "5",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Luke Skywalker",
+ "caption": "•Luke Skywalker (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "7",
+ "game_text": "{pilot:3}. If piloting lead starfighter, Attack Run total is +3. During your control phase, if piloting at a battleground, may ▲ one Darklighter Spin or retrieve 1 Force.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Son of Anakin Skywalker. Student of Obi-Wan Kenobi. Honed piloting skills while bullseyeing womp rats in Beggar’s Canyon aboard T-16 skyhopper.",
+ "destiny": "1",
+ "base_page": "Luke Skywalker",
+ "art": {
+  "src": "src/vs1/05-Premiere-L-lukeskywalker.gif",
+  "modern": "src/vs1/modern/05-V0-L-lukeskywalker.gif"
+ },
+ "id": "vs1-05",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

@@ -1,0 +1,42 @@
+{
+ "number": "1",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•BoShek",
+ "caption": "•BoShek (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "3",
+ "game_text": "{pilot:3}. Deploys -2 to Cantina, a docking bay, or a starship. BoShek is a matching pilot for any starship. Twice per game, may ▲ a device. Immune to attrition < 3.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Rogue pilot. Outlaw starship tech. Has secret lab in Mos Eisley. He bragged about beating Han Solo’s Kessel Run record. Left fringe life behind after meeting Obi-Wan Kenobi.",
+ "destiny": "1",
+ "base_page": "BoShek",
+ "art": {
+  "src": "src/vs1/01-Premiere-L-boshek.gif",
+  "modern": "src/vs1/modern/01-VB1-L-boshek-pre.gif"
+ },
+ "id": "vs1-01",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}
