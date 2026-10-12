@@ -142,3 +142,8 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Inline icons added: independent (g051), presence (g010); maintenance ★/☠ glyphs as text. Template order: weapon
   before vehicle ("VEHICLE WEAPON" is a weapon). Special Edition copyright line reads "© LUCASFILM LTD. & TM. TM, ® &
   © 1998 DECIPHER INC." (checked on scans) — not the Hoth-style line.
+- Rev 9a (Bill 2026-10-12): slip crops keep the slip's full black outline (trim by the detected box, not by
+  brightness). Dark Side cards print the DS (TIE pilot) icon for {pilot:N}, Light Side the Rebel one. The maintenance
+  ★ / ☠ in game text are Decipher's own glyphs — cut from the sheet at 1200 DPI (`glyph-star.png`, `glyph-skull.png`),
+  black on Light, white on Dark; a font glyph is not acceptable. Light Side Objectives use Bardez's "LS - Epic
+  Objective" frame (blue-purple with Light scoring, textured white text box), not a lightened Dark frame.

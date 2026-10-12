@@ -30,22 +30,13 @@ def slip_boxes(png: Path):
 
 
 def clean(crop: Image.Image, w: int) -> Image.Image:
+    """Keep the heading and the slip (its own black outline included); white out the columns outside the detected
+    slip box (a neighbour's sliver) and the rows above the heading that belong to the slip above (its caption bar)."""
     a = np.array(crop.convert("L"))
     H, W = a.shape
-    body = a[PAD_TOP + 10:PAD_TOP + 200]                     # rows well inside the slip
-    # the slip's own column span: the widest run of non-white columns (a neighbour is separated by page white)
-    nonwhite = body.mean(axis=0) < 235
-    runs, start = [], None
-    for x, v in enumerate(list(nonwhite) + [False]):
-        if v and start is None:
-            start = x
-        elif not v and start is not None:
-            runs.append((start, x)); start = None
-    x0, x1 = max(runs, key=lambda r: r[1] - r[0]) if runs else (PAD_SIDE, PAD_SIDE + w)
+    x0, x1 = PAD_SIDE - 1, PAD_SIDE + w + 2          # the box edges = the slip's black outline
     d = ImageDraw.Draw(crop)
     d.rectangle((0, 0, x0 - 1, H), fill="white"); d.rectangle((x1, 0, W, H), fill="white")
-    # rows above the heading: the previous slip's caption bar is a mostly-dark row; whiten from the top down to the
-    # last such row (the heading itself is sparse black text on white)
     top = a[:PAD_TOP, x0:x1]
     dark_rows = [y for y in range(top.shape[0]) if (top[y] < 100).mean() > 0.35]
     if dark_rows:
