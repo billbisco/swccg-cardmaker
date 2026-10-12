@@ -1,0 +1,36 @@
+{
+ "id": "vs3-37-it-o",
+ "number": "37",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•IT-O (Eyetee-Oh)",
+ "caption": "•IT-0 (Eyetee-Oh) (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "INTERROGATOR DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "Wherever you have a captive, your Force drains are +2. Once per game, may ▼ Hypo. Immune to Restraining Bolt and attrition < 3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Floating prisoner interrogation droid. Uses probes and needles to dispense truth drugs and perform ‘surgery.’ Sensors determine subject’s pain threshold and truthfulness.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "IT-O (Eyetee-Oh)",
+ "art": {
+  "src": "src/vs3/ANH-D-ito.gif",
+  "modern": null
+ },
+ "notes": "Droid (single droid disc, no ability). Stat row is two boxes: POWER 4 and a wide INTERROGATOR DROID box spanning the ability + third slots (no ABILITY box). The slip's bottom-strip caption appears to print a zero ('IT-0') while the sheet header prints 'IT-O' — transcribed as printed; likely a typo on the sheet. Icon column empty. 745 px scan ANH-D-ito.gif carries a 'D-E1' label (errata face); printed face is ANewHope-D-ito-decipher-archive.gif (350 px, also downloaded). No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-ito-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+}

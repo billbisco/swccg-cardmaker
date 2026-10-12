@@ -1,0 +1,38 @@
+{
+ "id": "vs3-07",
+ "template": "ls-character-rebel",
+ "side": "Light",
+ "title": "•Commander Vanden Willard",
+ "caption": "•Commander Vanden Willard (V)",
+ "number": "7",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "*Leader* of Rebel forces on Yavin 4. Formerly Suolriep sector HQ commander. As a Rebel *spy*, aided Princess Leia and Bail Organa in the years prior to the Senate’s dissolution.",
+ "game_text": "Leia is defense value and forfeit +3. Your senators at battleground sites and characters at Yavin 4 locations are forfeit +2. Once per game, may ▲ a non-{permanent-weapon} Leia.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "art": {
+  "src": "src/vs3/modern/V11-L-commandervandenwillard.gif"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "vs3-08-eject-eject",
+ "number": "08",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Eject! Eject!",
+ "caption": "Eject! Eject! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on opponent’s starfighter with a permanent pilot. Starfighter’s game text (except related to identity and ability of permanent pilot, and capacity) is suspended and it is forfeit +5. {icon:immune-alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Guidenhouser ejection seat has saved many pilots from their exploding starships. However, system malfunctions have sometimes caused spontaneous ejection.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Eject! Eject!",
+ "art": {
+  "src": "src/vs3/ANH-L-ejecteject.gif",
+  "modern": null
+ },
+ "notes": "Non-unique (no dot). Wiki base page lists the 350 px ANH-L-ejecteject-decipher-archive.gif (also downloaded); used the 745 px ANH-L-ejecteject.gif which carries a 'D-E1' label. Modern remake is Block-era only (VB4 -pre), modern=null. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}."
+}

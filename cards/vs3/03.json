@@ -1,0 +1,27 @@
+{
+ "id": "vs3-03-cell-2187",
+ "number": "03",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Cell 2187",
+ "caption": "•Cell 2187 (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per game, may ▼ spy R2-D2 (for free). During your control phase, if R2-D2 is with captive Leia, may use 1 Force to release her. While Sometimes I Amaze Even Myself on table, where Leia present, ignore Battle Order. May not be canceled. {icon:immune-alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Aren’t you a little short for a stormtrooper?”",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Cell 2187",
+ "art": {
+  "src": "src/vs3/ANH-L-cell2187.gif",
+  "modern": "src/vs3/modern/V15-L-cell2187.gif"
+ },
+ "notes": "Printed base is a UTINNI EFFECT; the slip banner says EFFECT. Base scan only available at 350 px. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}."
+}

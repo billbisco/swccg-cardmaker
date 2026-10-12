@@ -1,0 +1,36 @@
+{
+ "id": "vs3-30",
+ "template": "ds-character-alien",
+ "side": "Dark",
+ "title": "•Dannik Jerriko",
+ "caption": "•Dannik Jerriko (V)",
+ "number": "30",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "Anzati assassin. Cheek-folds hide proboscises which allow him to “eat the soup” (consume the life Force) of his victims. Smokes t’bac. Currently working for Jabba.",
+ "game_text": "If present where you just won a battle, may use 1 Force to place a card from opponent’s Lost Pile out of play.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "2",
+ "art": {
+  "src": "src/vs3/modern/V15-D-dannikjerriko.gif"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "id": "vs3-16-r2-d2",
+ "number": "16",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•R2-D2 (Artoo-Detoo)",
+ "caption": "•R2-D2 (Artoo-Detoo) (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ASTROMECH DROID",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "During a battle with C-3PO, may not be targeted by weapons. While aboard a starfighter, it is power, maneuver, and hyperspeed +3. Unless you have 13 or more cards in hand, opponent may not place those cards in Used Pile.",
+ "icons": [
+  "astromech"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Feisty. Loyal. Heroic. Insecure. Rebel spy. Excels at trouble. Incorrigible counterpart of a mindless philosopher. Has picked up a slight flutter. A bit eccentric.",
+ "destiny": "2 or 5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "R2-D2 (Artoo-Detoo)",
+ "art": {
+  "src": "src/vs3/ANH-L-r2d2.gif",
+  "modern": "src/vs3/modern/V1-L-r2d2.gif"
+ },
+ "notes": "Droid: the slip prints only two stat boxes — POWER 1 and a wide ASTROMECH DROID box in place of ABILITY (no third box), same layout as the printed card. One icon in the column (astromech, droid dome on red). Destiny printed '2 or 5'. Single Droid disc top-left. Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible on the scan."
+}

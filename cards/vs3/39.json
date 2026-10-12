@@ -1,0 +1,27 @@
+{
+ "id": "vs3-39-leia-seeker",
+ "number": "39",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Automated Weapon",
+ "card_type": "AUTOMATED WEAPON",
+ "title": "Leia Seeker",
+ "caption": "Leia Seeker (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to deploy to an unoccupied site. Deploys and moves like an Undercover spy. If present with {permanent-weapon} Leia or a senator, this weapon and that character are lost (“all cards” situation).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Military version of a 'remote.' Programmed to stalk specific targets or secondary targets. Heat and light sensors track with fatal accuracy. Can stow away on starships.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Leia Seeker",
+ "art": {
+  "src": "src/vs3/ANH-D-leiaseeker.gif",
+  "modern": null
+ },
+ "notes": "Non-unique. Green frame (weapon). Inline icon after 'present with' is a grey square with a diagonal green lightsaber = the Permanent Weapon icon ({permanent-weapon}); the 2002 VirtualCards3.pdf text confirms 'Leia with a permanent weapon'. The wiki transcription dropped it. A stray gold set-symbol disc is printed in the black bottom strip between the caption and the number (sheet artifact, not part of the slip layout). 745 px scan used. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-leiaseeker-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+}

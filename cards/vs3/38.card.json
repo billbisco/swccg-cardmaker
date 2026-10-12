@@ -1,0 +1,21 @@
+{
+ "id": "vs3-38",
+ "template": "ds-effect",
+ "side": "Dark",
+ "title": "Ket Maliss",
+ "caption": "Ket Maliss (V)",
+ "number": "38",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "Assassins are highly valued by Jabba the Hutt and other gangsters. Ket Maliss, Prince Xizor’s “shadow killer,” has unknown but undoubtedly lethal business in Mos Eisley.",
+ "game_text": "Deploy on table. Unless Emperor Palpatine on table, Black Sun agents are defense value +1 and forfeit +2. Once per turn, may ▲ Beedo, Dannik Jerriko, Greedo, Hem Dazon, or Reegesk. During your deploy phase, may ▼ a docking bay. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "expansion_icon": null,
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/Premiere-D-ketmaliss.gif"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "id": "vs3-41",
+ "template": "ds-interrupt",
+ "side": "Dark",
+ "title": "Oo-ta Goo-ta, Solo?",
+ "caption": "Oo-ta Goo-ta, Solo? (V)",
+ "number": "41",
+ "virtual_set": 3,
+ "destiny": "5",
+ "lore": "Greedo cheskopokuta klees ruya Solo. Hoko yanee boopa gush Cantina. Cheeco wa Solo's anye nyuma Greedo vakee. Jabba kul steeka et an anpaw.",
+ "game_text": "USED: During battle at a site where your alien bounty hunter (except Boba Fett) is with opponent’s smuggler, opponent may not draw more than one battle destiny.\nLOST: During a battle at a site where you have an alien bounty hunter, add one battle destiny.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "USED OR LOST INTERRUPT",
+ "art": {
+  "src": "src/vs3/modern/V10-D-ootagootasolo.gif"
+ }
+}

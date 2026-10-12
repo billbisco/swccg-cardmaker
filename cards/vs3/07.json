@@ -1,0 +1,42 @@
+{
+ "id": "vs3-07-commander-vanden-willard",
+ "number": "07",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Commander Vanden Willard",
+ "caption": "•Commander Vanden Willard (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "Leia is defense value and forfeit +3. Your senators at battleground sites and characters at Yavin 4 locations are forfeit +2. Once per game, may ▲ a non-{permanent-weapon} Leia.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "*Leader* of Rebel forces on Yavin 4. Formerly Suolriep sector HQ commander. As a Rebel *spy*, aided Princess Leia and Bail Organa in the years prior to the Senate’s dissolution.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Commander Vanden Willard",
+ "art": {
+  "src": "src/vs3/ANH-L-commandervandenwillard.gif",
+  "modern": "src/vs3/modern/V11-L-commandervandenwillard.gif"
+ },
+ "notes": "Inline icon in 'non-[icon] Leia' is the black square with a diagonal green-white blade = Permanent Weapon icon (wiki stub wrongly expands it as 'non-unique'). 'Leader' and 'spy' are bold on the printed card. Third stat box blank. 745 px scan carries a 'D-E1' label; printed face is src/vs3/ANH-L-commandervandenwillard-decipher-archive.gif."
+}

@@ -1,0 +1,42 @@
+{
+ "id": "vs3-44-reserve-pilot",
+ "number": "44",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "••Reserve Pilot",
+ "caption": "••Reserve Pilot (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. While piloting at a system, your total battle destiny here is cumulatively +1. If a battle at a system just ended, may deploy (for free) aboard a starship from which you forfeited a pilot character.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Injuries kept Lord Vader's best TIE wingman out of the primary wave of starfighters. He remains on reserve duty, ready to replace lost pilots.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Reserve Pilot",
+ "art": {
+  "src": "src/vs3/ANH-D-reservepilot.gif",
+  "modern": null
+ },
+ "notes": "Imperial disc top-left. Third stat box printed blank. Text opens with the yellow pilot-power icon then '2.'. Only wiki scan (349x489) carries an 'E' label bottom-right (Decipher errata reprint face; lore/art identical, printed ability 1 vs slip ability 2 is the slip's change); no separate -decipher-archive file exists. Modern remake is Block-era only (VB1 -pre), modern=null."
+}

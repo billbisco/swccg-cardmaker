@@ -1,0 +1,42 @@
+{
+ "id": "vs3-12-leia",
+ "number": "12",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Leia",
+ "caption": "•Leia (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "While at opponent’s Senate, Leia’s game text may not be canceled and may lose 1 Force to place Leia and a character present out of play. During battle, may cancel game text of a leader of ability < 5 with Leia for remainder of turn.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Adopted daughter of the Viceroy and First Chairman of Alderaan. Became a political leader at a young age. The injustices of the New Order led her to join the Rebellion.",
+ "destiny": "1",
+ "expansion": "Jedi Pack",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Leia (Jedi Pack)",
+ "art": {
+  "src": "src/vs3/Jedi-L-leia.gif",
+  "modern": "src/vs3/modern/V0-L-leia.gif"
+ },
+ "notes": "Base card is the Jedi Pack Leia (wiki page 'Leia (Jedi Pack)'; plain 'Leia' does not exist). Single Rebel disc top-left. Copyright year read from the 745 px V0 modern scan: 1996. 350 px base scan only; expansion ring icon = Premium."
+}

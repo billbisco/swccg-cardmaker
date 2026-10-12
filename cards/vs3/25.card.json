@@ -1,0 +1,23 @@
+{
+ "id": "vs3-25",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "•Wokling",
+ "caption": "•Wokling (V)",
+ "number": "25",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "Every Ewok is taught to be protective of the younger members of their clan.",
+ "game_text": "Deploy on table. Your total Force generation is +1. Once per game, may use 3 Force to ▲ an Effect that has no deploy cost and deploys on another card. May place this Effect out of play to retrieve 1 Force. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "expansion_icon": "icons/set-endor-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/modern/V0-L-wokling.gif"
+ },
+ "margin_left": "Original concept by Eric Hunter",
+ "margin_right": "GenCon 2002 Winner"
+}

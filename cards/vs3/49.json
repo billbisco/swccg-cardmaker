@@ -1,0 +1,42 @@
+{
+ "id": "vs3-49-trooper-davin-felth",
+ "number": "49",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Trooper Davin Felth",
+ "caption": "•Trooper Davin Felth (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "During your control phase, may ▲ (or lose 1 Force to retrieve) one Local Trouble or Look Sir, Droids. Opponent may not fire weapons during Local Trouble battles.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Dispatched to Tatooine to apprehend renegade droids fleeing the _Tantive IV_. Suspected to have misgivings about Imperial methods. Allegedly shot his commander in the back.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Trooper Davin Felth",
+ "art": {
+  "src": "src/vs3/ANH-D-trooperdavinfelth.gif",
+  "modern": null
+ },
+ "notes": "Imperial disc top-left. Third stat box printed blank. 'Tantive IV' is italic on the printed card. Printed game text on the scan differs from the wiki transcription (not used). Base scan only 350 px. Modern remake is Block-era only (VB1 -pre), modern=null."
+}

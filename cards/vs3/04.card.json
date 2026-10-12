@@ -1,0 +1,40 @@
+{
+ "id": "vs3-04",
+ "template": "ls-character-alien-rebel",
+ "side": "Light",
+ "title": "•Chewbacca",
+ "caption": "•Chewbacca (V)",
+ "number": "4",
+ "virtual_set": 3,
+ "destiny": "1",
+ "lore": "Wookiee *smuggler* from Kashyyyk. Over 200 years old. Top-notch mechanic and pilot. Jabba has large bounty on this “walking carpet.” Friends call him Chewie… or Fuzzball.",
+ "game_text": "{pilot:2}. During your turn, may use 1 Force to ▲ a card with “Chewie” or “Wookiee” in game text.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "art": {
+  "src": "src/vs3/modern/V13-L-chewbacca.gif"
+ },
+ "lore_align": "left"
+}

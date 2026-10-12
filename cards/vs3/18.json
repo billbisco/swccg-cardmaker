@@ -1,0 +1,40 @@
+{
+ "id": "vs3-18-red-5",
+ "number": "18",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: X-WING",
+ "title": "•Red 5",
+ "caption": "•Red 5 (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "May add Luke as pilot and {set:anh} R2-D2 (may ▼ here.) During battle, may cancel a starfighter’s game text here (except related to capacity, ability, and identity of permanent pilot). Immune to attrition < 6.",
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Luke’s Incom T-65 X-wing at the Battle of Yavin. Instrumentation similarities between Red 5 and the T-16 skyhopper allowed Luke to play a pivotal role in the conflict.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Red 5",
+ "art": {
+  "src": "src/vs3/ANH-L-red5.gif",
+  "modern": "src/vs3/modern/V9-L-red5.gif"
+ },
+ "notes": "Scomp-link ring printed top-left of the text box. Icon column is empty on the slip (no nav icon) — only the set symbol; the printed card has Nav Computer. Inline icon before R2-D2 is the A New Hope Death Star set symbol ({set:anh}). '(may ▼ here.)' punctuation as printed. Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible."
+}

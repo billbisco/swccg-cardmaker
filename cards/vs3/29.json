@@ -1,0 +1,27 @@
+{
+ "id": "vs3-29-come-with-me",
+ "number": "29",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Come With Me",
+ "caption": "Come With Me (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Vader or your admiral. During your deploy phase, may ▼ an Imperial pilot here. During any control phase, may place this Effect in Used Pile to take an Imperial pilot on table into hand (place all cards on that character in owner’s Used Pile).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Pilots are often reassigned at the last minute for a variety of tactical reasons. Darth Vader ordered DS-61-2 and DS-61-3 to accompany him to the Battle of Yavin.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Come With Me",
+ "art": {
+  "src": "src/vs3/ANH-D-comewithme.gif",
+  "modern": null
+ },
+ "notes": "Non-unique. Wiki default page (stub-linked, Glossary Supplement text) uses the 745 px ANH-D-comewithme.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-comewithme-pre.gif), modern=null. No immunity icon on this slip."
+}

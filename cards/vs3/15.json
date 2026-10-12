@@ -1,0 +1,27 @@
+{
+ "id": "vs3-15-merc-sunlet",
+ "number": "15",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Merc Sunlet",
+ "caption": "Merc Sunlet (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Out Of Commission is canceled. Unless opponent has more cards in Lost Pile than you, whenever you lose Force, may use X Force and place any X cards from your Lost Pile out of play to reduce the loss by X. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A crafty purloiner from Tirac Munda with a heart of gold. Often hired to advise the wealthy on how to protect their own property. Well traveled and skilled in many languages.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Merc Sunlet",
+ "art": {
+  "src": "src/vs3/ANH-L-mercsunlet.gif",
+  "modern": null
+ },
+ "notes": "Non-unique (no dot). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter} per the caller's convention (cards 09/10 used {icon:immune-alter}). Copyright 1996 read off the 745 px scan. Wiki default page is Glossary 2.0 errata text; printed face 'Merc Sunlet (Original)' (ANH-L-mercsunlet-decipher-archive.gif, 350 px, also downloaded) — lore identical. No modern remake exists ('Merc Sunlet (V)' page missing) → modern null."
+}

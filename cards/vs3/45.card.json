@@ -1,0 +1,36 @@
+{
+ "id": "vs3-45",
+ "template": "ds-character-alien",
+ "side": "Dark",
+ "title": "•••Rodian",
+ "caption": "•••Rodian (V)",
+ "number": "45",
+ "virtual_set": 3,
+ "destiny": "3",
+ "lore": "Thuku is a typical male Rodian. Sent to hunt down Greedo by Navik the Red, head of the Chattza tribe. Rodians enjoy “the hunt,” so many are employed as assassins.",
+ "game_text": "Once per game, may ▼ a bounty hunter (except Greedo) to same site. Unless another •••Rodian is at same or a related site, your Force drain bonuses at same planet site may not be canceled.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "art": {
+  "src": "src/vs3/ANH-D-rodian.gif"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "vs3-02-advanced-preparation",
+ "number": "02",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "Advance Preparation",
+ "caption": "Advanced Preparation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Once per game, deploy Attack Run, Death Star: Trench, and/or one proton torpedoes from under your Starting Effect. {icon:immune-sense}\nLOST: Retrieve 1 Force. OR If One In A Million on table, retrieve any one card.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Early warning and careful planning allow the Rebels to achieve maximum readiness while still maintaining optimal flexibility.",
+ "destiny": "6",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Advance Preparation",
+ "art": {
+  "src": "src/vs3/ANH-L-advancepreparation.gif",
+  "modern": null
+ },
+ "notes": "NO BASE PAGE ON THE WIKI: 'Advanced Preparation' does not exist (only the VS3 stub), no DS2-L-advancedpreparation image in the file list, and web.archive.org is blocked by the proxy, so lore/destiny/expansion/copyright/base_page/art are null. (The card is from Death Star II per my memory, unverified here — needs a scan.) No non-unique dot on the title. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}. | Base card is 'Advance Preparation' (A New Hope U1); the slip and the PC sheet spell it 'Advanced Preparation'. Base data filled by Claude from the wiki page."
+}

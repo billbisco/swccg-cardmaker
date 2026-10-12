@@ -1,0 +1,40 @@
+{
+ "id": "vs3-06-commander-evram-lajaie",
+ "number": "06",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Commander Evram Lajaie",
+ "caption": "•Commander Evram Lajaie (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "While at your War Room, forfeit +3. Your starships with hyperspeed have a {nav}. Your piloted starships are forfeit +1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Popular leader whose expertise in space defense and orbital battle stations enabled the Alliance to uncover a fatal flaw in the Death Star’s design.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Commander Evram Lajaie",
+ "art": {
+  "src": "src/vs3/ANH-L-commanderevramlajaie.gif",
+  "modern": null
+ },
+ "notes": "Inline icon is the red nav-computer square; slip prints a space between the icon and the period ('a [nav] . Your'). No icon column (set symbol only); third stat box blank. Base scan only 350 px. Modern remake is Block-era only (VB1 -pre), modern=null."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "vs3-21-solomahal",
+ "number": "21",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Solomahal",
+ "caption": "Solomahal (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your scout (except Luke). If scout (or starship they are aboard) was just targeted by a weapon, may place this Effect in Lost Pile to cancel that targeting.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Veteran officer of the Old Republic who retired from active duty after the Clone Wars. Makes a living in the Outer Rim Territories passing on his scouting expertise.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Solomahal",
+ "art": {
+  "src": "src/vs3/ANH-L-solomahal.gif",
+  "modern": null
+ },
+ "notes": "Non-unique (no dot) on both slip and printed card. Only a 350 px scan exists on the wiki (no -decipher-archive variant). Modern remake is Block-era only (Virtual Block 1, VB1-L-solomahal-pre.gif, 350 px) — not a 'Virtual Set N' card, so modern=null. No immunity icon on this slip. Year 1996 read off the 350 px scan (blurry but legible)."
+}

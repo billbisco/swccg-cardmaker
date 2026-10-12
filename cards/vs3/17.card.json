@@ -1,0 +1,36 @@
+{
+ "id": "vs3-17",
+ "template": "ls-character-rebel",
+ "side": "Light",
+ "title": "•••Rebel Tech",
+ "caption": "•••Rebel Tech (V)",
+ "number": "17",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "Del Goren, typical expert in communications and scanner jamming, served aboard the Rebel privateer corvette _Spiral_ before joining the Alliance High Command.",
+ "game_text": "Dark Side game text on your non-docking bay Yavin 4 sites is canceled. Your Attack Run total is cumulatively +1. During your turn, may place this Rebel Tech in Used Pile to ▲ one Advance Preparation or Death Star: Trench.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "art": {
+  "src": "src/vs3/modern/VB1-L-rebeltech-pre.gif"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "vs3-46-spice-mines-of-kessel",
+ "number": "46",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Spice Mines Of Kessel",
+ "caption": "•Spice Mines Of Kessel (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Kessel. While your Star Destroyer here, opponent may not play Interrupts from their Lost Pile. If opponent just forfeited a character here, may place this Effect in Lost Pile to retrieve Force equal to that character’s forfeit. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Captives sent to the Kessel spice mines spend the rest of their lives digging for glitterstim, a spice sold throughout the galaxy by smugglers and crime lords.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Spice Mines Of Kessel",
+ "art": {
+  "src": "src/vs3/ANH-D-spiceminesofkessel.gif",
+  "modern": null
+ },
+ "notes": "Printed base is a UTINNI EFFECT; slip banner says EFFECT. Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened {alter}/{control}/{sense} as instructed (earlier files 03/08/10 used {icon:immune-*}). Only wiki scan (350 px) carries an 'E' label (errata reprint face); no -decipher-archive file. Modern remake is Block-era only (VB1 -pre), modern=null."
+}

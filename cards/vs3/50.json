@@ -1,0 +1,27 @@
+{
+ "id": "vs3-50-undercover",
+ "number": "50",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Undercover",
+ "caption": "Undercover (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your spy at a site. Spy is now Undercover. During your control phase, may ▲ one Informant. At same and related sites, opponent’s {lightsaber} weapon destiny draws are -1 (-2 if targeting this character). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire maintains a network of spies attempting to infiltrate the Rebel Alliance or disinform their operatives.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Undercover (Dark)",
+ "art": {
+  "src": "src/vs3/ANH-D-undercover-decipher-archive.gif",
+  "modern": null
+ },
+ "notes": "Dark-side Undercover (slip 50; Light is slip 24). The wiki VS3 stub ('Undercover (V) (Dark) (Virtual Set 3)') wrongly links the Light base page; base used is 'Undercover (Dark)'. Non-unique. Inline icon before 'weapon' is the black square with a diagonal green blade = {lightsaber} (the wiki stub writes [weapon]). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened {alter}/{control}/{sense} as instructed (earlier files 03/08/10 used {icon:immune-*}). Printed face is the 350 px -decipher-archive gif; src/vs3/ANH-D-undercover.gif (also downloaded, 350 px) is the 'E' errata reprint face with different game text. Modern remake is Block-era only (VB1 -pre), modern=null."
+}

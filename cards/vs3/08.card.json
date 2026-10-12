@@ -1,0 +1,21 @@
+{
+ "id": "vs3-08",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "Eject! Eject!",
+ "caption": "Eject! Eject! (V)",
+ "number": "8",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "The Guidenhouser ejection seat has saved many pilots from their exploding starships. However, system malfunctions have sometimes caused spontaneous ejection.",
+ "game_text": "Deploy on opponent’s starfighter with a permanent pilot. Starfighter’s game text (except related to identity and ability of permanent pilot, and capacity) is suspended and it is forfeit +5. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/ANH-L-ejecteject.gif"
+ }
+}

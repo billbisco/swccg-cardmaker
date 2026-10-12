@@ -1,0 +1,27 @@
+{
+ "id": "vs3-24-undercover",
+ "number": "24",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Undercover",
+ "caption": "Undercover (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your spy at a site. Spy is now Undercover. During your control phase, may ▲ one Sabotage. At same and related sites, opponent’s {lightsaber} weapon destiny draws are -1 (-2 if targeting this character). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Alliance Intelligence expends considerable resources to infiltrate the Imperial military bureaucracy, but the ISB’s security sweeps make these shadowy operations dangerous.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Undercover",
+ "art": {
+  "src": "src/vs3/ANH-L-undercover-decipher-archive.gif",
+  "modern": null
+ },
+ "notes": "Light Side Undercover (Dark Side version is slip 50). Wiki stub page is 'Undercover (V) (Light) (Virtual Set 3)'. Inline icon before 'weapon' is a black square with a diagonal green blade — tokened {lightsaber} (same icon as on Sabotage (V) #19; the wiki stub transcribes it as [weapon]). Both wiki scans are 350 px: used the -decipher-archive printed face; ANH-L-undercover.gif (also downloaded) carries an 'E' errata label. Modern remake is Block-era only (VB1-L-undercover-pre.gif), modern=null. Immunity icon on the slip is a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter}."
+}
