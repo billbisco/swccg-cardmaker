@@ -1,0 +1,44 @@
+{
+ "number": "37",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•General Veers",
+ "caption": "•General Veers (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:3}, 4: Blizzard 1. While piloting an AT-AT, draws two battle destiny if unable to otherwise. While piloting a combat vehicle, its immunity to attrition is +2.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "General Maximilian Veers is the model of an Imperial Army officer. Cunning, loyal and a ruthlessly efficient *leader*. In charge of the ground assault troops in Vader’s forces.",
+ "destiny": "1",
+ "base_page": "General Veers (Original)",
+ "art": {
+  "src": "src/vs4/37-Hoth-D-generalveers-decipher-archive.gif",
+  "modern": "src/vs4/modern/37-V0-D-generalveers.gif"
+ },
+ "id": "vs4-37",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED. Slip deploy 3 / forfeit 5 (same as printed). Game text opens with the pilot-power icon then '3, 4: Blizzard 1.' → {pilot:3}, 4: Blizzard 1. Icons: pilot, warrior. Affiliation Imperial. Lore corrected from the scan: printed 'Maximilian' (one l; wiki 'Maximillian'), 'leader' bold (keyword), apostrophe in Vader’s curly. The wiki's default 'General Veers' page carries Glossary 2.0 errata text and the 745 px Hoth-D-generalveers.gif is the PC Errata face (D-E1) — downloaded, not used; printed face = 'General Veers (Original)' → Hoth-D-generalveers-decipher-archive.gif (350×490) used. Modern: V0-D-generalveers.gif (745, Virtual Set 0) used; VB2 -pre and non-pre (350, identical bytes) also downloaded. Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "{pilot:3}, 4: Blizzard 1. While piloting an AT-AT,\ndraws two battle destiny if unable to otherwise.\nWhile piloting a combat vehicle, its immunity to\nattrition is +2."
+}

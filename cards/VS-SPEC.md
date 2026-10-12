@@ -71,3 +71,21 @@ Write each JSON with ensure_ascii=False, indent 1. Don't touch render.py or othe
 - Icons in the column: name them (pilot, warrior, nav, astromech, permanent-weapon, independent, episode1, republic …);
   an orange/gold virtual-set sphere at the bottom of the column is NOT an icon. A ring at the top-left of the text box = scomp true.
 - Copyright year = the base card's set: Premiere 1995, A New Hope 1996, Hoth 1996, Dagobah 1997, Cloud City 1997, Jabba's Palace 1998, Special Edition 1998, Endor 1999, Death Star II 2000, Reflections II 2001, Tatooine/Coruscant/Theed 2001 — but read it off the scan's vertical line when legible.
+
+## Additions (VS4 run)
+- Slip crops are named by the slip's printed number: `NN-Title.png`; an **Objective** has two slips, front `NN-` and
+  back `NNb-`. Transcribe an Objective as ONE json `NN.json` with: `title` = front title, `title_back` = back title (as
+  the back slip's heading prints it, e.g. "Liberation"), `game_text` = front text, `game_text_back` = back text, `slip_type`
+  "Objective", `card_type` "". The bold lead words (**For**, **While**, **Flip**, **Place**) are `*bold*`; the italic
+  first lines are `_italic_`. Keep the slips' line structure as sentences (one paragraph each).
+- A **site** slip (landscape, e.g. Hoth: Echo Med Lab) has a Light text (left/top) and may have a Dark text; use the
+  fields of `cards/hoth-echo-med-lab-v-vs4.json` as the model (add them to the normal json): `game_text` = Light side
+  text, `dark_text` = Dark side text ("" if the slip has none — the printed card's Dark text then stays), `light_force` /
+  `dark_force` = whether the slip shows a Force icon on that side, `light_icons` / `dark_icons` = the icon boxes on each
+  side as printed (outermost first, e.g. ["scomp", "planet", "interior", "underground"]), `slip_type` "Site",
+  `card_type` = the banner text (•HOTH: ECHO MED LAB). `stats` []; no deploy/forfeit. The base card's lore field
+  does not exist for sites — set lore "".
+- An **Admiral's Order** / **Epic Event** / **Defensive Shield** / **Immediate Effect** / **Vehicle Weapon** /
+  **Automated Weapon**: `slip_type` = the banner as printed, `card_type` = the banner text.
+- Character third box may read ASTROMECH DROID, MEDICAL DROID, FORCE-SENSITIVE … → `["MEDICAL DROID",""]`.
+- Hoth base cards: expansion "Hoth", copyright 1996; Dagobah 1997; Special Edition 1998; Premiere 1995; A New Hope 1996.

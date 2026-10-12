@@ -1,0 +1,28 @@
+{
+ "number": "36",
+ "side": "Dark",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "Deflector Shield Generators",
+ "caption": "Deflector Shield Generators (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a Star Destroyer. Starship is power +2, immune to attrition < 3, and may not be targeted by opponent’s Interrupts or starship weapons. Star Destroyers are destiny +1. Your Force generation here is +1. During your deploy phase, may ▼ a TIE here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Located atop the superstructure of a Star Destroyer, the generator towers create an energy shield which repels solid objects and weapons fire.",
+ "destiny": "4",
+ "base_page": "Deflector Shield Generators",
+ "art": {
+  "src": "src/vs4/36-Hoth-D-deflectorshieldgenerators.gif",
+  "modern": "src/vs4/modern/36-V3-D-deflectorshieldgenerators.gif"
+ },
+ "id": "vs4-36",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique (no dot on the bottom strip). The crop cuts off the slip's heading entirely (only two stray marks remain); title and caption read from the bottom strip 'Deflector Shield Generators (V)'. Slip banner DEVICE, green Device frame. Icon column empty. Lore matches the scan (checked on the 745 px V3 remake's lore box too). Base scan only at 350 px. Copyright 1996 (Hoth), not legible at 350 px; the V3 remake's vertical line is 1996 too. Modern: V3-D-deflectorshieldgenerators.gif (745, Virtual Set 3 — different game text) used; VB2 -pre and non-pre (350, identical bytes) also downloaded.",
+ "game_text_lines": "Deploy on a Star Destroyer. Starship is power +2,\nimmune to attrition < 3, and may not be targeted by\nopponent’s Interrupts or starship weapons. Star\nDestroyers are destiny +1. Your Force generation here\nis +1. During your deploy phase, may ▼ a TIE here."
+}

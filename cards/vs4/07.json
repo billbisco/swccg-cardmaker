@@ -1,0 +1,28 @@
+{
+ "number": "07",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Frostbite",
+ "caption": "•Frostbite (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Hoth system if you control two exterior Hoth sites. During your control phase, may retrieve 1 Force for each Hoth site you control with a unique (•) combat vehicle. If opponent controls this system, this Effect lost. While you occupy 1st marker, {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Then I’ll see you in hell!”",
+ "destiny": "4",
+ "base_page": "Frostbite",
+ "art": {
+  "src": "src/vs4/07-Hoth-L-frostbite.gif",
+  "modern": "src/vs4/modern/07-VB2-L-frostbite-pre.gif"
+ },
+ "id": "vs4-07",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Game text ends with the red circle-slash A (immune to Alter) icon and no period after it, as printed. Lore: scan has curly double quotes and curly apostrophe (wiki straight single quotes) — corrected. Base scan only at 350 px. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "Deploy on Hoth system if you control two exterior Hoth\nsites. During your control phase, may retrieve 1 Force\nfor each Hoth site you control with a unique (•) combat\nvehicle. If opponent controls this system, this Effect\nlost. While you occupy 1st marker, {alter}"
+}

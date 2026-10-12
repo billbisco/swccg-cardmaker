@@ -1,0 +1,39 @@
+{
+ "number": "06",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Echo Base Trooper Officer",
+ "caption": "•••Echo Base Trooper Officer (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "While at a non-shielded marker site, may use 1 Force to suspend ‘Hoth Energy Shield Rules’ until the start of your next turn.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Like many Rebel specialists, Trey Callum defected from the Imperial officer corps. Trooper officers are masters at stretching the meager resources of the Rebellion.",
+ "destiny": "2",
+ "base_page": "Echo Base Trooper Officer",
+ "art": {
+  "src": "src/vs4/06-Hoth-L-echobasetrooperofficer.gif",
+  "modern": "src/vs4/modern/06-VB2-L-echobasetrooperofficer-pre.gif"
+ },
+ "id": "vs4-06",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Restricted (•••). The crop cuts off the slip's heading; title from the bottom strip. Third stat box printed blank (no label). Slip deploy 2 / forfeit 4 (printed 3/3). Icon column: warrior. Quotes around ‘Hoth Energy Shield Rules’ are curly singles on the slip. Lore matches the scan. Base scan only at 350 px. Modern: VB2 only (-pre used, 350; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "While at a non-shielded marker site, may use 1\nForce to suspend ‘Hoth Energy Shield Rules’ until\nthe start of your next turn."
+}

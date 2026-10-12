@@ -208,21 +208,43 @@ TEMPLATES = {
         "scomp": (170, 1694),
         "ctype_spacing": 3,
     },
-    "ls-vehicle": {   # Bardez "LS - Starship" frame (empty ring) + the vehicle type icon cut from the PC's Blizzard 2 scan
-        "frame": ("frames/ls-vehicle.png", 65, 73),
-        "art": (255, 662, 1137, 709), "title": (398, 200, 880, 90), "destiny": (1321, 208, 99, 101), "lore": (321, 385, 1010, 185),
+    "ls-vehicle": {   # Bardez "LS - Vehicle.xcf" frame layer ("Vehicle PC"); boxes as the LS starship (same card geometry)
+        "frame": ("frames/ls-vehicle.png", 145, 146),
+        "art": (246, 660, 1141, 716), "title": (398, 200, 880, 90), "destiny": (1321, 208, 99, 101), "lore": (321, 385, 1010, 185),
         "card_type": (270, 1462, 1114, 61), "stats_y": 1582, "stats": [(270, 270), (600, 340), (985, 385)],
         "game_text": (349, 1729, 982, 279), "deploy": (203, 1835, 59, 81), "forfeit": (208, 1929, 47, 85),
         "icon_slots": [(1357, 1722), (1357, 1821)], "set_icon_abs": (1363, 1926), "expansion_ring": (1381, 405),
         "copyright_x": 1416, "dark_text": True, "lore_indent": 0, "scomp": (184, 1694), "ctype_spacing": 3,
     },
-    "ds-vehicle": {
-        "frame": ("frames/ds-vehicle.png", 139, 148),
-        "art": (241, 667, 1134, 710), "title": (398, 200, 880, 90), "destiny": (1305, 210, 100, 100), "lore": (316, 390, 985, 178),
-        "card_type": (262, 1462, 1100, 61), "stats_y": 1588, "stats": [(268, 262), (581, 330), (962, 381)],
-        "game_text": (344, 1732, 925, 265), "deploy": (199, 1826, 45, 82), "forfeit": (199, 1932, 46, 84),
-        "icon_slots": [(1356, 1722), (1356, 1822)], "set_icon_abs": (1363, 1926), "expansion_ring": (1382, 405),
+    "ds-vehicle": {   # Bardez "DS - Vehicle.xcf" frame layer; boxes measured from the frame PNG
+        "frame": ("frames/ds-vehicle.png", 143, 147),
+        "art": (245, 666, 1134, 710), "title": (398, 200, 880, 90), "destiny": (1309, 209, 100, 100), "lore": (320, 390, 985, 178),
+        "card_type": (262, 1462, 1100, 61), "stats_y": 1587, "stats": [(272, 262), (585, 330), (966, 381)],
+        "game_text": (348, 1731, 925, 265), "deploy": (203, 1825, 45, 82), "forfeit": (203, 1931, 46, 84),
+        "icon_slots": [(1353, 1720), (1353, 1826)], "set_icon_abs": (1363, 1926), "expansion_ring": (1371, 404),
         "copyright_x": 1416, "scomp": (170, 1694), "ctype_spacing": 3,
+    },
+    "creature": {   # Bardez "Creature.xcf" frame layer (one frame for both sides); boxes measured from the frame PNG
+        "frame": ("frames/creature.png", 145, 146),
+        "art": (249, 694, 1139, 686), "title": (373, 215, 841, 80), "destiny": (1329, 215, 104, 104), "lore": (324, 420, 987, 178),
+        "stats_y": 1583, "stats": [(305, 350), (706, 622)],
+        "game_text": (352, 1727, 925, 270), "deploy": (208, 1827, 45, 79), "forfeit": (206, 1930, 46, 85),
+        "icon_slots": [(1353, 1651), (1353, 1756)], "set_icon_abs": (1363, 1926), "expansion_ring": (1375, 400),
+        "copyright_x": 1416,
+    },
+    "objective": {   # Bardez "DS - Objective.xcf" template layer; the printed and PC Objectives have a WHITE text box with black text
+        "frame": ("frames/objective.png", 67, 73),
+        "art": (236, 380, 1150, 855), "title": (382, 204, 878, 95), "destiny": (1310, 204, 105, 107),
+        "fill_boxes": [(260, 1323, 1118, 681, "#f4f2f6")],
+        "game_text": (290, 1350, 1060, 640), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
+        "copyright_x": 1416, "gt_size": 56, "dark_text": True, "no_type": True,
+    },
+    "objective-ls": {   # same frame lightened to the lavender of the Light Side Objectives (Local Uprising)
+        "frame": ("frames/objective-ls.png", 67, 73),
+        "art": (236, 380, 1150, 855), "title": (382, 204, 878, 95), "destiny": (1310, 204, 105, 107),
+        "fill_boxes": [(260, 1323, 1118, 681, "#f4f2f6")],
+        "game_text": (290, 1350, 1060, 640), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
+        "copyright_x": 1416, "gt_size": 56, "dark_text": True, "no_type": True,
     },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
@@ -270,6 +292,7 @@ ICON_FILES = {
     "lightsaber": "icons/inline-permanent-weapon.png", "permanent-weapon": "icons/inline-permanent-weapon.png",
     "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
+    "independent": "icons/inline-independent.png", "presence": "icons/inline-presence.png",
     "permanent-pilot": "icons/pilot.png", "permanent-pilot-light": "icons/pilot-light-745.png",   # same helmet icon as Pilot on the printed cards
 }
 
@@ -299,6 +322,9 @@ def game_text_html(text: str) -> str:
         elif name in ("alter", "control", "sense"):
             # the slips' red "no" circle with the letter: drawn (transparent), not a pasted raster
             out.append(f'<span class="noicon"><span class="nol">{name[0].upper()}</span></span>')
+        elif name == "icon" and arg in ("maintenance-star", "maintenance-skull"):
+            # Decipher's maintenance-cost glyphs: ★ and ☠ as text (DejaVu has both), sized like the slip prints them
+            out.append(f'<span class="glyph">{"★" if arg == "maintenance-star" else "☠"}</span>')
         elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
@@ -545,7 +571,7 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
     else:
         parts.append(f'<div class="title" style="position:absolute;{box("title")}">{esc_i(card["title"])}</div>')
-    if card.get("destiny"):
+    if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
         if " or " in dv:   # multi-value destiny (R2-D2 "2 or 5"): the printed pill is widened to the left
             x, y, w, h = t["destiny"]
@@ -554,6 +580,8 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="destiny" style="position:absolute;left:{x - ext}px;top:{y}px;width:{w + ext}px;height:{h}px;font-size:80px;white-space:nowrap;padding-top:4px">{dv.replace(" or ", "<span style=\"font-size:46px\">&nbsp;or&nbsp;</span>")}</div>')
         else:
             parts.append(f'<div class="destiny" style="position:absolute;{box("destiny")}">{dv}</div>')
+    for fx, fy, fw, fh, col in t.get("fill_boxes", []):
+        parts.append(f'<div style="position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;background:{col}"></div>')
     # lore
     if card.get("lore"):
         parts.append(f'<div class="lore fit" style="position:absolute;{box("lore")}">{game_text_html(card["lore"])}</div>')
@@ -639,7 +667,8 @@ def build_html(card: dict) -> str:
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:AGLightCn;font-size:58px;color:{ink};letter-spacing:0.8px;line-height:60px;padding:4px 110px 0 10px;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", 60)}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
-    .gt{{font-family:AGCn;font-size:62px;color:{ink};letter-spacing:0.5px;line-height:65px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
+    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{ink};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + 3}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
+    .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:0.95em;line-height:0}}
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
     .gt-icon{{vertical-align:-9px;margin:0 3px}}

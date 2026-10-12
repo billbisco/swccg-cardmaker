@@ -1,0 +1,41 @@
+{
+ "number": "43",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Probe Droid",
+ "caption": "Probe Droid (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "3"
+  ],
+  [
+   "PROBE DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "_When drawn for destiny, you may peek at opponent’s hand._ Provides presence. Thrice per turn, your Imperial may deploy -1 to same site. Your total battle destiny here is +1 for each Imperial here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Arakyd Viper probe droid. Has sensors specifically designed to detect traces of Rebel activity. Equipped with an auto-destruct mechanism. A highly durable *spy* droid.",
+ "destiny": "2",
+ "base_page": "Probe Droid (Original)",
+ "art": {
+  "src": "src/vs4/43-Hoth-D-probedroid-decipher-archive.gif",
+  "modern": "src/vs4/modern/43-VB2-D-probedroid-pre.gif"
+ },
+ "id": "vs4-43",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Droid character: stat boxes POWER 2 / ARMOR 3 (an ARMOR box instead of ABILITY, as on the printed card) / third box label PROBE DROID → ['PROBE DROID','']. Slip deploy 2 / forfeit 5 (same as printed). First sentence printed in italics; curly apostrophe in opponent’s. Icon column empty (only the blue virtual-set sphere). Affiliation Droid (wiki subtype Droid; grey droid frame). Lore corrected from the scan: 'spy' is printed bold (clear on the 745 px face, which keeps the printed lore) → *spy*. The wiki's default 'Probe Droid' page links the archive face; the 745 px Hoth-D-probedroid.gif is the PC Errata face (D-E1, rewritten game text) — downloaded, not used; printed face = 'Probe Droid (Original)' → Hoth-D-probedroid-decipher-archive.gif (350×490) used. Modern: VB2 -pre (350) used; non-pre (identical bytes) also downloaded; no V-set remake exists. Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "_When drawn for destiny, you may peek at\nopponent’s hand._ Provides presence. Thrice per\nturn, your Imperial may deploy -1 to same site.\nYour total battle destiny here is +1 for each\nImperial here."
+}

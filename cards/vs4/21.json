@@ -1,0 +1,39 @@
+{
+ "number": "21",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Tigran Jamiro",
+ "caption": "•Tigran Jamiro (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Deploys free to Dantooine, Hoth, or Yavin 4. At same and related sites, opponent’s aliens and Imperials are deploy +1.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Senior logistics officer from Onderon. Left Dantooine to serve on Yavin 4 before coming to Hoth. All personnel entering Echo Base must report to him.",
+ "destiny": "3",
+ "base_page": "Tigran Jamiro",
+ "art": {
+  "src": "src/vs4/21-Hoth-L-tigranjamiro.gif",
+  "modern": "src/vs4/modern/21-VB2-L-tigranjamiro-pre.gif"
+ },
+ "id": "vs4-21",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Third stat box printed blank. Icon column: warrior (blaster on blue). Slip deploy 2 / forfeit 4 (same as printed). Curly apostrophe in opponent’s. Lore matches the scan. Base scan only at 350 px (Hoth-L-tigranjamiro.gif, the only Decipher face on the wiki, not errata-tagged). Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "Deploys free to Dantooine, Hoth, or Yavin 4. At\nsame and related sites, opponent’s aliens and\nImperials are deploy +1."
+}

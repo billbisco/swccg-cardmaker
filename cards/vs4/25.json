@@ -1,0 +1,28 @@
+{
+ "number": "25",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "You Will Go To The Dagobah System",
+ "caption": "You Will Go To The Dagobah System (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▼ a character, device, starship, vehicle, or weapon to a Dagobah site (regardless of Dagobah deployment restrictions). OR During your control phase, relocate your character to a Dagobah site.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“There you will learn from Yoda, the Jedi Master who instructed me.”",
+ "destiny": "4",
+ "base_page": "You Will Go To The Dagobah System",
+ "art": {
+  "src": "src/vs4/25-Hoth-L-youwillgotothedagobahsystem.gif",
+  "modern": "src/vs4/modern/25-V25-L-youwillgotothedagobahsystem.gif"
+ },
+ "id": "vs4-25",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique (no dot on the bottom strip; wiki Unrestricted). Slip banner USED INTERRUPT (the printed card is a Lost Interrupt). The crop cuts off the slip's heading (only the descenders of the letters are visible); title and caption read from the bottom strip. Lore corrected from the scan: curly double quotes “…me.” (wiki prints straight single quotes); confirmed on the 745 px V25 remake. Base scan only at 350 px. Modern: V25-L-youwillgotothedagobahsystem.gif (745) used; VB2 -pre and non-pre (350) also downloaded. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "▼ a character, device, starship, vehicle, or weapon to\na Dagobah site (regardless of Dagobah deployment\nrestrictions). OR During your control phase, relocate\nyour character to a Dagobah site."
+}

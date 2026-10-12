@@ -1,0 +1,28 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Nick Of Time",
+ "caption": "•Nick Of Time (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Dack Ralter and Wes Janson have {pilot:2}. During your control phase, may ▲ one Attack Pattern Delta, Desperate Tactics, Lucky Shot, One More Pass, Rapid Fire, or a vehicle weapon. May lose 2 Force to cancel Trample or Walker Barrage. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Luke barely escaped being crushed by the AT-AT’s massive footpad during the Battle of Hoth.",
+ "destiny": "2",
+ "base_page": "Nick Of Time",
+ "art": {
+  "src": "src/vs4/14-SE-L-nickoftime.gif",
+  "modern": "src/vs4/modern/14-VB2-L-nickoftime-pre.gif"
+ },
+ "id": "vs4-14",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique (•). Inline yellow pilot-power icon followed by '2.' → {pilot:2}. Game text ends with the red circle-slash A (immune to Alter), no period after it. Base card is Special Edition (1998), not Hoth; copyright not legible at 350 px. Lore: apostrophe in 'AT-AT’s' curly as printed (wiki straight). Base scan only at 350 px. Modern: VB2 only (-pre used; non-pre also downloaded).",
+ "game_text_lines": "Deploy on table. Dack Ralter and Wes Janson have\n{pilot:2}. During your control phase, may ▲ one Attack\nPattern Delta, Desperate Tactics, Lucky Shot, One More\nPass, Rapid Fire, or a vehicle weapon. May lose 2 Force\nto cancel Trample or Walker Barrage. {alter}"
+}

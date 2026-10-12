@@ -1,0 +1,39 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "R5-M2 (Arfive-Emmtoo)",
+ "caption": "R5-M2 (Arfive-Emmtoo) (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ASTROMECH DROID",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "Your capital starships are deploy -1 and are destiny +2 when drawn for weapon or battle destiny. Once per game, Shawn Valdez may deploy for free to same site.",
+ "icons": [
+  "astromech"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Programmed to pilot sublight tactical courses. R5 units are in high demand for combat starships. R5-M2 helped plan evacuation routes from Echo Base. Owned by Shawn Valdez.",
+ "destiny": "4",
+ "base_page": "R5-M2 (Arfive-Emmtoo)",
+ "art": {
+  "src": "src/vs4/15-Hoth-L-r5m2arfiveemmtoo.gif",
+  "modern": "src/vs4/modern/15-VB2-L-r5m2arfiveemmtoo-pre.gif"
+ },
+ "id": "vs4-15",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Two stat boxes (POWER 1, ASTROMECH DROID label). Icon column: one red square with a green astromech dome = astromech; the printed Hoth card has no icon in its column (the wiki's 'Nav Computer' is a characteristic), so the slip adds it. Deploy 1 / forfeit 3 as printed on the slip (same as base). Lore matches the scan. Base scan only at 350 px. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "Your capital starships are deploy -1 and are\ndestiny +2 when drawn for weapon or battle\ndestiny. Once per game, Shawn Valdez may\ndeploy for free to same site."
+}

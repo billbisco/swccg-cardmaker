@@ -20,6 +20,12 @@ def template_for(c: dict) -> str:
     side = "ls" if c["side"] == "Light" else "ds"
     st = (c.get("slip_type") or "").lower()
     aff = (c.get("affiliation") or "").lower()
+    if st == "objective" or c.get("game_text_back"):
+        return "objective-ls" if side == "ls" else "objective"
+    if "creature" in st and "vehicle" not in st:
+        return "creature"
+    if st == "site":
+        return "loc-site"
     if st == "character" or c.get("stats") and not c.get("card_type"):
         if side == "ls":
             if "alien" in aff and "rebel" in aff:
@@ -34,6 +40,8 @@ def template_for(c: dict) -> str:
         if "alien" in aff:
             return "ds-character-alien"
         return "ds-character-imperial"
+    if "weapon" in st or "device" in st:
+        return f"{side}-weapon"
     if "vehicle" in st:
         return f"{side}-vehicle"
     if "starfighter" in st or "starship" in st or "capital" in st:
@@ -73,9 +81,17 @@ def convert(c: dict, vs: int) -> dict:
         card["banner_icon"] = "grabber"
     if src:
         card["art"] = {"src": src}
-    for k in ("margin_left", "margin_right", "lore_align", "lore_indent"):
-        if c.get(k):
+    for k in ("margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+        if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
+    if t == "loc-site":
+        card["light_force"] = bool(c.get("light_force")); card["dark_force"] = bool(c.get("dark_force"))
+        card["dark_text"] = c.get("dark_text") or ""
+    if t == "objective":
+        card["destiny"] = c.get("destiny") or "0"
+        card["back"] = {"title": c.get("title_back") or "", "caption": c.get("caption_back") or f"{c.get('title_back','')} (V)",
+                        "destiny": c.get("destiny_back") or "7", "game_text": (c.get("game_text_back_lines") or c.get("game_text_back") or ""),
+                        "art": {"src": (c.get("art_back") or {}).get("modern") or (c.get("art_back") or {}).get("src")}}
     return card
 
 
@@ -89,5 +105,8 @@ if __name__ == "__main__":
         try:
             m, h = render.render(card)
             print(n, card["template"], "ok")
+            if card.get("back"):   # Objective: second face
+                b = dict(card); b.update(card["back"]); b["id"] = card["id"] + "b"; b.pop("back")
+                render.render(b); print(n + "b", card["template"], "ok")
         except Exception as e:
             print(n, card["template"], "FAIL", e)

@@ -1,0 +1,28 @@
+{
+ "number": "49",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Stop Motion",
+ "caption": "Stop Motion (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ Cold Feet, He Hasn’t Come Back Yet, or Ice Storm. OR Cancel Dodge. OR Cancel opponent’s ‘react’ away from battle. OR Cancel opponent’s attempt to randomly remove one or more cards from your hand (except with Grimtaash).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Your tauntaun’ll freeze before you reach the first marker.”",
+ "destiny": "6",
+ "base_page": "Stop Motion",
+ "art": {
+  "src": "src/vs4/49-Hoth-D-stopmotion.gif",
+  "modern": "src/vs4/modern/49-VB2-D-stopmotion-pre.gif"
+ },
+ "id": "vs4-49",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Curly apostrophes (Hasn’t, opponent’s) and curly single quotes ‘react’ on the slip. Icon column empty (only the blue virtual-set sphere). Lore corrected from the scan: the quotation uses curly double quotes “…marker.” (wiki straight single quotes). Base scan only at 350 px (Hoth-D-stopmotion.gif, the only Decipher face on the wiki, not errata-tagged). Modern: VB2 -pre (350) used; non-pre (identical bytes) also downloaded; no V-set remake exists. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "▲ Cold Feet, He Hasn’t Come Back Yet, or Ice Storm.\nOR Cancel Dodge. OR Cancel opponent’s ‘react’ away\nfrom battle. OR Cancel opponent’s attempt to randomly\nremove one or more cards from your hand (except with\nGrimtaash)."
+}

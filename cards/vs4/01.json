@@ -1,0 +1,37 @@
+{
+ "number": "01",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•2-1B (Too-Onebee)",
+ "caption": "•2-1B (Too-Onebee) (V)",
+ "stats": [
+  [
+   "POWER",
+   "0"
+  ],
+  [
+   "MEDICAL DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "Once per turn, may place your non-droid character just lost at same or related site in Used Pile instead of Lost Pile. X on Bacta Tank is -2.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Made by Genetech. Unusually independent for a droid. Forced to serve a Moff on Firro, but was liberated by Tiree. Now dedicated to serving the Alliance.",
+ "destiny": "1",
+ "base_page": "2-1B (Too-Onebee)",
+ "art": {
+  "src": "src/vs4/01-Hoth-L-21btooonebee-decipher-archive.gif",
+  "modern": "src/vs4/modern/01-VB2-L-21btooonebee-pre.gif"
+ },
+ "id": "vs4-01",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Slip has two stat boxes (POWER 0, MEDICAL DROID label). No icons in the column (only the blue virtual-set sphere, cropped at the right edge). The 745 px Hoth-L-21btooonebee.gif is the PC Errata face (D-E1, errata game text) — downloaded to src/vs4/ but the 350 px decipher-archive printed face is used. Lore matches the scan. Modern: Virtual Block 2 only (VB2-L-21btooonebee-pre.gif, 350 px; the non-pre VB2 file also downloaded). Copyright 1996 (Hoth), legible on the 745 face.",
+ "game_text_lines": "Once per turn, may place your non-droid\ncharacter just lost at same or related site in Used\nPile instead of Lost Pile. X on Bacta Tank is -2."
+}

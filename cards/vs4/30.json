@@ -1,0 +1,43 @@
+{
+ "number": "30",
+ "side": "Dark",
+ "slip_type": "Combat Vehicle",
+ "card_type": "COMBAT VEHICLE: AT-ST",
+ "title": "•Blizzard Scout 1",
+ "caption": "•Blizzard Scout 1 (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "LANDSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "May add 1 pilot or passenger. Permanent pilot provides ability of 2. May move as a ‘react.’ During battle, if with your piloted AT-AT, may cancel game text of an opponent’s character present.",
+ "icons": [
+  "permanent-pilot"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "*Enclosed* All Terrain Scout Transport (AT-ST). Provides flanking support to the AT-ATs of Blizzard Force. Modified for cold weather combat.",
+ "destiny": "4",
+ "base_page": "Blizzard Scout 1",
+ "art": {
+  "src": "src/vs4/30-Hoth-D-blizzardscout1.gif",
+  "modern": "src/vs4/modern/30-V0-D-blizzardscout1.gif"
+ },
+ "id": "vs4-30",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Scomp-link ring at the top-left of the text box → scomp true. Icon column: one yellow square with a black pilot figure = Permanent Pilot → 'permanent-pilot'. Slip deploy 3 / forfeit 5 (same as printed). Curly single quotes ‘react.’ (period inside) and curly apostrophe in opponent’s. Lore corrected from the scan: 'Enclosed' is printed in bold (keyword) → *Enclosed*. Only one Decipher face exists on the wiki, Hoth-D-blizzardscout1.gif (745×1039), whose corner is tagged D-E1 although the wiki page is 'printed' (no (Original)/(Errata) pages) and its game text matches the printed card — used. Modern: V0-D-blizzardscout1.gif (745) used; VB2 -pre and non-pre (350) also downloaded. Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "May add 1 pilot or passenger. Permanent pilot\nprovides ability of 2. May move as a ‘react.’ During\nbattle, if with your piloted AT-AT, may cancel game\ntext of an opponent’s character present."
+}

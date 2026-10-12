@@ -1,0 +1,28 @@
+{
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Heroic Sacrifice",
+ "caption": "Heroic Sacrifice (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on opponent’s just deployed {maintenance} card; opponent loses 1 Force and you may retrieve 1 Force. That card may not apply its ability toward drawing battle destiny, is power -3, and gains (in addition to its own maintenance cost): “{icon:maintenance-star}Lose 1 Force, or {icon:maintenance-skull}.” {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Alliance lost many fine soldiers at conflicts such as the Battle of Hoth. The Rebel High Command is aware of the cost of freedom from Imperial tyranny.",
+ "destiny": "4",
+ "base_page": "Heroic Sacrifice",
+ "art": {
+  "src": "src/vs4/09-SE-L-heroicsacrifice.gif",
+  "modern": null
+ },
+ "id": "vs4-09",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Non-unique. Base card is Special Edition (1998; '1998 DECIPHER INC.' legible on the scan). Inline gold wheel = {maintenance}. Inside the quoted maintenance phrase the slip prints Decipher's typographic maintenance glyphs: a six-pointed star ✶ (directly before 'Lose', no space) → {icon:maintenance-star}, and a skull-and-crossbones ☠ (before the period) → {icon:maintenance-skull}; the wiki stub calls the skull '(grabber)', but the slip glyph is a skull, not the hand grabber icon of the cover ICON KEY. Text ends with the red circle-slash C (immune to Control) and no period after it. Lore matches the scan. Base scan only at 350 px. No modern/VB remake image exists on the wiki (modern null).",
+ "game_text_lines": "Deploy on opponent’s just deployed {maintenance} card; opponent\nloses 1 Force and you may retrieve 1 Force. That card\nmay not apply its ability toward drawing battle destiny,\nis power -3, and gains (in addition to its own\nmaintenance cost): “{icon:maintenance-star}Lose 1 Force, or {icon:maintenance-skull}.” {control}"
+}

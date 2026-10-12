@@ -1,0 +1,28 @@
+{
+ "number": "04",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "Dark Dissension",
+ "caption": "Dark Dissension (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: ▲ Demotion. OR For remainder of turn, cancel the game text of an Imperial (except a Dark Jedi) present with another Imperial.\nLOST: Cancel Imperial Command (unless limiting your battle destiny draws).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The huge Imperial officers corps, with its high rate of turnover, is rife with competitiveness and ambition. Advancement comes at the expense of another’s career.",
+ "destiny": "3",
+ "base_page": "Dark Dissension",
+ "art": {
+  "src": "src/vs4/04-Hoth-L-darkdissension.gif",
+  "modern": "src/vs4/modern/04-VB2-L-darkdissension-pre.gif"
+ },
+ "id": "vs4-04",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. USED:/LOST: lines kept with \\n. Lore: apostrophe in 'another’s' made curly as printed (wiki straight). Base scan only at 350 px. Modern: Virtual Block 2 only (VB2-L-darkdissension-pre.gif, 350; non-pre also downloaded). Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "USED: ▲ Demotion. OR For remainder of turn, cancel\nthe game text of an Imperial (except a Dark Jedi)\npresent with another Imperial.\nLOST: Cancel Imperial Command (unless limiting your\nbattle destiny draws)."
+}

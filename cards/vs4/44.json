@@ -1,0 +1,28 @@
+{
+ "number": "44",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Probe Telemetry",
+ "caption": "Probe Telemetry (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ a Probe Droid. OR Place a non-unique card from a Lost Pile out of play.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Probe droids use electromagnetic, seismic, acoustic, olfactory and optical sensors. They report their findings using an omnisignal unicode.",
+ "destiny": "4",
+ "base_page": "Probe Telemetry",
+ "art": {
+  "src": "src/vs4/44-Hoth-D-probetelemetry.gif",
+  "modern": "src/vs4/modern/44-V23-D-probetelemetry.gif"
+ },
+ "id": "vs4-44",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Short text, no immunity icon. Icon column empty (only the blue virtual-set sphere). Lore matches the scan. Base scan only at 350 px (Hoth-D-probetelemetry.gif, the only Decipher face on the wiki, not errata-tagged). Modern: V23-D-probetelemetry.gif (745, Virtual Set 23 — different game text) used; VB2 -pre and non-pre (350, identical bytes) also downloaded. Copyright 1996 (Hoth), not legible at 350 px; the V23 remake's vertical line is legible.",
+ "game_text_lines": "▲ a Probe Droid. OR Place a non-unique card from a\nLost Pile out of play."
+}

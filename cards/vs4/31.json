@@ -1,0 +1,28 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "•Breached Defenses",
+ "caption": "•Breached Defenses (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on opponent’s just deployed {maintenance} card; opponent loses 1 Force and you may retrieve 1 Force. That card may not apply its ability toward drawing battle destiny, is power -3, and gains (in addition to its own maintenance cost): “{icon:maintenance-star}Lose 1 Force, or {icon:maintenance-skull}.” {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Imperial troops have entered the base! Imperial troops have entered—”",
+ "destiny": "4",
+ "base_page": "Breached Defenses",
+ "art": {
+  "src": "src/vs4/31-Hoth-D-breacheddefenses.gif",
+  "modern": null
+ },
+ "id": "vs4-31",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Slip banner IMMEDIATE EFFECT (same as the printed card). Inline gold wheel after 'just deployed' → {maintenance}; the quoted maintenance phrase prints a star glyph directly before 'Lose' (no space) and a skull glyph before the closing period → {icon:maintenance-star}/{icon:maintenance-skull}; text ends with the red circle-slash C (immune to Control) after the closing quote, no period after it. Icon column empty (only the blue virtual-set sphere). Base card is the Hoth Immediate Effect (not Special Edition). Lore corrected from the scan: printed with curly double quotes and an em dash, “Imperial troops have entered the base! Imperial troops have entered—” (wiki prints straight single quotes and a hyphen). Base scan only at 350 px (Hoth-D-breacheddefenses.gif). Copyright 1996 (Hoth), not legible at 350 px. No modern remake of this card alone: the only V file is VB6-D-breacheddefenses&molator-pre.gif, a Virtual Block 6 combined card '•Breached Defenses & •Molator' (350 px, same Vader art, bottom strip reads '•Breached Defenses (V)' 31) — downloaded to src/vs4/modern/31-VB6-D-breacheddefenses_molator-pre.gif ('&' replaced by '_' in the local name) but modern set null since it is a different card.",
+ "game_text_lines": "Deploy on opponent’s just deployed {maintenance} card; opponent\nloses 1 Force and you may retrieve 1 Force. That card\nmay not apply its ability toward drawing battle destiny,\nis power -3, and gains (in addition to its own\nmaintenance cost): “{icon:maintenance-star}Lose 1 Force, or {icon:maintenance-skull}.” {control}"
+}

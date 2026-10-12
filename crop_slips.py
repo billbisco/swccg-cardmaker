@@ -23,7 +23,7 @@ def slip_boxes(png: Path):
     bb = []
     for o in ndimage.find_objects(lab):
         h = o[0].stop - o[0].start; w = o[1].stop - o[1].start
-        if 700 < w < 800 and 300 < h < 420:
+        if 700 < w < 800 and 300 < h < 460:      # Objectives print taller slips (432 px)
             bb.append((o[1].start, o[0].start, w, h))
     bb.sort(key=lambda b: (round(b[1] / 100), b[0]))
     return bb
@@ -55,15 +55,20 @@ def clean(crop: Image.Image, w: int) -> Image.Image:
 
 def main():
     vs = int(sys.argv[1])
+    from sheet import slip_boxes as keyed_boxes
     stubs = json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8"))
     names = {int(v["image"][5:7]): v["image"][8:-4] for v in stubs.values() if v["set"] == f"Virtual Set {vs} (Original)"}
+    pages = {}
     n = 0
-    for png in sorted((ROOT / f"src/slips/vs{vs}").glob("p300-*.png")):
-        im = Image.open(png).convert("RGB")
-        for x, y, w, h in slip_boxes(png):
-            n += 1
-            crop = im.crop((x - PAD_SIDE, y - PAD_TOP, x + w + PAD_SIDE + 1, y + max(MIN_H, h + 4)))
-            clean(crop, w).save(ROOT / f"src/slips/vs{vs}/{n:02d}-{names[n]}.png", optimize=True)
+    for key, (pg, x, y, w, h) in sorted(keyed_boxes(vs).items()):
+        im = pages.setdefault(pg, Image.open(ROOT / f"src/slips/vs{vs}/p300-{pg}.png").convert("RGB"))
+        crop = im.crop((x - PAD_SIDE, y - PAD_TOP, x + w + PAD_SIDE + 1, y + max(MIN_H if h > 300 else h + 4, h + 4)))
+        crop = clean(crop, w)
+        num = int(key[:2])
+        if h <= 300 and crop.height > PAD_TOP + h + 4:   # short site slips: no MIN_H padding below
+            crop = crop.crop((0, 0, crop.width, PAD_TOP + h + 6))
+        crop.save(ROOT / f"src/slips/vs{vs}/{num:02d}{key[2:]}-{names[num]}.png", optimize=True)
+        n += 1
     print(vs, n, "slips")
 
 

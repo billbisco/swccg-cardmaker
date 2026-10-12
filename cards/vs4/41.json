@@ -1,0 +1,28 @@
+{
+ "number": "41",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Krayt Dragon Bones",
+ "caption": "•Krayt Dragon Bones (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your ferocious creatures are deploy -2 and ferocity +2. Once per turn, may ▲ a ferocious creature. Twice per game, may deploy a ferocious creature from under your Starting Effect. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Tusken Raiders, Jawas and other desert dwellers believe that krayt dragon bones possess mystical powers that can bring good or bad luck.",
+ "destiny": "3",
+ "base_page": "Krayt Dragon Bones",
+ "art": {
+  "src": "src/vs4/41-ANH-D-kraytdragonbones.gif",
+  "modern": "src/vs4/modern/41-VB4-D-kraytdragonbones-pre.gif"
+ },
+ "id": "vs4-41",
+ "virtual_set": 4,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Base card is A New Hope (1996), not Hoth; expansion ring = A New Hope; copyright 'TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.' read off the 350 px scan's vertical line. Text ends with the red circle-slash A (immune to Alter) after 'Starting Effect.' → {alter}. Icon column empty (only the blue virtual-set sphere). Lore matches the scan (no bold/italic discernible at 350 px). Base scan only at 350 px (ANH-D-kraytdragonbones.gif, the only Decipher face on the wiki). Modern: no V-set remake exists; Virtual Block 4 images VB4-D-kraytdragonbones-pre.gif and VB4-D-kraytdragonbones.gif (350, identical bytes) downloaded, -pre used. VB6-D-darkwaters&kraytdragonbones is a different combined card (Dark Waters & Krayt Dragon Bones) — not downloaded.",
+ "game_text_lines": "Deploy on table. Your ferocious creatures are deploy -2\nand ferocity +2. Once per turn, may ▲ a ferocious\ncreature. Twice per game, may deploy a ferocious\ncreature from under your Starting Effect. {alter}"
+}
