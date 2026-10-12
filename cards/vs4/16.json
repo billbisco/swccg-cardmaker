@@ -1,0 +1,39 @@
+{
+ "number": "16",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Rebel Scout",
+ "caption": "•••Rebel Scout (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "May deploy -1 as a ‘react’ to same site as a Rebel. When deployed, may peek at the top card of a Reserve Deck; may place that card on bottom of that Reserve Deck.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "A Rebel scout such as Vidar Blin is usually assigned to recon missions. Trained in first-response tactics, many come to the Alliance with prior special forces experience.",
+ "destiny": "2",
+ "base_page": "Rebel Scout (Original)",
+ "art": {
+  "src": "src/vs4/16-Hoth-L-rebelscout-decipher-archive.gif",
+  "modern": "src/vs4/modern/16-VB2-L-rebelscout-pre.gif"
+ },
+ "id": "vs4-16",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Restricted (•••). Third stat box printed blank. Icon column: warrior. Curly single quotes ‘react’ on the slip. Lore corrected: wiki prints 'A Rebel Scout such as' — the scan prints lowercase 'scout'. The wiki's default 'Rebel Scout' page carries Glossary 2.0 errata text and its 350 px Hoth-L-rebelscout.gif is the 'E' errata face (downloaded, not used); the printed face is 'Rebel Scout (Original)' → Hoth-L-rebelscout-decipher-archive.gif (367×506, Decipher.com archive scan with a black bleed) used. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "May deploy -1 as a ‘react’ to same site as a\nRebel. When deployed, may peek at the top card\nof a Reserve Deck; may place that card on\nbottom of that Reserve Deck."
+}

@@ -1,0 +1,39 @@
+{
+ "number": "47",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Sergeant Major Bursk",
+ "caption": "•Sergeant Major Bursk (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{maintenance} cards may not participate in battle the turn they are deployed and are placed out of play when they leave the table.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Leader of most brutal snowtrooper platoon in the Battle of Hoth. Cunning planner. Coordinates attacks and manages troop movements.",
+ "destiny": "3",
+ "base_page": "Sergeant Major Bursk",
+ "art": {
+  "src": "src/vs4/47-SE-D-sergeantmajorbursk.gif",
+  "modern": "src/vs4/modern/47-VB2-D-sergeantmajorbursk-pre.gif"
+ },
+ "id": "vs4-47",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique (•). Stats POWER 3 / ABILITY 2, third box printed blank. Slip deploy 2 / forfeit 3 (same as printed). Text opens with the gold maintenance wheel → {maintenance} ('{maintenance} cards may not participate…', same text as Toryn Farr 22). Icon column: warrior (blaster on blue). Affiliation Imperial. Lore corrected from the scan: printed 'platoon' (wiki typo 'plotoon') and 'Battle of Hoth' with capital B (wiki 'battle'); no bold keyword discernible at 350 px ('Leader' measures the same stroke density as the surrounding words), so no markup added — verify if a larger scan turns up. Base card is Special Edition (1998), not Hoth; copyright format '© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.' read off the 350 px scan's vertical line. Base scan only at 350 px (SE-D-sergeantmajorbursk.gif). Modern: VB2 -pre (350) used; non-pre (identical bytes) also downloaded; no V-set remake exists.",
+ "game_text_lines": "{maintenance} cards may not participate in battle the turn\nthey are deployed and are placed out of play when\nthey leave the table."
+}

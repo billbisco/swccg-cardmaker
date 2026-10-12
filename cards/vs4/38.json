@@ -1,0 +1,28 @@
+{
+ "number": "38",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Image Of The Dark Lord",
+ "caption": "•Image Of The Dark Lord (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a planet site. Opponent’s Force drains are -1 here (-2 if Vader controls an adjacent site).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Vader’s *hologram* exacts loyalty from his legions.",
+ "destiny": "6",
+ "base_page": "Image Of The Dark Lord",
+ "art": {
+  "src": "src/vs4/38-Hoth-D-imageofthedarklord.gif",
+  "modern": "src/vs4/modern/38-V0-D-imageofthedarklord.gif"
+ },
+ "id": "vs4-38",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Short text, no immunity icon. Icon column empty. Lore corrected from the scan: 'hologram' bold (keyword — clear on the 745 px V0 remake, which keeps the printed lore), apostrophe curly. Base scan only at 350 px. Copyright 1996 (Hoth), not legible at 350 px; the V0 remake's vertical line is legible. Modern: V0-D-imageofthedarklord.gif (745, Virtual Set 0 — same game text as this slip) used; VB2 -pre and non-pre (350, identical bytes) also downloaded.",
+ "game_text_lines": "Deploy on a planet site. Opponent’s Force drains are -1\nhere (-2 if Vader controls an adjacent site)."
+}

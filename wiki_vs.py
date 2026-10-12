@@ -35,6 +35,11 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="second", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #34 on 28 July 2007", pack="VS2O-pack.png", symbol="VS2O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Light/Dark same-name slips (Sandcrawler, Utinni!) are disambiguated in page titles.": ""}),
+    4: dict(sheet=("https://web.archive.org/web/20071024153629/http://www.swccgpc.com/Resources/VirtualCards4.pdf", "VirtualCards4.pdf", "24 October 2007", "4 December 2006"),
+            legal="5 February 2003", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards4.pdf VirtualCards4.pdf] (starwarsccg.org CDN) — 2003 slip sheet with the legal banner.",
+            ordinal="fourth", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below", pack="VS4O-pack.png", symbol="VS4O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -51,9 +56,11 @@ TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immedia
              "DEVICE": ("Device", None), "UTINNI EFFECT": ("Effect", "Utinni Effect"), "TRANSPORT VEHICLE": ("Vehicle", "Transport"),
              "COMBAT VEHICLE": ("Vehicle", "Combat"), "CREATURE VEHICLE": ("Vehicle", "Creature"), "SHUTTLE VEHICLE": ("Vehicle", "Shuttle"),
              "POLITICAL EFFECT": ("Effect", "Political Effect"), "MOBILE EFFECT": ("Effect", "Mobile Effect"), "EPIC EVENT": ("Epic Event", None),
-             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None)}
+             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None),
+             "VEHICLE WEAPON": ("Weapon", "Vehicle Weapon"), "STARSHIP WEAPON": ("Weapon", "Starship Weapon"), "SNOW CREATURE": ("Creature", None),
+             "CREATURE": ("Creature", None)}
 ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Maintenance]",
-             "nav": "[[Nav Computer]]", "set": None}
+             "nav": "[[Nav Computer]]", "set": None, "independent": "[Independent]", "presence": "[Presence]", "ovs": "[Virtual]"}
 COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astromech", "permanent-pilot": "[[Permanent Pilot]]", "nav": "[[Nav Computer]]"}
 
 
@@ -71,6 +78,7 @@ def expand(c: dict) -> str:
     t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("{ovs} ", "[Virtual] ")
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
     t = re.sub(r"\{set:anh\}", "[A New Hope]", t)
+    t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠")
     t = re.sub(r"\{([\w-]+)\}", lambda m: ICON_WORD.get(m.group(1), f"[{m.group(1).title()}]"), t)
     # ▲ X / ▼ X — object runs to the next sentence end
     def tri(m):
@@ -94,6 +102,7 @@ def lore_wiki(l: str) -> str:
 
 rows = {"Light": [], "Dark": []}
 tsv = []
+extra_gallery = {}
 moves = [] if META["already_renamed"] else [f"{OLDSET}|{SET}", f"Talk:{OLDSET}|Talk:{SET}"] + [f"{k}|{newtitle(k)}" for k, v in stubs.values()]
 def page_of(n):
     pg = newtitle(stubs[n][0])
@@ -112,8 +121,18 @@ for n in range(1, NCARDS + 1):
     rem = f"OVS{VS}-{n:02d}-{safe}-remaster.webp"
     banner = (c.get("card_type") or "").upper()
     banner = banner.replace("_", "")
-    if banner.startswith("STARFIGHTER") or banner.startswith("CAPITAL") or banner.startswith("SQUADRON"):
+    st = (c.get("slip_type") or "").lower()
+    if st == "objective" or c.get("game_text_back"):
+        typ, sub, model, banner = "Objective", "", "", "OBJECTIVE"
+    elif st == "site":
+        typ, sub, model, banner = "Location", "Site", "", "SITE"
+    elif "creature" in st and "vehicle" not in st:
+        typ, sub, model = "Creature", "", ""
+    elif banner.startswith("STARFIGHTER") or banner.startswith("CAPITAL") or banner.startswith("SQUADRON"):
         typ, sub, model = "Starship", banner.split(":", 1)[0].strip().title(), banner.split(":", 1)[1].strip().title().replace("X-Wing", "X-wing").replace("Tie/Ln", "TIE/ln")
+    elif "VEHICLE" in banner and "WEAPON" not in banner:
+        typ, sub = "Vehicle", banner.split(":", 1)[0].replace("VEHICLE", "").strip().title()
+        model = banner.split(":", 1)[1].strip().title().replace("At-At", "AT-AT").replace("At-St", "AT-ST") if ":" in banner else ""
     elif banner:
         typ, sub = TYPE_PAGE[banner]; model = ""
     else:
@@ -121,8 +140,19 @@ for n in range(1, NCARDS + 1):
     sub_link = {"Alien/Rebel": "Alien"}.get(sub, sub)
     if typ == "Vehicle":
         sub_link = "Vehicle"
+    if typ == "Creature" and banner:
+        sub, sub_link, model = "", "", banner.title()
     type_cell = f"[[{typ}]]" if not sub else f"[[{sub_link}|{sub}]]" if typ == "Character" else f"[[{sub_link}|{sub}]]"
     gt = expand(c)
+    rem2, slip2 = "", ""
+    if c.get("game_text_back"):
+        safe_b = re.sub(r"[^A-Za-z0-9]+", "_", (c.get("title_back") or "").replace("•", "")).strip("_")
+        rem2 = f"OVS{VS}-{n:02d}b-{safe_b}-remaster.webp"
+        slip2 = s.get("image2") or f"VS{VS}O-{n:02d}-{safe_b}.png"
+        gt = f"'''{c.get('destiny') or '0'} side – {c['title'].replace('•', '')} (V)'''<br />{gt}<br /><br />'''{c.get('destiny_back') or '7'} side – {c.get('title_back')} (V)'''<br />{expand(dict(c, game_text=c['game_text_back']))}"
+    if c.get("dark_text") and (c.get("slip_type") or "").lower() == "site":
+        gt = f"'''Light:''' {gt}<br />'''Dark (printed):''' {expand(dict(c, game_text=c['dark_text']))}"
+    extra_gallery[page] = f"<gallery mode=\"packed\" heights=\"180\">\nFile:{s['image']}|{c['title'].replace('•', '')} (V) slip\nFile:{slip2}|{c.get('title_back')} (V) slip\n</gallery>\n" if rem2 else ""
     stats = dict(c.get("stats") or [])
     icons = " ".join(COL_ICON.get(i, i.title()) for i in c.get("icons") or [])
     if c.get("scomp"):
@@ -134,7 +164,7 @@ for n in range(1, NCARDS + 1):
 |title={s['title']}
 |card_uid={GEMPSET}_{n}
 |image={rem}
-|image2={s['image']}
+|image2={rem2 or s['image']}{chr(10) + '|image2_layout=responsive' if rem2 else ''}
 |side={c['side']}
 |type={typ}
 |subtype={sub}
@@ -153,6 +183,8 @@ for n in range(1, NCARDS + 1):
 |deploy={c.get('deploy') or ''}
 |forfeit={c.get('forfeit') or ''}
 |icons={icons}
+|light_icons={' '.join(i.title() for i in c.get('light_icons') or [])}
+|dark_icons={' '.join(i.title() for i in c.get('dark_icons') or [])}
 |version_label=virtual
 |set_band=Virtual
 |prev={page_of(n - 1) if n > 1 else ''}
@@ -166,11 +198,14 @@ for n in range(1, NCARDS + 1):
 |hatnote=For the Decipher card this slip modifies, see {base_link or 'the set page'}. Code OVS{VS} · GEMP id {GEMPSET}_{n}.
 }}}}
 
-[[Category:Virtual Original sets]]
+{extra_gallery.get(page, '')}[[Category:Virtual Original sets]]
 """
     fn = OUT / "stubs" / (re.sub(r"[^A-Za-z0-9]+", "_", page) + ".wiki")
     fn.write_text(stub, encoding="utf-8"); tsv.append(f"{page}\t{OUT.name}/stubs/{fn.name}")
-    rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{s['image']}|320px|link={page}]] || [[File:{rem}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
+    slip_cell = f"[[File:{s['image']}|320px|link={page}]]" + (f"<br />[[File:{slip2}|320px|link={page}]]" if slip2 else "")
+    rem_cell = f"[[File:{rem}|200px|link={page}]]" + (f" [[File:{rem2}|200px|link={page}]]" if rem2 else "")
+    rows[c["side"]].append(f"|-\n| {n:02d} || {slip_cell} || {rem_cell} || style=\"white-space:nowrap\" | [[{page}|{s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
+    # the slips of an Objective's back go on the stub as a gallery below the Card template
 
 
 DROP_LINES = ("QA paused", "QA is paused", "Do not collapse", "normalized to the same display size", "Card-list thumbs use", "Individual card pages use")

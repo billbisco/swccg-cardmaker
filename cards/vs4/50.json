@@ -1,0 +1,37 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Creature",
+ "card_type": "SNOW CREATURE",
+ "title": "Wampa",
+ "caption": "Wampa (V)",
+ "stats": [
+  [
+   "FEROCITY",
+   "✶"
+  ],
+  [
+   "VICIOUS HOWL",
+   "4"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "0",
+ "game_text": "✶ Ferocity = 3 + destiny. Habitat: Hoth sites. Deploys only to marker sites. Characters defeated by this Wampa may be relocated to Wampa Cave instead of being eaten (opponent of victim chooses).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Sly, carnivorous beast which stalks the snow-packed tundra. Wampas frequently drag their prey to an ice cave for storage. They always prefer to devour their victims alive.",
+ "destiny": "3",
+ "base_page": "Wampa",
+ "art": {
+  "src": "src/vs4/50-Hoth-D-wampa.gif",
+  "modern": "src/vs4/modern/50-VB2-D-wampa-pre.gif"
+ },
+ "id": "vs4-50",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. CREATURE: slip banner SNOW CREATURE; stat boxes FEROCITY <eight-pointed star glyph> (no number; the same star opens the game text, '✶ Ferocity = 3 + destiny.') → written as ✶ U+2736 in both places (wiki uses '*'), and VICIOUS HOWL 4 (the printed card has VICIOUS HOWL 3 — the slip raises it). Slip deploy 4 / forfeit 0 (same as printed). Icon column empty (only the blue virtual-set sphere); no scomp ring. Lore matches the scan. Base scan only at 350 px (Hoth-D-wampa.gif, the only Decipher face on the wiki). Modern: VB2 -pre (350) used; non-pre (identical bytes) also downloaded; no V-set remake exists. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "✶ Ferocity = 3 + destiny. Habitat: Hoth sites.\nDeploys only to marker sites. Characters defeated by\nthis Wampa may be relocated to Wampa Cave\ninstead of being eaten (opponent of victim chooses)."
+}

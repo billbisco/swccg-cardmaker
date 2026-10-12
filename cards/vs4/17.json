@@ -1,0 +1,39 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Romas “Lock” Navander",
+ "caption": "•Romas “Lock” Navander (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. During your deploy phase, if present with a scomp link, may ▼ a battleground system. If at Echo Command Center, may use 1 Force to suspend ‘Hoth Energy Shield Rules’ until start of your next turn.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Corellian pilot. Defected from the Empire shortly after graduation from the Academy. Tech communications officer at Echo Base. Relays orders to nearby Rebel starships.",
+ "destiny": "3",
+ "base_page": "Romas 'Lock' Navander",
+ "art": {
+  "src": "src/vs4/17-Hoth-L-romaslocknavander.gif",
+  "modern": "src/vs4/modern/17-VB2-L-romaslocknavander-pre.gif"
+ },
+ "id": "vs4-17",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). The crop cuts off the slip's heading (bottom halves of the letters only); title from the bottom strip, which prints curly double quotes “Lock” — as does the printed card's title bar; the wiki base page is titled with straight single quotes (Romas 'Lock' Navander). Third stat box printed blank. Icon column: pilot (yellow helmet). Text starts with the pilot-power icon + '2.' → {pilot:2}. Curly single quotes ‘Hoth Energy Shield Rules’. Lore matches the scan. Base scan only 347×488. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "{pilot:2}. During your deploy phase, if present with a\nscomp link, may ▼ a battleground system. If at\nEcho Command Center, may use 1 Force to\nsuspend ‘Hoth Energy Shield Rules’ until start of\nyour next turn."
+}

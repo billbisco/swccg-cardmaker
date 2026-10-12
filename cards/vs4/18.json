@@ -1,0 +1,39 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Tamizander Rey",
+ "caption": "•Tamizander Rey (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. While at a docking bay, power and defense value +2. Tamizander Rey’s docking bay transit requires -3 Force.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "A native of Esseles. Resigned from Esselian defense force after the Imperial Senate was disbanded. Senior deck officer of Echo Base responsible for docking bay operations.",
+ "destiny": "2",
+ "base_page": "Tamizander Rey",
+ "art": {
+  "src": "src/vs4/18-Hoth-L-tamizanderrey.gif",
+  "modern": "src/vs4/modern/18-VB2-L-tamizanderrey-pre.gif"
+ },
+ "id": "vs4-18",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Third stat box printed blank. Icon column: pilot. Text starts with the pilot-power icon + '2.' → {pilot:2}. Curly apostrophe in Rey’s as printed. Lore matches the scan. Base scan only 346×487. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "{pilot:2}. While at a docking bay, power and defense\nvalue +2. Tamizander Rey’s docking bay transit\nrequires -3 Force."
+}

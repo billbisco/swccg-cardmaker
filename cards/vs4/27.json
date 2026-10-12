@@ -1,0 +1,28 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Vehicle Weapon",
+ "card_type": "VEHICLE WEAPON",
+ "title": "AT-AT Cannon",
+ "caption": "AT-AT Cannon (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your non-{maintenance} AT-AT. May target a character or vehicle at same or adjacent site for free. Draw destiny. Target hit if destiny +1 (+2 if a vehicle) > defense value. If just lost from table, place this weapon in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Laser cannons mounted on the head of an Imperial walker provide devastating, coordinated firepower. Effective against a wide variety of targets.",
+ "destiny": "3",
+ "base_page": "AT-AT Cannon (Original)",
+ "art": {
+  "src": "src/vs4/27-Hoth-D-atatcannon-decipher-archive.gif",
+  "modern": "src/vs4/modern/27-V22-D-atatcannon.gif"
+ },
+ "id": "vs4-27",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Inline gold wheel after 'non-' → {maintenance} ('your non-{maintenance} AT-AT'). Lore matches the scan. The wiki's default 'AT-AT Cannon' page carries Glossary 2.0 errata text and the 745 px Hoth-D-atatcannon.gif is the PC Errata face (D-E1) — downloaded, not used; printed face = 'AT-AT Cannon (Original)' → Hoth-D-atatcannon-decipher-archive.gif (350×490) used. Modern: V22-D-atatcannon.gif (745) used; VB2 -pre and non-pre (350) also downloaded. Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "Deploy on your non-{maintenance} AT-AT. May target a character\nor vehicle at same or adjacent site for free. Draw\ndestiny. Target hit if destiny +1 (+2 if a vehicle) >\ndefense value. If just lost from table, place this weapon\nin Used Pile."
+}

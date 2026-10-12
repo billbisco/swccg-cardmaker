@@ -1,0 +1,28 @@
+{
+ "number": "46",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Self-Destruct Mechanism",
+ "caption": "Self-Destruct Mechanism (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If your droid was just hit by a character weapon, lose that droid to target the character that fired that weapon. Draw destiny. Target hit and forfeit -4 if destiny +3 > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“’Fraid there’s not much left. . . I didn’t hit it that hard; it musta had a self-destruct.”",
+ "destiny": "4",
+ "base_page": "Self-Destruct Mechanism (Original)",
+ "art": {
+  "src": "src/vs4/46-Hoth-D-selfdestructmechanism-decipher-archive.gif",
+  "modern": "src/vs4/modern/46-VB2-D-selfdestructmechanism-pre.gif"
+ },
+ "id": "vs4-46",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. The crop cuts off the slip's heading (bottom halves of the letters only); title and caption read from the bottom strip. 'hit' is printed without quotes on the slip. Icon column empty (only the blue virtual-set sphere). Lore corrected from the scan: the quotation is in double quotes “…” with a leading apostrophe (’Fraid), a spaced ellipsis 'left. . .', a semicolon after 'hard;' and lowercase 'it musta' (wiki: straight single quotes, 'left...I didn't hit it that hard. It musta'); the closing '.”' is read at 367 px and could be '”' alone. The wiki's default 'Self-Destruct Mechanism' page links the archive face; the 350 px Hoth-D-selfdestructmechanism.gif is the 'E' errata face (downloaded, not used); printed face = 'Self-Destruct Mechanism (Original)' → Hoth-D-selfdestructmechanism-decipher-archive.gif (367×506) used. Modern: VB2 -pre (350) used; non-pre (identical bytes) also downloaded; no V-set remake exists. Copyright 1996 (Hoth), not legible at 367 px.",
+ "game_text_lines": "If your droid was just hit by a character weapon, lose\nthat droid to target the character that fired that\nweapon. Draw destiny. Target hit and forfeit -4 if\ndestiny +3 > defense value."
+}

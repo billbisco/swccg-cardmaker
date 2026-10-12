@@ -1,0 +1,28 @@
+{
+ "number": "02",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "Attack Pattern Delta",
+ "caption": "Attack Pattern Delta (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During a battle at a site, if you are about to draw a card for battle destiny, you may instead use the maneuver number of your participating combat vehicle.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Snowspeeder attack plan devised by Commander Skywalker and Rebel tactician Beryl Chiffonage. Single-file formation protects the squadron as the leader draws fire.",
+ "destiny": "3",
+ "base_page": "Attack Pattern Delta",
+ "art": {
+  "src": "src/vs4/02-Hoth-L-attackpatterndelta.gif",
+  "modern": "src/vs4/modern/02-V22-L-attackpatterndelta.gif"
+ },
+ "id": "vs4-02",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Base scan only at 350 px. Lore: wiki prints 'Chifonage'; the 350 px scan reads 'Chiffonage' (double f, and the character's name is Beryl Chiffonage) — corrected; note the modern V22 remake prints 'Chifonage'. Modern: V22-L-attackpatterndelta.gif (745) used; VB2-L-attackpatterndelta-pre.gif (350) also downloaded. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "During a battle at a site, if you are about to draw a\ncard for battle destiny, you may instead use the\nmaneuver number of your participating combat vehicle."
+}

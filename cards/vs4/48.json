@@ -1,0 +1,44 @@
+{
+ "number": "48",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER",
+ "title": "•_Stalker_",
+ "caption": "•_Stalker_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "8"
+  ],
+  [
+   "ARMOR",
+   "7"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "9",
+ "game_text": "May add 6 pilots, 8 passengers, 2 vehicles and 4 TIEs. Permanent pilot provides ability of 2. During your deploy phase, may ▼ one {icon:virtual-set symbol} Probe Droid to a related site.",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Originally assigned to search the Outer Rim for new worlds to subjugate. Launched the probe droid that found Echo Base. Later reassigned to Death Squadron.",
+ "destiny": "1",
+ "base_page": "Stalker",
+ "art": {
+  "src": "src/vs4/48-Hoth-D-stalker.gif",
+  "modern": "src/vs4/modern/48-V1-D-stalker.gif"
+ },
+ "id": "vs4-48",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). 'Stalker' is italic in the slip's title line and caption, 'Imperial' italic in the CAPITAL banner — marked _…_ in title/caption/card_type as on vs2/36. Stats POWER 8 / ARMOR 7 / HYPERSPEED 3; slip deploy 8 / forfeit 9 (same as printed). Scomp-link ring at the top-left of the text box → scomp true. Icon column top to bottom: yellow square with black pilot helmet → 'permanent-pilot', red square with green nav-computer dome → 'nav'. Inline grey sphere before 'Probe Droid' (the sheet's virtual-card symbol, as on vs4/40 and vs2/32) → {icon:virtual-set symbol}. Lore matches the scan (confirmed on the 745 px V1 remake, which keeps the printed lore). Base scan only 348×488 (Hoth-D-stalker.gif, the only Decipher face on the wiki). Modern: V1-D-stalker.gif (745, Virtual Set 1 — different game text) used; VB2 -pre and non-pre (350, identical bytes) also downloaded. Copyright 1996 (Hoth), not legible at 348 px; legible on the V1 remake.",
+ "game_text_lines": "May add 6 pilots, 8 passengers, 2 vehicles and 4\nTIEs. Permanent pilot provides ability of 2. During\nyour deploy phase, may ▼ one {icon:virtual-set symbol} Probe Droid to\na related site."
+}

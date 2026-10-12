@@ -1,0 +1,28 @@
+{
+ "number": "26",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•A Dark Time For The Rebellion",
+ "caption": "•A Dark Time For The Rebellion (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ a cave. OR If opponent just deployed a planet site, ▼ a related location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Absolute control wielded by the Emperor enables the Imperial forces to dominate planetary systems before the Rebel Alliance can gain a foothold.",
+ "destiny": "4",
+ "base_page": "A Dark Time For The Rebellion",
+ "art": {
+  "src": "src/vs4/26-Hoth-D-adarktimefortherebellion.gif",
+  "modern": "src/vs4/modern/26-V1-D-adarktimefortherebellion.gif"
+ },
+ "id": "vs4-26",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•, visible on the bottom strip). Slip banner USED INTERRUPT (the printed card is a Lost Interrupt). The crop cuts off the slip's heading (bottom halves of the letters only); title and caption read from the bottom strip. Lore matches the scan. Base scan only at 350 px. No VB2 (Virtual Block 2) image exists on the wiki for this card; modern: V1-D-adarktimefortherebellion.gif (745) used. V18-D-adarktimefortherebelliontarkinsorders.gif is a different combined card (A Dark Time For The Rebellion / Tarkin's Orders) — not downloaded. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "▲ a cave. OR If opponent just deployed a planet site,\n▼ a related location."
+}

@@ -1,0 +1,43 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•HOTH: ECHO MED LAB",
+ "title": "•Hoth: Echo Med Lab",
+ "caption": "•Hoth: Echo Med Lab (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During your deploy phase, may ▼ a medical droid here.",
+ "dark_text": "If you control, with an Imperial present, Force drain +1 here.",
+ "light_force": true,
+ "dark_force": false,
+ "light_icons": [
+  "scomp",
+  "planet",
+  "interior",
+  "underground"
+ ],
+ "dark_icons": [
+  "scomp",
+  "planet",
+  "interior",
+  "underground"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Hoth: Echo Med Lab",
+ "art": {
+  "src": "src/vs4/10-Hoth-L-hothechomedlab.gif",
+  "modern": "src/vs4/modern/10-VB2-L-hothechomedlab-pre.gif"
+ },
+ "id": "vs4-10",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Landscape site slip; the slip prints only the Light-side half (Light Force icon at left, banner, icon boxes scomp/planet/interior/underground from the outer edge in, Light text) — no Dark text, so dark_text '' and the printed Dark text ('If you control, with an Imperial present, Force drain +1 here.') stays. dark_icons copied from the base scan (Underground, Interior, Planet, Scomp; no Dark Force icon), matching cards/hoth-echo-med-lab-v-vs4.json. 'scomp' here is the site's scomp-link icon box, not the text-box ring. Sites have no lore (''). The only base scan on the wiki (Hoth-L-hothechomedlab.gif, 1039×745) is tagged D-E1 (PC Errata face) — its texts match the printed card; no decipher-archive file exists. Modern: VB2-L-hothechomedlab-pre.gif (490×350; non-pre also downloaded). Copyright 1996 legible on the scan. dark_text = the printed card's Dark side text (the slip replaces only the Light side).",
+ "game_text_lines": "During your deploy phase, may ▼ a medical droid here."
+}

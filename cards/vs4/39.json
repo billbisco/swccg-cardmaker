@@ -1,0 +1,28 @@
+{
+ "number": "39",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "••Imperial Domination",
+ "caption": "••Imperial Domination (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. If your non-Imperial character or {independent} starship on table, this Effect lost. Unless you occupy fewer locations than opponent: if you initiate or win a battle, retrieve an Imperial; during battle, may take an Imperial just drawn for destiny into hand to redraw. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "When Vader’s forces impose the New Order upon a region, Rebel resources and lifelines are quickly eliminated.",
+ "destiny": "5",
+ "base_page": "Imperial Domination",
+ "art": {
+  "src": "src/vs4/39-Hoth-D-imperialdomination.gif",
+  "modern": "src/vs4/modern/39-VB2-D-imperialdomination-pre.gif"
+ },
+ "id": "vs4-39",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Restricted (••, two dots on heading and strip). Inline blue square icon after 'character or' = the Independent starship icon → {independent} ('non-Imperial character or {independent} starship'); text ends with the red circle-slash A (immune to Alter), no period after it. Icon column empty. Lore matches the scan (apostrophe curly). Base scan only at 350 px. Copyright 1996 (Hoth), not legible at 350 px. Modern: Virtual Block 2 only (VB2-D-imperialdomination-pre.gif, 350; non-pre also downloaded, identical bytes).",
+ "game_text_lines": "Deploy on table. If your non-Imperial character or {independent}\nstarship on table, this Effect lost. Unless you occupy\nfewer locations than opponent: if you initiate or win a\nbattle, retrieve an Imperial; during battle, may take an\nImperial just drawn for destiny into hand to redraw. {alter}"
+}

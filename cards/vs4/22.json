@@ -1,0 +1,39 @@
+{
+ "number": "22",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Toryn Farr",
+ "caption": "•Toryn Farr (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. {maintenance} cards may not participate in battle the turn they are deployed and are placed out of play when they leave the table.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Chief Controller at Echo Command. Responsible for communicating orders to the troops. Personally gives firing orders to Ion Cannon Control.",
+ "destiny": "4",
+ "base_page": "Toryn Farr (Original)",
+ "art": {
+  "src": "src/vs4/22-Hoth-L-torynfarr-decipher-archive.gif",
+  "modern": "src/vs4/modern/22-V3-L-torynfarr.gif"
+ },
+ "id": "vs4-22",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Third stat box printed blank. Icon column: pilot (yellow helmet). Text starts with the pilot-power icon + '2.' → {pilot:2}, then the gold maintenance wheel → {maintenance} ('{maintenance} cards may not participate…'). Slip deploy 2 / forfeit 3 (same as printed). Lore matches the scan. The wiki's default 'Toryn Farr' page carries Glossary 2.0 errata text and its image Hoth-L-torynfarr.gif (346×488) is the PC Errata face (tagged 'E') — downloaded, not used; printed face = 'Toryn Farr (Original)' → Hoth-L-torynfarr-decipher-archive.gif (350×490) used. Modern: V3-L-torynfarr.gif (745) used; VB2 -pre and non-pre (350) also downloaded. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "{pilot:2}. {maintenance} cards may not participate in battle the\nturn they are deployed and are placed out of play\nwhen they leave the table."
+}

@@ -1,0 +1,37 @@
+{
+ "number": "40",
+ "side": "Dark",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "Imperial Occupation",
+ "caption": "Imperial Occupation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Deploy Hoth system, Ice Plains, and Main Power Generators (Light Side). May deploy Imperial Decree._ *For* remainder of game, AT-ATs are deploy -1. You may not deploy Colo Claw Fish. Revolution is canceled. *While* this side up, AT-ATs may move for free. Rebels are deploy -1 to Hoth sites. Opponent loses no Force to You May Start Your Landing. During your control phase, may ▲ one AT-AT Cannon, Electro-Rangefinder, Death Squadron, a {icon:virtual-set symbol} AT-AT, or a {icon:virtual-set symbol} Epic Event. *Flip* this card if Main Power Generators ‘blown away.’",
+ "title_back": "Imperial Control",
+ "caption_back": "Imperial Control (V)",
+ "game_text_back": "*While* this side up, Rebel Base Occupation is canceled. Walker Garrison is an Out Of Play Interrupt and {sense}. Rebels are deploy +1 to Hoth sites. Your total battle destiny at Hoth system is +1 for each Imperial there. Unless opponent controls a Hoth location, your Force drain bonuses may not be canceled. Once per turn, when you deploy an AT-AT, may take any one card (except an Interrupt or vehicle) from Lost Pile into hand. During your deploy phase, may ▼ a marker site.",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs4/40-SE-D-imperialcontrol.gif",
+  "modern": "src/vs4/modern/40-VB2-D-imperialcontrol-pre.gif"
+ },
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Imperial Occupation / Imperial Control",
+ "art": {
+  "src": "src/vs4/40-SE-D-imperialoccupation.gif",
+  "modern": "src/vs4/modern/40-VB2-D-imperialoccupation-pre.gif"
+ },
+ "id": "vs4-40",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Objective, two slips: front 40-Imperial_Occupation.png (heading 'Imperial Occupation (V)', strip 'Imperial Occupation (V)'), back 40b-Imperial_Occupation.png (heading 'Imperial Control (V)', strip 'Imperial Control (V)', same number 40). Non-unique (no dot). Front text: italic deploy lines, bold lead words For/While/Flip; ▲ after 'may'; two inline grey/silver spheres (the generic virtual-card symbol, not the blue VS4 symbol) before 'AT-AT' and 'Epic Event' → {icon:virtual-set symbol}; the slip prints a double space after 'Landing.' (collapsed to one). Back text: bold While; 'Out Of Play Interrupt and' is followed by the red circle-slash S (immune to Sense) then a period; ▼ after 'may'. Curly single quotes ‘blown away.’ as printed on the front. Base card: Special Edition Objective 'Imperial Occupation / Imperial Control' (wiki base page; 'Imperial Occupation' redirects to the (V) page). Objectives have no lore ('') and the wiki carries no lore. Destiny: front prints 0 (wiki destiny=0), back prints 7 — recorded as destiny_back '7'. Base scans SE-D-imperialoccupation.gif and SE-D-imperialcontrol.gif, both 350×490 (art_back gives the Imperial Control face). Copyright 1998 (Special Edition); the vertical line on the 350 scans reads '…1998 DECIPHER INC.' faintly. Modern: Virtual Block 2 only (VB2-D-imperialoccupation-pre.gif 350×490 / VB2-D-imperialcontrol-pre.gif 350×491; non-pre files also downloaded, identical bytes).",
+ "game_text_lines": "_Deploy Hoth system, Ice Plains, and Main Power\nGenerators (Light Side). May deploy Imperial Decree._\n*For* remainder of game, AT-ATs are deploy -1. You may\nnot deploy Colo Claw Fish. Revolution is canceled.\n*While* this side up, AT-ATs may move for free. Rebels\nare deploy -1 to Hoth sites. Opponent loses no Force to\nYou May Start Your Landing. During your control phase,\nmay ▲ one AT-AT Cannon, Electro-Rangefinder, Death\nSquadron, a {icon:virtual-set symbol} AT-AT, or a {icon:virtual-set symbol} Epic Event.\n*Flip* this card if Main Power Generators ‘blown away.’",
+ "game_text_back_lines": "*While* this side up, Rebel Base Occupation is canceled.\nWalker Garrison is an Out Of Play Interrupt and {sense}.\nRebels are deploy +1 to Hoth sites. Your total battle\ndestiny at Hoth system is +1 for each Imperial there.\nUnless opponent controls a Hoth location, your Force\ndrain bonuses may not be canceled. Once per turn, when\nyou deploy an AT-AT, may take any one card (except an\nInterrupt or vehicle) from Lost Pile into hand. During\nyour deploy phase, may ▼ a marker site."
+}

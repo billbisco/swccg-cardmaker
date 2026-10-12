@@ -1,0 +1,28 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Maneuvering Flaps",
+ "caption": "Maneuvering Flaps (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During your deploy phase, may reveal an unpiloted combat vehicle from hand to ▲ its matching pilot character (or vice versa) and deploy both simultaneously. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Enhanced steering mechanisms on Rebel T-47s provide increased maneuverability in planetary atmospheres.",
+ "destiny": "4",
+ "base_page": "Maneuvering Flaps",
+ "art": {
+  "src": "src/vs4/12-SE-L-maneuveringflaps.gif",
+  "modern": "src/vs4/modern/12-V0-L-maneuveringflaps.gif"
+ },
+ "id": "vs4-12",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Non-unique. Game text ends with the red circle-slash A (immune to Alter) and no period after it. Base card is Special Edition (1998), not Hoth; copyright not legible at 350 px. Lore matches the scan. Base scan only at 350 px. Modern: V0-L-maneuveringflaps.gif (745) used — its text adds 'May not be suspended.' which the VS4 slip does not print, and its vertical line reads 1998, confirming the year; VB2-L-maneuveringflaps-pre.gif (350×491; non-pre also downloaded).",
+ "game_text_lines": "Deploy on table. During your deploy phase, may reveal\nan unpiloted combat vehicle from hand to ▲ its\nmatching pilot character (or vice versa) and deploy\nboth simultaneously. {alter}"
+}

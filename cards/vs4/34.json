@@ -1,0 +1,28 @@
+{
+ "number": "34",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Death Squadron",
+ "caption": "•Death Squadron (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a Rebel Base system. Star Destroyers (except _Executor_) and Imperial pilots are deploy -1 here. While piloted by a unique (•) Imperial, Star Destroyers may not have their power reduced. Cancels Haven here. If opponent controls this system, this Effect lost. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Make ready to land our troops beyond their energy field and deploy the fleet so that nothing gets off the system.”",
+ "destiny": "3",
+ "base_page": "Death Squadron (Original)",
+ "art": {
+  "src": "src/vs4/34-Hoth-D-deathsquadron-decipher-archive.gif",
+  "modern": null
+ },
+ "id": "vs4-34",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). NOTE: the task brief called this an Admiral's Order, but the slip's banner reads EFFECT and the base card the stub links is the Hoth Effect 'Death Squadron' (U1, destiny 3), not the Death Star II Admiral's Order — transcribed as an Effect. 'Executor' italic; '(•)' is a uniqueness dot in parentheses; text ends with the red circle-slash A (immune to Alter), no period after it. Icon column empty (only the blue virtual-set sphere). Lore corrected from the scan: curly double quotes “…” as printed (wiki straight single quotes). The wiki's default 'Death Squadron' page carries Glossary 2.0 errata text and the 745 px Hoth-D-deathsquadron.gif is the PC Errata face (D-E1) — downloaded, not used; printed face = 'Death Squadron (Original)' → Hoth-D-deathsquadron-decipher-archive.gif (350×490) used. No modern remake and no VB2 image exist on the wiki for this card (V9-D-deathsquadronassignment.gif is a different card; SE-D-deathsquadronstardestroyer.gif is the starship) — modern null. Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "Deploy on a Rebel Base system. Star Destroyers (except\n_Executor_) and Imperial pilots are deploy -1 here. While\npiloted by a unique (•) Imperial, Star Destroyers may\nnot have their power reduced. Cancels Haven here. If\nopponent controls this system, this Effect lost. {alter}"
+}

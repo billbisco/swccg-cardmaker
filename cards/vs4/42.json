@@ -1,0 +1,37 @@
+{
+ "number": "42",
+ "side": "Dark",
+ "slip_type": "Creature",
+ "card_type": "SNOW CREATURE",
+ "title": "•One-Arm",
+ "caption": "•One-Arm (V)",
+ "stats": [
+  [
+   "FEROCITY",
+   "3"
+  ],
+  [
+   "VICIOUS HOWL",
+   "4"
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "0",
+ "game_text": "Habitat: Hoth sites. Deploys only to a marker site. Wampas are {presence}. Other wampas are ferocity and defense value +2. Once per game, may ▼ Wampa Cave.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "When a wampa is wounded, the other members of its pack band together to repel the threat.",
+ "destiny": "3",
+ "base_page": "One-Arm",
+ "art": {
+  "src": "src/vs4/42-SE-D-onearm.gif",
+  "modern": "src/vs4/modern/42-VB2-D-onearm-pre.gif"
+ },
+ "id": "vs4-42",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique (•). CREATURE: slip banner SNOW CREATURE; stat boxes FEROCITY 3 and VICIOUS HOWL 4 (same as printed); deploy 6 / forfeit 0 (same as printed). Inline icon after 'Wampas are' = a green square with two dark figures (the Presence icon) → {presence}. Icon column empty (only the blue virtual-set sphere); no scomp ring. Base card is Special Edition (1998), not Hoth; copyright format read off the 350 px scan's vertical line: '© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.' (Special Edition format, as on Bursk 47 and vs3/05 — NOTE vs4 09/11/12/14/40 use the Hoth-style 'TM & © 1998 LUCASFILM LTD.' format, which does not match the scans). Lore matches the scan. Base scan only at 350 px (SE-D-onearm.gif). Modern: VB2 -pre (350) used; non-pre (identical bytes) also downloaded; no V-set remake exists.",
+ "game_text_lines": "Habitat: Hoth sites. Deploys only to a marker site.\nWampas are {presence}. Other wampas are ferocity and\ndefense value +2. Once per game, may ▼ Wampa\nCave."
+}

@@ -1,0 +1,40 @@
+{
+ "number": "32",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Captain Lennox",
+ "caption": "•Captain Lennox (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "{pilot:3}: any Star Destroyer. _Tyrant_ and •••Death Squadron Star Destroyers are deploy -3 and power +1 here, and their ability-1 permanent pilots are replaced by ability-2 permanent pilots.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Captain of the Imperial Star Destroyer _Tyrant_. An able *leader*. Unlike most Imperial officers, he is dedicated to his ship and crew. Finds political maneuvering distasteful.",
+ "destiny": "2",
+ "base_page": "Captain Lennox (Original)",
+ "art": {
+  "src": "src/vs4/32-Hoth-D-captainlennox-decipher-archive.gif",
+  "modern": "src/vs4/modern/32-VB2-D-captainlennox-pre.gif"
+ },
+ "id": "vs4-32",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Stats POWER 2 / ABILITY 2, third box blank. Slip deploy 2 / forfeit 5 (printed 3/5). Game text opens with the pilot-power icon then '3:' (no period) → {pilot:3}; 'Tyrant' italic; '•••Death Squadron' with three dots. Icons: pilot, warrior. Lore corrected from the scan: 'Tyrant' italic and 'leader' bold (keyword), wiki plain. Affiliation Imperial (Imperial disc top-left). The wiki's default 'Captain Lennox' page carries Glossary 2.0 errata text and the 745 px Hoth-D-captainlennox.gif is the PC Errata face (D-E1) — downloaded, not used; printed face = 'Captain Lennox (Original)' → Hoth-D-captainlennox-decipher-archive.gif (350×490) used. Modern: Virtual Block 2 only (VB2-D-captainlennox-pre.gif, 350; non-pre also downloaded, identical bytes). Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "{pilot:3}: any Star Destroyer. _Tyrant_ and •••Death\nSquadron Star Destroyers are deploy -3 and power\n+1 here, and their ability-1 permanent pilots are\nreplaced by ability-2 permanent pilots."
+}

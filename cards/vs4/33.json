@@ -1,0 +1,43 @@
+{
+ "number": "33",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Captain Piett",
+ "caption": "•Captain Piett (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. Twice per game during opponent’s turn, may place three cards from hand on your Force Pile to draw top two cards from Reserve Deck.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Captain on the _Executor_. Monitored probe droid telemetry. His flawless record of arrests and suppressions has contributed to an impressive rise through the ranks.",
+ "destiny": "2",
+ "base_page": "Captain Piett (Original)",
+ "art": {
+  "src": "src/vs4/33-Hoth-D-captainpiett-decipher-archive.gif",
+  "modern": "src/vs4/modern/33-VB2-D-captainpiett-pre.gif"
+ },
+ "id": "vs4-33",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Stats POWER 2 / ABILITY 3 / FORCE-ATTUNED. Slip deploy 3 / forfeit 4 (same as printed). Game text opens with the pilot-power icon then '2.' → {pilot:2}. Icons: pilot only. Lore corrected from the scan: 'Executor' italic (wiki plain). Affiliation Imperial. The wiki's default 'Captain Piett' page carries Glossary 2.0 errata text and the 745 px Hoth-D-captainpiett.gif is the PC Errata face (D-E1) — downloaded, not used; printed face = 'Captain Piett (Original)' → Hoth-D-captainpiett-decipher-archive.gif (350×490) used. Modern: Virtual Block 2 only (VB2-D-captainpiett-pre.gif, 350; non-pre also downloaded, identical bytes). Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "{pilot:2}. Twice per game during opponent’s turn, may\nplace three cards from hand on your Force Pile to\ndraw top two cards from Reserve Deck."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Tauntaun Bones",
+ "caption": "•Tauntaun Bones (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your ferocious creatures are deploy -2 and ferocity +2. Once per turn, may ▲ a Tauntaun or a ferocious creature. Twice per game, may deploy a Tauntaun or a ferocious creature from under your Starting Effect. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The bones of a tauntaun represent both death and life: death for the prey, life for the predator. A symbol of the ebb and flow of the Force through all things.",
+ "destiny": "3",
+ "base_page": "Tauntaun Bones",
+ "art": {
+  "src": "src/vs4/19-Hoth-L-tauntaunbones.gif",
+  "modern": null
+ },
+ "id": "vs4-19",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Game text ends with the red circle-slash A (immune to Alter), no period after it. Lore matches the scan. Base scan only at 350 px. No modern/VB remake image exists on the wiki (no VB2 or V-set file for tauntaunbones; modern null). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "Deploy on table. Your ferocious creatures are deploy -2\nand ferocity +2. Once per turn, may ▲ a Tauntaun or\na ferocious creature. Twice per game, may deploy a\nTauntaun or a ferocious creature from under your\nStarting Effect. {alter}"
+}

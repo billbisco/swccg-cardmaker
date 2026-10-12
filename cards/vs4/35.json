@@ -1,0 +1,28 @@
+{
+ "number": "35",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Debris Zone",
+ "caption": "Debris Zone (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Once per turn, ▲ Crash Landing or Weapon Malfunction. OR If you have a piloted AT-AT on Hoth, target artillery weapon at a related site is lost. {sense}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A reactor core explosion in a destroyed AT-AT causes a plasma release which shatters its armor, showering the immediate area with molten projectiles.",
+ "destiny": "5",
+ "base_page": "Debris Zone",
+ "art": {
+  "src": "src/vs4/35-Hoth-D-debriszone.gif",
+  "modern": "src/vs4/modern/35-VB2-D-debriszone-pre.gif"
+ },
+ "id": "vs4-35",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Slip banner USED INTERRUPT (same as printed). ▲ after 'Once per turn,'; text ends with the red circle-slash S (immune to Sense), no period after it. Icon column empty. Lore matches the scan. Base scan only at 350 px. Copyright 1996 (Hoth), not legible at 350 px. Modern: Virtual Block 2 only (VB2-D-debriszone-pre.gif, 350; non-pre also downloaded, identical bytes).",
+ "game_text_lines": "Once per turn, ▲ Crash Landing or Weapon\nMalfunction. OR If you have a piloted AT-AT on Hoth,\ntarget artillery weapon at a related site is lost. {sense}"
+}

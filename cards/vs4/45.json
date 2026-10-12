@@ -1,0 +1,30 @@
+{
+ "number": "45",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Security Precautions",
+ "caption": "•Security Precautions (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a battleground site. At same and adjacent sites, your Force generation is +1, Revolution is canceled, and cards may not have their deploy cost modified. If this site is a non-battleground or you do not occupy this site, place this Effect in Used Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "‘I think I got it.’",
+ "destiny": "5",
+ "base_page": "Security Precautions",
+ "art": {
+  "src": "src/vs4/45-Endor-D-securityprecautions.gif",
+  "modern": "src/vs4/modern/45-V7-D-securityprecautions.gif"
+ },
+ "id": "vs4-45",
+ "virtual_set": 4,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique (•). Base card is Endor (1999), not Hoth; expansion ring = Endor; Endor-era copyright line format '© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.' confirmed on the 745 px V7 remake's vertical line. Text ends with the red circle-slash A (immune to Alter) → {alter}. Slip has italic credit text in the red side margins outside the text box: left margin (bottom-to-top) 'Original concept by Jonathan Chu', right margin 'DragonCon Winner 2002' — recorded as margin_left / margin_right (same as vs3/25 Wokling), not part of game text. Icon column empty (only the blue virtual-set sphere). Lore: printed with single quotation marks, written curly ‘I think I got it.’ (wiki straight '). Base scan only at 350 px. Modern: V7-D-securityprecautions.gif (745, Virtual Set 7 — different game text) used; VB3 -pre and non-pre (350, identical bytes) also downloaded.",
+ "margin_left": "Original concept by Jonathan Chu",
+ "margin_right": "DragonCon Winner 2002",
+ "game_text_lines": "Deploy on a battleground site. At same and adjacent\nsites, your Force generation is +1, Revolution is\ncanceled, and cards may not have their deploy cost\nmodified. If this site is a non-battleground or you do\nnot occupy this site, place this Effect in Used Pile. {alter}"
+}

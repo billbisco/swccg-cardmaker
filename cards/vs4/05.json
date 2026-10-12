@@ -1,0 +1,28 @@
+{
+ "number": "05",
+ "side": "Light",
+ "slip_type": "Vehicle Weapon",
+ "card_type": "VEHICLE WEAPON",
+ "title": "Dual Laser Cannon",
+ "caption": "Dual Laser Cannon (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your T-47. May target a character or vehicle for free. Draw destiny. Character hit, and its forfeit = 0, if destiny +2 > defense value. Vehicle hit if destiny +X > defense value, where X = T-47 pilot’s ability (maximum 5).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Sund x2-100 laser cannon. Popular among outlaw organizations because it is both cheap and powerful. Frequently mounted on T-47 airspeeders.",
+ "destiny": "3",
+ "base_page": "Dual Laser Cannon (Original)",
+ "art": {
+  "src": "src/vs4/05-Hoth-L-duallasercannon-decipher-archive.gif",
+  "modern": "src/vs4/modern/05-VB2-L-duallasercannon-pre.gif"
+ },
+ "id": "vs4-05",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. The wiki's default 'Dual Laser Cannon' page carries Glossary 2.0 errata text; the printed face is 'Dual Laser Cannon (Original)' (same lore/destiny/set). The 745 px Hoth-L-duallasercannon.gif is the PC Errata face (D-E1) — downloaded, not used; 350 px decipher-archive used. Lore matches the scan. Modern: Virtual Block 2 only (VB2 -pre, 350; non-pre also downloaded). Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "Deploy on your T-47. May target a character or vehicle\nfor free. Draw destiny. Character hit, and its forfeit =\n0, if destiny +2 > defense value. Vehicle hit if destiny\n+X > defense value, where X = T-47 pilot’s ability\n(maximum 5)."
+}

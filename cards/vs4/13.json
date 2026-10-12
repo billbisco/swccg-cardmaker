@@ -1,0 +1,28 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Nice Of You Guys To Drop By",
+ "caption": "Nice Of You Guys To Drop By (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ Lost In The Wilderness or a Rogue speeder. OR If you occupy a site, find one of your missing characters there. OR Cancel Stunning Leader. OR Cancel opponent’s attempt to randomly remove one or more cards from your hand (except with Monnok).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Echo Base, this is Rogue 2. I’ve found them. Repeat, I’ve found them!”",
+ "destiny": "5",
+ "base_page": "Nice Of You Guys To Drop By",
+ "art": {
+  "src": "src/vs4/13-Hoth-L-niceofyouguystodropby.gif",
+  "modern": "src/vs4/modern/13-VB2-L-niceofyouguystodropby-pre.gif"
+ },
+ "id": "vs4-13",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. The crop cuts off the slip's heading (only descenders visible); title from the bottom strip. Lore corrected against the scan: wiki prints 'Echo Base, this is Rogue 2. I've found them. Repeat. I've found them.' in straight single quotes; the scan prints curly double quotes, 'Repeat,' with a comma, and 'them!' with an exclamation mark before the closing quote (confirmed on the VB2 remake, same scan). Base scan only at 350 px. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "game_text_lines": "▲ Lost In The Wilderness or a Rogue speeder. OR If\nyou occupy a site, find one of your missing characters\nthere. OR Cancel Stunning Leader. OR Cancel\nopponent’s attempt to randomly remove one or more\ncards from your hand (except with Monnok)."
+}

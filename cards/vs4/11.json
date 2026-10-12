@@ -1,0 +1,37 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "Local Uprising",
+ "caption": "Local Uprising (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Deploy Hoth system and Main Power Generators. May deploy Echo Base Garrison and/or Maneuvering Flaps._ *For* remainder of game, you may not deploy Hoth Sentry or non-Hoth locations (except Rendezvous Point). T-47 Battle Formation is an Out Of Play Interrupt and {sense}. *While* this side up, during your deploy phase, may ▼ an exterior Hoth site or a non-unique Rebel to Hoth. *Flip* this card during your move phase if you control three exterior Hoth sites with T-47s and/or non-unique Rebels. *Place* out of play if Main Power Generators ‘blown away.’",
+ "title_back": "Liberation",
+ "caption_back": "Liberation (V)",
+ "game_text_back": "*While* this side up, whenever you must lose Force (except from your card, battle damage, or a Force drain at a battleground), reduce the loss (to a minimum of 1) by the number of Hoth locations you occupy. During your control phase, opponent loses 1 Force for each marker site (except 1st Marker) you control with both a T-47 and a Rebel. During your control phase, may use 2 Force to ▲ any one card. *Flip* this card if you do not control two exterior Hoth sites. *Place* out of play if Main Power Generators ‘blown away.’",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs4/11-SE-L-liberation.gif",
+  "modern": "src/vs4/modern/11-VB2-L-liberation-pre.gif"
+ },
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Local Uprising / Liberation",
+ "art": {
+  "src": "src/vs4/11-SE-L-localuprising.gif",
+  "modern": "src/vs4/modern/11-VB2-L-localuprising-pre.gif"
+ },
+ "id": "vs4-11",
+ "virtual_set": 4,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Objective, two slips: front 11-Local_Uprising.png (heading 'Local Uprising (V)', strip 'Local Uprising (V)'), back 11b-Local_Uprising.png (heading 'Liberation (V)', strip 'Liberation (V)', same number 11). Non-unique (no dot). Front text: italic deploy lines, bold lead words For/While/Flip/Place; 'Out Of Play Interrupt and' is followed by the red circle-slash S (immune to Sense) then a period. Back text: bold While/Flip/Place; ▲ starts a line after 'to'. Curly single quotes ‘blown away.’ as printed on both faces. Base card: Special Edition Objective 'Local Uprising / Liberation' (wiki base page; 'Local Uprising' redirects to the (V) page). Objectives have no lore ('') and the wiki carries no lore. Destiny: front prints 0 (wiki destiny=0), back prints 7 — recorded as destiny_back '7'. Base scans SE-L-localuprising.gif and SE-L-liberation.gif, both 350×490 (art_back gives the Liberation face). Copyright 1998 (Special Edition), not legible at 350 px. Modern: Virtual Block 2 only (VB2-L-localuprising-pre.gif / VB2-L-liberation-pre.gif, 350; non-pre files also downloaded, identical bytes).",
+ "game_text_lines": "_Deploy Hoth system and Main Power Generators. May\ndeploy Echo Base Garrison and/or Maneuvering Flaps._\n*For* remainder of game, you may not deploy Hoth Sentry\nor non-Hoth locations (except Rendezvous Point). T-47\nBattle Formation is an Out Of Play Interrupt and {sense}.\n*While* this side up, during your deploy phase, may ▼ an\nexterior Hoth site or a non-unique Rebel to Hoth.\n*Flip* this card during your move phase if you control three\nexterior Hoth sites with T-47s and/or non-unique Rebels.\n*Place* out of play if Main Power Generators ‘blown away.’",
+ "game_text_back_lines": "*While* this side up, whenever you must lose Force\n(except from your card, battle damage, or a Force drain\nat a battleground), reduce the loss (to a minimum of 1)\nby the number of Hoth locations you occupy. During your\ncontrol phase, opponent loses 1 Force for each marker\nsite (except 1st Marker) you control with both a T-47 and\na Rebel. During your control phase, may use 2 Force to\n▲ any one card.\n*Flip* this card if you do not control two exterior Hoth sites.\n*Place* out of play if Main Power Generators ‘blown away.’"
+}

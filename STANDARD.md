@@ -133,3 +133,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   own span and the previous slip's caption bar are whited out; stale crop files from earlier runs must be deleted —
   a `NN-*` glob otherwise picks the old one). `slip_lines.py` merges text runs split by an inline icon so a line like
   "opponent's [icon] weapon destiny" stays one line.
+- Rev 9 (VS4 run, 2026-10-12): slips are keyed by their printed number (`sheet.py`; an Objective's back = `NNb`,
+  site slips are wide and short). New frames from Bardez's wiki-preserved XCFs (wiki.swccg.com/preserved/bardez/):
+  Objective (purple; the printed and PC Objectives have a white text box with black text — filled in; Light Side
+  frame = the same frame lightened 32% to its lavender), Creature (two stat boxes FEROCITY / second trait), proper
+  Vehicle frames (replacing the starship-frame hack). Objectives render two faces (`NN`, `NNb`), the stub shows both
+  remasters (image/image2 responsive) and both slips in a gallery. Sites keep the printed Dark text (`dark_text`).
+  Inline icons added: independent (g051), presence (g010); maintenance ★/☠ glyphs as text. Template order: weapon
+  before vehicle ("VEHICLE WEAPON" is a weapon). Special Edition copyright line reads "© LUCASFILM LTD. & TM. TM, ® &
+  © 1998 DECIPHER INC." (checked on scans) — not the Hoth-style line.

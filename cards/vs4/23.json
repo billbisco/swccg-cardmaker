@@ -1,0 +1,28 @@
+{
+ "number": "23",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Walker Sighting",
+ "caption": "•Walker Sighting (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_While an AT-AT or AT-ST on table, destiny +3._ ▲ Concussion Grenade, Logistical Delay, or Panic. {sense} OR If opponent’s AT-AT or AT-ST on table, peek at the top card of their Reserve Deck; may use 2 Force to make it lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Echo station, 3TA. We have spotted Imperial walkers.” A Rebel tactic is to put as much ground as possible between walkers and Rebel troops, allowing time to prepare a defense.",
+ "destiny": "3",
+ "base_page": "Walker Sighting",
+ "art": {
+  "src": "src/vs4/23-Hoth-L-walkersighting.gif",
+  "modern": "src/vs4/modern/23-V8-L-walkersighting.gif"
+ },
+ "id": "vs4-23",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Slip banner USED INTERRUPT (the printed card is a Lost Interrupt). First sentence printed in italics. The red circle-slash S (immune to Sense) sits mid-text after 'Panic.' (before 'OR'), as printed. Curly apostrophe in opponent’s. Lore corrected from the scan: the quotation uses curly double quotes “…walkers.” (wiki prints straight single quotes); confirmed on the 745 px V8 remake which keeps the same lore. Base scan only at 350 px. Modern: V8-L-walkersighting.gif (745) used; VB2 -pre and non-pre (350) also downloaded. Copyright 1996 (Hoth), not legible at 350 px.",
+ "game_text_lines": "_While an AT-AT or AT-ST on table, destiny +3._\n▲ Concussion Grenade, Logistical Delay, or Panic. {sense}\nOR If opponent’s AT-AT or AT-ST on table, peek at the\ntop card of their Reserve Deck; may use 2 Force to\nmake it lost."
+}

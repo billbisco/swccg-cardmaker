@@ -1,0 +1,41 @@
+{
+ "number": "28",
+ "side": "Dark",
+ "slip_type": "Combat Vehicle",
+ "card_type": "COMBAT VEHICLE: AT-AT",
+ "title": "•Blizzard 1",
+ "caption": "•Blizzard 1 (V)",
+ "stats": [
+  [
+   "POWER",
+   "7"
+  ],
+  [
+   "ARMOR",
+   "7"
+  ],
+  [
+   "LANDSPEED",
+   "1"
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "7",
+ "game_text": "May add 2 pilots and 8 passengers. During the power segment of a battle here, may lose X cards from hand to cause +X attrition against opponent. Immune to attrition < 4.",
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "General Veers’ AT-AT. *Enclosed*. Equipped with highly sophisticated communications gear. Employs an experimental targeting system.",
+ "destiny": "2",
+ "base_page": "Blizzard 1 (Original)",
+ "art": {
+  "src": "src/vs4/28-Hoth-D-blizzard1-decipher-archive.gif",
+  "modern": "src/vs4/modern/28-V17-D-blizzard1.gif"
+ },
+ "id": "vs4-28",
+ "virtual_set": 4,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique (•). Scomp-link ring at the top-left of the text box → scomp true. Icon column empty (only the set symbol). Slip deploy 5 / forfeit 7 (printed 6/7). Lore corrected from the scan: 'Enclosed' is printed in bold (keyword) → *Enclosed*; apostrophe in Veers’ curly as printed (wiki straight). The wiki's default 'Blizzard 1' page carries Glossary 2.0 errata text and the 745 px Hoth-D-blizzard1.gif is the PC Errata face (D-E1) — downloaded, not used; printed face = 'Blizzard 1 (Original)' → Hoth-D-blizzard1-decipher-archive.gif (350×490) used. Modern: V17-D-blizzard1.gif (745) used; VB2 -pre and non-pre (350) also downloaded. Copyright 1996 legible on the 745 face.",
+ "game_text_lines": "May add 2 pilots and 8 passengers. During the\npower segment of a battle here, may lose X cards\nfrom hand to cause +X attrition against opponent.\nImmune to attrition < 4."
+}
