@@ -6,8 +6,6 @@ plus the PC's slip, re-typeset at 600 DPI in the look of the PC's Holotable card
 (1632×2220) and rounded-corner GEMP/Holotable images (745×1039). The longer plan: a web card maker for fan-made
 and translated cards that produces GEMP-ready images.
 
-Review of the first set: [Original Virtual Set 3 remaster review](https://wiki.swccg.com/wiki/Original_Virtual_Set_3_remaster_review).
-
 ## Credits
 
 - **Decipher Inc.** designed the Star Wars CCG and its card frames (1995–2001). **Lucasfilm Ltd.** owns Star Wars.
