@@ -1,0 +1,27 @@
+{
+ "id": "vs3-28-besieged",
+ "number": "28",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Besieged",
+ "caption": "Besieged (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. If opponent just forfeited a character or unpiloted starship at same system or sector as your Imperial capital starship, you may draw destiny. Character or starship is captured if destiny > its destiny number. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Stormtroopers blasted through the main airlock of the _Tantive IV_. The Rebel soldiers’ attempt to defend the intrusion was no match for the Empire’s superior firepower.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Besieged",
+ "art": {
+  "src": "src/vs3/ANH-D-besieged.gif",
+  "modern": null
+ },
+ "notes": "Non-unique. 'Tantive IV' is italic on the printed card. Wiki default page (stub-linked, Glossary 2.0 text) uses the 745 px ANH-D-besieged.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-besieged-pre.gif), modern=null. Immunity icon on the slip is a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter}."
+}

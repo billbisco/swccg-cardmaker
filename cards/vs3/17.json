@@ -1,0 +1,40 @@
+{
+ "id": "vs3-17-rebel-tech",
+ "number": "17",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Rebel Tech",
+ "caption": "•••Rebel Tech (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "Dark Side game text on your non-docking bay Yavin 4 sites is canceled. Your Attack Run total is cumulatively +1. During your turn, may place this Rebel Tech in Used Pile to ▲ one Advance Preparation or Death Star: Trench.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Del Goren, typical expert in communications and scanner jamming, served aboard the Rebel privateer corvette _Spiral_ before joining the Alliance High Command.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Rebel Tech",
+ "art": {
+  "src": "src/vs3/ANH-L-rebeltech-decipher-archive.gif",
+  "modern": "src/vs3/modern/VB1-L-rebeltech-pre.gif"
+ },
+ "notes": "Restricted ••• (three dots). Third stat box printed blank; no icons in the column (only the set symbol). 'Spiral' is italic on the printed card. Wiki base page image is the 367×506 decipher-archive gif (used as src); ANH-L-rebeltech.gif (350 px) also downloaded. Single Rebel disc. Copyright year taken as 1996 (A New Hope), not legible. No modern 'Virtual Set N' remake; only Virtual Block 1 (VB1-…-pre.gif, 350 px preview) downloaded as modern."
+}

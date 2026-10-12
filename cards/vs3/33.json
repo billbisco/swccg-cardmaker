@@ -1,0 +1,40 @@
+{
+ "id": "vs3-33-hem-dazon",
+ "number": "33",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Hem Dazon",
+ "caption": "•Hem Dazon (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "During your deploy phase, may stack ‘salt’ (a card from hand) face down under Hem. Your total battle destiny here is +1 for each ‘salt’ card. During your control phase (or if Hem lost), may place all ‘salt’ cards in your Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Male scout from Cona. As with many Arconas, Hem has succumbed to the power of salt, an addiction indicated by his gold eye color.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Hem Dazon",
+ "art": {
+  "src": "src/vs3/ANH-D-hemdazon.gif",
+  "modern": null
+ },
+ "notes": "Single Alien disc. Third stat box printed blank; icon column empty (set symbol only). Printed card has POWER * (slip gives 2). Base scan 350 px only (copyright read as 1996). No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-hemdazon-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+}

@@ -1,0 +1,36 @@
+{
+ "id": "vs3-06",
+ "template": "ls-character-rebel",
+ "side": "Light",
+ "title": "•Commander Evram Lajaie",
+ "caption": "•Commander Evram Lajaie (V)",
+ "number": "6",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "Popular leader whose expertise in space defense and orbital battle stations enabled the Alliance to uncover a fatal flaw in the Death Star’s design.",
+ "game_text": "While at your War Room, forfeit +3. Your starships with hyperspeed have a {nav}. Your piloted starships are forfeit +1.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "art": {
+  "src": "src/vs3/ANH-L-commanderevramlajaie.gif"
+ }
+}

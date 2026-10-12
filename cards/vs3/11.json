@@ -1,0 +1,43 @@
+{
+ "id": "vs3-11-han",
+ "number": "11",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Han",
+ "caption": "•Han (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "{pilot:3}, 4: _Falcon_. While armed with a blaster, Han’s defense value and weapon destiny draws are +2. Force retrieval with Or Be Destroyed is immune to Secret Plans. While Or Be Destroyed on table, immune to attrition < Han’s power.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Corellian. Graduated with honors from the Imperial Academy. Dishonorably discharged. Wanders the galaxy building a reputation as a gambler and hot-shot pilot.",
+ "destiny": "1",
+ "expansion": "Jedi Pack",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Han (Jedi Pack)",
+ "art": {
+  "src": "src/vs3/Jedi-L-han.gif",
+  "modern": "src/vs3/modern/V0-L-han.gif"
+ },
+ "notes": "Base card is the Jedi Pack Han (wiki page 'Han (Jedi Pack)'; plain 'Han' does not exist). Single Alien disc top-left (Alien frame). Game text opens with the yellow pilot icon followed by '3, 4: Falcon.' — tokened {pilot:3}, 4: _Falcon_ (Falcon italic on the slip). Copyright year read from the 745 px V0 modern scan (same printed top half): 1996, as For Luck/Tarkin. 350 px base scan only; expansion ring icon = Premium."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "corellia-v-vs16",
+  "template": "loc-system",
+  "side": "Light",
+  "title": "•CORELLIA",
+  "caption": "•Corellia (V)",
+  "number": "27",
+  "virtual_set": 16,
+  "parsec": 1,
+  "light_force": true,
+  "dark_force": true,
+  "light_icons": [
+    "planet"
+  ],
+  "dark_icons": [
+    "planet"
+  ],
+  "game_text": "Once per turn, if you occupy with a Corellian, may activate 1 Force.",
+  "dark_text": "Your starships are hyperspeed +1 when moving from here.",
+  "art": {
+    "src": "src/ANH-L-corellia-pc.png",
+    "bbox": [
+      37,
+      37,
+      708,
+      1002
+    ]
+  }
+}

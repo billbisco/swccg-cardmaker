@@ -1,0 +1,21 @@
+{
+ "id": "vs3-39",
+ "template": "ds-weapon",
+ "side": "Dark",
+ "title": "Leia Seeker",
+ "caption": "Leia Seeker (V)",
+ "number": "39",
+ "virtual_set": 3,
+ "destiny": "3",
+ "lore": "Military version of a 'remote.' Programmed to stalk specific targets or secondary targets. Heat and light sensors track with fatal accuracy. Can stow away on starships.",
+ "game_text": "Use 1 Force to deploy to an unoccupied site. Deploys and moves like an Undercover spy. If present with {permanent-weapon} Leia or a senator, this weapon and that character are lost (“all cards” situation).",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "AUTOMATED WEAPON",
+ "art": {
+  "src": "src/vs3/ANH-D-leiaseeker.gif"
+ }
+}

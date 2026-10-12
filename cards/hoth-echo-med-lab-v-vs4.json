@@ -1,0 +1,18 @@
+{
+  "id": "hoth-echo-med-lab-v-vs4",
+  "template": "loc-site",
+  "side": "Light",
+  "title": "•HOTH: ECHO MED LAB",
+  "caption": "•Hoth: Echo Med Lab (V)",
+  "number": "10",
+  "virtual_set": 4,
+  "light_force": true,
+  "dark_force": false,
+  "light_icons": ["scomp", "planet", "interior", "underground"],
+  "dark_icons": ["scomp", "planet", "interior", "underground"],
+  "game_text": "During your deploy phase, may ▼ a medical droid here.",
+  "dark_text": "If you control, with an Imperial present, Force drain +1 here.",
+  "expansion_icon": "icons/set-hoth-bardez.png",
+  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+  "art": {"src": "src/Hoth-L-hothechomedlab.png"}
+}

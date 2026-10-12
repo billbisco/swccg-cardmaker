@@ -1,0 +1,27 @@
+{
+ "id": "vs3-36-informant",
+ "number": "36",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Informant",
+ "caption": "Informant (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▼ Undercover. OR Peek at top X cards of opponent’s Reserve Deck, where X = number of opponent’s characters present with your Undercover spy. OR If your Undercover spy on table, peek at top card of your Reserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire's network of spies and petty informants allows Imperial operatives to discover and react to Rebel assaults before they occur.",
+ "destiny": "6",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Informant",
+ "art": {
+  "src": "src/vs3/ANH-D-informant.gif",
+  "modern": null
+ },
+ "notes": "Non-unique. Game text begins with the ▼ triangle. 745 px scan used. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-informant-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+}

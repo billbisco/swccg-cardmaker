@@ -1,0 +1,21 @@
+{
+ "id": "vs3-21",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "Solomahal",
+ "caption": "Solomahal (V)",
+ "number": "21",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "Veteran officer of the Old Republic who retired from active duty after the Clone Wars. Makes a living in the Outer Rim Territories passing on his scouting expertise.",
+ "game_text": "Deploy on your scout (except Luke). If scout (or starship they are aboard) was just targeted by a weapon, may place this Effect in Lost Pile to cancel that targeting.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/ANH-L-solomahal.gif"
+ }
+}

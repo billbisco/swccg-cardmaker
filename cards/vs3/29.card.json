@@ -1,0 +1,21 @@
+{
+ "id": "vs3-29",
+ "template": "ds-effect",
+ "side": "Dark",
+ "title": "Come With Me",
+ "caption": "Come With Me (V)",
+ "number": "29",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "Pilots are often reassigned at the last minute for a variety of tactical reasons. Darth Vader ordered DS-61-2 and DS-61-3 to accompany him to the Battle of Yavin.",
+ "game_text": "Deploy on Vader or your admiral. During your deploy phase, may ▼ an Imperial pilot here. During any control phase, may place this Effect in Used Pile to take an Imperial pilot on table into hand (place all cards on that character in owner’s Used Pile).",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/ANH-D-comewithme.gif"
+ }
+}

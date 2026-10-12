@@ -1,0 +1,27 @@
+{
+ "id": "vs3-41-oo-ta-goo-ta-solo",
+ "number": "41",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "Oo-ta Goo-ta, Solo?",
+ "caption": "Oo-ta Goo-ta, Solo? (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: During battle at a site where your alien bounty hunter (except Boba Fett) is with opponent’s smuggler, opponent may not draw more than one battle destiny.\nLOST: During a battle at a site where you have an alien bounty hunter, add one battle destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Greedo cheskopokuta klees ruya Solo. Hoko yanee boopa gush Cantina. Cheeco wa Solo's anye nyuma Greedo vakee. Jabba kul steeka et an anpaw.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Oo-ta Goo-ta, Solo?",
+ "art": {
+  "src": "src/vs3/ANH-D-ootagootasolo.gif",
+  "modern": "src/vs3/modern/V10-D-ootagootasolo.gif"
+ },
+ "notes": "Slip prints the title WITH the question mark both in the heading and the bottom strip ('Oo-ta Goo-ta, Solo? (V)'); src/slips/vs3/index.json and the wiki stub title drop the '?'. Non-unique (no dot). Printed base is a USED INTERRUPT; slip banner is USED OR LOST INTERRUPT with USED:/LOST: lines. No icon column. Base scan only 350 px. Modern = Virtual Set 10 remake (745 px)."
+}

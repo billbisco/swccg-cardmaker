@@ -1,0 +1,27 @@
+{
+ "id": "vs3-35-im-on-the-leader",
+ "number": "35",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•I’m On The Leader",
+ "caption": "•I’m On The Leader (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Cancel the game text of a character at same system as Vader for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "In the defense of the Death Star at the Battle of Yavin, Darth Vader took the lead attacker, supported by his wingmen Black 2 and Black 3.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "I'm On The Leader (Original)",
+ "art": {
+  "src": "src/vs3/ANH-D-imontheleader.gif",
+  "modern": null
+ },
+ "notes": "Unique (dot). Title apostrophe typed curly (’) as the slip prints it; wiki page title uses a straight one. Wiki 'I'm On The Leader' page defaults to the Glossary errata wording; lore/destiny taken from the printed-face page 'I'm On The Leader (Original)' (ANewHope-D-imontheleader-decipher-archive.gif, 350 px, also downloaded). Used the 745 px ANH-D-imontheleader.gif for art. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-imontheleader-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+}

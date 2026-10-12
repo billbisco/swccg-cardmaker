@@ -1,0 +1,37 @@
+{
+ "id": "tarkin-v-vs3",
+ "template": "ds-character-imperial",
+ "title": "•Tarkin",
+ "destiny": "1",
+ "lore": "Imperial Governor of the Seswenna Sector. Conceived and implemented the Death Star project. A *leader* in the effort to crush the Rebellion.",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "game_text": "Adds one battle destiny if with Vader (or a Rebel at a mobile site). Jar Jar and opponent’s spies may not deploy to Death Star. Once per game, may ▲ Hyperwave Scan, Put All Sections On Alert, or an ISB agent.",
+ "deploy": "4",
+ "forfeit": "6",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "virtual_set": 3,
+ "art": {
+  "src": "src/V4-D-tarkin.gif"
+ },
+ "caption": "•Tarkin (V)",
+ "number": "47",
+ "expansion_icon": "icons/premium.png",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "side": "Dark"
+}

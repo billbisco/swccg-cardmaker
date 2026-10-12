@@ -1,0 +1,6 @@
+{"id":"tarkin-v-vs4","template":"ds-character-imperial","title":"•Tarkin","destiny":"1",
+ "lore":"Imperial Governor of the Seswenna Sector. Conceived and implemented the Death Star project. A *leader* in the effort to crush the Rebellion.",
+ "stats":[["POWER","4"],["ABILITY","3"],["FORCE-ATTUNED",""]],
+ "game_text":"{pilot:2}. When deployed, may draw cards from Reserve Deck until you have up to six cards in hand. During battle, if present with two ISB agents, may cancel an opponent’s just drawn destiny.",
+ "deploy":"4","forfeit":"6","icons":["pilot","warrior"],"virtual_set":4,
+ "art":{"src":"src/Jedi-D-tarkin.png"}}

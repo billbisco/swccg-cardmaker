@@ -1,0 +1,21 @@
+{
+ "id": "vs3-09",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "•For Luck",
+ "caption": "•For Luck (V)",
+ "number": "9",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "Before swinging across the treacherous abyss, Leia gave Luke a kiss for luck. Despite an incessant storm of laserblasts, they made it.",
+ "game_text": "Deploy on table. Once during your control phase, if opponent occupies a non-battleground location, may peek at top two cards of your Reserve Deck and take one into hand. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-premium-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/modern/V0-L-forluck.gif"
+ }
+}

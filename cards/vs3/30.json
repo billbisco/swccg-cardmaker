@@ -1,0 +1,40 @@
+{
+ "id": "vs3-30-dannik-jerriko",
+ "number": "30",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Dannik Jerriko",
+ "caption": "•Dannik Jerriko (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "2",
+ "game_text": "If present where you just won a battle, may use 1 Force to place a card from opponent’s Lost Pile out of play.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Anzati assassin. Cheek-folds hide proboscises which allow him to “eat the soup” (consume the life Force) of his victims. Smokes t’bac. Currently working for Jabba.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Dannik Jerriko",
+ "art": {
+  "src": "src/vs3/ANH-D-dannikjerriko.gif",
+  "modern": "src/vs3/modern/V15-D-dannikjerriko.gif"
+ },
+ "notes": "Single Alien disc top-left (grey Alien frame). Icon column on the slip is empty (no pilot/warrior icons). Printed lore uses double curly quotes around “eat the soup” (wiki single). Wiki default page (stub-linked, Glossary 2.0 text) uses the 745 px ANH-D-dannikjerriko.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake: Dannik Jerriko (V), Virtual Set 15 (745 px)."
+}

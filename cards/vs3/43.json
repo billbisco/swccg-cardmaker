@@ -1,0 +1,40 @@
+{
+ "id": "vs3-43-reegesk",
+ "number": "43",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Reegesk",
+ "caption": "•Reegesk (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "During opponent’s turn, if present at a battleground site, may steal a device, droid, starfighter, vehicle, or weapon in opponent’s Lost Pile into your hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Ranat thief and scavenger from Aralia. Regularly trades with Jawas. Adept at pilfering items without alerting the owner. Willing to steal anything, even trash.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Reegesk",
+ "art": {
+  "src": "src/vs3/ANH-D-reegesk.gif",
+  "modern": null
+ },
+ "notes": "Single Alien disc top-left. Third stat box printed blank. No icon column (set symbol only). Base scan only 350 px — cannot tell whether 'thief' / 'scavenger' are bold on the printed card (wiki lists them as characteristics); left plain. Modern remake is Block-era only (VB1 -pre, 350 px), modern=null."
+}

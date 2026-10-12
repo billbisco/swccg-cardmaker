@@ -1,0 +1,38 @@
+{
+ "id": "vs3-32",
+ "template": "ds-character-alien",
+ "side": "Dark",
+ "title": "•Greedo",
+ "caption": "•Greedo (V)",
+ "number": "32",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "Male Rodian bounty hunter. Sent by Jabba to capture Han. Arrogant, overconfident and not too bright. Trained by bounty hunters Nataz and Goa, who betrayed him to Thuku.",
+ "game_text": "During battle, may cancel the game text of a smuggler present with Greedo for remainder of turn. During your control phase, may ▲ one Oo-ta Goo-ta, Solo?",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "4",
+ "art": {
+  "src": "src/vs3/modern/V4-D-greedo.gif"
+ }
+}

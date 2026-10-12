@@ -1,0 +1,27 @@
+{
+ "id": "vs3-14-logistical-delay",
+ "number": "14",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Logistical Delay",
+ "caption": "•Logistical Delay (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During the power segment of a battle, may use X Force to reduce a starship’s immunity to attrition by X for remainder of turn. Once per turn, may use 2 Force to cancel the game text of a {maintenance} character or a senator for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire’s tremendous military machine requires extensive coordination at every level. Slight errors in any step can quickly escalate supply delays.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Logistical Delay",
+ "art": {
+  "src": "src/vs3/ANH-L-logisticaldelay.gif",
+  "modern": "src/vs3/modern/VB1-L-logisticaldelay-pre.gif"
+ },
+ "notes": "Inline icon is the gold six-spoked Republic wheel (wiki stub also reads it as [Republic]); tokened {republic}. Only a 350 px base scan exists; copyright year taken as 1996 (A New Hope) — line not legible at 350 px. No modern 'Virtual Set N' remake; only Virtual Block 1 (VB1-…-pre.gif, 350 px preview) downloaded as modern. | Inline icon is the MAINTENANCE icon per the VS3 cover ICON KEY (not Republic)."
+}

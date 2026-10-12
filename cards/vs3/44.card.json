@@ -1,0 +1,38 @@
+{
+ "id": "vs3-44",
+ "template": "ds-character-imperial",
+ "side": "Dark",
+ "title": "••Reserve Pilot",
+ "caption": "••Reserve Pilot (V)",
+ "number": "44",
+ "virtual_set": 3,
+ "destiny": "3",
+ "lore": "Injuries kept Lord Vader's best TIE wingman out of the primary wave of starfighters. He remains on reserve duty, ready to replace lost pilots.",
+ "game_text": "{pilot:2}. While piloting at a system, your total battle destiny here is cumulatively +1. If a battle at a system just ended, may deploy (for free) aboard a starship from which you forfeited a pilot character.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "art": {
+  "src": "src/vs3/ANH-D-reservepilot.gif"
+ }
+}

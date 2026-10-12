@@ -1,0 +1,27 @@
+{
+ "id": "vs3-48-tentacle",
+ "number": "48",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Tentacle",
+ "caption": "Tentacle (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just played an Interrupt, unless three Tentacles on table, use 1 Force to deploy on table and stack that Interrupt here. Other copies of stacked Interrupt are destiny -3. {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Dianogas use their seven tentacles for both locomotion and catching food. The few survivors of such attacks claim that a dianoga tentacle has the strength of a hydro-clamp.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Tentacle",
+ "art": {
+  "src": "src/vs3/ANH-D-tentacle.gif",
+  "modern": "src/vs3/modern/V21-D-tentacle.gif"
+ },
+ "notes": "Non-unique (no dot). The slip's IMMEDIATE EFFECT banner has the blue Grabber (hand) icon at its right end, same as the printed card — not in the icon column, so icons=[]; render it in the banner (same as 10 Grappling Hook). Immunity icons on the slip are a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened {alter}/{control}/{sense} as instructed (earlier files 03/08/10 used {icon:immune-*}). 745 px scan ANH-D-tentacle.gif carries a 'D-E2' label (errata reprint face); no -decipher-archive file on the wiki. Modern = Virtual Set 21 remake (745 px)."
+}

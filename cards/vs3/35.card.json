@@ -1,0 +1,21 @@
+{
+ "id": "vs3-35",
+ "template": "ds-interrupt",
+ "side": "Dark",
+ "title": "•I’m On The Leader",
+ "caption": "•I’m On The Leader (V)",
+ "number": "35",
+ "virtual_set": 3,
+ "destiny": "3",
+ "lore": "In the defense of the Death Star at the Battle of Yavin, Darth Vader took the lead attacker, supported by his wingmen Black 2 and Black 3.",
+ "game_text": "Cancel the game text of a character at same system as Vader for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "LOST INTERRUPT",
+ "art": {
+  "src": "src/vs3/ANH-D-imontheleader.gif"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "vs3-09-for-luck",
+ "number": "09",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•For Luck",
+ "caption": "•For Luck (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once during your control phase, if opponent occupies a non-battleground location, may peek at top two cards of your Reserve Deck and take one into hand. {icon:immune-alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Before swinging across the treacherous abyss, Leia gave Luke a kiss for luck. Despite an incessant storm of laserblasts, they made it.",
+ "destiny": "4",
+ "expansion": "Jedi Pack",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "For Luck",
+ "art": {
+  "src": "src/vs3/Jedi-L-forluck.gif",
+  "modern": "src/vs3/modern/V0-L-forluck.gif"
+ },
+ "notes": "Jedi Pack card; copyright line on the scan reads 1996 (as Tarkin). 745 px scan carries a 'D-E1' label. Expansion ring icon = Premium. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "vs3-25-wokling",
+ "number": "25",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Wokling",
+ "caption": "•Wokling (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your total Force generation is +1. Once per game, may use 3 Force to ▲ an Effect that has no deploy cost and deploys on another card. May place this Effect out of play to retrieve 1 Force. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Every Ewok is taught to be protective of the younger members of their clan.",
+ "destiny": "2",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Wokling",
+ "art": {
+  "src": "src/vs3/Endor-L-wokling.gif",
+  "modern": "src/vs3/modern/V0-L-wokling.gif"
+ },
+ "notes": "Slip has italic credit text in the red side margins outside the text box: left margin (bottom-to-top) 'Original concept by Eric Hunter', right margin 'GenCon 2002 Winner' — not part of game text; render decision needed. Endor-era copyright line has a different format ('© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.'), confirmed on the 745 px V0 scan. Expansion ring icon = Endor. Modern remake: Wokling (V), Virtual Set 0 (745 px). Immunity icon on the slip is a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter}.",
+ "margin_left": "Original concept by Eric Hunter",
+ "margin_right": "GenCon 2002 Winner"
+}

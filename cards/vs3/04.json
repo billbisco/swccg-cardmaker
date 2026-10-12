@@ -1,0 +1,44 @@
+{
+ "id": "vs3-04-chewbacca",
+ "number": "04",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Chewbacca",
+ "caption": "•Chewbacca (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "{pilot:2}. During your turn, may use 1 Force to ▲ a card with “Chewie” or “Wookiee” in game text.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien + Rebel",
+ "lore": "Wookiee *smuggler* from Kashyyyk. Over 200 years old. Top-notch mechanic and pilot. Jabba has large bounty on this “walking carpet.” Friends call him Chewie… or Fuzzball.",
+ "destiny": "1",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Chewbacca",
+ "art": {
+  "src": "src/vs3/ANH-L-chewbacca.gif",
+  "modern": "src/vs3/modern/V13-L-chewbacca.gif"
+ },
+ "notes": "Two discs top-left (Alien + Rebel). Third stat box printed blank. 'smuggler' is bold on the printed card. 745 px scan carries a 'D-E1' label (errata reprint face); printed face is src/vs3/ANH-L-chewbacca-decipher-archive.gif (350 px). Also matches the existing cards/chewbacca-v-vs3.json.",
+ "lore_align": "left"
+}

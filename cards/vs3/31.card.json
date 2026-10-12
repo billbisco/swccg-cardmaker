@@ -1,0 +1,21 @@
+{
+ "id": "vs3-31",
+ "template": "ds-effect",
+ "side": "Dark",
+ "title": "•Dark Forces",
+ "caption": "•Dark Forces (V)",
+ "number": "31",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "“The ability to destroy a planet is insignificant next to the power of the Force.”",
+ "game_text": "Deploy on table. Once per turn, if opponent just drew weapon destiny targeting your Dark Jedi, may lose 1 Force to cancel and redraw that destiny. Once per game, may exchange a card in opponent’s Lost Pile with a card on their Colo Claw Fish. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-premium-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/Jedi-D-darkforces.gif"
+ }
+}

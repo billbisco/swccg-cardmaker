@@ -1,0 +1,27 @@
+{
+ "id": "vs3-22-theyre-on-dantooine",
+ "number": "22",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "They’re On Dantooine",
+ "caption": "They’re On Dantooine (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Dantooine sites are immune to No Escape. At Dantooine sites, your Force generation is +1. While you control a Dantooine site, your squadrons may deploy without replacement for X Force, where X = squadron’s power -3. May not be canceled. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“You would prefer another target? A military target? Then name the system!”",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "They're On Dantooine",
+ "art": {
+  "src": "src/vs3/ANH-L-theyreondantooine-decipher-archive.gif",
+  "modern": null
+ },
+ "notes": "Printed base is a UTINNI EFFECT; the slip banner says EFFECT. Non-unique (no dot). Title apostrophe typed as curly ’ as the slip prints it (wiki page title uses a straight '). Printed lore is in double curly quotes (wiki stub uses single quotes). Both wiki scans are 350 px: used the -decipher-archive printed face; ANH-L-theyreondantooine.gif (also downloaded) carries an 'E' errata label. No modern 'Virtual Set N' remake found (no 'They're On Dantooine (V)' page), modern=null. Immunity icon on the slip is a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter}."
+}

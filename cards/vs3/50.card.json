@@ -1,0 +1,21 @@
+{
+ "id": "vs3-50",
+ "template": "ds-effect",
+ "side": "Dark",
+ "title": "Undercover",
+ "caption": "Undercover (V)",
+ "number": "50",
+ "virtual_set": 3,
+ "destiny": "5",
+ "lore": "The Empire maintains a network of spies attempting to infiltrate the Rebel Alliance or disinform their operatives.",
+ "game_text": "Deploy on your spy at a site. Spy is now Undercover. During your control phase, may ▲ one Informant. At same and related sites, opponent’s {lightsaber} weapon destiny draws are -1 (-2 if targeting this character). {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/ANH-D-undercover-decipher-archive.gif"
+ }
+}

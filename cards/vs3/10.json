@@ -1,0 +1,27 @@
+{
+ "id": "vs3-10-grappling-hook",
+ "number": "10",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Grappling Hook",
+ "caption": "Grappling Hook (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just played an Interrupt, unless three Grappling Hooks on table, use 1 Force to deploy on table and stack that Interrupt here. Other copies of stacked Interrupt are destiny -3. {icon:immune-control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Stormtrooper utility belts contain basic tools such as a grappling hook to grab onto protrusions. The hook can also be used to ensnare escaping targets.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Grappling Hook",
+ "art": {
+  "src": "src/vs3/ANH-L-grapplinghook.gif",
+  "modern": "src/vs3/modern/V21-L-grapplinghook.gif"
+ },
+ "notes": "Non-unique (no dot). The slip's IMMEDIATE EFFECT banner has the blue Grabber (hand) icon at its right end, same as the printed card — not in the icon column, so icons=[]; render it in the banner. Wiki base page lists the 350 px -decipher-archive gif (also downloaded); used the 745 px ANH-L-grapplinghook.gif which carries a 'D-E2' label. Immunity icons on the slip are a letter in a red circle with a red slash (the sheet's ICON KEY: A = Immune to Alter, C = Immune to Control, S = Immune to Sense); tokened as {icon:immune-alter}/{icon:immune-control}/{icon:immune-sense}."
+}

@@ -1,0 +1,21 @@
+{
+ "id": "vs3-02",
+ "template": "ls-interrupt",
+ "side": "Light",
+ "title": "Advance Preparation",
+ "caption": "Advanced Preparation (V)",
+ "number": "2",
+ "virtual_set": 3,
+ "destiny": "6",
+ "lore": "Early warning and careful planning allow the Rebels to achieve maximum readiness while still maintaining optimal flexibility.",
+ "game_text": "USED: Once per game, deploy Attack Run, Death Star: Trench, and/or one proton torpedoes from under your Starting Effect. {sense}\nLOST: Retrieve 1 Force. OR If One In A Million on table, retrieve any one card.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "USED OR LOST INTERRUPT",
+ "art": {
+  "src": "src/vs3/ANH-L-advancepreparation.gif"
+ }
+}

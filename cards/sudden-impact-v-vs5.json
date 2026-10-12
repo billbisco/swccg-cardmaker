@@ -1,0 +1,18 @@
+{
+ "id": "sudden-impact-v-vs5",
+ "template": "ds-effect",
+ "title": "Sudden Impact",
+ "destiny": "3",
+ "card_type": "STARTING EFFECT",
+ "lore": "An asteroid looming in one’s path can force a quick decision. One must choose, but choose wisely. This pilot chose poorly.",
+ "game_text": "Deploy on table with 5 cards from outside your deck face-down under here. Three times per game, may play a Defensive Shield from here (as if from hand). {lightsaber} weapons may not reset forfeit to 0. Characters hit by {lightsaber} weapons are forfeit = (printed forfeit -3).",
+ "virtual_set": 5,
+ "art": {
+  "src": "src/Dagobah-D-suddenimpact.png"
+ },
+ "side": "Dark",
+ "caption": "Sudden Impact (V)",
+ "number": "47",
+ "expansion_icon": "icons/set-dagobah.png",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC."
+}

@@ -1,0 +1,21 @@
+{
+ "id": "vs3-15",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "Merc Sunlet",
+ "caption": "Merc Sunlet (V)",
+ "number": "15",
+ "virtual_set": 3,
+ "destiny": "4",
+ "lore": "A crafty purloiner from Tirac Munda with a heart of gold. Often hired to advise the wealthy on how to protect their own property. Well traveled and skilled in many languages.",
+ "game_text": "Deploy on table. Out Of Commission is canceled. Unless opponent has more cards in Lost Pile than you, whenever you lose Force, may use X Force and place any X cards from your Lost Pile out of play to reduce the loss by X. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/ANH-L-mercsunlet.gif"
+ }
+}

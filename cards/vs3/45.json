@@ -1,0 +1,40 @@
+{
+ "id": "vs3-45-rodian",
+ "number": "45",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Rodian",
+ "caption": "•••Rodian (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Once per game, may ▼ a bounty hunter (except Greedo) to same site. Unless another •••Rodian is at same or a related site, your Force drain bonuses at same planet site may not be canceled.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Thuku is a typical male Rodian. Sent to hunt down Greedo by Navik the Red, head of the Chattza tribe. Rodians enjoy “the hunt,” so many are employed as assassins.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Rodian",
+ "art": {
+  "src": "src/vs3/ANH-D-rodian.gif",
+  "modern": null
+ },
+ "notes": "Single Alien disc top-left. Third stat box printed blank. No icon column on the slip (printed card had a pilot icon). Lore quotes look like double curly quotes “the hunt,” on the scan (wiki has single quotes) — 350 px, verify. Only wiki scan (348x489) carries an 'E' label (errata reprint face); no -decipher-archive file. Modern remake is Block-era only (VB1 -pre), modern=null."
+}

@@ -1,0 +1,22 @@
+{
+ "id": "vs3-10",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "Grappling Hook",
+ "caption": "Grappling Hook (V)",
+ "number": "10",
+ "virtual_set": 3,
+ "destiny": "5",
+ "lore": "Stormtrooper utility belts contain basic tools such as a grappling hook to grab onto protrusions. The hook can also be used to ensnare escaping targets.",
+ "game_text": "If opponent just played an Interrupt, unless three Grappling Hooks on table, use 1 Force to deploy on table and stack that Interrupt here. Other copies of stacked Interrupt are destiny -3. {control}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "IMMEDIATE EFFECT",
+ "banner_icon": "grabber",
+ "art": {
+  "src": "src/vs3/modern/V21-L-grapplinghook.gif"
+ }
+}

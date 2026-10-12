@@ -1,0 +1,32 @@
+{
+ "id": "vs3-37",
+ "template": "ds-character-droid",
+ "side": "Dark",
+ "title": "•IT-O (Eyetee-Oh)",
+ "caption": "•IT-0 (Eyetee-Oh) (V)",
+ "number": "37",
+ "virtual_set": 3,
+ "destiny": "2",
+ "lore": "Floating prisoner interrogation droid. Uses probes and needles to dispense truth drugs and perform ‘surgery.’ Sensors determine subject’s pain threshold and truthfulness.",
+ "game_text": "Wherever you have a captive, your Force drains are +2. Once per game, may ▼ Hypo. Immune to Restraining Bolt and attrition < 3.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "INTERROGATOR DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "art": {
+  "src": "src/vs3/ANH-D-ito.gif"
+ }
+}

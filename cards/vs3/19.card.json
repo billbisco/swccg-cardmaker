@@ -1,0 +1,21 @@
+{
+ "id": "vs3-19",
+ "template": "ls-interrupt",
+ "side": "Light",
+ "title": "•Sabotage",
+ "caption": "•Sabotage (V)",
+ "number": "19",
+ "virtual_set": 3,
+ "destiny": "5",
+ "lore": "Poorly equipped Rebels must rely on clandestine strikes against the massive Imperial military. Computer ‘slicing’ and system tampering have proven most effective.",
+ "game_text": "Target an opponent’s device or non-superlaser weapon card. Draw destiny. Target lost if destiny -X < target’s destiny number, where X = the number of your spies on table. OR Cancel the targeting of a {permanent-weapon} weapon at same site as your spy.",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "LOST INTERRUPT",
+ "art": {
+  "src": "src/vs3/modern/V1-L-sabotage.gif"
+ }
+}

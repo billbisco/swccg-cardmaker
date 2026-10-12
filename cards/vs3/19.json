@@ -1,0 +1,27 @@
+{
+ "id": "vs3-19-sabotage",
+ "number": "19",
+ "virtual_set": 3,
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Sabotage",
+ "caption": "•Sabotage (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Target an opponent’s device or non-superlaser weapon card. Draw destiny. Target lost if destiny -X < target’s destiny number, where X = the number of your spies on table. OR Cancel the targeting of a {permanent-weapon} weapon at same site as your spy.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Poorly equipped Rebels must rely on clandestine strikes against the massive Imperial military. Computer ‘slicing’ and system tampering have proven most effective.",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Sabotage",
+ "art": {
+  "src": "src/vs3/ANH-L-sabotage.gif",
+  "modern": "src/vs3/modern/V1-L-sabotage.gif"
+ },
+ "notes": "Slip banner is LOST INTERRUPT (printed card is a Used Interrupt). Inline icon is a black square with a diagonal green-tipped blaster = the permanent-weapon icon ({permanent-weapon}); wiki stub just says [weapon]. 'destiny -X' printed with a plain hyphen, no space. Lore 'slicing' in single quotes on the card (typed curly). Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible."
+}

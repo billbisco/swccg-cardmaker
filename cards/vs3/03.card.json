@@ -1,0 +1,21 @@
+{
+ "id": "vs3-03",
+ "template": "ls-effect",
+ "side": "Light",
+ "title": "•Cell 2187",
+ "caption": "•Cell 2187 (V)",
+ "number": "3",
+ "virtual_set": 3,
+ "destiny": "5",
+ "lore": "“Aren’t you a little short for a stormtrooper?”",
+ "game_text": "Deploy on table. Once per game, may ▼ spy R2-D2 (for free). During your control phase, if R2-D2 is with captive Leia, may use 1 Force to release her. While Sometimes I Amaze Even Myself on table, where Leia present, ignore Battle Order. May not be canceled. {alter}",
+ "icons": [],
+ "scomp": false,
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "expansion_icon": "icons/set-anh-grainy.png",
+ "expansion_icon_in_hole": false,
+ "card_type": "EFFECT",
+ "art": {
+  "src": "src/vs3/modern/V15-L-cell2187.gif"
+ }
+}

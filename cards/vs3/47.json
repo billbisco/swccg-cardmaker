@@ -1,0 +1,43 @@
+{
+ "id": "vs3-47-tarkin",
+ "number": "47",
+ "virtual_set": 3,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Tarkin",
+ "caption": "•Tarkin (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "Adds one battle destiny if with Vader (or a Rebel at a mobile site). Jar Jar and opponent’s spies may not deploy to Death Star. Once per game, may ▲ Hyperwave Scan, Put All Sections On Alert, or an ISB agent.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Imperial Governor of the Seswenna Sector. Conceived and implemented the Death Star project. A *leader* in the effort to crush the Rebellion.",
+ "destiny": "1",
+ "expansion": "Jedi Pack",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Tarkin (Jedi Pack)",
+ "art": {
+  "src": "src/vs3/Jedi-D-tarkin.gif",
+  "modern": "src/vs3/modern/V4-D-tarkin.gif"
+ },
+ "notes": "Locked reference cards/tarkin-v-vs3.json — stats, text, deploy/forfeit, icons, copyright all match it; 'leader' bold taken from that reference (not resolvable on the 350 px scan). Imperial disc top-left; expansion ring icon = Premium (Jedi Pack). The wiki page 'Tarkin' does not exist — base is 'Tarkin (Jedi Pack)'. Modern = Virtual Set 4 remake V4-D-tarkin.gif (745 px), the art the reference render uses."
+}
