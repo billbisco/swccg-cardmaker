@@ -87,7 +87,7 @@ def convert(c: dict, vs: int) -> dict:
     if t == "loc-site":
         card["light_force"] = bool(c.get("light_force")); card["dark_force"] = bool(c.get("dark_force"))
         card["dark_text"] = c.get("dark_text") or ""
-    if t == "objective":
+    if t.startswith("objective"):
         card["destiny"] = c.get("destiny") or "0"
         card["back"] = {"title": c.get("title_back") or "", "caption": c.get("caption_back") or f"{c.get('title_back','')} (V)",
                         "destiny": c.get("destiny_back") or "7", "game_text": (c.get("game_text_back_lines") or c.get("game_text_back") or ""),

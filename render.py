@@ -239,11 +239,10 @@ TEMPLATES = {
         "game_text": (290, 1350, 1060, 640), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
         "copyright_x": 1416, "gt_size": 56, "dark_text": True, "no_type": True,
     },
-    "objective-ls": {   # same frame lightened to the lavender of the Light Side Objectives (Local Uprising)
-        "frame": ("frames/objective-ls.png", 67, 73),
-        "art": (236, 380, 1150, 855), "title": (382, 204, 878, 95), "destiny": (1310, 204, 105, 107),
-        "fill_boxes": [(260, 1323, 1118, 681, "#f4f2f6")],
-        "game_text": (290, 1350, 1060, 640), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
+    "objective-ls": {   # Bardez "LS - Epic Objective.xcf" (frame + Objective icon): Light Side scoring, textured white text box
+        "frame": ("frames/objective-ls.png", 0, 0),
+        "art": (246, 378, 1148, 886), "title": (382, 204, 878, 95), "destiny": (1330, 204, 111, 113),
+        "game_text": (290, 1358, 1070, 630), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
         "copyright_x": 1416, "gt_size": 56, "dark_text": True, "no_type": True,
     },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
@@ -288,7 +287,7 @@ ICON_FILES = {
     "pilot": "icons/pilot.png", "warrior": "icons/warrior.png", "pilot-light": "icons/pilot-light-745.png", "warrior-light": "icons/warrior-light-745.png",
     "alter": "icons/VS-icon-immune-alter.png", "control": "icons/VS-icon-immune-control.png",
     "sense": "icons/VS-icon-immune-sense.png", 
-    "grabber": "icons/grabber-fist.png", "pilotpower": "icons/VS-icon-pilot-power-x.png",
+    "grabber": "icons/grabber-fist.png", "pilotpower": "icons/VS-icon-pilot-power-x.png", "pilotpower-dark": "icons/VS-icon-pilot-power-x-dark.png",
     "lightsaber": "icons/inline-permanent-weapon.png", "permanent-weapon": "icons/inline-permanent-weapon.png",
     "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
@@ -317,14 +316,16 @@ def game_text_html(text: str) -> str:
     for m in re.finditer(r"\{([\w-]+)(?::([^}]*))?\}", text):
         out.append(esc(text[pos:m.start()]))
         name, arg = m.group(1), m.group(2)
-        if name == "pilot":
-            out.append(icon_img("pilotpower") + f" {esc(arg or '')}")
+        if name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
+            out.append(icon_img("pilotpower-dark" if card_ctx.get("side") == "Dark" else "pilotpower") + f" {esc(arg or '')}")
         elif name in ("alter", "control", "sense"):
             # the slips' red "no" circle with the letter: drawn (transparent), not a pasted raster
             out.append(f'<span class="noicon"><span class="nol">{name[0].upper()}</span></span>')
         elif name == "icon" and arg in ("maintenance-star", "maintenance-skull"):
-            # Decipher's maintenance-cost glyphs: ★ and ☠ as text (DejaVu has both), sized like the slip prints them
-            out.append(f'<span class="glyph">{"★" if arg == "maintenance-star" else "☠"}</span>')
+            # Decipher's maintenance-cost glyphs, cut from the Remaster sheet at 1200 DPI (black on transparent)
+            g = "glyph-star" if arg == "maintenance-star" else "glyph-skull"
+            hpx = 46 if arg == "maintenance-star" else 60   # the star is cap-height, the skull a little taller than the x-height+descender
+            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/{g}.png")}" style="height:{hpx}px;vertical-align:{-4 if g == "glyph-star" else -10}px{";filter:invert(1)" if not card_ctx.get("_dark_text") else ""}">')
         elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
@@ -509,7 +510,7 @@ def sys_frame(card: dict, t: dict) -> Path:
 
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
-    card_ctx.clear(); card_ctx.update(card)
+    card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     fonts = {
         "Fiorello": "fonts/Fiorello CG Condensed Regular.otf",
         "AGLightCn": "fonts/Akzidenz-Grotesk BQ Light Conde.otf",
@@ -668,7 +669,7 @@ def build_html(card: dict) -> str:
     .lore{{font-family:AGLightCn;font-size:58px;color:{ink};letter-spacing:0.8px;line-height:60px;padding:4px 110px 0 10px;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", 60)}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
     .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{ink};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + 3}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
-    .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:0.95em;line-height:0}}
+    .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:1.0em;line-height:0;vertical-align:0.02em}}
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
     .gt-icon{{vertical-align:-9px;margin:0 3px}}
