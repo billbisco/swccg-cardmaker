@@ -1,0 +1,45 @@
+Total Card Size: 1632 x 2220 pixels
+
+
+Title: 		Fiorello CG Condensed, size 80px, kerning 1.0
+Destiny: 	Akzidenz-Grotesk BQ Extended Medium; size 80 px
+Lore:		Size: 58, kerning 0.8, line spacing -6
+			Indent: top: 4, right: 47
+			Normal: Akzidenz-Grotesk BQ Light Conde Light Condensed
+			Bolded: just bold the above font.
+
+
+Game text:	Size 60, kerning 1.5, vertical spacing -6.1
+			Indent: 55px left, 10 px top -- repeat
+			Normal:		Akzidenz-Grotesk BQ Condensed, Medium Condensed
+			Bolded:		Akzidenz-Grotesk BQ Condensed A Bold Condensed
+			
+			NOTE: -6.1 doesn't always work with mixed fonts...
+			
+			Use ‘ʼ not '  ‘’
+			Use “” not "
+			
+			
+			
+Card Type:	Akzidenz-Grotesk BQ Condensed A Bold Condensed, kerning is 2.4, size 60 (KERNING 10?)
+Power:		Akzidenz-Grotesk BQ Condensed, Medium Condensed, Size 56 Kerning 4
+Ability:	For ABILITY Base kerning is 4;  IL is +1, ITY is -1.3 and it fits perfectly.
+Armor:
+etc.		Values:	Akzidenz-Grotesk BQ Extended Medium, size 56, needs to be bolded.
+			
+
+Deploy:		Fiorello CG Condensed, size 70px, kerning 1.0
+Forfeit:
+
+Parsec:		Craft Gothic Heavy Expanded, Size 65
+
+
+
+Special Characters:
+	• (Bullet in titles, but use this in gametext where Bullet(᛫) is instead square)
+	✷
+	‘’
+	“”
+	☠
+	⮶
+	É -- Maintenance: Uses the same icon as Apply Damage (from STCCG). Use Font Wingdings
