@@ -309,8 +309,8 @@ def game_text_html(text: str) -> str:
     out.append(esc(text[pos:]))
     html = "".join(out)
     html = html.replace("•", '<span class="dot">•</span>')
-    html = re.sub(r"\*(.+?)\*", r"<b>\1</b>", html)
-    html = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", html)
+    html = re.sub(r"\*(.+?)\*", r"<b>\1</b>", html, flags=re.S)
+    html = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", html, flags=re.S)   # italics may span the slip's line breaks
     html = html.replace("▲", "<span class=tri>▲</span>").replace("▼", "<span class=tri>▼</span>")
     return html.replace("\n", "<br>")
 
