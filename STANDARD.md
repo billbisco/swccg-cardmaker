@@ -111,3 +111,5 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (205,1821) / (205,1927). **Every box coordinate in a new template must be measured from the frame PNG
   (white/black component bbox), never copied from a text layer or a sibling template.** Multi-value destiny: values
   at the full 80 px, "or" at 46, in a black pill with a 6 px silver outline that replaces the ring.
+
+- Rev 6 (2026-10-12, Bill on BoShek (V)): the ▲/▼ triangles sat too low and too small. Now 0.88em DejaVu Sans, raised 0.14em so the base sits on the baseline and the apex reaches cap height, as the slips print them. Re-rendered every VS1/VS3 card that uses them (23 files).
