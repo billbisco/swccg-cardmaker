@@ -36,5 +36,6 @@
  "virtual_set": 1,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": ""
+ "notes": "",
+ "game_text_lines": "Deploy -1 and forfeit +3 at a site. Once per turn,\nmay peek at top card of opponent’s Reserve\nDeck or Used Pile; may then shuffle that Reserve\nDeck or Used Pile. Immune to attrition < 3."
 }

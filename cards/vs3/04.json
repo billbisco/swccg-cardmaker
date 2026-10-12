@@ -40,5 +40,6 @@
   "modern": "src/vs3/modern/V13-L-chewbacca.gif"
  },
  "notes": "Two discs top-left (Alien + Rebel). Third stat box printed blank. 'smuggler' is bold on the printed card. 745 px scan carries a 'D-E1' label (errata reprint face); printed face is src/vs3/ANH-L-chewbacca-decipher-archive.gif (350 px). Also matches the existing cards/chewbacca-v-vs3.json.",
- "lore_align": "left"
+ "lore_align": "left",
+ "game_text_lines": "{pilot:2}. During your turn, may use 1 Force to ▲ a\ncard with “Chewie” or “Wookiee” in game text."
 }

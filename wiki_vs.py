@@ -38,7 +38,7 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
-            title_fix={}, already_renamed=False),
+            title_fix={}, already_renamed=True),
 }[VS]
 SHEET = META["sheet"]
 NCARDS = len(list((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")))
@@ -79,6 +79,7 @@ def expand(c: dict) -> str:
         tail = " into hand from Reserve Deck; reshuffle" if verb == "take" else " from Reserve Deck; reshuffle"
         return f"{verb} {obj}{tail}{m.group(3)}"
     t = re.sub(r"([▲▼])\s*([^.?!\n]*?)([.?!])", tri, t)
+    t = re.sub(r"(^|[.?!]\s+|\bOR\s+|\n)(take|deploy)\b", lambda m: m.group(1) + m.group(2).capitalize(), t)
     t = t.replace("(may deploy here from Reserve Deck; reshuffle.)", "(may deploy here from Reserve Deck; reshuffle).")
     t = re.sub(r"\*(.+?)\*", r"'''\1'''", t)
     t = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"''\1''", t)
@@ -128,7 +129,7 @@ for n in range(1, NCARDS + 1):
         icons = (icons + " [[Scomp Link]]").strip()
     base = c.get("base_page") or ""
     base_link = f"[[{base}]]" if base else ""
-    uniq = s.get("uniqueness") or "Unrestricted"
+    uniq = c.get("uniqueness") or s.get("uniqueness") or "Unrestricted"
     stub = f"""{{{{Card
 |title={s['title']}
 |card_uid={GEMPSET}_{n}

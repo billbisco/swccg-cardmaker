@@ -34,5 +34,6 @@
   "src": "src/vs3/ANH-L-r2d2.gif",
   "modern": "src/vs3/modern/V1-L-r2d2.gif"
  },
- "notes": "Droid: the slip prints only two stat boxes — POWER 1 and a wide ASTROMECH DROID box in place of ABILITY (no third box), same layout as the printed card. One icon in the column (astromech, droid dome on red). Destiny printed '2 or 5'. Single Droid disc top-left. Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible on the scan."
+ "notes": "Droid: the slip prints only two stat boxes — POWER 1 and a wide ASTROMECH DROID box in place of ABILITY (no third box), same layout as the printed card. One icon in the column (astromech, droid dome on red). Destiny printed '2 or 5'. Single Droid disc top-left. Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible on the scan.",
+ "game_text_lines": "During a battle with C-3PO, may not be targeted\nby weapons. While aboard a starfighter, it is\npower, maneuver, and hyperspeed +3. Unless you\nhave 13 or more cards in hand, opponent may not\nplace those cards in Used Pile."
 }

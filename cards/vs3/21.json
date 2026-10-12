@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-L-solomahal.gif",
   "modern": null
  },
- "notes": "Non-unique (no dot) on both slip and printed card. Only a 350 px scan exists on the wiki (no -decipher-archive variant). Modern remake is Block-era only (Virtual Block 1, VB1-L-solomahal-pre.gif, 350 px) — not a 'Virtual Set N' card, so modern=null. No immunity icon on this slip. Year 1996 read off the 350 px scan (blurry but legible)."
+ "notes": "Non-unique (no dot) on both slip and printed card. Only a 350 px scan exists on the wiki (no -decipher-archive variant). Modern remake is Block-era only (Virtual Block 1, VB1-L-solomahal-pre.gif, 350 px) — not a 'Virtual Set N' card, so modern=null. No immunity icon on this slip. Year 1996 read off the 350 px scan (blurry but legible).",
+ "game_text_lines": "Deploy on your scout (except Luke). If scout (or\nstarship they are aboard) was just targeted by a\nweapon, may place this Effect in Lost Pile to cancel\nthat targeting."
 }

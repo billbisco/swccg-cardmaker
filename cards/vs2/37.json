@@ -23,5 +23,6 @@
  "virtual_set": 2,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": "Non-unique (no dot). Curly apostrophes in K’lor’slug. Lore matches the scan (hyphen in '8-10' as printed). Base scan 745 px (Premiere-D-imperialreinforcements.gif) carries a 'D-E1' label (Glossary Supplement errata text) — top half is the printed face; copyright line legible: 1995. The 350 px printed archive face (Premiere-D-imperialreinforcements-decipher-archive.gif; wiki page 'Imperial Reinforcements (Original)') also downloaded to src/vs2/, not used. Modern remake is Block-era only (VB1-D-imperialreinforcements-pre.gif, 350 px) — used as modern."
+ "notes": "Non-unique (no dot). Curly apostrophes in K’lor’slug. Lore matches the scan (hyphen in '8-10' as printed). Base scan 745 px (Premiere-D-imperialreinforcements.gif) carries a 'D-E1' label (Glossary Supplement errata text) — top half is the printed face; copyright line legible: 1995. The 350 px printed archive face (Premiere-D-imperialreinforcements-decipher-archive.gif; wiki page 'Imperial Reinforcements (Original)') also downloaded to src/vs2/, not used. Modern remake is Block-era only (VB1-D-imperialreinforcements-pre.gif, 350 px) — used as modern.",
+ "game_text_lines": "Once per game, if opponent has more cards with ability\non table than you, draw destiny and retrieve up to that\nnumber of Imperials and/or Imperial starships (may\ntake one retrieved card into hand). OR Cancel K’lor’slug."
 }

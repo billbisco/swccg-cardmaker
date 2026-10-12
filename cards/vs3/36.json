@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-D-informant.gif",
   "modern": null
  },
- "notes": "Non-unique. Game text begins with the ▼ triangle. 745 px scan used. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-informant-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+ "notes": "Non-unique. Game text begins with the ▼ triangle. 745 px scan used. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-informant-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null.",
+ "game_text_lines": "▼ Undercover. OR Peek at top X cards of opponent’s\nReserve Deck, where X = number of opponent’s\ncharacters present with your Undercover spy. OR If\nyour Undercover spy on table, peek at top card of your\nReserve Deck."
 }

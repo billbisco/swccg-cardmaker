@@ -24,5 +24,6 @@
   "modern": null
  },
  "notes": "Lore printed as “Stand by…” (curly quotes, lowercase by, ellipsis); wiki stub has 'Stand By...'. The 745 px scan Premiere-L-atremorintheforce.gif carries a 'D-E1' label bottom-right (Decipher errata reprint face; lore/art identical); the printed Premiere face is the 350 px src/vs3/Premiere-L-atremorintheforce-decipher-archive.gif. No icon column on the slip (set symbol only). Modern remake is Block-era only (VB1-L-atremorintheforce-pre.gif, no 'Virtual Set N' page) so modern=null.",
- "lore_align": "left"
+ "lore_align": "left",
+ "game_text_lines": "Deploy on table. Whenever you verify opponent’s\nReserve Deck, may place a card there with “podracer”\nin game text out of play or retrieve 1 Force."
 }

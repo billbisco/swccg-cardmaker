@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-D-imontheleader.gif",
   "modern": null
  },
- "notes": "Unique (dot). Title apostrophe typed curly (’) as the slip prints it; wiki page title uses a straight one. Wiki 'I'm On The Leader' page defaults to the Glossary errata wording; lore/destiny taken from the printed-face page 'I'm On The Leader (Original)' (ANewHope-D-imontheleader-decipher-archive.gif, 350 px, also downloaded). Used the 745 px ANH-D-imontheleader.gif for art. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-imontheleader-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null."
+ "notes": "Unique (dot). Title apostrophe typed curly (’) as the slip prints it; wiki page title uses a straight one. Wiki 'I'm On The Leader' page defaults to the Glossary errata wording; lore/destiny taken from the printed-face page 'I'm On The Leader (Original)' (ANewHope-D-imontheleader-decipher-archive.gif, 350 px, also downloaded). Used the 745 px ANH-D-imontheleader.gif for art. No modern 'Virtual Set N' remake exists; the wiki's only (V) page is a Virtual Block 1 preview composite (VB1-D-imontheleader-pre.gif) which is just the Original slip laid over the 350 px scan — downloaded to src/vs3/modern/ for reference but modern=null.",
+ "game_text_lines": "Cancel the game text of a character at same system as\nVader for remainder of turn."
 }

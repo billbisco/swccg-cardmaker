@@ -38,5 +38,6 @@
   "src": "src/vs3/ANH-D-trooperdavinfelth.gif",
   "modern": null
  },
- "notes": "Imperial disc top-left. Third stat box printed blank. 'Tantive IV' is italic on the printed card. Printed game text on the scan differs from the wiki transcription (not used). Base scan only 350 px. Modern remake is Block-era only (VB1 -pre), modern=null."
+ "notes": "Imperial disc top-left. Third stat box printed blank. 'Tantive IV' is italic on the printed card. Printed game text on the scan differs from the wiki transcription (not used). Base scan only 350 px. Modern remake is Block-era only (VB1 -pre), modern=null.",
+ "game_text_lines": "During your control phase, may ▲ (or lose 1\nForce to retrieve) one Local Trouble or Look Sir,\nDroids. Opponent may not fire weapons during\nLocal Trouble battles."
 }

@@ -38,5 +38,6 @@
   "src": "src/vs3/Jedi-L-leia.gif",
   "modern": "src/vs3/modern/V0-L-leia.gif"
  },
- "notes": "Base card is the Jedi Pack Leia (wiki page 'Leia (Jedi Pack)'; plain 'Leia' does not exist). Single Rebel disc top-left. Copyright year read from the 745 px V0 modern scan: 1996. 350 px base scan only; expansion ring icon = Premium."
+ "notes": "Base card is the Jedi Pack Leia (wiki page 'Leia (Jedi Pack)'; plain 'Leia' does not exist). Single Rebel disc top-left. Copyright year read from the 745 px V0 modern scan: 1996. 350 px base scan only; expansion ring icon = Premium.",
+ "game_text_lines": "While at opponent’s Senate, Leia’s game text\nmay not be canceled and may lose 1 Force to\nplace Leia and a character present out of play.\nDuring battle, may cancel game text of a leader\nof ability < 5 with Leia for remainder of turn."
 }

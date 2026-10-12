@@ -23,5 +23,6 @@
   "src": "src/vs3/ANH-D-besieged.gif",
   "modern": null
  },
- "notes": "Non-unique. 'Tantive IV' is italic on the printed card. Wiki default page (stub-linked, Glossary 2.0 text) uses the 745 px ANH-D-besieged.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-besieged-pre.gif), modern=null. Immunity icon on the slip is a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter}."
+ "notes": "Non-unique. 'Tantive IV' is italic on the printed card. Wiki default page (stub-linked, Glossary 2.0 text) uses the 745 px ANH-D-besieged.gif which carries a 'D-E1' label; printed face is the 350 px -decipher-archive gif (also downloaded). Modern remake is Block-era only (VB1-D-besieged-pre.gif), modern=null. Immunity icon on the slip is a letter in a red circle with a red slash (sheet ICON KEY: A = Immune to Alter); tokened as {alter}.",
+ "game_text_lines": "Deploy on table. If opponent just forfeited a character\nor unpiloted starship at same system or sector as your\nImperial capital starship, you may draw destiny.\nCharacter or starship is captured if destiny > its destiny\nnumber. {alter}"
 }

@@ -639,7 +639,7 @@ def build_html(card: dict) -> str:
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:AGLightCn;font-size:58px;color:{ink};letter-spacing:0.8px;line-height:60px;padding:4px 110px 0 10px;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", 60)}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
-    .gt{{font-family:AGCn;font-size:62px;color:{ink};letter-spacing:0.5px;line-height:65px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px}}
+    .gt{{font-family:AGCn;font-size:62px;color:{ink};letter-spacing:0.5px;line-height:65px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
     .gt-icon{{vertical-align:-9px;margin:0 3px}}
@@ -670,7 +670,7 @@ def build_html(card: dict) -> str:
       for (const el of document.querySelectorAll('.fit')) {
         let size = parseFloat(getComputedStyle(el).fontSize);
         let lh = parseFloat(getComputedStyle(el).lineHeight);
-        while (el.scrollHeight > el.clientHeight + 1 && size > 20) {
+        while ((el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) && size > 20) {
           size -= 1; lh -= 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
         }
       }

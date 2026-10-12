@@ -36,5 +36,6 @@
   "src": "src/vs3/ANH-L-red5.gif",
   "modern": "src/vs3/modern/V9-L-red5.gif"
  },
- "notes": "Scomp-link ring printed top-left of the text box. Icon column is empty on the slip (no nav icon) — only the set symbol; the printed card has Nav Computer. Inline icon before R2-D2 is the A New Hope Death Star set symbol ({set:anh}). '(may ▼ here.)' punctuation as printed. Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible."
+ "notes": "Scomp-link ring printed top-left of the text box. Icon column is empty on the slip (no nav icon) — only the set symbol; the printed card has Nav Computer. Inline icon before R2-D2 is the A New Hope Death Star set symbol ({set:anh}). '(may ▼ here.)' punctuation as printed. Only a 350 px base scan; copyright year taken as 1996 (A New Hope), not legible.",
+ "game_text_lines": "May add Luke as pilot and {set:anh} R2-D2 (may ▼ here.)\nDuring battle, may cancel a starfighter’s game text\nhere (except related to capacity, ability, and identity\nof permanent pilot). Immune to attrition < 6."
 }

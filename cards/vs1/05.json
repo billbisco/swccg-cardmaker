@@ -39,5 +39,6 @@
  "virtual_set": 1,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": ""
+ "notes": "",
+ "game_text_lines": "{pilot:3}. If piloting lead starfighter, Attack Run total\nis +3. During your control phase, if piloting at a\nbattleground, may ▲ one Darklighter Spin or\nretrieve 1 Force."
 }
