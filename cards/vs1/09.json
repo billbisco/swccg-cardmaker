@@ -1,0 +1,27 @@
+{
+ "number": "9",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Blaster Rack",
+ "caption": "Blaster Rack (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During your deploy phase, if you just deployed a unique (•) character, may ▼ a matching weapon on that character. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial facilities, like the Death Star and garrison bases, have blaster racks at key locations to equip soldiers with weapons like blaster rifles and thermal detonators.",
+ "destiny": "3",
+ "base_page": "Blaster Rack",
+ "art": {
+  "src": "src/vs1/09-Premiere-D-blasterrack.gif",
+  "modern": "src/vs1/modern/09-V0-D-blasterrack.gif"
+ },
+ "id": "vs1-09",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

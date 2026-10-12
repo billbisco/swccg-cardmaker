@@ -7,7 +7,7 @@ import render
 
 ROOT = Path(__file__).resolve().parent
 
-SET_ICON = {   # expansion name → ring icon file (None = empty ring, as Premiere prints)
+SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Premiere prints — checked on BoShek/Black 2 scans)
     "A New Hope": "icons/set-anh-grainy.png", "Premiere": None, "Premiere Limited": None, "Premiere Unlimited": None,
     "Jedi Pack": "icons/set-premium-grainy.png", "Hoth": "icons/set-hoth-bardez.png", "Dagobah": "icons/set-dagobah.png",
     "Special Edition": "icons/set-se-grainy.png", "Endor": "icons/set-endor-grainy.png",
@@ -34,7 +34,7 @@ def template_for(c: dict) -> str:
             return "ds-character-alien"
         return "ds-character-imperial"
     if "starfighter" in st or "starship" in st:
-        return "ls-starship-starfighter"
+        return f"{side}-starship-starfighter"
     if "shield" in st:
         return f"{side}-shield"
     if "weapon" in st or "device" in st:

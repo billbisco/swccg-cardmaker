@@ -1,0 +1,27 @@
+{
+ "number": "7",
+ "side": "Dark",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "Assault Rifle",
+ "caption": "Assault Rifle (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Chief Bast or your Imperial warrior. May target a character, creature, or vehicle at same or adjacent site using 1 Force. Draw destiny. Target lost if destiny +1 > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "BlasTech model DLT-19 “heavy blaster rifle.” Enhanced with extra power packs and greater range.",
+ "destiny": "2",
+ "base_page": "Assault Rifle",
+ "art": {
+  "src": "src/vs1/07-Premiere-D-assaultrifle.gif",
+  "modern": "src/vs1/modern/07-VB1-D-assaultrifle-pre.gif"
+ },
+ "id": "vs1-07",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

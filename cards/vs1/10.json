@@ -1,0 +1,43 @@
+{
+ "number": "10",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Darth Vader",
+ "caption": "•Darth Vader (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "DARK JEDI",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "8",
+ "game_text": "{pilot:4}. While aboard a starship, it is immune to attrition < 5. During battle at same system (twice if with a Black Squadron pilot), may cumulatively subtract 3 from a just drawn destiny. Immune to attrition < 5.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Dark Lord of the Sith. Servant of Emperor. Encased in armor with cybernetic life support. Student of Obi-Wan Kenobi. Was the best starpilot in the galaxy. Cunning warrior.",
+ "destiny": "1",
+ "base_page": "Darth Vader",
+ "art": {
+  "src": "src/vs1/10-Premiere-D-darthvader.gif",
+  "modern": "src/vs1/modern/10-V0-D-darthvader.gif"
+ },
+ "id": "vs1-10",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

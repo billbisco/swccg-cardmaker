@@ -189,6 +189,25 @@ TEMPLATES = {
         "scomp": (184, 1694),
         "ctype_spacing": 3,
     },
+    "ds-starship-starfighter": {   # Bardez "DS - Starship.xcf" frame layer + his TIE type icon; boxes measured from the frame PNG
+        "frame": ("frames/ds-starship-starfighter.png", 139, 148),
+        "art": (241, 667, 1134, 710),
+        "title": (398, 200, 880, 90),
+        "destiny": (1305, 210, 100, 100),
+        "lore": (316, 390, 985, 178),
+        "card_type": (262, 1462, 1100, 61),
+        "stats_y": 1588,
+        "stats": [(268, 262), (581, 330), (962, 381)],
+        "game_text": (344, 1732, 925, 265),
+        "deploy": (199, 1826, 45, 82),
+        "forfeit": (199, 1932, 46, 84),
+        "icon_slots": [(1356, 1722), (1356, 1822)],
+        "set_icon_abs": (1363, 1926),
+        "expansion_ring": (1382, 405),
+        "copyright_x": 1416,
+        "scomp": (170, 1694),
+        "ctype_spacing": 3,
+    },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
     # The frame is assembled per card (force icons, packed icon boxes, scomp rings) by loc_frame().

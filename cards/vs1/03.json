@@ -1,0 +1,42 @@
+{
+ "number": "3",
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: Y-WING",
+ "title": "•Gold 1",
+ "caption": "•Gold 1 (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "May add 2 pilots or passengers. If Dutch piloting, power +2, immune to attrition < 4, and once during any control phase, may take the top or bottom card of your Force Pile into hand.",
+ "icons": [
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Lead fighter of Gold Squadron at Battle of Yavin. Flown by Jon ‘Dutch’ Vander. Designated Specter 1 at Renforra Base.",
+ "destiny": "3",
+ "base_page": "Gold 1",
+ "art": {
+  "src": "src/vs1/03-Premiere-L-gold1.gif",
+  "modern": null
+ },
+ "id": "vs1-03",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

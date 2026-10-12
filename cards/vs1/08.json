@@ -1,0 +1,40 @@
+{
+ "number": "8",
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: TIE/LN",
+ "title": "•Black 2",
+ "caption": "•Black 2 (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "NO HYPERSPEED",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "May add 1 pilot. During your deploy phase, may ▲ one Pride Of The Empire. All Wings Report In and Organized Attack are canceled. While DS-61-2 piloting, immune to attrition < 5.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "TIE/ln assigned to pilot DS-61-2. Has 27 ‘flames’ on cockpit, one for each Rebel kill. Control yoke has a holo of Mithel’s young son, Rejlii.",
+ "destiny": "2",
+ "base_page": "Black 2",
+ "art": {
+  "src": "src/vs1/08-Premiere-D-black2.gif",
+  "modern": "src/vs1/modern/08-V0-D-black2.gif"
+ },
+ "id": "vs1-08",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

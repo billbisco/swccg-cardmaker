@@ -1,0 +1,40 @@
+{
+ "number": "12",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Prophetess",
+ "caption": "•Prophetess (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "2",
+ "game_text": "Deploy -1 and forfeit +3 at a site. Once per turn, may peek at top card of opponent’s Reserve Deck or Used Pile; may then shuffle that Reserve Deck or Used Pile. Immune to attrition < 3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Renowned female psychic. Predictor of doom. Agent for Governor Aryon of Tatooine. Tailed Jabba and his thugs to Docking Bay 94 when they confronted Han Solo.",
+ "destiny": "2",
+ "base_page": "Prophetess",
+ "art": {
+  "src": "src/vs1/12-Premiere-D-prophetess.gif",
+  "modern": "src/vs1/modern/12-VB1-D-prophetess-pre.gif"
+ },
+ "id": "vs1-12",
+ "virtual_set": 1,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": ""
+}

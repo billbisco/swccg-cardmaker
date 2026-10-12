@@ -5,7 +5,7 @@ Reference card: **Tarkin (V), Virtual Set 3 #47** (`cards/tarkin-v-vs3.json` →
 ## What a slip changes and what it does not
 A V-slip replaces the **bottom half** of the printed Decipher card only. The top half stays exactly as printed:
 - title **without** "(V)" (e.g. "•Tarkin"), destiny, lore, art, the expansion-set icon in the ring beside the lore box
-  (Premium for Jedi Pack Tarkin; empty ring for Premiere), the vertical "TM & © <year> LUCASFILM LTD. TM, ® & © <year>
+  (Premium for Jedi Pack Tarkin; Premiere prints no ring at all — verified on the BoShek and Black 2 scans, VS1 run), the vertical "TM & © <year> LUCASFILM LTD. TM, ® & © <year>
   DECIPHER INC." line on the right margin of the art (year = the base card's set).
 - The slip supplies: stats row, game text (with the PC shorthand icons and ▲/▼ triangles kept), deploy/forfeit,
   the icon column, the Original Virtual set symbol at the bottom of the icon column, and the bottom strip:
