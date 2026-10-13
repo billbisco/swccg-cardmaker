@@ -81,6 +81,8 @@ def convert(c: dict, vs: int) -> dict:
         card["banner_icon"] = "grabber"
     if src:
         card["art"] = {"src": src}
+    if (c.get("expansion") or "") in ("Coruscant", "Theed Palace", "Tatooine"):
+        card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
     for k in ("margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
