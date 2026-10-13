@@ -1,0 +1,44 @@
+{
+ "id": "vs7-01",
+ "number": "01",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Chewbacca, Protector",
+ "caption": "•Chewbacca, Protector (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "7",
+ "game_text": "Deploys free to Coruscant and is a spy while there. During your deploy phase, may ▼ one Boushh or Vibro-Ax (on Chewie). While with Leia, her game text may not be canceled and, once per turn, may take the bottom card of Force Pile into hand.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Chewie honored his life debt to Han by protecting Leia. Posed as the mercenary Snoova while on Coruscant. *Smuggler*. Wookiee.",
+ "destiny": "1",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Chewbacca, Protector",
+ "art": {
+  "src": "src/vs7/01-Ref2-L-chewbaccaprotector.gif",
+  "modern": "src/vs7/modern/01-VB4-L-chewbaccaprotector-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 6 / ABILITY 2 / ARMOR 4 (third box is a value box); deploy 3 / forfeit 7. Icon column top to bottom: pilot (yellow helmet), warrior (blue, blaster). Rebel (Reflections II frame, Rebel disc). The slip prints ▼ where the stub expands 'deploy on table from Reserve Deck; reshuffle'. Lore corrected from scan: 'Smuggler' is bold (*Smuggler*); wiki plain. Expansion: wiki set 'Reflections II: Expanding the Galaxy', written 'Reflections II' as vs6/46. Base scan only 354×492 (square-on Ref2 scan). Copyright read off the scan: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (as vs6/46). Modern: no V<N> remake found; Virtual Block 4 only (VB4 -pre, 354 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "Deploys free to Coruscant and is a spy while there.\nDuring your deploy phase, may ▼ one Boushh or\nVibro-Ax (on Chewie). While with Leia, her game\ntext may not be canceled and, once per turn, may\ntake the bottom card of Force Pile into hand."
+}

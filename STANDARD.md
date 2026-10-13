@@ -205,3 +205,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   card on a white page (odd size, e.g. 367×506) as the art source — its silver-frame bbox and scale do not map, and
   the art window takes in the scan's own frame (frame-in-frame). Use the square-on 350/745 px scan of the same art
   for `art.src`; the archive photo may still be read for lore and copyright. Only VS6 #18 was affected in sets 1–6.
+- Rev 12 (VS7 run + Bill 2026-10-13): Defensive Shields — the hybrid (hard cut at the banner) stays the PRIMARY
+  shield template (`ds-shield` / `ls-shield`); the slips' red→cyan fade is an optional era template
+  (`ds-shield-fade` / `ls-shield-fade`). `build_vs.py` uses the fade for the Original Virtual sets (it is the
+  technique their Remaster slips used); a card can force the primary frame with `"shield_style": "hybrid"`.
+  Label-only stat boxes (FORCE-SENSITIVE, MAINTENANCE DROID…) shrink to stay on one line. A droid printing three
+  separate stat boxes (LE-BO2D9: POWER / ARMOR / MAINTENANCE DROID) gets the Rebel frame's three-box stat row laid
+  over the droid frame's wide box (`ls-stats-row3.png`). Legal dates now from the swccgpc.com news archive:
+  VS6 released 21 Nov 2003, final revision legal 12 Jan 2004; VS7 released 16 Jul 2004 (no separate legal date).

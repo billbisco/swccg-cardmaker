@@ -1,0 +1,28 @@
+{
+ "number": "13",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Brief Loss Of Control",
+ "caption": "•Brief Loss Of Control (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Once per game, during opponent’s activate phase, target a location. Opponent is prevented from controlling that location (and loses senate majority if target is Galactic Senate) for remainder of turn.\nLOST: Cancel Control.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Eliciting fear from the opponent gives the dark side a powerful advantage.",
+ "destiny": "3",
+ "base_page": "Brief Loss Of Control",
+ "art": {
+  "src": "src/vs7/13-CC-D-brieflossofcontrol.gif",
+  "modern": "src/vs7/modern/13-VB2-D-brieflossofcontrol-pre.gif"
+ },
+ "id": "vs7-13",
+ "virtual_set": 7,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT (printed base is a Lost Interrupt). Curly apostrophe in opponent’s; USED:/LOST: lines separated by \\n. No inline icons; slip text matches the stub. Lore matches the wiki. Base scan only at 350 px; copyright 1997 just legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: Once per game, during opponent’s activate\nphase, target a location. Opponent is prevented from\ncontrolling that location (and loses senate majority if\ntarget is Galactic Senate) for remainder of turn.\nLOST: Cancel Control."
+}

@@ -63,6 +63,8 @@ def convert(c: dict, vs: int) -> dict:
     for k, v in TOKEN_FIX.items():
         gt = gt.replace(k, v)
     t = template_for(c)
+    if t.endswith("-shield") and c.get("shield_style", "fade") == "fade":
+        t += "-fade"      # Original Virtual era: the slips' red→cyan fade; "shield_style": "hybrid" keeps the primary frame
     art = c.get("art") or {}
     src = art.get("modern") or art.get("src")
     exp = c.get("expansion")

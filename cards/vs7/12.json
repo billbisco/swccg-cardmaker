@@ -1,0 +1,43 @@
+{
+ "number": "12",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Bane Malar",
+ "caption": "•Bane Malar (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "Blaster Rifle is a matching weapon for Bane. While at a battleground planet site, your Force drains and Force drain bonuses here and at same site as Ree-Yees may not be canceled. Immune to attrition < 3.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Mysterious bounty hunter of an unknown species. Rumored to be somewhat telepathic. Infrequent member of Jabba’s court. Plotting to kill Jabba.",
+ "destiny": "1",
+ "base_page": "Bane Malar",
+ "art": {
+  "src": "src/vs7/12-JP-D-banemalar.gif",
+  "modern": "src/vs7/modern/12-VB3-D-banemalar-pre.gif"
+ },
+ "id": "vs7-12",
+ "virtual_set": 7,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 3 / forfeit 4. Icon column: warrior (blue, blaster). Alien (Jabba's Palace dark alien frame, alien disc). Slip text matches the stub. Lore corrected from scan: curly apostrophe in Jabba’s (wiki straight). Base scan only at 350 px; copyright line read as the Hoth-style 'TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.' (low-res but legible). Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Blaster Rifle is a matching weapon for Bane.\nWhile at a battleground planet site, your Force\ndrains and Force drain bonuses here and at same\nsite as Ree-Yees may not be canceled.\nImmune to attrition < 3."
+}

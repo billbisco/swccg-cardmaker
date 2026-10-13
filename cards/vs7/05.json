@@ -1,0 +1,28 @@
+{
+ "id": "vs7-05",
+ "number": "05",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Ke Chu Ke Kukuta?",
+ "caption": "Ke Chu Ke Kukuta? (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you have an information broker on table, draw destiny. If destiny > the number of opponent’s characters on table, may use 1 Force to ▲ any one card.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Balka. Hachu ma blinki?”",
+ "destiny": "5",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Ke Chu Ke Kukuta?",
+ "art": {
+  "src": "src/vs7/05-JP-L-kechukekukuta.gif",
+  "modern": "src/vs7/modern/05-VB3-L-kechukekukuta-pre.gif"
+ },
+ "notes": "Non-unique (no dot on slip heading, caption or printed title; wiki: Unrestricted). Banner USED INTERRUPT. The slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'. Lore corrected from scan: curly double quotes “Balka. Hachu ma blinki?” (wiki straight single quotes). Base scan only at 350 px; copyright read off the scan as 'TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.' (low-res but legible). Modern: no V<N> remake found; Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "If you have an information broker on table, draw\ndestiny. If destiny > the number of opponent’s\ncharacters on table, may use 1 Force to ▲ any one\ncard."
+}

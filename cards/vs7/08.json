@@ -1,0 +1,28 @@
+{
+ "id": "vs7-08",
+ "number": "08",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Smuggler’s Blues",
+ "caption": "•Smuggler’s Blues (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Opponent may not cancel or modify Force drains at any battleground where you have two musicians or two smugglers (or one of each). Once per turn, may ▲ Han’s Back, Han’s Dice, Solo Han, Special Modifications, or Stay Sharp!.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "It’s the lure of easy credits. It’s got a very strong appeal. Perhaps you’d understand better wearing my flight suit. It’s the ultimate special modification, it’s the smuggler’s blues.",
+ "destiny": "3",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Smuggler's Blues",
+ "art": {
+  "src": "src/vs7/08-Dagobah-L-smugglersblues.gif",
+  "modern": "src/vs7/modern/08-VB2-L-smugglersblues-pre.gif"
+ },
+ "notes": "Unique. Banner EFFECT, no grabber box. The slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'; 'Stay Sharp!.' printed with both ! and period, as on the stub. Lore corrected from scan: curly apostrophes (It’s ×3, you’d, smuggler’s; wiki straight). Base scan only at 350 px; copyright read off the scan as 'TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.' (Dagobah). Modern: no V<N> remake found; Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Opponent may not cancel or modify\nForce drains at any battleground where you have two\nmusicians or two smugglers (or one of each). Once\nper turn, may ▲ Han’s Back, Han’s Dice, Solo Han,\nSpecial Modifications, or Stay Sharp!."
+}
