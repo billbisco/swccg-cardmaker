@@ -121,7 +121,7 @@ def convert(c: dict, vs: int) -> dict:
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
     if t == "loc-site":

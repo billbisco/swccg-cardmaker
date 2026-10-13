@@ -265,3 +265,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Tatooine and Theed Palace from Bardez's Epic Event template; Enhanced Cloud City and Official Tournament Sealed Deck
   use the premium silver sphere. Sheets up to 530 px tall slips (`sheet.MAX_H`). Dark Jedi Lightsaber lore misprint
   "Mutlifaceted" corrected.
+- Rev 20 (Bill 2026-10-13 evening): (1) stat values set right keep at least a 30 px gap after the label; when label +
+  gap + value do not fit, the label is condensed (≥ 0.8) instead of the value crowding the R (Green Squadron 1 (V)).
+  (2) Margin-credit ink follows the margin it sits on, as the slips print it: black on bright red/silver/blue
+  margins (Dark Effects, Endor Shield (V)), white on the dark grey/black character frames (`margin_ink()`).
+  (3) Two-line credits start at 42 px and run from above the stat row; `margin_right_at: "top"` puts a right credit
+  above the column icons, level with the stats (Padmé Naberrie (V)). (4) Deep Hatred (V): art from the scan's own
+  art rectangle (`art.rect`) — the mapped Reflections III purple frame had put a frame inside the frame.

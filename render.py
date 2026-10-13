@@ -444,6 +444,22 @@ def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+def margin_ink(frame_path, x: int, top: int, bot: int) -> str:
+    """Credit ink by the margin it sits on, as the slips print it (Bill 2026-10-13: Endor Shield (V)): black on the
+    bright red/silver/blue margins, white on the dark grey/black ones (Dark characters, Lord Vader)."""
+    try:
+        im = Image.open(frame_path).convert("RGBA")
+        import numpy as np
+        a = np.array(im.crop((x - 10, top, x + 50, bot))).astype(float)
+        m = a[:, :, 3] > 200
+        if not m.any():
+            return "#fff"
+        lum = (0.299 * a[:, :, 0] + 0.587 * a[:, :, 1] + 0.114 * a[:, :, 2])[m].mean()
+        return "#000" if lum > 95 else "#fff"
+    except Exception:
+        return "#fff"
+
+
 def title_html(s: str) -> str:
     """esc_i() for card titles: Fiorello has no accented letters, so é/è/á are an e/a with the accent drawn above it
     (Padmé Naberrie (V))."""
@@ -863,8 +879,11 @@ def build_html(card: dict) -> str:
             gx, gy, gw, gh = t["game_text"]
             cx_, cy_, cw_, ch_ = t.get("card_type", (gx, gy - 160, gw, 61))
             top, bot = cy_, gy + gh
-            ink = t.get("credit_ink") or ("#000" if t.get("dark_text") else "#fff")
-            if key == "margin_right" and card.get("icons") and t.get("icon_slots"):
+            ink = t.get("credit_ink") or margin_ink(fr, x - fx, top - fy, bot - fy)
+            if key == "margin_right" and card.get("margin_right_at") == "top" and t.get("icon_slots"):
+                # the slip prints the credit above the column icons, level with the stat row (Padmé Naberrie (V))
+                top, bot = t.get("stats_y", top) - 60, t["icon_slots"][0][1] - 8
+            elif key == "margin_right" and card.get("icons") and t.get("icon_slots"):
                 # the column icons sit in the right margin: the credit runs below them (Mace Windu (V))
                 top = max(top, t["icon_slots"][min(len(card["icons"]), len(t["icon_slots"])) - 1][1] + 100)
                 if t.get("set_icon_abs"):
@@ -872,7 +891,7 @@ def build_html(card: dict) -> str:
             if key == "margin_left" and "deploy" in t and card.get("deploy") is not None:
                 # characters: the deploy/forfeit boxes sit in the left margin — the credit runs above them (as The
                 # Emperor (V) prints it), white on the dark frames
-                top, bot = t.get("stats_y", top) - 10, t["deploy"][1] - 10
+                top, bot = t.get("stats_y", top) - (60 if "\n" in card[key] else 10), t["deploy"][1] - 10
             # the rotated line is as long as the text; shrink the font so it fits the span (AGCn italic ≈ 0.40 em/char)
             # the slips run the credit nearly the whole span at ~46 px; the fitcredit JS shrinks it only if it would overflow
             parts.append(f'<div class="copy" style="position:absolute;left:{x}px;top:{top}px;width:40px;height:{bot - top}px">'
@@ -909,7 +928,7 @@ def build_html(card: dict) -> str:
     .stat{{display:flex;align-items:center;padding-left:{t.get("stat_pl", 16)}px;padding-bottom:6px;box-sizing:border-box}}
     .stat .lab{{font-family:AGBoldCnA;font-size:59px;color:{t.get("stats_ink", ink)};letter-spacing:0.6px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
     .stat .val{{font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
-    .stat .val.r{{margin-left:auto;padding-left:18px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
+    .stat .val.r{{margin-left:auto;padding-left:30px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
     .ctype{{font-family:AGBoldCnA;font-size:60px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:61px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
@@ -951,7 +970,7 @@ def build_html(card: dict) -> str:
       for (const el of document.querySelectorAll('.fitcredit')) {
         let fs = 46; const avail = parseFloat(el.dataset.avail);
         if (el.dataset.lines == '2') {   // the slip prints both credit lines side by side in one margin (Mon Mothma (V))
-          fs = 34; el.style.fontSize = fs + 'px'; el.style.lineHeight = '1.0'; el.style.flexShrink = '0'; el.style.textAlign = 'center';
+          fs = 42; el.style.fontSize = fs + 'px'; el.style.lineHeight = '0.95'; el.style.flexShrink = '0'; el.style.textAlign = 'center';
           while (el.offsetWidth > avail && fs > 20) { fs -= 1; el.style.fontSize = fs + 'px'; }
           el.dataset.solo = '1'; continue;
         }
@@ -968,6 +987,14 @@ def build_html(card: dict) -> str:
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
         const w = el.scrollWidth, avail = el.clientWidth;
         if (w > avail + 1) { el.style.transformOrigin = 'left center'; el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')'; el.style.width = w + 'px'; }
+      }
+      for (const st of document.querySelectorAll('.stat')) {   // label + gap + value too wide for the box: condense the label (Bill: Green Squadron 1 (V))
+        const lab = st.querySelector('.lab'), val = st.querySelector('.val');
+        if (!lab || !val || lab.classList.contains('fitlab')) continue;
+        const cs = getComputedStyle(st), inner = st.clientWidth - parseFloat(cs.paddingLeft);
+        const vp = parseFloat(getComputedStyle(val).paddingLeft) || 0; const need = lab.offsetWidth + (val.offsetWidth - vp) * 1.15 + vp + (parseFloat(getComputedStyle(val).marginRight) || 0);
+        if (need > inner) { const k = Math.max(0.8, (inner - (need - lab.offsetWidth)) / lab.offsetWidth);
+          lab.style.display = 'inline-block'; lab.style.transformOrigin = 'left center'; lab.style.transform = 'scaleX(' + k.toFixed(3) + ')'; lab.style.marginRight = (-(1 - k) * lab.offsetWidth) + 'px'; }
       }
       for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
