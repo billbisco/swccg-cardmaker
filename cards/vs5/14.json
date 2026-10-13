@@ -1,0 +1,28 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•No Disintegrations!",
+ "caption": "•No Disintegrations! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During opponent’s turn, may place a just forfeited Rebel of ability > 2 out of play; opponent loses 3 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“There will be a substantial reward for the one who finds the _Millennium Falcon_. You are free to use any methods necessary, but I want them alive.”",
+ "destiny": "4",
+ "base_page": "No Disintegrations!",
+ "art": {
+  "src": "src/vs5/14-Dagobah-L-nodisintegrations.gif",
+  "modern": "src/vs5/modern/14-V25-L-nodisintegrations.gif"
+ },
+ "id": "vs5-14",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Slip text matches the wiki stub (curly apostrophe in 'opponent’s'). No immunity icon. Lore corrected from scan: curly double quotes (wiki has straight single quotes) and '_Millennium Falcon_' is printed in italics (confirmed on the 745 px V25 remake). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: V25-L-nodisintegrations.gif (Virtual Set 25 remake, 745 px) used; VB2 -pre (350 px) also downloaded.",
+ "game_text_lines": "Deploy on table. During opponent’s turn, may place a\njust forfeited Rebel of ability > 2 out of play; opponent\nloses 3 Force."
+}

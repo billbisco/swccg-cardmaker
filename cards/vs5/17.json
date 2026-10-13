@@ -1,0 +1,39 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Rayc Ryjerd",
+ "caption": "•Rayc Ryjerd (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:3}. Twice per game, may ▲ one Big One, Kessel Run, or Rycar’s Run. Once per game, may double the value of X for Kessel Run or Rycar’s Run. Rayc is a matching pilot for any freighter or yacht.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "An ‘honest’ smuggler. Working for Jabba to pay off debts for his ship. Rycar’s son. Even more of an idiot.",
+ "destiny": "2",
+ "base_page": "Rayc Ryjerd (Original)",
+ "art": {
+  "src": "src/vs5/17-JabbasPalace-L-raycryjerd-decipher-archive.gif",
+  "modern": "src/vs5/modern/17-VB4-L-raycryjerd-pre.gif"
+ },
+ "id": "vs5-17",
+ "virtual_set": 5,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Yellow pilot-power icon followed by '3.' at the start → {pilot:3} — the wiki stub omits this phrase entirely. Slip prints the ▲ triangle where the stub expands 'take into hand from Reserve Deck; reshuffle'. Third stat box printed blank. Icon column: pilot. Alien (Jabba's Palace frame, single alien disc). The wiki's default 'Rayc Ryjerd' page carries Glossary 2.0 errata text and its image JP-L-raycryjerd.gif (348 px, 'E' label) is the Errata face ('anything he pilots') — downloaded to src/vs5/ but not used; the printed face is 'Rayc Ryjerd (Original)' (350 px decipher-archive, 'any starship he pilots'), same lore/destiny/set. Lore corrected from scan: curly single quotes around ‘honest’ and curly apostrophe in 'Rycar’s' (wiki straight). Copyright 'TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.' read off the 350 px scan (Jabba's Palace uses the Hoth-style line with 1998). Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "game_text_lines": "{pilot:3}. Twice per game, may ▲ one Big One,\nKessel Run, or Rycar’s Run. Once per game, may\ndouble the value of X for Kessel Run or Rycar’s\nRun. Rayc is a matching pilot for any freighter or\nyacht."
+}

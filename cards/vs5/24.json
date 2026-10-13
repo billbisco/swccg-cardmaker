@@ -1,0 +1,28 @@
+{
+ "number": "24",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Wars Not Make One Great",
+ "caption": "•Wars Not Make One Great (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During battles where your Jedi is present, players may not draw more than two battle destiny. During your turn, may ▲ one Inner Strength. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A Jedi seeks nonviolent solutions to problems, but may fight to preserve the existence of life. An apprentice must learn which battles to fight and which to avoid.",
+ "destiny": "4",
+ "base_page": "Wars Not Make One Great",
+ "art": {
+  "src": "src/vs5/24-Dagobah-L-warsnotmakeonegreat.gif",
+  "modern": "src/vs5/modern/24-VB2-L-warsnotmakeonegreat-pre.gif"
+ },
+ "id": "vs5-24",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Slip prints the ▲ triangle where the stub expands 'take into hand from Reserve Deck; reshuffle'; red circle-slash A on its own (fourth) line at the end → {alter}. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. During battles where your Jedi is\npresent, players may not draw more than two battle\ndestiny. During your turn, may ▲ one Inner Strength.\n{alter}"
+}

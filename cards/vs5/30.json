@@ -1,0 +1,28 @@
+{
+ "number": "30",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Close Call",
+ "caption": "•Close Call (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: During battle, cancel and redraw a just drawn destiny.\nLOST: A just drawn battle or weapon destiny is -3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "If this little one doesn’t pulverize you, the next one just might.",
+ "destiny": "2",
+ "base_page": "Close Call",
+ "art": {
+  "src": "src/vs5/30-Dagobah-D-closecall.gif",
+  "modern": "src/vs5/modern/30-V0-D-closecall.gif"
+ },
+ "id": "vs5-30",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Slip text matches the stub. Lore corrected from scan: curly apostrophe in doesn’t (wiki straight). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: V0-D-closecall.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "USED: During battle, cancel and redraw a just drawn\ndestiny.\nLOST: A just drawn battle or weapon destiny is -3."
+}

@@ -1,0 +1,44 @@
+{
+ "number": "44",
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: BYBLOS G-1A TRANSPORT",
+ "title": "•_Mist Hunter_",
+ "caption": "•_Mist Hunter_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "May add 2 alien pilots and 3 passengers. Zuckuss deploys free aboard. While Zuckuss piloting, opponent’s weapon, battle, and asteroid destiny draws here are -2. Immune to attrition < 3.",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Commissioned by a group of Gand venture capitalists headed by Zuckuss. Manufactured by Byblos Drive Yards. Uses repulsorlift technology developed for combat cloud cars.",
+ "destiny": "4",
+ "base_page": "Mist Hunter",
+ "art": {
+  "src": "src/vs5/44-Dagobah-D-misthunter.gif",
+  "modern": "src/vs5/modern/44-VB2-D-misthunter-pre.gif"
+ },
+ "id": "vs5-44",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Mist Hunter' italic in the slip's title line and caption (marked _…_ as vs5/39). Banner STARFIGHTER: BYBLOS G-1A TRANSPORT. Stats POWER 2 / MANEUVER 3 / HYPERSPEED 5; deploy 3 / forfeit 6. Scomp-link ring at the top-left of the text box → scomp true. Icon column top to bottom: blue spoked wheel → independent, red square with green dome → nav. Slip text matches the stub (curly apostrophe in opponent’s). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px); V21-D-zuckussand4lominmisthunter.gif is a different (combo) card, not downloaded.",
+ "game_text_lines": "May add 2 alien pilots and 3 passengers. Zuckuss\ndeploys free aboard. While Zuckuss piloting,\nopponent’s weapon, battle, and asteroid destiny\ndraws here are -2. Immune to attrition < 3."
+}

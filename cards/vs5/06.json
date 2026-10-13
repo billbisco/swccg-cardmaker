@@ -1,0 +1,28 @@
+{
+ "number": "06",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Flash Of Insight",
+ "caption": "•Flash Of Insight (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Play with the top card of your Reserve Deck revealed (if possible). During your draw phase, place this Effect in Used Pile and you may retrieve 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Occasionally Han was capable of such feats, even without Threepio there to tell him these things.",
+ "destiny": "4",
+ "base_page": "Flash Of Insight",
+ "art": {
+  "src": "src/vs5/06-Dagobah-L-flashofinsight.gif",
+  "modern": "src/vs5/modern/06-VB2-L-flashofinsight-pre.gif"
+ },
+ "id": "vs5-06",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Slip text matches the wiki stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Play with the top card of your Reserve\nDeck revealed (if possible). During your draw phase,\nplace this Effect in Used Pile and you may retrieve 1\nForce."
+}

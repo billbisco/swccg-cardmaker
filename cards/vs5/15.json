@@ -1,0 +1,28 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Obi-Wan’s Apparition",
+ "caption": "•Obi-Wan’s Apparition (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. May place your just lost Jedi out of play. May use X Force to add X to a just drawn weapon or battle destiny, where X = number of your Jedi out of play.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Luminous beings are we, not this crude matter.” The inner consciousness of a Jedi can transcend even death.",
+ "destiny": "6",
+ "base_page": "Obi-Wan's Apparition",
+ "art": {
+  "src": "src/vs5/15-Dagobah-L-obiwansapparition.gif",
+  "modern": "src/vs5/modern/15-VB2-L-obiwansapparition-pre.gif"
+ },
+ "id": "vs5-15",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Title apostrophe curly as the slip prints it (wiki page title uses a straight apostrophe: Obi-Wan's Apparition). Slip text matches the wiki stub. No immunity icon. Lore corrected from scan: curly double quotes (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. May place your just lost Jedi out of\nplay. May use X Force to add X to a just drawn weapon\nor battle destiny, where X = number of your Jedi out\nof play."
+}

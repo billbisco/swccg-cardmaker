@@ -1,0 +1,28 @@
+{
+ "number": "23",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "••Visored Vision",
+ "caption": "••Visored Vision (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If opponent has three non-battleground locations on table, activate 5 Force.\nLOST: ▼ a battleground location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "It’s 15 parsecs to Kessel, we’ve replaced the negative power coupling, it’s dark and we’re wearing welding goggles. Hit it.",
+ "destiny": "3",
+ "base_page": "Visored Vision",
+ "art": {
+  "src": "src/vs5/23-Dagobah-L-visoredvision.gif",
+  "modern": "src/vs5/modern/23-VB2-L-visoredvision-pre.gif"
+ },
+ "id": "vs5-23",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Restricted (••). Slip prints the ▼ triangle where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore corrected from scan: curly apostrophes (It’s, we’ve, it’s, we’re; wiki straight). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: If opponent has three non-battleground locations\non table, activate 5 Force.\nLOST: ▼ a battleground location."
+}

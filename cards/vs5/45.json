@@ -1,0 +1,28 @@
+{
+ "number": "45",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Precision Targeting",
+ "caption": "•Precision Targeting (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your capital starship weapon destiny draws are +1. During your deploy phase, may use 1 Force to ▼ a starship weapon (for free) on your capital starship. If a starship was just hit, may place this Effect in Lost Pile to make that starship forfeit = 0.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Sir, we just lost the main rear deflector shield. One more direct hit on the back quarter and we’re done for!”",
+ "destiny": "3",
+ "base_page": "Precision Targeting",
+ "art": {
+  "src": "src/vs5/45-Dagobah-D-precisiontargeting.gif",
+  "modern": "src/vs5/modern/45-VB2-D-precisiontargeting-pre.gif"
+ },
+ "id": "vs5-45",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Slip prints • (unique; stub: Unique) although the printed Dagobah card is non-unique (wiki 'Unrestricted', no dot on the scan) — title/caption carry the slip's dot, as vs5/26. Slip prints the ▼ triangle where the stub expands 'deploy on table from Reserve Deck; reshuffle'. Lore corrected from scan: curly double quotes “…” and curly apostrophe in we’re (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Your capital starship weapon destiny\ndraws are +1. During your deploy phase, may use 1\nForce to ▼ a starship weapon (for free) on your capital\nstarship. If a starship was just hit, may place this Effect\nin Lost Pile to make that starship forfeit = 0."
+}

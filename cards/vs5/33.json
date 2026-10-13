@@ -1,0 +1,28 @@
+{
+ "number": "33",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Defensive Fire",
+ "caption": "•Defensive Fire (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just initiated battle, immediately fire a non-lightsaber, non-{lightsaber} weapon present (for free and each weapon destiny is +2). That weapon may fire again this battle.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "275 gunners manning 60 turbolaser batteries provide a wide firing arc. Even so, asteroids are a challenge due to the sluggish recharge rates of the high-powered blasters.",
+ "destiny": "3",
+ "base_page": "Defensive Fire",
+ "art": {
+  "src": "src/vs5/33-Dagobah-D-defensivefire.gif",
+  "modern": "src/vs5/modern/33-V0-D-defensivefire.gif"
+ },
+ "id": "vs5-33",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Inline black square with a green blade after 'non-' transcribed as {lightsaber} per this run's instructions (the GEMP text reads '[Permanent Weapon]' and STANDARD.md rev 8 calls this icon the Permanent Weapon icon — same glyph). The stub expands it as 'non-permanent-weapon'. Lore matches the scan (confirmed on the 745 px V0 remake). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: V0-D-defensivefire.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "If opponent just initiated battle, immediately fire a\nnon-lightsaber, non-{lightsaber} weapon present (for free and\neach weapon destiny is +2). That weapon may fire\nagain this battle."
+}

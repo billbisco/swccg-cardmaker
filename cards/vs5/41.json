@@ -1,0 +1,28 @@
+{
+ "number": "41",
+ "side": "Dark",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "•IG-88’s Neural Inhibitor",
+ "caption": "•IG-88’s Neural Inhibitor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to deploy on a bounty hunter (free on IG-88). May target a character for free. Draw destiny. Target captured (and opponent loses 2 Force if target is a {maintenance} or {lightsaber} character) if destiny +1 > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Mennotor DAS-430 electromagnetic projectile launcher. Often mistaken for a blaster rifle. Fires small hollow darts filled with neurotoxin which cause temporary paralysis.",
+ "destiny": "1",
+ "base_page": "IG-88's Neural Inhibitor",
+ "art": {
+  "src": "src/vs5/41-Dagobah-D-ig88sneuralinhibitor.gif",
+  "modern": "src/vs5/modern/41-VB2-D-ig88sneuralinhibitor-pre.gif"
+ },
+ "id": "vs5-41",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's title line and caption. Two inline icons in 'is a [gold spoked wheel] or [black square, green blade] character': transcribed as {maintenance} and {lightsaber} per this run's instructions (the stub expands them as 'Rebel or Jedi'; the wheel is the maintenance icon per the VS3 cover key, and the black-square green-blade glyph is the Permanent Weapon icon per STANDARD.md rev 8 — same glyph). Lore corrected from scan: first word reads 'Mennotor' (two n's) on both the Dagobah scan and the VB2 remake; wiki has 'Menotor' — only 350 px scans exist, so the reading is from the glyph spacing. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Use 1 Force to deploy on a bounty hunter (free on\nIG-88). May target a character for free. Draw destiny.\nTarget captured (and opponent loses 2 Force if target\nis a {maintenance} or {lightsaber} character) if destiny +1 > defense\nvalue."
+}

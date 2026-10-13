@@ -1,0 +1,28 @@
+{
+ "number": "42",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Lando System?",
+ "caption": "Lando System? (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ Lando or a card with “Lando” in game text. OR Cancel an attempt to replace your Lando; opponent’s Lando is lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Lando’s not a system, he’s a man.” Regardless of where Rebels flee, dark agents are sure to follow.",
+ "destiny": "4",
+ "base_page": "Lando System?",
+ "art": {
+  "src": "src/vs5/42-Dagobah-D-landosystem.gif",
+  "modern": "src/vs5/modern/42-VB2-D-landosystem-pre.gif"
+ },
+ "id": "vs5-42",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot; wiki: Unrestricted). Slip prints the ▲ triangle where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly double quotes around “Lando” and curly apostrophe in opponent’s. Lore corrected from scan: the quotation uses curly double quotes “…” and curly apostrophes (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "▲ Lando or a card with “Lando” in game text. OR\nCancel an attempt to replace your Lando; opponent’s\nLando is lost."
+}

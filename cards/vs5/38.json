@@ -1,0 +1,28 @@
+{
+ "number": "38",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Flagship",
+ "caption": "•Flagship (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your Star Destroyer. It may draw one battle destiny if unable to otherwise (two if _Executor_). Counter Assault is canceled. During your move phase, Landing Claw is canceled here. Once per turn, may ▲ an admiral or a card with “_Executor_” in game text.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "After the Battle of Yavin, it was politically necessary to demonstrate the unstoppable might of the Empire. The _Executor_ and Death Squadron ensured this objective.",
+ "destiny": "3",
+ "base_page": "Flagship (Original)",
+ "art": {
+  "src": "src/vs5/38-Dagobah-D-flagship-decipher-archive.gif",
+  "modern": "src/vs5/modern/38-VB2-D-flagship-pre.gif"
+ },
+ "id": "vs5-38",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Executor' italic both times in game text (inside curly double quotes the second time); slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'. No immune-to icon on the slip (printed card has Immune to your Alter). The wiki's default 'Flagship' page carries Glossary 2.0 wording; printed face = 'Flagship (Original)' (same lore/destiny/set). The 745 px Dagobah-D-flagship.gif is the PC Errata face — downloaded to src/vs5/38-Dagobah-D-flagship.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from scan: 'Executor' italic (wiki plain). Copyright 1997 (Dagobah). Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on your Star Destroyer. It may draw one battle\ndestiny if unable to otherwise (two if _Executor_).\nCounter Assault is canceled. During your move phase,\nLanding Claw is canceled here. Once per turn, may ▲\nan admiral or a card with “_Executor_” in game text."
+}

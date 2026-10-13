@@ -77,10 +77,12 @@ def convert(c: dict, vs: int) -> dict:
         card["stats"] = [[a, b] for a, b in c["stats"]]
     if c.get("deploy") is not None:
         card["deploy"], card["forfeit"] = str(c["deploy"]), str(c.get("forfeit") or "")
-    if "immediate" in (c.get("slip_type") or "").lower():
+    if c.get("grabber") or ("immediate" in (c.get("slip_type") or "").lower() and c.get("grabber") is not False):   # VS5 #27 prints none
         card["banner_icon"] = "grabber"
     if src:
         card["art"] = {"src": src}
+    if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
+        card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
     for k in ("margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]

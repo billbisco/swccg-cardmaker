@@ -1,0 +1,28 @@
+{
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Hiding In The Garbage",
+ "caption": "•Hiding In The Garbage (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Place your just lost characters out of play. Once per turn, may deploy a character from Lost Pile. (Immune to your Alter.)",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Rebels often exploit loopholes in Imperial procedures to gain an advantage.",
+ "destiny": "3",
+ "base_page": "Hiding In The Garbage",
+ "art": {
+  "src": "src/vs5/09-Dagobah-L-hidinginthegarbage.gif",
+  "modern": "src/vs5/modern/09-VB2-L-hidinginthegarbage-pre.gif"
+ },
+ "id": "vs5-09",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. '(Immune to your Alter.)' is printed as text, no icon. Slip text matches the wiki stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Place your just lost characters out of\nplay. Once per turn, may deploy a character from Lost\nPile. (Immune to your Alter.)"
+}

@@ -38,7 +38,12 @@ def clean(crop: Image.Image, w: int) -> Image.Image:
     d = ImageDraw.Draw(crop)
     d.rectangle((0, 0, x0 - 1, H), fill="white"); d.rectangle((x1, 0, W, H), fill="white")
     top = a[:PAD_TOP, x0:x1]
-    dark_rows = [y for y in range(top.shape[0]) if (top[y] < 100).mean() > 0.35]
+    # a caption bar (of the slip above) is a solid dark run; heading text never runs dark for 200 px without a gap
+    def longest_run(row):
+        d = np.concatenate(([0], (row < 100).astype(np.int8), [0]))
+        edges = np.flatnonzero(np.diff(d))
+        return int((edges[1::2] - edges[::2]).max()) if len(edges) else 0
+    dark_rows = [y for y in range(top.shape[0]) if longest_run(top[y]) > 200]
     if dark_rows:
         d.rectangle((0, 0, W, max(dark_rows) + 6), fill="white")
     return crop

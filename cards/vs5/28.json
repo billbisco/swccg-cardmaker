@@ -1,0 +1,30 @@
+{
+ "number": "28",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Bad Feeling Have I",
+ "caption": "•Bad Feeling Have I (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. You may not initiate lightsaber combat. Once per game, may ▼ Vader (deploy +2). May use 2 Force to ▲ a card (without ability) with “duel” in game text. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Ready are you? What know you of ready?”",
+ "destiny": "3",
+ "base_page": "Bad Feeling Have I",
+ "art": {
+  "src": "src/vs5/28-Dagobah-D-badfeelinghavei.gif",
+  "modern": null
+ },
+ "id": "vs5-28",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Slip prints ▼ (stub: 'deploy on table from Reserve Deck; reshuffle') and ▲ (stub: 'take into hand from Reserve Deck; reshuffle'); curly double quotes around “duel”; red circle-slash A at the end → {alter}. Margin credits: left 'Original concept by Steve Marshall', right 'Decktech Classic Deck 2003' (margin_left/margin_right). Lore corrected from scan: curly double quotes (wiki straight single quotes). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. No modern remake or Virtual Block image exists on the wiki → modern null.",
+ "margin_left": "Original concept by Steve Marshall",
+ "margin_right": "Decktech Classic Deck 2003",
+ "game_text_lines": "Deploy on table. You may not initiate lightsaber combat.\nOnce per game, may ▼ Vader (deploy +2). May use 2\nForce to ▲ a card (without ability) with “duel” in game\ntext. {alter}"
+}

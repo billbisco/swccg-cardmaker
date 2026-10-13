@@ -1,0 +1,43 @@
+{
+ "number": "08",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Harc Seff",
+ "caption": "•Harc Seff (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "3"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. For each of opponent’s non-battleground locations on table, your Force generation is +1. Your leaders are deploy -2 to same site. Once per game, may ▲ an Immediate Effect.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Ishi Tib accountant. Experienced administrator. Freelance consultant. Worked for many planetary governors. Knows how to get the most out of any taxation scheme.",
+ "destiny": "3",
+ "base_page": "Harc Seff",
+ "art": {
+  "src": "src/vs5/08-SE-L-harcseff.gif",
+  "modern": "src/vs5/modern/08-V0-L-harcseff.gif"
+ },
+ "id": "vs5-08",
+ "virtual_set": 5,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Yellow pilot-power icon followed by '2.' at the start → {pilot:2}; icon column: pilot. Third stat box ARMOR 3. Slip prints the ▲ triangle where the wiki stub expands 'take into hand from Reserve Deck; reshuffle'. Alien (Special Edition frame). Lore matches the scan. Base scan only at 350 px; copyright line = Special Edition 1998 form, not legible at 350 px. Modern: V0-L-harcseff.gif (745) used; VB2-L-harcseff-pre.gif (350) also downloaded.",
+ "game_text_lines": "{pilot:2}. For each of opponent’s non-battleground\nlocations on table, your Force generation is +1.\nYour leaders are deploy -2 to same site. Once per\ngame, may ▲ an Immediate Effect."
+}

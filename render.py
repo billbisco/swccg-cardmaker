@@ -297,7 +297,7 @@ ICON_FILES = {
     "lightsaber": "icons/inline-permanent-weapon.png", "permanent-weapon": "icons/inline-permanent-weapon.png",
     "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
-    "independent": "icons/inline-independent.png", "presence": "icons/inline-presence.png",
+    "independent": "icons/inline-independent.png", "presence": "icons/col-presence.png",   # Presence = Game Aid g013 (droid on red), as on IG-88
     "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
 }
 
@@ -547,6 +547,9 @@ def build_html(card: dict) -> str:
     if art:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
+    if card.get("disc"):   # affiliation disc swapped over the frame's own (Yoda: the Light Jedi Master blade on the Rebel frame)
+        dx_, dy__ = t.get("disc_at", (193, 176))
+        parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc"]}.png")}" style="position:absolute;left:{dx_}px;top:{dy__}px">')
     # title + destiny
     if t.get("landscape"):
         # Light title centred in the grey bar between the force slot and the first icon box; Dark mirrored, rotated.
@@ -624,18 +627,47 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{data_uri(ASSETS / "icons/scomp-ship.png")}" style="position:absolute;left:{sx}px;top:{sy}px">')
     # icon slots
     light = card.get("side") == "Light"
-    for (x, y), name in zip(t.get("icon_slots", []), card.get("icons", [])):
+    icons = list(card.get("icons", []))
+    # two Warrior icons share one tall box on the printed cards (IG-88): "warrior","warrior" → "warrior2" (89×158)
+    packed = []
+    for nm in icons:
+        if nm == "warrior" and packed and packed[-1] == "warrior":
+            packed[-1] = "warrior2"
+        else:
+            packed.append(nm)
+    slots = list(t.get("icon_slots", []))
+    if packed and slots and ("warrior2" in packed or len(packed) > len(slots)) and "set_icon_abs" in t:
+        # more than the frame's slots: stack from the first slot down to the set sphere, shrinking uniformly to fit
+        x0, y0 = slots[0]
+        sy = t["set_icon_abs"][1]; ss = t.get("set_icon_size", 76)
+        heights = [158 if nm == "warrior2" else 90 for nm in packed]
+        gap = 8
+        total = sum(heights) + gap * len(heights) + ss
+        avail = sy + ss - y0
+        k = min(1.0, avail / total)
+        y = y0; slots = []; sizes = []
+        for h in heights:
+            slots.append((x0 + int((89 - 89 * k) / 2), int(y))); sizes.append(k); y += (h + gap) * k
+        card["_set_icon_override"] = (t["set_icon_abs"][0] + int((ss - ss * k) / 2), int(y), int(ss * k))
+    else:
+        sizes = [1.0] * len(packed)
+    for (x, y), name, k in zip(slots, packed, sizes):
+        if name == "warrior2":
+            parts.append(f'<img src="{data_uri(ASSETS / "icons/col-warrior2.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(158 * k)}px">')
+            continue
         key = f"{name}-light" if light and f"{name}-light" in ICON_FILES else name   # Light and Dark pilot icons differ
         if ICON_FILES[key].startswith("icons/col-"):   # Game Aid icon with its own silver frame, box size
-            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x}px;top:{y}px;width:89px;height:90px">')
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
         else:
-            parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px">')
-            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + 6}px;top:{y + 7}px;width:75px;height:75px">')
+            parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + int(6 * k)}px;top:{y + int(7 * k)}px;width:{int(75 * k)}px;height:{int(75 * k)}px">')
     # original-era virtual marker: the slips print the gold virtual-set symbol in the lower icon slot
     if card.get("virtual_set") is not None and "set_icon_abs" in t:
         x, y = t["set_icon_abs"]
         sym = ASSETS / f"icons/ovs-set-{card['virtual_set']}.png"   # each original set has its own symbol (from its Remaster PDF)
         ss = t.get("set_icon_size", 76)
+        if card.get("_set_icon_override"):
+            x, y, ss = card["_set_icon_override"]
         parts.append(f'<img src="{data_uri(sym)}" style="position:absolute;left:{x}px;top:{y}px;width:{ss}px;height:{ss}px">')
     # expansion-set icon of the base Decipher card, in the ring right of the lore box (a slip never changes the top half)
     if card.get("expansion_icon") and "expansion_ring" in t:

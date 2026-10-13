@@ -1,0 +1,41 @@
+{
+ "number": "25",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Yoda",
+ "caption": "•Yoda (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "7"
+  ],
+  [
+   "JEDI MASTER",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "9",
+ "game_text": "May deploy to Dagobah. Retrieve 3 Force (ignore objective game text that prevents retrieval) when a Jedi Test is completed (may not be canceled except by Secret Plans). Retrieve no Force from Save You It Can. May ▼ one Yoda’s Gimer Stick.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Jedi Master",
+ "lore": "Help you I can, yes. For 800 years have I trained Jedi. Judge me by my size do you? Mm? And well you should not! For my ally is the Force... and a powerful ally it is.",
+ "destiny": "1",
+ "base_page": "Yoda",
+ "art": {
+  "src": "src/vs5/25-Dagobah-L-yoda.gif",
+  "modern": "src/vs5/modern/25-V7-L-yoda.gif"
+ },
+ "id": "vs5-25",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Slip prints the ▼ triangle where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; curly apostrophe in Yoda’s. Third stat box JEDI MASTER (label only). Icon column empty (only the set sphere). Affiliation: the printed card's top-left disc is the Light Jedi (lightsaber blade) icon, not the Rebel starbird; wiki subtype 'Jedi Master'; recorded as Rebel (the Dagobah Rebel-style frame; Yoda counts as a Rebel character) — check if the renderer needs a different frame. Lore matches the scan ('...' printed as three spaced dots). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: V7-L-yoda.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "May deploy to Dagobah. Retrieve 3 Force (ignore\nobjective game text that prevents retrieval) when\na Jedi Test is completed (may not be canceled\nexcept by Secret Plans). Retrieve no Force from\nSave You It Can. May ▼ one Yoda’s Gimer Stick."
+}

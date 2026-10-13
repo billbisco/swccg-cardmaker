@@ -1,0 +1,28 @@
+{
+ "number": "36",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Fear",
+ "caption": "•Fear (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_When drawn for destiny, may place a non-{alter} Effect on table in owner’s Used Pile._ OR Lose the top card of your Reserve Deck to make a just drawn destiny lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I’m not afraid.” “Oh. You will be. You will be.” One of the lessons Luke learned was that fear of the unknown can be stronger than fear of the known.",
+ "destiny": "2",
+ "base_page": "Fear",
+ "art": {
+  "src": "src/vs5/36-Dagobah-D-fear.gif",
+  "modern": "src/vs5/modern/36-VB2-D-fear-pre.gif"
+ },
+ "id": "vs5-36",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Printed base is a LOST INTERRUPT; slip banner reads USED INTERRUPT. First sentence (through 'Used Pile.') is italic on the slip, with the red circle-slash A inline after 'non-' → {alter}; 'OR Lose …' is regular. Lore corrected from scan: curly double quotes and the quote reads “Oh. You will be. You will be.” (wiki has single quotes and drops the second 'You will be.'); curly apostrophe in I’m. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "_When drawn for destiny, may place a non-{alter} Effect\non table in owner’s Used Pile._ OR Lose the top card of\nyour Reserve Deck to make a just drawn destiny lost."
+}
