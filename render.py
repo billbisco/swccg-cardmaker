@@ -235,14 +235,14 @@ TEMPLATES = {
     "objective": {   # Bardez "DS - Objective.xcf" template layer: the printed and PC Dark Objectives have a BLACK text box with white text
         "frame": ("frames/objective.png", 67, 73),
         "art": (236, 380, 1150, 855), "title": (382, 204, 878, 95), "destiny": (1310, 204, 105, 107),
-        "game_text": (290, 1350, 1060, 640), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
-        "copyright_x": 1416, "gt_size": 56, "no_type": True,
+        "game_text": (300, 1352, 1040, 600), "set_icon_abs": (1282, 1908), "set_icon_size": 72,
+        "copyright_x": 1416, "no_type": True, "gt_grow": True,
     },
     "objective-ls": {   # Bardez "LS - Epic Objective.xcf" (frame + Objective icon): Light Side scoring, textured white text box
         "frame": ("frames/objective-ls.png", 0, 0),
         "art": (246, 378, 1148, 886), "title": (382, 204, 878, 95), "destiny": (1330, 204, 111, 113),
-        "game_text": (290, 1358, 1070, 630), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
-        "copyright_x": 1416, "gt_size": 56, "dark_text": True, "no_type": True,
+        "game_text": (300, 1360, 1040, 600), "set_icon_abs": (1282, 1908), "set_icon_size": 72,
+        "copyright_x": 1416, "dark_text": True, "no_type": True, "gt_grow": True,
     },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
@@ -608,7 +608,7 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx + 8}px;top:{by + 8}px;width:73px;height:73px">')
     # game text
     if "game_text" in t:
-        parts.append(f'<div class="gt fit" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
+        parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
     if card.get("deploy") is not None and "deploy" in t:
         parts.append(f'<div class="deploy" style="position:absolute;{box("deploy")}">{esc(str(card["deploy"]))}</div>')
@@ -703,6 +703,11 @@ def build_html(card: dict) -> str:
       for (const el of document.querySelectorAll('.fit')) {
         let size = parseFloat(getComputedStyle(el).fontSize);
         let lh = parseFloat(getComputedStyle(el).lineHeight);
+        if (el.classList.contains('grow')) {   // Objectives: the slip's lines fill the box width — grow until a line would overflow
+          while (el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1 && size < 72) {
+            size += 1; lh += 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
+          }
+        }
         while ((el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) && size > 20) {
           size -= 1; lh -= 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
         }
