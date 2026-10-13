@@ -232,3 +232,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   text: `{pilot:N}, M: <ship>.` → "Adds N to power of anything he pilots (M if <ship>)"; "▲ and/or ▼",
   "▲ or ▼ attempt", "▼ … ;" and "always {alter}" have their own expansions. VS8 released 24 Nov 2004 (swccgpc.com
   news; no separate legal date). Starting Interrupt article.
+- Rev 15 (Bill 2026-10-13, Obi-Wan Kenobi (V) / Jabba's Space Cruiser (V)): stat values were too heavy — the
+  synthetic bold on the single-weight Medium Extended face plus a 1.6 px stroke. Now no synthetic bold, 1.1 px stroke,
+  scaleX 1.15 (Decipher's digits are wider and more open: easier 5s and 6s). Values sit at the RIGHT end of their box
+  as Decipher prints them (ARMOR      5, LANDSPEED    2), except a character's wide third box, where the value
+  follows the label (ARMOR 5 on Boba Fett). Lore keywords: bolding a character's characteristics (leader, spy,
+  smuggler, gambler, scout, thief, bounty hunter, information broker, gangster, assassin) is a welcome enhancement even
+  where Decipher printed them plain — `build_vs.bold_keywords()` does it on the remaster image only (not "Former
+  scout", not the verb "spy on"); the wiki lore stays as printed.
