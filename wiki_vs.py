@@ -202,9 +202,13 @@ for n in range(1, NCARDS + 1):
 """
     fn = OUT / "stubs" / (re.sub(r"[^A-Za-z0-9]+", "_", page) + ".wiki")
     fn.write_text(stub, encoding="utf-8"); tsv.append(f"{page}\t{OUT.name}/stubs/{fn.name}")
-    slip_cell = f"[[File:{s['image']}|320px|link={page}]]" + (f"<br />[[File:{slip2}|320px|link={page}]]" if slip2 else "")
-    rem_cell = f"[[File:{rem}|200px|link={page}]]" + (f" [[File:{rem2}|200px|link={page}]]" if rem2 else "")
-    rows[c["side"]].append(f"|-\n| {n:02d} || {slip_cell} || {rem_cell} || style=\"white-space:nowrap\" | [[{page}|{s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
+    if rem2:
+        # Objectives get one row per side under the same slip number (Bill 2026-10-13): front (destiny 0), back (7)
+        front_t, back_t = c["title"].replace("•", "") + " (V)", (c.get("title_back") or "").replace("•", "") + " (V)"
+        rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{s['image']}|320px|link={page}]] || [[File:{rem}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{front_t}]] || style=\"white-space:nowrap\" | {type_cell} ({c.get('destiny') or '0'}) || {expand(c)}")
+        rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{slip2}|320px|link={page}]] || [[File:{rem2}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{back_t}]] || style=\"white-space:nowrap\" | {type_cell} ({c.get('destiny_back') or '7'}) || {expand(dict(c, game_text=c['game_text_back']))}")
+    else:
+        rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{s['image']}|320px|link={page}]] || [[File:{rem}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
     # the slips of an Objective's back go on the stub as a gallery below the Card template
 
 
