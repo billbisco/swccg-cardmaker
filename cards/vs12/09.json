@@ -1,0 +1,41 @@
+{
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•ENDOR: EWOK VILLAGE",
+ "title": "•Endor: Ewok Village",
+ "caption": "•Endor: Ewok Village (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Non-unique Ewoks are Heroic. While you occupy, gains one {light-force}. No starships or vehicles here.",
+ "dark_text": "No starships or vehicles here. If no Ewoks on Endor, Force drain +1 here.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "interior",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Endor: Ewok Village",
+ "art": {
+  "src": "src/vs12/09-Endor-L-endorewokvillage.gif",
+  "modern": "src/vs12/modern/09-V8-L-endorewokvillage.gif"
+ },
+ "id": "vs12-09",
+ "virtual_set": 12,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Landscape site slip, Light half only: Light Force icon at left, banner •ENDOR: EWOK VILLAGE (red dot), icon boxes, Light text with an inline Light Force icon → {light-force}. No scomp. The slip prints no Dark text, so dark_text holds the PRINTED Dark text read off the 490 px scan; the printed Dark half has a Dark Force icon → dark_force true. ICON ORDER: the slip's light boxes read (outermost first) planet, interior (beige room corner), exterior (purple sky with sun) — the printed card's Light and Dark bars both read planet, exterior, interior; i.e. the slip swaps interior/exterior. light_icons follows the slip, dark_icons the printed card. Printed Light text was 'No starships or vehicles here. Ewok devices and Ewok weapons deploy -1 here.' No margin credits. Sites have no lore. Base scan Endor-L-endorewokvillage.gif (490×350, the only one). Copyright Endor 1999 (partly legible). Modern: V8-L-endorewokvillage.gif (1039×745, but that is the VS8 Dark-side remake with different Dark text — art only); VB3 (490) also exists.",
+ "game_text_lines": "Non-unique Ewoks are Heroic. While you occupy, gains one {light-force}. No starships or vehicles here."
+}

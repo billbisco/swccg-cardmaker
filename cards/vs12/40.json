@@ -1,0 +1,43 @@
+{
+ "id": "vs12-40",
+ "number": "40",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Officer Evax",
+ "caption": "•Officer Evax (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "INFLUENCE",
+   "1"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "Imperial Council Member. *Agenda:* logistics. Once per turn, if at Conference Room, may target an opponent’s starship on table with power < total influence here. Opponent must use +2 Force to move target (or initiate battle there) this turn.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "This Imperial Intelligence *leader* has a proven track record for predicting Rebel fleet movements. His coordination of starship maneuvers has saved many vulnerable bases.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Officer Evax (Original)",
+ "art": {
+  "src": "src/vs12/40-ANH-D-officerevax-decipher-archive.gif",
+  "modern": "src/vs12/modern/40-VB4-D-officerevax-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2 / INFLUENCE 1; deploy 2 / forfeit 5 — the stub's 'deploy=5' is the forfeit (stub error). 'Agenda:' bold (colon too, as on #35). Icon column: one yellow DS pilot icon → pilot (matches col-pilot-dark). Curly apostrophe in opponent’s. The wiki default 'Officer Evax' page is Glossary 2.0 errata; printed face = 'Officer Evax (Original)' (same lore/destiny/set), image ANH-D-officerevax-decipher-archive.gif (350×490 square-on scan, used as src). The 745 px ANH-D-officerevax.gif was also downloaded (src/vs12/40-ANH-D-officerevax.gif) — may be the errata face, art only. Lore corrected from scan: 'leader' is printed bold (visible on both scans). Copyright 1996 by set. Modern: VB4 only (-pre, 350 px).",
+ "game_text_lines": "Imperial Council Member. *Agenda:* logistics. Once\nper turn, if at Conference Room, may target an\nopponent’s starship on table with power < total\ninfluence here. Opponent must use +2 Force to\nmove target (or initiate battle there) this turn."
+}

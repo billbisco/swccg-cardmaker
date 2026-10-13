@@ -79,6 +79,12 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="eleventh", remaster="the December 2006 Remaster sheet (re-edited 25 June 2007 with errata to #8 and #27): cover, set symbol and the slips shown below", pack="VS11O-pack.png", symbol="VS11O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    12: dict(sheet=("https://web.archive.org/web/20071024154830/http://www.swccgpc.com/Resources/VirtualCards12.pdf", "VirtualCards12.pdf", "24 October 2007", "9 January 2007"),
+            legal="Not found", legal_ref="No Virtual Set 12 release post survives in the archived swccgpc.com news (captures stop in February 2005). The sheet is dated 9 January 2007 (official text); its slips credit winners of 2006 events (Norwegian Nationals 2006, Tennessee States 2006, PC Volunteer Award 2006).",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the sheet's official text is dated 9 January 2007.",
+            ordinal="twelfth", remaster="the January 2007 sheet: cover, set symbol, three rule cards and the slips shown below", pack="VS12O-pack.png", symbol="VS12O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -128,7 +134,7 @@ def expand(c: dict) -> str:
     t = re.sub(r"\{ovs:(\d+)\}", lambda m: f"[Virtual Set {m.group(1)}]", t)
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
     SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant",
-            "jabbaspalace": "Jabba's Palace", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
+            "jabbaspalace": "Jabba's Palace", "theed": "Theed Palace", "hoth": "Hoth", "endor": "Endor", "tatooine": "Tatooine", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
     t = re.sub(r"\{set:([a-z0-9]+)\}", lambda m: f"[{SETS.get(m.group(1), m.group(1).title())}]", t)
     t = t.replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
     t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠")
@@ -194,7 +200,7 @@ for n in range(1, NCARDS + 1):
         typ, sub = TYPE_PAGE[banner]; model = ""
     else:
         typ, sub, model = "Character", (c.get("affiliation") or "").replace(" + ", "/"), ""
-    sub_link = {"Alien/Rebel": "Alien", "Out Of Play Interrupt": "Interrupt"}.get(sub, sub)
+    sub_link = {"Alien/Rebel": "Alien", "Alien/Imperial": "Alien", "Out Of Play Interrupt": "Interrupt"}.get(sub, sub)
     if typ == "Vehicle":
         sub_link = "Vehicle"
     if typ == "Creature" and banner:

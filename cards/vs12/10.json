@@ -1,0 +1,28 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Starship Weapon",
+ "card_type": "STARSHIP WEAPON",
+ "title": "Enhanced Proton Torpedoes",
+ "caption": "Enhanced Proton Torpedoes (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to deploy on your starfighter. May target a starship for free. Draw destiny (if on a Heroic starfighter, may first use 1 Force to add 3 to total). Target hit if total destiny > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Often modified by Rebellion technicians. Heavy warhead provides increased armor penetration. Decreased maneuverability and effectiveness against starfighters.",
+ "destiny": "3",
+ "base_page": "Enhanced Proton Torpedoes",
+ "art": {
+  "src": "src/vs12/10-DS2-L-enhancedprotontorpedoes.gif",
+  "modern": "src/vs12/modern/10-VB3-L-enhancedprotontorpedoes-pre.gif"
+ },
+ "id": "vs12-10",
+ "virtual_set": 12,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip or printed card; wiki 'Unrestricted'). Green weapon frame, banner STARSHIP WEAPON. No inline icons; slip text matches the stub. No margin credits. Lore corrected from the scan: 'Often modified by Rebellion technicians.' (wiki has 'Rebel technicians'). Only a 350 px scan; copyright DS2 2000 by set. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Use 1 Force to deploy on your starfighter. May target a\nstarship for free. Draw destiny (if on a Heroic\nstarfighter, may first use 1 Force to add 3 to total).\nTarget hit if total destiny > defense value."
+}

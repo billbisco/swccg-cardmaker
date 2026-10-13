@@ -1,0 +1,29 @@
+{
+ "number": "32",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Forced Servitude",
+ "caption": "•Forced Servitude (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your troopers are Heroic. Opponent’s total weapon destiny targeting your Heroic cards is +2. When opponent is about to remove their last card from Life Force, you may first place all your troopers in Used Pile (last card must still be removed). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire often uses droids for nefarious purposes. Imperials compel droids to do jobs that are repugnant to humans. An automaton has no ethical conscience.",
+ "destiny": "4",
+ "base_page": "Forced Servitude",
+ "art": {
+  "src": "src/vs12/32-OTSD-D-forcedservitude.gif",
+  "modern": "src/vs12/modern/32-VB1-D-forcedservitude-pre.gif"
+ },
+ "id": "vs12-32",
+ "virtual_set": 12,
+ "expansion": "Official Tournament Sealed Deck",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Printed base is from the Official Tournament Sealed Deck — NEW base set for the remaster (ring icon beside the lore is the silver Premium-style sphere). Red circle-slash A at the end → {alter}. Curly apostrophe in Opponent’s. No margin credits. Lore matches the wiki. Copyright read off the 350 px scan as the Hoth-style line with 1998: 'TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.' (low-res). Base scan 350 px only. Modern: Virtual Block 1 only (VB1-D-forcedservitude-pre.gif, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Your troopers are Heroic. Opponent’s\ntotal weapon destiny targeting your Heroic cards is +2.\nWhen opponent is about to remove their last card from\nLife Force, you may first place all your troopers in Used\nPile (last card must still be removed). {alter}"
+}

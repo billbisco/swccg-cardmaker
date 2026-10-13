@@ -1,0 +1,46 @@
+{
+ "id": "vs12-41",
+ "number": "41",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: SURRONIAN CONQUEROR",
+ "title": "•_Stinger_",
+ "caption": "•_Stinger_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "May add 1 pilot. Guri deploys -3 aboard. While Guri piloting, during any control phase may draw top card of Reserve Deck (if Leia or Chewie on table, Force Pile instead) and immune to attrition < 5.",
+ "icons": [
+  "nav",
+  "astromech"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Constructed by a secretive Surronian hive craftguild. Equipped with H2-1 hyperdrive system and emergency braking jets. Guri’s personal starship. Gift from Prince Xizor.",
+ "destiny": "3",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Stinger",
+ "art": {
+  "src": "src/vs12/41-Ref2-D-stinger.gif",
+  "modern": "src/vs12/modern/41-V0-D-stinger.gif"
+ },
+ "notes": "Unique. _Stinger_ italic in the slip's heading and caption (the printed title is italic too). Banner STARFIGHTER: SURRONIAN CONQUEROR. Stats POWER 3 / MANEUVER 4 / HYPERSPEED 5; deploy 2 / forfeit 4 — the stub's 'deploy=4' is the forfeit (stub error). Scomp ring → scomp true. Icon column top to bottom: blue nav computer → nav; red square with an R2 droid dome → astromech (matches Game Aid g013 / the astromech icon on vs3/16, vs4/15) — odd for a ship, but that is what the slip prints (printed card had pilot/nav/independent). Two-line margin credits: left 'Original concept / by Michael Bahr', right 'PC Volunteer / Award 2006'. Lore corrected: curly apostrophe in Guri’s (wiki straight). Base scan 354 px; copyright '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' read off the 745 px V0 remake (same top half). Modern: V0-D-stinger.gif (745 px); VB4 -pre (354) also exists, not downloaded.",
+ "margin_left": "Original concept\nby Michael Bahr",
+ "margin_right": "PC Volunteer\nAward 2006",
+ "game_text_lines": "May add 1 pilot. Guri deploys -3 aboard. While Guri\npiloting, during any control phase may draw top\ncard of Reserve Deck (if Leia or Chewie on table,\nForce Pile instead) and immune to attrition < 5."
+}

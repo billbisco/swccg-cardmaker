@@ -1,0 +1,29 @@
+{
+ "number": "06",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Crash Site Memorial",
+ "caption": "•Crash Site Memorial (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Dune Sea, Hutt Canyon, Jawa Camp, and Jawa Canyon are deserts. At deserts you occupy with a Jawa, Rontos and Sandcrawlers are power +1 and forfeit +2, and opponent’s Force generation is canceled. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Mos Eisley was built around wreckage of the colony ship _Dowager Queen_. The wreck remains as a monument where residents leave junk for Jawa scavengers.",
+ "destiny": "5",
+ "base_page": "Crash Site Memorial",
+ "art": {
+  "src": "src/vs12/06-Premiere-L-crashsitememorial.gif",
+  "modern": "src/vs12/modern/06-VB1-L-crashsitememorial-pre.gif"
+ },
+ "id": "vs12-06",
+ "virtual_set": 12,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber. No margin credits on this slip. Trailing {alter}; curly apostrophe opponent’s. Slip text matches the stub. Base page 'Crash Site Memorial' (printed, Premiere Limited) uses the 350 px decipher-archive scan (downloaded as src/vs12/06-Premiere-L-crashsitememorial-decipher-archive.gif — a square-on scan in a black border); art.src = the 745 px Premiere-L-crashsitememorial.gif, tagged D-E1 (errata face: bottom text differs, top half/art/lore identical) — art only. Lore corrected: _Dowager Queen_ italic on both scans (wiki plain). Copyright 1995 (Premiere) by set. Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Dune Sea, Hutt Canyon, Jawa Camp,\nand Jawa Canyon are deserts. At deserts you occupy\nwith a Jawa, Rontos and Sandcrawlers are power +1\nand forfeit +2, and opponent’s Force generation is\ncanceled. {alter}"
+}

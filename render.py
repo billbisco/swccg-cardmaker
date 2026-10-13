@@ -266,6 +266,22 @@ TEMPLATES = {
         "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
         "copyright_x": 1404, "dark_text": False, "no_type": True, "credit_mx": (180, 1411), "credit_ink": "#000",
     },
+    # printed cards with no lore box (Jedi Tests, Reflections II combo cards) carry a TALL slip (VS12 #13, #42): Bardez's
+    # Epic Objective frame with the art window shortened, the slip's banner and a tall text box below it
+    "ls-jeditest-tall": {
+        "frame": ("frames/ls-jeditest-tall.png", 0, 0),
+        "art": (240, 372, 1146, 716), "title": (396, 206, 880, 100), "destiny": (1310, 203, 108, 108),
+        "card_type": (271, 1170, 1109, 61), "game_text": (300, 1318, 1040, 666), "gt_grow": True,
+        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
+        "copyright_x": 1404, "dark_text": True, "credit_mx": (180, 1411), "credit_ink": "#fff",
+    },
+    "ds-effect-tall": {
+        "frame": ("frames/ds-effect-tall.png", 0, 0),
+        "art": (240, 372, 1146, 716), "title": (396, 206, 880, 100), "destiny": (1310, 203, 108, 108),
+        "card_type": (271, 1170, 1109, 61), "game_text": (292, 1340, 1056, 650), "gt_grow": True,
+        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
+        "copyright_x": 1404, "dark_text": False, "credit_mx": (180, 1411),
+    },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
     # The frame is assembled per card (force icons, packed icon boxes, scomp rings) by loc_frame().
@@ -308,6 +324,7 @@ TEMPLATES = {
 # Optional era templates (Bill 2026-10-13): the red→cyan fade the Original Virtual Remaster slips used for Defensive
 # Shields (make_shield_fade.py). The hybrid (hard cut) above stays the primary shield template; a card opts in with
 # "shield_style": "fade" (build_vs.py sets it for the Original Virtual sets).
+TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 
@@ -441,12 +458,22 @@ def esc_i(s: str) -> str:
     return re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", esc(s))
 
 
-def art_crop(card: dict) -> str:
+def art_crop(card: dict, win=None, tag: str = "") -> str:
     """Crop the art window out of a Decipher scan (any size: the silver frame is located, then mapped)."""
     src = Path(card["art"]["src"])
     im = Image.open(src).convert("RGB")
     import numpy as np
     a = np.array(im).astype(int)
+    if card["art"].get("rect") and not win:
+        # the scan's own art rectangle, cover-fitted to the window (tall-slip cards whose window shape differs)
+        x0, y0, x1, y1 = card["art"]["rect"]
+        aw_, ah_ = TEMPLATES[card["template"]]["art"][2:]
+        if (x1 - x0) / (y1 - y0) > aw_ / ah_:
+            cw_ = (y1 - y0) * aw_ / ah_; x0, x1 = (x0 + x1 - cw_) / 2, (x0 + x1 + cw_) / 2
+        else:
+            ch_ = (x1 - x0) * ah_ / aw_; y0, y1 = (y0 + y1 - ch_) / 2, (y0 + y1 + ch_) / 2
+        crop = im.crop(tuple(int(round(v)) for v in (x0, y0, x1, y1))).resize((aw_, ah_), Image.LANCZOS)
+        p = OUT / f"_art_{card['id']}{tag}.png"; crop.save(p); return data_uri(p)
     if card["art"].get("bbox"):
         fx0, fy0, fx1, fy1 = card["art"]["bbox"]
     elif TEMPLATES[card["template"]].get("system"):
@@ -475,7 +502,7 @@ def art_crop(card: dict) -> str:
             fy0 = fy1 - ch * sx
         else:
             fy1 = fy0 + ch * sx
-    ax, ay, aw, ah = TEMPLATES[card["template"]]["art"]
+    ax, ay, aw, ah = win or TEMPLATES[card["template"]]["art"]
     box = (fx0 + (ax - 144) * sx, fy0 + (ay - 144) * sy, fx0 + (ax + aw - 144) * sx, fy0 + (ay + ah - 144) * sy)
     box = [int(round(v)) for v in box]
     if card.get("art_trim"):
@@ -524,7 +551,7 @@ def art_crop(card: dict) -> str:
                 h = min(band.height, y1 - y)
                 crop.paste(band.crop((0, 0, band.width, h)), (80, y))
                 y += h
-    p = OUT / f"_art_{card['id']}.png"
+    p = OUT / f"_art_{card['id']}{tag}.png"
     crop.save(p)
     return data_uri(p)
 
@@ -653,6 +680,12 @@ def build_html(card: dict) -> str:
     if art:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
+    if card.get("no_lore_box") and card.get("art") and t.get("lore"):
+        # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
+        # banner — lay the mapped scan over the frame's lore window too
+        lx, ly, lw, lh = t["lore"]
+        win = (ax, ly - 34, aw, ay + ah - (ly - 34))
+        parts.append(f'<img src="{art_crop(card, win, "-full")}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
     if card.get("disc"):   # affiliation disc swapped over the frame's own (Yoda: the Light Jedi Master blade on the Rebel frame)
         dx_, dy__ = t.get("disc_at", (193, 176))
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc"]}.png")}" style="position:absolute;left:{dx_}px;top:{dy__}px">')
@@ -932,6 +965,10 @@ def build_html(card: dict) -> str:
       }
       const cr = [...document.querySelectorAll('.fitcredit')].filter(e => !e.dataset.solo);
       if (cr.length == 2 && cr[0].dataset.avail == cr[1].dataset.avail) for (const el of cr) el.style.fontSize = creditFs + 'px';
+      for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
+        const w = el.scrollWidth, avail = el.clientWidth;
+        if (w > avail + 1) { el.style.transformOrigin = 'left center'; el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')'; el.style.width = w + 'px'; }
+      }
       for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
         if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';

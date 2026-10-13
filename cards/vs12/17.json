@@ -1,0 +1,45 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Orrimaarko",
+ "caption": "•Orrimaarko (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "4",
+ "game_text": "Once per game, may ▲ a rifle and/or an Interrupt with “scout” in game text. Unless Undercover, while alone at an exterior site, opponent’s weapon destiny draws here are -2. Immune to attrition < 4.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Dresselian *scout* and resistance *leader*. Worked tirelessly to combat the subjugation of his homeworld before Bothans brought him into contact with the Alliance.",
+ "destiny": "1",
+ "base_page": "Orrimaarko",
+ "art": {
+  "src": "src/vs12/17-Endor-L-orrimaarko.gif",
+  "modern": "src/vs12/modern/17-V25-L-orrimaarko.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© 1999 LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "margin_left": "Original concept\nby Jon Westergard",
+ "margin_right": "Virginia States\n2005",
+ "notes": "Unique. Stats POWER 4 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 5 / forfeit 4 (as printed). Icon column: warrior. Rebel. ▲ where the stub expands; curly double quotes around “scout”; curly apostrophe in opponent’s. Margin credits on two lines each. Lore corrected: 'scout' and 'leader' BOLD, as the 745 px V25 PC remake prints them (the 350 px Endor scan is too soft to confirm). Copyright Endor 1999 SE-style, legible on V25. Modern: V25-L-orrimaarko.gif (745 px, later PC remake, same art); VB3 -pre also exists.",
+ "id": "vs12-17",
+ "virtual_set": 12,
+ "game_text_lines": "Once per game, may ▲ a rifle and/or an Interrupt\nwith “scout” in game text. Unless Undercover,\nwhile alone at an exterior site, opponent’s weapon\ndestiny draws here are -2. Immune to attrition < 4."
+}

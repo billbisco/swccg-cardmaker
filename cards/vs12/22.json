@@ -1,0 +1,30 @@
+{
+ "number": "22",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•3,720 To 1",
+ "caption": "•3,720 To 1 (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Droids are destiny +1. Once per turn, may place the bottom two cards in Lost Pile out of play to deploy from Lost Pile: Forced Servitude, a character weapon, a location, or an Effect that deploys on a location (without “lose” in game text). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "What are the odds of having a Corellian, a Wookiee and a protocol droid together with an Alderaanian princess who happens to be the daughter of the Dark Lord of the Sith?",
+ "destiny": "3",
+ "base_page": "3,720 To 1",
+ "art": {
+  "src": "src/vs12/22-Dagobah-D-3720to1.gif",
+  "modern": "src/vs12/modern/22-VB2-D-3720to1-pre.gif"
+ },
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "margin_left": "Original concept by Garrett Larson",
+ "margin_right": "North Dakota States 2005",
+ "notes": "Unique. DARK side (red frame) — in VS12 the Light slips are 01–21 and Dark start at 22. Banner EFFECT. Curly double quotes around “lose”; red circle-slash A at the end → {alter}. Margin credits one line each. Lore matches the scan. Base scan 350 px; copyright 1997 (Dagobah) partly legible. Modern: VB2-D-3720to1-pre.gif (350 px); no V<N> remake.",
+ "id": "vs12-22",
+ "virtual_set": 12,
+ "game_text_lines": "Deploy on table. Droids are destiny +1. Once per turn,\nmay place the bottom two cards in Lost Pile out of play\nto deploy from Lost Pile: Forced Servitude, a character\nweapon, a location, or an Effect that deploys on a\nlocation (without “lose” in game text). {alter}"
+}

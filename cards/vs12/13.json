@@ -1,0 +1,36 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Epic Event",
+ "card_type": "EPIC EVENT",
+ "title": "It Is The Future You See",
+ "caption": "It Is The Future You See (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you deployed only 1 (non-{set:coruscant}, non-{set:se}) location, play this Epic Event instead of a Starting Interrupt. ▼ Battle Plan, Do, Or Do Not, and an {alter} Effect. Insert cards and your {permanent-weapon} and {maintenance} cards are lost. You go first. Choose one:\n*Jedi:* Deploy on table. At start of your turn, turn all cards here face up. During your turn, may use 1 Force for each card stacked here to stack a card from hand face up here. Instead of using X Force, may turn X cards here face down.\n*Agent of Evil:* ▲ Luke and a site. Deploy on opponent’s side of table; their total battle and duel destiny is +3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "5",
+ "base_page": "It Is The Future You See",
+ "art": {
+  "src": "src/vs12/13-Dagobah-L-itisthefutureyousee.gif",
+  "modern": "src/vs12/modern/13-V25-L-itisthefutureyousee.gif",
+  "rect": [
+   81,
+   175,
+   645,
+   521
+  ]
+ },
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "margin_left": "Original concept by Chuck Sonnenburg",
+ "margin_right": "PC Volunteer Award 2005",
+ "notes": "Not unique (printed card Unrestricted; no dot on slip). NEW FRAME COMBINATION: printed base is a Dagobah JEDI TEST (#5) — olive-green Jedi Test frame, no lore box (lore ''), destiny 5, Dagobah ring icon — while the slip is the purple Epic Event bottom WITH a printed 'EPIC EVENT' banner (unlike vs11/17 Deep Hatred, which had no banner) → card_type 'EPIC EVENT'. The render needs a Jedi Test top half + Epic Event bottom; no Jedi Test template exists yet. Inline icons: 'non-' + pink/gold-rimmed sphere = Coruscant set icon → {set:coruscant}; 'non-' + orange burst sphere = Special Edition set icon → {set:se} (both match assets/icons/set-*-grainy.png and the stub names Coruscant / Special Edition); ▼ where the stub expands; red circle-slash A → {alter} ('an Immune-to-Alter Effect'); black square with green blade → {permanent-weapon} (stub: permanent-weapon cards; renders as {lightsaber}); gold spoked wheel in a square → {maintenance} (stub: maintenance-cost cards). The slip sets 'Jedi:' and 'Agent of Evil:' in bold at the start of new lines → kept as \\n-separated *bold* paragraphs (like USED:/LOST:). The slip prints 'Agent of Evil:▲Luke' with almost no space around the ▲; typed with spaces. Curly apostrophe in opponent’s. Margin credits printed vertically, one line each. Base scan 745 px (Dagobah-L-itisthefutureyousee.gif); copyright 1997 legible. Modern: V25-L-itisthefutureyousee.gif (745 px, later PC remake, same art).",
+ "id": "vs12-13",
+ "virtual_set": 12,
+ "game_text_lines": "If you deployed only 1 (non-{set:coruscant}, non-{set:se}) location, play\nthis Epic Event instead of a Starting Interrupt. ▼ Battle\nPlan, Do, Or Do Not, and an {alter} Effect. Insert cards and\nyour {permanent-weapon} and {maintenance} cards are lost. You go first. Choose one:\n*Jedi:* Deploy on table. At start of your turn, turn all cards\nhere face up. During your turn, may use 1 Force for each\ncard stacked here to stack a card from hand face up here.\nInstead of using X Force, may turn X cards here face down.\n*Agent of Evil:* ▲ Luke and a site. Deploy on opponent’s\nside of table; their total battle and duel destiny is +3."
+}

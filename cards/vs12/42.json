@@ -1,0 +1,36 @@
+{
+ "id": "vs12-42",
+ "number": "42",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•There Is No Try & •Oppressive Enforcement",
+ "caption": "•There Is No Try & •Oppressive Enforcement (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Conference Room. Revolution is canceled here. You may not deploy aliens (except Mara Jade and bounty hunters), {episode1} cards, or Luke? Luuuuke!. Emperor and your admirals, generals, and moffs are Imperial Council Members and influence +1. While present, each Imperial Council Member adds one {dark-force}. During your control phase, may use 2 Force to ▲ one Laser Gate, an Imperial Council Member, or a Political Effect. Your cards may deploy to table from Political Effects. May place your canceled Political Effect in Used Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "1",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "There Is No Try & Oppressive Enforcement",
+ "art": {
+  "src": "src/vs12/42-Ref2-D-thereisnotry&oppressiveenforcement.gif",
+  "modern": "src/vs12/modern/42-VB4-D-thereisnotry&oppressiveenforcement-pre.gif",
+  "rect": [
+   38,
+   70,
+   318,
+   262
+  ]
+ },
+ "notes": "Unique. Base card is the printed Reflections II combo card 'There Is No Try & •Oppressive Enforcement' (wiki page of that name, destiny 1, PM) — not the separate Dagobah/SE cards the stub's 'Decipher base' line names. NEW FRAME TYPE: the Reflections II combo Effect has NO lore box — the art window (split image, Luke | Death Star throne room) runs from the title bar down to the text box; lore set to \"\". Printed title shows a dot on BOTH names ('•There Is No Try & •Oppressive Enforcement'); the wiki base page title field drops the first dot (wiki error). Banner EFFECT, no grabber box. Inline: EPISODE I circle → {episode1}; white square with red diagonal after 'adds one' → {dark-force} (stub 'Force icon'); ▲ where the stub expands it; trailing red circle-slash A → {alter}. 'Luke? Luuuuke!.' printed with the trailing period. Copyright read off the 354 px scan: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' Modern: VB4 only (-pre 350 px; non-pre also exists).",
+ "grabber": false,
+ "no_lore_box": true,
+ "game_text_lines": "Deploy on Conference Room. Revolution is canceled\nhere. You may not deploy aliens (except Mara Jade and\nbounty hunters), {episode1} cards, or Luke? Luuuuke!. Emperor\nand your admirals, generals, and moffs are Imperial\nCouncil Members and influence +1. While present, each\nImperial Council Member adds one {dark-force}. During your\ncontrol phase, may use 2 Force to ▲ one Laser Gate, an\nImperial Council Member, or a Political Effect. Your\ncards may deploy to table from Political Effects. May\nplace your canceled Political Effect in Used Pile. {alter}"
+}

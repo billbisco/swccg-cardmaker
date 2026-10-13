@@ -1,0 +1,45 @@
+{
+ "number": "04",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Chewie, Enraged",
+ "caption": "•Chewie, Enraged (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "{pilot:2}. While present at a site with Han or Leia, Chewie is Heroic and, unless hit, may be forfeited to satisfy all remaining attrition and battle damage against you. Once per game, may ▲ Kashyyyk or _Falcon_.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "*Smuggler*. Very few people need to be told that angry Wookiees should be given a wide berth.",
+ "destiny": "3",
+ "base_page": "Chewie, Enraged",
+ "art": {
+  "src": "src/vs12/04-Ref3-L-chewieenraged.gif",
+  "modern": "src/vs12/modern/04-VB1-L-chewieenraged-pre.gif"
+ },
+ "id": "vs12-04",
+ "virtual_set": 12,
+ "expansion": "Reflections III",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 6 / ABILITY 2 / ARMOR 4 (third box ARMOR with value); deploy 4 / forfeit 6. The wiki stub has deploy=6 and forfeit blank — wrong, the slip prints 4 over 6; the stub's game_text_note also mentions FORCE-ATTUNED, which the slip does not print. Leading yellow LS pilot icon + '2.' → {pilot:2}. _Falcon_ italic on the slip. Icon column: pilot, warrior (printed card also has maintenance — slip column replaces it). Credit printed in italic centred BELOW the text box (credit_bottom, as vs11 Lord Vader), not in the margins. Rebel (Rebel disc on the printed card). Lore: 'Smuggler' visibly bold on the 350 px scan → *Smuggler*. Only a 350 px scan; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' legible enough on it. Modern: Virtual Block 1 only (VB1 -pre, 349 px).",
+ "credit_bottom": "Original concept by Peter Jacobson, PC Volunteer Award 2006",
+ "game_text_lines": "{pilot:2}. While present at a site with Han or Leia,\nChewie is Heroic and, unless hit, may be forfeited\nto satisfy all remaining attrition and battle damage\nagainst you. Once per game, may ▲ Kashyyyk or\n_Falcon_."
+}

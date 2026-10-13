@@ -1,0 +1,31 @@
+{
+ "number": "23",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•At Last We Are Getting Results",
+ "caption": "•At Last We Are Getting Results (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If Invasion on table, deploy on table. Maul ignores objective deployment restrictions. Your {presence} droids are defense value +2. Your starships are deploy -1. Immunity to attrition of opponent’s cards is -3. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "First sign that your blockade is going well: the Queen’s on the comlink.",
+ "destiny": "4",
+ "base_page": "At Last We Are Getting Results",
+ "art": {
+  "src": "src/vs12/23-Theed-D-atlastwearegettingresults.gif",
+  "modern": "src/vs12/modern/23-VB5-D-atlastwearegettingresults-pre.gif"
+ },
+ "id": "vs12-23",
+ "virtual_set": 12,
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. NEW base set for the remaster: Theed Palace (expansion ring icon not cut yet; the printed card also shows the Episode I icon under the Theed sphere beside the lore box). Inline icon in 'Your [icon] droids' = small red square with a white battle-droid figure = the Presence icon → {presence} (the PC's own Virtual Block 5 reissue text in gempdata/DarkLegacy.json reads 'Your [Presence] droids'); the wiki stub's game_text_note names it 'Trade Federation' — wrong. Red circle-slash A at the end → {alter}. Curly apostrophe in opponent’s. Margin credits printed vertically, one line each: left 'Original concept by Michael Richards', right 'Oklahoma States 2004'. Lore corrected from scan: curly apostrophe in Queen’s (wiki straight). Copyright line read off the 350 px scan: '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' (low-res). Base scan only 350 px (Theed-D-atlastwearegettingresults.gif). Modern: Virtual Block 5 only (VB5-D-atlastwearegettingresults-pre.gif, 350 px; non-pre also exists).",
+ "grabber": false,
+ "margin_left": "Original concept by Michael Richards",
+ "margin_right": "Oklahoma States 2004",
+ "game_text_lines": "If Invasion on table, deploy on table. Maul ignores\nobjective deployment restrictions. Your {presence} droids are\ndefense value +2. Your starships are deploy -1.\nImmunity to attrition of opponent’s cards is -3. {alter}"
+}

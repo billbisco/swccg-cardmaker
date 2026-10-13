@@ -1,0 +1,45 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Ki-Adi-Mundi",
+ "caption": "•Ki-Adi-Mundi (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "JEDI KNIGHT",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "5",
+ "game_text": "While Maul present, Ki-Adi-Mundi is Heroic. Obi-Wan’s Cape, Obi-Wan’s Journal, and {ovs:9} Jedi Lightsaber may deploy on Ki-Adi-Mundi. Once per game, may exchange two cards from hand with any one card in Lost Pile.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "lore": "Cerean Jedi trained by Yoda since the age of four. Only *Jedi Council member* who is a Jedi Knight. Freed his homeworld from a group of rogues without any bloodshed.",
+ "destiny": "2",
+ "base_page": "Ki-Adi-Mundi",
+ "art": {
+  "src": "src/vs12/15-Cor-L-kiadimundi.gif",
+  "modern": "src/vs12/modern/15-VB5-L-kiadimundi-pre.gif"
+ },
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "margin_left": "Original concept\nby Michael Raveling",
+ "margin_right": "Iowa States\n2005",
+ "notes": "Unique. Stats POWER 5 / ABILITY 6 / JEDI KNIGHT (label only); deploy 6 / forfeit 5 (printed 5/6); the wiki stub has deploy=5 (differs). Icon column: warrior. Republic (Coruscant silver frame, Republic crest disc; the printed card has the Coruscant ring AND an Episode I icon beside the lore box). Inline blue-purple sphere before 'Jedi Lightsaber' = the Original Virtual Set 9 sphere (matches assets/icons/ovs-set-9.png; stub: 'Virtual Set 9 Jedi Lightsaber') → {ovs:9}. Curly apostrophes in Obi-Wan’s (twice). Margin credits printed vertically on two lines each. Lore corrected from scan: 'Jedi Council member' is BOLD (visible on the scan and the VB5 remake). Base scan 357 px only; copyright Coruscant 2001 SE-style form, partly legible.",
+ "id": "vs12-15",
+ "virtual_set": 12,
+ "game_text_lines": "While Maul present, Ki-Adi-Mundi is Heroic. Obi-Wan’s\nCape, Obi-Wan’s Journal, and {ovs:9} Jedi\nLightsaber may deploy on Ki-Adi-Mundi. Once per\ngame, may exchange two cards from hand with\nany one card in Lost Pile."
+}
