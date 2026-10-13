@@ -1,0 +1,39 @@
+{
+ "id": "vs8-50",
+ "number": "50",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Wooof",
+ "caption": "•Wooof (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:3}. Wooof may deploy with any cruiser using Combat Response. When deployed, may draw top card from Reserve Deck. During your deploy phase, if piloting Jabba’s Space Cruiser, may ▼ one Jabba aboard (for free).",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Kadas’sa’Nikto. One of Jabba’s best pilots. Often pilots Jabba’s space yacht. *Smuggler*. Prefers to be flying combat starfighters.",
+ "destiny": "3",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Wooof",
+ "art": {
+  "src": "src/vs8/50-JabbasPalace-D-wooof-decipher-archive.gif",
+  "modern": "src/vs8/modern/50-V1-D-wooof.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2 (same as printed); deploy 2 / forfeit 4 (printed 3 / 2). Inline yellow DS pilot-power icon followed by '3.' → {pilot:3} (stub expands 'Adds 3 to power of anything he pilots'); ▼ where the stub expands the deploy phrase. Icon column: pilot (DS helmet). Alien. Lore corrected from the 745 px V1 face: 'Smuggler' bold (period not bold), curly apostrophes (Kadas’sa’Nikto, Jabba’s ×2). Base page 'Wooof' (printed archive face; 'Wooof (PC Errata)' is the AR 2023 errata). art.src = JabbasPalace-D-wooof-decipher-archive.gif, a square-on 350×490 scan (not a white-page photo); JP-D-wooof.gif (349×489) also downloaded. Modern: V1-D-wooof.gif (745 px) — NOTE its strip reads 'E1' and its game text is PC errata, not this slip; same art and printed lore, copyright 1998 Hoth-style line legible; used for art only. VB3-D-wooof-pre.gif (350, the reissue of this slip) also downloaded to src/vs8/modern/50-VB3-D-wooof-pre.gif.",
+ "game_text_lines": "{pilot:3}. Wooof may deploy with any cruiser using\nCombat Response. When deployed, may draw top\ncard from Reserve Deck. During your deploy phase,\nif piloting Jabba’s Space Cruiser, may ▼ one\nJabba aboard (for free)."
+}

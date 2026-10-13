@@ -1,0 +1,37 @@
+{
+ "id": "vs8-41",
+ "number": "41",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Malakili",
+ "caption": "•Malakili (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "3",
+ "game_text": "Deploys -4 on Tatooine. Rancors may deploy here (even if Malakili is not the only character, habitat permitting), are defense value +4 here, and may not attack Malakili. During your deploy phase, may ▼ one Rancor here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Corellian. Worked for Circus Horrificus. Disapproves of Jabba’s treatment of the rancor. Plotting with Lady Valarian to steal the immense beast away from Jabba’s palace.",
+ "destiny": "3",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Malakili",
+ "art": {
+  "src": "src/vs8/41-JP-D-malakili.gif",
+  "modern": "src/vs8/modern/41-VB3-D-malakili-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 1, third box blank; deploy 6 / forfeit 3 (printed 3 / 2). Icon column empty (only the set sphere). Alien (Jabba's Palace grey alien frame). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; otherwise matches the stub. Lore corrected from scan: curly apostrophes in Jabba’s (×2) (wiki straight); no bold characteristic words (Corellian is a species). Base scan only at 350 px (JP-D-malakili.gif); copyright 1998 (Jabba's Palace) not legible at 350 px — Hoth-style line per the brief. Modern: Virtual Block 3 only (VB3-D-malakili-pre.gif, 350 px); non-pre VB3 also exists, not downloaded.",
+ "game_text_lines": "Deploys -4 on Tatooine. Rancors may deploy here\n(even if Malakili is not the only character, habitat\npermitting), are defense value +4 here, and may\nnot attack Malakili. During your deploy phase, may\n▼ one Rancor here."
+}

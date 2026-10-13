@@ -1,0 +1,39 @@
+{
+ "number": "33",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Fozec",
+ "caption": "•Fozec (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. While Undercover, opponent’s Force drains at related locations are -1. Once during battle, if with an ISB agent, may cause opponent to draw destiny. You may retrieve 2 Force if destiny > 2.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "*Spy* for the Empire. Keeping tabs on Jabba’s activities for the ISB. Secretly hoping to leave the Empire and pursue lucrative opportunities in the underworld.",
+ "destiny": "2",
+ "base_page": "Fozec (Original)",
+ "art": {
+  "src": "src/vs8/33-JabbasPalace-D-fozec-decipher-archive.gif",
+  "modern": "src/vs8/modern/33-VB3-D-fozec-pre.gif"
+ },
+ "id": "vs8-33",
+ "virtual_set": 8,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 1 / ABILITY 1, third box blank; slip deploy 2 / forfeit 3 (printed forfeit 2). DS pilot-power icon + '2.' → {pilot:2} (stub expands 'Adds 2 to power of anything he pilots'). Curly apostrophe in opponent’s. Icon column: pilot only. Alien (alien disc on the printed card). The wiki's default 'Fozec' page carries Glossary 2.0 errata text; printed face = 'Fozec (Original)' (same lore/destiny/set). The 745 px JP-D-fozec.gif is a D-E1 errata face (Ke Chu Ke Kukuta? text) — downloaded to src/vs8/33-JP-D-fozec.gif for art only; the 350 px decipher-archive scan (proper 350×490 scan) is the printed face used as src. Lore corrected: curly apostrophe in Jabba’s; 'Spy' bold — seen bold on the 745 errata face, too low-res to confirm on the 350 printed scan (characteristic rule). Copyright (Jabba's Palace 1998, Hoth-style) — run default, only 'TM & ©' visible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "{pilot:2}. While Undercover, opponent’s Force drains\nat related locations are -1. Once during battle, if\nwith an ISB agent, may cause opponent to draw\ndestiny. You may retrieve 2 Force if destiny > 2."
+}

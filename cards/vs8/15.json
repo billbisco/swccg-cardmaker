@@ -1,0 +1,44 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "✶",
+ "forfeit": "7",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "title": "•Princess Leia Organa",
+ "caption": "•Princess Leia Organa (V)",
+ "game_text": "✶ Deploys free only as an escorted captive of Jabba or a bounty hunter. Your Strangle destiny draws are +1. “Escort alone” on Strangle is treated as “escort.” When released, escort is lost and you may retrieve any three cards (except Strangle).",
+ "lore": "Captured by Jabba. Princess Leia provided a distraction for his henchbeings. Waiting for the first chance to escape. Really made Jabba’s tail wiggle.",
+ "destiny": "1",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Princess Leia Organa",
+ "art": {
+  "src": "src/vs8/15-JP-L-princessleiaorgana.gif",
+  "modern": "src/vs8/modern/15-VB3-L-princessleiaorgana-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE (label only). DEPLOY box prints an eight-pointed black star (no number), and the same star opens the game text → written ✶ (U+2736) as in vs4/50 Wampa; the wiki stub wrongly gives deploy=7 and drops the star from the text. Forfeit 7. Curly double quotes around “Escort alone” and “escort.” (stub straight). Icon column: pilot, warrior. Rebel. Lore corrected from scan: curly apostrophe in Jabba’s (wiki straight). Base scan only at 350 px; copyright 1998 (Jabba's Palace). Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs8-15",
+ "virtual_set": 8,
+ "game_text_lines": "✶ Deploys free only as an escorted captive of\nJabba or a bounty hunter. Your Strangle destiny\ndraws are +1. “Escort alone” on Strangle is treated\nas “escort.” When released, escort is lost and you\nmay retrieve any three cards (except Strangle)."
+}

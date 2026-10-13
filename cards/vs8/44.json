@@ -1,0 +1,28 @@
+{
+ "id": "vs8-44",
+ "number": "44",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Sacrifice",
+ "caption": "•Sacrifice (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just initiated a battle, target your non-{alter} Effect on table. Draw destiny. Place target on Used Pile and activate up to X Force if destiny < X, where X = target’s destiny number.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jabba’s minions could be expected to be sacrificed to save the Hutt, to destroy one of the Hutts enemies or to provide the Hutt and his minions with a good laugh.",
+ "destiny": "4",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Sacrifice",
+ "art": {
+  "src": "src/vs8/44-SE-D-sacrifice.gif",
+  "modern": "src/vs8/modern/44-VB3-D-sacrifice-pre.gif"
+ },
+ "notes": "Unique. Banner USED INTERRUPT (printed also a Used Interrupt). Inline red circle-slash A after 'non-' → {alter} (stub: '(Immune to Alter)'). Curly apostrophe in target’s. Base card is Special Edition (1998), SE-style copyright line; not legible at 350 px. Lore corrected from scan: curly apostrophe in Jabba’s; 'Hutts enemies' (no apostrophe) kept as printed — it is a Decipher typo on the card, not a wiki error. Base scan only at 350 px. Modern: VB3 -pre (350) only.",
+ "game_text_lines": "If opponent just initiated a battle, target your non-{alter}\nEffect on table. Draw destiny. Place target on Used Pile\nand activate up to X Force if destiny < X, where X =\ntarget’s destiny number."
+}

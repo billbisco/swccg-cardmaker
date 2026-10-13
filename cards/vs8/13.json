@@ -1,0 +1,44 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "5"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "7",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "title": "•Master Luke",
+ "caption": "•Master Luke (V)",
+ "game_text": "{pilot:2}. During battle, may use 2 Force to place an opponent’s alien (except Jabba or a Rep) present with Luke on owner’s Force Pile (opponent may use or lose 3 Force instead). Immune to attrition < 4 (< 7 if with an alien leader).",
+ "lore": "Until being reunited with Yoda, Luke suspected that he had completed his training. Has a strong influence on the weak minded.",
+ "destiny": "1",
+ "expansion": "Enhanced Jabba's Palace",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Master Luke",
+ "art": {
+  "src": "src/vs8/13-EJP-L-masterluke.gif",
+  "modern": "src/vs8/modern/13-V18-L-masterluke.gif"
+ },
+ "notes": "Unique. Stats POWER 5 / ABILITY 5 / FORCE-SENSITIVE (label only); deploy 5 / forfeit 7. Text opens with the yellow pilot icon + '2.' → {pilot:2} (stub expands 'Adds 2 to power of anything he pilots'). Curly apostrophes in opponent’s / owner’s. Icon column: pilot, warrior. Rebel. Base is the Enhanced Jabba's Palace premium card (expansion ring = Premium-style silver sphere). Lore matches both scans ('weak minded' unhyphenated as printed). Base scan only at 350 px; copyright line is the SE-style form with 1999, read off the 350 scan and confirmed on the 745 V18 remake ('© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.'). Modern: V18-L-masterluke.gif (745 px, Virtual Set 18 remake); VB3 -pre (350) also exists, not downloaded.",
+ "id": "vs8-13",
+ "virtual_set": 8,
+ "game_text_lines": "{pilot:2}. During battle, may use 2 Force to place an\nopponent’s alien (except Jabba or a Rep) present\nwith Luke on owner’s Force Pile (opponent may\nuse or lose 3 Force instead). Immune to attrition\n< 4 (< 7 if with an alien leader)."
+}

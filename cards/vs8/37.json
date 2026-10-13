@@ -1,0 +1,41 @@
+{
+ "number": "37",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Jabba The Hutt",
+ "caption": "•Jabba The Hutt (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "While with your alien leader, Jabba is immune to attrition and may not be targeted by Interrupts or weapons. May ▼ one Scum And Villainy. During battle, may use 1 Force to double the power of one other non-{maintenance} alien present.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Jabba Desilijic Tiure. Male heir to Zorba the Hutt. *Gangster*. *Leader* of one of the largest criminal organizations in the galaxy. Over six hundred years old.",
+ "destiny": "1",
+ "base_page": "Jabba The Hutt",
+ "art": {
+  "src": "src/vs8/37-JabbasPalace-D-jabbathehutt-decipher-archive.gif",
+  "modern": "src/vs8/modern/37-V0-D-jabbathehutt.gif"
+ },
+ "id": "vs8-37",
+ "virtual_set": 8,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE (label only); slip deploy 4 / forfeit 7 (printed deploy 6). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Inline icon in 'non-[icon] alien': gold spoked wheel in a square → {maintenance} per the brief; the stub reads it as 'non-unique' — reading differs, flag. Icon column empty. Alien. Lore corrected from scans: 'Gangster' and 'Leader' bold (seen on the 745 px faces JP-D-jabbathehutt.gif [D-E1 errata] and V0; periods left unbold as in earlier runs). The 745 JP-D-jabbathehutt.gif is a D-E1 errata face — downloaded to src/vs8/37-JP-D-jabbathehutt.gif for art only; the 350 px decipher-archive scan is src. Copyright (Jabba's Palace 1998) run default. Modern: V0-D-jabbathehutt.gif (745 px); VB3 (350) also exists, not downloaded.",
+ "game_text_lines": "While with your alien leader, Jabba is immune to\nattrition and may not be targeted by Interrupts or\nweapons. May ▼ one Scum And Villainy. During\nbattle, may use 1 Force to double the power of\none other non-{maintenance} alien present."
+}

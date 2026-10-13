@@ -1,0 +1,45 @@
+{
+ "id": "vs8-28",
+ "number": "28",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Boba Fett",
+ "caption": "•Boba Fett (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "{pilot:3}, 4: _Slave I_. May ‘fly’ (landspeed = 3). During battle, may target an opponent’s character present with Boba Fett. Draw destiny. Target captured if destiny +2 > ability. Immune to attrition < 3 (< 5 while with Han or Jabba).",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Infamous *bounty hunter*. Hired to help Jabba intimidate debtors and smugglers. Crack shot. Mandalorian armor and jet pack provide protection and flight capability.",
+ "destiny": "1",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Boba Fett (Dark)",
+ "art": {
+  "src": "src/vs8/28-SE-D-bobafett.gif",
+  "modern": "src/vs8/modern/28-VB1-D-bobafett-pre.gif"
+ },
+ "notes": "Unique. BASE CARD: the slip heading reads '•Boba Fett ( [sphere] persona only) (V)' and the sphere is the Special Edition expansion symbol (white starburst on a copper sphere, matches the SE ring on Bantha Herd / SE Boba Fett) → {set:se}; the bottom strip prints only '•Boba Fett (V)' (caption). So this slip sits on the Special Edition Boba Fett (wiki page 'Boba Fett (Dark)'), not the Cloud City one — the stub's 'Decipher base: [[Boba Fett]]' link is ambiguous (that page is the Cloud City card). Virtual Block 1 later reissued it as 'Boba Fett (Special Edition) (V)' on the SE art, which agrees. 'persona only' is set in a smaller type in the heading. Stats POWER 4 / ABILITY 3 / ARMOR 5; deploy 4 / forfeit 7. Yellow DS pilot icon followed by '3, 4: Slave I.' → {pilot:3}, 4: _Slave I_. (stub expands 'Adds 3 to power of anything he pilots, 4: Slave I'); 'Slave I' italic. Curly ‘fly’ and opponent’s. Icon column top to bottom: pilot, warrior. Alien (SE grey alien frame; printed icons Pilot, Warrior). Lore: wiki matches; 'bounty hunter' is bold on the 745 px scan (SE-D-bobafett.gif, tagged D-E1 = PC face, but its game text equals the printed text) — bold kept as the scan shows it. Copyright: Special Edition form, 1998 legible. Modern: VB1-D-bobafett-pre.gif (350, Virtual Block 1, SE art, later revised text). Side note for the lead: vs6/29's heading sphere is the Cloud City symbol (striped Bespin), not the slip's own sphere — its {ovs} should probably be {set:cloudcity}.",
+ "heading": "•Boba Fett ({set:se} persona only) (V)",
+ "game_text_lines": "{pilot:3}, 4: _Slave I_. May ‘fly’ (landspeed = 3). During\nbattle, may target an opponent’s character present\nwith Boba Fett. Draw destiny. Target captured if\ndestiny +2 > ability. Immune to attrition < 3 (< 5\nwhile with Han or Jabba)."
+}

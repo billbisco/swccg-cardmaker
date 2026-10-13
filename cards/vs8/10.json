@@ -1,0 +1,30 @@
+{
+ "id": "vs8-10",
+ "number": "10",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "•Krayt Dragon Howl",
+ "caption": "•Krayt Dragon Howl (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If Obi-Wan on table, activate up to 3 Force.\nSTARTING: ▼ Obi-Wan (regardless of Objective deployment restrictions) and his matching weapon to a Tatooine site. When you draw your starting hand, draw three cards instead of eight. Place this Interrupt in hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Using Jedi skill, Obi-Wan Kenobi imitated perfectly the mournful howl of the dangerous krayt dragon to scare Tusken Raiders away from Luke Skywalker.",
+ "destiny": "4",
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Krayt Dragon Howl",
+ "art": {
+  "src": "src/vs8/10-Premiere-L-kraytdragonhowl.gif",
+  "modern": "src/vs8/modern/10-VB5-L-kraytdragonhowl-pre.gif"
+ },
+ "notes": "Unique (•). Banner USED OR STARTING INTERRUPT (printed base is a Lost Interrupt). USED:/STARTING: on separate lines; ▼ where the stub expands the phrase. Slip text matches the stub. Margin credits: left 'Original concept by Scott Lingrell', right 'Mystic Visions 2004 Winner'. Lore matches the scan. Base scan only at 350 px (no 745 px face on the wiki); copyright 1995 (Premiere) not legible on it. Modern: Virtual Block 5 only (VB5 -pre, 350 px).",
+ "margin_left": "Original concept by Scott Lingrell",
+ "margin_right": "Mystic Visions 2004 Winner",
+ "game_text_lines": "USED: If Obi-Wan on table, activate up to 3 Force.\nSTARTING: ▼ Obi-Wan (regardless of Objective\ndeployment restrictions) and his matching weapon to a\nTatooine site. When you draw your starting hand, draw\nthree cards instead of eight. Place this Interrupt in hand."
+}

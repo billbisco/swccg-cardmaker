@@ -1,0 +1,29 @@
+{
+ "id": "vs8-27",
+ "number": "27",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "••Bantha Herd",
+ "caption": "••Bantha Herd (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a Tatooine site. Once per turn, you may place up to 3 cards from hand face down here. You may ‘react’ to battles initiated against your lone Tusken Raider by deploying (for free) any Tusken Raider(s) and/or Bantha(s) here. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "While banthas are found on many worlds, the largest herds are found on Tatooine. The Sand People of that planet learned to tame the beasts.",
+ "destiny": "4",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Bantha Herd",
+ "art": {
+  "src": "src/vs8/27-SE-D-banthaherd.gif",
+  "modern": "src/vs8/modern/27-VB3-D-banthaherd-pre.gif"
+ },
+ "notes": "Restricted (••) on slip heading, caption and printed card. Printed base is a MOBILE EFFECT; slip banner reads EFFECT, no grabber box. Curly single quotes around ‘react’; red circle-slash A at the end → {alter}. Slip text otherwise matches the stub. Lore matches the wiki and both scans. Art: the 745 px SE-D-banthaherd.gif is tagged D-E1 (PC errata face: game text differs from the printed card) — used for art only; the printed face is SE-D-banthaherd-decipher-archive.gif (350 px, photo on a white page, also downloaded to src/vs8/). Copyright: Special Edition form, 1998 legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on a Tatooine site. Once per turn, you may place\nup to 3 cards from hand face down here. You may\n‘react’ to battles initiated against your lone Tusken\nRaider by deploying (for free) any Tusken Raider(s)\nand/or Bantha(s) here. {alter}"
+}

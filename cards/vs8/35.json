@@ -1,0 +1,39 @@
+{
+ "number": "35",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Hermi Odle",
+ "caption": "•Hermi Odle (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "Characters at same and related sites may not have their weapons stolen or be targeted to be Disarmed. Your non-lightsaber, non-{lightsaber} character weapon destiny draws are +2.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Baragwin assigned by Jabba to be the palace’s master weaponsmith. Enemy of Pote Snitkin.",
+ "destiny": "3",
+ "base_page": "Hermi Odle",
+ "art": {
+  "src": "src/vs8/35-JP-D-hermiodle.gif",
+  "modern": "src/vs8/modern/35-VB3-D-hermiodle-pre.gif"
+ },
+ "id": "vs8-35",
+ "virtual_set": 8,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 2, third box blank; slip deploy 2 / forfeit 3 (printed 3 / 2). Inline icon in 'non-lightsaber, non-[icon]': black square with a green diagonal blade → {lightsaber} per this run's brief; the stub expands it as 'non-permanent-weapon' (STANDARD Rev 8 calls this glyph the Permanent Weapon icon — the context 'non-lightsaber, non-[icon]' supports that reading; flag for Bill). Icon column: warrior. Alien. Lore corrected from scan: curly apostrophe in palace’s. Base scan only at 350 px; copyright (Jabba's Palace 1998) run default. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Characters at same and related sites may not have\ntheir weapons stolen or be targeted to be\nDisarmed. Your non-lightsaber, non-{lightsaber} character\nweapon destiny draws are +2."
+}

@@ -1,0 +1,37 @@
+{
+ "id": "vs8-01",
+ "number": "01",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Attark",
+ "caption": "•Attark (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "During your control phase, if No Love For The Empire on table, may retrieve a non-unique alien of a different species than your Rep.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "From a mysterious species known only as Hoovers. Possesses tremendous technical abilities. Small size allows him to easily manipulate detailed electronic equipment.",
+ "destiny": "3",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Attark",
+ "art": {
+  "src": "src/vs8/01-JP-L-attark.gif",
+  "modern": "src/vs8/modern/01-VB3-L-attark-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 2 / forfeit 3. Icon column empty (only the set sphere). Alien (Jabba's Palace frame, alien disc). Slip text matches the stub. Lore corrected from the scan: 'known only as Hoovers' (wiki 'known as') and 'to easily manipulate' (wiki 'easy'); 'electronic' read as printed though the 350 px scan is soft there (the r merges with the o; could be misread as 'electonic'). No characteristic in lore. Base scan only at 350 px; copyright 1998 (Jabba's Palace) not legible on it. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "During your control phase, if No Love For The\nEmpire on table, may retrieve a non-unique alien\nof a different species than your Rep."
+}

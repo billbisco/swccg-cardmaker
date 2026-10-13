@@ -1,0 +1,29 @@
+{
+ "id": "vs8-24",
+ "number": "24",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Yarna d’al’ Gargan",
+ "caption": "•Yarna d’al’ Gargan (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If Agents In the Court on table, deploy on table. No Love For The Empire may not flip. Bo Shuda may not be canceled. Your characters at Tatooine sites may not be attacked. During your deploy phase, may use 1 Force to ▼ a Tatooine battleground location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Female dancer from Askajia. Very protective mother. Makes sure that all those she cares about are well protected.",
+ "destiny": "6",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Yarna d'al' Gargan",
+ "art": {
+  "src": "src/vs8/24-JP-L-yarnadalgargan.gif",
+  "modern": "src/vs8/modern/24-V8-L-yarnadalgargan.gif"
+ },
+ "notes": "Unique. Banner EFFECT, no grabber box. Title has curly apostrophes (d’al’) on the slip heading, caption and printed card. 'Agents In the Court' with lower-case 'the' as the slip prints it. Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore corrected from scan: 'are well protected' (wiki omits 'well') — confirmed on the 745 px V8 remake. Base scan only at 350 px; copyright 1998 legible on the V8 remake. Modern: V8-L-yarnadalgargan.gif (745 px, modern Virtual Set 8 remake); VB3 -pre (350) also exists, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "If Agents In the Court on table, deploy on table. No\nLove For The Empire may not flip. Bo Shuda may not\nbe canceled. Your characters at Tatooine sites may not\nbe attacked. During your deploy phase, may use 1\nForce to ▼ a Tatooine battleground location."
+}

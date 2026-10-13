@@ -1,0 +1,28 @@
+{
+ "id": "vs8-08",
+ "number": "08",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•I Must Be Allowed To Speak",
+ "caption": "•I Must Be Allowed To Speak (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per character, when you deploy Chewie, Lando, Leia, or Luke to a Tatooine site, may take any one card from Used Pile into hand; reshuffle. While Han is frozen, Rebels are immune to None Shall Pass. Once per game, may ▼ a farm. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Jedi mod spienko eek.”",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "I Must Be Allowed To Speak",
+ "art": {
+  "src": "src/vs8/08-JP-L-imustbeallowedtospeak.gif",
+  "modern": "src/vs8/modern/08-V0-L-imustbeallowedtospeak.gif"
+ },
+ "notes": "Unique (•). Banner EFFECT, no grabber box. ▼ where the stub expands the phrase; red circle-slash A → {alter}. Slip text matches the stub. Lore corrected from the 745 px V0 remake: curly double quotes “Jedi mod spienko eek.” (wiki straight single quotes); not indented. Base scan only at 350 px; copyright 1998 (Jabba's Palace) not legible on it. Modern: V0-L-imustbeallowedtospeak.gif (745 px); VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on table. Once per character, when you deploy\nChewie, Lando, Leia, or Luke to a Tatooine site, may\ntake any one card from Used Pile into hand; reshuffle.\nWhile Han is frozen, Rebels are immune to None Shall\nPass. Once per game, may ▼ a farm. {alter}"
+}

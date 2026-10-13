@@ -1,0 +1,30 @@
+{
+ "id": "vs8-05",
+ "number": "05",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Starting Interrupt",
+ "card_type": "STARTING INTERRUPT",
+ "title": "•Careful Planning",
+ "caption": "•Careful Planning (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "STARTING: If your starting location was a battleground site, ▼ up to two related locations (one must be a system) with < 4 total {light-force} and up to three Effects that are always {alter}. Place this Interrupt in Lost Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Alliance troops on planet must plan ahead to achieve success in military operations.",
+ "destiny": "5",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Careful Planning",
+ "art": {
+  "src": "src/vs8/05-Endor-L-carefulplanning.gif",
+  "modern": "src/vs8/modern/05-V0-L-carefulplanning.gif"
+ },
+ "notes": "ERRATA: the sheet cover reads '(Errata to card #5 and #30 on June 25, 2007)' — this transcription is what this Remaster sheet prints (the stub's game_text_note calls it post-errata); the pre-errata wording is not on this sheet. The slip's bottom strip prints a small gold/bronze sphere between the caption and the number — the errata marker (it appears only on the errata'd #5, #22, #30), not transcribed as an icon. Unique (•). Banner STARTING INTERRUPT (printed base is a Used Or Starting Interrupt). Inline black square with a white/cyan diagonal after '< 4 total' → {light-force} (Light Side Force icons; matches assets/icons/inline-force-light.png) — the stub dropped it ('with < 4 total and'). ▼ where the stub expands the phrase; red circle-slash A → {alter} (stub 'Immune to Alter'). Margin credits: left 'Original concept by Kevin Brownell', right 'Illinois States 2004'. Lore matches the scan and the 745 px V0 remake. Base scan only at 350 px; copyright line read off the V0 remake: Endor form, 1999. Modern: V0-L-carefulplanning.gif (745 px); VB4 -pre (350) also exists, not downloaded.",
+ "margin_left": "Original concept by Kevin Brownell",
+ "margin_right": "Illinois States 2004",
+ "game_text_lines": "STARTING: If your starting location was a battleground\nsite, ▼ up to two related locations (one must be a\nsystem) with < 4 total {light-force} and up to three Effects\nthat are always {alter}. Place this Interrupt in Lost Pile."
+}

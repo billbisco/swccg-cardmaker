@@ -1,0 +1,29 @@
+{
+ "id": "vs8-21",
+ "number": "21",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Starting Effect",
+ "card_type": "STARTING EFFECT",
+ "title": "•Thrown Back",
+ "caption": "•Thrown Back (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table with 12 Defensive Shields from outside your deck face-down under here. Four times per game may play a card from here (as if from hand). Unless Yoda on Dagobah, each player’s ▲ or ▼ attempt (after the first in a turn) allows their opponent to draw top card from Reserve deck and/or activate 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Being sent to dispose of two Jedi is the battle droid equivalent of a really bad day at the office.",
+ "destiny": "3",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Thrown Back",
+ "art": {
+  "src": "src/vs8/21-Cor-L-thrownback.gif",
+  "modern": "src/vs8/modern/21-VB6-L-thrownback-pre.gif"
+ },
+ "notes": "Unique. Banner STARTING EFFECT, no grabber box (printed base is a plain Effect). Slip prints ▲ and ▼ where the stub expands them; 'Reserve deck' with lower-case d as printed. No immune icon. Lore matches the wiki and the scan. Base scan only at 350 px; copyright line taken as the Coruscant SE-style form (2001, as the other Coruscant base in this project) — '2001 DECIPHER' just legible. Modern: Virtual Block 6 only (VB6 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table with 12 Defensive Shields from outside\nyour deck face-down under here. Four times per game\nmay play a card from here (as if from hand). Unless\nYoda on Dagobah, each player’s ▲ or ▼ attempt (after\nthe first in a turn) allows their opponent to draw top\ncard from Reserve deck and/or activate 1 Force."
+}

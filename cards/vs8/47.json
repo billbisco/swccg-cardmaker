@@ -1,0 +1,41 @@
+{
+ "id": "vs8-47",
+ "number": "47",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Creature Vehicle",
+ "card_type": "CREATURE VEHICLE",
+ "title": "•URoRRuR’R’R’s Bantha",
+ "caption": "•URoRRuR’R’R’s Bantha (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "MANEUVER",
+   "2"
+  ],
+  [
+   "LANDSPEED",
+   "1"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "4",
+ "game_text": "Deploys only on Tatooine. May add 2 ‘riders’ (passengers). Ability = 1/2. While URoRRuR’R’R aboard, adds one battle destiny. During your deploy phase, may ▼ one URoRRuR’R’R here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Raised by RR’uruurr for personal use by URoRRuR’R’R. Alpha male of his bantha herd. Has trampled many Jawas. Nicknamed ‘Rrr’ur’R.’",
+ "destiny": "3",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "URoRRuR'R'R's Bantha",
+ "art": {
+  "src": "src/vs8/47-SE-D-urorrurrrsbantha.gif",
+  "modern": "src/vs8/modern/47-VB1-D-urorrurrrsbantha-pre.gif"
+ },
+ "notes": "Unique. Banner CREATURE VEHICLE (blue vehicle frame); stat boxes POWER 1 / MANEUVER 2 / LANDSPEED 1 (printed POWER 2 / MANEUVER 2 / LANDSPEED 1); deploy 1 / forfeit 4 (same as printed). No column icons, no scomp ring. Slip prints 'Ability = 1/2' with digits and slash (printed card uses ½); curly single quotes around ‘riders’; the slip prints a double space after 'destiny.' (collapsed to one, as on vs4/40). ▼ where the stub expands the deploy phrase. Lore corrected from scan: curly apostrophes (RR’uruurr, URoRRuR’R’R) and the nickname ‘Rrr’ur’R.’ printed with a closing quote after the period (wiki: 'Rrr'ur'R. with no closing quote). Base card Special Edition (1998), SE-style line; not legible at 350. Base scan only at 350 px. Modern: Virtual Block 1 only (VB1 -pre, 350).",
+ "game_text_lines": "Deploys only on Tatooine. May add 2 ‘riders’\n(passengers). Ability = 1/2. While URoRRuR’R’R\naboard, adds one battle destiny. During your deploy\nphase, may ▼ one URoRRuR’R’R here."
+}

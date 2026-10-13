@@ -223,3 +223,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Decipher bolds characteristics (leader, spy, smuggler, gambler, bounty hunter, scout, thief, information broker,
   gangster, Enclosed, hologram, dejarik…) — checked on every 745 px scan / PC remake; low-res-only cards follow the
   same rule (noted per card). `fit_stats.py` fits stat typography to a scan.
+- Rev 14 (VS8 run 2026-10-13): game-text fitting tightens tracking (to −1.2 px) and then leading (to 0.94 em) before
+  it shrinks the size, as the slips set a long text (Thrown Back (V): 56 px instead of 50). Margin credits are
+  centred in the coloured margin per side (Light x 185 / 1402, Dark 187 / 1391), measured with JS at 46 px and shrunk
+  only to fit; below 34 px they wrap to two balanced lines ("Original concept / by Mike Gemme", The Emperor (V)).
+  Enhanced Jabba's Palace ring icon (`set-ejp-grainy.png`). `make_upload.py` builds the wiki upload folder (745 px
+  webp q90 remasters, slips under the stub names, set symbol); `--changed` keeps only remasters that differ. Wiki
+  text: `{pilot:N}, M: <ship>.` → "Adds N to power of anything he pilots (M if <ship>)"; "▲ and/or ▼",
+  "▲ or ▼ attempt", "▼ … ;" and "always {alter}" have their own expansions. VS8 released 24 Nov 2004 (swccgpc.com
+  news; no separate legal date). Starting Interrupt article.

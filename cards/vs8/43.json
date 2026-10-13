@@ -1,0 +1,28 @@
+{
+ "id": "vs8-43",
+ "number": "43",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "None Shall Pass",
+ "caption": "None Shall Pass (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just deployed a character (except Leia) to a Jabba’s Palace site, use 1 Force to place that character on bottom of opponent’s Force Pile (opponent may draw two cards from Reserve Deck).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jabba’s Gamorrean guards keep a watchful eye for unwelcome guests.",
+ "destiny": "5",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "None Shall Pass",
+ "art": {
+  "src": "src/vs8/43-JP-D-noneshallpass.gif",
+  "modern": "src/vs8/modern/43-VB3-D-noneshallpass-pre.gif"
+ },
+ "notes": "Not unique: no dot on the slip heading or strip; the printed card is Unrestricted (wiki uniqueness=Unrestricted, stub blank). Banner USED INTERRUPT (printed card also a Used Interrupt). Curly apostrophes in Jabba’s and opponent’s. No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in Jabba’s. Base scan only at 350 px; copyright 1998 not legible. Modern: VB3 -pre (350) only.",
+ "game_text_lines": "If opponent just deployed a character (except Leia) to a\nJabba’s Palace site, use 1 Force to place that character\non bottom of opponent’s Force Pile (opponent may\ndraw two cards from Reserve Deck)."
+}

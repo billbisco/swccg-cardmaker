@@ -1,0 +1,39 @@
+{
+ "number": "40",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•J’Quille",
+ "caption": "•J’Quille (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "4",
+ "game_text": "May deploy to a shielded site, and, for remainder of that turn, suspends ‘Hoth Energy Shield Rules’ at his site. Once per game, when deployed to a site, opponent loses 1 Force for each Light Side character present.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Whiphid *spy* in league with Lady Valarian. Yearns for battle. Enjoys hearing the screams of his victims. Plotting to kill Jabba.",
+ "destiny": "2",
+ "base_page": "J'Quille",
+ "art": {
+  "src": "src/vs8/40-JP-D-jquille.gif",
+  "modern": "src/vs8/modern/40-VB3-D-jquille-pre.gif"
+ },
+ "id": "vs8-40",
+ "virtual_set": 8,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in heading and caption (J’Quille). Stats POWER 5 / ABILITY 1, third box blank; slip deploy 4 / forfeit 4 (printed power 4, deploy 5 / forfeit 3). Curly single quotes ‘Hoth Energy Shield Rules’ (stub straight). Icon column: warrior. Alien. Lore matches the wiki; 'spy' marked bold by the characteristic rule — inferred, 350 px scan too low-res to see weight. Base scan only at 350 px; copyright (Jabba's Palace 1998) run default. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "May deploy to a shielded site, and, for remainder\nof that turn, suspends ‘Hoth Energy Shield Rules’\nat his site. Once per game, when deployed to a\nsite, opponent loses 1 Force for each Light Side\ncharacter present."
+}

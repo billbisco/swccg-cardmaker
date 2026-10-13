@@ -1,0 +1,37 @@
+{
+ "id": "vs8-09",
+ "number": "09",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Kalit",
+ "caption": "•Kalit (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "Deploys only on Tatooine. Your other Jawas are power and forfeit +1. Your vehicle forfeited at same site satisfies all remaining battle damage against you. During your turn, may use 1 Force to ▲ a card with “Jawa” in game text.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Jawa *leader*. Seeking to peacefully settle a long-standing disagreement with his rival, Wittin. Wants Jabba to mediate their talks.",
+ "destiny": "2",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Kalit",
+ "art": {
+  "src": "src/vs8/09-JP-L-kalit.gif",
+  "modern": "src/vs8/modern/09-VB3-L-kalit-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 2 / forfeit 5. Icon column empty. Alien (Jabba's Palace frame, alien disc). ▲ where the stub expands the phrase; curly double quotes around “Jawa” (stub straight). Lore corrected from the scan: 'long-standing' hyphenated (broken 'long-/standing' at the line end; wiki 'long standing'). 'leader' looks the same weight as the surrounding words on the 350 px scan, so it is left plain (not marked bold) — low-res only, worth a check if a better scan turns up. Base scan only at 350 px; copyright 1998 (Jabba's Palace) not legible on it. Modern: Virtual Block 3 only (VB3 -pre, 350 px). Bold *leader* inferred from the Jabba's Palace printing pattern (Wooof, Jabba, Fozec show bold characteristics on 745 px scans); only 350 px scans of this card exist.",
+ "game_text_lines": "Deploys only on Tatooine. Your other Jawas are\npower and forfeit +1. Your vehicle forfeited at\nsame site satisfies all remaining battle damage\nagainst you. During your turn, may use 1 Force to\n▲ a card with “Jawa” in game text."
+}
