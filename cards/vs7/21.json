@@ -1,0 +1,28 @@
+{
+ "id": "vs7-21",
+ "number": "21",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Unexpected Interruption",
+ "caption": "•Unexpected Interruption (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If a battle was just initiated, target an opponent’s female non-droid character present with Xizor. Draw destiny. Target excluded from battle and adds her power to Xizor’s for remainder of turn if destiny +2 > target’s ability.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Sir! Sir! I’ve isolated the reverse power flux coupling!”",
+ "destiny": "2",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Unexpected Interruption",
+ "art": {
+  "src": "src/vs7/21-Dagobah-D-unexpectedinterruption.gif",
+  "modern": "src/vs7/modern/21-VB4-D-unexpectedinterruption-pre.gif"
+ },
+ "notes": "Unique. Printed base is a Lost Interrupt; slip banner reads USED INTERRUPT. Curly apostrophes in opponent’s, Xizor’s, target’s. No inline icons; slip text matches the stub. Lore corrected from scan: curly double quotes (wiki straight single quotes) and curly apostrophe in I’ve. Base scan 350 px only; copyright line legible: 1997 (Dagobah). Modern: Virtual Block 4 only (VB4 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "If a battle was just initiated, target an opponent’s\nfemale non-droid character present with Xizor. Draw\ndestiny. Target excluded from battle and adds her\npower to Xizor’s for remainder of turn if destiny +2 >\ntarget’s ability."
+}

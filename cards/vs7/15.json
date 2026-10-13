@@ -1,0 +1,28 @@
+{
+ "number": "15",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Frustration",
+ "caption": "•Frustration (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If you just peeked at cards in your Life Force, peek at and reorder the top 3 cards of that deck or pile (may take one into hand).\nLOST: If Xizor and Guri are in a battle together, your total battle destiny is +5 and may retrieve 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Rrraaaarrr!”",
+ "destiny": "3",
+ "base_page": "Frustration",
+ "art": {
+  "src": "src/vs7/15-Dagobah-D-frustration.gif",
+  "modern": "src/vs7/modern/15-VB4-D-frustration-pre.gif"
+ },
+ "id": "vs7-15",
+ "virtual_set": 7,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT (printed base is a Lost Interrupt). USED:/LOST: lines separated by \\n. No inline icons; slip text matches the stub. Base page 'Frustration' is the printed archive face (same as 'Frustration (Original)'; errata at 'Frustration (PC Errata)'). The 745 px Dagobah-D-frustration.gif is tagged D-E1 (PC errata face: bottom text is the errata wording) — its top half (title, destiny 3, lore, art, copyright) matches the printed card, so it is used as art src for art only; the 350 px square-on decipher-archive scan of the printed face is also downloaded (src/vs7/15-Dagobah-D-frustration-decipher-archive.gif). Lore corrected from scan: curly double quotes “Rrraaaarrr!” (wiki straight single). Copyright 1997 legible on the 745 px face. Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "game_text_lines": "USED: If you just peeked at cards in your Life Force,\npeek at and reorder the top 3 cards of that deck or pile\n(may take one into hand).\nLOST: If Xizor and Guri are in a battle together, your\ntotal battle destiny is +5 and may retrieve 1 Force."
+}

@@ -1,0 +1,43 @@
+{
+ "id": "vs7-06",
+ "number": "06",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•LE-BO2D9 (Leebo)",
+ "caption": "•LE-BO2D9 (Leebo) (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "MAINTENANCE DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "May be battled. If with Dash Rendar, adds one destiny to attrition only. Once per turn, if at a battleground, you may peek at the top card of opponent’s Reserve Deck; may place that card on top of opponent’s Used Pile.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "*Smuggler*. Heavily modified Cybot Galactica LE-series repair droid. *Information broker.* Provides information gained through underworld channels to the Alliance.",
+ "destiny": "3",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "LE-BO2D9 (Leebo)",
+ "art": {
+  "src": "src/vs7/06-Ref2-L-lebo2d9leebo.gif",
+  "modern": "src/vs7/modern/06-VB4-L-lebo2d9leebo-pre.gif"
+ },
+ "notes": "Unique. Droid: stats POWER 2 / ARMOR 4 / MAINTENANCE DROID (label-only third box, not a wide droid box on this slip — three separate boxes); deploy 2 / forfeit 4. Icon column: pilot only. Droid (Reflections II frame, gold droid disc). Slip text matches the stub. Lore corrected from scan: 'Smuggler' bold (period plain) and 'Information broker.' bold including its period; wiki plain. Base scan only 354×492. Copyright read off the scan: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'. Modern: no V<N> remake found; Virtual Block 4 only (VB4 -pre, 350×488).",
+ "game_text_lines": "May be battled. If with Dash Rendar, adds one\ndestiny to attrition only. Once per turn, if at\na battleground, you may peek at the top card of\nopponent’s Reserve Deck; may place that card\non top of opponent’s Used Pile."
+}

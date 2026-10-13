@@ -1,0 +1,29 @@
+{
+ "id": "vs7-17",
+ "number": "17",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Information Exchange",
+ "caption": "•Information Exchange (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Imperial City. While your {set:reflections2} objective on table, Scum And Villainy may deploy here and, if a Black Sun agent present, may not be canceled. During your deploy phase, may ▼ a non-weapon card with “Black Sun” or “Xizor” in lore.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Chisa nyooda ishaley. Kun Jabba neguda len malta.” “Ikkit ui! Yobbit, yobbit. Nelan tui ke bada.”",
+ "destiny": "5",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Information Exchange",
+ "art": {
+  "src": "src/vs7/17-JP-D-informationexchange.gif",
+  "modern": "src/vs7/modern/17-VB4-D-informationexchange-pre.gif"
+ },
+ "notes": "Unique. Banner EFFECT, no grabber box → grabber false. Inline icon in 'While your [icon] objective on table': a small purple disc with a toothed grey rim — matched by eye against the Feb 2024 Game Aid (Reflections II set icon = purple toothed disc; the Objective type icon is a black disc with a white star) and assets/icons/set-reflections2-grainy.png → {set:reflections2}. The wiki stub reads it as '[Objective]' — stub differs; please double-check this icon. The slip prints ▼ where the stub expands 'deploy on table from Reserve Deck; reshuffle'. Curly double quotes around “Black Sun” and “Xizor” (stub straight). Lore corrected from scan: opening curly quote added before 'Chisa' and the stray straight quotes replaced with curly “…” (wiki: 'Chisa … Malta.' 'Ikkit …'), 'malta' lower-case as printed (wiki 'Malta'), 'yobbit.' (wiki typo 'yobbiy.'). Base scan 350 px only; copyright line legible: 1998 Hoth-style line (Jabba's Palace). Modern: Virtual Block 4 only (VB4 -pre, 350 px; non-pre also exists, not downloaded).",
+ "grabber": false,
+ "game_text_lines": "Deploy on Imperial City. While your {set:reflections2} objective on\ntable, Scum And Villainy may deploy here and, if a\nBlack Sun agent present, may not be canceled. During\nyour deploy phase, may ▼ a non-weapon card with\n“Black Sun” or “Xizor” in lore."
+}

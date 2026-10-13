@@ -1,0 +1,28 @@
+{
+ "id": "vs7-04",
+ "number": "04",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Impressive, Most Impressive",
+ "caption": "•Impressive, Most Impressive (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Cancel All Too Easy, Stunning Leader (where your Jedi participating), Imperial Barrier (targeting your Jedi), or You Are Beaten (except when canceling Uncontrollable Fury). {sense} OR Once per game, if opponent just initiated a battle, you may take the first weapons segment action.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Obi-Wan has taught you well.”",
+ "destiny": "6",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Impressive, Most Impressive",
+ "art": {
+  "src": "src/vs7/04-CC-L-impressivemostimpressive.gif",
+  "modern": "src/vs7/modern/04-V0-L-impressivemostimpressive.gif"
+ },
+ "notes": "Unique. Banner LOST INTERRUPT. Red circle-slash S after 'Fury).' → {sense} (stub writes 'Immune to Sense.'). Lore corrected from scan: curly double quotes “Obi-Wan has taught you well.” (wiki straight single quotes). Base scan only at 350 px; copyright 1997 (Cloud City) assumed, not legible at 350. Modern: V0-L-impressivemostimpressive.gif (745 px PC remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Cancel All Too Easy, Stunning Leader (where your Jedi\nparticipating), Imperial Barrier (targeting your Jedi), or\nYou Are Beaten (except when canceling Uncontrollable\nFury). {sense} OR Once per game, if opponent just initiated\na battle, you may take the first weapons segment action."
+}

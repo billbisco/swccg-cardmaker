@@ -1,0 +1,28 @@
+{
+ "id": "vs7-03",
+ "number": "03",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Gambler’s Luck",
+ "caption": "•Gambler’s Luck (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During opponent’s control phase, if your gambler on table, use 1 Force. Both players draw three destiny. Winner (higher total destiny) may target one opponent’s character with a printed power matching one of the winner’s destiny draws. Target is lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Works every time.",
+ "destiny": "4",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Gambler's Luck",
+ "art": {
+  "src": "src/vs7/03-CloudCity-L-gamblersluck-decipher-archive.gif",
+  "modern": "src/vs7/modern/03-VB2-L-gamblersluck-pre.gif"
+ },
+ "notes": "Unique. Banner LOST INTERRUPT (printed base is a Lost Interrupt). Curly apostrophes in heading/caption (Gambler’s) and in opponent’s ×2, winner’s. No inline icons; slip text matches the stub. Base page 'Gambler's Luck' is the printed archive face (the '(Original)' page is the same face). The 745 px CC-L-gamblersluck.gif is tagged D-E1 (PC errata face: 'If your gambler is defending…') — downloaded to src/vs7/03-CC-L-gamblersluck.gif for art only; the 350×490 decipher-archive scan (square-on, black border, not a white-page photo) is the printed face used as src. Lore matches. Copyright 1997 legible on the 745 px face. Modern: no V<N> remake found; Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "During opponent’s control phase, if your gambler on\ntable, use 1 Force. Both players draw three destiny.\nWinner (higher total destiny) may target one opponent’s\ncharacter with a printed power matching one of the\nwinner’s destiny draws. Target is lost."
+}

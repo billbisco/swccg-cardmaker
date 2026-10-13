@@ -1,0 +1,44 @@
+{
+ "id": "vs7-16",
+ "number": "16",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Guri",
+ "caption": "•Guri (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "ASSASSIN DROID",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "{pilot:2}. At Coruscant sites where you have a Black Sun Agent, your Force drains are +1. While with Xizor in battle, she may be forfeited to satisfy all remaining battle damage against you. Immune to Restraining Bolt, purchase, and attrition < 5.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Human-replica droid. Programmed to function as Xizor’s personal bodyguard and assassin. Black Sun agent. Cost 9 million credits. Worth every decicred.",
+ "destiny": "2",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Guri",
+ "art": {
+  "src": "src/vs7/16-Ref2-D-guri.gif",
+  "modern": "src/vs7/modern/16-VB4-D-guri-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 6 / ARMOR 5 / ASSASSIN DROID (label only, as vs5/40 IG-88); deploy 4 / forfeit 6 (printed card 6 / 7). Yellow (DS) pilot-power icon followed by '2.' at the start → {pilot:2} (stub expands 'Adds 2 to power of anything she pilots'). 'Black Sun Agent' capital A as printed on the slip. Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster). Droid (gold grille Droid disc top-left on the base scan; printed icons Pilot, Warrior, Reflections II). Slip text otherwise matches the stub. Lore corrected from scan: curly apostrophe in Xizor’s (wiki straight). Base scan Ref2-D-guri.gif is 354×492 (no 745 px scan on the wiki); copyright line legible: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'. Modern: Virtual Block 4 only (VB4-D-guri-pre.gif, 354 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "{pilot:2}. At Coruscant sites where you have a Black\nSun Agent, your Force drains are +1. While with\nXizor in battle, she may be forfeited to satisfy all\nremaining battle damage against you. Immune to\nRestraining Bolt, purchase, and attrition < 5."
+}

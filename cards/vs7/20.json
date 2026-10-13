@@ -1,0 +1,28 @@
+{
+ "id": "vs7-20",
+ "number": "20",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Those Rebels Won’t Escape Us",
+ "caption": "Those Rebels Won’t Escape Us (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▲ _Stinger_ or _Virago_. OR Cancel Darklighter Spin. OR If opponent just initiated a battle at same system or sector as _Stinger_ or _Virago_, opponent may not target those starfighters with weapons for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I don’t know how we’re gonna get out of this one.”",
+ "destiny": "3",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Those Rebels Won't Escape Us",
+ "art": {
+  "src": "src/vs7/20-Dagobah-D-thoserebelswontescapeus.gif",
+  "modern": "src/vs7/modern/20-VB4-D-thoserebelswontescapeus-pre.gif"
+ },
+ "notes": "Not unique (no dot on slip or printed card; base 'Unrestricted'). Curly apostrophe in Won’t in the slip's heading and caption (wiki page title straight). Printed base is a Used or Lost Interrupt; slip banner reads USED INTERRUPT. The slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'; Stinger and Virago italic on the slip (both occurrences) → _…_ (stub plain). 'OR Cancel' / 'OR If' capitalised as printed. Lore corrected from scan: curly double quotes (wiki straight single quotes) and curly apostrophes in don’t / we’re. Base scan 350 px only; copyright line legible: 1997 (Dagobah). Modern: Virtual Block 4 only (VB4 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "Use 1 Force to ▲ _Stinger_ or _Virago_. OR Cancel\nDarklighter Spin. OR If opponent just initiated a battle\nat same system or sector as _Stinger_ or _Virago_,\nopponent may not target those starfighters with\nweapons for remainder of turn."
+}

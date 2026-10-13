@@ -1,0 +1,44 @@
+{
+ "id": "vs7-02",
+ "number": "02",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Dash Rendar",
+ "caption": "•Dash Rendar (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:3}. While piloting alone (or at same location as opponent’s AT-AT or Imperial), draws one battle destiny if unable to otherwise and opponent draws no more than one battle destiny here. Dash is a matching pilot for any unique (•) Rogue speeder.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Emperor banished Rendar family from Coruscant. Became *gambler* and *smuggler*. Brought down AT-AT at the Battle of Hoth. Works for Rebel Alliance from time to time.",
+ "destiny": "3",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Dash Rendar",
+ "art": {
+  "src": "src/vs7/02-Ref2-L-dashrendar.gif",
+  "modern": "src/vs7/modern/02-V10-L-dashrendar.gif"
+ },
+ "notes": "Unique. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 5. Yellow pilot-power icon followed by '3.' at the start → {pilot:3} (stub expands 'Adds 3 to power of anything he pilots'). Slip prints '(•)' where the stub has '(*)'. Icon column top to bottom: pilot, warrior. Alien (Reflections II frame, black alien disc). Lore corrected from scan: 'gambler' and 'smuggler' are bold; wiki plain. Base scan only 354×492. Copyright read off the scan: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'. Modern: V10-L-dashrendar.gif (745 px, the PC's Virtual Set 10 remake, same art — different game text); VB4 -pre (354 px) also downloaded to src/vs7/modern/02-VB4-L-dashrendar-pre.gif.",
+ "game_text_lines": "{pilot:3}. While piloting alone (or at same location as\nopponent’s AT-AT or Imperial), draws one battle\ndestiny if unable to otherwise and opponent draws\nno more than one battle destiny here. Dash is a\nmatching pilot for any unique (•) Rogue speeder."
+}

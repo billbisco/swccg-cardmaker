@@ -131,8 +131,6 @@ TEMPLATES = {
         "lore": (321, 378, 989, 190), "card_type": (262, 1506, 1110, 61), "game_text": (314, 1665, 997, 328),
         "banner_icon": (1292, 1492), "set_icon_abs": (1391, 1940), "set_icon_size": 64, "expansion_ring": (1374, 405), "copyright_x": 1404,
     },
-    # TEST (Bill 2026-10-13): shield frames with the slip's red→cyan fade (make_shield_fade.py); same boxes as the hybrids
-    "ds-shield-fade": None, "ls-shield-fade": None,
     "ls-character-rebel": {
         "frame": ("frames/ls-character-rebel.png", 135, 131),
         "art": (259, 656, 1130, 763), "title": (400, 200, 900, 90), "destiny": (1318, 196, 108, 108),
@@ -150,6 +148,7 @@ TEMPLATES = {
         "deploy": (201, 1832, 48, 80), "forfeit": (201, 1936, 48, 82),
         "icon_slots": [(1367, 1653), (1367, 1757)], "set_icon_abs": (1372, 1935),
         "expansion_ring": (1380, 397), "expansion_size": 70, "copyright_x": 1428, "dark_text": True, "stats_wide_fill": "#c9c9cb",
+        "stats_row3": ("frames/ls-stats-row3.png", 285, 1488), "stats_row3_boxes": [(300, 275), (605, 285), (930, 420)],
     },
     "ls-shield": {
         "frame": ("frames/ls-shield-hybrid.png", 146, 141),
@@ -290,6 +289,10 @@ TEMPLATES = {
     },
 }
 
+
+# Optional era templates (Bill 2026-10-13): the red→cyan fade the Original Virtual Remaster slips used for Defensive
+# Shields (make_shield_fade.py). The hybrid (hard cut) above stays the primary shield template; a card opts in with
+# "shield_style": "fade" (build_vs.py sets it for the Original Virtual sets).
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 
@@ -632,7 +635,13 @@ def build_html(card: dict) -> str:
     if "stats" in t and card.get("stats"):
         y = t["stats_y"]
         stats = list(card["stats"])
-        if len(stats) == 2 and stats[1][0] not in ("ABILITY", "ARMOR", "MANEUVER") and "stats_wide" in t:
+        if len(stats) == 3 and "stats_row3" in t:
+            # a droid printing three separate boxes (LE-BO2D9 (V): POWER / ARMOR / MAINTENANCE DROID): the droid frame
+            # has one wide box, so the Rebel frame's three-box stat row (same white silver) is laid over it
+            png, sx, sy = t["stats_row3"]
+            parts.append(f'<img src="{data_uri(ASSETS / png)}" style="position:absolute;left:{sx}px;top:{sy}px">')
+            boxes = t["stats_row3_boxes"]
+        elif len(stats) == 2 and stats[1][0] not in ("ABILITY", "ARMOR", "MANEUVER") and "stats_wide" in t:
             # droids: one wide box (e.g. ASTROMECH DROID) spans the ability + third slots
             wx, ww = t["stats_wide"]
             parts.append(f'<div style="position:absolute;left:{wx}px;top:{y}px;width:{ww}px;height:69px;background:{t.get("stats_wide_fill", "#000")};border-radius:6px"></div>')
@@ -640,8 +649,14 @@ def build_html(card: dict) -> str:
         else:
             boxes = t["stats"]
         for (x, w), (label, value) in zip(boxes, stats):
+            # a label-only box (FORCE-SENSITIVE, MAINTENANCE DROID) stays on one line: shrink it to the box as the
+            # slips do (LE-BO2D9 (V), 2026-10-13); AGBoldCnA caps ≈ 0.50 em + 1.8 px tracking per character
+            lab_style = ""
+            if not value:
+                fs = min(56, int((w - 40) / (0.50 * len(label) + 1.8 / 56 * len(label))))
+                lab_style = f' style="font-size:{fs}px;white-space:nowrap"'
             parts.append(f'<div class="stat" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
-                         f'<span class="lab">{esc(label)}</span>{"<span class=val>" + esc(value) + "</span>" if value else ""}</div>')
+                         f'<span class="lab"{lab_style}>{esc(label)}</span>{"<span class=val>" + esc(value) + "</span>" if value else ""}</div>')
     if "card_type" in t and card.get("card_type"):
         parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc_i(card["card_type"])}</div>')
     if card.get("banner_icon") and "banner_icon" in t:

@@ -1,0 +1,44 @@
+{
+ "id": "vs7-19",
+ "number": "19",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: FIRESPRAY-CLASS ATTACK SHIP",
+ "title": "•_Slave I_",
+ "caption": "•_Slave I_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "May add 1 alien pilot and 3 passengers. May deploy with non-{maintenance} Boba Fett as a react (for free). While Boba Fett piloting, maneuver +2, power may not be reduced, and immune to attrition < 5.",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Originally designed as a planetary defense craft. Uses restricted jamming technology, allowing it to appear out of nowhere. Contains many hidden armaments.",
+ "destiny": "1",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Slave I",
+ "art": {
+  "src": "src/vs7/19-CC-D-slavei.gif",
+  "modern": "src/vs7/modern/19-VB2-D-slavei-pre.gif"
+ },
+ "notes": "Unique. 'Slave I' italic in the slip's heading and caption ('(V)' upright), marked _…_ as vs5/46; 'Boba Fett' in the game text is not italic. Banner STARFIGHTER: FIRESPRAY-CLASS ATTACK SHIP. Stats POWER 4 / MANEUVER 4 / HYPERSPEED 4; deploy 3 / forfeit 5 (printed 5 / 4). Scomp-link ring → scomp true. Icon column top to bottom: independent (blue wheel), nav (red square, green dome). Inline icon in 'non-[gold spoked wheel] Boba Fett' → {maintenance} per this run's instructions (the stub reads it as '[permanent pilot]' — stub differs). Lore matches the scan. Base scan 350 px only; copyright line legible: 1997 (Cloud City). Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded). V1-D-slaveisymboloffear.gif is a different card (Slave I, Symbol Of Fear).",
+ "game_text_lines": "May add 1 alien pilot and 3 passengers. May deploy\nwith non-{maintenance} Boba Fett as a react (for free). While\nBoba Fett piloting, maneuver +2, power may not be\nreduced, and immune to attrition < 5."
+}

@@ -5,7 +5,7 @@ import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-VS = int(sys.argv[1]); YEAR = {1: 2002, 2: 2002, 3: 2002, 4: 2003, 5: 2003, 6: 2004, 7: 2004, 8: 2004}.get(VS, "2002–2008"); OUT = Path(sys.argv[2]); OUT.mkdir(parents=True, exist_ok=True); (OUT / "stubs").mkdir(exist_ok=True)
+VS = int(sys.argv[1]); YEAR = {1: 2002, 2: 2002, 3: 2002, 4: 2003, 5: 2003, 6: 2003, 7: 2004, 8: 2004}.get(VS, "2002–2008"); OUT = Path(sys.argv[2]); OUT.mkdir(parents=True, exist_ok=True); (OUT / "stubs").mkdir(exist_ok=True)
 SUBTITLES = {1: "Legacy", 2: "Our Most Desperate Hour", 3: "Revolution", 4: "Battle Of Hoth", 5: "A Dark Time", 6: "City In The Clouds",
              7: "Shadows Of The Empire", 8: "Jabba's Court", 9: "Sanctuary Moon", 10: "Fourth Anthology", 11: "Gathering Storm",
              12: "Martyrs & Magistrates", 13: "Remote Outpost", 14: "Armed & Operational", 15: "Galactic Frontier",
@@ -40,8 +40,13 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="fourth", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below", pack="VS4O-pack.png", symbol="VS4O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    7: dict(sheet=("https://web.archive.org/web/20071026143103/http://www.swccgpc.com/Resources/VirtualCards7.pdf", "VirtualCards7.pdf", "26 October 2007", "4 December 2006"),
+            legal="16 July 2004 (release)", legal_ref="[https://web.archive.org/web/20040922081946/http://swccgpc.com/interior.htm swccgpc.com news page] (Internet Archive, 22 September 2004) — 16 July 2004: \"Virtual Set 7 Has Arrived!\"; 2 July 2004: \"look for the complete set to be released on July 16th!\" The news post gives no separate tournament-legal date.",
+            ordinal="seventh", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below", pack="VS7O-pack.png", symbol="VS7O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     6: dict(sheet=("https://web.archive.org/web/20071024154341/http://www.swccgpc.com/Resources/VirtualCards6.pdf", "VirtualCards6.pdf", "24 October 2007", "4 December 2006 (errata to card #32 on 14 September 2007)"),
-            legal="early 2004", legal_ref="The 2004 launch sheet [https://res.starwarsccg.org/legacyblocks/VirtualCards6.pdf VirtualCards6.pdf] (starwarsccg.org CDN) carries no legal banner; its PDF creation date is 12 January 2004 and the set was in the PC's Card Vault by 27 March 2004 (earlier hub research). The exact tournament-legal date is still to be confirmed from the swccgpc.com news archive.",
+            legal="12 January 2004 (final revision; first released 21 November 2003)", legal_ref="[https://web.archive.org/web/20040415220046/http://swccgpc.com/interior.htm swccgpc.com news page] (Internet Archive, 15 April 2004) — 21 November 2003: \"Virtual Set 6!!!\" (release after the DPC Canada pre-release); 31 December 2003: revised texts; 12 January 2004: \"Final Revised Virtual Set 6 … These changes are officially tournament legal immediately, as the game texts were released earlier (31 Dec 03)\".",
             ordinal="sixth", remaster="the December 2006 Remaster sheet (re-edited 14 September 2007 with errata to #32): cover, set symbol and the slips shown below", pack="VS6O-pack.png", symbol="VS6O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),

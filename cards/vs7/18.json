@@ -1,0 +1,44 @@
+{
+ "id": "vs7-18",
+ "number": "18",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Prince Xizor",
+ "caption": "•Prince Xizor (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "{pilot:2}. Other Black Sun agents are forfeit +1. Your unique (•) gamblers, gangsters, smugglers, and thieves are Black Sun agents. Once per turn, may ▲ Unexpected Interruption. Immune to attrition < 4.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Falleen *gangster* and *leader*. Black Sun agent. Dark Prince of the Black Sun crime syndicate. Fortifies his personal defenses with information gathered by his agents.",
+ "destiny": "1",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Prince Xizor",
+ "art": {
+  "src": "src/vs7/18-Ref2-D-princexizor.gif",
+  "modern": "src/vs7/modern/18-VB4-D-princexizor-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 5 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 4 / forfeit 6. Yellow (DS) pilot-power icon followed by '2.' → {pilot:2}; the slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'; the slip prints '(•)' where the stub has '(*)'. Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster). Alien (black disc with orange eyes on the base scan; printed icons Pilot, Warrior, Reflections II). Lore corrected from scan: 'gangster' and 'leader' are printed in bold (wiki plain) → *gangster*, *leader*. Base scan Ref2-D-princexizor.gif is 354×492 (no 745 px scan); copyright line legible: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'. Modern: Virtual Block 4 only (VB4 -pre, 354 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "{pilot:2}. Other Black Sun agents are forfeit +1.\nYour unique (•) gamblers, gangsters, smugglers,\nand thieves are Black Sun agents. Once per turn,\nmay ▲ Unexpected Interruption. Immune to\nattrition < 4."
+}

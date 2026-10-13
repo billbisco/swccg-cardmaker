@@ -1,0 +1,44 @@
+{
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: CORELLIAN CORVETTE",
+ "title": "•_Tantive IV_",
+ "caption": "•_Tantive IV_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "May deploy without presence or Force icons. May add 3 pilots and 4 passengers. Permanent pilot provides ability of 2. Adds one {light-force} and one {dark-force} at same Dark Side system. [Ship-docking]",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Royal House of Alderaan consular ship. Used by Princess Leia for Imperial Senate business (and secret Rebel espionage). Captured by the _Devastator_ over Tatooine.",
+ "destiny": "1",
+ "base_page": "Tantive IV",
+ "art": {
+  "src": "src/vs7/09-ANH-L-tantiveiv.gif",
+  "modern": "src/vs7/modern/09-V1-L-tantiveiv.gif"
+ },
+ "id": "vs7-09",
+ "virtual_set": 7,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique. 'Tantive IV' italic in the slip's heading and caption and on the printed title (marked _…_). Banner CAPITAL: CORELLIAN CORVETTE. Stats POWER 5 / ARMOR 4 / HYPERSPEED 3; deploy 4 / forfeit 7 (printed card 5 / 8). Scomp-link ring at the top-left of the text box → scomp true. Icon column top to bottom: yellow Pilot helmet (permanent pilot, as vs6/05 Bright Hope) and red square with green dome → nav. Inline icons: blue/white streak square = {light-force}, black/pink streak square = {dark-force} (stub reads [Light Side] / [Dark Side]). '[Ship-docking]' is printed literally in square brackets on the slip. Lore corrected from scan: '_Devastator_' is italic (wiki plain). The only scan, ANH-L-tantiveiv.gif (745 px), is tagged D-E1 (PC rescan) but its top half and printed game text match the Decipher card; used as art src with that caveat. Copyright 1996 legible. Modern: V1-L-tantiveiv.gif (745 px, Virtual Set 1 remake); VB1 (350) also exists, not downloaded.",
+ "game_text_lines": "May deploy without presence or Force icons. May\nadd 3 pilots and 4 passengers. Permanent pilot\nprovides ability of 2. Adds one {light-force} and one {dark-force} at\nsame Dark Side system. [Ship-docking]"
+}

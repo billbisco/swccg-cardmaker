@@ -1,0 +1,44 @@
+{
+ "id": "vs7-22",
+ "number": "22",
+ "virtual_set": 7,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Zuckuss",
+ "caption": "•Zuckuss (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. _Mist Hunter_ is maneuver +1. Your Black Sun agents at same and related sites may not have their forfeit reduced. Once per game, may ▼ non-{lightsaber} 4-LOM here. Immune to attrition < 3.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Male Gand. Practitioner of ancient religious findsman vocation. Bounty hunter and scout. Gains surprisingly accurate information through mystical visions during meditation.",
+ "destiny": "1",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Zuckuss (Original)",
+ "art": {
+  "src": "src/vs7/22-Dagobah-D-zuckuss-decipher-archive.gif",
+  "modern": "src/vs7/modern/22-VB2-D-zuckuss-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 3 / forfeit 4 (printed 4 / 3). Yellow (DS) pilot-power icon followed by '2.' → {pilot:2}; 'Mist Hunter' italic on the slip → _Mist Hunter_ (stub plain); the slip prints ▼ where the stub expands 'deploy on table from Reserve Deck; reshuffle'. Inline icon in 'non-[black square, green blade] 4-LOM' → {lightsaber} per this run's instructions (STANDARD rev 8 calls this glyph the Permanent Weapon icon; the stub reads it as '[permanent pilot]' — stub differs). Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster). Alien (black disc with yellow eyes; printed icons Pilot, Warrior). The wiki's default 'Zuckuss' page carries Glossary 2.0 errata text; printed face = 'Zuckuss (Original)' (same lore/destiny/set). Dagobah-D-zuckuss.gif (349×489) is the errata face (E mark, 'anything he pilots' wording) — downloaded to src/vs7/22-Dagobah-D-zuckuss.gif for reference only; the 350×490 decipher-archive file is a square-on scan of the printed face (not a photo on a white page) and is used as art.src. Lore matches both scans. Copyright line legible: 1997 (Dagobah). Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded). V20-D-zuckuss.gif (745 px) is the later Virtual Set 20 Zuckuss, a different card — not used.",
+ "game_text_lines": "{pilot:2}. _Mist Hunter_ is maneuver +1. Your Black Sun\nagents at same and related sites may not have\ntheir forfeit reduced. Once per game, may ▼\nnon-{lightsaber} 4-LOM here. Immune to attrition < 3."
+}

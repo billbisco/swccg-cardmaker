@@ -1,0 +1,41 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Tawss Khaa",
+ "caption": "•Tawss Khaa (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "While at a battleground planet site, your Force drains and Force drain bonuses here and at same site as Sergeant Doallyn may not be canceled. Immune to attrition < 3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Female Nimbanel fortune teller. Roams the wastes of Tatooine. Trained in the ways of a Sakiyan hunter. Now tracks them for the Alliance. Risk-taker.",
+ "destiny": "2",
+ "base_page": "Tawss Khaa",
+ "art": {
+  "src": "src/vs7/10-SE-L-tawsskhaa.gif",
+  "modern": "src/vs7/modern/10-VB3-L-tawsskhaa-pre.gif"
+ },
+ "id": "vs7-10",
+ "virtual_set": 7,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 3 / forfeit 4. No icons in the column (printed card has none either). Alien (Special Edition grey alien frame, alien disc). Slip text matches the stub. Lore matches the wiki. Base scan only at 350 px; copyright line is the Special Edition form, '1998' legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "While at a battleground planet site, your Force\ndrains and Force drain bonuses here and at same\nsite as Sergeant Doallyn may not be canceled.\nImmune to attrition < 3."
+}

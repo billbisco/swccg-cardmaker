@@ -1,0 +1,28 @@
+{
+ "id": "vs7-07",
+ "number": "07",
+ "virtual_set": 7,
+ "side": "Light",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "••Mercenary Armor",
+ "caption": "••Mercenary Armor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your alien without armor or a Rebel. This character is a spy, has armor = 4, and its immunity to attrition is +2. While opponent has a Black Sun agent, gangster, smuggler, spy, or thief on table, your destiny draws are +1. Once per turn, may ▲ Undercover.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Worn by hired guns throughout the galaxy. Often used by Rebels when infiltrating underworld organizations. Leia wore Boushh’s armor when she infiltrated Black Sun.",
+ "destiny": "3",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Mercenary Armor",
+ "art": {
+  "src": "src/vs7/07-Ref2-L-mercenaryarmor.gif",
+  "modern": "src/vs7/modern/07-VB4-L-mercenaryarmor-pre.gif"
+ },
+ "notes": "Restricted (••, two dots on slip and printed card). Green Device frame; banner DEVICE (marks at the banner's right end are frame scratching, not a grabber box). The slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'. Lore corrected from scan: curly apostrophe in Boushh’s (wiki straight). Base scan only 354×492. Copyright read off the scan: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'. Modern: no V<N> remake found; Virtual Block 4 only (VB4 -pre, 354 px).",
+ "game_text_lines": "Deploy on your alien without armor or a Rebel. This\ncharacter is a spy, has armor = 4, and its immunity to\nattrition is +2. While opponent has a Black Sun agent,\ngangster, smuggler, spy, or thief on table, your destiny\ndraws are +1. Once per turn, may ▲ Undercover."
+}

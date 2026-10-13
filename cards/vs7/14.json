@@ -1,0 +1,29 @@
+{
+ "number": "14",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Flagship Operations",
+ "caption": "•Flagship Operations (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a system. Your TIEs may relocate (as a regular move) to a system from 0 to 3 parsecs away. For each battleground system you control with two TIEs piloted by Imperials, you may add 3 to your total power in battles. Opponent’s Force drain is +3 here. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“There’s too many of them!”",
+ "destiny": "5",
+ "base_page": "Flagship Operations",
+ "art": {
+  "src": "src/vs7/14-DS2-D-flagshipoperations.gif",
+  "modern": "src/vs7/modern/14-VB3-D-flagshipoperations-pre.gif"
+ },
+ "id": "vs7-14",
+ "virtual_set": 7,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Curly apostrophe in Opponent’s; red circle-slash A at the end → {alter}. Slip text matches the stub. Lore corrected from scan: curly double quotes and apostrophe, “There’s too many of them!” (wiki has straight single quotes). Base scan only at 350 px (350×489); copyright line read as the SE-style form '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (low-res, legible). Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on a system. Your TIEs may relocate (as a\nregular move) to a system from 0 to 3 parsecs away.\nFor each battleground system you control with two\nTIEs piloted by Imperials, you may add 3 to your total\npower in battles. Opponent’s Force drain is +3 here. {alter}"
+}
