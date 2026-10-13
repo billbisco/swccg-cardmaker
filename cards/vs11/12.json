@@ -1,0 +1,29 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Our Most Desperate Hour",
+ "caption": "•Our Most Desperate Hour (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Just after opponent draws a starting hand of 8 cards, unless Massassi Throne Room on table, you started an Objective, and/or you ▲ or ▼ any other Effects, opponent must place all but 5 cards from hand in their Used Pile; re-circulate. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Following her father Bail Organa’s instructions, Leia placed the Death Star plans into R2-D2, hoping that they could be delivered safely to Alderaan by Obi-Wan Kenobi.",
+ "destiny": "6",
+ "base_page": "Our Most Desperate Hour",
+ "art": {
+  "src": "src/vs11/12-Premiere-L-ourmostdesperatehour.gif",
+  "modern": "src/vs11/modern/12-VB1-L-ourmostdesperatehour-pre.gif"
+ },
+ "id": "vs11-12",
+ "virtual_set": 11,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "grabber": false,
+ "notes": "Unique. Printed base is a Premiere Utinni Effect; slip banner EFFECT, no grabber box. Slip prints '▲ or ▼' where the stub expands both; red circle-slash A at the end → {alter}. Lore corrected from scan: curly apostrophe in Organa’s (wiki straight). Base scan only at 350 px (black-border Limited); copyright 1995 legible. No V<N> remake; modern = Virtual Block 1 only (VB1 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Just after opponent draws a starting\nhand of 8 cards, unless Massassi Throne Room on\ntable, you started an Objective, and/or you ▲ or ▼\nany other Effects, opponent must place all but 5 cards\nfrom hand in their Used Pile; re-circulate. {alter}"
+}

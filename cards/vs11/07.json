@@ -1,0 +1,28 @@
+{
+ "id": "vs11-07",
+ "number": "07",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•I Don’t Need Their Scum, Either",
+ "caption": "•I Don’t Need Their Scum, Either (V)",
+ "game_text": "Take a ‘grabber’ into hand (or play a Defensive Shield) from under your Starting Effect. OR Cancel Counter Assault, Hidden Weapons, Hutt Smooch, I’d Just As Soon Kiss A Wookiee, Overload or one ‘react’ involving an {independent} starship.",
+ "lore": "Of all the scum and villainy Lando had dealt with (pirates, smugglers, con-artists, thieves, swindlers, politicians and Imperial lackeys), he hated bounty hunters the most.",
+ "destiny": "5",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "I Don't Need Their Scum, Either",
+ "art": {
+  "src": "src/vs11/07-CC-L-idontneedtheirscumeither.gif",
+  "modern": "src/vs11/modern/07-V25-L-idontneedtheirscumeither.gif"
+ },
+ "notes": "Unique. Banner USED INTERRUPT (printed base is a Used Or Lost Interrupt). Curly single quotes around ‘grabber’ and ‘react’, curly apostrophe in I’d. CHECK: the inline icon in 'an [icon] starship' is a small blue square with a lighter round wheel pattern — matches the Independent icon (assets/icons/inline-independent.png) → {independent}; the wiki stub reads 'an Imperial starship'. At the sheet's native ~14 px (rendered at 2400 DPI) the spokes cannot be resolved; blue square + round wheel = Independent per the run's icon convention, and 'an' fits both readings. Lore matches the scans (350 px printed face and the PC's 745 px V25 remake). Base scan only at 350 px; copyright 1997 (Cloud City). Modern: V25-L-idontneedtheirscumeither.gif (745 px, Virtual Set 25 remake, different game text — art only).",
+ "game_text_lines": "Take a ‘grabber’ into hand (or play a Defensive Shield)\nfrom under your Starting Effect. OR Cancel Counter\nAssault, Hidden Weapons, Hutt Smooch, I’d Just As\nSoon Kiss A Wookiee, Overload or one ‘react’ involving\nan {independent} starship."
+}

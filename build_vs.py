@@ -44,6 +44,8 @@ def template_for(c: dict) -> str:
         return "creature"
     if st == "site":
         return "loc-site"
+    if st == "epic event":
+        return "epic-event"
     if "admiral" in st:
         return f"{side}-admirals-order"
     if st == "character" or c.get("stats") and not c.get("card_type"):
@@ -105,13 +107,15 @@ def convert(c: dict, vs: int) -> dict:
         card["art"] = {"src": src}
     if art.get("bbox"):   # a hand-measured scan mapping belongs to the base scan (full-art Admiral's Orders)
         card["art"] = {"src": art["src"], "bbox": art["bbox"]}
-    if (c.get("expansion") or "") in ("Coruscant", "Theed Palace", "Tatooine"):
+    if (c.get("expansion") or "") in ("Coruscant", "Theed Palace", "Tatooine", "Reflections III"):
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
     if "dark jedi" in (c.get("affiliation") or "").lower() and "imperial" in (c.get("affiliation") or "").lower():
         card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
+    if "republic" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
+        card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("stat_icon", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
     if t == "loc-site":

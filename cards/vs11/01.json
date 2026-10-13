@@ -1,0 +1,28 @@
+{
+ "id": "vs11-01",
+ "number": "01",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Advantage",
+ "caption": "•Advantage (V)",
+ "game_text": "Deploy on your battleground. During battle, whenever opponent’s card is hit by a non-{lightsaber} (once per card targeted), opponent’s total power is cumulatively -4 (-2 if hit by a lightsaber).",
+ "lore": "With only a few Jedi remaining in the galaxy, each confrontation between them has far reaching consequences.",
+ "destiny": "4",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Advantage",
+ "art": {
+  "src": "src/vs11/01-CC-L-advantage-decipher-archive.gif",
+  "modern": "src/vs11/modern/01-VB2-L-advantage-pre.gif"
+ },
+ "notes": "Unique. Banner EFFECT (printed base is a Cloud City Immediate Effect; the slip makes it a plain Effect, no grabber box). Inline black square with a green diagonal blade after 'non-' → {lightsaber} (stub reads 'non-lightsaber'). Curly apostrophes in opponent’s (twice). Base page 'Advantage' = printed archive face (stub's Decipher base; 'Advantage (Original)' is the same face). The 745 px CC-L-advantage.gif is tagged D-E1 (PC errata face, reworded game text) — downloaded to src/vs11/01-CC-L-advantage.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore matches both scans. Copyright 1997 legible on the 745 face. Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "Deploy on your battleground. During battle, whenever\nopponent’s card is hit by a non-{lightsaber} (once per card\ntargeted), opponent’s total power is cumulatively -4\n(-2 if hit by a lightsaber)."
+}

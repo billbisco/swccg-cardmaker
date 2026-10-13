@@ -1,0 +1,29 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Utinni Effect",
+ "card_type": "UTINNI EFFECT",
+ "title": "•Luke? Luuuuke!",
+ "caption": "•Luke? Luuuuke! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your non-droid character present at a battleground site; character may not leave here or move. Target a Jedi at a site. You lose no more than 1 Force to Force drains at target’s location. This Utinni Effect canceled when reached by target.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“All right, I’ll be right there, Aunt Beru.”",
+ "destiny": "4",
+ "base_page": "Luke? Luuuuke!",
+ "art": {
+  "src": "src/vs11/27-Premiere-D-lukeluuuuke.gif",
+  "modern": "src/vs11/modern/27-VB1-D-lukeluuuuke-pre.gif"
+ },
+ "id": "vs11-27",
+ "virtual_set": 11,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique. Banner UTINNI EFFECT (printed base is also a Utinni Effect). Curly apostrophe in target’s; no inline icons; slip text matches the stub. The sheet cover notes 'Errata to card #8 and #27 on June 25, 2007': this crop is the post-errata text (taken as final). The slip's bottom strip prints an extra small bronze sphere in a silver ring between the caption and the number '27' — the same mark sits on #08, the other erratum card, so it is the sheet's errata marker; recorded as 'errata_mark': true, not part of caption/number. (GEMP's later VB text reads 'may not be carried from here' — a later revision, not this slip.) Lore corrected from the scan: 'All right, I’ll' with a comma (wiki has a period), curly double quotes (wiki straight single), confirmed on the VB1 scan. Only a 350 px scan; copyright 1995 (Premiere) by set. Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "errata_mark": true,
+ "game_text_lines": "Deploy on your non-droid character present at a\nbattleground site; character may not leave here or\nmove. Target a Jedi at a site. You lose no more than\n1 Force to Force drains at target’s location. This Utinni\nEffect canceled when reached by target."
+}

@@ -258,6 +258,14 @@ TEMPLATES = {
         "set_icon_abs": (1430, 1972), "set_icon_size": 60, "expansion_ring": (1379, 400), "expansion_size": 70,
         "dark_text": True, "no_type": True, "no_copyright": True,
     },
+    "epic-event": {   # Bardez "DS - Epic Event.xcf" (Epic Event icon + Epic Objective frame + text box), recoloured to the
+        # Reflections III purple the slips print (hue .773 / sat .66 / val .45; make via make_objective_frames.recolour)
+        "frame": ("frames/epic-event.png", 0, 0),
+        "art": (238, 372, 1146, 866), "title": (396, 206, 880, 100), "destiny": (1310, 203, 108, 108),
+        "game_text": (290, 1340, 1060, 650), "gt_ink": "#fff", "gt_grow": True,
+        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
+        "copyright_x": 1404, "dark_text": False, "no_type": True, "credit_mx": (180, 1411), "credit_ink": "#000",
+    },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
     # The frame is assembled per card (force icons, packed icon boxes, scomp rings) by loc_frame().
@@ -417,6 +425,15 @@ def game_text_html(text: str) -> str:
 
 def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def title_html(s: str) -> str:
+    """esc_i() for card titles: Fiorello has no accented letters, so é/è/á are an e/a with the accent drawn above it
+    (Padmé Naberrie (V))."""
+    out = esc_i(s)
+    for ch, base, acc in (("é", "e", "´"), ("è", "e", "`"), ("á", "a", "´")):
+        out = out.replace(ch, f'<span style="position:relative;display:inline-block">{base}<span style="position:absolute;left:0.02em;top:-0.22em;font-family:AGBoldCnA;font-size:0.85em">{acc}</span></span>')
+    return out
 
 
 def esc_i(s: str) -> str:
@@ -672,7 +689,7 @@ def build_html(card: dict) -> str:
             x, y, w, h = t["ds_parsec"]
             parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
     else:
-        parts.append(f'<div class="title" style="position:absolute;{box("title")}">{esc_i(card["title"])}</div>')
+        parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
     if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
         if " or " in dv:   # multi-value destiny (R2-D2 "2 or 5"): the printed pill is widened to the left
@@ -807,13 +824,13 @@ def build_html(card: dict) -> str:
     # italic, reading bottom-to-top, spanning the banner + text box
     # centred in the coloured margin between frame edge and text box, as the slips print them (Bill 2026-10-13);
     # margins measured on the frames: Light ≈169–246 / 1389–1433, Dark ≈145–264 / 1361–1483 (div is 40 px wide)
-    mx = (187, 1391) if t.get("dark_text") else (185, 1402)
+    mx = t.get("credit_mx") or ((187, 1391) if t.get("dark_text") else (185, 1402))
     for key, x in (("margin_left", mx[0]), ("margin_right", mx[1])):
         if card.get(key):
             gx, gy, gw, gh = t["game_text"]
             cx_, cy_, cw_, ch_ = t.get("card_type", (gx, gy - 160, gw, 61))
             top, bot = cy_, gy + gh
-            ink = "#000" if t.get("dark_text") else "#fff"
+            ink = t.get("credit_ink") or ("#000" if t.get("dark_text") else "#fff")
             if key == "margin_right" and card.get("icons") and t.get("icon_slots"):
                 # the column icons sit in the right margin: the credit runs below them (Mace Windu (V))
                 top = max(top, t["icon_slots"][min(len(card["icons"]), len(t["icon_slots"])) - 1][1] + 100)
@@ -827,6 +844,11 @@ def build_html(card: dict) -> str:
             # the slips run the credit nearly the whole span at ~46 px; the fitcredit JS shrinks it only if it would overflow
             parts.append(f'<div class="copy" style="position:absolute;left:{x}px;top:{top}px;width:40px;height:{bot - top}px">'
                          f'<div class="credit fitcredit" data-avail="{bot - top - 10}"{' data-lines="2"' if chr(10) in card[key] else ''} style="color:{ink};font-size:46px">{esc(card[key]).replace(chr(10), "<br>")}</div></div>')
+    if card.get("credit_bottom") and "game_text" in t:   # a credit set under the text box (Lord Vader (V))
+        gx, gy, gw, gh = t["game_text"]
+        cink = "#000" if t.get("dark_text") else "#ddd"
+        parts.append(f'<div style="position:absolute;left:{gx - 60}px;top:{t.get("credit_bottom_y", 2024)}px;width:{gw + 120}px;height:44px;text-align:center;'
+                     f'font-family:AGCn;font-style:italic;font-size:36px;line-height:44px;color:{cink};white-space:nowrap">{esc(card["credit_bottom"])}</div>')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card.get("caption") or card["title"]
     cy = t.get("caption_y", 2082)

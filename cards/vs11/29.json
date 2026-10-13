@@ -1,0 +1,41 @@
+{
+ "number": "29",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Sim Aloo",
+ "caption": "•Sim Aloo (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "INFLUENCE",
+   "3"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "*Agendas*: law, rule. While at Conference Room, adds one {dark-force}. While with another Imperial Council Member, adds one battle destiny. Immune to attrition < 4.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Imperial council member. Senior political advisor to Emperor Palpatine. Never speaks. Like his master, shows remarkable patience and wisdom.",
+ "destiny": "1",
+ "base_page": "Sim Aloo",
+ "art": {
+  "src": "src/vs11/29-DS2-D-simaloo.gif",
+  "modern": "src/vs11/modern/29-V5-D-simaloo.gif"
+ },
+ "id": "vs11-29",
+ "virtual_set": 11,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / INFLUENCE 3 (third box is a value box, INFLUENCE 3 — new stat label); deploy 4 (printed card: 5) / forfeit 6. 'Agendas' is bold on the slip (colon not bold). Inline icon after 'adds one' = black square with a red-white diagonal streak = Dark Side Force icon → {dark-force} (GEMP: 'adds one [Dark Side Force]'); the wiki stub reads 'adds one destiny' (differs). No icon column (only the set sphere). Imperial (Imperial disc on the DS2 scan). Lore matches the scan and the V5 remake (no bold). Only a 350 px Decipher scan; copyright DS2 (2000) by set. Modern: V5-D-simaloo.gif (745 px, Virtual Set 5 remake; FORCE-ATTUNED, different text); VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "*Agendas*: law, rule. While at Conference Room,\nadds one {dark-force}. While with another Imperial Council\nMember, adds one battle destiny. Immune to\nattrition < 4."
+}

@@ -1,0 +1,28 @@
+{
+ "id": "vs11-06",
+ "number": "06",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "•Han’s Toolkit",
+ "caption": "•Han’s Toolkit (V)",
+ "game_text": "Deploy on _Falcon_ or Han. While Han piloting _Falcon_ at a battleground, non-{alter} Effects (except Emperor’s Power, Presence Of The Force, and Search And Destroy) are suspended.",
+ "lore": "Experienced pilots keep a well equipped toolkit. Horizontal boosters, alluvial dampers and hydrospanners aid in performing high-tech repairs aboard starships.",
+ "destiny": "4",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Han's Toolkit (Original)",
+ "art": {
+  "src": "src/vs11/06-Dagobah-L-hanstoolkit-decipher-archive.gif",
+  "modern": "src/vs11/modern/06-VB2-L-hanstoolkit-pre.gif"
+ },
+ "notes": "Unique. Green Device frame, banner DEVICE. 'Falcon' italic twice; inline red circle-slash A after 'non-' → non-{alter} (stub 'non-(Immune to Alter)'); curly apostrophes in Han’s / Emperor’s. The wiki's default 'Han's Toolkit' page carries Glossary Supplement errata text; printed face = 'Han's Toolkit (Original)' (same lore/destiny/set). The 745 px Dagobah-L-hanstoolkit.gif is tagged D-E1 (errata face) — downloaded to src/vs11/06-Dagobah-L-hanstoolkit.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore matches both scans. Copyright 1997 legible on the 745 face. Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "Deploy on _Falcon_ or Han. While Han piloting _Falcon_ at\na battleground, non-{alter} Effects (except Emperor’s\nPower, Presence Of The Force, and Search And\nDestroy) are suspended."
+}

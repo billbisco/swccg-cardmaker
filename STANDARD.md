@@ -252,3 +252,8 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   inset + 26 px (the slips' gap), not tight against the bevel. VS10 Fourth Anthology: slips found with a grey-outline
   threshold (`sheet.DARK_THR`), two-digit set numbers parsed by regex in crop_slips / make_upload / wiki_vs, "Out Of
   Play Interrupt" links to [[Interrupt]], "just ▲ or ▼" written out; release dates of VS9/VS10 not found.
+- Rev 18 (VS11 run 2026-10-13): Epic Event template (`epic-event`, Bardez "DS - Epic Event.xcf" Epic Event icon +
+  Epic Objective frame + text box, recoloured to the slips' Reflections III purple; white text on the black box, black
+  margin credits); Republic affiliation disc (Bardez "LS - Character - Rebel.xcf" Republic layer, `disc-republic.png`);
+  Reflections III art trimmed like the Episode I sets; `credit_bottom` (a credit under the text box, Lord Vader (V));
+  accented letters in titles drawn over Fiorello (Padmé); wiki text "▲ or ▼" written out, "she pilots" for women.

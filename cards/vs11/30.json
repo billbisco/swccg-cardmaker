@@ -1,0 +1,29 @@
+{
+ "number": "30",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Something Special Planned For Them",
+ "caption": "•Something Special Planned For Them (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per game, if opponent just played an Interrupt, may stack it here. To play any new Interrupt of same name, players must first stack it here. May place this Effect in Lost Pile (place cards here in owners’ Used Pile) to retrieve a starship. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The high command of the Emperor’s fleet is selected as much for loyalty and obedience as for martial skills. A wise admiral knows better than to question Palpatine.",
+ "destiny": "5",
+ "base_page": "Something Special Planned For Them",
+ "art": {
+  "src": "src/vs11/30-DS2-D-somethingspecialplannedforthem.gif",
+  "modern": "src/vs11/modern/30-V0-D-somethingspecialplannedforthem.gif"
+ },
+ "id": "vs11-30",
+ "virtual_set": 11,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT with a GRABBER icon box at its right end (lavender box, black hand — the cover key's grabber icon) → grabber true. Curly apostrophe in owners’ (plural possessive as printed); red circle-slash A at the end → {alter}; slip text matches the stub. Lore matches the wiki wording; curly apostrophe in Emperor’s (wiki straight), confirmed on the 745 px V0 remake. Only a 350 px Decipher scan; copyright DS2 (2000) by set. Modern: V0-D-somethingspecialplannedforthem.gif (745 px, PC V0 remake — its text says 'of the same name' / 'owner’s', a later wording); VB3 -pre (350) also exists, not downloaded.",
+ "grabber": true,
+ "game_text_lines": "Deploy on table. Once per game, if opponent just played\nan Interrupt, may stack it here. To play any new\nInterrupt of same name, players must first stack it here.\nMay place this Effect in Lost Pile (place cards here in\nowners’ Used Pile) to retrieve a starship. {alter}"
+}

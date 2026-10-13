@@ -1,0 +1,29 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Plastoid Armor",
+ "caption": "•Plastoid Armor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your non-droid character. Your Interrupts with “back” in title are destiny = 5 and are Used Interrupts. Your characters are immune to Bad Feeling Have I. During opponent’s move phase, may ▲ an Interrupt with “back” in title.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Luke and Han took the armor suits from fallen stormtroopers and used them as both protection and disguise to penetrate the detention cell block aboard the Death Star.",
+ "destiny": "5",
+ "base_page": "Plastoid Armor",
+ "art": {
+  "src": "src/vs11/14-Premiere-L-plastoidarmor-decipher-archive.gif",
+  "modern": "src/vs11/modern/14-VB1-L-plastoidarmor-pre.gif"
+ },
+ "id": "vs11-14",
+ "virtual_set": 11,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "grabber": false,
+ "notes": "Unique. Printed base is a Premiere Utinni Effect; slip banner EFFECT, no grabber box. Curly double quotes around “back” (twice), curly apostrophe in opponent’s; slip prints ▲ where the stub expands it. No immunity icon. The wiki base page 'Plastoid Armor' is the printed archive face (PC errata is a separate page). The 745 px Premiere-L-plastoidarmor.gif is tagged D-E1 (PC errata face, different game text) — downloaded to src/vs11/14-Premiere-L-plastoidarmor.gif for art only; the 350 px decipher-archive scan (square-on, 350×490) is the printed face used as src. Lore matches both scans. Copyright 1995 legible. No V<N> remake; modern = Virtual Block 1 only (VB1 -pre, 350 px).",
+ "game_text_lines": "Deploy on your non-droid character. Your Interrupts\nwith “back” in title are destiny = 5 and are Used\nInterrupts. Your characters are immune to Bad Feeling\nHave I. During opponent’s move phase, may ▲ an\nInterrupt with “back” in title."
+}

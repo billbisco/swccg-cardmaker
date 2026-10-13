@@ -1,0 +1,31 @@
+{
+ "number": "19",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Endor Shield",
+ "caption": "•Endor Shield (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Unless Rebel Strike Team on table, opponent generates no Force at Endor system. Twice per game, may ▲ an admiral, commander, general, or moff. Whenever opponent’s Endor on table, raise your converted Endor system to the top (if possible). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Planetary scale shield projected from surface of Endor moon. Protected second Death Star during construction. Only another superlaser could penetrate it while operational.",
+ "destiny": "5",
+ "base_page": "Endor Shield",
+ "art": {
+  "src": "src/vs11/19-DS2-D-endorshield.gif",
+  "modern": "src/vs11/modern/19-V1-D-endorshield.gif"
+ },
+ "id": "vs11-19",
+ "virtual_set": 11,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "grabber": false,
+ "margin_left": "Original concept by David Lankton",
+ "margin_right": "Wisconsin States 2004",
+ "notes": "Unique. Banner EFFECT, no grabber box. Slip prints ▲ where the stub expands it; red circle-slash A at the end → {alter}. Curly apostrophe in opponent’s. Margin credits printed vertically: left 'Original concept by David Lankton', right 'Wisconsin States 2004'. Lore matches the scan. Base scan only at 350 px; copyright SE-style line with 2000 legible. Modern: V1-D-endorshield.gif (745 px) is the PC's Virtual Set 1 Endor Shield (V) — later reworked text, same art/lore; used for art only. VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on table. Unless Rebel Strike Team on table,\nopponent generates no Force at Endor system. Twice\nper game, may ▲ an admiral, commander, general, or\nmoff. Whenever opponent’s Endor on table, raise your\nconverted Endor system to the top (if possible). {alter}"
+}

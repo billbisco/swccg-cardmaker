@@ -1,0 +1,28 @@
+{
+ "number": "21",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Forced Landing",
+ "caption": "•Forced Landing (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. After starting hands are drawn, players may only ▲ or ▼ (except as a ‘react’ or response) during their deploy phase (if another phase specified, it becomes “during your deploy phase”). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“You will not deviate from your present course. . . Permission granted to land on platform three-two seven.”",
+ "destiny": "5",
+ "base_page": "Forced Landing",
+ "art": {
+  "src": "src/vs11/21-CC-D-forcedlanding.gif",
+  "modern": "src/vs11/modern/21-VB2-D-forcedlanding-pre.gif"
+ },
+ "id": "vs11-21",
+ "virtual_set": 11,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT (the wiki base page gives subtype Utinni Effect; the printed face shows the plain green Effect type icon — not relevant to the slip). Curly single quotes ‘react’, curly double quotes around “during your deploy phase”; ▲ / ▼ where the stub expands the Reserve Deck phrases; red circle-slash A at the end → {alter}. Slip text matches the stub otherwise. Lore corrected from the scan: curly double quotes (wiki straight single quotes) and 'three-two seven' — no hyphen between 'two' and 'seven' on the printed card (wiki 'three-two-seven'); confirmed on the VB2 scan. Only a 350 px scan exists (CC-D-forcedlanding.gif); copyright 1997 (Cloud City) by set, not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "Deploy on table. After starting hands are drawn, players\nmay only ▲ or ▼ (except as a ‘react’ or response)\nduring their deploy phase (if another phase specified,\nit becomes “during your deploy phase”). {alter}"
+}

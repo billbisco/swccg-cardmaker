@@ -1,0 +1,30 @@
+{
+ "number": "17",
+ "side": "Dark",
+ "slip_type": "Epic Event",
+ "card_type": "",
+ "title": "•Deep Hatred",
+ "caption": "•Deep Hatred (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Unless your {set:reflections3} Objective on table, deploy on table. Vader’s Obsession may be played to initiate an epic duel as follows: If Mara is present with Luke, each player draws two destiny (if armed with a lightsaber, each destiny is +1). Add character’s ability. If Karrde on table, your total is -1. Higher total wins. If Luke loses, place him out of play and you may retrieve 5 Force. If Mara loses, cross her to the Light Side (she is now Mara Skywalker). Unless duel canceled or tied, for remainder of game any Mara is ability = 6, adds one battle destiny, and once per battle involving her, may cancel one just drawn destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Deep Hatred",
+ "art": {
+  "src": "src/vs11/17-Ref3-D-deephatred.gif",
+  "modern": "src/vs11/modern/17-VB4-D-deephatred-pre.gif"
+ },
+ "id": "vs11-17",
+ "virtual_set": 11,
+ "expansion": "Reflections III",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "margin_left": "Original concept by Logan Suriano",
+ "margin_right": "2004 New Year’s Resolution Contest",
+ "notes": "Unique. NEW FRAME TYPE: printed base is a Reflections III Epic Event (purple frame, no lore box, destiny 0) and the slip is the purple Epic Event bottom with NO type banner — the text box starts right under the art; slip_type 'Epic Event', card_type ''. No Epic Event template exists yet (VS4 #40's 'Epic Event' is an objective's text, not a frame). The wiki stub calls it type 'Effect' — the printed card and the slip frame are Epic Event. Inline icon after 'Unless your': a purple-grey sphere with a dark figure and red blade = the Reflections III set icon (matches assets/icons/set-reflections3-grainy.png) → {set:reflections3}; the stub reads it as 'Dark Objective'. Curly apostrophes in Vader’s, character’s. Margin credits printed vertically: left 'Original concept by Logan Suriano', right '2004 New Year’s Resolution Contest'. Long text (11 slip lines). No lore on the printed card (lore ''). Base scan only at 350 px; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 …' partly legible (end cut). No V<N> remake; modern = Virtual Block 4 only (VB4 -pre, 350 px).",
+ "game_text_lines": "Unless your {set:reflections3} Objective on table, deploy on table.\nVader’s Obsession may be played to initiate an epic duel\nas follows: If Mara is present with Luke, each player\ndraws two destiny (if armed with a lightsaber, each\ndestiny is +1). Add character’s ability. If Karrde on table,\nyour total is -1. Higher total wins. If Luke loses, place him\nout of play and you may retrieve 5 Force. If Mara loses,\ncross her to the Light Side (she is now Mara Skywalker).\nUnless duel canceled or tied, for remainder of game any\nMara is ability = 6, adds one battle destiny, and once per\nbattle involving her, may cancel one just drawn destiny."
+}

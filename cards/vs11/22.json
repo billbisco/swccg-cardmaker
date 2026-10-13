@@ -1,0 +1,29 @@
+{
+ "number": "22",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "Frozen Dinner",
+ "caption": "Frozen Dinner (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Colo Claw Fish is canceled. Tawss Khaa affects Force drains only at her site. Once per game, may ▲ Pinned Down. While {ovs:8} Ellorrs Madak on table: limit one copy on table, each “2” in its game text is treated as “1”, and opponent may retrieve Force only once per turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Freeze dried and ready to serve, a tasty, wholesome Rebel makes a nutritious meal for the whole wampa clan. They’re Gr-r-reat!",
+ "destiny": "6",
+ "base_page": "Frozen Dinner (Original)",
+ "art": {
+  "src": "src/vs11/22-Hoth-D-frozendinner-decipher-archive.gif",
+  "modern": "src/vs11/modern/22-VB4-D-frozendinner-pre.gif"
+ },
+ "id": "vs11-22",
+ "virtual_set": 11,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip heading/caption; printed card is Unrestricted). Banner DEFENSIVE SHIELD (teal shield frame with the red Effect top edge blended in); printed base is a Hoth Immediate Effect. Inline icon before 'Ellorrs Madak' is an orange sphere in a silver ring = the Virtual Set 8 set symbol (Ellorrs Madak (V) is a VS8 card; matches assets/icons/ovs-set-8.png) → {ovs:8}, the same token vs9/45 uses; the wiki stub reads it as 'Light Ellorrs Madak' (differs). ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly double quotes around “2” and “1”. The wiki's default 'Frozen Dinner' page carries Glossary 2.0 errata text; printed face = 'Frozen Dinner (Original)' (same lore/destiny/set). The 745 px Hoth-D-frozendinner.gif is tagged D-E1 (errata face, 'cumulatively' bold in its text) — downloaded to src/vs11/22-Hoth-D-frozendinner.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected: curly apostrophe in They’re (wiki straight); wording matches. Copyright 1996 (Hoth) by set. Modern: Virtual Block 4 only (VB4 -pre, 348 px).",
+ "grabber": false,
+ "game_text_lines": "Plays on table. Colo Claw Fish is canceled. Tawss Khaa\naffects Force drains only at her site. Once per game, may\n▲ Pinned Down. While {ovs:8} Ellorrs Madak on table: limit\none copy on table, each “2” in its game text is treated as\n“1”, and opponent may retrieve Force only once per turn."
+}

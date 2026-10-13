@@ -1,0 +1,28 @@
+{
+ "number": "23",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•He Is Not Ready",
+ "caption": "He Is Not Ready (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Just after opponent draws a starting hand of 8 cards, unless you started an Objective and/or you ▲ or ▼ any other Effects, opponent must place all but 5 cards from hand in their Used Pile; re-circulate. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“All his life has he looked away. To the future; to the horizon. Never his mind on where he was! Hmm? What he was doing! Hm.”",
+ "destiny": "4",
+ "base_page": "He Is Not Ready",
+ "art": {
+  "src": "src/vs11/23-Dagobah-D-heisnotready.gif",
+  "modern": "src/vs11/modern/23-VB4-D-heisnotready-pre.gif"
+ },
+ "id": "vs11-23",
+ "virtual_set": 11,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Printed card is unique (•He Is Not Ready) but the slip heading and caption print NO dot ('He Is Not Ready (V)'); the wiki stub's uniqueness is blank too — title keeps the printed dot, caption as the slip prints it. Banner EFFECT. ▲ / ▼ where the stub expands the Reserve Deck phrases; red circle-slash A alone on the last line → {alter}. Lore corrected from the scan: 'All his life' (wiki 'live'), 'To the future; to the horizon' (semicolon; wiki has a comma), curly double quotes (wiki straight single). The only Decipher scan is Dagobah-D-heisnotready.gif (745 px), tagged D-E1 (PC errata face; its game text is the printed text, lore box as printed) — used as src. Copyright 1997 (Dagobah) by set. Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Just after opponent draws a starting\nhand of 8 cards, unless you started an Objective and/or\nyou ▲ or ▼ any other Effects, opponent must place all\nbut 5 cards from hand in their Used Pile; re-circulate. {alter}"
+}

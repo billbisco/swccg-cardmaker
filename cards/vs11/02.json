@@ -1,0 +1,40 @@
+{
+ "id": "vs11-02",
+ "number": "02",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Captain Verrack",
+ "caption": "•Captain Verrack (V)",
+ "game_text": "{pilot:1}, 2: any Star Cruiser. While aboard a Star Cruiser or with Admiral Ackbar, opponent’s weapon and battle destiny draws at same system are -2. Other Mon Calamari at same system are forfeit +2.",
+ "lore": "Mon Calamari computer technician. Expert in power systems. His skills are desperately needed by Rebel fleet. Gunner.",
+ "destiny": "3",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Captain Verrack",
+ "art": {
+  "src": "src/vs11/02-DS2-L-captainverrack.gif",
+  "modern": null
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 2 / forfeit 4. Text opens with the yellow (LS) pilot-power icon followed by '1, 2: any Star Cruiser.' → {pilot:1}, 2: any Star Cruiser (stub expands 'Adds 1 to power of anything he pilots, 2: any Star Cruiser'). Curly apostrophe in opponent’s. Icon column top to bottom: pilot (yellow helmet), warrior (blue, blaster). Rebel (printed Death Star II Rebel character). Lore matches the scan ('Gunner.' not visibly bold at 350 px — left plain). Base scan only at 350 px; copyright line Death Star II SE-style, '2000' legible. No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "game_text_lines": "{pilot:1}, 2: any Star Cruiser. While aboard a Star\nCruiser or with Admiral Ackbar, opponent’s\nweapon and battle destiny draws at same system\nare -2. Other Mon Calamari at same system are\nforfeit +2."
+}

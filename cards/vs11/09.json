@@ -1,0 +1,28 @@
+{
+ "id": "vs11-09",
+ "number": "09",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Meditation",
+ "caption": "•Meditation (V)",
+ "game_text": "Use 2 Force to deploy on table. Once per game, may use 1 Force to play an Interrupt (except Sense, Alter, or Control) from under your Starting Effect as if from hand (then place that card out of play). May place this Effect in Lost Pile to activate 1 Force.",
+ "lore": "To prepare for the inevitable conflict with Jabba’s minions, Luke entered a calm state of mental preparation.",
+ "destiny": "4",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Meditation",
+ "art": {
+  "src": "src/vs11/09-SE-L-meditation.gif",
+  "modern": "src/vs11/modern/09-V13-L-meditation.gif"
+ },
+ "notes": "Unique. No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in Jabba’s (wiki straight; confirmed on the 745 px V13 remake). Base scan only at 350 px; copyright line Special Edition form (1998). Modern: V13-L-meditation.gif (745 px, Virtual Set 13 remake).",
+ "game_text_lines": "Use 2 Force to deploy on table. Once per game, may\nuse 1 Force to play an Interrupt (except Sense, Alter,\nor Control) from under your Starting Effect as if from\nhand (then place that card out of play). May place\nthis Effect in Lost Pile to activate 1 Force."
+}
