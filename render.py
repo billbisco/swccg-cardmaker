@@ -131,6 +131,8 @@ TEMPLATES = {
         "lore": (321, 378, 989, 190), "card_type": (262, 1506, 1110, 61), "game_text": (314, 1665, 997, 328),
         "banner_icon": (1292, 1492), "set_icon_abs": (1391, 1940), "set_icon_size": 64, "expansion_ring": (1374, 405), "copyright_x": 1404,
     },
+    # TEST (Bill 2026-10-13): shield frames with the slip's red→cyan fade (make_shield_fade.py); same boxes as the hybrids
+    "ds-shield-fade": None, "ls-shield-fade": None,
     "ls-character-rebel": {
         "frame": ("frames/ls-character-rebel.png", 135, 131),
         "art": (259, 656, 1130, 763), "title": (400, 200, 900, 90), "destiny": (1318, 196, 108, 108),
@@ -287,6 +289,9 @@ TEMPLATES = {
         "caption_y": 2082,
     },
 }
+
+TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
+TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 
 ICON_FILES = {
     # column icons: the PC's own Game Aid icons, frame included (COL_ prefix = drawn without the Bardez icon box)
