@@ -1,0 +1,39 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Captain Bewil",
+ "caption": "•Captain Bewil (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "During your turn, opponent’s characters may not move away from same site. During your deploy phase, may ▼ one Restricted Access. During any control phase, may search your Force Pile and take an Interrupt into hand; reshuffle.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Tactical officer from Dentaal. Leader. Familiar with utilizing computer controls to lure an invading enemy into a tactically weak position.",
+ "destiny": "3",
+ "base_page": "Captain Bewil",
+ "art": {
+  "src": "src/vs6/31-CC-D-captainbewil.gif",
+  "modern": "src/vs6/modern/31-V4-D-captainbewil.gif"
+ },
+ "id": "vs6-31",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box printed blank; deploy 3 / forfeit 4. The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Curly apostrophe in opponent’s. Icon column top to bottom: warrior (blue, blaster) only. Imperial (Imperial disc top-left on the base scan; printed icon Warrior). Lore matches the scan. Base scan only at 350 px (CC-D-captainbewil.gif); copyright 1997 (Cloud City) not legible at that size. Modern: V4-D-captainbewil.gif (745 px, Virtual Set 4 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "During your turn, opponent’s characters may not\nmove away from same site. During your deploy\nphase, may ▼ one Restricted Access. During any\ncontrol phase, may search your Force Pile and\ntake an Interrupt into hand; reshuffle."
+}

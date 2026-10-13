@@ -1,0 +1,29 @@
+{
+ "number": "38",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Imperial Decree",
+ "caption": "Imperial Decree (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. At start of your turn, may lose 1 Force to activate this turn using {light-force} instead of {dark-force}. Whenever you lose Force (except from Force drains, battle damage, or your card), may reduce loss (to a minimum of 1) by the number of battlegrounds you occupy. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "To Imperial command personnel: The Rebellion must be crushed! Minor acts of sedition are to be ignored. The destruction of the Alliance is your primary goal.",
+ "destiny": "4",
+ "base_page": "Imperial Decree (Original)",
+ "art": {
+  "src": "src/vs6/38-CC-D-imperialdecree-decipher-archive.gif",
+  "modern": "src/vs6/modern/38-V0-D-imperialdecree.gif"
+ },
+ "id": "vs6-38",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip heading, caption or printed title; wiki Unrestricted). Banner EFFECT, no grabber box. Inline icons: a silver square with a blue/white diagonal (Light Side Force icon) → {light-force}, then a silver square with a red/white diagonal (Dark Side Force icon) → {dark-force} ('using [LS Force] instead of [DS Force]'; the stub expands them as 'Light Side Force icons' / 'Dark Side Force icons'); red circle-slash A at the end → {alter}. The wiki's default 'Imperial Decree' page is already the printed archive face; the printed-face page 'Imperial Decree (Original)' (same lore/destiny/set) is used as base_page. The 745 px CC-D-imperialdecree.gif is tagged D-E1 (PC errata face, Glossary wording '...are canceled.') — downloaded to src/vs6/38-CC-D-imperialdecree.gif for art only; the 350 px CC-D-imperialdecree-decipher-archive.gif is the printed face used as src (CloudCity-D-imperialdecree-decipher-archive.gif is the same 350 px scan under another name). Lore matches both scans. Copyright 1997 read off the 745 px face. Modern: V0-D-imperialdecree.gif (745 px); 'V0-D-imperialdecree ai.gif' (AI-art alternate) and VB2 -pre (350) also exist, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. At start of your turn, may lose 1 Force\nto activate this turn using {light-force} instead of {dark-force}. Whenever\nyou lose Force (except from Force drains, battle\ndamage, or your card), may reduce loss (to a minimum\nof 1) by the number of battlegrounds you occupy. {alter}"
+}

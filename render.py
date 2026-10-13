@@ -297,7 +297,10 @@ ICON_FILES = {
     "lightsaber": "icons/inline-permanent-weapon.png", "permanent-weapon": "icons/inline-permanent-weapon.png",
     "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
-    "independent": "icons/inline-independent.png", "presence": "icons/col-presence.png",   # Presence = Game Aid g013 (droid on red), as on IG-88
+    "independent": "icons/inline-independent.png", "presence": "icons/col-presence.png",
+    "republic-crest": "icons/inline-republic-crest.png",
+    "light-force": "icons/inline-force-light.png", "dark-force": "icons/inline-force-dark.png",   # Game Aid g036 / g050 (Imperial Decree (V))
+    "episode1": "icons/inline-episode1.png",   # Game Aid g033 (Hopping Mad (V): "non-[Episode I] C-3PO")   # the Republic affiliation icon itself (The Emperor (V): "Gains [Republic] at opponent's Senate")   # Presence = Game Aid g013 (droid on red), as on IG-88
     "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
 }
 
@@ -572,6 +575,9 @@ def build_html(card: dict) -> str:
     if card.get("disc"):   # affiliation disc swapped over the frame's own (Yoda: the Light Jedi Master blade on the Rebel frame)
         dx_, dy__ = t.get("disc_at", (193, 176))
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc"]}.png")}" style="position:absolute;left:{dx_}px;top:{dy__}px">')
+    if card.get("disc2"):   # second affiliation disc right of the first, title bar shortened (The Emperor: Dark Jedi Master + Imperial)
+        parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{359}px;top:{174}px">')
+        t = dict(t, title=(t["title"][0] + 170, t["title"][1], t["title"][2] - 170, t["title"][3]))
     # title + destiny
     if t.get("landscape"):
         # Light title centred in the grey bar between the force slot and the first icon box; Dark mirrored, rotated.
@@ -709,13 +715,20 @@ def build_html(card: dict) -> str:
                      f'<div class="copyin">{esc(card["copyright"])}</div></div>')
     # slip credit lines in the side margins (Wokling (V): "Original concept by …" left, "GenCon 2002 Winner" right),
     # italic, reading bottom-to-top, spanning the banner + text box
-    for key, x in (("margin_left", 222), ("margin_right", 1388)):
+    for key, x in (("margin_left", 236), ("margin_right", 1404)):   # centred in the red margin between frame edge and text box, as the slip prints them (Bill 2026-10-13)
         if card.get(key):
             gx, gy, gw, gh = t["game_text"]
             cx_, cy_, cw_, ch_ = t.get("card_type", (gx, gy - 160, gw, 61))
             top, bot = cy_, gy + gh
+            ink = "#000" if t.get("dark_text") else "#fff"
+            if key == "margin_left" and "deploy" in t and card.get("deploy") is not None:
+                # characters: the deploy/forfeit boxes sit in the left margin — the credit runs above them (as The
+                # Emperor (V) prints it), white on the dark frames
+                top, bot = t.get("stats_y", top) - 10, t["deploy"][1] - 10
+            # the rotated line is as long as the text; shrink the font so it fits the span (AGCn italic ≈ 0.40 em/char)
+            fs = min(40, int((bot - top) / (0.40 * len(card[key]))))
             parts.append(f'<div class="copy" style="position:absolute;left:{x}px;top:{top}px;width:40px;height:{bot - top}px">'
-                         f'<div class="credit">{esc(card[key])}</div></div>')
+                         f'<div class="credit" style="color:{ink};font-size:{fs}px">{esc(card[key])}</div></div>')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card.get("caption") or card["title"]
     cy = t.get("caption_y", 2082)

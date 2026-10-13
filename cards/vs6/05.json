@@ -1,0 +1,44 @@
+{
+ "number": "05",
+ "side": "Light",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: TRANSPORT",
+ "title": "•_Bright Hope_",
+ "caption": "•_Bright Hope_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "May add 2 pilots and 6 passengers. Permanent pilot provides ability of 2. During battle, if with a Rebel capital starship, may use 1 Force to cancel a just drawn battle destiny.",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Modified medium transport. Well armored. Has expanded passenger capacity to facilitate evacuation. The last transport to escape Hoth. Nearly destroyed by the _Stalker_.",
+ "destiny": "3",
+ "base_page": "Bright Hope",
+ "art": {
+  "src": "src/vs6/05-CC-L-brighthope.gif",
+  "modern": "src/vs6/modern/05-V3-L-brighthope.gif"
+ },
+ "id": "vs6-05",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Bright Hope' italic in the slip's heading and caption (marked _…_ as vs5/39, vs5/46). Banner CAPITAL: TRANSPORT. Stats POWER 2 / ARMOR 4 / HYPERSPEED 5; deploy 3 / forfeit 5. Scomp-link ring at the top-left of the text box → scomp true. Icon column top to bottom: yellow Pilot helmet (the permanent-pilot icon, as vs4/29 Blizzard 2 — 'Permanent pilot provides ability of 2'), red square with green dome → nav. Slip text matches the stub. Lore corrected from scan: 'Stalker' is italic (_Stalker_); wiki has plain text. Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V3-L-brighthope.gif (745 px, Virtual Set 3 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "May add 2 pilots and 6 passengers. Permanent\npilot provides ability of 2. During battle, if with a\nRebel capital starship, may use 1 Force to cancel\na just drawn battle destiny."
+}

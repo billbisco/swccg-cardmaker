@@ -1,0 +1,29 @@
+{
+ "number": "39",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Imperial Propaganda",
+ "caption": "Imperial Propaganda (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you are about to lose Force during opponent’s control phase, deploy on table to reduce loss by 2. Whenever you lose Force during opponent’s control phase (except from a Force drain at a battleground or your card), that loss is cumulatively -1 (to a minimum of 1).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial data transmissions depict Rebel incursions as terrorist acts. The Alliance is portrayed as a danger to civilians of the Empire.",
+ "destiny": "6",
+ "base_page": "Imperial Propaganda",
+ "art": {
+  "src": "src/vs6/39-SE-D-imperialpropaganda.gif",
+  "modern": "src/vs6/modern/39-VB4-D-imperialpropaganda-pre.gif"
+ },
+ "id": "vs6-39",
+ "virtual_set": 6,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip heading, caption or printed title; wiki Unrestricted). Banner IMMEDIATE EFFECT with NO grabber box → grabber false (printed base is already an Immediate Effect). Curly apostrophes in opponent’s (twice). No inline icons; slip text matches the stub (and is the Dark mirror of vs6/11 Imperial Atrocity). Lore matches the scan. Base scan only at 350 px; copyright line is the Special Edition form, '1998' legible. Modern: Virtual Block 4 only (VB4-D-imperialpropaganda-pre.gif, 350 px).",
+ "grabber": false,
+ "game_text_lines": "If you are about to lose Force during opponent’s control\nphase, deploy on table to reduce loss by 2. Whenever\nyou lose Force during opponent’s control phase (except\nfrom a Force drain at a battleground or your card), that\nloss is cumulatively -1 (to a minimum of 1)."
+}

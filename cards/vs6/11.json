@@ -1,0 +1,29 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Imperial Atrocity",
+ "caption": "Imperial Atrocity (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you are about to lose Force during opponent’s control phase, deploy on table to reduce loss by 2. Whenever you lose Force during opponent’s control phase (except from a Force drain at a battleground or your card), that loss is cumulatively -1 (to a minimum of 1).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire’s ruthless tactics at times unintentionally create support for the cause of the Rebel Alliance.",
+ "destiny": "6",
+ "base_page": "Imperial Atrocity",
+ "art": {
+  "src": "src/vs6/11-SE-L-imperialatrocity.gif",
+  "modern": null
+ },
+ "id": "vs6-11",
+ "virtual_set": 6,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip heading, caption or printed title). Banner IMMEDIATE EFFECT with NO grabber box at its right end → grabber false (printed base is already an Immediate Effect). Curly apostrophes in opponent’s (twice). No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in Empire’s (wiki straight). Base scan only at 350 px; copyright line is the Special Edition form, '1998' just legible on the upscaled crop. No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "grabber": false,
+ "game_text_lines": "If you are about to lose Force during opponent’s control\nphase, deploy on table to reduce loss by 2. Whenever\nyou lose Force during opponent’s control phase (except\nfrom a Force drain at a battleground or your card), that\nloss is cumulatively -1 (to a minimum of 1)."
+}

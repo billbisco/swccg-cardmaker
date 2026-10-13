@@ -1,0 +1,28 @@
+{
+ "number": "08",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Courage Of A Skywalker",
+ "caption": "•Courage Of A Skywalker (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During battle, unless Inner Strength on table, initiate a duel between your participating Skywalker (except Shmi) present and a participating Dark Jedi present. Both players draw two destiny and add ability. Higher total wins. Loser is lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Despite being alone, trapped and desperately outmatched, Luke continued his battle with the Dark Lord of the Sith.",
+ "destiny": "2",
+ "base_page": "Courage Of A Skywalker",
+ "art": {
+  "src": "src/vs6/08-CC-L-courageofaskywalker.gif",
+  "modern": "src/vs6/modern/08-V25-L-courageofaskywalker.gif"
+ },
+ "id": "vs6-08",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner LOST INTERRUPT. No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V25-L-courageofaskywalker.gif (745 px, Virtual Set 25 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "During battle, unless Inner Strength on table, initiate a\nduel between your participating Skywalker (except\nShmi) present and a participating Dark Jedi present.\nBoth players draw two destiny and add ability. Higher\ntotal wins. Loser is lost."
+}

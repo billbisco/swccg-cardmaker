@@ -11,9 +11,12 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "A New Hope": "icons/set-anh-grainy.png", "Premiere": None, "Premiere Limited": None, "Premiere Unlimited": None,
     "Jedi Pack": "icons/set-premium-grainy.png", "Hoth": "icons/set-hoth-bardez.png", "Dagobah": "icons/set-dagobah.png",
     "Special Edition": "icons/set-se-grainy.png", "Endor": "icons/set-endor-grainy.png",
+    "Cloud City": "icons/set-cloudcity-grainy.png", "Jabba's Palace": "icons/set-jabbaspalace-grainy.png", "Jabba's Palace Sealed Deck": "icons/set-jabbaspalace-grainy.png",
+    "Reflections II": "icons/set-reflections2-grainy.png", "Coruscant": "icons/set-coruscant-grainy.png",
+    "Death Star II": "icons/set-ds2-grainy.png", "Reflections III": "icons/set-reflections3-grainy.png",
 }
 TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
-             "{icon:virtual-set symbol}": "{ovs}"}
+             "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}"}
 
 
 def template_for(c: dict) -> str:
@@ -83,6 +86,8 @@ def convert(c: dict, vs: int) -> dict:
         card["art"] = {"src": src}
     if (c.get("expansion") or "") in ("Coruscant", "Theed Palace", "Tatooine"):
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
+    if "dark jedi" in (c.get("affiliation") or "").lower() and "imperial" in (c.get("affiliation") or "").lower():
+        card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
     for k in ("margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):

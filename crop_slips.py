@@ -46,6 +46,17 @@ def clean(crop: Image.Image, w: int) -> Image.Image:
     dark_rows = [y for y in range(top.shape[0]) if longest_run(top[y]) > 200]
     if dark_rows:
         d.rectangle((0, 0, W, max(dark_rows) + 6), fill="white")
+    # the heading is the last run of inked rows above the slip; anything above it (a glyph tail of the slip above's
+    # number — VS6 #20/#36) is whited out
+    a = np.array(crop.convert("L"))[:PAD_TOP, x0:x1]
+    inked = [(a[y] < 140).any() for y in range(a.shape[0])]
+    runs, start = [], None
+    for y, v in enumerate(inked + [False]):
+        if v and start is None: start = y
+        if not v and start is not None: runs.append((start, y - 1)); start = None
+    runs = [r for r in runs if r[1] - r[0] >= 8]
+    if len(runs) >= 2:
+        d.rectangle((0, 0, W, runs[-1][0] - 3), fill="white")
     return crop
 
 

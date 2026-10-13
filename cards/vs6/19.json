@@ -1,0 +1,44 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: MODIFIED NEBULON-B FRIGATE",
+ "title": "•_Redemption_",
+ "caption": "•_Redemption_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "May add 4 pilots and 4 passengers. Permanent pilot provides ability of 2. Bacta Tank deploys for free and is lost if _Redemption_ lost. X on Bacta Tank is -2. [Ship-docking]",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Nebulon-B frigate used as a mobile medical facility. Extra cargo space and weapon batteries have been modified to allow for more armor and more recovery areas.",
+ "destiny": "1",
+ "base_page": "Redemption",
+ "art": {
+  "src": "src/vs6/19-CC-L-redemption.gif",
+  "modern": "src/vs6/modern/19-V5-L-redemption.gif"
+ },
+ "id": "vs6-19",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Redemption' italic in the slip's heading, caption and game text (marked _…_ as vs6/05). Banner CAPITAL: MODIFIED NEBULON-B FRIGATE. Stats POWER 4 / ARMOR 5 / HYPERSPEED 4; deploy 3 / forfeit 6. Scomp-link ring at the top-left of the text box → scomp true. Icon column top to bottom: yellow Pilot helmet (permanent-pilot, 'Permanent pilot provides ability of 2'), red square with green dome → nav. The slip prints '[Ship-docking]' literally in square brackets where the stub writes 'Ship-docking capability.' Lore matches the scan. Base scan only at 348×488; copyright 1997 (Cloud City) not legible here. Modern: V5-L-redemption.gif (745 px, Virtual Set 5 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "May add 4 pilots and 4 passengers. Permanent\npilot provides ability of 2. Bacta Tank deploys for\nfree and is lost if _Redemption_ lost. X on Bacta\nTank is -2. [Ship-docking]"
+}

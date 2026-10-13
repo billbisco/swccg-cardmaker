@@ -1,0 +1,45 @@
+{
+ "number": "29",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Boba Fett",
+ "caption": "•Boba Fett (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "{pilot:3}. May ‘fly’ (landspeed = 3). Draws one battle destiny if unable to otherwise. Your cards with “Bounty” in title are immune to Aim High. During your control phase, may ▲ a card with “Bounty” in title. Immune to attrition < 4.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Feared bounty hunter. Collected bounties on Solo from both the Empire and Jabba the Hutt. Took exquisite pleasure in using Solo’s friend to capture him.",
+ "destiny": "1",
+ "base_page": "Boba Fett (Original)",
+ "art": {
+  "src": "src/vs6/29-CC-D-bobafett.gif",
+  "modern": "src/vs6/modern/29-V6-D-bobafett.gif"
+ },
+ "id": "vs6-29",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. The slip's heading reads '•Boba Fett ( [VS6 set sphere] persona only) (V)' — the sphere is the slip's own Original Virtual set symbol printed inline ({ovs}); the bottom strip prints only '•Boba Fett (V)' (caption). The heading is recorded in 'heading'. Stats POWER 4 / ABILITY 3 / ARMOR 5 (third box is a value box, ARMOR 5); deploy 4 / forfeit 7. Yellow (DS) pilot-power icon followed by '3.' at the start → {pilot:3} (stub expands 'Adds 3 to power of anything he pilots'); the slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly single quotes around ‘fly’ and curly double quotes around “Bounty” (twice). Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster). Alien (Cloud City grey alien frame; printed icons Pilot, Warrior). The wiki's default 'Boba Fett' page carries Glossary Supplement errata text; printed face = 'Boba Fett (Original)' (same lore/destiny/set/stats). The only Cloud City scan on the wiki, CC-D-bobafett.gif (745 px), is tagged D-E1 (PC errata face) — its stats and game text match the printed Original text, but it prints 'bounty hunter' in bold in the lore (errata-face styling; no decipher-archive scan exists), so it is used as src with that caveat. Lore corrected from scan: curly apostrophe in Solo’s (wiki straight). Copyright 1997 legible on the 745 px face. Modern: V6-D-bobafett.gif (745 px, Virtual Set 6 remake); VB1-D-bobafett.gif and VB2-D-bobafett.gif (350) also exist, not downloaded. SE-D-bobafett.gif is the Special Edition Boba Fett, a different card.",
+ "heading": "•Boba Fett ({ovs} persona only) (V)",
+ "game_text_lines": "{pilot:3}. May ‘fly’ (landspeed = 3). Draws one\nbattle destiny if unable to otherwise. Your cards\nwith “Bounty” in title are immune to Aim High.\nDuring your control phase, may ▲ a card with\n“Bounty” in title. Immune to attrition < 4."
+}

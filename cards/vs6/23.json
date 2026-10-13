@@ -1,0 +1,28 @@
+{
+ "number": "23",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•We’ll Find Han",
+ "caption": "•We’ll Find Han (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: ▼ Han (except Han, Chewie, And The _Falcon_).\nLOST: Deploy Han (except Han, Chewie, And The _Falcon_) from your Lost Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I promise.” “Auuuuuug!”",
+ "destiny": "4",
+ "base_page": "We'll Find Han",
+ "art": {
+  "src": "src/vs6/23-CC-L-wellfindhan.gif",
+  "modern": "src/vs6/modern/23-VB2-L-wellfindhan-pre.gif"
+ },
+ "id": "vs6-23",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (We’ll); wiki page title uses a straight one. Printed base is a Used Interrupt; slip banner reads USED OR LOST INTERRUPT. USED:/LOST: lines separated by \\n. The slip prints the ▼ triangle after 'USED:' where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. 'Falcon' is italic on the slip both times (Han, Chewie, And The _Falcon_). Lore corrected from scan: the two quotes are in curly DOUBLE quotes (“I promise.” “Auuuuuug!”), wiki has straight single quotes; the number of u's in 'Auuuuuug' cannot be verified at 350 px (scan and VB2 remake both low-res) — wiki's six u's kept. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: ▼ Han (except Han, Chewie, And The _Falcon_).\nLOST: Deploy Han (except Han, Chewie, And The\n_Falcon_) from your Lost Pile."
+}

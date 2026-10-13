@@ -184,3 +184,15 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   `col-presence.png` is cut from the 745 px Theed-D-dfssquadronstarfighter.gif, not a Game Aid icon. Episode I
   base cards (Coruscant / Theed Palace / Tatooine) have their art window placed a little differently from the
   classic frame: `art_trim` cuts the mapped art box at the innermost silver line on each edge (Secure Route).
+- Rev 11 (VS6 run, 2026-10-13): expansion ring icons for Cloud City, Jabba's Palace (also Jabba's Palace Sealed
+  Deck), Reflections II, Death Star II, Reflections III and Coruscant, each cut from a 745 px Decipher scan by
+  `cut_set_icon.py` (the ring is ~26 px across at 745 px, found by an annulus search right of the lore box).
+  Inline icons: `{set:ds2}` / `{set:reflections3}` use the same files; `{light-force}` / `{dark-force}` = Game Aid
+  g036 / g050 (Imperial Decree); `{episode1}` = g033 (Hopping Mad); `{icon:republic}` → `{republic-crest}` = g062,
+  the Republic affiliation crest itself (The Emperor (V): "Gains [Republic] at opponent's Senate"). Two-disc
+  characters (The Emperor: Dark Jedi Master + Imperial on the Reflections II frame): `disc` + `disc2` draw the second
+  disc right of the first and shorten the title bar. Margin credits sit centred in the red margin between frame
+  edge and text box (x 236 / 1404), never touching the box (Bill, Secure Route); on characters the left credit runs
+  above the deploy/forfeit boxes, white on dark frames, shrunk to fit. A slip heading with extra words ("•Boba Fett
+  ([sphere] persona only) (V)") goes in `heading`; title/caption stay as the bottom strip prints them.
+  `crop_slips.py` also whites out any inked run above the heading (the number tail of the slip above).

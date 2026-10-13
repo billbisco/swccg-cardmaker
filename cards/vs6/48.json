@@ -1,0 +1,29 @@
+{
+ "number": "48",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Vader’s Bounty",
+ "caption": "•Vader’s Bounty (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During battle, while non-{set:reflections3} Boba Fett with Vader, neither may be excluded or lost until the damage segment. Slave I is destiny +2 when drawn for weapon or battle destiny. May place this Effect in Lost Pile to make Boba Fett’s total weapon destiny +3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“We would be honored if you would join us.”",
+ "destiny": "4",
+ "base_page": "Vader's Bounty (Original)",
+ "art": {
+  "src": "src/vs6/48-CloudCity-D-vadersbounty-decipher-archive.gif",
+  "modern": "src/vs6/modern/48-VB2-D-vadersbounty-pre.gif"
+ },
+ "id": "vs6-48",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Vader’s); wiki page title uses a straight one. Banner EFFECT, no grabber box. Inline icon in 'non-[icon] Boba Fett': a dark sphere with a Vader-like figure and a red/pink diagonal = the Reflections III expansion-set icon per the Game Aid sheet (i.e. non-'Boba Fett, Bounty Hunter') → {set:reflections3} (no asset yet); the stub's 'non-Independent' reading is wrong (the Independent icon is a blue wheel). 'Slave I' is printed upright on the slip (not italic). Curly apostrophe in Fett’s. The wiki's default page is the printed archive face; 'Vader's Bounty (Original)' (same lore/destiny/set) used as base_page. CC-D-vadersbounty.gif (350) is the PC errata face ('E' tag, 'seized by a bounty hunter') — downloaded to src/vs6/48-CC-D-vadersbounty.gif for art only; the decipher-archive scan is the printed face used as src. Lore corrected from scan: curly double quotes around the quote (wiki straight single quotes). Copyright 1997 not legible. Modern: Virtual Block 2 only (VB2-D-vadersbounty-pre.gif, 350 px; non-pre also exists).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. During battle, while non-{set:reflections3} Boba Fett\nwith Vader, neither may be excluded or lost until the\ndamage segment. Slave I is destiny +2 when drawn for\nweapon or battle destiny. May place this Effect in Lost\nPile to make Boba Fett’s total weapon destiny +3."
+}

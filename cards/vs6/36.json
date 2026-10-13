@@ -1,0 +1,29 @@
+{
+ "number": "36",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "•I Am Your Father",
+ "caption": "•I Am Your Father (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If Vader just won a battle or duel against Luke, deploy on table; opponent loses 1 Force. During your control phase, if Vader present at a battleground site, opponent loses 1 Force. If Vader just lost, place this Immediate Effect in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Search your feelings, you _know_ it to be true.”",
+ "destiny": "6",
+ "base_page": "I Am Your Father",
+ "art": {
+  "src": "src/vs6/36-CC-D-iamyourfather.gif",
+  "modern": "src/vs6/modern/36-V5-D-iamyourfather.gif"
+ },
+ "id": "vs6-36",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner IMMEDIATE EFFECT with NO grabber box at its right end → grabber false (printed base is already an Immediate Effect). No inline icons; slip text matches the stub. The crop shows a stray glyph tail above the heading (bottom of the previous slip's number), not part of the title. Lore corrected from scan: curly double quotes around the quote (wiki straight single quotes) and 'know' printed in italics (wiki plain) — confirmed on the 745 px V5 remake. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: V5-D-iamyourfather.gif (745 px, Virtual Set 5 remake); 'V5-D-iamyourfather ai.gif' (AI-art alternate) and VB2 -pre (350) also exist, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "If Vader just won a battle or duel against Luke, deploy\non table; opponent loses 1 Force. During your control\nphase, if Vader present at a battleground site, opponent\nloses 1 Force. If Vader just lost, place this Immediate\nEffect in Used Pile."
+}

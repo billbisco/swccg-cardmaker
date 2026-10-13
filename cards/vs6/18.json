@@ -1,0 +1,28 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Rebel Planners",
+ "caption": "•Rebel Planners (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. If Hidden Base on table: once per turn, may deploy a system from under your Starting Effect; and, once per game, may exchange Hidden Base indicator with a system (from parsec 1 to 8) under your Starting Effect. May not be canceled. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Rebel strategists worked under master tactician General Dodonna. They devised an unorthodox battle plan to destroy the Death Star at the Battle of Yavin.",
+ "destiny": "4",
+ "base_page": "Rebel Planners (Original)",
+ "art": {
+  "src": "src/vs6/18-Premiere-L-rebelplanners-decipher-archive.gif",
+  "modern": null
+ },
+ "id": "vs6-18",
+ "virtual_set": 6,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Red circle-slash A at the end → {alter} (stub expands 'Immune to Alter'). Slip text otherwise matches the stub. The wiki's default 'Rebel Planners' page carries Glossary 2.0 errata text; printed face = 'Rebel Planners (Original)' (same lore/destiny/set, Premiere Limited). Two scans exist, both ~350 px: Premiere-L-rebelplanners-decipher-archive.gif (367×506, used as src) and Premiere-L-rebelplanners.gif (350×490, also downloaded as src/vs6/18-Premiere-L-rebelplanners.gif). Premiere: no expansion ring icon. Lore matches the scan. Copyright '1995' legible on the upscaled crop (Hoth-style line). No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "game_text_lines": "Deploy on table. If Hidden Base on table: once per\nturn, may deploy a system from under your Starting\nEffect; and, once per game, may exchange Hidden\nBase indicator with a system (from parsec 1 to 8)\nunder your Starting Effect. May not be canceled. {alter}"
+}

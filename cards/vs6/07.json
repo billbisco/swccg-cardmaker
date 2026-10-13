@@ -1,0 +1,28 @@
+{
+ "number": "07",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Computer Interface",
+ "caption": "Computer Interface (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Twice per turn, if your Lobot on Cloud City or you occupy three Cloud City sites with aliens, peek at the top three cards of your Reserve Deck. Take any of them into hand and replace the others in any order.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Lobot’s direct link with the Cloud City central computer allowed him to efficiently manipulate the floating city’s resources.",
+ "destiny": "3",
+ "base_page": "Computer Interface",
+ "art": {
+  "src": "src/vs6/07-CC-L-computerinterface.gif",
+  "modern": "src/vs6/modern/07-V18-L-computerinterface.gif"
+ },
+ "id": "vs6-07",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Banner USED INTERRUPT (printed base is a Used Or Lost Interrupt). No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophes in Lobot’s and city’s (wiki has straight). Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V18-L-computerinterface.gif (745 px, Virtual Set 18 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Twice per turn, if your Lobot on Cloud City or you\noccupy three Cloud City sites with aliens, peek at the\ntop three cards of your Reserve Deck. Take any of\nthem into hand and replace the others in any order."
+}

@@ -1,0 +1,29 @@
+{
+ "number": "37",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "•I Had No Choice",
+ "caption": "•I Had No Choice (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During any deploy phase, deploy on opponent’s {maintenance} Lando. Lando’s game text is canceled. During your control phase, may randomly retrieve 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Gamblers are vulnerable to bribery, extortion and other forms of manipulation. Their notorious dealings can be easily taken advantage of.",
+ "destiny": "3",
+ "base_page": "I Had No Choice (Original)",
+ "art": {
+  "src": "src/vs6/37-CloudCity-D-ihadnochoice-decipher-archive.gif",
+  "modern": null
+ },
+ "id": "vs6-37",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Printed base is an EFFECT; slip banner reads IMMEDIATE EFFECT with NO grabber box → grabber false. Inline icon after 'opponent’s' is the gold spoked wheel on a gold square → {maintenance} per this run's instructions (the stub drops it: 'deploy on opponent's Lando'). Curly apostrophes in opponent’s and Lando’s. The slip's text box is only three lines (bottom half empty). The wiki's default 'I Had No Choice' page carries Glossary Supplement wording; printed face = 'I Had No Choice (Original)' (same lore/destiny/set). The 745 px CC-D-ihadnochoice.gif is tagged D-E1 (PC errata face) — downloaded to src/vs6/37-CC-D-ihadnochoice.gif for art only; the 350 px CloudCity-D-ihadnochoice-decipher-archive.gif is the printed face used as src. Lore matches both scans. Copyright 1997 read off the 745 px face. No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "grabber": false,
+ "game_text_lines": "During any deploy phase, deploy on opponent’s {maintenance}\nLando. Lando’s game text is canceled. During your\ncontrol phase, may randomly retrieve 1 Force."
+}

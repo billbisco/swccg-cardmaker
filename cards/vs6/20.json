@@ -1,0 +1,30 @@
+{
+ "number": "20",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Seeking An Audience",
+ "caption": "•Seeking An Audience (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During your deploy phase, while You Can Either Profit By This... or Or Be Destroyed on table, may ▼ one C-3PO, Chewie, Lando, Leia, or R2-D2. Once per game, may place this Effect out of play to take a character from Lost Pile into hand. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“With your wisdom, I’m sure that we can work out an arrangement which will be mutually beneficial and enable us to avoid any unpleasant confrontation.”",
+ "destiny": "4",
+ "base_page": "Seeking An Audience",
+ "art": {
+  "src": "src/vs6/20-JPSD-L-seekinganaudience.gif",
+  "modern": "src/vs6/modern/20-V1-L-seekinganaudience.gif"
+ },
+ "id": "vs6-20",
+ "virtual_set": 6,
+ "expansion": "Jabba's Palace Sealed Deck",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Margin credits printed vertically beside the slip: left 'Original concept by Brian Fred', right '2002 DPC Chicago Runner-Up' (margin_left / margin_right as vs3/25). The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; red circle-slash A at the end → {alter}. The crop shows a stray glyph tail above the heading (bottom of the previous slip's number), not part of the title. Base card is from Jabba's Palace Sealed Deck (Oct 2000): lore corrected from scan — curly double quotes around the quote and curly apostrophe in I’m (wiki has straight single quotes). Copyright line read off the 350 px scan as the SE-style form '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (year read as 2000, consistent with the Oct 2000 release; low-res). Modern: V1-L-seekinganaudience.gif (745 px, Virtual Set 1 remake); VB3 -pre (350) also exists, not downloaded.",
+ "margin_left": "Original concept by Brian Fred",
+ "margin_right": "2002 DPC Chicago Runner-Up",
+ "game_text_lines": "Deploy on table. During your deploy phase, while You\nCan Either Profit By This... or Or Be Destroyed on table,\nmay ▼ one C-3PO, Chewie, Lando, Leia, or R2-D2.\nOnce per game, may place this Effect out of play to\ntake a character from Lost Pile into hand. {alter}"
+}

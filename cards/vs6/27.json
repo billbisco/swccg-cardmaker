@@ -1,0 +1,29 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Ability, Ability, Ability",
+ "caption": "•Ability, Ability, Ability (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. You may not play Imperial Barrier. Senators are deploy +2. Whenever you initiate a battle, may retrieve your topmost non-{lightsaber}, non-{maintenance} character. May place the top card of your Reserve Deck in Lost Pile to place a combat card in owner’s Lost Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Ben. . . Ben, please! Ben. . . Leia! Hear me. Leia!”",
+ "destiny": "3",
+ "base_page": "Ability, Ability, Ability (Original)",
+ "art": {
+  "src": "src/vs6/27-CC-D-abilityabilityability-decipher-archive.gif",
+  "modern": "src/vs6/modern/27-VB2-D-abilityabilityability-pre.gif"
+ },
+ "id": "vs6-27",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Dark counterpart of vs6/06 Civil Disorder; transcribed the same way. Two inline icons in 'non-[black square, green blade], non-[gold spoked wheel] character' → {lightsaber} and {maintenance} per this run's instructions (the stub expands them as 'non-warrior, non-pilot'). Red circle-slash A at the end → {alter}; curly apostrophe in owner’s. The wiki's default 'Ability, Ability, Ability' page is the printed archive face (card_uid 5_110o; 'Ability, Ability, Ability (Original)' is the same face); the 745 px CC-D-abilityabilityability.gif is the D-E1 PC Errata face (game text 'At the end of opponent's deploy phase…') — downloaded to src/vs6/27-CC-D-abilityabilityability.gif for art only, the 350 px decipher-archive scan is the printed face used as src. Lore corrected from both scans: curly double quotes, and 'Hear me. Leia!' — a period after 'me' on both the 350 and 745 faces (wiki has a comma); spaced ellipses 'Ben. . .' as on the card. Copyright 1997 legible on the 745 px face. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. You may not play Imperial Barrier.\nSenators are deploy +2. Whenever you initiate a battle,\nmay retrieve your topmost non-{lightsaber}, non-{maintenance} character.\nMay place the top card of your Reserve Deck in Lost\nPile to place a combat card in owner’s Lost Pile. {alter}"
+}

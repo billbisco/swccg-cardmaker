@@ -1,0 +1,37 @@
+{
+ "number": "33",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•E-3PO",
+ "caption": "•E-3PO (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "PROTOCOL DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "While with C-3PO, C-3PO’s game text (and game text of cards on him) is canceled. E Chu Ta is destiny +3 when drawn for weapon or battle destiny. During any control phase, may ▲ E Chu Ta.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Brought to Cloud City by the Empire. Facilitates Imperial-to-alien communication. Relayed carbonite chamber modification instructions to Ugloste. Arrogant. Rude. Vulgar.",
+ "destiny": "3",
+ "base_page": "E-3PO",
+ "art": {
+  "src": "src/vs6/33-CC-D-e3po.gif",
+  "modern": "src/vs6/modern/33-VB2-D-e3po-pre.gif"
+ },
+ "id": "vs6-33",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Droid: stats POWER 1 and one wide box PROTOCOL DROID (label only) spanning the ability + third slots; deploy 2 / forfeit 3. The slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly apostrophe in C-3PO’s. Icon column empty (only the set sphere). Droid (Droid disc top-left on the base scan). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2-D-e3po-pre.gif, 350 px).",
+ "game_text_lines": "While with C-3PO, C-3PO’s game text (and game\ntext of cards on him) is canceled. E Chu Ta is\ndestiny +3 when drawn for weapon or battle\ndestiny. During any control phase, may ▲ E Chu\nTa."
+}

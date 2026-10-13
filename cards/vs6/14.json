@@ -1,0 +1,28 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Leia Of Alderaan",
+ "caption": "•Leia Of Alderaan (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Leia. At same location, your unique (•) Rebels are deploy -1 and their immunity to attrition is +1. Dark side Republic characters are deploy +2 and forfeit -2. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The face that launched a thousand starships.",
+ "destiny": "3",
+ "base_page": "Leia Of Alderaan",
+ "art": {
+  "src": "src/vs6/14-CC-L-leiaofalderaan.gif",
+  "modern": "src/vs6/modern/14-V5-L-leiaofalderaan.gif"
+ },
+ "id": "vs6-14",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. The slip prints 'unique (•)' with the dot (stub writes '(*)'). Red circle-slash A at the end → {alter} (stub expands 'Immune to Alter'). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V5-L-leiaofalderaan.gif (745 px, Virtual Set 5 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on Leia. At same location, your unique (•)\nRebels are deploy -1 and their immunity to attrition is\n+1. Dark side Republic characters are deploy +2 and\nforfeit -2. {alter}"
+}
