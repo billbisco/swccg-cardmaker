@@ -201,3 +201,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   with the slip's red→cyan fade (`make_shield_fade.py` → `ds-/ls-shield-fade.png`, templates `ds-/ls-shield-fade`);
   fade curve measured on the VS6 slips (≈6 % cyan at card y 1445, 55 % at 1649, full by 1790), banner kept from the
   shield frame. Live shields still use the hybrid (hard-cut) frames until Bill decides.
+- Rev 11b (Bill 2026-10-13, Rebel Planners (V)): never use a `decipher-archive` file that is a photo of the printed
+  card on a white page (odd size, e.g. 367×506) as the art source — its silver-frame bbox and scale do not map, and
+  the art window takes in the scan's own frame (frame-in-frame). Use the square-on 350/745 px scan of the same art
+  for `art.src`; the archive photo may still be read for lore and copyright. Only VS6 #18 was affected in sets 1–6.
