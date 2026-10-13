@@ -169,3 +169,5 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   it — never inside the box. Objective game text is set like the slip: 62 px AGCn on a 64 px pitch, starting 60 px
   in from the box's left edge, the longest line reaching to within ~10 px of its right edge; the text box reaches
   almost to the frame's box edge so the fitter can grow to that size (capped at 63).
+- Rev 9f (Bill 2026-10-13): the Dark Objective frame is ONE purple over the whole frame — the red-purple of the slip
+  (hue .76 / sat .64 / val .44), art half included. The PC card's bluer upper half (rev 9e's two-tone) is not wanted.
