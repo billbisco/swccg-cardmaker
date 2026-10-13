@@ -284,7 +284,8 @@ TEMPLATES = {
 }
 
 ICON_FILES = {
-    "pilot": "icons/pilot.png", "warrior": "icons/warrior.png", "pilot-light": "icons/pilot-light-745.png", "warrior-light": "icons/warrior-light-745.png",
+    # column icons: the PC's own Game Aid icons, frame included (COL_ prefix = drawn without the Bardez icon box)
+    "pilot": "icons/col-pilot-dark.png", "warrior": "icons/col-warrior.png", "pilot-light": "icons/col-pilot-light.png", "warrior-light": "icons/col-warrior.png",
     "alter": "icons/VS-icon-immune-alter.png", "control": "icons/VS-icon-immune-control.png",
     "sense": "icons/VS-icon-immune-sense.png", 
     "grabber": "icons/grabber-fist.png", "pilotpower": "icons/VS-icon-pilot-power-x.png", "pilotpower-dark": "icons/VS-icon-pilot-power-x-dark.png",
@@ -292,7 +293,7 @@ ICON_FILES = {
     "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
     "independent": "icons/inline-independent.png", "presence": "icons/inline-presence.png",
-    "permanent-pilot": "icons/pilot.png", "permanent-pilot-light": "icons/pilot-light-745.png",   # same helmet icon as Pilot on the printed cards
+    "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
 }
 
 
@@ -325,7 +326,7 @@ def game_text_html(text: str) -> str:
             # Decipher's maintenance-cost glyphs, cut from the Remaster sheet at 1200 DPI (black on transparent)
             g = "glyph-star" if arg == "maintenance-star" else "glyph-skull"
             hpx = 46 if arg == "maintenance-star" else 60   # the star is cap-height, the skull a little taller than the x-height+descender
-            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/{g}.png")}" style="height:{hpx}px;vertical-align:{-4 if g == "glyph-star" else -10}px{";filter:invert(1)" if not card_ctx.get("_dark_text") else ""}">')
+            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/{g}.png")}" style="height:{hpx}px;vertical-align:{-4 if g == "glyph-star" else -10}px;margin-right:{6 if g == "glyph-star" else 0}px{";filter:invert(1)" if not card_ctx.get("_dark_text") else ""}">')
         elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
@@ -620,8 +621,11 @@ def build_html(card: dict) -> str:
     light = card.get("side") == "Light"
     for (x, y), name in zip(t.get("icon_slots", []), card.get("icons", [])):
         key = f"{name}-light" if light and f"{name}-light" in ICON_FILES else name   # Light and Dark pilot icons differ
-        parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px">')
-        parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + 6}px;top:{y + 7}px;width:75px;height:75px">')
+        if ICON_FILES[key].startswith("icons/col-"):   # Game Aid icon with its own silver frame, box size
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x}px;top:{y}px;width:89px;height:90px">')
+        else:
+            parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px">')
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + 6}px;top:{y + 7}px;width:75px;height:75px">')
     # original-era virtual marker: the slips print the gold virtual-set symbol in the lower icon slot
     if card.get("virtual_set") is not None and "set_icon_abs" in t:
         x, y = t["set_icon_abs"]

@@ -147,3 +147,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   ★ / ☠ in game text are Decipher's own glyphs — cut from the sheet at 1200 DPI (`glyph-star.png`, `glyph-skull.png`),
   black on Light, white on Dark; a font glyph is not acceptable. Light Side Objectives use Bardez's "LS - Epic
   Objective" frame (blue-purple with Light scoring, textured white text box), not a lightened Dark frame.
+- Rev 9b (Bill 2026-10-12): column icons are the PC's own Game Aid icons with their thin silver frame (g005 LS pilot,
+  g068 DS pilot, g029 warrior), drawn at box size — the Bardez icon box + separate icon read fatter and heavier at
+  the bottom. The inline DS pilot-power icon is g068 whole (the sheet's own inline icon is a 20 px raster, no better
+  source). LS Objective frame = Bardez's LS Epic Objective re-hued to the Dark Objective's purple (hue 0.733): the
+  Objective colour never changes between sides, only the scoring does. Maintenance ★ gets 6 px of air before "Lose"
+  as on the slip. Base-page lore typos are fixed without asking (Bill).
