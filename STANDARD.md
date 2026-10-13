@@ -196,3 +196,8 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   above the deploy/forfeit boxes, white on dark frames, shrunk to fit. A slip heading with extra words ("•Boba Fett
   ([sphere] persona only) (V)") goes in `heading`; title/caption stay as the bottom strip prints them.
   `crop_slips.py` also whites out any inked run above the heading (the number tail of the slip above).
+- Rev 11a (Bill 2026-10-13): the inline Republic icon is the round silver Republic crest (Game Aid g007, "Character
+  - Republic"), as The Emperor (V) slip prints it — not g062 (Clone Army). TEST, not adopted: Defensive Shield frames
+  with the slip's red→cyan fade (`make_shield_fade.py` → `ds-/ls-shield-fade.png`, templates `ds-/ls-shield-fade`);
+  fade curve measured on the VS6 slips (≈6 % cyan at card y 1445, 55 % at 1649, full by 1790), banner kept from the
+  shield frame. Live shields still use the hybrid (hard-cut) frames until Bill decides.
