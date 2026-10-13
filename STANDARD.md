@@ -272,3 +272,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (3) Two-line credits start at 42 px and run from above the stat row; `margin_right_at: "top"` puts a right credit
   above the column icons, level with the stats (Padmé Naberrie (V)). (4) Deep Hatred (V): art from the scan's own
   art rectangle (`art.rect`) — the mapped Reflections III purple frame had put a frame inside the frame.
+- Rev 21 (Bill 2026-10-13, Lord Vader (V) / Mara Jade (V) / Stinger (V)): stat labels 55 px with 1.4 px tracking,
+  widened ×1.1 (Decipher's stat caps are wider than AG Bold Condensed); in narrow boxes the value first closes up
+  (gap ≥ 28 px, right inset ≥ 18 px), then the label narrows (≥ 0.8). Credit ink by hue: black on bright and on red
+  margins, white on darker grey/blue/green Dark frames. Right credits can sit above the column icons
+  (`margin_right_at: "top"`, Mara Jade, Stinger) or split around them (`margin_right_top` + `margin_right`, Aurra
+  Sing). Left credit stays above the scomp ring. Stinger's column icons are Independent + Nav Computer (GEMP), not
+  Nav + Astromech. Two-line credits on dark frames start at 48 px.
