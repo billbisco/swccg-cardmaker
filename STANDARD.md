@@ -155,3 +155,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   as on the slip. Base-page lore typos are fixed without asking (Bill).
 - Rev 9c (Bill 2026-10-12): Dark Objectives have a BLACK text box with white text (printed SE cards and the PC's
   Virtual Block versions alike); only Light Objectives have the white box. No fill is drawn on the Dark frame.
+- Rev 9d (Bill 2026-10-12): Objective frame purple measured on the printed SE scans and the PC's Virtual Block cards
+  (HSV ≈ 0.70 / 0.63 / 0.48, rgb ≈ 70,46,123); Bardez's Objective frames (sat .47 / val .34) are re-saturated to
+  that, both sides. Set sphere sits inside the text box's bottom-right corner (1282,1908, 72 px). Objective game
+  text grows to fill the box width (`gt_grow`), since the slip's line breaks are fixed.
