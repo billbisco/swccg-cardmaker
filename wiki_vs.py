@@ -73,6 +73,12 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="tenth", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below", pack="VS10O-pack.png", symbol="VS10O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    11: dict(sheet=("https://web.archive.org/web/20071024154617/http://www.swccgpc.com/Resources/VirtualCards11.pdf", "VirtualCards11.pdf", "24 October 2007", "4 December 2006 (errata to cards #8 and #27 on 25 June 2007)"),
+            legal="Not found", legal_ref="No Virtual Set 11 release post survives in the archived swccgpc.com news (captures stop in February 2005). The slips credit winners of 2005 events (CanCon 2005, Bespin Regionals 2005, PC Volunteer Award 2005), so the set came out in 2005 or later.",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the slips credit winners of 2005 events, so it came out in 2005 or later.",
+            ordinal="eleventh", remaster="the December 2006 Remaster sheet (re-edited 25 June 2007 with errata to #8 and #27): cover, set symbol and the slips shown below", pack="VS11O-pack.png", symbol="VS11O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -101,7 +107,7 @@ COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astrom
 
 
 def pronoun(c):
-    return "she" if any(w in c["title"] for w in ("Leia",)) else "he"
+    return "she" if any(w in c["title"] for w in ("Leia", "Padm", "Amidala", "Mara", "Mon Mothma", "Aurra", "Guri", "Laudica", "Yarna", "Aved Luun", "Shada", "Jyn")) else "he"
 
 
 def expand(c: dict) -> str:
@@ -111,6 +117,7 @@ def expand(c: dict) -> str:
         t = t.replace(a, b)
     t = re.sub(r"\{pilot:(\d)\}, (\d): (_?)([^._]+?)\3\.", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots ({m.group(2)} if {chr(39)*2 if m.group(3) else ''}{m.group(4)}{chr(39)*2 if m.group(3) else ''}).", t)
     t = t.replace("just ▲ or ▼ ", "just took into hand or deployed from Reserve Deck ")
+    t = re.sub(r"▲ or ▼(?! attempt)", "take into hand or deploy from Reserve Deck", t)
     t = re.sub(r"▲ and/or ▼\s*([^.?!\n]*?)([.?!])", r"Take into hand and/or deploy \1 from Reserve Deck; reshuffle\2", t)
     t = t.replace("▲ or ▼ attempt (after the first in a turn)", "attempt (after the first in a turn) to take into hand or deploy from Reserve Deck")
     t = re.sub(r"▼\s*([^.?!;\n]*?);", r"deploy \1 from Reserve Deck; reshuffle;", t)
@@ -169,6 +176,8 @@ for n in range(1, NCARDS + 1):
     banner = banner.replace("_", "")
     if not banner and "admiral" in (c.get("slip_type") or "").lower():
         banner = "ADMIRAL'S ORDER"
+    if not banner and (c.get("slip_type") or "").upper() in TYPE_PAGE:
+        banner = (c.get("slip_type") or "").upper()
     st = (c.get("slip_type") or "").lower()
     if st == "objective" or c.get("game_text_back"):
         typ, sub, model, banner = "Objective", "", "", "OBJECTIVE"

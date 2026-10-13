@@ -1,0 +1,45 @@
+{
+ "number": "26",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lord Vader",
+ "caption": "•Lord Vader (V)",
+ "stats": [
+  [
+   "POWER",
+   "8"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "DARK JEDI",
+   ""
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "8",
+ "game_text": "{pilot:3}. May deploy a lightsaber just lost from same site on him (for free); may then use two weapons. Using Epic Duel, The Circle Is Now Complete may target any Jedi instead of Obi-Wan. Defense value +2 if armed. Immune to attrition < 5.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Forgiving administrator of Imperial policy. Emperor Palpatine’s most trusted *leader*. Believes converting Skywalker is key to the Alliance’s downfall.",
+ "destiny": "1",
+ "base_page": "Lord Vader",
+ "art": {
+  "src": "src/vs11/26-DS2-D-lordvader.gif",
+  "modern": "src/vs11/modern/26-VB3-D-lordvader-pre.gif"
+ },
+ "id": "vs11-26",
+ "virtual_set": 11,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "credit_bottom": "Original concept by Jerry Jensen, PC Volunteer Award 2005",
+ "notes": "Unique. Stats POWER 8 (printed card: 7) / ABILITY 6 / DARK JEDI (label only); deploy 8 / forfeit 8. Leading yellow DS pilot-power icon + '3.' → {pilot:3} (stub: 'Adds 3 to power of anything he pilots'). Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, weapon). Imperial (Imperial disc top-left on the DS2 scan). NEW LAYOUT: the slip prints its credit 'Original concept by Jerry Jensen, PC Volunteer Award 2005' in italic, centred BELOW the text box (in the frame strip above the caption bar), not in the side margins — recorded as new field 'credit_bottom' (the PC's modern V5 Sim Aloo prints its concept credit in the same place). Lore matches the wiki wording; 'leader' is visibly bold on the 350 px scan and on the VB3 scan → *leader*; curly apostrophes in Palpatine’s / Alliance’s (wiki straight). Only a 350 px scan exists; copyright DS2 (2000) by set. Modern: Virtual Block 3 only (VB3 -pre, 350 px; non-pre also exists).",
+ "game_text_lines": "{pilot:3}. May deploy a lightsaber just lost from same\nsite on him (for free); may then use two weapons.\nUsing Epic Duel, The Circle Is Now Complete may\ntarget any Jedi instead of Obi-Wan. Defense value\n+2 if armed. Immune to attrition < 5."
+}

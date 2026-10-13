@@ -1,0 +1,29 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Strikeforce",
+ "caption": "•Strikeforce (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per game, if opponent just played an Interrupt, may stack it here. To play any new Interrupt of same name, players must first stack it here. May place this Effect in Lost Pile (place cards here in owners’ Used Pile) to retrieve a starship. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Admiral Ackbar’s hit-and-fade tactics force the Imperial Navy to spread throughout the galaxy in a futile attempt to engage the Rebels.",
+ "destiny": "5",
+ "base_page": "Strikeforce",
+ "art": {
+  "src": "src/vs11/15-DS2-L-strikeforce.gif",
+  "modern": "src/vs11/modern/15-V0-L-strikeforce.gif"
+ },
+ "id": "vs11-15",
+ "virtual_set": 11,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "grabber": true,
+ "notes": "Unique. EFFECT banner carries the blue Grabber (hand) icon box at its right end (same box as VS5 #16) → grabber true. Plural possessive owners’ as the slip prints it. Red circle-slash A at the end → {alter}. Lore corrected from scan: curly apostrophe in Ackbar’s (wiki straight). Base scan only at 350 px; copyright SE-style line with 2000 legible. Modern: V0-L-strikeforce.gif (745 px, the PC's remake of this (V) card: same art and lore, slightly reworded text 'of the same name', 'owner’s'); VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on table. Once per game, if opponent just played\nan Interrupt, may stack it here. To play any new\nInterrupt of same name, players must first stack it here.\nMay place this Effect in Lost Pile (place cards here in\nowners’ Used Pile) to retrieve a starship. {alter}"
+}

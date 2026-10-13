@@ -1,0 +1,28 @@
+{
+ "number": "25",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "I’ve Lost Artoo!",
+ "caption": "•I’ve Lost Artoo (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 2 Force to deploy on table. Once per game, may use 1 Force to play an Interrupt (except Sense, Alter, or Control) from under your Starting Effect as if from hand (then place that card out of play). May place this Effect in Lost Pile to activate 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“WHAAAAAAAAAOOOOW!”",
+ "destiny": "5",
+ "base_page": "I've Lost Artoo! (Original)",
+ "art": {
+  "src": "src/vs11/25-Premiere-D-ivelostartoo-decipher-archive.gif",
+  "modern": "src/vs11/modern/25-VB1-D-ivelostartoo-pre.gif"
+ },
+ "id": "vs11-25",
+ "virtual_set": 11,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "The slip heading/caption read '•I’ve Lost Artoo (V)' — unique dot and NO exclamation mark; the printed card is 'I've Lost Artoo!' (Unrestricted, no dot). Title = printed card, caption as the slip prints it (precedent vs3/02, vs8/29). The stub page exists under 'I've Lost Artoo (V) (Virtual Set 11: Gathering Storm)' and links 'Decipher base: [[I've Lost Artoo]]', which does not exist — the base is 'I've Lost Artoo!' (default page = printed archive face; 'I've Lost Artoo! (Original)' is the same face, used as base_page). Banner EFFECT; no inline icons; slip text matches the stub. The 745 px Premiere-D-ivelostartoo.gif is tagged D-E1 (errata face, R2 icons in text) — downloaded for art only; the 350 px decipher-archive scan is src. Lore corrected: curly double quotes (wiki straight single); 9 A's and 4 O's counted on the 745 face, matching the wiki. Copyright 1995 (Premiere) by set. Modern: Virtual Block 1 only (VB1 -pre, 348 px).",
+ "game_text_lines": "Use 2 Force to deploy on table. Once per game, may\nuse 1 Force to play an Interrupt (except Sense, Alter,\nor Control) from under your Starting Effect as if from\nhand (then place that card out of play). May place\nthis Effect in Lost Pile to activate 1 Force."
+}

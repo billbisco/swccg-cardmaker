@@ -1,0 +1,28 @@
+{
+ "number": "16",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Cold Feet",
+ "caption": "Cold Feet (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Take a ‘grabber’ into hand (or play a Defensive Shield) from under your Starting Effect. OR Cancel It Can Wait, Surprise Assault, or Yerka Mig. OR Suspend Bacta Tank (‘patient’ remains on Effect), Bo Shuda, Goo Nee Tay, or No Questions Asked for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Wampas pack snow around the appendages of captured prey, making use of Hoth’s cold environment to immobilize them.",
+ "destiny": "5",
+ "base_page": "Cold Feet",
+ "art": {
+  "src": "src/vs11/16-Hoth-D-coldfeet.gif",
+  "modern": "src/vs11/modern/16-V1-D-coldfeet.gif"
+ },
+ "id": "vs11-16",
+ "virtual_set": 11,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique (no dot; wiki Unrestricted). Banner USED INTERRUPT (printed base is also a Used Interrupt). Curly single quotes around ‘grabber’ and ‘patient’. No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in Hoth’s (wiki straight). Base scan only at 350 px; copyright 1996 legible. Modern: V1-D-coldfeet.gif (745 px) is the PC's Virtual Set 1 Cold Feet (V) — later reworked text, same art/lore; used for art only. VB4 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Take a ‘grabber’ into hand (or play a Defensive Shield)\nfrom under your Starting Effect. OR Cancel It Can Wait,\nSurprise Assault, or Yerka Mig. OR Suspend Bacta Tank\n(‘patient’ remains on Effect), Bo Shuda, Goo Nee Tay,\nor No Questions Asked for remainder of turn."
+}

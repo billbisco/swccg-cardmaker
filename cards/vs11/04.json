@@ -1,0 +1,28 @@
+{
+ "id": "vs11-04",
+ "number": "04",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Dismantle On Sight",
+ "caption": "•Dismantle On Sight (V)",
+ "game_text": "Deploy on table. After starting hands are drawn, players may only ▲ or ▼ (except as a ‘react’ or response) during their deploy phase (if another phase specified, it becomes “during your deploy phase”). {alter}",
+ "lore": "After losing control of several extremely powerful and deadly assassin droids, the Empire issued a decree ordering their immediate destruction.",
+ "destiny": "3",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Dismantle On Sight",
+ "art": {
+  "src": "src/vs11/04-CC-L-dismantleonsight.gif",
+  "modern": "src/vs11/modern/04-VB2-L-dismantleonsight-pre.gif"
+ },
+ "notes": "Unique. ▲ and ▼ printed (stub expands both phrases); curly single quotes around ‘react’ and curly double quotes around “during your deploy phase”; ends with the red circle-slash A → {alter} (no period after it). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "Deploy on table. After starting hands are drawn, players\nmay only ▲ or ▼ (except as a ‘react’ or response)\nduring their deploy phase (if another phase specified,\nit becomes “during your deploy phase”). {alter}"
+}

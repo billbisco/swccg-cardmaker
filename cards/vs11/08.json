@@ -1,0 +1,28 @@
+{
+ "id": "vs11-08",
+ "number": "08",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Utinni Effect",
+ "card_type": "UTINNI EFFECT",
+ "title": "•Let’s Keep A Little Optimism Here",
+ "caption": "•Let’s Keep A Little Optimism Here (V)",
+ "game_text": "Deploy on your non-droid character present at a battleground site; character may not leave here or move. Target a Dark Jedi at a site. You lose no more than 1 Force to Force drains at target’s location. This Utinni Effect canceled when reached by target.",
+ "lore": "The heroes of the Rebellion know that where there is life, there is hope.",
+ "destiny": "5",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Let's Keep A Little Optimism Here",
+ "art": {
+  "src": "src/vs11/08-DS2-L-letskeepalittleoptimismhere.gif",
+  "modern": "src/vs11/modern/08-VB3-L-letskeepalittleoptimismhere-pre.gif"
+ },
+ "notes": "Unique. Banner UTINNI EFFECT (printed base is a Death Star II Effect). The sheet notes errata to card #8 on 25 June 2007; the sheet text is final and transcribed as printed (matches the stub). Curly apostrophes in Let’s and target’s. A small brown sphere is printed in the middle of the bottom strip between the caption and the number (sheet artifact, as on earlier sets; not transcribed). Lore matches the scan. Base scan only at 350 px; copyright line Death Star II SE-style (2000). Modern: VB3-L-letskeepalittleoptimismhere-pre.gif (350 px) used; VSh-L-letskeepalittleoptimismhere-pre.gif (350, PC Virtual Shields version) also downloaded to modern/; Ref3-L-… (Reflections III reprint) and VSh '…herev' variants exist, not downloaded.",
+ "game_text_lines": "Deploy on your non-droid character present at a\nbattleground site; character may not leave here or\nmove. Target a Dark Jedi at a site. You lose no more\nthan 1 Force to Force drains at target’s location. This\nUtinni Effect canceled when reached by target."
+}

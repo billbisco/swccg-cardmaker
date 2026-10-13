@@ -1,0 +1,44 @@
+{
+ "id": "vs11-10",
+ "number": "10",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "0"
+  ],
+  [
+   "ARMOR",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "1",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: TRANSPORT",
+ "title": "Medium Transport",
+ "caption": "Medium Transport (V)",
+ "game_text": "Permanent pilot provides no ability. During battle, may target an opponent’s capital starship present. Draw destiny. Target and this starship are lost if destiny + 2 > target’s defense value.",
+ "lore": "Passenger and cargo transport built by Gallofree Yards. Enormous cargo bays can be outfitted to safely accommodate large numbers of troops, munitions or supplies.",
+ "destiny": "3",
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Medium Transport",
+ "art": {
+  "src": "src/vs11/10-Hoth-L-mediumtransport.gif",
+  "modern": null
+ },
+ "notes": "Non-unique (no dot on slip or printed card). Banner CAPITAL: TRANSPORT. Stats POWER 0 / ARMOR 3 / HYPERSPEED 4 (the ARMOR value sits right-aligned in its box on the slip); deploy 4 / forfeit 1. Scomp-link ring → scomp true. Icon column top to bottom: yellow pilot helmet (permanent pilot) → permanent-pilot, nav (red square, green dome). Curly apostrophes in opponent’s / target’s. Lore matches the scan. Base scan only at 350 px; copyright 1996 (Hoth). No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "game_text_lines": "Permanent pilot provides no ability. During battle,\nmay target an opponent’s capital starship present.\nDraw destiny. Target and this starship are lost if\ndestiny + 2 > target’s defense value."
+}

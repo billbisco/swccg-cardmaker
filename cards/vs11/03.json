@@ -1,0 +1,28 @@
+{
+ "id": "vs11-03",
+ "number": "03",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "Disarming Creature",
+ "caption": "•Disarming Creature (V)",
+ "game_text": "Plays on table. Colo Claw Fish is canceled. Bane Malar affects Force drains only at his site. During an attack (except at a pit), your characters at that site may fire character weapons at participating creatures.",
+ "lore": "Luke’s defensive maneuver put him out of arm’s way.",
+ "destiny": "6",
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Disarming Creature",
+ "art": {
+  "src": "src/vs11/03-Hoth-L-disarmingcreature.gif",
+  "modern": null
+ },
+ "notes": "Banner DEFENSIVE SHIELD (red Effect top blending into the teal shield frame on the slip). The printed Hoth Immediate Effect is unrestricted (no dot) → title kept without dot; the slip's heading and caption print '•Disarming Creature (V)' (Defensive Shields are unique). No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophes in Luke’s and arm’s (wiki straight). Base scan only at 350 px; copyright 1996 (Hoth), just legible. No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "game_text_lines": "Plays on table. Colo Claw Fish is canceled. Bane Malar\naffects Force drains only at his site. During an attack\n(except at a pit), your characters at that site may fire\ncharacter weapons at participating creatures."
+}

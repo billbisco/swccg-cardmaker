@@ -1,0 +1,30 @@
+{
+ "number": "28",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Restricted Access",
+ "caption": "Restricted Access (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. I’d Just As Soon Kiss A Wookiee may not be played. After starting hands are drawn, to deploy a character for free (or 0 Force), opponent must first use X Force, where X = half that character’s printed deploy cost (round up). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "In an effort to direct Luke toward Vader, Lieutenant Bewil used his control of hatchways and lift tubes to cut off Luke’s support, limiting his options and resources.",
+ "destiny": "4",
+ "base_page": "Restricted Access",
+ "art": {
+  "src": "src/vs11/28-CloudCity-D-restrictedaccess-decipher-archive.gif",
+  "modern": null
+ },
+ "id": "vs11-28",
+ "virtual_set": 11,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot; printed card Unrestricted). Banner EFFECT. Margin credits: left 'Original concept by Michael Pistone', right 'Kashyyyk Regional Winner 2004' (same credit as vs9/22). Curly apostrophes in I’d and character’s; red circle-slash A at the end → {alter}; slip text matches the stub. Base page 'Restricted Access' = printed archive face. Lore corrected from the scan: 'Lieutenant Bewil' (wiki 'Captain Bewil'), curly apostrophe in Luke’s. Two 350 px scans (CC-D-restrictedaccess.gif also downloaded; same face). Copyright 1997 (Cloud City) by set. No modern PC remake or Virtual Block image found (modern null).",
+ "margin_left": "Original concept by Michael Pistone",
+ "margin_right": "Kashyyyk Regional Winner 2004",
+ "game_text_lines": "Deploy on table. I’d Just As Soon Kiss A Wookiee may\nnot be played. After starting hands are drawn, to deploy\na character for free (or 0 Force), opponent must first\nuse X Force, where X = half that character’s printed\ndeploy cost (round up). {alter}"
+}

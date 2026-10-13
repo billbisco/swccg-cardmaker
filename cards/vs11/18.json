@@ -1,0 +1,29 @@
+{
+ "number": "18",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Emperor’s Power",
+ "caption": "•Emperor’s Power (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Emperor. Jedi are power -1 and deploy +1. During opponent’s move phase, if Emperor present with Vader (or with two Imperial Council Members at Conference Room or any Throne Room), opponent loses 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "From his throne room aboard the second Death Star, Emperor Palpatine monitors activity throughout the galaxy.",
+ "destiny": "5",
+ "base_page": "Emperor's Power",
+ "art": {
+  "src": "src/vs11/18-DS2-D-emperorspower.gif",
+  "modern": "src/vs11/modern/18-VB3-D-emperorspower-pre.gif"
+ },
+ "id": "vs11-18",
+ "virtual_set": 11,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "grabber": false,
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Emperor’s); wiki page title straight. Banner EFFECT, no grabber box. No inline icons and no immunity icon; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright SE-style line with 2000 legible. No V<N> remake; modern = Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Deploy on Emperor. Jedi are power -1 and deploy +1.\nDuring opponent’s move phase, if Emperor present\nwith Vader (or with two Imperial Council Members at\nConference Room or any Throne Room), opponent\nloses 1 Force."
+}

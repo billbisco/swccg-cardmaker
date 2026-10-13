@@ -1,0 +1,43 @@
+{
+ "id": "vs11-05",
+ "number": "05",
+ "virtual_set": 11,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "icons": [
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: A-WING",
+ "title": "•Green Squadron 1",
+ "caption": "•Green Squadron 1 (V)",
+ "game_text": "May add Green Leader as a pilot. Once per turn, may ▲ Diversionary Tactics. If with _Executor_ at end of battle, may draw destiny; _Executor_ and this starfighter lost if destiny > 5.",
+ "lore": "Constructed at Chardaan Shipyards, a zero-gravity facility. Typically used as an escort for Y-wings or B-wings on critical attack missions.",
+ "destiny": "3",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Green Squadron 1",
+ "art": {
+  "src": "src/vs11/05-DS2-L-greensquadron1.gif",
+  "modern": "src/vs11/modern/05-VB3-L-greensquadron1-pre.gif"
+ },
+ "notes": "Unique. Banner STARFIGHTER: A-WING. Stats POWER 3 / MANEUVER 5 / HYPERSPEED 4; deploy 2 / forfeit 4. Scomp-link ring → scomp true. Icon column: nav only (red square, green dome). 'Executor' italic twice on the slip; ▲ printed (stub expands it). Lore matches the scan. Base scan only at 350 px; copyright line Death Star II SE-style (2000). Modern: Virtual Block 3 only (VB3 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "May add Green Leader as a pilot. Once per turn,\nmay ▲ Diversionary Tactics. If with _Executor_ at\nend of battle, may draw destiny; _Executor_ and\nthis starfighter lost if destiny > 5."
+}

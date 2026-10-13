@@ -1,0 +1,28 @@
+{
+ "number": "24",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•I Want That Ship",
+ "caption": "•I Want That Ship (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your battleground. During battle, whenever opponent’s card is hit by a non-{permanent-weapon} (once per card targeted), opponent’s total power is cumulatively -4 (-2 if hit by a lightsaber).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Like nerf herders herding nerfs, Imperial commanders often use TIE fighters to drive fleeing Rebel ships into tractor beam range.",
+ "destiny": "4",
+ "base_page": "I Want That Ship",
+ "art": {
+  "src": "src/vs11/24-Dagobah-D-iwantthatship.gif",
+  "modern": "src/vs11/modern/24-VB2-D-iwantthatship-pre.gif"
+ },
+ "id": "vs11-24",
+ "virtual_set": 11,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT. Inline icon after 'non-' is the black square with a green blade; per STANDARD rev 8 that glyph is the Permanent Weapon icon (the text continues '(-2 if hit by a lightsaber)', and GEMP's later VB text reads 'non-[Permanent Weapon] weapon') → {permanent-weapon} (renders the same image as {lightsaber}; the brief's default token would be {lightsaber}); the wiki stub reads it as 'non-lightsaber' (differs). Curly apostrophes in opponent’s (twice). Lore matches the scan (no quotes). Only a 350 px scan exists; copyright 1997 (Dagobah) by set, not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on your battleground. During battle, whenever\nopponent’s card is hit by a non-{permanent-weapon} (once per card\ntargeted), opponent’s total power is cumulatively -4\n(-2 if hit by a lightsaber)."
+}
