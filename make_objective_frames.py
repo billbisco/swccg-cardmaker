@@ -44,9 +44,9 @@ def recolour(img: Image.Image, dh: float, ks: float, kv: float, rows=None, flatt
 def main():
     # Dark Side: Bardez "DS - Objective" Template layer (1497×2073 at 67,73): hue .725 / sat .47 / val .34
     ds = GimpDocument(str(ROOT / "bardez/DS - Objective.xcf")).raw_layers[4].image
-    split = 1165                                         # frame row of the art window's lower bevel
-    top = recolour(ds, 0.70 - 0.725, 0.70 / 0.47, 0.45 / 0.34, rows=slice(0, split))
-    ds2 = recolour(top, 0.76 - 0.725, 0.64 / 0.47, 0.44 / 0.34, rows=slice(split, None))
+    # Bill (2026-10-13): one purple over the whole frame — the red-purple of the text-box half / the slip; the PC
+    # card's bluer upper half is not wanted
+    ds2 = recolour(ds, 0.76 - 0.725, 0.64 / 0.47, 0.44 / 0.34)
     ds2.save(ROOT / "assets/frames/objective.png", optimize=True)
 
     # Light Side: Bardez "LS - Epic Objective" frame layer (6) + its Objective icon layer (8), both at 67,73
