@@ -55,6 +55,8 @@ def main():
         c = json.load(open(ROOT / f"cards/vs{vs}/{n}.json", encoding="utf-8"))
         name = remaster_name(vs, n, c)
         png = OUT_DIR / f"vs{vs}-{n}_745.png"
+        if not png.exists():
+            png = OUT_DIR / f"vs{vs}-{n}_1039.png"   # landscape sites
         data = webp_bytes(png)
         if changed_only:
             old = prev.get(name)

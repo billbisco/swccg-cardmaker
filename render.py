@@ -702,7 +702,12 @@ def build_html(card: dict) -> str:
             boxes = t["stats"]
         if boxes is t["stats"]:
             boxes = stat_boxes(t, len(boxes)) or boxes   # the wells as painted in the frame
-        for (x, w), (label, value) in zip(boxes, stats):
+        is_char = "character" in card["template"]
+        for i, ((x, w), (label, value)) in enumerate(zip(boxes, stats)):
+            # Decipher sets the value at the right end of its box (ARMOR      5, LANDSPEED    2 on starships and
+            # vehicles; POWER 5 / ABILITY 6 fill theirs) — except a character's wide third box (ARMOR 5 follows the
+            # label, Boba Fett). Bill 2026-10-13 (Jabba's Space Cruiser (V)).
+            vcls = "val" if (is_char and i >= 2) else "val r"
             # a label-only box (FORCE-SENSITIVE, MAINTENANCE DROID) stays on one line: shrink it to the box as the
             # slips do (LE-BO2D9 (V), 2026-10-13); AGBoldCnA caps ≈ 0.50 em + 1.8 px tracking per character
             lab_style = ""
@@ -710,7 +715,7 @@ def build_html(card: dict) -> str:
                 # full height, squeezed horizontally to the well (as the slips print MAINTENANCE DROID) — fitlab JS
                 lab_style = f' class="lab fitlab" data-avail="{w - 2 * t.get("stat_pl", 16)}" style="white-space:nowrap;display:inline-block;transform-origin:left center"'
             parts.append(f'<div class="stat" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
-                         f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{"<span class=val>" + esc(value) + "</span>" if value else ""}</div>')
+                         f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{f'<span class="{vcls}">' + esc(value) + "</span>" if value else ""}</div>')
     if "card_type" in t and card.get("card_type"):
         parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc_i(card["card_type"])}</div>')
     if card.get("banner_icon") and "banner_icon" in t:
@@ -832,7 +837,8 @@ def build_html(card: dict) -> str:
     .nol{{position:absolute;left:0;top:0;width:50px;height:50px;line-height:52px;text-align:center;font-family:AGBoldCnA;font-size:46px;color:{ink}}}
     .stat{{display:flex;align-items:center;padding-left:{t.get("stat_pl", 16)}px;padding-bottom:6px;box-sizing:border-box}}
     .stat .lab{{font-family:AGBoldCnA;font-size:59px;color:{t.get("stats_ink", ink)};letter-spacing:0.6px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
-    .stat .val{{font-family:AGMedExt;font-weight:bold;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:24px;-webkit-text-stroke:1.6px {t.get("stats_ink", ink)}}}
+    .stat .val{{font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
+    .stat .val.r{{margin-left:auto;padding-left:18px;margin-right:{t.get("stat_pl", 16) + 2}px;transform-origin:right center}}
     .ctype{{font-family:AGBoldCnA;font-size:60px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:61px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}

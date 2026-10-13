@@ -19,6 +19,21 @@ TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{contro
              "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}"}
 
 
+KEYWORDS = r"bounty hunter|information broker|leader|spy|smuggler|gambler|scout|thief|gangster|assassin"
+
+
+def bold_keywords(lore: str) -> str:
+    """Remaster enhancement (Bill 2026-10-13): bold a character's lore characteristics everywhere, even where Decipher
+    printed them plain. The wiki keeps the lore as printed; only the remaster image gets the bold."""
+    parts = re.split(r"(\*[^*]+\*)", lore)   # leave already-bold runs alone
+    def one(m):
+        before, after = m.string[:m.start()], m.string[m.end():]
+        if re.search(r"(?i)\bformer\s+$", before) or re.match(r"\s+on\b|[’']s\b", after):
+            return m.group(0)        # "Former scout", "to spy on the Hutt", "smuggler's" — not a characteristic
+        return f"*{m.group(0)}*"
+    return "".join(p if p.startswith("*") else re.sub(rf"(?i)(?<![A-Za-z])(?:{KEYWORDS})(?![A-Za-z])", one, p) for p in parts)
+
+
 def template_for(c: dict) -> str:
     side = "ls" if c["side"] == "Light" else "ds"
     st = (c.get("slip_type") or "").lower()
@@ -71,7 +86,7 @@ def convert(c: dict, vs: int) -> dict:
     card = {
         "id": f"vs{vs}-{int(c['number']):02d}", "template": t, "side": c["side"], "title": c["title"],
         "caption": c.get("caption") or f"{c['title']} (V)", "number": str(int(c["number"])), "virtual_set": vs,
-        "destiny": c.get("destiny") or "", "lore": c.get("lore") or "", "game_text": gt,
+        "destiny": c.get("destiny") or "", "lore": bold_keywords(c.get("lore") or "") if "character" in template_for(c) else c.get("lore") or "", "game_text": gt,
         "icons": c.get("icons") or [], "scomp": bool(c.get("scomp")),
         "copyright": c.get("copyright") or "", "expansion_icon": SET_ICON.get(exp, None) if exp else None,
         "expansion_icon_in_hole": False,
