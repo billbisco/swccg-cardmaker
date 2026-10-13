@@ -1,0 +1,39 @@
+{
+ "number": "41",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lieutenant Renz",
+ "caption": "•Lieutenant Renz (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Once per game, if at a battleground site, may initiate a Force drain that cannot be canceled; Force drain is +X (this bonus may not be canceled; ignore other modifiers) where X = the number of unique (•) Stormtroopers at battleground sites.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Leader of one of the Emperor’s finest legions of troops. His command was placed at the disposal of Colonel Dyer. Always on the lookout for Rebel activity.",
+ "destiny": "2",
+ "base_page": "Lieutenant Renz",
+ "art": {
+  "src": "src/vs9/41-Endor-D-lieutenantrenz.gif",
+  "modern": "src/vs9/modern/41-VB3-D-lieutenantrenz-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box printed blank; deploy 2 / forfeit 4. 'Stormtroopers' capitalised as printed on the slip. Slip text matches the stub (stub writes '(*)' for the printed '(•)'). Icon column: warrior (blue, blaster). Imperial (Imperial disc on the base scan; printed icon Warrior). Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Endor line (1999, project default as vs8/05), not legible at 350 px. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs9-41",
+ "virtual_set": 9,
+ "game_text_lines": "Once per game, if at a battleground site, may\ninitiate a Force drain that cannot be canceled;\nForce drain is +X (this bonus may not be canceled;\nignore other modifiers) where X = the number of\nunique (•) Stormtroopers at battleground sites."
+}

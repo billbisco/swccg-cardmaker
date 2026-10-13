@@ -1,0 +1,28 @@
+{
+ "number": "35",
+ "side": "Dark",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "•Feltipern Trevagg’s Stun Rifle",
+ "caption": "•Feltipern Trevagg’s Stun Rifle (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to deploy on your bounty hunter (free on Feltipern Trevagg). May target a character for free. Draw destiny. Target captured (and you may take one Interrupt from Lost Pile into hand) if destiny +2 > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Assault rifle modified by Feltipern. Used by the Gotal bounty hunter before he became a tax collector. Occasionally brought along to ‘ease’ Feltipern’s collection duties.",
+ "destiny": "2",
+ "base_page": "Feltipern Trevagg's Stun Rifle",
+ "art": {
+  "src": "src/vs9/35-SE-D-feltiperntrevaggsstunrifle.gif",
+  "modern": "src/vs9/modern/35-VB3-D-feltiperntrevaggsstunrifle-pre.gif"
+ },
+ "id": "vs9-35",
+ "virtual_set": 9,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in heading and caption (Trevagg’s). Green Character Weapon frame, banner CHARACTER WEAPON. No inline icons; slip text matches the stub. Lore corrected from scan: curly single quotes around ‘ease’ and curly apostrophe in Feltipern’s (wiki straight). 'bounty hunter' in the lore is not visibly bold on the 350 px scan (weapon lore; left plain). Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Use 1 Force to deploy on your bounty hunter (free on\nFeltipern Trevagg). May target a character for free.\nDraw destiny. Target captured (and you may take one\nInterrupt from Lost Pile into hand) if destiny +2 >\ndefense value."
+}

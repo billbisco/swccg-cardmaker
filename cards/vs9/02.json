@@ -1,0 +1,41 @@
+{
+ "id": "vs9-02",
+ "number": "02",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Combat Vehicle",
+ "card_type": "COMBAT VEHICLE: AT-ST",
+ "title": "•Chewie’s AT-ST",
+ "caption": "•Chewie’s AT-ST (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "LANDSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "May add 2 pilots. During battle, if Chewie aboard, may target an opponent’s character or AT-ST present. Draw destiny. Target hit and power = 0 if destiny > defense value. Immune to attrition < 4.",
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Enclosed. Chewie’s daring capture of an Imperial AT-ST helped turn the tide in the Battle of Endor.",
+ "destiny": "4",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Chewie's AT-ST",
+ "art": {
+  "src": "src/vs9/02-Endor-L-chewiesatst.gif",
+  "modern": "src/vs9/modern/02-VB3-L-chewiesatst-pre.gif"
+ },
+ "notes": "Unique (•); curly apostrophe in the slip's heading and caption (Chewie’s). Scomp-link ring at the top-left of the text box → scomp true. Empty icon column (only the set sphere). Stats POWER 3 / ARMOR 4 / LANDSPEED 3, deploy 2 / forfeit 5 (same as printed). Curly apostrophe in opponent’s. Slip text matches the stub. Lore corrected from the scan (and the VB3 remake): 'Enclosed.' has a period (wiki 'Enclosed Chewie's') and Chewie’s takes a curly apostrophe. 'Enclosed' is not visibly bold on the 350 px scan or the 350 px VB3 remake — left plain (Blizzard Scout 1 prints it bold; may be worth checking on a better scan). Base scan only 350 px; copyright Endor line, 1999. Modern: VB3-L-chewiesatst-pre.gif (350 px); no V<N> remake.",
+ "game_text_lines": "May add 2 pilots. During battle, if Chewie aboard,\nmay target an opponent’s character or AT-ST\npresent. Draw destiny. Target hit and power = 0 if\ndestiny > defense value. Immune to attrition < 4."
+}

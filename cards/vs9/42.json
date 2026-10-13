@@ -1,0 +1,40 @@
+{
+ "number": "42",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lieutenant Watts",
+ "caption": "•Lieutenant Watts (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. Once per turn, if at a battleground site, may take a weapon from Lost Pile into hand to cancel a Force drain at a related site.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Native of Corulag. Watts’ gunnery skills produce devastating results. Temporarily assigned to Kuat Drive Yards to work on prototype AT-ST weaponry.",
+ "destiny": "2",
+ "base_page": "Lieutenant Watts",
+ "art": {
+  "src": "src/vs9/42-Endor-D-lieutenantwatts.gif",
+  "modern": "src/vs9/modern/42-VB3-D-lieutenantwatts-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box printed blank; deploy 2 / forfeit 4. Yellow DS pilot-power icon followed by '2.' at the start → {pilot:2} (stub expands 'Adds 2 to power of anything he pilots'). Icon column top to bottom: pilot (DS helmet), warrior (blue, blaster). Imperial (Imperial disc; printed icons Pilot, Warrior). Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs9-42",
+ "virtual_set": 9,
+ "game_text_lines": "{pilot:2}. Once per turn, if at a battleground site, may\ntake a weapon from Lost Pile into hand to cancel\na Force drain at a related site."
+}

@@ -1,0 +1,45 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Mace Windu",
+ "caption": "•Mace Windu (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "7"
+  ],
+  [
+   "JEDI MASTER",
+   ""
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "8",
+ "game_text": "Deploys -2 to same site as a Jedi. Mace’s game text may not be canceled and he may fire one weapon twice per battle. Boba Fett may not add battle destiny draws here. Once per game, may ▲ Blaster Deflection. Immune to attrition.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Jedi Master",
+ "lore": "Senior *Jedi Council member* who maintains rigorous adherence to the Code. Sent Qui-Gon to Naboo to accompany the Queen and learn more about the mysterious “dark warrior.”",
+ "destiny": "1",
+ "base_page": "Mace Windu",
+ "art": {
+  "src": "src/vs9/14-Cor-L-macewindu.gif",
+  "modern": "src/vs9/modern/14-V1-L-macewindu.gif"
+ },
+ "id": "vs9-14",
+ "virtual_set": 9,
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 6 / ABILITY 7 / JEDI MASTER (label only); deploy 8 / forfeit 8 (printed 6 / 7). Icon column: warrior only. Light Jedi Master (Coruscant frame, blue-blade Jedi Master disc; Episode I frame — art_trim may apply). The printed card shows the Coruscant ring AND an Episode I icon below it beside the lore box. ▲ where the stub expands the phrase. Margin credits (each printed on two lines on the slip): left 'Original concept by / Zane Thorp', right 'Texas State / Winner 2004'. Lore corrected from the scan and the 745 px V1 remake: 'Jedi Council member' is BOLD; curly double quotes with the period inside: “dark warrior.” (wiki straight single quotes, period outside). Base scan only at 350 px (Cor-L-macewindu.gif, not the _ai alternate image); copyright per the Coruscant convention. Modern: V1-L-macewindu.gif (745 px); VB5 -pre also exists, not downloaded.",
+ "margin_left": "Original concept by\nZane Thorp",
+ "margin_right": "Texas State\nWinner 2004",
+ "game_text_lines": "Deploys -2 to same site as a Jedi. Mace’s game\ntext may not be canceled and he may fire one\nweapon twice per battle. Boba Fett may not add\nbattle destiny draws here. Once per game, may\n▲ Blaster Deflection. Immune to attrition."
+}

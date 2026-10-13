@@ -1,0 +1,31 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Quick Draw",
+ "caption": "•Quick Draw (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your lightsabers are destiny +2 and may target vehicles using 1 Force (each destiny draw is -2). If your character weapon (except a grenade) just lost, may use 1 Force to place that weapon in Used Pile. Once per game, may ▼ Sai’torr Kal Fas. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "It’s high noon on Dagobah, his droid’s reined in and Luke’s got a fistful of credits.",
+ "destiny": "3",
+ "base_page": "Quick Draw",
+ "art": {
+  "src": "src/vs9/17-Dagobah-L-quickdraw.gif",
+  "modern": "src/vs9/modern/17-VB4-L-quickdraw-pre.gif"
+ },
+ "id": "vs9-17",
+ "virtual_set": 9,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "UNIQUENESS: the slip's heading and caption print • (stub Unique) but the printed card is not unique ('Quick Draw', wiki Unrestricted) — title kept as printed (no dot), caption as the slip; caller to decide whether the remaster title gains the dot (cf. the Defensive Shield rule). Banner EFFECT, no grabber box. ▼ where the stub expands the phrase; curly apostrophe in Sai’torr; red circle-slash A → {alter}. Margin credits: left 'Original concept by Lee Edwards', right 'Florida State Winner 2004'. Lore: curly apostrophes (It’s, droid’s, Luke’s); otherwise matches. Base scan only at 350 px; copyright per Dagobah convention. Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "grabber": false,
+ "margin_left": "Original concept by Lee Edwards",
+ "margin_right": "Florida State Winner 2004",
+ "game_text_lines": "Deploy on table. Your lightsabers are destiny +2 and\nmay target vehicles using 1 Force (each destiny draw\nis -2). If your character weapon (except a grenade)\njust lost, may use 1 Force to place that weapon in\nUsed Pile. Once per game, may ▼ Sai’torr Kal Fas. {alter}"
+}

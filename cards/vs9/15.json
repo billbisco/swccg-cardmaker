@@ -1,0 +1,43 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Mon Mothma",
+ "caption": "•Mon Mothma (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "POLITICS",
+   "3"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "*Agendas*: order, peace. Emperor may not target characters with politics here. Once per turn, if in a senate majority, may take your just drawn battle destiny into hand. Once per game, may ▼ a battleground.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Native of Chandrila. Leader of the Alliance. A former member of the Imperial Senate where she was a formidable opponent to then-Senator Palpatine. Friend of Bail Organa.",
+ "destiny": "1",
+ "base_page": "Mon Mothma",
+ "art": {
+  "src": "src/vs9/15-Endor-L-monmothma.gif",
+  "modern": null
+ },
+ "id": "vs9-15",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / POLITICS 3 (third box is a value box); deploy 3 / forfeit 6 (printed 5 / 8). 'Agendas' bold (colon plain). ▼ where the stub expands the phrase. Icon column empty (only the set sphere). NEW ELEMENT: the slip prints a round silver Republic crest (Game Aid g007 'Character - Republic') at the left end of the stat row, left of the POWER box — recorded as \"stat_icon\": \"republic\" (no spec field exists; renderer support needed). Rebel (printed Endor frame, Rebel disc). MARGIN CREDITS: both are in the RIGHT margin as two vertical lines ('Original concept by Brandon Schele' / 'World Champion 2004'), nothing on the left — written as margin_right with a \\n; the renderer handles only one line per margin. Lore matches the wiki; 350 px scan only, 'Leader' looks plain (not marked bold). Copyright per the Endor convention (not legible). No modern PC remake or Virtual Block image found (modern null).",
+ "stat_icon": "republic-crest",
+ "margin_right": "Original concept by Brandon Schele\nWorld Champion 2004",
+ "game_text_lines": "*Agendas*: order, peace. Emperor may not target\ncharacters with politics here. Once per turn, if\nin a senate majority, may take your just drawn\nbattle destiny into hand. Once per game, may\n▼ a battleground."
+}

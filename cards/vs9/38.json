@@ -1,0 +1,29 @@
+{
+ "number": "38",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Imperial Tyranny",
+ "caption": "•Imperial Tyranny (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: ▼ Empire’s New Order. OR If Vader just won a battle at the same site as an alien, place that alien out of play. LOST: If a battle was just initiated where you have a character weapon card, place the top card of your Lost Pile on top of Reserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire considers alien species to be inferior.",
+ "destiny": "4",
+ "base_page": "Imperial Tyranny",
+ "art": {
+  "src": "src/vs9/38-Endor-D-imperialtyranny.gif",
+  "modern": "src/vs9/modern/38-VB3-D-imperialtyranny-pre.gif"
+ },
+ "id": "vs9-38",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Printed base is a Lost Interrupt; slip banner reads USED OR LOST INTERRUPT. The slip runs USED: … LOST: … as one paragraph (no line break before LOST:), kept as printed. Slip heading prints a double space '•Imperial Tyranny  (V)'; the bottom strip has a single space (caption). ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; curly apostrophe in Empire’s. Lore matches the scan. Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "heading": "•Imperial Tyranny  (V)",
+ "game_text_lines": "USED: ▼ Empire’s New Order. OR If Vader just won a\nbattle at the same site as an alien, place that alien\nout of play. LOST: If a battle was just initiated where\nyou have a character weapon card, place the top card\nof your Lost Pile on top of Reserve Deck."
+}

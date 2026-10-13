@@ -11,7 +11,7 @@
  "affiliation": null,
  "title": "•The Time For Our Attack Has Come",
  "caption": "The Time For Our Attack Has Come (V)",
- "game_text": "If you just deployed or moved a second Rebel starfighter to a system, deploy a {independent} starship there from under your Starting Effect; deploy on that starship: it is power and hyperspeed +2 and immune to attrition < 5. Once per game this starship may make an additional move. {control}",
+ "game_text": "If you just deployed or moved a second Rebel starfighter to a system, deploy a {set:ds2} starship there from under your Starting Effect; deploy on that starship: it is power and hyperspeed +2 and immune to attrition < 5. Once per game this starship may make an additional move. {control}",
  "lore": "“With the Imperial Fleet spread throughout the galaxy in a vain effort to engage us, it is relatively unprotected.”",
  "destiny": "5",
  "expansion": "Death Star II",
@@ -27,5 +27,5 @@
  "notes": "Banner IMMEDIATE EFFECT, no grabber box → grabber false (printed base is already an Immediate Effect). UNIQUENESS: the printed card is unique ('•The Time For Our Attack Has Come' on the scan, wiki Unique) but the slip's heading and caption print NO dot — title keeps the printed dot, caption follows the slip; the stub's uniqueness field is blank. Inline icon: a small round sphere with blue/white/red diagonal stripes = the Independent icon (stub reads 'an Independent starship') → {independent} (the slip prints 'a'). Text ends with the red circle-slash C → {control}. Margin credits printed vertically: left 'Original concept by David Destefanis', right 'DeckTech Contest Winner 2004'. Lore corrected from scan: curly double quotes (wiki has straight single quotes). Base scan only at 350 px; copyright line SE-style with 2000, partly legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
  "id": "vs8-20",
  "virtual_set": 8,
- "game_text_lines": "If you just deployed or moved a second Rebel starfighter\nto a system, deploy a {independent} starship there from under your\nStarting Effect; deploy on that starship: it is power and\nhyperspeed +2 and immune to attrition < 5. Once per\ngame this starship may make an additional move. {control}"
+ "game_text_lines": "If you just deployed or moved a second Rebel starfighter\nto a system, deploy a {set:ds2} starship there from under your\nStarting Effect; deploy on that starship: it is power and\nhyperspeed +2 and immune to attrition < 5. Once per\ngame this starship may make an additional move. {control}"
 }

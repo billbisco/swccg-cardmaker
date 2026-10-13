@@ -1,0 +1,41 @@
+{
+ "id": "vs9-03",
+ "number": "03",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Chief Chirpa",
+ "caption": "•Chief Chirpa (V)",
+ "stats": [
+  [
+   "POWER",
+   "0"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "2",
+ "game_text": "Deploys only on Endor. Ewoks on Endor are power +1. “Vehicle with armor” on Ewok Catapult may be treated as “non–Dark Jedi character” (“crashes” is then treated as “lost”). May not be targeted by opponent.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Leader of Wicket’s Ewok tribe for 42 seasons. Head of the Council of Elders. Decided to spare Han’s Rebels and join their fight against the Empire.",
+ "destiny": "2",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Chief Chirpa",
+ "art": {
+  "src": "src/vs9/03-Endor-L-chiefchirpa.gif",
+  "modern": "src/vs9/modern/03-VB3-L-chiefchirpa-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 0 / ABILITY 2 and an EMPTY third stat box (printed blank on both the slip and the Endor card) → ['',''] as vs3/04. No icons in the column. Alien (black disc with glowing eyes on the Endor frame). The slip prints 'non–Dark Jedi' with an en dash (longer than the hyphen in other slips' 'non-'); curly double quotes throughout. Slip text matches the stub apart from quotes. Lore corrected from scan: curly apostrophes in Wicket’s and Han’s. 'Leader' not visibly bold at 350 px — left plain (renderer bolds it). Base scan only 350 px; copyright Endor 1999. Modern: VB3-L-chiefchirpa-pre.gif (350 px); no V<N> remake.",
+ "game_text_lines": "Deploys only on Endor. Ewoks on Endor are power\n+1. “Vehicle with armor” on Ewok Catapult may\nbe treated as “non–Dark Jedi character”\n(“crashes” is then treated as “lost”). May not be\ntargeted by opponent."
+}

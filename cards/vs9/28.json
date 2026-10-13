@@ -1,0 +1,28 @@
+{
+ "number": "28",
+ "side": "Dark",
+ "slip_type": "Vehicle Weapon",
+ "card_type": "VEHICLE WEAPON",
+ "title": "AT-ST Dual Cannon",
+ "caption": "AT-ST Dual Cannon (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your AT-ST. May target a character, creature or vehicle for free. Draw destiny. Target hit (may lose 2 Force to make it lost instead) if destiny +X > defense value, where X = the number of your AT-STs present. May fire repeatedly for 2 Force each time.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "High rate of fire used for anti-personnel operations. Enhanced design from prototype used in the Battle of Hoth.",
+ "destiny": "4",
+ "base_page": "AT-ST Dual Cannon",
+ "art": {
+  "src": "src/vs9/28-Endor-D-atstdualcannon.gif",
+  "modern": "src/vs9/modern/28-VB3-D-atstdualcannon-pre.gif"
+ },
+ "id": "vs9-28",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Non-unique (no dot; wiki Unrestricted). Green weapon frame, banner VEHICLE WEAPON. No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright (Endor, 1999) not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Deploy on your AT-ST. May target a character, creature\nor vehicle for free. Draw destiny. Target hit (may lose 2\nForce to make it lost instead) if destiny +X > defense\nvalue, where X = the number of your AT-STs present.\nMay fire repeatedly for 2 Force each time."
+}

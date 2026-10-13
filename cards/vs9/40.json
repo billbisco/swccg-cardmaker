@@ -1,0 +1,40 @@
+{
+ "number": "40",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lieutenant Grond",
+ "caption": "•Lieutenant Grond (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. Adds one battle destiny with Colonel Dyer or if driving a swoop. May place Lieutenant Grond in Used Pile to cancel a Force drain at a related location.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Colonel Dyer’s aide. Coordinates *scout* actions. As a youth, raced swoops on homeworld of Corellia. Formerly served with Emperor’s Demonstration Team.",
+ "destiny": "2",
+ "base_page": "Lieutenant Grond",
+ "art": {
+  "src": "src/vs9/40-Endor-D-lieutenantgrond.gif",
+  "modern": "src/vs9/modern/40-VB3-D-lieutenantgrond-pre.gif"
+ },
+ "id": "vs9-40",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box printed blank; deploy 2 / forfeit 3. Yellow (DS) pilot-power icon followed by '2.' → {pilot:2} (stub: 'Adds 2 to power of anything he pilots'). Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster). Imperial (Imperial disc top-left, grey Imperial frame on the base scan). Lore corrected from scan: curly apostrophes in Dyer’s and Emperor’s (wiki straight); 'scout' is printed visibly heavier/wider than its neighbours on the 350 px scan → *scout* bold (low-res; consistent with Decipher's characteristic bolding). Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "{pilot:2}. Adds one battle destiny with Colonel Dyer or\nif driving a swoop. May place Lieutenant Grond in\nUsed Pile to cancel a Force drain at a related\nlocation."
+}

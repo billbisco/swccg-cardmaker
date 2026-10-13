@@ -1,0 +1,44 @@
+{
+ "id": "vs9-09",
+ "number": "09",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•General Solo",
+ "caption": "•General Solo (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "8",
+ "game_text": "{pilot:3}. During battle, may use 1 Force to play an Interrupt from your Reserve Deck (then place that card out of play). Once per turn, may ▲ a non-Interrupt card with “door” in game text.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "*Scout*. *Leader* of the Rebel strike team on Endor. Needed the cleverness of a Corellian to destroy the Endor control bunker. Discovered the truth about Luke and Leia.",
+ "destiny": "1",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "General Solo",
+ "art": {
+  "src": "src/vs9/09-Endor-L-generalsolo.gif",
+  "modern": "src/vs9/modern/09-V0-L-generalsolo.gif"
+ },
+ "notes": "Unique. Stats POWER 4 / ABILITY 3 / FORCE-ATTUNED (label only); slip deploy 4 / forfeit 8 (printed card 6 / 8). Icon column top to bottom: pilot, warrior. Rebel. Game text opens with the yellow Rebel pilot icon + '3.' → {pilot:3}. The slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Lore wording matches the wiki; bold taken from the 745 px PC remake V0-L-generalsolo.gif, which prints *Scout* and *Leader* in bold (not discernible on the 350 px Endor scan). Base scan only 350 px; copyright Endor 1999. Modern: V0-L-generalsolo.gif (745 px, Virtual Set 0 remake); VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:3}. During battle, may use 1 Force to play an\nInterrupt from your Reserve Deck (then place that\ncard out of play). Once per turn, may ▲ a\nnon-Interrupt card with “door” in game text."
+}

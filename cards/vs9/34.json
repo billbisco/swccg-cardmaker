@@ -1,0 +1,29 @@
+{
+ "number": "34",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Establish Secret Base",
+ "caption": "•Establish Secret Base (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you control Bunker, deploy on Endor system. At each Endor site you control with an AT-ST or biker scout, opponent’s Force generation is canceled. During your deploy phase, may ▼ one Aratech Corporation or an Effect with “Endor” in the lore or game text. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire’s remote bases develop new technology and hide sensitive projects from potential Rebel saboteurs.",
+ "destiny": "4",
+ "base_page": "Establish Secret Base",
+ "art": {
+  "src": "src/vs9/34-Endor-D-establishsecretbase.gif",
+  "modern": "src/vs9/modern/34-V7-D-establishsecretbase.gif"
+ },
+ "id": "vs9-34",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; curly double quotes around “Endor”; curly apostrophe in opponent’s; red circle-slash A → {alter}. Lore corrected from scan: curly apostrophe in Empire’s (wiki straight). Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: V7-D-establishsecretbase.gif (745 px, the PC's Virtual Set 7 remake — a later, different (V) card; art may be better); VB3 -pre (350) also exists, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "If you control Bunker, deploy on Endor system. At each\nEndor site you control with an AT-ST or biker scout,\nopponent’s Force generation is canceled. During your\ndeploy phase, may ▼ one Aratech Corporation or an\nEffect with “Endor” in the lore or game text. {alter}"
+}

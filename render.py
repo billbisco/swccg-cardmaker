@@ -251,6 +251,13 @@ TEMPLATES = {
         "set_icon_abs": (1401, 1965), "set_icon_size": 66,
         "copyright_x": 1416, "dark_text": True, "no_type": True, "gt_grow": True,
     },
+    "ls-admirals-order": {   # Bardez "LS - Admiral's Order.xcf" Template layer: title bar + black text box over full-bleed art
+        "frame": ("frames/ls-admirals-order.png", 0, 0),
+        "art": (146, 146, 1344, 1929), "title": (400, 206, 900, 100), "destiny": (1330, 204, 111, 110),
+        "game_text": (292, 1528, 1064, 464), "gt_ink": "#fff", "gt_grow": True,
+        "set_icon_abs": (1430, 1972), "set_icon_size": 60, "expansion_ring": (1379, 400), "expansion_size": 70,
+        "dark_text": True, "no_type": True, "no_copyright": True,
+    },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
     # The frame is assembled per card (force icons, packed icon boxes, scomp rings) by loc_frame().
@@ -307,6 +314,7 @@ ICON_FILES = {
     "astromech": "icons/astromech-bardez.png",
     "independent": "icons/inline-independent.png", "presence": "icons/col-presence.png",
     "republic-crest": "icons/inline-republic-crest.png",
+    "ds2": "icons/set-ds2-grainy.png",   # Death Star II icon in the column (Luke Skywalker, Rebel Scout (V))
     "light-force": "icons/inline-force-light.png", "dark-force": "icons/inline-force-dark.png",   # Game Aid g036 / g050 (Imperial Decree (V))
     "episode1": "icons/inline-episode1.png",   # Game Aid g033 (Hopping Mad (V): "non-[Episode I] C-3PO")   # the Republic affiliation icon itself (The Emperor (V): "Gains [Republic] at opponent's Senate")   # Presence = Game Aid g013 (droid on red), as on IG-88
     "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
@@ -716,6 +724,9 @@ def build_html(card: dict) -> str:
                 lab_style = f' class="lab fitlab" data-avail="{w - 2 * t.get("stat_pl", 16)}" style="white-space:nowrap;display:inline-block;transform-origin:left center"'
             parts.append(f'<div class="stat" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
                          f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{f'<span class="{vcls}">' + esc(value) + "</span>" if value else ""}</div>')
+    if card.get("stat_icon") and t.get("stats_y"):   # a round icon left of the stat row (Mon Mothma (V): the Republic crest)
+        sx0 = (stat_boxes(t, 3) or t["stats"])[0][0]
+        parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["stat_icon"]])}" style="position:absolute;left:{sx0 - 100}px;top:{t["stats_y"] - 14}px;width:96px;height:96px">')
     if "card_type" in t and card.get("card_type"):
         parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc_i(card["card_type"])}</div>')
     if card.get("banner_icon") and "banner_icon" in t:
@@ -788,7 +799,7 @@ def build_html(card: dict) -> str:
         else:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
-    if card.get("copyright"):
+    if card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
                      f'<div class="copyin">{esc(card["copyright"])}</div></div>')
@@ -803,6 +814,11 @@ def build_html(card: dict) -> str:
             cx_, cy_, cw_, ch_ = t.get("card_type", (gx, gy - 160, gw, 61))
             top, bot = cy_, gy + gh
             ink = "#000" if t.get("dark_text") else "#fff"
+            if key == "margin_right" and card.get("icons") and t.get("icon_slots"):
+                # the column icons sit in the right margin: the credit runs below them (Mace Windu (V))
+                top = max(top, t["icon_slots"][min(len(card["icons"]), len(t["icon_slots"])) - 1][1] + 100)
+                if t.get("set_icon_abs"):
+                    bot = min(bot, t["set_icon_abs"][1] - 8)   # and above the set sphere
             if key == "margin_left" and "deploy" in t and card.get("deploy") is not None:
                 # characters: the deploy/forfeit boxes sit in the left margin — the credit runs above them (as The
                 # Emperor (V) prints it), white on the dark frames
@@ -810,7 +826,7 @@ def build_html(card: dict) -> str:
             # the rotated line is as long as the text; shrink the font so it fits the span (AGCn italic ≈ 0.40 em/char)
             # the slips run the credit nearly the whole span at ~46 px; the fitcredit JS shrinks it only if it would overflow
             parts.append(f'<div class="copy" style="position:absolute;left:{x}px;top:{top}px;width:40px;height:{bot - top}px">'
-                         f'<div class="credit fitcredit" data-avail="{bot - top - 10}" style="color:{ink};font-size:46px">{esc(card[key])}</div></div>')
+                         f'<div class="credit fitcredit" data-avail="{bot - top - 10}"{' data-lines="2"' if chr(10) in card[key] else ''} style="color:{ink};font-size:46px">{esc(card[key]).replace(chr(10), "<br>")}</div></div>')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card.get("caption") or card["title"]
     cy = t.get("caption_y", 2082)
@@ -827,7 +843,7 @@ def build_html(card: dict) -> str:
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
-    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{ink};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 3)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
+    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{t.get("gt_ink", ink)};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 3)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
     .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:1.0em;line-height:0;vertical-align:0.02em}}
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
@@ -879,6 +895,11 @@ def build_html(card: dict) -> str:
       let creditFs = 46;   // rotated credits: unrotated width = run length; both share one size, as the slips print them
       for (const el of document.querySelectorAll('.fitcredit')) {
         let fs = 46; const avail = parseFloat(el.dataset.avail);
+        if (el.dataset.lines == '2') {   // the slip prints both credit lines side by side in one margin (Mon Mothma (V))
+          fs = 34; el.style.fontSize = fs + 'px'; el.style.lineHeight = '1.0'; el.style.flexShrink = '0'; el.style.textAlign = 'center';
+          while (el.offsetWidth > avail && fs > 20) { fs -= 1; el.style.fontSize = fs + 'px'; }
+          el.dataset.solo = '1'; continue;
+        }
         while (el.offsetWidth > avail && fs > 20) { fs -= 1; el.style.fontSize = fs + 'px'; }
         if (fs < 34) {   // too small on one line: two lines, as The Emperor (V) slip prints "Original concept / by Mike Gemme"
           el.style.whiteSpace = 'normal'; el.style.flexShrink = '0'; el.style.textWrap = 'balance'; el.style.width = avail + 'px'; el.style.textAlign = 'center';
@@ -887,7 +908,7 @@ def build_html(card: dict) -> str:
         }
         creditFs = Math.min(creditFs, fs);
       }
-      const cr = [...document.querySelectorAll('.fitcredit')];
+      const cr = [...document.querySelectorAll('.fitcredit')].filter(e => !e.dataset.solo);
       if (cr.length == 2 && cr[0].dataset.avail == cr[1].dataset.avail) for (const el of cr) el.style.fontSize = creditFs + 'px';
       for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;

@@ -1,0 +1,29 @@
+{
+ "number": "37",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Imperial Academy Training",
+ "caption": "•Imperial Academy Training (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Imperials armed with a blaster or rifle at battleground sites are forfeit +2 and their weapon destiny draws are +1. Once per battle, if you have a non-lightsaber weapon there, may use 2 Force to add 4 to your total power. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Graduates of the Empire’s military academies train to fire standard-issue weapons efficiently.",
+ "destiny": "4",
+ "base_page": "Imperial Academy Training",
+ "art": {
+  "src": "src/vs9/37-Endor-D-imperialacademytraining.gif",
+  "modern": "src/vs9/modern/37-VB3-D-imperialacademytraining-pre.gif"
+ },
+ "id": "vs9-37",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Red circle-slash A → {alter}. Slip text matches the stub. Lore corrected from scan: curly apostrophe in Empire’s (wiki straight). Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Imperials armed with a blaster or rifle\nat battleground sites are forfeit +2 and their weapon\ndestiny draws are +1. Once per battle, if you have a\nnon-lightsaber weapon there, may use 2 Force to add 4\nto your total power. {alter}"
+}

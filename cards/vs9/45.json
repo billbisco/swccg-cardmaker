@@ -1,0 +1,29 @@
+{
+ "number": "45",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Pinned Down",
+ "caption": "•Pinned Down (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. X = 4 on {ovs:8} Tusken Breath Mask. May place this Effect in your Used Pile to cancel a ‘react’.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Heavy blaster fire hampered Han’s attempts to open the Back Door to the Endor control bunker.",
+ "destiny": "4",
+ "base_page": "Pinned Down",
+ "art": {
+  "src": "src/vs9/45-Endor-D-pinneddown.gif",
+  "modern": "src/vs9/modern/45-VB3-D-pinneddown-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Inline icon before 'Tusken Breath Mask' is the ORANGE Original Virtual Set 8 sphere (matched against the VS8 slips' set symbol) = 'the (V) version' of Tusken Breath Mask, which is Tusken Breath Mask (V) (Virtual Set 8: Jabba's Court) → {ovs:8} (render.py's ovs token takes a set number; the stub drops the icon). Curly single quotes around ‘react’ (stub straight). Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "id": "vs9-45",
+ "virtual_set": 9,
+ "game_text_lines": "Deploy on table. X = 4 on {ovs:8} Tusken Breath Mask. May\nplace this Effect in your Used Pile to cancel a ‘react’."
+}

@@ -38,8 +38,8 @@ For each slip NN you are given:
    box on the base scan (and on a 745 px PC remake if one exists — the PC remakes keep the printed lore and bold) and
    correct the wiki: wording, curly quotes, italic ship names _…_, and BOLD keywords *…* — Decipher bolds
    characteristics in lore (leader, spy, smuggler, gambler, bounty hunter, scout, thief, information broker,
-   gangster, assassin when bold, Enclosed, hologram, dejarik…); mark bold only when you can see it, or when the card
-   is low-res only and the word is one of those characteristics (say "inferred" in notes). Record every correction.
+   gangster, assassin when bold, Enclosed, hologram, dejarik…); mark bold only when you can see it (the remaster
+   renderer bolds characters' keywords itself — Bill 2026-10-13 — so do not infer bold on low-res cards). Record every correction.
 4. Write cards/vsN/NN.json (ensure_ascii=False, indent 1) with "id": "vsN-NN", "virtual_set": N, "side", all spec
    fields. Never invent a value — null + a note. Copyright by base set: Premiere 1995; A New Hope / Hoth 1996;
    Dagobah / Cloud City "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC."; Jabba's Palace 1998 (Hoth-style

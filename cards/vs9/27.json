@@ -1,0 +1,29 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Aratech Corporation",
+ "caption": "•Aratech Corporation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. AT-STs and speeder bikes are power and forfeit +1. During your deploy phase, may reveal an AT-ST or Speeder Bike from hand to ▲ a unique (•) Imperial pilot of ability < 3 (or vice versa) and deploy both simultaneously. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Aratech Corporation sent support staff to various Imperial outposts and garrisons. Gave advanced briefings and training to biker scout personnel.",
+ "destiny": "4",
+ "base_page": "Aratech Corporation",
+ "art": {
+  "src": "src/vs9/27-Endor-D-aratechcorporation.gif",
+  "modern": "src/vs9/modern/27-V0-D-aratechcorporation.gif"
+ },
+ "id": "vs9-27",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. The slip's heading prints '•Aratech Corporation(V)' (no space before (V)); the bottom strip prints '•Aratech Corporation (V)' (caption). Banner EFFECT, no grabber box. The slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'; stub '(*)' = printed '(•)'; red circle-slash A at the end → {alter}. Lore matches the scan and the 745 px V0 remake. Base scan only at 350 px; copyright (Endor, 1999) not legible. Modern: V0-D-aratechcorporation.gif (745 px); VB3 (350) also exists, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. AT-STs and speeder bikes are power\nand forfeit +1. During your deploy phase, may reveal an\nAT-ST or Speeder Bike from hand to ▲ a unique (•)\nImperial pilot of ability < 3 (or vice versa) and deploy\nboth simultaneously. {alter}"
+}

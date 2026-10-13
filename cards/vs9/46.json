@@ -1,0 +1,28 @@
+{
+ "number": "46",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Scout Recon",
+ "caption": "•Scout Recon (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Find one of your missing characters. OR During battle, activate 1 Force for each of your scouts participating. OR During battle, if your Imperial with opponent’s alien, your total battle destiny is +3.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Familiarity with native terrain is essential to a scout garrison. Imperial command can also put this type of information to effective use.",
+ "destiny": "6",
+ "base_page": "Scout Recon",
+ "art": {
+  "src": "src/vs9/46-Endor-D-scoutrecon.gif",
+  "modern": "src/vs9/modern/46-VB3-D-scoutrecon-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Printed base is a Used Interrupt; banner USED INTERRUPT. 'OR During' capital D (twice) as printed; curly apostrophe in opponent’s. Slip text matches the stub. Lore matches the wiki and the scan (no bold visible on 'scout' at 350 px). Base scan only at 350 px; copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs9-46",
+ "virtual_set": 9,
+ "game_text_lines": "Find one of your missing characters. OR During battle,\nactivate 1 Force for each of your scouts participating.\nOR During battle, if your Imperial with opponent’s alien,\nyour total battle destiny is +3."
+}

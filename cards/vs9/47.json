@@ -1,0 +1,39 @@
+{
+ "number": "47",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Sergeant Wallen",
+ "caption": "•Sergeant Wallen (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "During battle here, your Imperial leaders may not be targeted by weapons. Your Imperials of ability < 4 at same site (except Galactic Senate) may not have their game text canceled or their forfeit value modified or reset.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Stormtrooper assigned to Colonel Dyer’s command. His unit was recommended to Commander Igar by Governor Yount of the Wakeelmui garrison.",
+ "destiny": "3",
+ "base_page": "Sergeant Wallen",
+ "art": {
+  "src": "src/vs9/47-Endor-D-sergeantwallen.gif",
+  "modern": "src/vs9/modern/47-VB3-D-sergeantwallen-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box printed blank; deploy 2 / forfeit 3. Slip text matches the stub. Icon column: warrior. Imperial (Imperial disc; printed icon Warrior). Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs9-47",
+ "virtual_set": 9,
+ "game_text_lines": "During battle here, your Imperial leaders may not\nbe targeted by weapons. Your Imperials of ability\n< 4 at same site (except Galactic Senate) may not\nhave their game text canceled or their forfeit value\nmodified or reset."
+}

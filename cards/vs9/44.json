@@ -1,0 +1,28 @@
+{
+ "number": "44",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Outflank",
+ "caption": "•Outflank (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just initiated battle at a site where their total power is greater than yours, you may use 1 Force (or cause opponent to use 1 Force) to relocate one of your characters or vehicles to that site from a related location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Commander Igar’s defense of Endor called for the use of speeder bikes to harass any attacking Rebels.",
+ "destiny": "6",
+ "base_page": "Outflank (Original)",
+ "art": {
+  "src": "src/vs9/44-Endor-D-outflank-decipher-archive.gif",
+  "modern": "src/vs9/modern/44-VB3-D-outflank-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Printed base is a Used Interrupt; banner USED INTERRUPT. Slip text matches the stub. Wiki has 'Outflank (Original)' (printed Decipher face, used here), 'Outflank (PC Errata)' and the bare 'Outflank' (same printed data). The 745 px Endor-D-outflank.gif is the PC re-typeset/errata face — downloaded to src/vs9/44-Endor-D-outflank.gif for art only; the 350 px decipher-archive scan is src. Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs9-44",
+ "virtual_set": 9,
+ "game_text_lines": "If opponent just initiated battle at a site where their\ntotal power is greater than yours, you may use 1 Force\n(or cause opponent to use 1 Force) to relocate one of\nyour characters or vehicles to that site from a related\nlocation."
+}

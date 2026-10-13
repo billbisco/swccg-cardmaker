@@ -1,0 +1,45 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Luke Skywalker, Rebel Scout",
+ "caption": "•Luke Skywalker, Rebel Scout (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "JEDI KNIGHT",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "7",
+ "game_text": "{pilot:2}. Deploys -2 to a forest. His weapon destiny draws are +1. At same site, opponent must first use 1 Force to fire a weapon. During opponent’s draw phase, if alone on Endor, may retrieve 1 Force. Immune to attrition < 5.",
+ "icons": [
+  "pilot",
+  "warrior",
+  "ds2"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Resourceful *scout* and member of the Rebel infiltration team assembled to destroy the shield generator. Surrendered to his father so that he would not endanger the mission.",
+ "destiny": "1",
+ "base_page": "Luke Skywalker, Rebel Scout",
+ "art": {
+  "src": "src/vs9/13-Ref2-L-lukeskywalkerrebelscout.gif",
+  "modern": "src/vs9/modern/13-V0-L-lukeskywalkerrebelscout.gif"
+ },
+ "id": "vs9-13",
+ "virtual_set": 9,
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 6 / ABILITY 6 / JEDI KNIGHT (label only); deploy 6 / forfeit 7 (printed 7 / 8). Text opens with the yellow pilot icon + '2.' → {pilot:2}. Icon column top to bottom: pilot, warrior, then a red/blue/white striped sphere = the Death Star II expansion symbol (same as the ring on DS2 Superficial Damage; the printed Ref2 card prints the same sphere third in its column — wiki lists it as the [[Reflections 2]] icon), then the VS9 set sphere. Written as describe: — renderer has icons/set-ds2-grainy.png. Rebel (Ref2 premium frame, Rebel disc; ring = Ref2 purple). Lore: 'scout' is BOLD on both the 354 px scan and the 745 px V0 remake (wiki plain) — otherwise matches. Base scan only at 354 px; copyright per the Reflections II convention. Modern: V0-L-lukeskywalkerrebelscout.gif (745 px, E1 face — art only); VB3 -pre (354) also exists, not downloaded.",
+ "game_text_lines": "{pilot:2}. Deploys -2 to a forest. His weapon destiny\ndraws are +1. At same site, opponent must first\nuse 1 Force to fire a weapon. During opponent’s\ndraw phase, if alone on Endor, may retrieve 1\nForce. Immune to attrition < 5."
+}

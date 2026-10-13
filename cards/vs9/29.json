@@ -1,0 +1,44 @@
+{
+ "number": "29",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Commander Igar",
+ "caption": "•Commander Igar (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "{pilot:2}, 3: any combat vehicle. Once per turn, if piloting a combat vehicle, may use 1 Force to cancel a ‘react’ from a related site to this site or cancel an opponent’s just drawn battle destiny at same site (except their first this battle).",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Leader. Served with General Veers’ Blizzard unit at Battle of Hoth. Assigned by Vader to coordinate surface defense of Endor’s moon. Kuat native.",
+ "destiny": "1",
+ "base_page": "Commander Igar",
+ "art": {
+  "src": "src/vs9/29-Endor-D-commanderigar.gif",
+  "modern": "src/vs9/modern/29-VB3-D-commanderigar-pre.gif"
+ },
+ "id": "vs9-29",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 6 (printed card 4 / 5). Text opens with the DS pilot icon followed by '2, 3: any combat vehicle.' → '{pilot:2}, 3: any combat vehicle.' (stub expands 'Adds 2 to power of anything he pilots. Adds 3 to power of any combat vehicle.'). Curly ‘react’ and opponent’s. Icon column top to bottom: pilot, warrior. Imperial (Imperial disc). Lore corrected from the scan: curly apostrophes in Veers’ and Endor’s (wiki straight); whether 'Leader' is bold cannot be judged at 350 px (left plain). Base scan only at 350 px; copyright (Endor, 1999) not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "{pilot:2}, 3: any combat vehicle. Once per turn, if\npiloting a combat vehicle, may use 1 Force to\ncancel a ‘react’ from a related site to this site or\ncancel an opponent’s just drawn battle destiny at\nsame site (except their first this battle)."
+}

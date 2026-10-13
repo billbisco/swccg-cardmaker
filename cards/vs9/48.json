@@ -1,0 +1,28 @@
+{
+ "number": "48",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Sneak Attack",
+ "caption": "•Sneak Attack (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If opponent just initiated a battle, place a card from hand on top of Reserve Deck.\nLOST: Add one battle destiny where you have an AT-ST, scout, or lone Imperial of ability < 4.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial training allows scouts to use speed and stealth to their advantage. On Endor, they were also backed up by Commander Igar’s AT-STs.",
+ "destiny": "4",
+ "base_page": "Sneak Attack",
+ "art": {
+  "src": "src/vs9/48-Endor-D-sneakattack.gif",
+  "modern": "src/vs9/modern/48-V0-D-sneakattack.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Printed base is a Used or Lost Interrupt; banner USED OR LOST INTERRUPT. USED:/LOST: lines separated by \\n. Slip text matches the stub. Lore matches the scan and the 745 px V0 remake except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Endor line (1999). Modern: V0-D-sneakattack.gif (745 px, 'Sneak Attack (V)' Virtual Set 0 page — same game text as this slip, i.e. the PC's later reissue of it).",
+ "id": "vs9-48",
+ "virtual_set": 9,
+ "game_text_lines": "USED: If opponent just initiated a battle, place a card\nfrom hand on top of Reserve Deck.\nLOST: Add one battle destiny where you have an AT-ST,\nscout, or lone Imperial of ability < 4."
+}

@@ -240,3 +240,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   smuggler, gambler, scout, thief, bounty hunter, information broker, gangster, assassin) is a welcome enhancement even
   where Decipher printed them plain — `build_vs.bold_keywords()` does it on the remaster image only (not "Former
   scout", not the verb "spy on"); the wiki lore stays as printed.
+- Rev 16 (VS9 run 2026-10-13): Admiral's Order template (`ls-admirals-order`, Bardez "LS - Admiral's Order.xcf"
+  Template layer: silver title bar + black text box over full-bleed art, white game text, no copyright overlay —
+  the scan keeps its own); the art maps the base scan by a measured `art.bbox` (text-box bevel ↔ scan). New:
+  `stat_icon` (a round icon left of the stat row — Mon Mothma (V)'s Republic crest), two-line margin credits from a
+  `\n` in the credit (both lines side by side in one margin), right credits run below the column icons and above the
+  set sphere, `ds2` column icon (Death Star II sphere, Luke Skywalker, Rebel Scout (V)). Bill: "spy" in "to spy on"
+  is bolded too. The VS8 #20 inline icon is the Death Star II icon (GEMP), not Independent. VS9 sheet from the
+  starwarsccg.org CDN (the IA capture no longer opens); release date not found (2005 or later from the credits).

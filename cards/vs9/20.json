@@ -1,0 +1,29 @@
+{
+ "number": "20",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•That’s One",
+ "caption": "•That’s One (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 2 Force to deploy on Chewie or Back Door; may place up to two cards from hand on Force Pile. Your battle destiny draws are +1. Once per game, may place this Effect out of play to cancel a battle just initiated here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Considering the life debt he owed to Han and his personal commitment to the Rebel Alliance, Chewie quickly volunteered to fly the stolen shuttle to Endor.",
+ "destiny": "3",
+ "base_page": "That's One",
+ "art": {
+  "src": "src/vs9/20-Endor-L-thatsone.gif",
+  "modern": "src/vs9/modern/20-VB3-L-thatsone-pre.gif"
+ },
+ "id": "vs9-20",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique (•). Curly apostrophe in title/caption (That’s) as the slip prints it. Banner EFFECT, no grabber box. No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright per Endor convention. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Use 2 Force to deploy on Chewie or Back Door; may\nplace up to two cards from hand on Force Pile. Your\nbattle destiny draws are +1. Once per game, may\nplace this Effect out of play to cancel a battle just\ninitiated here."
+}
