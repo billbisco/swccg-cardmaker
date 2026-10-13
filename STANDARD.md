@@ -153,3 +153,5 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   source). LS Objective frame = Bardez's LS Epic Objective re-hued to the Dark Objective's purple (hue 0.733): the
   Objective colour never changes between sides, only the scoring does. Maintenance ★ gets 6 px of air before "Lose"
   as on the slip. Base-page lore typos are fixed without asking (Bill).
+- Rev 9c (Bill 2026-10-12): Dark Objectives have a BLACK text box with white text (printed SE cards and the PC's
+  Virtual Block versions alike); only Light Objectives have the white box. No fill is drawn on the Dark frame.
