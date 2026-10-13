@@ -1,0 +1,29 @@
+{
+ "number": "49",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Well-earned Command",
+ "caption": "•Well-earned Command (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a battleground site. At sites where you have a vehicle with armor and an Imperial general (or Imperial commander), your total battle destiny is +3 and opponent may not draw more than two battle destiny. If opponent controls this site, this Effect lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial officers often simulate large-scale battles with hologram games to improve their tactical ability. Those who excel at these games often mark themselves for advancement.",
+ "destiny": "4",
+ "base_page": "Well-earned Command",
+ "art": {
+  "src": "src/vs9/49-Endor-D-wellearnedcommand.gif",
+  "modern": "src/vs9/modern/49-VB3-D-wellearnedcommand-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. 'this Effect lost.' (no 'is') as printed on the slip and stub. LORE CORRECTION: the wiki drops a word — the scan prints 'large-scale battles with hologram games', wiki 'large-scale battles with games'. 'hologram' is a word Decipher often bolds, but bold is not discernible on the 350 px scan, so left plain. Base scan only at 350 px; copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "id": "vs9-49",
+ "virtual_set": 9,
+ "game_text_lines": "Deploy on a battleground site. At sites where you have a\nvehicle with armor and an Imperial general (or Imperial\ncommander), your total battle destiny is +3 and\nopponent may not draw more than two battle destiny. If\nopponent controls this site, this Effect lost."
+}

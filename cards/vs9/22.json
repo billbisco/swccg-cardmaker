@@ -1,0 +1,31 @@
+{
+ "number": "22",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•The Professor",
+ "caption": "•The Professor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. It Can Wait may not be played. After starting hands are drawn, for opponent to deploy a card with ability for free, opponent must first use X Force, where X = half that card’s printed deploy cost (round up). May not be canceled. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Protocol droids are programmed to interface with a variety of computer technologies. Quick and precise interpretation can dramatically increase operational efficiency.",
+ "destiny": "4",
+ "base_page": "The Professor",
+ "art": {
+  "src": "src/vs9/22-Dagobah-L-theprofessor.gif",
+  "modern": "src/vs9/modern/22-VSh-L-theprofessor-pre.gif"
+ },
+ "id": "vs9-22",
+ "virtual_set": 9,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Margin credits: left 'Original concept by Michael Pistone', right 'Kashyyyk Regional Winner 2004' (italic, reading bottom-to-top). Curly apostrophe in card’s; red circle-slash A at the end → {alter} (stub 'Immune to Alter.'). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: the PC's Virtual Shields image VSh-L-theprofessor-pre.gif (350 px; non-pre also exists) — no V<N>/VB image.",
+ "grabber": false,
+ "margin_left": "Original concept by Michael Pistone",
+ "margin_right": "Kashyyyk Regional Winner 2004",
+ "game_text_lines": "Deploy on table. It Can Wait may not be played. After\nstarting hands are drawn, for opponent to deploy a card\nwith ability for free, opponent must first use X Force,\nwhere X = half that card’s printed deploy cost (round\nup). May not be canceled. {alter}"
+}

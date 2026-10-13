@@ -1,0 +1,28 @@
+{
+ "id": "vs9-01",
+ "number": "01",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "••A280 Sharpshooter Rifle",
+ "caption": "••A280 Sharpshooter Rifle (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your Rebel scout. During battles at same site, attrition against opponent is +1. May target a character, creature or vehicle at same or adjacent site for free. Draw destiny. Target hit if destiny +2 > defense value. Once during your control phase, may fire using 2 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "BlasTech sharpshooter rifle accurate to 500 meters. Corporal Janse brought several A280s with him when he left BlasTech.",
+ "destiny": "3",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "A280 Sharpshooter Rifle",
+ "art": {
+  "src": "src/vs9/01-Endor-L-a280sharpshooterrifle.gif",
+  "modern": "src/vs9/modern/01-VB3-L-a280sharpshooterrifle-pre.gif"
+ },
+ "notes": "Restricted (••) on slip heading, caption and printed title. Green Character Weapon frame, banner CHARACTER WEAPON. No inline icons; slip text matches the stub. Lore matches the wiki and the scan. Base scan only 350 px (no 745 px Decipher face on the wiki); copyright read off the scan as the Endor/SE-style line with 1999. Modern: VB3-L-a280sharpshooterrifle-pre.gif (350 px, Virtual Block 3; non-pre also exists, not downloaded); no V<N> remake.",
+ "game_text_lines": "Deploy on your Rebel scout. During battles at same site,\nattrition against opponent is +1. May target a character,\ncreature or vehicle at same or adjacent site for free.\nDraw destiny. Target hit if destiny +2 > defense value.\nOnce during your control phase, may fire using 2 Force."
+}

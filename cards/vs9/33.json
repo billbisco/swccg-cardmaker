@@ -1,0 +1,29 @@
+{
+ "number": "33",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Empire’s New Order",
+ "caption": "•Empire’s New Order (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Whenever an opponent’s alien is just lost, they lose 1 Force. While all of your ability on table is provided by Imperials and Imperial starship pilots, your admirals, generals, moffs, and Emperor are deploy -1 and forfeit +1. Aliens are deploy +1 and forfeit -1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Palpatine’s cruel vision of his Empire included the enslavement and subjugation of entire species.",
+ "destiny": "4",
+ "base_page": "Empire's New Order",
+ "art": {
+  "src": "src/vs9/33-Endor-D-empiresneworder.gif",
+  "modern": "src/vs9/modern/33-VB3-D-empiresneworder-pre.gif"
+ },
+ "id": "vs9-33",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Curly apostrophe in heading/caption (Empire’s) and in opponent’s. No inline icons and no immune icon; slip text matches the stub. Lore corrected from scan: curly apostrophe in Palpatine’s (wiki straight). Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Whenever an opponent’s alien is just\nlost, they lose 1 Force. While all of your ability on table\nis provided by Imperials and Imperial starship pilots,\nyour admirals, generals, moffs, and Emperor are deploy\n-1 and forfeit +1. Aliens are deploy +1 and forfeit -1."
+}

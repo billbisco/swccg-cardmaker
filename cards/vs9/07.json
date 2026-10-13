@@ -1,0 +1,28 @@
+{
+ "id": "vs9-07",
+ "number": "07",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Endor Celebration",
+ "caption": "•Endor Celebration (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Cancel an Effect with “occupation” in title. {sense} OR During your draw phase, if you have a Rebel scout alone at Back Door, draw destiny. Activate or retrieve 5 Force and place this Interrupt on bottom of Lost Pile if destiny < the number of your scouts on table.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Rebel presence on Endor meant that the Ewoks would be able to live free from the Empire’s tyranny.",
+ "destiny": "5",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Endor Celebration",
+ "art": {
+  "src": "src/vs9/07-Endor-L-endorcelebration.gif",
+  "modern": "src/vs9/modern/07-VB3-L-endorcelebration-pre.gif"
+ },
+ "notes": "Unique. Banner USED INTERRUPT. Inline red circle-slash S after the first sentence → {sense} (stub: 'Immune to Sense'), then 'OR' on the same line. Slip text otherwise matches the stub. Lore corrected from scan: curly apostrophe in Empire’s. Base scan only 350 px; copyright Endor 1999. Modern: VB3-L-endorcelebration-pre.gif (350 px); no V<N> remake.",
+ "game_text_lines": "Cancel an Effect with “occupation” in title. {sense} OR\nDuring your draw phase, if you have a Rebel scout\nalone at Back Door, draw destiny. Activate or retrieve\n5 Force and place this Interrupt on bottom of Lost Pile\nif destiny < the number of your scouts on table."
+}

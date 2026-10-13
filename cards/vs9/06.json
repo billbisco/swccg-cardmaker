@@ -1,0 +1,28 @@
+{
+ "id": "vs9-06",
+ "number": "06",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Covert Landing",
+ "caption": "•Covert Landing (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: During opponent’s move phase, if Bunker ‘blown away,’ peek at top four cards of a player’s Reserve Deck; replace in any order.\nLOST: During opponent’s move phase, ▼ a Rebel scout of ability < 5 to an Endor site opponent does not occupy.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The stolen code allowed the Rebels to land their strike team on the Endor surface undetected – or so they thought.",
+ "destiny": "4",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Covert Landing",
+ "art": {
+  "src": "src/vs9/06-Endor-L-covertlanding.gif",
+  "modern": "src/vs9/modern/06-VB3-L-covertlanding-pre.gif"
+ },
+ "notes": "Unique. Banner USED OR LOST INTERRUPT. NOTE: on this slip LOST: does not start a new line — it follows '…in any order.' mid-line ('Deck; replace in any order. LOST: During opponent’s'); stored with \\n per spec, game_text_lines (slip_lines.py) will keep the slip's breaks. Curly ‘blown away,’ (comma inside) and curly apostrophes. The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore corrected from scan: the dash is a spaced dash ' – ' (en dash; wiki has a hyphen ' - '). Base scan only 350 px; copyright Endor 1999. Modern: VB3-L-covertlanding-pre.gif (350 px); no V<N> remake.",
+ "game_text_lines": "USED: During opponent’s move phase, if Bunker ‘blown\naway,’ peek at top four cards of a player’s Reserve\nDeck; replace in any order. LOST: During opponent’s\nmove phase, ▼ a Rebel scout of ability < 5 to an\nEndor site opponent does not occupy."
+}

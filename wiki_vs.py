@@ -5,7 +5,7 @@ import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-VS = int(sys.argv[1]); YEAR = {1: 2002, 2: 2002, 3: 2002, 4: 2003, 5: 2003, 6: 2003, 7: 2004, 8: 2004}.get(VS, "2002–2008"); OUT = Path(sys.argv[2]); OUT.mkdir(parents=True, exist_ok=True); (OUT / "stubs").mkdir(exist_ok=True)
+VS = int(sys.argv[1]); YEAR = {1: 2002, 2: 2002, 3: 2002, 4: 2003, 5: 2003, 6: 2003, 7: 2004, 8: 2004}.get(VS); OUT = Path(sys.argv[2]); OUT.mkdir(parents=True, exist_ok=True); (OUT / "stubs").mkdir(exist_ok=True)
 SUBTITLES = {1: "Legacy", 2: "Our Most Desperate Hour", 3: "Revolution", 4: "Battle Of Hoth", 5: "A Dark Time", 6: "City In The Clouds",
              7: "Shadows Of The Empire", 8: "Jabba's Court", 9: "Sanctuary Moon", 10: "Fourth Anthology", 11: "Gathering Storm",
              12: "Martyrs & Magistrates", 13: "Remote Outpost", 14: "Armed & Operational", 15: "Galactic Frontier",
@@ -60,6 +60,13 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="eighth", remaster="the December 2006 Remaster sheet (re-edited 25 June 2007 with errata to #5 and #30, and 17 September 2007 with errata to #22): cover, set symbol and the slips shown below", pack="VS8O-pack.png", symbol="VS8O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    9: dict(sheet=("https://res.starwarsccg.org/legacyblocks/VirtualCards9.pdf", "VirtualCards9.pdf", "starwarsccg.org", "4 December 2006 (errata to card #10 on 17 September 2007)"),
+            sheet_where="starwarsccg.org CDN; the swccgpc.com copy was captured by the Internet Archive on 24 October 2007 but the capture no longer opens",
+            legal="Not found", legal_ref="No Virtual Set 9 release post survives in the archived swccgpc.com news (captures stop in February 2005, after Virtual Set 8). The sheet's margin credits name winners of 2004 and 2005 events (Kashyyyk Regional 2004, World Champion 2004, NYC Mini-Open 2005), so the set came out in 2005 or later.",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the slips credit winners of 2004 and 2005 tournaments, so it came out in 2005 or later.",
+            ordinal="ninth", remaster="the December 2006 Remaster sheet (re-edited 17 September 2007 with errata to #10): cover, set symbol and the slips shown below", pack="VS9O-pack.png", symbol="VS9O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -67,6 +74,9 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
 }[VS]
 SHEET = META["sheet"]
 NCARDS = len(list((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")))
+NSIDE = {"Light": 0, "Dark": 0}
+for _p in (ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json"):
+    NSIDE[json.load(open(_p, encoding="utf-8"))["side"]] += 1
 stubs = {int(v["image"][5:7]): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
 CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else ""   # current hub page: its history sections are carried over
 
@@ -101,6 +111,7 @@ def expand(c: dict) -> str:
     for k, w in (("alter", "Alter"), ("control", "Control"), ("sense", "Sense")):
         t = t.replace(f" is {{{k}}}.", f" is immune to {w}.").replace(f" always {{{k}}}", f" always immune to {w}")
     t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("{ovs} ", "[Virtual] ")
+    t = re.sub(r"\{ovs:(\d+)\}", lambda m: f"[Virtual Set {m.group(1)}]", t)
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
     SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant",
             "jabbaspalace": "Jabba's Palace", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
@@ -115,7 +126,7 @@ def expand(c: dict) -> str:
         tail = " into hand from Reserve Deck; reshuffle" if verb == "take" else " from Reserve Deck; reshuffle"
         return f"{verb} {obj}{tail}{m.group(3)}"
     t = re.sub(r"([▲▼])\s*([^.?!\n]*?)([.?!])", tri, t)
-    t = re.sub(r"(^|[.?!]\s+|\bOR\s+|\n)(take|deploy)\b", lambda m: m.group(1) + m.group(2).capitalize(), t)
+    t = re.sub(r"(^|[.?!]\s+|\bOR\s+|\n|\b(?:USED|LOST|STARTING):\s+)(take|deploy)\b", lambda m: m.group(1) + m.group(2).capitalize(), t)
     t = t.replace("(may deploy here from Reserve Deck; reshuffle.)", "(may deploy here from Reserve Deck; reshuffle).")
     t = re.sub(r"\*(.+?)\*", r"'''\1'''", t)
     t = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"''\1''", t)
@@ -149,6 +160,8 @@ for n in range(1, NCARDS + 1):
     rem = f"OVS{VS}-{n:02d}-{safe}-remaster.webp"
     banner = (c.get("card_type") or "").upper()
     banner = banner.replace("_", "")
+    if not banner and "admiral" in (c.get("slip_type") or "").lower():
+        banner = "ADMIRAL'S ORDER"
     st = (c.get("slip_type") or "").lower()
     if st == "objective" or c.get("game_text_back"):
         typ, sub, model, banner = "Objective", "", "", "OBJECTIVE"
@@ -220,7 +233,7 @@ for n in range(1, NCARDS + 1):
 |lore={lore_wiki(c.get('lore'))}
 |game_text={gt}
 |printings='''{SET}''' (slip {n:02d}) — this page
-|sources=* [{SHEET[0]} {SHEET[1]}] (Players Committee Remaster sheet, Internet Archive {SHEET[2]}) — official text as of {SHEET[3]}; slip {n:02d}. Slip image and game text from this sheet.
+|sources=* [{SHEET[0]} {SHEET[1]}] (Players Committee Remaster sheet, {META.get('sheet_where', 'Internet Archive ' + SHEET[2])}) — official text as of {SHEET[3]}; slip {n:02d}. Slip image and game text from this sheet.
 * Lore and art: the printed Decipher card, {base_link or 'see hatnote'}.
 * Full-card remaster: [[{SET}#Cards|{SET}]] (fan reconstruction, 2026).
 |hatnote=For the Decipher card this slip modifies, see {base_link or 'the set page'}. Code OVS{VS} · GEMP id {GEMPSET}_{n}.
@@ -268,9 +281,9 @@ def table(side):
     return "{| class=\"wikitable\" style=\"width:auto\"\n! # !! Slip !! Remaster !! Card !! Type !! Game text\n" + "\n".join(rows[side]) + "\n|}"
 
 
-LEGAL_SENT = (f"The Committee released the set on {META['legal'].replace(' (release)', '')}." if META['legal'].endswith('(release)')
+LEGAL_SENT = META["lead_legal"] if META.get("lead_legal") else (f"The Committee released the set on {META['legal'].replace(' (release)', '')}." if META['legal'].endswith('(release)')
               else f"The set became tournament-legal on {META['legal']}.")
-page = f"""{{{{Hatnote|1=The {YEAR} Players Committee set, numbered before the 2009 reorganisation (code OVS{VS}). For the post-2014 set numbered {VS} see [[Virtual Set {VS}]].}}}}
+page = f"""{{{{Hatnote|1=The {str(YEAR) + ' ' if YEAR else ''}Players Committee set, numbered before the 2009 reorganisation (code OVS{VS}). For the post-2014 set numbered {VS} see [[Virtual Set {VS}]].}}}}
 {{| class="wikitable expansion-infobox"
 ! colspan="2" | {SET}
 |-
@@ -289,10 +302,10 @@ page = f"""{{{{Hatnote|1=The {YEAR} Players Committee set, numbered before the 2
 || {META['legal']}<ref name="legal">{META['legal_ref']}</ref>
 |-
 ! Remaster sheet
-|| Official text as of {SHEET[3]}<ref name="ia">[{SHEET[0]} {SHEET[1]}] (swccgpc.com, Internet Archive {SHEET[2]}) — {META['remaster']}.</ref>
+|| Official text as of {SHEET[3]}<ref name="ia">[{SHEET[0]} {SHEET[1]}] ({META.get('sheet_where', 'swccgpc.com, Internet Archive ' + SHEET[2])}) — {META['remaster']}.</ref>
 |-
 ! Cards
-|| {NCARDS} ({len(rows['Light'])} Light, {len(rows['Dark'])} Dark)
+|| {NCARDS} ({NSIDE['Light']} Light, {NSIDE['Dark']} Dark)
 |}}
 
 '''Virtual Set {VS}: {SETNAME}''' is the {META['ordinal']} of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. Each of its {NCARDS} cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed. {LEGAL_SENT}<ref name="legal" /> In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here.<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].

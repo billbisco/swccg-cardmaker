@@ -1,0 +1,29 @@
+{
+ "number": "32",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Dreaded Imperial Starfleet",
+ "caption": "•Dreaded Imperial Starfleet (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. While you have more systems on table than opponent, your capital starships deploy -2 (to a minimum of 3) to battlegrounds. When you deploy an _Imperial_-Class Star Destroyer, may ▼ (for free) a {set:ds2} or {set:anh} squadron there (no replacement is necessary). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire uses short-range fighters and patrol craft to maintain a presence in every system within its scope of power.",
+ "destiny": "3",
+ "base_page": "Dreaded Imperial Starfleet",
+ "art": {
+  "src": "src/vs9/32-SE-D-dreadedimperialstarfleet.gif",
+  "modern": "src/vs9/modern/32-VB4-D-dreadedimperialstarfleet-pre.gif"
+ },
+ "id": "vs9-32",
+ "virtual_set": 9,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. '_Imperial_-Class' italic as printed. Two inline expansion icons: 'a [silver sphere, blue/red diagonal reflections] or [silver sphere, crossed red and white diagonals] squadron' → {set:ds2} and {set:anh} (matched against assets/icons/set-ds2-grainy.png and set-anh-grainy.png; GEMP's Virtual Block 4 text reads '[Death Star II] or [A New Hope] squadron', and the Dark squadrons are The Emperor's Shield/Sword (DS2) and TIE Assault Squadron (ANH)). The wiki stub drops the second icon and names the first 'TIE' ('a TIE or squadron') — stub differs. The text layer has 'may▼' with no space; the slip image shows a small gap, so 'may ▼' is used. Red circle-slash A at the end → {alter}. Lore matches the scan. Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 4 only (VB4 -pre, 350 px; its text is older wording).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. While you have more systems on table\nthan opponent, your capital starships deploy -2 (to a\nminimum of 3) to battlegrounds. When you deploy an\n_Imperial_-Class Star Destroyer, may ▼ (for free) a {set:ds2} or {set:anh}\nsquadron there (no replacement is necessary). {alter}"
+}

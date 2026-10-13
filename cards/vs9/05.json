@@ -1,0 +1,29 @@
+{
+ "id": "vs9-05",
+ "number": "05",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Count Me In",
+ "caption": "•Count Me In (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 2 Force to deploy on Leia (even if a captive) or Back Door. Attrition against opponent is +1. Once per game, may place this Effect out of play to cancel a Force drain at same or related site.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Leia couldn’t let Han out of her sight.",
+ "destiny": "5",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Count Me In",
+ "art": {
+  "src": "src/vs9/05-Endor-L-countmein.gif",
+  "modern": "src/vs9/modern/05-VB3-L-countmein-pre.gif"
+ },
+ "grabber": false,
+ "notes": "Unique. Banner EFFECT, no grabber box. No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in couldn’t. Base scan only 350 px; copyright Endor 1999. Modern: VB3-L-countmein-pre.gif (350 px); no V<N> remake.",
+ "game_text_lines": "Use 2 Force to deploy on Leia (even if a captive) or\nBack Door. Attrition against opponent is +1. Once per\ngame, may place this Effect out of play to cancel a\nForce drain at same or related site."
+}

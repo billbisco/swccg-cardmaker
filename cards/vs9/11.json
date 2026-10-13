@@ -1,0 +1,29 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•I Wonder Who They Found",
+ "caption": "•I Wonder Who They Found (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 2 Force to deploy on Han or Back Door; draw top card of Used Pile. Non-Jedi, non-{lightsaber} Rebels are defense value +2 and immune to attrition < 3. May place this Effect out of play to cancel the targeting of a weapon at same or related site.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "‘General Solo, is your strike team assembled?’",
+ "destiny": "1",
+ "base_page": "I Wonder Who They Found",
+ "art": {
+  "src": "src/vs9/11-Endor-L-iwonderwhotheyfound.gif",
+  "modern": "src/vs9/modern/11-VB3-L-iwonderwhotheyfound-pre.gif"
+ },
+ "id": "vs9-11",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique (•). Banner EFFECT, no grabber box. Inline icon after 'non-' is the black square with a green diagonal blade → {lightsaber} per the helper brief (Rev 8 calls this the Permanent Weapon icon — 'non-[permanent weapon] Rebels'). SLIP DIFFERS FROM STUB: the stub reads the icon as Rebel and writes 'non-Rebel characters'; the slip prints 'non-[icon] Rebels'. Lore corrected from scan: curly single quotes ‘…’ (wiki straight). Base scan only at 350 px; copyright not legible, Endor convention used. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Use 2 Force to deploy on Han or Back Door; draw top\ncard of Used Pile. Non-Jedi, non-{lightsaber} Rebels are\ndefense value +2 and immune to attrition < 3. May\nplace this Effect out of play to cancel the targeting of a\nweapon at same or related site."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Dead Ewok",
+ "caption": "•Dead Ewok (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Cancel Ellorrs Madak. {sense} OR Use 2 Force to cancel the game text of an opponent’s alien for remainder of turn. OR Place an Ewok Catapult in opponent’s Used Pile. OR Make an Ewok power and forfeit = 0 for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Many Ewoks gave their lives in the Battle of Endor.",
+ "destiny": "5",
+ "base_page": "Dead Ewok",
+ "art": {
+  "src": "src/vs9/31-Endor-D-deadewok.gif",
+  "modern": "src/vs9/modern/31-VB3-D-deadewok-pre.gif"
+ },
+ "id": "vs9-31",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner LOST INTERRUPT (printed base is also a Lost Interrupt). Red circle-slash S after 'Cancel Ellorrs Madak.' → {sense} (immunity applies to the first option; stub reads 'Immune to Sense.'). Curly apostrophes in opponent’s (twice). Lore matches the scan. Base scan only at 350 px. Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3-D-deadewok-pre.gif, 350 px; non-pre VB3 also exists).",
+ "game_text_lines": "Cancel Ellorrs Madak. {sense} OR Use 2 Force to cancel the\ngame text of an opponent’s alien for remainder of turn.\nOR Place an Ewok Catapult in opponent’s Used Pile. OR\nMake an Ewok power and forfeit = 0 for remainder of\nturn."
+}

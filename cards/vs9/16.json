@@ -1,0 +1,34 @@
+{
+ "number": "16",
+ "side": "Light",
+ "slip_type": "Admiral’s Order",
+ "card_type": "",
+ "title": "•No Questions Asked",
+ "caption": "•No Questions Asked (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Players generate +1 Force at systems they occupy. Starships (except _Outrider_) piloted by Corellians are power +1 (+2 if pilot also a smuggler or gambler, +3 if both), may not have their power modified by opponent, and are immune to attrition < 4. While you occupy Corellia system, your Force drains are +1 at related battleground sites.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "6",
+ "base_page": "No Questions Asked",
+ "art": {
+  "src": "src/vs9/16-Ref2-L-noquestionsasked.gif",
+  "modern": "src/vs9/modern/16-VB4-L-noquestionsasked-pre.gif",
+  "bbox": [
+   15.97,
+   18.6,
+   333.8,
+   475.6
+  ]
+ },
+ "id": "vs9-16",
+ "virtual_set": 9,
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. ADMIRAL'S ORDER (first in the OVS runs): full-art card, the slip is the black text box only — no banner, no stats, no icons. CUT-OFF HEADING: the crop src/slips/vs9/16-No_Questions_Asked.png lost its heading (whited out); the sheet (page 2) prints '•No Questions Asked (V)' above the slip — title taken from the bottom strip. _Outrider_ italic. Slip text matches the stub. Admiral's Orders print no lore (wiki has no lore field) → lore ''. The printed card (354 px) has the Admiral's Order icon top-left and the Ref2 ring under the destiny; copyright '© 2000 LUCASFILM LTD. & TM. …' just legible vertically right of the text box. Modern: Virtual Block 4 only (VB4 -pre, 354 px).",
+ "game_text_lines": "Players generate +1 Force at systems they occupy.\nStarships (except _Outrider_) piloted by Corellians are\npower +1 (+2 if pilot also a smuggler or gambler, +3\nif both), may not have their power modified by\nopponent, and are immune to attrition < 4. While you\noccupy Corellia system, your Force drains are +1 at\nrelated battleground sites."
+}

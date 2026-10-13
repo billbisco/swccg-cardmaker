@@ -1,0 +1,39 @@
+{
+ "number": "43",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Major Hewex",
+ "caption": "•Major Hewex (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Your unique (•) stormtroopers are deploy -1 to same site and are forfeit +1 at same and related locations.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Leader of Navy detachment assigned to guard the Endor control bunker. Liaison between Imperial technicians and command staff.",
+ "destiny": "2",
+ "base_page": "Major Hewex",
+ "art": {
+  "src": "src/vs9/43-Endor-D-majorhewex.gif",
+  "modern": "src/vs9/modern/43-VB3-D-majorhewex-pre.gif"
+ },
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box printed blank; deploy 2 / forfeit 4. Slip text matches the stub ('(*)' in stub = printed '(•)'). Icon column: warrior. Imperial (Imperial disc; printed icon Warrior). Lore matches the wiki and the scan. Base scan only at 350 px; copyright = Endor line (1999), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs9-43",
+ "virtual_set": 9,
+ "game_text_lines": "Your unique (•) stormtroopers are deploy -1 to\nsame site and are forfeit +1 at same and related\nlocations."
+}

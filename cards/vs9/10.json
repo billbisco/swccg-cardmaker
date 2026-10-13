@@ -1,0 +1,29 @@
+{
+ "id": "vs9-10",
+ "number": "10",
+ "virtual_set": 9,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•I’m With You Too",
+ "caption": "•I’m With You Too (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Luke (even if a captive) or any non-{episode1} Throne Room; recirculate. Your duel destiny draws are +1. Once per turn, may lose 3 Force to cancel a just drawn battle destiny at same or related locations of either Luke or this Effect.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Luke completes the legendary foursome.",
+ "destiny": "7",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "I'm With You Too",
+ "art": {
+  "src": "src/vs9/10-DS2-L-imwithyoutoo.gif",
+  "modern": "src/vs9/modern/10-VB3-L-imwithyoutoo-pre.gif"
+ },
+ "grabber": false,
+ "notes": "Unique; curly apostrophe in the slip's heading and caption (I’m), as on the printed title. Banner EFFECT, no grabber box. Inline black 'EPISODE I' circle after 'non-' → {episode1} (stub: 'non-Episode I'). Errata of 17 Sep 2007: the sheet's text is the final one (stub notes the same). ODD: the slip's bottom strip carries a small round gold/bronze disc between the caption and the number '10' (no other slip in 01–10 has it) — presumably the sheet's errata marker; not transcribed as a field. Lore matches the wiki and the scan. Base scan only 350 px; copyright Death Star II line, 2000 (low-res). Modern: VB3-L-imwithyoutoo-pre.gif (350 px); no V<N> remake.",
+ "game_text_lines": "Deploy on Luke (even if a captive) or any non-{episode1}\nThrone Room; recirculate. Your duel destiny draws are\n+1. Once per turn, may lose 3 Force to cancel a just\ndrawn battle destiny at same or related locations of\neither Luke or this Effect."
+}

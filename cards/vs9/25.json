@@ -1,0 +1,41 @@
+{
+ "number": "25",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Wicket",
+ "caption": "•Wicket (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "2",
+ "game_text": "Deploys only on Endor. Once per game, may use 3 Force to release a Rebel captive present on Endor. During your deploy phase, may use 1 Force to ▼ an Ewok weapon or a unique (•) Ewok.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Ewok scout. Son of Shodu and Deej. Found Leia and befriended her. Persuaded his tribe to help.",
+ "destiny": "2",
+ "base_page": "Wicket",
+ "art": {
+  "src": "src/vs9/25-Endor-L-wicket.gif",
+  "modern": "src/vs9/modern/25-VB3-L-wicket-pre.gif"
+ },
+ "id": "vs9-25",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 1 / ABILITY 2; third stat box printed blank. Deploy 3 / forfeit 2. No icon column (set symbol only). Alien (Endor Ewok; single Alien disc, wiki subtype Alien). The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; stub writes '(*)' for the printed '(•)'. Lore matches the scan; 'scout' bold cannot be judged at 350 px (left plain). Base scan only at 350 px; copyright (Endor, 1999) not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Deploys only on Endor. Once per game, may use 3\nForce to release a Rebel captive present on Endor.\nDuring your deploy phase, may use 1 Force to\n▼ an Ewok weapon or a unique (•) Ewok."
+}

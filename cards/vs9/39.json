@@ -1,0 +1,29 @@
+{
+ "number": "39",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Inconsequential Losses",
+ "caption": "•Inconsequential Losses (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. You may forfeit non-lightsaber weapons (using forfeit value = 3); place your just forfeited weapon in Used Pile. During your deploy phase, if you just deployed a vehicle or starship, may ▼ a weapon (for free) on that vehicle or starship. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "With its superior numbers, the Empire knowingly sacrifices the safety of many units and weapons in order to preserve the greater war machine.",
+ "destiny": "5",
+ "base_page": "Inconsequential Losses",
+ "art": {
+  "src": "src/vs9/39-DS2-D-inconsequentiallosses.gif",
+  "modern": "src/vs9/modern/39-VB3-D-inconsequentiallosses-pre.gif"
+ },
+ "id": "vs9-39",
+ "virtual_set": 9,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; red circle-slash A → {alter}. Lore matches the scan. Base scan only at 350 px (Death Star II). Copyright line not legible on the 350 px scan; set-convention form. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. You may forfeit non-lightsaber\nweapons (using forfeit value = 3); place your just\nforfeited weapon in Used Pile. During your deploy\nphase, if you just deployed a vehicle or starship, may\n▼ a weapon (for free) on that vehicle or starship. {alter}"
+}

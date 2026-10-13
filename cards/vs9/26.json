@@ -1,0 +1,29 @@
+{
+ "number": "26",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•A Bright Center To The Universe",
+ "caption": "•A Bright Center To The Universe (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per turn, if you control more battlegrounds than opponent, when you lose Force to a Force drain, may retrieve X Force (may not be canceled), where X = all bonuses to that Force drain.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The intimidating power of the Empire was focused in the core systems, allowing the Emperor to ignore minor activities occurring on the Outer Rim.",
+ "destiny": "4",
+ "base_page": "A Bright Center To The Universe",
+ "art": {
+  "src": "src/vs9/26-SE-D-abrightcentertotheuniverse.gif",
+  "modern": "src/vs9/modern/26-VB1-D-abrightcentertotheuniverse-pre.gif"
+ },
+ "id": "vs9-26",
+ "virtual_set": 9,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. No inline icons; slip text matches the stub (identical to its Light twin, slip 21). Lore matches the scan. Base scan only at 350 px; copyright (Special Edition form, 1998) not legible. Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Once per turn, if you control more\nbattlegrounds than opponent, when you lose Force to a\nForce drain, may retrieve X Force (may not be\ncanceled), where X = all bonuses to that Force drain."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Rapid Deployment",
+ "caption": "•Rapid Deployment (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Target a site. At same and related sites, Rebel scouts deploying from hand are deploy -2 (and they may not battle or move) for remainder of turn. OR ▼ a Rebel scout (deploy +2) to a site.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "General Solo’s strike team was made up of the Alliance’s finest ground troops.",
+ "destiny": "5",
+ "base_page": "Rapid Deployment",
+ "art": {
+  "src": "src/vs9/18-Endor-L-rapiddeployment.gif",
+  "modern": "src/vs9/modern/18-VB3-L-rapiddeployment-pre.gif"
+ },
+ "id": "vs9-18",
+ "virtual_set": 9,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique (•). Banner LOST INTERRUPT (same as printed). ▼ where the stub expands the phrase. Slip text matches the stub. Lore: curly apostrophes (Solo’s, Alliance’s); otherwise matches. Base scan only at 350 px; copyright per Endor convention. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Target a site. At same and related sites, Rebel scouts\ndeploying from hand are deploy -2 (and they may not\nbattle or move) for remainder of turn. OR ▼ a Rebel\nscout (deploy +2) to a site."
+}

@@ -1,0 +1,29 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Superficial Damage",
+ "caption": "•Superficial Damage (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. You may forfeit non-lightsaber weapons (using forfeit value = 3); place your just forfeited weapon in Used Pile. During your deploy phase, if you just deployed a vehicle or starship, may ▼ a weapon (for free) on that vehicle or starship. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Veteran Rebel engineers know that weapon systems positioned for adequate coverage are vulnerable themselves.",
+ "destiny": "5",
+ "base_page": "Superficial Damage",
+ "art": {
+  "src": "src/vs9/19-DS2-L-superficialdamage.gif",
+  "modern": "src/vs9/modern/19-VB3-L-superficialdamage-pre.gif"
+ },
+ "id": "vs9-19",
+ "virtual_set": 9,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique (•). Banner EFFECT, no grabber box. ▼ where the stub expands the phrase; red circle-slash A → {alter}. Slip text matches the stub. Lore matches the scan. Base scan only at 350 px; ring = DS2 striped sphere; copyright per DS2 convention. Modern: Virtual Block 3 only (VB3 -pre, 354 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. You may forfeit non-lightsaber\nweapons (using forfeit value = 3); place your just\nforfeited weapon in Used Pile. During your deploy\nphase, if you just deployed a vehicle or starship, may\n▼ a weapon (for free) on that vehicle or starship. {alter}"
+}

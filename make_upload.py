@@ -75,6 +75,10 @@ def main():
                  if v["set"] == f"Virtual Set {vs} (Original)"}
         for p in sorted((ROOT / f"src/slips/vs{vs}").glob("[0-9][0-9]-*.png")):
             shutil.copy(p, dest / stubs[int(p.name[:2])])
+        for p in sorted((ROOT / f"src/slips/vs{vs}").glob("[0-9][0-9]b-*.png")):   # Objective backs, named as wiki_vs.py links them
+            c = json.load(open(ROOT / f"cards/vs{vs}/{p.name[:2]}.json", encoding="utf-8"))
+            safe_b = re.sub(r"[^A-Za-z0-9]+", "_", (c.get("title_back") or "").replace("•", "")).strip("_")
+            shutil.copy(p, dest / f"VS{vs}O-{p.name[:2]}-{safe_b}.png")
         shutil.copy(ROOT / f"assets/icons/ovs-set-{vs}.png", dest / f"VS{vs}O-set-symbol.png")
     print("\n".join(report))
     print(len(list(dest.iterdir())), "files in", dest)

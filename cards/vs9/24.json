@@ -1,0 +1,37 @@
+{
+ "number": "24",
+ "side": "Light",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "Watch Your Step",
+ "caption": "Watch Your Step (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Deploy Corellia system (with an unpiloted freighter and a Corellian pilot there) and Spaceport City to Corellia._ *For* remainder of game, Corellia sites are immune to No Escape. For either player to deploy a card with ability (except a Corellian) to Corellia, that player must first place a card from hand on bottom of their Used Pile. *While* this side up, you may not Force drain at Corellia system. During your deploy phase, may ▼ a ◊ site. *Flip* this card if you occupy Corellia system and your Corellians control two Corellia battleground sites.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Watch Your Step / This Place Can Be A Little Rough",
+ "art": {
+  "src": "src/vs9/24-Ref2-L-watchyourstep.gif",
+  "modern": "src/vs9/modern/24-VB4-L-watchyourstep-pre.gif"
+ },
+ "id": "vs9-24",
+ "virtual_set": 9,
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Objective, two slips: front 24-Watch_Your_Step.png (heading and strip 'Watch Your Step (V)'), back 24b-This_Place_Can_Be_A_Little_Rough.png (heading and strip 'This Place Can Be A Little Rough (V)', same number 24). Non-unique. Front: italic deploy lines, bold For/While/Flip; '◊' (white diamond/lozenge, the PC's non-unique site mark) printed as a text glyph before 'site' — kept as ◊ (stub expands 'a non-unique site'; the Remaster PDF text layer also has the ◊ character). Back: bold While/Flip; en dash in '–2'; curly ’ in opponent’s and curly double quotes “Audience Chamber” / “Corellia.”; '▼ one BoShek'. Base card: Reflections II Objective 'Watch Your Step / This Place Can Be A Little Rough' (wiki 'Watch Your Step' redirects to the Virtual Block 4 page). Objectives have no lore (''). Destiny front 0, back 7. Base scans Ref2-L-watchyourstep.gif / Ref2-L-thisplacecanbealittlerough.gif (354×492). Copyright 2000 (Reflections II) not legible. Modern: Virtual Block 4 only (VB4 -pre, 354 px; non-pre also exists).",
+ "title_back": "This Place Can Be A Little Rough",
+ "caption_back": "This Place Can Be A Little Rough (V)",
+ "game_text_back": "*While* this side up, non-blaster character weapon destiny draws are –2 at Corellia sites. Your Force generation at Corellia spaceport sites is +1. Your combat vehicles may deploy or move only to same Corellia site as opponent’s vehicles. “Audience Chamber” on Palejo Reshad is treated as “Corellia.” During your deploy phase, may ▼ one BoShek or a Corellian of ability < 3. At the end of each turn, you may use 1 Force to draw the bottom card of your Reserve Deck. *Flip* this card if you do not occupy two battlegrounds.",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs9/24-Ref2-L-thisplacecanbealittlerough.gif",
+  "modern": "src/vs9/modern/24-VB4-L-thisplacecanbealittlerough-pre.gif"
+ },
+ "game_text_lines": "_Deploy Corellia system (with an unpiloted freighter and\na Corellian pilot there) and Spaceport City to Corellia._\n*For* remainder of game, Corellia sites are immune to No\nEscape. For either player to deploy a card with ability\n(except a Corellian) to Corellia, that player must first\nplace a card from hand on bottom of their Used Pile.\n*While* this side up, you may not Force drain at Corellia\nsystem. During your deploy phase, may ▼ a ◊ site.\n*Flip* this card if you occupy Corellia system and your\nCorellians control two Corellia battleground sites.",
+ "game_text_back_lines": "*While* this side up, non-blaster character weapon\ndestiny draws are –2 at Corellia sites. Your Force\ngeneration at Corellia spaceport sites is +1. Your combat\nvehicles may deploy or move only to same Corellia site\nas opponent’s vehicles. “Audience Chamber” on Palejo\nReshad is treated as “Corellia.” During your deploy phase,\nmay ▼ one BoShek or a Corellian of ability < 3. At the\nend of each turn, you may use 1 Force to draw the\nbottom card of your Reserve Deck.\n*Flip* this card if you do not occupy two battlegrounds."
+}

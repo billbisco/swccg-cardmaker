@@ -1,0 +1,30 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "Jedi Lightsaber",
+ "caption": "Jedi Lightsaber (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Mace or Yoda. {set:coruscant} sites may not cancel Force drain bonuses. May add 1 to a Force drain where present. May target a character or creature for free. Draw 2 destiny (3 if on Yoda and defending). Target hit, and its forfeit = 0, if total destiny > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Elegant sword of pure energy. “This is the weapon of a Jedi Knight. Not as clumsy or as random as a blaster.” A lightsaber can be dangerous to an unskilled user.",
+ "destiny": "2",
+ "base_page": "Jedi Lightsaber",
+ "art": {
+  "src": "src/vs9/12-Premiere-L-jedilightsaber-decipher-archive.gif",
+  "modern": "src/vs9/modern/12-V11-L-jedilightsaber.gif"
+ },
+ "id": "vs9-12",
+ "virtual_set": 9,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip, caption or printed card; wiki Unrestricted). Green Character Weapon frame, banner CHARACTER WEAPON. Inline icon before 'sites': a gold-rimmed pastel/pink rosette sphere = the Coruscant expansion symbol (matches the Game Aid sheet's Coruscant icon and the ring on the printed Mace Windu) → {set:coruscant}. SLIP DIFFERS FROM STUB: the stub reads it as 'Republic sites'. Margin credits: left 'Original concept by Brandon Ruck', right 'Tennessee State Winner 2004'. Lore corrected from both scans: the quotation closes after 'blaster.' — 'A lightsaber can be dangerous to an unskilled user.' is outside the quote (wiki wraps everything in straight single quotes); curly double quotes. The 745 px Premiere-L-jedilightsaber.gif is tagged D-E1 (errata face, different game text) — downloaded to src/vs9/12-Premiere-L-jedilightsaber.gif for art only; the 350 px decipher-archive scan (square-on 350×490) is the printed face used as src. Premiere: no ring icon. Copyright 1995 per set. Modern: V11-L-jedilightsaber.gif (745 px); VB5 -pre (350) also exists, not downloaded.",
+ "margin_left": "Original concept by Brandon Ruck",
+ "margin_right": "Tennessee State Winner 2004",
+ "game_text_lines": "Deploy on Mace or Yoda. {set:coruscant} sites may not cancel\nForce drain bonuses. May add 1 to a Force drain where\npresent. May target a character or creature for free.\nDraw 2 destiny (3 if on Yoda and defending). Target\nhit, and its forfeit = 0, if total destiny > defense value."
+}

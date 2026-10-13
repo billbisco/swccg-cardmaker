@@ -1,0 +1,31 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Wipe Them Out, All Of Them",
+ "caption": "•Wipe Them Out, All Of Them (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a site. Unless a player controls a battleground site, that player’s {lightsaber} weapon destiny draws are -2. During opponent’s draw phase, if opponent’s non-battleground site (with no related locations) on table, may activate or retrieve 1 Force. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Darth Sidious’ command was merciless and direct. He left no room for misinterpretation.",
+ "destiny": "5",
+ "base_page": "Wipe Them Out, All Of Them",
+ "art": {
+  "src": "src/vs9/50-Cor-D-wipethemoutallofthem.gif",
+  "modern": "src/vs9/modern/50-VB5-D-wipethemoutallofthem-pre.gif"
+ },
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Inline icon black square + green blade → {lightsaber} (stub 'lightsaber'); red circle-slash A at the end → {alter} (stub 'Immune to Alter'). 'non-battleground' hyphenated across the slip's line break ('non-' / 'battleground'). Curly apostrophes as printed. Margin credits: left 'Original concept by Michael Raveling', right 'Minnesota State Winner 2004'. Coruscant base (Dark Effect); the scan shows a second small round icon under the expansion ring beside the lore box (part of the printed Coruscant frame, as noted on vs8/32), not transcribed. Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Coruscant 2001 SE-style line (as vs5/19), not legible. Modern: Virtual Block 5 only (VB5 -pre, 355 px). Wiki also has 'Wipe Them Out, All Of Them (Dark)' — not used.",
+ "grabber": false,
+ "margin_left": "Original concept by Michael Raveling",
+ "margin_right": "Minnesota State Winner 2004",
+ "id": "vs9-50",
+ "virtual_set": 9,
+ "game_text_lines": "Deploy on a site. Unless a player controls a battleground\nsite, that player’s {lightsaber} weapon destiny draws are -2.\nDuring opponent’s draw phase, if opponent’s non-battleground\nsite (with no related locations) on table,\nmay activate or retrieve 1 Force. {alter}"
+}
