@@ -30,7 +30,7 @@
  ],
  "scomp": false,
  "affiliation": "Imperial",
- "lore": "Considered an overrated leader by many subordinates. Has a disturbing lack of faith. Became a member of the Death Star's command triumvirate despite his failings.",
+ "lore": "Considered an overrated *leader* by many subordinates. Has a disturbing lack of faith. Became a member of the Death Star's command triumvirate despite his failings.",
  "destiny": "1",
  "expansion": "Jedi Pack",
  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
@@ -39,6 +39,6 @@
   "src": "src/vs3/Jedi-D-motti.gif",
   "modern": null
  },
- "notes": "Single Imperial disc. Printed Jedi Pack Motti has no game text. Only a 350 px scan exists; copyright year read as 1996 (matches the Jedi Pack Tarkin reference). No 'Motti (V)' page on the wiki at all, so no modern remake. Immunity icons on the slip (letter in a red circle with a red slash) tokened as {alter}/{control}/{sense} per caller's convention (other helpers' files use {icon:immune-alter} style).",
+ "notes": "Single Imperial disc. Printed Jedi Pack Motti has no game text. Only a 350 px scan exists; copyright year read as 1996 (matches the Jedi Pack Tarkin reference). No 'Motti (V)' page on the wiki at all, so no modern remake. Immunity icons on the slip (letter in a red circle with a red slash) tokened as {alter}/{control}/{sense} per caller's convention (other helpers' files use {icon:immune-alter} style). Lore emphasis (2026-10-13, Bill): *leader* — inferred from Decipher's keyword bolding (low-res scan).",
  "game_text_lines": "{pilot:2}. Unique (•) Star Destroyers are power +2\n(+5 if armed with a starship weapon). Kuat Drive\nYards is {alter}. Once per game, may ▼ Kuat Drive\nYards."
 }

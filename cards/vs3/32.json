@@ -29,7 +29,7 @@
  ],
  "scomp": false,
  "affiliation": "Alien",
- "lore": "Male Rodian bounty hunter. Sent by Jabba to capture Han. Arrogant, overconfident and not too bright. Trained by bounty hunters Nataz and Goa, who betrayed him to Thuku.",
+ "lore": "Male Rodian *bounty hunter*. Sent by Jabba to capture Han. Arrogant, overconfident and not too bright. Trained by bounty hunters Nataz and Goa, who betrayed him to Thuku.",
  "destiny": "2",
  "expansion": "A New Hope",
  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
@@ -38,6 +38,6 @@
   "src": "src/vs3/ANH-D-greedo.gif",
   "modern": "src/vs3/modern/V4-D-greedo.gif"
  },
- "notes": "Single Alien disc top-left. Third stat box printed blank. Base scan is 350 px only (copyright read as 1996). Modern remake is Greedo (V) from Virtual Set 4 (745 px).",
+ "notes": "Single Alien disc top-left. Third stat box printed blank. Base scan is 350 px only (copyright read as 1996). Modern remake is Greedo (V) from Virtual Set 4 (745 px). Lore emphasis (2026-10-13, Bill): *bounty hunter* — confirmed on the 745 px scan / PC remake.",
  "game_text_lines": "During battle, may cancel the game text of a\nsmuggler present with Greedo for remainder of\nturn. During your control phase, may ▲ one Oo-ta\nGoo-ta, Solo?"
 }

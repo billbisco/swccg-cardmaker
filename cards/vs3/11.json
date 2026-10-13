@@ -30,7 +30,7 @@
  ],
  "scomp": false,
  "affiliation": "Alien",
- "lore": "Corellian. Graduated with honors from the Imperial Academy. Dishonorably discharged. Wanders the galaxy building a reputation as a gambler and hot-shot pilot.",
+ "lore": "Corellian. Graduated with honors from the Imperial Academy. Dishonorably discharged. Wanders the galaxy building a reputation as a *gambler* and hot-shot pilot.",
  "destiny": "1",
  "expansion": "Jedi Pack",
  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
@@ -39,6 +39,6 @@
   "src": "src/vs3/Jedi-L-han.gif",
   "modern": "src/vs3/modern/V0-L-han.gif"
  },
- "notes": "Base card is the Jedi Pack Han (wiki page 'Han (Jedi Pack)'; plain 'Han' does not exist). Single Alien disc top-left (Alien frame). Game text opens with the yellow pilot icon followed by '3, 4: Falcon.' — tokened {pilot:3}, 4: _Falcon_ (Falcon italic on the slip). Copyright year read from the 745 px V0 modern scan (same printed top half): 1996, as For Luck/Tarkin. 350 px base scan only; expansion ring icon = Premium.",
+ "notes": "Base card is the Jedi Pack Han (wiki page 'Han (Jedi Pack)'; plain 'Han' does not exist). Single Alien disc top-left (Alien frame). Game text opens with the yellow pilot icon followed by '3, 4: Falcon.' — tokened {pilot:3}, 4: _Falcon_ (Falcon italic on the slip). Copyright year read from the 745 px V0 modern scan (same printed top half): 1996, as For Luck/Tarkin. 350 px base scan only; expansion ring icon = Premium. Lore emphasis (2026-10-13, Bill): *gambler* — confirmed on the 745 px scan / PC remake.",
  "game_text_lines": "{pilot:3}, 4: _Falcon_. While armed with a blaster, Han’s\ndefense value and weapon destiny draws are +2.\nForce retrieval with Or Be Destroyed is immune to\nSecret Plans. While Or Be Destroyed on table,\nimmune to attrition < Han’s power."
 }

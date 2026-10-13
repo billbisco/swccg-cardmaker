@@ -148,7 +148,7 @@ TEMPLATES = {
         "deploy": (201, 1832, 48, 80), "forfeit": (201, 1936, 48, 82),
         "icon_slots": [(1367, 1653), (1367, 1757)], "set_icon_abs": (1372, 1935),
         "expansion_ring": (1380, 397), "expansion_size": 70, "copyright_x": 1428, "dark_text": True, "stats_wide_fill": "#c9c9cb",
-        "stats_row3": ("frames/ls-stats-row3.png", 285, 1488), "stats_row3_boxes": [(300, 275), (605, 285), (930, 420)],
+        "stats_row3": ("frames/ls-stats-row3.png", 285, 1488), "stats_row3_boxes": [(311, 269), (630, 263), (944, 403)],
     },
     "ls-shield": {
         "frame": ("frames/ls-shield-hybrid.png", 146, 141),
@@ -311,6 +311,54 @@ ICON_FILES = {
     "episode1": "icons/inline-episode1.png",   # Game Aid g033 (Hopping Mad (V): "non-[Episode I] C-3PO")   # the Republic affiliation icon itself (The Emperor (V): "Gains [Republic] at opponent's Senate")   # Presence = Game Aid g013 (droid on red), as on IG-88
     "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
 }
+
+
+# lore typography (Bill 2026-10-13: lore must break and weigh as on the printed card) — tuned on printed 745 px scans
+LORE_CSS = {"ff": "AGLightCn", "fs": 58, "ls": 0.25, "lh": 60, "pt": 4, "ind": 60}
+# where the printed lore text starts and how far right it may run (card px), measured on 46 printed 745 px scans:
+# Dark frames' lore window runs to x≈1349, Light ones' to ≈1366–1378; text starts at x≈319 (Dark) / 326 (Light)
+# fitted (fit on 26 Dark / 21 Light printed cards: line counts and line ends): (text left, right limit, first-line
+# indent, first-line cut for the window's bevelled corner, tracking)
+LORE_X = {"Dark": (319, 1270, 90, 0, 0.0), "Light": (326, 1290, 75, 40, 0.0)}   # 16/26 Dark, 17/21 Light exact
+
+_EDGE_CACHE: dict = {}
+
+
+def stat_boxes(t: dict, n: int):
+    """The stat boxes' interiors (x, width) as painted in the template's frame, measured on a row through their middle
+    (Bill 2026-10-13: the text must sit in the printed boxes as on the Decipher cards). Dark frames: black wells;
+    Light frames: grey wells right of a dark bevel. Falls back to the template's own numbers."""
+    key = (t["frame"], t["stats_y"])
+    if key not in _EDGE_CACHE:
+        fr, fx, fy = t["frame"]
+        c = Image.new("RGBA", (1632, 2220), (0, 0, 0, 255)); c.alpha_composite(Image.open(ASSETS / fr).convert("RGBA"), (fx, fy))
+        import numpy as np
+        a = np.array(c.convert("L")).astype(int)
+        y = t["stats_y"] + 34
+        row = a[y - 4:y + 5].mean(0)
+        boxes = []
+        if row[t["stats"][0][0] + 40] < 40:          # dark wells
+            run = None
+            for x in range(200, 1450):
+                if row[x] < 30 and run is None: run = x
+                if row[x] >= 30 and run is not None:
+                    if x - run > 120: boxes.append((run, x - run))
+                    run = None
+        else:                                        # light wells: grey run (150–215) after a dark bevel (< 150)
+            x = 200
+            while x < 1430:
+                if row[x] < 150:
+                    j = x
+                    while j < 1430 and row[j] < 160: j += 1
+                    k = j
+                    while k < 1450 and (150 <= row[k] <= 215 or (k + 6 < 1450 and (150 <= row[k + 6] <= 215))): k += 1
+                    if k - j > 120:
+                        boxes.append((j, k - j)); x = k; continue
+                    x = j
+                x += 1
+        _EDGE_CACHE[key] = boxes if len(boxes) >= 2 else None
+    b = _EDGE_CACHE[key]
+    return b[:n] if b and len(b) >= n else None
 
 
 def data_uri(path: Path) -> str:
@@ -630,7 +678,11 @@ def build_html(card: dict) -> str:
         parts.append(f'<div style="position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;background:{col}"></div>')
     # lore
     if card.get("lore"):
-        parts.append(f'<div class="lore fit" style="position:absolute;{box("lore")}">{game_text_html(card["lore"])}</div>')
+        lx_, ly_, lw_, lh_ = t["lore"]
+        tx0, rgt, ind, cut, lsp = LORE_X["Light" if t.get("dark_text") else "Dark"]
+        parts.append(f'<div class="lore fit" style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
+                     f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
+                     f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(card["lore"])}</div>')
     # stats (character)
     if "stats" in t and card.get("stats"):
         y = t["stats_y"]
@@ -648,15 +700,17 @@ def build_html(card: dict) -> str:
             boxes = [t["stats"][0], (wx, ww)]
         else:
             boxes = t["stats"]
+        if boxes is t["stats"]:
+            boxes = stat_boxes(t, len(boxes)) or boxes   # the wells as painted in the frame
         for (x, w), (label, value) in zip(boxes, stats):
             # a label-only box (FORCE-SENSITIVE, MAINTENANCE DROID) stays on one line: shrink it to the box as the
             # slips do (LE-BO2D9 (V), 2026-10-13); AGBoldCnA caps ≈ 0.50 em + 1.8 px tracking per character
             lab_style = ""
             if not value:
-                fs = min(56, int((w - 40) / (0.50 * len(label) + 1.8 / 56 * len(label))))
-                lab_style = f' style="font-size:{fs}px;white-space:nowrap"'
+                # full height, squeezed horizontally to the well (as the slips print MAINTENANCE DROID) — fitlab JS
+                lab_style = f' class="lab fitlab" data-avail="{w - 2 * t.get("stat_pl", 16)}" style="white-space:nowrap;display:inline-block;transform-origin:left center"'
             parts.append(f'<div class="stat" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
-                         f'<span class="lab"{lab_style}>{esc(label)}</span>{"<span class=val>" + esc(value) + "</span>" if value else ""}</div>')
+                         f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{"<span class=val>" + esc(value) + "</span>" if value else ""}</div>')
     if "card_type" in t and card.get("card_type"):
         parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc_i(card["card_type"])}</div>')
     if card.get("banner_icon") and "banner_icon" in t:
@@ -757,12 +811,13 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
+    LP = dict(LORE_CSS, **card.get("_lore_css", {}))
     css = f"""
     {font_css}
     body{{margin:0;background:#000}}
     .title{{font-family:Fiorello;font-size:80px;color:{ink};letter-spacing:1px;line-height:90px;white-space:nowrap}}
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
-    .lore{{font-family:AGLightCn;font-size:58px;color:{ink};letter-spacing:0.8px;line-height:60px;padding:4px 110px 0 10px;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", 60)}px}}
+    .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
     .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{ink};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 3)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
     .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:1.0em;line-height:0;vertical-align:0.02em}}
@@ -772,9 +827,9 @@ def build_html(card: dict) -> str:
     .noicon{{display:inline-block;position:relative;width:62px;height:62px;border:6px solid #e3000f;border-radius:50%;box-sizing:border-box;vertical-align:-16px;margin:0 0 0 4px;overflow:hidden}}
     .noicon::after{{content:"";position:absolute;left:-8px;top:22px;width:70px;height:6px;background:#e3000f;transform:rotate(-45deg)}}
     .nol{{position:absolute;left:0;top:0;width:50px;height:50px;line-height:52px;text-align:center;font-family:AGBoldCnA;font-size:46px;color:{ink}}}
-    .stat{{display:flex;align-items:center;padding-left:22px;box-sizing:border-box}}
-    .stat .lab{{font-family:AGBoldCnA;font-size:56px;color:{t.get("stats_ink", ink)};letter-spacing:1.8px}}
-    .stat .val{{font-family:AGMedExt;font-weight:bold;font-size:60px;color:{t.get("stats_ink", ink)};margin-left:26px}}
+    .stat{{display:flex;align-items:center;padding-left:{t.get("stat_pl", 16)}px;padding-bottom:6px;box-sizing:border-box}}
+    .stat .lab{{font-family:AGBoldCnA;font-size:59px;color:{t.get("stats_ink", ink)};letter-spacing:0.6px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
+    .stat .val{{font-family:AGMedExt;font-weight:bold;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:24px;-webkit-text-stroke:1.6px {t.get("stats_ink", ink)}}}
     .ctype{{font-family:AGBoldCnA;font-size:60px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:61px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
@@ -804,6 +859,10 @@ def build_html(card: dict) -> str:
         while ((el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) && size > 20) {
           size -= 1; lh -= 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
         }
+      }
+      for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
+        const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
+        if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';
       }
       document.body.dataset.ready = '1';
     });

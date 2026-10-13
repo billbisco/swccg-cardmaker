@@ -12,7 +12,7 @@
  "icons": [],
  "scomp": false,
  "affiliation": null,
- "lore": "Creature in dejarik hologame drawn from Alderaanian mythology. Stories describe molators as powerful, enchanted protectors of Alderaanian kings and queens.",
+ "lore": "Creature in *dejarik* hologame drawn from Alderaanian mythology. Stories describe molators as powerful, enchanted protectors of Alderaanian kings and queens.",
  "destiny": "3",
  "base_page": "Molator",
  "art": {
@@ -23,6 +23,6 @@
  "virtual_set": 2,
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": "Unique (one dot, as printed on the base card and the slip). Red circle-slash A at the end of the text → {alter}. '<' as printed. Icon column empty (only the set symbol); no scomp ring. Lore matches the scan. Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-D-molator-pre.gif, 350 px) — used as modern.",
+ "notes": "Unique (one dot, as printed on the base card and the slip). Red circle-slash A at the end of the text → {alter}. '<' as printed. Icon column empty (only the set symbol); no scomp ring. Lore matches the scan. Base scan only at 350 px. Copyright year 1995 (Premiere), not legible. Modern remake is Block-era only (VB1-D-molator-pre.gif, 350 px) — used as modern. Lore emphasis (2026-10-13, Bill): *dejarik* — inferred from Decipher's keyword bolding (low-res scan).",
  "game_text_lines": "Deploy on table. If your character in battle is about to\nbe lost before the damage segment, it is instead lost at\nend of battle (if forfeited, forfeit for 0). Characters of\nability < 5 are immune to Goo Nee Tay. {alter}"
 }

@@ -21,7 +21,7 @@
  "icons": [],
  "scomp": false,
  "affiliation": "Rebel",
- "lore": "Rebel spy. Served undercover as a sensor specialist aboard the Star Destroyer _Avenger_. Assigned to scan for Imperial ships through the meteor activity of the Hoth system.",
+ "lore": "Rebel *spy*. Served undercover as a sensor specialist aboard the Star Destroyer _Avenger_. Assigned to scan for Imperial ships through the meteor activity of the Hoth system.",
  "destiny": "2",
  "base_page": "Wyron Serper (Original)",
  "art": {
@@ -32,6 +32,6 @@
  "virtual_set": 4,
  "expansion": "Hoth",
  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
- "notes": "Unique (•). Third stat box printed blank. Icon column empty (only the set symbol). Slip deploy 2 / forfeit 3 (same as printed). Curly apostrophe in opponent’s. Lore: the ship name Avenger is printed in italics (wiki has no markup) — added _Avenger_. The wiki's default 'Wyron Serper' page carries Glossary 2.0 errata text and its image Hoth-L-wyronserper.gif (349×489) is the PC Errata face (tagged 'E') — downloaded, not used; printed face = 'Wyron Serper (Original)' → Hoth-L-wyronserper-decipher-archive.gif (367×506, Decipher.com archive scan with a bleached border) used. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible.",
+ "notes": "Unique (•). Third stat box printed blank. Icon column empty (only the set symbol). Slip deploy 2 / forfeit 3 (same as printed). Curly apostrophe in opponent’s. Lore: the ship name Avenger is printed in italics (wiki has no markup) — added _Avenger_. The wiki's default 'Wyron Serper' page carries Glossary 2.0 errata text and its image Hoth-L-wyronserper.gif (349×489) is the PC Errata face (tagged 'E') — downloaded, not used; printed face = 'Wyron Serper (Original)' → Hoth-L-wyronserper-decipher-archive.gif (367×506, Decipher.com archive scan with a bleached border) used. Modern: VB2 only (-pre used; non-pre also downloaded). Copyright 1996 (Hoth), not legible. Lore emphasis (2026-10-13, Bill): Rebel *spy* — inferred from Decipher's keyword bolding (low-res scan).",
  "game_text_lines": "Once per game, may ▲ an Immediate Effect. If\njust forfeited from an opponent’s starship site,\nmay satisfy all remaining attrition and battle\ndamage against you."
 }

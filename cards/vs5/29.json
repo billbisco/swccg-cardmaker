@@ -24,7 +24,7 @@
  ],
  "scomp": false,
  "affiliation": "Alien",
- "lore": "Male Trandoshan bounty hunter. Strong but clumsy. Extremely proud and arrogant. Suffered a humiliating defeat at the hands of Chewbacca and his partner Han Solo.",
+ "lore": "Male Trandoshan *bounty hunter*. Strong but clumsy. Extremely proud and arrogant. Suffered a humiliating defeat at the hands of Chewbacca and his partner Han Solo.",
  "destiny": "1",
  "base_page": "Bossk",
  "art": {
@@ -35,6 +35,6 @@
  "virtual_set": 5,
  "expansion": "Dagobah",
  "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
- "notes": "Unique. Yellow (DS) pilot-power icon followed by '2.' at the start → {pilot:2} — the wiki stub omits this phrase. Third stat box printed blank. Icon column: pilot, warrior. Alien (Dagobah alien frame). The wiki 'Bossk' page is the printed archive face (350 px decipher-archive gif, used as src); the 745 px Dagobah-D-bossk.gif is the PC Errata face ('D-E1' label, 'anything he pilots', bold 'bounty hunter') — downloaded to src/vs5/29-Dagobah-D-bossk.gif for art only, not the printed text. Copyright 'TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.' read off the 745 px errata face. Lore matches the scan. Modern: V0-D-bossk.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "notes": "Unique. Yellow (DS) pilot-power icon followed by '2.' at the start → {pilot:2} — the wiki stub omits this phrase. Third stat box printed blank. Icon column: pilot, warrior. Alien (Dagobah alien frame). The wiki 'Bossk' page is the printed archive face (350 px decipher-archive gif, used as src); the 745 px Dagobah-D-bossk.gif is the PC Errata face ('D-E1' label, 'anything he pilots', bold 'bounty hunter') — downloaded to src/vs5/29-Dagobah-D-bossk.gif for art only, not the printed text. Copyright 'TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.' read off the 745 px errata face. Lore matches the scan. Modern: V0-D-bossk.gif (745 px); VB2 -pre (350) also exists, not downloaded. Lore emphasis (2026-10-13, Bill): *bounty hunter* — confirmed on the 745 px scan / PC remake.",
  "game_text_lines": "{pilot:2}. While at same site as a smuggler, power +3.\nWhile with opponent’s smuggler or Wookiee,\nopponent may not draw more than one battle\ndestiny here. Immune to attrition < number of\nopponent’s smugglers on table."
 }

@@ -213,3 +213,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   separate stat boxes (LE-BO2D9: POWER / ARMOR / MAINTENANCE DROID) gets the Rebel frame's three-box stat row laid
   over the droid frame's wide box (`ls-stats-row3.png`). Legal dates now from the swccgpc.com news archive:
   VS6 released 21 Nov 2003, final revision legal 12 Jan 2004; VS7 released 16 Jul 2004 (no separate legal date).
+- Rev 13 (Bill 2026-10-13: "as indistinguishable from the original cards as possible, except where we clearly
+  enhance"): stat boxes — the text sits in the wells as painted in the frame (`stat_boxes()` measures them per
+  template), 16 px inset, labels AGBoldCnA 59 px tight-tracked with a 1.1 px stroke (Decipher's heavier caps), values
+  AGMedExt 63 px with a 1.6 px stroke; a label-only box (MAINTENANCE DROID) keeps full height and is squeezed
+  horizontally to the well. Lore — set from the printed text edges (Dark text from x 319, Light from 326) with the
+  right limit, first-line indent, the Light window's bevelled corner and tracking fitted on 47 printed 745 px cards
+  (`LORE_X`; 16/26 Dark and 17/21 Light cards break exactly as printed). Bold lore keywords are part of the lore:
+  Decipher bolds characteristics (leader, spy, smuggler, gambler, bounty hunter, scout, thief, information broker,
+  gangster, Enclosed, hologram, dejarik…) — checked on every 745 px scan / PC remake; low-res-only cards follow the
+  same rule (noted per card). `fit_stats.py` fits stat typography to a scan.

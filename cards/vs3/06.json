@@ -27,7 +27,7 @@
  "icons": [],
  "scomp": false,
  "affiliation": "Rebel",
- "lore": "Popular leader whose expertise in space defense and orbital battle stations enabled the Alliance to uncover a fatal flaw in the Death Star’s design.",
+ "lore": "Popular *leader* whose expertise in space defense and orbital battle stations enabled the Alliance to uncover a fatal flaw in the Death Star’s design.",
  "destiny": "2",
  "expansion": "A New Hope",
  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
@@ -36,6 +36,6 @@
   "src": "src/vs3/ANH-L-commanderevramlajaie.gif",
   "modern": null
  },
- "notes": "Inline icon is the red nav-computer square; slip prints a space between the icon and the period ('a [nav] . Your'). No icon column (set symbol only); third stat box blank. Base scan only 350 px. Modern remake is Block-era only (VB1 -pre), modern=null.",
+ "notes": "Inline icon is the red nav-computer square; slip prints a space between the icon and the period ('a [nav] . Your'). No icon column (set symbol only); third stat box blank. Base scan only 350 px. Modern remake is Block-era only (VB1 -pre), modern=null. Lore emphasis (2026-10-13, Bill): *leader* — inferred from Decipher's keyword bolding (low-res scan).",
  "game_text_lines": "While at your War Room, forfeit +3. Your\nstarships with hyperspeed have a {nav}. Your\npiloted starships are forfeit +1."
 }
