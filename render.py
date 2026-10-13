@@ -393,7 +393,29 @@ def art_crop(card: dict) -> str:
             fy1 = fy0 + ch * sx
     ax, ay, aw, ah = TEMPLATES[card["template"]]["art"]
     box = (fx0 + (ax - 144) * sx, fy0 + (ay - 144) * sy, fx0 + (ax + aw - 144) * sx, fy0 + (ay + ah - 144) * sy)
-    crop = im.crop(tuple(int(round(v)) for v in box))
+    box = [int(round(v)) for v in box]
+    if card.get("art_trim"):
+        # Episode I frames (Coruscant/Theed/Tatooine) put the art window a little differently from the classic frame:
+        # trim silver-frame rows/columns (bright, unsaturated) off the mapped box's edges, up to 12 % per edge
+        x0, y0, x1, y1 = box
+        sub = a[max(y0, 0):y1, max(x0, 0):x1]
+        def silver(line):   # mean brightness high, mean saturation low
+            mx, mn = line.max(axis=1), line.min(axis=1)
+            return line.mean() > 100 and (mx - mn).mean() < 45
+        h, w = sub.shape[:2]
+        # cut at the innermost silver line found in each edge zone (the frame's black inner line may sit between
+        # the silver band and the mapped edge)
+        def innermost(lines, n):
+            cut = 0
+            for i in range(n):
+                if silver(lines(i)): cut = i + 1
+            return cut
+        t = innermost(lambda i: sub[i], int(h * 0.15))
+        b = innermost(lambda i: sub[h - 1 - i], int(h * 0.15))
+        l = innermost(lambda i: sub[:, i], int(w * 0.15))
+        r = innermost(lambda i: sub[:, w - 1 - i], int(w * 0.15))
+        box = [x0 + l, y0 + t, x1 - r, y1 - b]
+    crop = im.crop(tuple(box))
     crop = crop.resize((aw, ah), Image.LANCZOS)
     if TEMPLATES[card["template"]].get("system"):
         # the scan's own printed bars sit a little off the template's: hide them under a starfield band cloned

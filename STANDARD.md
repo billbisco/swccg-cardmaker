@@ -180,3 +180,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   card `disc`). A grabber box on an EFFECT banner (#16) is `"grabber": true`; an Immediate Effect without one
   (#27) is `"grabber": false`. `qa_text.py N` compares every card's text with the sheet's text layer. The VS5 set
   sphere is the cover's own 46 px icon upscaled (`ovs-set-5.png`).
+- Rev 10a (Bill 2026-10-13): the Presence icon is the Episode I one (Coruscant: red box, battle-droid figure) —
+  `col-presence.png` is cut from the 745 px Theed-D-dfssquadronstarfighter.gif, not a Game Aid icon. Episode I
+  base cards (Coruscant / Theed Palace / Tatooine) have their art window placed a little differently from the
+  classic frame: `art_trim` cuts the mapped art box at the innermost silver line on each edge (Secure Route).
