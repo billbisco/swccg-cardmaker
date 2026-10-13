@@ -17,7 +17,13 @@
  "base_page": "Deep Hatred",
  "art": {
   "src": "src/vs11/17-Ref3-D-deephatred.gif",
-  "modern": "src/vs11/modern/17-VB4-D-deephatred-pre.gif"
+  "modern": "src/vs11/modern/17-VB4-D-deephatred-pre.gif",
+  "rect": [
+   44,
+   75,
+   305,
+   274
+  ]
  },
  "id": "vs11-17",
  "virtual_set": 11,
