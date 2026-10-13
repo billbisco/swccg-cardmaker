@@ -159,3 +159,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (HSV ≈ 0.70 / 0.63 / 0.48, rgb ≈ 70,46,123); Bardez's Objective frames (sat .47 / val .34) are re-saturated to
   that, both sides. Set sphere sits inside the text box's bottom-right corner (1282,1908, 72 px). Objective game
   text grows to fill the box width (`gt_grow`), since the slip's line breaks are fixed.
+- Rev 9e (Bill 2026-10-12): Objective purple is taken from the PC's Virtual Block cards / the slip, not from Bardez.
+  The Dark Objective frame is two-tone: blue-purple (hue .70 / sat .70 / val .45) above the art window's lower
+  bevel, red-purple (hue .76 / sat .64 / val .44) below it, side borders included — rev 9d's single tone was the
+  upper one, which is why the text-box half read too blue next to the slip. The Light Objective is one purple (hue
+  .75, between the PC card's .735 and the slip's .763) over the Endor-era silver-frost frame. Both frames are built
+  by `make_objective_frames.py` from the Bardez XCFs. The set sphere sits in the purple margin at the text box's
+  bottom-right corner (centre 39 px right of the box edge, 7 px above its bottom, 66 px across) as the slip prints
+  it — never inside the box. Objective game text is set like the slip: 62 px AGCn on a 64 px pitch, starting 60 px
+  in from the box's left edge, the longest line reaching to within ~10 px of its right edge; the text box reaches
+  almost to the frame's box edge so the fitter can grow to that size (capped at 63).

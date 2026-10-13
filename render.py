@@ -232,16 +232,22 @@ TEMPLATES = {
         "icon_slots": [(1353, 1651), (1353, 1756)], "set_icon_abs": (1363, 1926), "expansion_ring": (1375, 400),
         "copyright_x": 1416,
     },
-    "objective": {   # Bardez "DS - Objective.xcf" template layer: the printed and PC Dark Objectives have a BLACK text box with white text
+    "objective": {   # Bardez "DS - Objective.xcf" template, recoloured to the PC two-tone purple (make_objective_frames.py); black text box, white text
         "frame": ("frames/objective.png", 67, 73),
         "art": (236, 380, 1150, 855), "title": (382, 204, 878, 95), "destiny": (1310, 204, 105, 107),
-        "game_text": (300, 1352, 1040, 600), "set_icon_abs": (1282, 1908), "set_icon_size": 72,
+        # text box (black) 260..1377 × 1324..2003; the slip's text starts 60 px in and its longest lines run to within
+        # ~10 px of the right edge (62 px AGCn, 64 px pitch), so the box reaches almost to the edge and the fitter grows to it
+        "game_text": (300, 1350, 1070, 652), "gt_lh_add": 2,
+        # set sphere in the purple margin at the text box's bottom-right corner, as the slip prints it (centre 39 px right
+        # of the box's right edge, 7 px above its bottom; 66 px across)
+        "set_icon_abs": (1384, 1964), "set_icon_size": 66,
         "copyright_x": 1416, "no_type": True, "gt_grow": True,
     },
-    "objective-ls": {   # Bardez "LS - Epic Objective.xcf" (frame + Objective icon): Light Side scoring, textured white text box
+    "objective-ls": {   # Bardez "LS - Epic Objective.xcf" frame + Objective icon, re-hued to the Endor-era purple (make_objective_frames.py)
         "frame": ("frames/objective-ls.png", 0, 0),
         "art": (246, 378, 1148, 886), "title": (382, 204, 878, 95), "destiny": (1330, 204, 111, 113),
-        "game_text": (300, 1360, 1040, 600), "set_icon_abs": (1282, 1908), "set_icon_size": 72,
+        "game_text": (305, 1358, 1085, 646), "gt_lh_add": 2,   # text box (white) 267..1395 × 1332..2005
+        "set_icon_abs": (1401, 1965), "set_icon_size": 66,
         "copyright_x": 1416, "dark_text": True, "no_type": True, "gt_grow": True,
     },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
@@ -671,7 +677,7 @@ def build_html(card: dict) -> str:
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:AGLightCn;font-size:58px;color:{ink};letter-spacing:0.8px;line-height:60px;padding:4px 110px 0 10px;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", 60)}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
-    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{ink};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + 3}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
+    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{ink};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 3)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
     .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:1.0em;line-height:0;vertical-align:0.02em}}
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
@@ -704,7 +710,7 @@ def build_html(card: dict) -> str:
         let size = parseFloat(getComputedStyle(el).fontSize);
         let lh = parseFloat(getComputedStyle(el).lineHeight);
         if (el.classList.contains('grow')) {   // Objectives: the slip's lines fill the box width — grow until a line would overflow
-          while (el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1 && size < 72) {
+          while (el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1 && size < 63) {   // the slips set Objectives in 62 px
             size += 1; lh += 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
           }
         }
