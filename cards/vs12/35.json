@@ -1,0 +1,41 @@
+{
+ "id": "vs12-35",
+ "number": "35",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Janus Greejatus",
+ "caption": "•Janus Greejatus (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "INFLUENCE",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "*Agendas:* logistics, rule. Once per turn, if at Conference Room and you just drew a non-Epic Event destiny < your total influence here, may use 2 Force to cancel and redraw that destiny or use 4 Force to add 2 to that destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Imperial council member. Very cruel at heart. Has lusted for power his entire life. Predictable and controllable.",
+ "destiny": "2",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Janus Greejatus",
+ "art": {
+  "src": "src/vs12/35-DS2-D-janusgreejatus.gif",
+  "modern": "src/vs12/modern/35-VB4-D-janusgreejatus-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 4 / INFLUENCE 2 (third box is a value box); deploy 3 / forfeit 5 — the wiki stub's 'deploy=5' is the forfeit value (stub error). 'Agendas:' bold on the slip — the colon looks bold too at zoom, so written *Agendas:* (vs12/14 and vs9/15 write *Agendas*: — harmonise if the renderer cares). No icon column (only the set sphere). Imperial disc on the scan. Lore matches the scan (no bold). Base scan only 350 px; DS2 copyright by set convention (not legible). Modern: VB4 only (-pre, 350 px).",
+ "game_text_lines": "*Agendas:* logistics, rule. Once per turn, if at\nConference Room and you just drew a non-Epic\nEvent destiny < your total influence here, may use\n2 Force to cancel and redraw that destiny or use 4\nForce to add 2 to that destiny."
+}

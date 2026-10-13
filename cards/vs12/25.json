@@ -1,0 +1,29 @@
+{
+ "number": "25",
+ "side": "Dark",
+ "slip_type": "Political Effect",
+ "card_type": "POLITICAL EFFECT",
+ "title": "•Blown Clear",
+ "caption": "•Blown Clear (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. May place an Imperial Council Member here from hand. Once per turn, if a logistics agenda or admiral here, may subtract X from a starship’s forfeit and immunity to attrition for remainder of turn, where X = total influence at Conference Room.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Vader was nearly killed when Han damaged his TIE fighter during a surprise attack in the Death Star trench.",
+ "destiny": "2",
+ "base_page": "Blown Clear",
+ "art": {
+  "src": "src/vs12/25-SE-D-blownclear.gif",
+  "modern": "src/vs12/modern/25-VB4-D-blownclear-pre.gif"
+ },
+ "id": "vs12-25",
+ "virtual_set": 12,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. NEW slip type: banner POLITICAL EFFECT on the red Effect frame (no grabber box) — a new banner/frame type for the remaster (same frame as EFFECT, longer banner text). Printed base is a Special Edition Effect. No inline icons; no margin credits. Curly apostrophe in starship’s. Slip text matches the stub. Lore matches the wiki (no quotes/apostrophes to correct). Copyright line Special Edition form, 1998, legible. Base scan 350 px only. Modern: Virtual Block 4 only (VB4-D-blownclear-pre.gif, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. May place an Imperial Council Member\nhere from hand. Once per turn, if a logistics agenda or\nadmiral here, may subtract X from a starship’s forfeit\nand immunity to attrition for remainder of turn, where\nX = total influence at Conference Room."
+}

@@ -1,0 +1,43 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Jeroen Webb",
+ "caption": "•Jeroen Webb (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "If deploying to opponent’s mobile site, deploys -2 as an Undercover spy. Nevar Yalnal may not target spies here. Opponent’s total influence here is -1 for each of your spies at sites.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Native of Ralltiir. Spy for Ralltiir’s underground network after his homeworld was subjugated.",
+ "destiny": "2",
+ "base_page": "Jeroen Webb (Original)",
+ "art": {
+  "src": "src/vs12/14-Hoth-L-jeroenwebb-decipher-archive.gif",
+  "modern": "src/vs12/modern/14-VB2-L-jeroenwebb-pre.gif"
+ },
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique. ODD STAT BOX: the slip's third box reads 'ARMOR 4' (a value, not a label) on a Rebel character — stats [POWER 1, ABILITY 2, ARMOR 4]; the printed card's third box is empty. Deploy 2 / forfeit 4 (as printed); the wiki stub has deploy=4 and no forfeit (differs). Icon column: pilot (yellow LS helmet), as printed. No margin credits. Curly apostrophes in opponent’s / Opponent’s. Base page: the default 'Jeroen Webb' carries Glossary 2.0 errata text, so 'Jeroen Webb (Original)' (printed face, same lore/destiny/set) is used. The 745 px Hoth-L-jeroenwebb.gif is a D-E1 errata face ('anything he pilots'; prints 'Spy' bold in the lore) — downloaded to src/vs12/14-Hoth-L-jeroenwebb.gif for art only; the 350 px decipher-archive scan is the printed face used as src (bold not discernible there, so not marked). Lore corrected: curly apostrophe in Ralltiir’s (wiki straight). Copyright 1996 (Hoth) legible on the 745 px face. Modern: VB2-L-jeroenwebb-pre.gif (350 px); no V<N> remake.",
+ "id": "vs12-14",
+ "virtual_set": 12,
+ "game_text_lines": "If deploying to opponent’s mobile site, deploys -2\nas an Undercover spy. Nevar Yalnal may not target\nspies here. Opponent’s total influence here is -1\nfor each of your spies at sites."
+}

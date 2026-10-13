@@ -1,0 +1,41 @@
+{
+ "id": "vs12-39",
+ "number": "39",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: TIE/ln",
+ "title": "•Obsidian 10",
+ "caption": "•Obsidian 10 (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "NO HYPERDRIVE",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "Heroic. May add 1 pilot. OS-72-10 deploys -2 aboard. When lost from Endor, a mobile system, or a sector, may place this starship (and cards aboard it) in owner’s Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Recalled to defend second Death Star during construction. Stationed aboard _Thunderflare_.",
+ "destiny": "3",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Obsidian 10",
+ "art": {
+  "src": "src/vs12/39-DS2-D-obsidian10.gif",
+  "modern": "src/vs12/modern/39-VB2-D-obsidian10-pre.gif"
+ },
+ "notes": "Unique. Banner 'STARFIGHTER: TIE/ln' in mixed case as the slip prints it (another card in this project has TIE/LN in caps; the 'l' vs 'I' is indistinguishable in the face, TIE/ln is the class name). Third stat box NO HYPERDRIVE (label only, new label — not NO HYPERSPEED). Deploy 1 / forfeit 3 — the stub's 'deploy=3' is the forfeit (stub error). No scomp ring, no column icons (only the set sphere). Curly apostrophe in owner’s. Lore corrected from scan: _Thunderflare_ is italic on the printed card (wiki plain). Base scan only 350 px; DS2 copyright by set convention. Modern: VB2 only (-pre, 350 px).",
+ "game_text_lines": "Heroic. May add 1 pilot. OS-72-10 deploys -2\naboard. When lost from Endor, a mobile system, or\na sector, may place this starship (and cards aboard\nit) in owner’s Used Pile."
+}

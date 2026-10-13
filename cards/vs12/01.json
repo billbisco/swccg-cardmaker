@@ -1,0 +1,30 @@
+{
+ "number": "01",
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "•Anakin’s Lightsaber",
+ "caption": "•Anakin’s Lightsaber (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Leia, non-Jedi Luke, or any Mara. May add 1 to Force drain where present. May target a character or creature. Draw two destiny. Target hit, and its forfeit = 0, if total destiny > defense value. Instead of firing, may use 1 Force to cancel a just drawn weapon destiny here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Constructed by Anakin Skywalker. Kept by Obi-Wan Kenobi until given to Luke.",
+ "destiny": "1",
+ "base_page": "Anakin's Lightsaber (Original)",
+ "art": {
+  "src": "src/vs12/01-Hoth-L-anakinslightsaber.gif",
+  "modern": "src/vs12/modern/01-V10-L-anakinslightsaber.gif"
+ },
+ "id": "vs12-01",
+ "virtual_set": 12,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip heading and caption (Anakin’s). Green Character Weapon frame, banner CHARACTER WEAPON. No inline icons; slip text matches the stub. Margin credits, one line each: left 'Original concept by Peter Nordstrom', right 'Alderaan Regional 2005'. The wiki's default 'Anakin's Lightsaber' page is the Decipher final (Glossary) errata version; printed face = 'Anakin's Lightsaber (Original)' (same lore/destiny/set), whose image is the 350 px decipher-archive scan (src/vs12/01-Hoth-L-anakinslightsaber-decipher-archive.gif — a slightly skewed scan with a drop-shadow border). art.src = the 745 px Hoth-L-anakinslightsaber.gif, tagged D-E1 (errata face: bottom text differs, top half/art/lore identical) — used for art only. Lore matches both scans. Copyright 1996 legible on the 745 px scan. Modern: V10-L-anakinslightsaber.gif (745 px, VS10 remake); 'V10-L-anakinslightsaber ai.gif' (AI-art alternate) and VB2 (350) exist, not downloaded.",
+ "margin_left": "Original concept by Peter Nordstrom",
+ "margin_right": "Alderaan Regional 2005",
+ "game_text_lines": "Deploy on Leia, non-Jedi Luke, or any Mara. May add 1\nto Force drain where present. May target a character or\ncreature. Draw two destiny. Target hit, and its forfeit =\n0, if total destiny > defense value. Instead of firing, may\nuse 1 Force to cancel a just drawn weapon destiny here."
+}

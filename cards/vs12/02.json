@@ -1,0 +1,31 @@
+{
+ "number": "02",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•At Peace",
+ "caption": "•At Peace (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Yoda’s Hut. You may not deploy {permanent-weapon} or {maintenance} cards. May lose 2 Force to cancel an attack. May place {set:endor} Leia from hand on bottom of Reserve Deck. May use 1 Force to deploy a Jedi Test from under your Starting Effect. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "To recover from the strenuous Jedi training routine and revitalize the mind and body, an apprentice must rest to be calm and at peace.",
+ "destiny": "3",
+ "base_page": "At Peace",
+ "art": {
+  "src": "src/vs12/02-Dagobah-L-atpeace.gif",
+  "modern": "src/vs12/modern/02-V21-L-atpeace.gif"
+ },
+ "id": "vs12-02",
+ "virtual_set": 12,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT (no grabber box) — the printed Dagobah card is an IMMEDIATE EFFECT; the slip turns it into a plain Effect, so the remaster needs the Effect bottom half. Inline icons: black square + green blade → {permanent-weapon} (same image as {lightsaber}; the stub reads 'permanent-weapon' cards, as in vs11/24), gold spoked wheel → {maintenance}, silver-blue sphere before Leia → {set:endor} (matches set-endor-grainy; stub 'Endor-set Leia'), trailing red circle-slash A → {alter}. Curly apostrophe Yoda’s. Margin credits: left 'Original concept by Jared Arthur', right 'Arizona Mini Open 2003'. Only scan: 745 px Dagobah-L-atpeace.gif, tagged D-E1 (errata face; top half/lore same) — art only. Lore matches the scan. Copyright 1997 legible. Modern: V21-L-atpeace.gif (745 px, VS21 remake); VB6 (350) also exists.",
+ "margin_left": "Original concept by Jared Arthur",
+ "margin_right": "Arizona Mini Open 2003",
+ "grabber": false,
+ "game_text_lines": "Deploy on Yoda’s Hut. You may not deploy {permanent-weapon} or {maintenance}\ncards. May lose 2 Force to cancel an attack. May place {set:endor}\nLeia from hand on bottom of Reserve Deck. May\nuse 1 Force to deploy a Jedi Test from under your\nStarting Effect. {alter}"
+}

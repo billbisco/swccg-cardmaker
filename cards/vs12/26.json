@@ -1,0 +1,31 @@
+{
+ "number": "26",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Bounty",
+ "caption": "Bounty (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a just captured character without a bounty. During your control phase, may transfer captive to a related prison (take this card into hand) to retrieve 4 Force. If released, place captive (and cards on them) in owner’s Used Pile. Your Force drains are +1 here. {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "One of the most profitable occupations in the galaxy is hunting down and capturing wanted beings. The more notable the quarry, the more profitable the venture.",
+ "destiny": "4",
+ "base_page": "Bounty",
+ "art": {
+  "src": "src/vs12/26-CC-D-bounty-decipher-archive.gif",
+  "modern": "src/vs12/modern/26-VB2-D-bounty-pre.gif"
+ },
+ "id": "vs12-26",
+ "virtual_set": 12,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot on heading/caption; printed card Unrestricted). Banner IMMEDIATE EFFECT with NO grabber box → grabber false; printed base is a Cloud City Effect. Red circle-slash C at the end → {control}. Curly apostrophe in owner’s. Margin credits one line each: left 'Original concept by Steven Lewis', right 'Tennessee States 2006'. The wiki's 'Bounty' page is itself the printed archive face (CC-D-bounty-decipher-archive.gif, 350 px, used as src); the 745 px CC-D-bounty.gif was downloaded to src/vs12/26-CC-D-bounty.gif for art only (likely the PC errata face — lore identical; copyright 'TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.' read off it). Lore matches the wiki. Modern: Virtual Block 2 only (VB2-D-bounty-pre.gif, 350 px).",
+ "grabber": false,
+ "margin_left": "Original concept by Steven Lewis",
+ "margin_right": "Tennessee States 2006",
+ "game_text_lines": "Deploy on a just captured character without a bounty.\nDuring your control phase, may transfer captive to a\nrelated prison (take this card into hand) to retrieve 4\nForce. If released, place captive (and cards on them) in\nowner’s Used Pile. Your Force drains are +1 here. {control}"
+}

@@ -1,0 +1,30 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Rebel Leadership",
+ "caption": "•Rebel Leadership (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▲ an admiral or a non-Jedi general. OR Once per game, ▼ a war room. OR If your admiral or non-{episode1} general is in battle, may add one battle destiny or prevent opponent from drawing more than one battle destiny (that destiny draw may not be canceled).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "In times of greatest need, the Rebellion relies on the brilliant leadership provided by commanders fighting for freedom.",
+ "destiny": "4",
+ "base_page": "Rebel Leadership",
+ "art": {
+  "src": "src/vs12/19-DS2-L-rebelleadership.gif",
+  "modern": "src/vs12/modern/19-V3-L-rebelleadership.gif"
+ },
+ "expansion": "Death Star II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "margin_left": "Original concept by Brad Eier",
+ "margin_right": "Michigan States 2005",
+ "notes": "Unique. Banner USED INTERRUPT. Text starts with ▲; ▼ before 'a war room'; inline EPISODE I circle after 'non-' → {episode1}. Margin credits one line each. Lore matches the scan. Base scan 350 px; copyright Death Star II 2000 SE-style, legible on the V3 remake. Modern: V3-L-rebelleadership.gif (745 px, same art).",
+ "id": "vs12-19",
+ "virtual_set": 12,
+ "game_text_lines": "▲ an admiral or a non-Jedi general. OR Once per\ngame, ▼ a war room. OR If your admiral or non-{episode1}\ngeneral is in battle, may add one battle destiny or\nprevent opponent from drawing more than one battle\ndestiny (that destiny draw may not be canceled)."
+}

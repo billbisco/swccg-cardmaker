@@ -13,6 +13,8 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Special Edition": "icons/set-se-grainy.png", "Endor": "icons/set-endor-grainy.png",
     "Cloud City": "icons/set-cloudcity-grainy.png", "Jabba's Palace": "icons/set-jabbaspalace-grainy.png", "Jabba's Palace Sealed Deck": "icons/set-jabbaspalace-grainy.png", "Enhanced Jabba's Palace": "icons/set-ejp-grainy.png",
     "Reflections II": "icons/set-reflections2-grainy.png", "Coruscant": "icons/set-coruscant-grainy.png",
+    "Tatooine": "icons/set-tatooine.png", "Theed Palace": "icons/set-theed.png",   # Bardez "DS - Epic Event.xcf" expansion layers
+    "Enhanced Cloud City": "icons/set-premium-grainy.png", "Official Tournament Sealed Deck": "icons/set-premium-grainy.png",   # silver premium sphere
     "Death Star II": "icons/set-ds2-grainy.png", "Reflections III": "icons/set-reflections3-grainy.png",
 }
 TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
@@ -44,8 +46,10 @@ def template_for(c: dict) -> str:
         return "creature"
     if st == "site":
         return "loc-site"
+    if c.get("no_lore_box") and st in ("effect",) and side == "ds":
+        return "ds-effect-tall"
     if st == "epic event":
-        return "epic-event"
+        return "ls-jeditest-tall" if side == "ls" else "epic-event"
     if "admiral" in st:
         return f"{side}-admirals-order"
     if st == "character" or c.get("stats") and not c.get("card_type"):
@@ -105,17 +109,19 @@ def convert(c: dict, vs: int) -> dict:
         card["banner_icon"] = "grabber"
     if src:
         card["art"] = {"src": src}
+    if art.get("rect"):   # the scan's own art rectangle (tall-slip cards)
+        card["art"] = {"src": art["src"], "rect": art["rect"]}
     if art.get("bbox"):   # a hand-measured scan mapping belongs to the base scan (full-art Admiral's Orders)
         card["art"] = {"src": art["src"], "bbox": art["bbox"]}
     if (c.get("expansion") or "") in ("Coruscant", "Theed Palace", "Tatooine", "Reflections III"):
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
     if "dark jedi" in (c.get("affiliation") or "").lower() and "imperial" in (c.get("affiliation") or "").lower():
         card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
-    if "republic" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
+    if "republic" in (c.get("affiliation") or "").lower():
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
     if t == "loc-site":

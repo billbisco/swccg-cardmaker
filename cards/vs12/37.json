@@ -1,0 +1,31 @@
+{
+ "id": "vs12-37",
+ "number": "37",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Maneuver Check",
+ "caption": "•Maneuver Check (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Starships may not move the turn they are deployed (or carried) to Death Star. Once per game, if Alderaan ‘blown away,’ may target a system. Unless opponent has a capital (or {episode1}) starship there, objectives treat target as a Subjugated planet. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Luke, at that speed will you be able to pull out in time?”",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Maneuver Check",
+ "art": {
+  "src": "src/vs12/37-ANH-D-maneuvercheck.gif",
+  "modern": "src/vs12/modern/37-VB1-D-maneuvercheck-pre.gif"
+ },
+ "notes": "Unique. Banner EFFECT, no grabber box. Inline black 'EPISODE I' circle → {episode1}; curly single quotes ‘blown away,’; trailing red circle-slash A → {alter}. Margin credits (one line each): left 'Original concept by Tim Simon', right 'New Jersey States 2005'. Lore corrected from scan: curly double quotes (wiki has straight single quotes). Base scan only 350 px; copyright 1996 by set (not legible). Modern: VB1 only (-pre, 350 px).",
+ "grabber": false,
+ "margin_left": "Original concept by Tim Simon",
+ "margin_right": "New Jersey States 2005",
+ "game_text_lines": "Deploy on table. Starships may not move the turn they\nare deployed (or carried) to Death Star. Once per game,\nif Alderaan ‘blown away,’ may target a system. Unless\nopponent has a capital (or {episode1}) starship there,\nobjectives treat target as a Subjugated planet. {alter}"
+}

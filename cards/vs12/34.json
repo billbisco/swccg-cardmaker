@@ -1,0 +1,28 @@
+{
+ "id": "vs12-34",
+ "number": "34",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "Imperial Code Cylinder",
+ "caption": "Imperial Code Cylinder (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: ▲ _Executor_: Control Station, Homing Beacon, or Kessel. STARTING: If Conference Room on table, ▼ Ord Mantell, Death Star: War Room, There Is No Try, and two always {alter} Effects (except Endor Shield or You Cannot Hide Forever). Place this Interrupt in Lost Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial officers are issued coded cylinders which access computer information via Scomp links. Each cylinder is coded to the officer’s own security clearance.",
+ "destiny": "4",
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Imperial Code Cylinder",
+ "art": {
+  "src": "src/vs12/34-Premiere-D-imperialcodecylinder.gif",
+  "modern": "src/vs12/modern/34-V13-D-imperialcodecylinder.gif"
+ },
+ "notes": "Non-unique (no dot). Banner USED OR STARTING INTERRUPT (printed base is a Used Interrupt). The slip runs STARTING: on in the same line as the USED: text ('…or Kessel. STARTING: If…'), so no \\n is inserted — one paragraph as printed. _Executor_ italic on the slip. ▲ / ▼ where the stub expands them; red circle-slash A → {alter} (stub 'always Immune-to-Alter Effects'). Lore corrected from scan: curly apostrophe in officer’s (wiki straight). Base scan only 350 px (Premiere: no ring icon); Premiere 1995 copyright by set (not legible). Modern: V13-D-imperialcodecylinder.gif (745 px, Virtual Set 13 remake, same lore); VB4 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "USED: ▲ _Executor_: Control Station, Homing Beacon, or\nKessel. STARTING: If Conference Room on table, ▼ Ord\nMantell, Death Star: War Room, There Is No Try, and two\nalways {alter} Effects (except Endor Shield or You Cannot\nHide Forever). Place this Interrupt in Lost Pile."
+}

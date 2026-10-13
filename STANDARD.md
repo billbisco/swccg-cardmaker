@@ -257,3 +257,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   margin credits); Republic affiliation disc (Bardez "LS - Character - Rebel.xcf" Republic layer, `disc-republic.png`);
   Reflections III art trimmed like the Episode I sets; `credit_bottom` (a credit under the text box, Lord Vader (V));
   accented letters in titles drawn over Fiorello (Padmé); wiki text "▲ or ▼" written out, "she pilots" for women.
+- Rev 19 (VS12 run 2026-10-13): tall slips for printed cards without a lore box (Jedi Test #5 It Is The Future You
+  See (V); Reflections II "There Is No Try & Oppressive Enforcement" (V)) — templates `ls-jeditest-tall` (olive top,
+  the slip's purple foot, silver text box) and `ds-effect-tall`, built from Bardez's Epic Objective frame with the art
+  window shortened to the printed art's proportion; the art is the scan's own art rectangle (`art.rect`) cover-fitted.
+  Titles longer than their bar are condensed (scaleX). Republic disc on both sides (Daultay Dofine). Ring icons for
+  Tatooine and Theed Palace from Bardez's Epic Event template; Enhanced Cloud City and Official Tournament Sealed Deck
+  use the premium silver sphere. Sheets up to 530 px tall slips (`sheet.MAX_H`). Dark Jedi Lightsaber lore misprint
+  "Mutlifaceted" corrected.

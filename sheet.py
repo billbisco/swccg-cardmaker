@@ -34,14 +34,17 @@ def pdf_words(vs: int):
 DARK_THR = {10: 100}   # VS10's white-framed slips have a grey (not black) outline
 
 
-def raw_boxes(png: Path, thr: int = 60):
+MAX_H = {12: 530}     # VS12's Epic Event and two-title Effect slips are taller
+
+
+def raw_boxes(png: Path, thr: int = 60, max_h: int = 460):
     a = np.array(Image.open(png).convert("RGB"))
     dark = a.max(axis=2) < thr
     lab, _ = ndimage.label(ndimage.binary_closing(dark, iterations=3))
     bb = []
     for o in ndimage.find_objects(lab):
         h = o[0].stop - o[0].start; w = o[1].stop - o[1].start
-        if 500 < w < 1100 and 120 < h < 460:      # site slips are 1052 wide, Objectives 432 tall
+        if 500 < w < 1100 and 120 < h < max_h:      # site slips are 1052 wide, Objectives 432 tall
             bb.append((o[1].start, o[0].start, w, h))
     # drop boxes contained in another box
     keep = []
@@ -57,7 +60,7 @@ def slip_boxes(vs: int) -> dict[str, tuple[int, int, int, int, int]]:
     found: dict[str, tuple] = {}
     for png in sorted((ROOT / f"src/slips/vs{vs}").glob("p300-*.png")):
         pg = int(png.stem.split("-")[1])
-        for x, y, w, h in sorted(raw_boxes(png, DARK_THR.get(vs, 60)), key=lambda b: (b[1], b[0])):
+        for x, y, w, h in sorted(raw_boxes(png, DARK_THR.get(vs, 60), MAX_H.get(vs, 460)), key=lambda b: (b[1], b[0])):
             X, Y, W, H = [v * 72 / DPI for v in (x, y, w, h)]
             nums = [t for p, x0, y0, x1, y1, t in words if p == pg and X <= x0 <= X + W and Y + H - 20 <= y0 <= Y + H and re.fullmatch(r"\d\d", t)]
             if not nums:

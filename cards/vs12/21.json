@@ -1,0 +1,43 @@
+{
+ "number": "21",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Yoda, Senior Council Member",
+ "caption": "•Yoda, Senior Council Member (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "7"
+  ],
+  [
+   "JEDI MASTER",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "Deploys only to {episode1} sites. While at Jedi Council Chamber, immune to attrition, Jedi are deploy -2 here, and (unless a Dark Jedi here) other Jedi may treat “Jedi Council Chamber” in their game text as “{episode1} battleground sites.”",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Jedi Master",
+ "lore": "Senior *Jedi Council member*. Responsible for the early training of Obi-Wan Kenobi. When Qui-Gon brought Anakin before the Council, Yoda voted not to train the boy.",
+ "destiny": "1",
+ "base_page": "Yoda, Senior Council Member",
+ "art": {
+  "src": "src/vs12/21-Cor-L-yodaseniorcouncilmember.gif",
+  "modern": "src/vs12/modern/21-VB5-L-yodaseniorcouncilmember-pre.gif"
+ },
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "margin_left": "Original concept\nby Jacob Taylor",
+ "margin_right": "PC Volunteer Award 2005",
+ "notes": "Unique. Stats POWER 3 / ABILITY 7 / JEDI MASTER (label only); deploy 4 / forfeit 7 (as printed). Icon column empty (as printed). Jedi Master (blue-blade disc, Coruscant frame + Episode I icon beside lore). Two inline EPISODE I circles → {episode1}, the second inside the opening curly quote: “{episode1} battleground sites.” Curly double quotes. Margin credits: left on two lines, right on ONE line. Lore corrected from scan: 'Jedi Council member' is BOLD (clearly visible). Base scan 350 px; copyright Coruscant 2001 SE-style. Modern: VB5 -pre (350 px); no V<N> remake.",
+ "id": "vs12-21",
+ "virtual_set": 12,
+ "game_text_lines": "Deploys only to {episode1} sites. While at Jedi Council\nChamber, immune to attrition, Jedi are deploy -2\nhere, and (unless a Dark Jedi here) other Jedi\nmay treat “Jedi Council Chamber” in their game\ntext as “{episode1} battleground sites.”"
+}

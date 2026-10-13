@@ -1,0 +1,31 @@
+{
+ "number": "05",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Commando Training",
+ "caption": "•Commando Training (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Ben Kenobi is deploy +1. Your C-3PO, Lando, and Rebels (except {set:ds2} Jedi) ignore location deployment restrictions (and “power -1”) in their game text and apply their Endor deployment modifiers at any location. Once per game, may ▼ a {ovs:3} Effect. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Han’s Rebel strike team on the forest moon of Endor was highly trained in the use of blasters and explosives.",
+ "destiny": "4",
+ "base_page": "Commando Training",
+ "art": {
+  "src": "src/vs12/05-Endor-L-commandotraining.gif",
+  "modern": "src/vs12/modern/05-V27-L-commandotraining.gif"
+ },
+ "id": "vs12-05",
+ "virtual_set": 12,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber. Inline icons: blue sphere with red stripes before 'Jedi' → {set:ds2} (matches set-ds2-grainy; stub 'Death Star II-set Jedi'); beige striped sphere before 'Effect' → {ovs:3} = the Original Virtual Set 3 sphere (matches ovs-set-3; stub 'Virtual Set 3 Effect') — a different VS's sphere, written like vs8's {ovs:8}; trailing {alter}. Curly double quotes “power -1”. Margin credits: left 'Original concept by Proofing Team', right 'PC Volunteer Award 2005'. Lore corrected: curly apostrophe Han’s (wiki straight). Only a 350 px scan; copyright Endor 1999 by set. Modern: V27-L-commandotraining.gif (745 px, VS27 remake); VB3 (350) and VB6 combo card also exist.",
+ "margin_left": "Original concept by Proofing Team",
+ "margin_right": "PC Volunteer Award 2005",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Ben Kenobi is deploy +1. Your C-3PO,\nLando, and Rebels (except {set:ds2} Jedi) ignore location\ndeployment restrictions (and “power -1”) in their game\ntext and apply their Endor deployment modifiers at any\nlocation. Once per game, may ▼ a {ovs:3} Effect. {alter}"
+}

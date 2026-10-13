@@ -1,0 +1,45 @@
+{
+ "number": "24",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Aurra Sing",
+ "caption": "•Aurra Sing (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "3",
+ "game_text": "During opponent’s activate phase, may relocate Aurra to same site as a Jedi. Once per game, during your move phase, may fire her weapon at a Jedi; hit target is lost. Immune to attrition < 4.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "*Bounty hunter*. Former student of the Force. After failing her Jedi training, Aurra became known for hunting down and killing Jedi Knights.",
+ "destiny": "1",
+ "base_page": "Aurra Sing",
+ "art": {
+  "src": "src/vs12/24-Tat-D-aurrasing.gif",
+  "modern": "src/vs12/modern/24-VB5-D-aurrasing-pre.gif"
+ },
+ "id": "vs12-24",
+ "virtual_set": 12,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 4 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 4 / forfeit 3 (the wiki stub has deploy=3 and no forfeit — wrong; the slip prints 4 above 3, as do the printed card and the VB5 reissue). Icon column: warrior only (blue box, blaster). Alien (Tatooine grey alien frame). Margin credits: left two lines 'Original concept' / 'by Sam Tashima'; the RIGHT margin credit is split around the warrior icon box into two two-line blocks — lower block 'North' / 'Dakota', upper block 'States' / '2006' (reads bottom-to-top 'North Dakota States 2006') — recorded as margin_right (lower block) + margin_right_2 (upper block, a NEW field: the renderer needs to place it above the icon). The VB5 reissue credits 'North Dakota States 2005'; the Dec 2006 sheet prints 2006 — transcribed as printed. Curly apostrophe in opponent’s. Lore: 'Bounty hunter.' printed bold on the scan (period kept outside the bold markup as in earlier runs); comma after 'training' kept from the wiki (not clearly legible at 350 px). Copyright line read off the scan: '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.'. Base scan 350 px only. Modern: VB5-D-aurrasing-pre.gif (350 px; an 'ai' alternate also exists). V12-D-aurrasingwithblasterrifle.gif is a different card, not used.",
+ "margin_left": "Original concept\nby Sam Tashima",
+ "margin_right": "North Dakota States 2006",
+ "game_text_lines": "During opponent’s activate phase, may relocate\nAurra to same site as a Jedi. Once per game,\nduring your move phase, may fire her weapon at a\nJedi; hit target is lost. Immune to attrition < 4."
+}

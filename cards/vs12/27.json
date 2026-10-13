@@ -1,0 +1,43 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Colonel Wullf Yularen",
+ "caption": "•Colonel Wullf Yularen (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "INFLUENCE",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "Imperial Council Member. *Agenda:* logistics. ISB Agents are forfeit +1. While at Conference Room with Sim Aloo, may use 1 Force to subtract 1 from an opponent’s just drawn non-Epic Event destiny.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Imperial Security Bureau (ISB) officer assigned to brief Tarkin. Also ordered to ensure absolute loyalty to the Emperor. *Leader*. Will stop at nothing to fulfill Emperor’s will.",
+ "destiny": "2",
+ "base_page": "Colonel Wullf Yularen",
+ "art": {
+  "src": "src/vs12/27-Premiere-D-colonelwullfyularen.gif",
+  "modern": "src/vs12/modern/27-V1-D-colonelwullfyularen.gif"
+ },
+ "id": "vs12-27",
+ "virtual_set": 12,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 1 / ABILITY 2 / INFLUENCE 2 — NEW third value box label INFLUENCE (value box, like POLITICS on vs6/46); deploy 2 / forfeit 5. 'Agenda:' printed bold (colon inside the bold) → *Agenda:*. Curly apostrophe in opponent’s. Icon column: warrior only. No margin credits. Imperial (Premiere DS Imperial frame, Imperial disc). Lore corrected from scan: printed 'fulfill Emperor’s will' (wiki 'fulfill the Emperor's will' — extra 'the'), curly apostrophe; 'Leader' bold per the 745 px V1 remake's lore box (the 350 px Premiere scan's weight is not clearly distinguishable) — same rule as earlier runs. Copyright 'TM & © 1995 …' legible. Base scan 350 px only (wiki set 'Premiere Limited'). Modern: V1-D-colonelwullfyularen.gif (745 px, the Virtual Set 1 remake — same art and lore; a different (V) card text); VB4 -pre also exists, not downloaded.",
+ "game_text_lines": "Imperial Council Member. *Agenda:* logistics. ISB\nAgents are forfeit +1. While at Conference Room\nwith Sim Aloo, may use 1 Force to subtract 1 from\nan opponent’s just drawn non-Epic Event destiny."
+}

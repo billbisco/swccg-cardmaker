@@ -1,0 +1,28 @@
+{
+ "id": "vs12-36",
+ "number": "36",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "••Laser Gate",
+ "caption": "••Laser Gate (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy between two non-exterior Death Star sites. Unless aboard a Lift Tube, for opponent’s character to pass opponent must first lose 1 Force. At adjacent sites: weapon destiny draws are -1, your Force generation may not be limited, and opponent’s characters are deploy +2.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Security corridors are guarded by a grid of laser emplacements which can be activated upon demand to seal off sensitive areas from intrusion.",
+ "destiny": "4",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Laser Gate",
+ "art": {
+  "src": "src/vs12/36-ANH-D-lasergate.gif",
+  "modern": "src/vs12/modern/36-VB4-D-lasergate-pre.gif"
+ },
+ "notes": "Restricted (••), as printed. Banner DEVICE. Curly apostrophes in opponent’s. Lore matches the 745 px scan. Copyright 1996 legible on the 745 px scan (ANH-D-lasergate.gif, printed text — not tagged errata). Modern: VB4 only (-pre, 350 px).",
+ "game_text_lines": "Deploy between two non-exterior Death Star sites.\nUnless aboard a Lift Tube, for opponent’s character to\npass opponent must first lose 1 Force. At adjacent sites:\nweapon destiny draws are -1, your Force generation may\nnot be limited, and opponent’s characters are deploy +2."
+}

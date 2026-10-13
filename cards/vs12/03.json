@@ -1,0 +1,30 @@
+{
+ "number": "03",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Changing The Odds",
+ "caption": "•Changing The Odds (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If a player is about to draw destiny for an Epic Event, Interrupt, Objective, or weapon, that player must first activate 1 Force and shuffle their Reserve Deck. OR If both players just drew one battle destiny, cancel and redraw both destiny draws.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Qui-Gon used his Jedi abilities to insure that there was no ‘chance’ involved with the use of Watto’s chance cube.",
+ "destiny": "5",
+ "base_page": "Changing The Odds",
+ "art": {
+  "src": "src/vs12/03-Tat-L-changingtheodds.gif",
+  "modern": "src/vs12/modern/03-VB5-L-changingtheodds-pre.gif"
+ },
+ "id": "vs12-03",
+ "virtual_set": 12,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner USED INTERRUPT. No inline icons; slip text matches the stub. Margin credits: left 'Original concept by Evan Fitzgerald', right 'PC Volunteer Award 2005'. Lore corrected from the scan: curly single quotes ‘chance’ and curly apostrophe Watto’s (wiki straight). Printed card shows an Episode I icon below the Tatooine ring (top half, unchanged). Only a 350 px scan; copyright 2001 (Tatooine) by set, not legible. Modern: Virtual Block 5 only (VB5 -pre, 350 px).",
+ "margin_left": "Original concept by Evan Fitzgerald",
+ "margin_right": "PC Volunteer Award 2005",
+ "game_text_lines": "If a player is about to draw destiny for an Epic Event,\nInterrupt, Objective, or weapon, that player must first\nactivate 1 Force and shuffle their Reserve Deck. OR If\nboth players just drew one battle destiny, cancel and\nredraw both destiny draws."
+}

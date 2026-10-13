@@ -1,0 +1,31 @@
+{
+ "id": "vs12-43",
+ "number": "43",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "•You Want This, Don’t You?",
+ "caption": "•You Want This, Don’t You? (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just drew a card for destiny, deploy on table and stack that card face up here. Opponent may lose 3 Force to take card stacked here into hand; place this card in Used Pile. {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I can feel the hate swelling in you now...”",
+ "destiny": "3",
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "You Want This, Don't You?",
+ "art": {
+  "src": "src/vs12/43-Tat-D-youwantthisdontyou.gif",
+  "modern": "src/vs12/modern/43-VB3-D-youwantthisdontyou-pre.gif"
+ },
+ "notes": "Unique. Printed base is an Effect; slip banner IMMEDIATE EFFECT with NO grabber box at the banner's right end → grabber false. Curly apostrophe in the slip's title (Don’t). Trailing red circle-slash C → {control} (stub 'Immune to Control'). Margin credits (one line each): left 'Original concept by Reid Smith', right 'Origins US Nationals 2005'. Lore corrected from scan: curly double quotes (wiki straight single). Base scan only 350 px; Tatooine copyright by set convention (2001 form), not legible. Modern: VB3 only (-pre, 350 px).",
+ "grabber": false,
+ "margin_left": "Original concept by Reid Smith",
+ "margin_right": "Origins US Nationals 2005",
+ "game_text_lines": "If opponent just drew a card for destiny, deploy on\ntable and stack that card face up here. Opponent may\nlose 3 Force to take card stacked here into hand; place\nthis card in Used Pile. {control}"
+}

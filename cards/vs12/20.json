@@ -1,0 +1,43 @@
+{
+ "number": "20",
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: X-WING",
+ "title": "•Red Squadron 7",
+ "caption": "•Red Squadron 7 (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Heroic. May add 1 pilot. Once per game may place a non-{alter} Effect at same system in owner’s Used Pile. Corran Horn and Keir Santage deploy -1 aboard; if either piloting, immune to attrition < 4.",
+ "icons": [
+  "astromech"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Incom starfighter flown by Keir Santage. Flew twelve sorties against Imperial shipyards at Fondor.",
+ "destiny": "3",
+ "base_page": "Red Squadron 7",
+ "art": {
+  "src": "src/vs12/20-DS2-L-redsquadron7.gif",
+  "modern": "src/vs12/modern/20-VB3-L-redsquadron7-pre.gif"
+ },
+ "expansion": "Death Star II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / MANEUVER 3 / HYPERSPEED 5 (printed maneuver 4); deploy 2 / forfeit 4 (as printed); the wiki stub has deploy=4 (differs). Scomp ring printed. Icon column: astromech (red box with R2 dome), as printed. Inline red circle-slash A after 'non-' → {alter}. Curly apostrophe in owner’s. No margin credits. Lore matches the scan. Base scan 350 px; copyright not legible (Death Star II 2000 by set). Modern: VB3-L-redsquadron7-pre.gif (350 px); no V<N> remake.",
+ "id": "vs12-20",
+ "virtual_set": 12,
+ "game_text_lines": "Heroic. May add 1 pilot. Once per game may place\na non-{alter} Effect at same system in owner’s Used\nPile. Corran Horn and Keir Santage deploy -1\naboard; if either piloting, immune to attrition < 4."
+}

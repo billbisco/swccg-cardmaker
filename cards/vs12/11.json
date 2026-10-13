@@ -1,0 +1,29 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Faithful Service",
+ "caption": "•Faithful Service (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. If opponent is about to remove their last card from Life Force, you may first place all your troopers in Used Pile (card must still be removed). Your troopers are armor = 4. Your unique (•) {set:hoth}, {set:endor} and {set:ds2} non-pilot warriors of destiny > 1 are troopers. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Unlike the Empire, the Alliance treats their droids with respect. Many droids volunteered to share the risk of battle and aid the Rebellion’s assault on the Death Star.",
+ "destiny": "4",
+ "base_page": "Faithful Service",
+ "art": {
+  "src": "src/vs12/11-OTSD-L-faithfulservice.gif",
+  "modern": "src/vs12/modern/11-VB1-L-faithfulservice-pre.gif"
+ },
+ "id": "vs12-11",
+ "virtual_set": 12,
+ "expansion": "Official Tournament Sealed Deck",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber. No margin credits. Three inline set spheres after 'unique (•)': dark grey shiny sphere → {set:hoth} (stub: Hoth; it is also close to the grey OTSD ring sphere on the base card — Hoth per the stub and sense), silver-blue → {set:endor}, blue with red stripes → {set:ds2}; trailing {alter}. The slip prints a gap before the first comma ('[icon] , [icon] and') — icon padding. Lore corrected: curly apostrophe Rebellion’s (wiki straight). NEW EXPANSION for the pipeline: Official Tournament Sealed Deck (May 1998, black-border premium) — needs its ring icon cut (grey sphere) and copyright; the vertical line on the 350 px scan reads as the Hoth-style 'TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.' (year by release date, barely legible). Only a 350 px scan. Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. If opponent is about to remove their\nlast card from Life Force, you may first place all your\ntroopers in Used Pile (card must still be removed). Your\ntroopers are armor = 4. Your unique (•) {set:hoth}, {set:endor} and {set:ds2}\nnon-pilot warriors of destiny > 1 are troopers. {alter}"
+}

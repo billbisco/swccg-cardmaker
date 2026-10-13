@@ -1,0 +1,46 @@
+{
+ "id": "vs12-38",
+ "number": "38",
+ "virtual_set": 12,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Mara Jade, The Emperor’s Hand",
+ "caption": "•Mara Jade, The Emperor’s Hand (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "5"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "7",
+ "game_text": "While Luke or Emperor on table, power +1 and she moves for free. Permanent weapon is •Mara Jade’s Lightsaber (may target a character or creature for free; draw two destiny; target hit, and its forfeit = 0, if total destiny > defense value).",
+ "icons": [
+  "warrior",
+  "permanent-weapon"
+ ],
+ "scomp": false,
+ "affiliation": "Alien + Imperial",
+ "lore": "*Spy*. Ordered to kill Luke Skywalker. Assumed the identity of a dancer named ‘Arica’ in order to sneak into Jabba’s palace.",
+ "destiny": "1",
+ "expansion": "Enhanced Jabba's Palace",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Mara Jade, The Emperor's Hand",
+ "art": {
+  "src": "src/vs12/38-EJP-D-marajadetheemperorshand.gif",
+  "modern": null
+ },
+ "notes": "Unique. Curly apostrophe in the slip's heading/caption (Emperor’s) and in •Mara Jade’s; wiki titles straight. Stats POWER 4 / ABILITY 5 / FORCE-SENSITIVE (label only); deploy 6 / forfeit 7 — the stub's 'deploy=7' is the forfeit (stub error). Icon column top to bottom: blue warrior (blaster) → warrior, black square with green lightsaber → permanent-weapon (the printed card's Pilot icon is gone). Two discs top-left on the printed card: Alien (black, glowing eyes) + Imperial (wiki subtype Alien/Imperial). Two-line margin credits: left 'Original concept / by Justin Rath', right 'New York / State 2005'. Lore corrected from scan: 'Spy' bold (period not bold) as printed; curly ‘Arica’ and Jabba’s (wiki straight). Base scan only 350 px (low-res: bold and quote shapes read at 350 px); EJP copyright as the run's convention (SE-style, 1999), not legible. No modern remake of this card found (V0-/VB4-D-marajadewithlightsaber are a different card).",
+ "margin_left": "Original concept\nby Justin Roth",
+ "margin_right": "New York\nState 2005",
+ "game_text_lines": "While Luke or Emperor on table, power +1 and\nshe moves for free. Permanent weapon is •Mara\nJade’s Lightsaber (may target a character or\ncreature for free; draw two destiny; target hit, and\nits forfeit = 0, if total destiny > defense value)."
+}

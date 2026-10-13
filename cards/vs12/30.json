@@ -1,0 +1,28 @@
+{
+ "number": "30",
+ "side": "Dark",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "Dark Jedi Lightsaber",
+ "caption": "Dark Jedi Lightsaber (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Aurra Sing or Sidious. May add 1 to Force drain at an {episode1} site where present. May target a character or creature for free. Draw two destiny. Add number of Jedi present. Target hit, and its forfeit = 0, if total destiny > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Multifaceted jewels focus light into a deadly blade. Projects a meter-long beam of pure energy. A lightsaber is constructed personally by a Jedi as a part of training.",
+ "destiny": "2",
+ "base_page": "Dark Jedi Lightsaber",
+ "art": {
+  "src": "src/vs12/30-Premiere-D-darkjedilightsaber-decipher-archive.gif",
+  "modern": "src/vs12/modern/30-V11-D-darkjedilightsaber.gif"
+ },
+ "id": "vs12-30",
+ "virtual_set": 12,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot; printed Unrestricted). Green Character Weapon frame, banner CHARACTER WEAPON. Inline black 'EPISODE I' circle → {episode1}. No margin credits. The wiki 'Dark Jedi Lightsaber' page is the printed archive face (Premiere-D-darkjedilightsaber-decipher-archive.gif, 350×490 — a square-on scan, used as src). LORE: the printed scan reads 'Mutlifaceted' (Decipher's misprint, clearly legible) where the wiki and the 745 px PC face (Premiere-D-darkjedilightsaber.gif, errata face, downloaded to src/vs12/30-… for art only) read 'Multifaceted' — transcribed as printed; Bill may prefer the corrected spelling. Copyright 'TM & © 1995 …' legible. Modern: V11-D-darkjedilightsaber.gif (745 px, Virtual Set 11 remake — same art, its lore spells 'Multifaceted'); VB5 -pre also exists, not downloaded. Printed card misspells 'Mutlifaceted'; corrected (lore typos fixed, Bill).",
+ "game_text_lines": "Deploy on Aurra Sing or Sidious. May add 1 to Force\ndrain at an {episode1} site where present. May target a\ncharacter or creature for free. Draw two destiny. Add\nnumber of Jedi present. Target hit, and its forfeit = 0,\nif total destiny > defense value."
+}

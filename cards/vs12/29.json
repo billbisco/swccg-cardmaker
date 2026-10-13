@@ -1,0 +1,29 @@
+{
+ "number": "29",
+ "side": "Dark",
+ "slip_type": "Political Effect",
+ "card_type": "POLITICAL EFFECT",
+ "title": "•Crush The Rebellion",
+ "caption": "•Crush The Rebellion (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. May place an Imperial Council Member here from hand. Once per turn, if a logistics agenda or general here, may subtract X from forfeit and immunity to attrition of a character at a site for remainder of turn, where X = total influence at Conference Room.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "After dueling his son and seizing control of a city in the clouds, Vader resumed his quest to destroy the Alliance.",
+ "destiny": "4",
+ "base_page": "Crush The Rebellion",
+ "art": {
+  "src": "src/vs12/29-ECC-D-crushtherebellion.gif",
+  "modern": "src/vs12/modern/29-V18-D-crushtherebellion.gif"
+ },
+ "id": "vs12-29",
+ "virtual_set": 12,
+ "expansion": "Enhanced Cloud City",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Unique. NEW slip type: banner POLITICAL EFFECT (red Effect frame, no grabber box). Printed base is an Enhanced Cloud City premium Effect — NEW base set for the remaster (its ring icon beside the lore is the Premium-style silver sphere, as on Jedi Pack cards; the PC's VB4 data lists the icon as 'Premium'). No inline icons; no margin credits. Slip text matches the stub. Lore matches the wiki. Copyright read off the 350 px scan as the SE-style line with 1999: '© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.' (low-res). Modern: V18-D-crushtherebellion.gif (745 px, Virtual Set 18 remake — same art and lore); VB4 -pre also exists, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. May place an Imperial Council Member\nhere from hand. Once per turn, if a logistics agenda or\ngeneral here, may subtract X from forfeit and immunity\nto attrition of a character at a site for remainder of turn,\nwhere X = total influence at Conference Room."
+}
