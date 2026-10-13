@@ -1,0 +1,37 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Kebyc",
+ "caption": "•Kebyc (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "Deploys free to Cloud City. You activate +1 Force for every Cloud City site you occupy. Your aliens are deploy -1 here. Opponent’s aliens are deploy +1 here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Senior accountant for the Cloud City Miner’s Guild. Administrates the annual dues and fights corruption among her fellow guild members.",
+ "destiny": "3",
+ "base_page": "Kebyc (Original)",
+ "art": {
+  "src": "src/vs6/12-CloudCity-L-kebyc-decipher-archive.gif",
+  "modern": "src/vs6/modern/12-VB2-L-kebyc-pre.gif"
+ },
+ "id": "vs6-12",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 1 / ABILITY 2, third box blank; deploy 3 / forfeit 5. Icon column empty (only the set sphere). Alien (Cloud City frame, alien disc). Curly apostrophe in Opponent’s. Slip text matches the stub. Printed face = 'Kebyc (Original)' (the wiki's default page carries the same printed text; a PC Errata 2023 version exists). The 745 px CC-L-kebyc.gif is tagged D-E1 (PC Errata face: 'related cloud sectors') — downloaded to src/vs6/12-CC-L-kebyc.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from scan: curly apostrophe in Miner’s (wiki straight). Copyright 1997 legible on the 745 px face. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploys free to Cloud City. You activate +1 Force\nfor every Cloud City site you occupy. Your aliens\nare deploy -1 here. Opponent’s aliens are deploy\n+1 here."
+}

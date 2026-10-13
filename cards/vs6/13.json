@@ -1,0 +1,28 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Keep Your Eyes Open",
+ "caption": "Keep Your Eyes Open (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Peek at the top card of your Force Pile or Reserve Deck; may take that card into hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Look, don’t worry. Everything’s gonna be fine. Trust me.”",
+ "destiny": "5",
+ "base_page": "Keep Your Eyes Open",
+ "art": {
+  "src": "src/vs6/13-CC-L-keepyoureyesopen.gif",
+  "modern": "src/vs6/modern/13-V4-L-keepyoureyesopen.gif"
+ },
+ "id": "vs6-13",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Banner USED INTERRUPT (same as printed). No inline icons; slip text matches the stub. Lore corrected from scan: curly double quotes around the quote and curly apostrophes in don’t / Everything’s (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V4-L-keepyoureyesopen.gif (745 px, Virtual Set 4 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Peek at the top card of your Force Pile or Reserve\nDeck; may take that card into hand."
+}

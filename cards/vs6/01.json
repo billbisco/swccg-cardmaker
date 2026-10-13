@@ -1,0 +1,28 @@
+{
+ "number": "01",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Access Denied",
+ "caption": "Access Denied (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. At Cloud City sites, Stunning Leader may not be played and your non-{lightsaber} Rebels of ability > 3 are immune to attrition < 4. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The doors on Cloud City use a specialized computer controlled locking system, making them difficult to bypass without altering the security codes.",
+ "destiny": "4",
+ "base_page": "Access Denied",
+ "art": {
+  "src": "src/vs6/01-CC-L-accessdenied.gif",
+  "modern": "src/vs6/modern/01-VB2-L-accessdenied-pre.gif"
+ },
+ "id": "vs6-01",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip heading, caption or printed title). Inline icon after 'non-' is the black square with a diagonal green blade → {lightsaber} (stub reads 'non-lightsaber'); red circle-slash A at the end → {alter}. Lore corrected from the 745 px scan: 'a specialized computer controlled locking system' (wiki has 'a special computer'). Copyright 1997 legible on the 745 px scan. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. At Cloud City sites, Stunning Leader\nmay not be played and your non-{lightsaber} Rebels of\nability > 3 are immune to attrition < 4. {alter}"
+}

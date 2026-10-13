@@ -1,0 +1,28 @@
+{
+ "number": "47",
+ "side": "Dark",
+ "slip_type": "Utinni Effect",
+ "card_type": "UTINNI EFFECT",
+ "title": "•The Emperor’s Prize",
+ "caption": "•The Emperor’s Prize (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Unless your {set:ds2} objective on table, deploy on Vader. Target Luke (even at Dagobah). During opponent’s move phase, if Vader present at a battleground site, opponent loses 1 Force. Utinni Effect canceled when reached by target.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Vader thought that by capturing Luke, he would crush the Alliance’s last hope. But, there was another...",
+ "destiny": "6",
+ "base_page": "The Emperor's Prize (Original)",
+ "art": {
+  "src": "src/vs6/47-CloudCity-D-theemperorsprize-decipher-archive.gif",
+  "modern": "src/vs6/modern/47-VB2-D-theemperorsprize-pre.gif"
+ },
+ "id": "vs6-47",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Emperor’s); wiki page title uses a straight one. Banner UTINNI EFFECT. Inline icon in 'Unless your [icon] objective': a silver sphere with blue and red diagonal reflections = the Death Star II expansion-set icon (matches the Game Aid sheet; stub: 'Death Star II objective') → {set:ds2} (no set-ds2 asset exists yet). Curly apostrophe in opponent’s. The wiki's default page is the printed archive face; 'The Emperor's Prize (Original)' (same lore/destiny/set) used as base_page. CC-D-theemperorsprize.gif (350) is the PC errata face ('E' tag, 'deploy on Emperor or…') — downloaded to src/vs6/47-CC-D-theemperorsprize.gif for art only; the decipher-archive scan is the printed face used as src. Lore corrected from scan: curly apostrophe in Alliance’s (wiki straight); the ellipsis is printed as three spaced dots after 'another' (kept as '...'). Copyright 1997 not legible. Modern: Virtual Block 2 only (VB2-D-theemperorsprize-pre.gif, 350 px; V5-D-lukeskywalkertheemperorsprize* is a different card).",
+ "game_text_lines": "Unless your {set:ds2} objective on table, deploy on Vader.\nTarget Luke (even at Dagobah). During opponent’s\nmove phase, if Vader present at a battleground site,\nopponent loses 1 Force. Utinni Effect canceled when\nreached by target."
+}

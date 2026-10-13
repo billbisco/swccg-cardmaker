@@ -1,0 +1,44 @@
+{
+ "number": "42",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lando Calrissian",
+ "caption": "•Lando Calrissian (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:3}. Once per turn, if at a battleground, may use 1 Force to add or subtract 1 from any just drawn destiny. Once per turn, may ▲ A Real Hero.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Scoundrel and gambler. Petty administrator of a small Tibanna gas mining operation. Easily coerced. Has problems of his own. Had dealings with the Tonnika Sisters – twice.",
+ "destiny": "1",
+ "base_page": "Lando Calrissian (Dark) (Original)",
+ "art": {
+  "src": "src/vs6/42-CloudCity-D-landocalrissian-decipher-archive.gif",
+  "modern": "src/vs6/modern/42-VB2-D-landocalrissian-pre.gif"
+ },
+ "id": "vs6-42",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 2 / forfeit 4. Yellow (DS) pilot-power icon followed by '3.' at the start → {pilot:3} (stub expands 'Adds 3 to power of anything he pilots'); the slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster). Alien (Cloud City grey alien frame, single Alien disc; printed icons Pilot, Warrior). The Dark Side Lando: wiki base page 'Lando Calrissian (Dark) (Original)' (the bare 'Lando Calrissian' page is the Light Side card; 'Lando Calrissian (Dark)' default carries the printed text too, PC Errata on a separate page). The 745 px CC-D-landocalrissian.gif is tagged D-E1 (PC errata face: 'Deploys only on Cloud City.' and 'gambler' in bold in the lore) — downloaded to src/vs6/42-CC-D-landocalrissian.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from scan: the dash in 'Tonnika Sisters – twice' is a spaced en dash on both scans (wiki has a hyphen). Copyright 1997 (Cloud City) not legible on the 350 px face. Modern: Virtual Block 2 only (VB2-D-landocalrissian-pre.gif, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "{pilot:3}. Once per turn, if at a battleground, may\nuse 1 Force to add or subtract 1 from any\njust drawn destiny. Once per turn, may ▲ A Real\nHero."
+}

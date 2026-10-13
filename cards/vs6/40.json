@@ -1,0 +1,29 @@
+{
+ "number": "40",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Jabba’s Influence",
+ "caption": "•Jabba’s Influence (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your gangsters are information brokers. Your bounty hunters (except Boba Fett) are power +1. While Xizor on table, Scum And Villainy ignores Emperor. Once per game, if Jabba at Audience Chamber, may ▼ a non-bounty hunter alien. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jabba makes offers one cannot refuse. Smugglers, thieves and competitors who do not acquiesce have been rumored to wake up with a bantha’s head in their bed.",
+ "destiny": "3",
+ "base_page": "Jabba's Influence",
+ "art": {
+  "src": "src/vs6/40-SE-D-jabbasinfluence.gif",
+  "modern": "src/vs6/modern/40-VB1-D-jabbasinfluence-pre.gif"
+ },
+ "id": "vs6-40",
+ "virtual_set": 6,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Jabba’s); wiki page title uses a straight one. Banner EFFECT, no grabber box. The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; red circle-slash A at the end → {alter}. Lore corrected from scan: curly apostrophe in bantha’s (wiki straight). Base scan only at 350 px; copyright line is the Special Edition form, '1998' legible. Modern: Virtual Block 1 only (VB1-D-jabbasinfluence-pre.gif, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Your gangsters are information\nbrokers. Your bounty hunters (except Boba Fett) are\npower +1. While Xizor on table, Scum And Villainy\nignores Emperor. Once per game, if Jabba at Audience\nChamber, may ▼ a non-bounty hunter alien. {alter}"
+}

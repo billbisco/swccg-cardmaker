@@ -1,0 +1,29 @@
+{
+ "number": "32",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Despair",
+ "caption": "•Despair (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During your battle phase, while you have a frozen captive, opponent’s cards may not move. At same site as Jabba’s Prize, opponent’s cards are deploy +1 and your Force drains are +2. My Favorite Decoration may not be placed out of play. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The carbonite froze more than just Han’s body.",
+ "destiny": "6",
+ "base_page": "Despair",
+ "art": {
+  "src": "src/vs6/32-CC-D-despair.gif",
+  "modern": "src/vs6/modern/32-V1-D-despair.gif"
+ },
+ "id": "vs6-32",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Printed base is an IMMEDIATE EFFECT; slip banner reads EFFECT, no grabber box → grabber false. ERRATA: the sheet cover says card #32 received errata on 14 September 2007 — this transcription is what this Remaster sheet prints (the stub's game_text_note calls it post-errata); the pre-errata wording is not on this sheet. Red circle-slash A at the end → {alter}. Curly apostrophes in opponent’s (twice) and Jabba’s. The slip's bottom strip prints a small gold/bronze sphere between the caption and the number (an errata marker, as vs5/49). Lore corrected from scan: curly apostrophe in Han’s (wiki straight). Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: V1-D-despair.gif (745 px, Virtual Set 1 remake); VB2 -pre (350) also exists, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. During your battle phase, while you\nhave a frozen captive, opponent’s cards may not move.\nAt same site as Jabba’s Prize, opponent’s cards are\ndeploy +1 and your Force drains are +2. My Favorite\nDecoration may not be placed out of play. {alter}"
+}

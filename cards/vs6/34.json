@@ -1,0 +1,28 @@
+{
+ "number": "34",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Firepower",
+ "caption": "•Firepower (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. If opponent moves from a location you occupy during your turn, they lose 2 Force. At end of opponent’s turn, if you control two battlegrounds (a site and system) and opponent deployed a card with ability and did not initiate a battle, you may retrieve 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“About twenty guns. Some on the surface, some on the towers.”",
+ "destiny": "3",
+ "base_page": "Firepower",
+ "art": {
+  "src": "src/vs6/34-SE-D-firepower.gif",
+  "modern": "src/vs6/modern/34-VSh-D-firepower-pre.gif"
+ },
+ "id": "vs6-34",
+ "virtual_set": 6,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (blended Effect/shield frame top edge on the slip, teal-blue shield frame). Printed base is a Special Edition Effect. Curly apostrophe in opponent’s. No inline icons; slip text matches the stub. Lore corrected from scan: curly double quotes around the quote (wiki has straight single quotes). Base scan only at 350 px; copyright line is the Special Edition form, '1998' legible. Modern: the PC's Virtual Shields remake VSh-D-firepower-pre.gif (350 px; non-pre also exists, not downloaded) — no V<N> or VB image.",
+ "game_text_lines": "Plays on table. If opponent moves from a location you\noccupy during your turn, they lose 2 Force. At end of\nopponent’s turn, if you control two battlegrounds (a site\nand system) and opponent deployed a card with ability\nand did not initiate a battle, you may retrieve 1 Force."
+}

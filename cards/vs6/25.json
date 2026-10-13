@@ -1,0 +1,28 @@
+{
+ "number": "25",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Wookiee Strangle",
+ "caption": "•Wookiee Strangle (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During your move phase, target your Wookiee and opponent’s character present with it. Both players draw destiny. Add target’s defense value and power. Subtract target’s destiny number. Opponent’s character lost if your total destiny +2 > opponent’s total destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Wookiees have been known to dislocate more than just arms.",
+ "destiny": "3",
+ "base_page": "Wookiee Strangle",
+ "art": {
+  "src": "src/vs6/25-CC-L-wookieestrangle.gif",
+  "modern": "src/vs6/modern/25-VB2-L-wookieestrangle-pre.gif"
+ },
+ "id": "vs6-25",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Printed base is a Lost Interrupt; slip banner reads USED INTERRUPT. Curly apostrophes throughout (opponent’s ×3, target’s ×2). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "During your move phase, target your Wookiee and\nopponent’s character present with it. Both players draw\ndestiny. Add target’s defense value and power. Subtract\ntarget’s destiny number. Opponent’s character lost if\nyour total destiny +2 > opponent’s total destiny."
+}

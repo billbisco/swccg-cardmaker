@@ -1,0 +1,44 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Princess Leia",
+ "caption": "•Princess Leia (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "7",
+ "game_text": "May deploy or move as a ‘react’ to same site as an Imperial. Adds one battle destiny if with Han or Vader. During your deploy phase, may ▼ one Leia Of Alderaan, Reflection, or a matching blaster on Leia. Immune to attrition < 4.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Prominent leader in the struggling Alliance. Former member of the Imperial Senate. Beginning to discover her true heritage. Likes scoundrels.",
+ "destiny": "1",
+ "base_page": "Princess Leia (Original)",
+ "art": {
+  "src": "src/vs6/17-CloudCity-L-princessleia-decipher-archive.gif",
+  "modern": "src/vs6/modern/17-V1-L-princessleia.gif"
+ },
+ "id": "vs6-17",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 3 / forfeit 7. Icon column top to bottom: pilot (yellow helmet), warrior (blue, blaster). Rebel (Cloud City frame, Rebel disc). Curly single quotes around ‘react’; the slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. The wiki's default 'Princess Leia' page carries Glossary 2.0 errata text; printed face = 'Princess Leia (Original)' (same lore/destiny/set). The 745 px CC-L-princessleia.gif is tagged D-E1 (errata face; it also prints 'leader' in bold in the lore) — downloaded to src/vs6/17-CC-L-princessleia.gif for art only; the 350 px decipher-archive scan is the printed face used as src, where 'leader' is plain. Lore matches the wiki. Copyright 1997 legible on the 745 px face. Modern: V1-L-princessleia.gif (745 px, Virtual Set 1 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "May deploy or move as a ‘react’ to same site as\nan Imperial. Adds one battle destiny if with Han\nor Vader. During your deploy phase, may ▼ one\nLeia Of Alderaan, Reflection, or a matching blaster\non Leia. Immune to attrition < 4."
+}

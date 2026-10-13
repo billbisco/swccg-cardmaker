@@ -1,0 +1,28 @@
+{
+ "number": "21",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Surreptitious Glance",
+ "caption": "•Surreptitious Glance (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_If this card is lost from your Reserve Deck, it satisfies an additional 2 Force loss._ If your Lando and Lobot are defending in a battle, add two destiny to power only and one battle destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "After working together for a long time, Lando and Lobot developed a speechless form of communication.",
+ "destiny": "4",
+ "base_page": "Surreptitious Glance",
+ "art": {
+  "src": "src/vs6/21-CC-L-surreptitiousglance.gif",
+  "modern": "src/vs6/modern/21-VB2-L-surreptitiousglance-pre.gif"
+ },
+ "id": "vs6-21",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner LOST INTERRUPT. The first sentence ('If this card is lost from your Reserve Deck, it satisfies an additional 2 Force loss.') is printed in italics on the slip → _…_; the regular text starts on a new line after it (kept as one paragraph as vs2/09). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px; non-pre also exists, not downloaded).",
+ "game_text_lines": "_If this card is lost from your Reserve Deck, it satisfies\nan additional 2 Force loss._\nIf your Lando and Lobot are defending in a battle, add\ntwo destiny to power only and one battle destiny."
+}

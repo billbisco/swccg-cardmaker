@@ -1,0 +1,29 @@
+{
+ "number": "45",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Special Delivery",
+ "caption": "•Special Delivery (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During your deploy phase, if Carbonite Chamber Console on table, may use 1 Force to ▼ an Effect. If opponent’s just lost character is about to be removed from Lost Pile, may lose 1 Force to capture (imprison or let escape) that character instead. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Because bounty hunters are untrustworthy, the Empire relies on its troopers for efficient prisoner delivery.",
+ "destiny": "4",
+ "base_page": "Special Delivery (Original)",
+ "art": {
+  "src": "src/vs6/45-CloudCity-D-specialdelivery-decipher-archive.gif",
+  "modern": "src/vs6/modern/45-VB2-D-specialdelivery-pre.gif"
+ },
+ "id": "vs6-45",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; red circle-slash A at the end → {alter}. Curly apostrophe in opponent’s. The wiki's default 'Special Delivery' page is the printed archive face; 'Special Delivery (Original)' (same lore/destiny/set) used as base_page. CC-D-specialdelivery.gif (349 px) is the PC errata face (text '‘delivers’ (imprisons)…', 'E' tag) — downloaded to src/vs6/45-CC-D-specialdelivery.gif for art only; the printed face is the 367×506 decipher-archive scan used as src (a slightly skewed photo-style scan, so the art crop may need attention). Lore matches the scan. Copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2-D-specialdelivery-pre.gif, 350 px; non-pre also exists; the VB8 'Den Of Thieves & Special Delivery' image is a different combo card).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. During your deploy phase, if Carbonite\nChamber Console on table, may use 1 Force to ▼ an\nEffect. If opponent’s just lost character is about to be\nremoved from Lost Pile, may lose 1 Force to capture\n(imprison or let escape) that character instead. {alter}"
+}

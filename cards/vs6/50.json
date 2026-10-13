@@ -1,0 +1,29 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•We’re The Bait",
+ "caption": "•We’re The Bait (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. It’s A Trap! may not be played. Once per game, may use 1 Force to ▼ an Effect with “Bespin” or “Cloud City” in lore or game text. If Chewie, Han, Leia, or Luke wins a battle on Cloud City, place this Effect in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“He doesn’t want you at all, he’s after somebody called, uh... Skywalker.” “Luke?” “Lord Vader has set a trap for him.” “And we’re the bait!” “Yeah, well, he’s on his way.”",
+ "destiny": "7",
+ "base_page": "We're The Bait",
+ "art": {
+  "src": "src/vs6/50-CC-D-werethebait.gif",
+  "modern": "src/vs6/modern/50-VB2-D-werethebait-pre.gif"
+ },
+ "id": "vs6-50",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (We’re); wiki page title uses a straight one. Printed base is a Utinni Effect; slip banner reads EFFECT, no grabber box, no immunity icon. The slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Curly apostrophe in It’s; curly double quotes around “Bespin” and “Cloud City”. Lore corrected from scan: curly double quotes around each quoted line and curly apostrophes in doesn’t / he’s / we’re / he’s (wiki straight single quotes); the scan prints a space after the ellipsis ('uh... Skywalker', wiki 'uh...Skywalker'), ellipsis printed as three spaced dots. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2-D-werethebait-pre.gif, 350 px; non-pre also exists).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. It’s A Trap! may not be played. Once\nper game, may use 1 Force to ▼ an Effect with\n“Bespin” or “Cloud City” in lore or game text. If Chewie,\nHan, Leia, or Luke wins a battle on Cloud City, place this\nEffect in Used Pile."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "35",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•He’s All Yours, Bounty Hunter",
+ "caption": "•He’s All Yours, Bounty Hunter (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: For remainder of turn, your bounty hunter escorting a captive may make two additional moves (for free if escorting Han).\nLOST: Your just drawn Carbon-Freezing (or bounty hunter’s character weapon) destiny draw is +2.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Once Skywalker had taken the bait, Han was of no use to the Empire.",
+ "destiny": "4",
+ "base_page": "He's All Yours, Bounty Hunter",
+ "art": {
+  "src": "src/vs6/35-CC-D-hesallyoursbountyhunter.gif",
+  "modern": "src/vs6/modern/35-V11-D-hesallyoursbountyhunter.gif"
+ },
+ "id": "vs6-35",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Slip prints • (unique; stub: Unique) although the printed Cloud City card is non-unique (wiki 'Unrestricted', no dot on the scan's title) — title/caption carry the slip's dot, as vs5/26. Curly apostrophe in He’s on the slip's heading and caption (wiki page title uses a straight one) and in hunter’s. Banner USED OR LOST INTERRUPT (same as printed); USED:/LOST: lines separated by \\n. No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: V11-D-hesallyoursbountyhunter.gif (745 px, Virtual Set 11 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "USED: For remainder of turn, your bounty hunter\nescorting a captive may make two additional moves\n(for free if escorting Han).\nLOST: Your just drawn Carbon-Freezing (or bounty\nhunter’s character weapon) destiny draw is +2."
+}

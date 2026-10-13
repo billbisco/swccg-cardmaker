@@ -1,0 +1,28 @@
+{
+ "number": "44",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Slip Sliding Away",
+ "caption": "•Slip Sliding Away (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Cancel Path Of Least Resistance. {sense} OR During your move phase, target opponent’s character at an interior Cloud City site. Draw destiny. Relocate target to Weather Vane if destiny > target’s ability. OR Relocate your character at an interior Cloud City site to Weather Vane.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Luke got the shaft.",
+ "destiny": "3",
+ "base_page": "Slip Sliding Away",
+ "art": {
+  "src": "src/vs6/44-CC-D-slipslidingaway.gif",
+  "modern": "src/vs6/modern/44-V12-D-slipslidingaway.gif"
+ },
+ "id": "vs6-44",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner USED INTERRUPT (printed base is also a Used Interrupt). Red circle-slash S after the first sentence → {sense} (stub: 'Immune to Sense.'); 'OR During' / 'OR Relocate' with capitals as printed. Curly apostrophes in opponent’s and target’s. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: V12-D-slipslidingaway.gif (745 px, Virtual Set 12 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Cancel Path Of Least Resistance. {sense} OR During your\nmove phase, target opponent’s character at an interior\nCloud City site. Draw destiny. Relocate target to Weather\nVane if destiny > target’s ability. OR Relocate your\ncharacter at an interior Cloud City site to Weather Vane."
+}

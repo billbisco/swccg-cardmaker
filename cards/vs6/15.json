@@ -1,0 +1,37 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lobot",
+ "caption": "•Lobot (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "Deploys free to Cloud City or a site with a scomp link. If a battle was just initiated at same site, may ▼ an alien here (free if Lando) as a ‘react’. May ▼ one Cyborg Construct on Lobot.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Former criminal. Fitted with a cybernetic device. Now repays his debt to society by ensuring the smooth running of Cloud City. Becomes disoriented when not with a computer.",
+ "destiny": "1",
+ "base_page": "Lobot",
+ "art": {
+  "src": "src/vs6/15-CC-L-lobot.gif",
+  "modern": "src/vs6/modern/15-V0-L-lobot.gif"
+ },
+ "id": "vs6-15",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 2 / forfeit 5. Icon column empty (only the set sphere). Alien (Cloud City frame, alien disc). Slip prints two ▼ triangles where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; curly single quotes around ‘react’. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V0-L-lobot.gif (745 px, PC remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploys free to Cloud City or a site with a scomp\nlink. If a battle was just initiated at same site, may\n▼ an alien here (free if Lando) as a ‘react’. May\n▼ one Cyborg Construct on Lobot."
+}

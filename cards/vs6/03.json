@@ -1,0 +1,28 @@
+{
+ "number": "03",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Beldon’s Eye",
+ "caption": "•Beldon’s Eye (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your {independent} starships are defense value +2 at Bespin locations. Once per game, if Quiet Mining Colony on table, may simultaneously deploy a unique (•) {independent} starfighter and matching pilot (for -1 Force each) from your hand and/or Reserve Deck; reshuffle. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Symbol for the Cloud City Miner’s Guild (not affiliated with the Galactic Miner’s Guild). Named after the beldons, giant creatures who generate Tibanna gas.",
+ "destiny": "6",
+ "base_page": "Beldon's Eye",
+ "art": {
+  "src": "src/vs6/03-CC-L-beldonseye-decipher-archive.gif",
+  "modern": "src/vs6/modern/03-V0-L-beldonseye.gif"
+ },
+ "id": "vs6-03",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique; curly apostrophe in the slip's heading and caption. Two inline blue spoked-wheel icons ('Your [wheel] starships', 'a unique (•) [wheel] starfighter') → {independent} (the stub drops both); the slip prints a round • inside the parentheses '(•)' where the stub has '(*)'; red circle-slash A at the end → {alter}. The wiki's default 'Beldon's Eye' page is the printed archive face (card_uid 5_18o; 'Beldon's Eye (Original)' is the same face); the 745 px CC-L-beldonseye.gif is the D-E1 errata face (game text 'Deploy on Bespin: Cloud City…') — downloaded to src/vs6/03-CC-L-beldonseye.gif for art only, the 350 px decipher-archive scan is the printed face used as src. Top half (title, lore, destiny) identical on both. Lore matches the scan (curly apostrophes in Miner’s). Copyright 1997 legible on the 745 px face. Modern: V0-L-beldonseye.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on table. Your {independent} starships are defense value\n+2 at Bespin locations. Once per game, if Quiet Mining\nColony on table, may simultaneously deploy a unique (•) {independent}\nstarfighter and matching pilot (for -1 Force each)\nfrom your hand and/or Reserve Deck; reshuffle. {alter}"
+}

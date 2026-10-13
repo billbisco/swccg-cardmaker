@@ -1,0 +1,28 @@
+{
+ "number": "04",
+ "side": "Light",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "Bionic Hand",
+ "caption": "Bionic Hand (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Luke. Luke’s power and immunity to attrition are +2. During battle at a battleground, may exchange a card in hand with an Interrupt in Lost Pile. This device lost if Luke Disarmed.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Uses state-of-the-art digital processors. Although Luke had lost his hand, the Alliance could rebuild it. They had the technology. They could make it better, stronger, faster.",
+ "destiny": "7",
+ "base_page": "Bionic Hand",
+ "art": {
+  "src": "src/vs6/04-CC-L-bionichand.gif",
+  "modern": "src/vs6/modern/04-V0-L-lukesbionichand.gif"
+ },
+ "id": "vs6-04",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Green Device frame; banner DEVICE (the mark at the banner's right end is frame scratching, not a grabber box). Curly apostrophe in Luke’s. No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: V0-L-lukesbionichand.gif (745 px) is the PC's remake titled 'Luke's Bionic Hand' (same printed base); VB2 -pre 'lukesbionichand' (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on Luke. Luke’s power and immunity to attrition\nare +2. During battle at a battleground, may exchange\na card in hand with an Interrupt in Lost Pile. This\ndevice lost if Luke Disarmed."
+}

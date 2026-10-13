@@ -1,0 +1,28 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Hopping Mad",
+ "caption": "•Hopping Mad (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on non-{episode1} C-3PO. Once per turn, you may ▲ How Did We Get Into This Mess?, Thank The Maker, We’re Doomed, or Mantellian Savrip. If C-3PO present at a battleground, Savrip is {alter}. Thank The Maker is a Used Interrupt and treat “5” in its game text as “3”.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I’m standing here in pieces and you’re having delusions of grandeur!”",
+ "destiny": "6",
+ "base_page": "Hopping Mad",
+ "art": {
+  "src": "src/vs6/10-CC-L-hoppingmad.gif",
+  "modern": "src/vs6/modern/10-VB2-L-hoppingmad-pre.gif"
+ },
+ "id": "vs6-10",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Inline black circle 'EPISODE I' icon after 'non-' → {episode1} (stub: 'non-Episode I'); the slip prints the ▲ triangle where the stub expands 'Take into hand from Reserve Deck; reshuffle'; red circle-slash A mid-sentence ('Savrip is [A].') → {alter} (stub: 'Immune to Alter'). Curly apostrophe in We’re and curly double quotes around “5” and “3”. Lore corrected from scan: curly double quotes around the quote and curly apostrophes in I’m / you’re (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Cloud City) not legible here. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on non-{episode1} C-3PO. Once per turn, you may\n▲ How Did We Get Into This Mess?, Thank The Maker,\nWe’re Doomed, or Mantellian Savrip. If C-3PO present\nat a battleground, Savrip is {alter}. Thank The Maker is\na Used Interrupt and treat “5” in its game text as “3”."
+}

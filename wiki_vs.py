@@ -5,7 +5,7 @@ import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-VS = int(sys.argv[1]); YEAR = {1: 2002, 2: 2002, 3: 2002, 4: 2003, 5: 2003, 6: 2003, 7: 2004, 8: 2004}.get(VS, "2002–2008"); OUT = Path(sys.argv[2]); OUT.mkdir(parents=True, exist_ok=True); (OUT / "stubs").mkdir(exist_ok=True)
+VS = int(sys.argv[1]); YEAR = {1: 2002, 2: 2002, 3: 2002, 4: 2003, 5: 2003, 6: 2004, 7: 2004, 8: 2004}.get(VS, "2002–2008"); OUT = Path(sys.argv[2]); OUT.mkdir(parents=True, exist_ok=True); (OUT / "stubs").mkdir(exist_ok=True)
 SUBTITLES = {1: "Legacy", 2: "Our Most Desperate Hour", 3: "Revolution", 4: "Battle Of Hoth", 5: "A Dark Time", 6: "City In The Clouds",
              7: "Shadows Of The Empire", 8: "Jabba's Court", 9: "Sanctuary Moon", 10: "Fourth Anthology", 11: "Gathering Storm",
              12: "Martyrs & Magistrates", 13: "Remote Outpost", 14: "Armed & Operational", 15: "Galactic Frontier",
@@ -38,6 +38,11 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
     4: dict(sheet=("https://web.archive.org/web/20071024153629/http://www.swccgpc.com/Resources/VirtualCards4.pdf", "VirtualCards4.pdf", "24 October 2007", "4 December 2006"),
             legal="5 February 2003", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards4.pdf VirtualCards4.pdf] (starwarsccg.org CDN) — 2003 slip sheet with the legal banner.",
             ordinal="fourth", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below", pack="VS4O-pack.png", symbol="VS4O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    6: dict(sheet=("https://web.archive.org/web/20071024154341/http://www.swccgpc.com/Resources/VirtualCards6.pdf", "VirtualCards6.pdf", "24 October 2007", "4 December 2006 (errata to card #32 on 14 September 2007)"),
+            legal="early 2004", legal_ref="The 2004 launch sheet [https://res.starwarsccg.org/legacyblocks/VirtualCards6.pdf VirtualCards6.pdf] (starwarsccg.org CDN) carries no legal banner; its PDF creation date is 12 January 2004 and the set was in the PC's Card Vault by 27 March 2004 (earlier hub research). The exact tournament-legal date is still to be confirmed from the swccgpc.com news archive.",
+            ordinal="sixth", remaster="the December 2006 Remaster sheet (re-edited 14 September 2007 with errata to #32): cover, set symbol and the slips shown below", pack="VS6O-pack.png", symbol="VS6O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     5: dict(sheet=("https://web.archive.org/web/20071024154714/http://www.swccgpc.com/Resources/VirtualCards5.pdf", "VirtualCards5.pdf", "24 October 2007", "4 December 2006 (errata to card #49 on 14 September 2007)"),
@@ -82,7 +87,9 @@ def expand(c: dict) -> str:
     t = re.sub(r"\{pilot:(\d)\}\.?", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots.", t)
     t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("{ovs} ", "[Virtual] ")
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
-    t = re.sub(r"\{set:anh\}", "[A New Hope]", t)
+    SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant"}
+    t = re.sub(r"\{set:([a-z0-9]+)\}", lambda m: f"[{SETS.get(m.group(1), m.group(1).title())}]", t)
+    t = t.replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
     t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠")
     t = re.sub(r"\{([\w-]+)\}", lambda m: ICON_WORD.get(m.group(1), f"[{m.group(1).title()}]"), t)
     # ▲ X / ▼ X — object runs to the next sentence end

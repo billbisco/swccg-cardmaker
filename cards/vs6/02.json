@@ -1,0 +1,28 @@
+{
+ "number": "02",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•All My Urchins",
+ "caption": "•All My Urchins (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per turn, if all your ability on table is provided by Cloud Cars, Han (except Han, Chewie And The _Falcon_), and aliens, may place your just forfeited card in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "One little, two little, three little Bespinites.",
+ "destiny": "3",
+ "base_page": "All My Urchins",
+ "art": {
+  "src": "src/vs6/02-CC-L-allmyurchins.gif",
+  "modern": "src/vs6/modern/02-VB2-L-allmyurchins-pre.gif"
+ },
+ "id": "vs6-02",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Falcon' is italic on the slip (Han, Chewie And The _Falcon_). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) read off the 745 px Access Denied scan, not legible here. Modern: Virtual Block 2 only (VB2 -pre, 350 px); the 745 px V11-L-beldonseyeallmyurchins.gif is the combo card 'Beldon's Eye & All My Urchins', not a remake of this card — not downloaded.",
+ "game_text_lines": "Deploy on table. Once per turn, if all your ability on\ntable is provided by Cloud Cars, Han (except Han,\nChewie And The _Falcon_), and aliens, may place your\njust forfeited card in Used Pile."
+}

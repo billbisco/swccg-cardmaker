@@ -1,0 +1,28 @@
+{
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Down With The Emperor!",
+ "caption": "•Down With The Emperor! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. All immunity to attrition is -3. You may not fire {lightsaber} weapons. If opponent just lost a Dark Jedi or a battle, they lose 1 Force. During your draw phase, use 3 Force or place this Effect in Used Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "News of Imperial defeat inspires the citizens of the galaxy. A major loss seriously undermines the Empire’s ability to function.",
+ "destiny": "6",
+ "base_page": "Down With The Emperor!",
+ "art": {
+  "src": "src/vs6/09-SE-L-downwiththeemperor.gif",
+  "modern": "src/vs6/modern/09-V0-L-downwiththeemperor.gif"
+ },
+ "id": "vs6-09",
+ "virtual_set": 6,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Inline icon in 'may not fire [black square, green blade] weapons' → {lightsaber} per this run's instructions; the wiki stub reads 'vehicle weapons', which does not match the printed glyph (same glyph as Access Denied's 'non-lightsaber'). Red circle-slash A at the end, printed tight against 'Pile.' → {alter}. Lore corrected from scan: curly apostrophe in Empire’s (wiki has straight). Base scan only at 350 px; copyright = Special Edition 1998 form, legible in outline on the scan. Modern: V0-L-downwiththeemperor.gif (745 px); VB4 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on table. All immunity to attrition is -3. You may\nnot fire {lightsaber} weapons. If opponent just lost a Dark Jedi\nor a battle, they lose 1 Force. During your draw phase,\nuse 3 Force or place this Effect in Used Pile. {alter}"
+}

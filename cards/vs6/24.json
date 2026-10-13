@@ -1,0 +1,28 @@
+{
+ "number": "24",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Weapons Display",
+ "caption": "•Weapons Display (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Whenever opponent excludes any character(s) from battle, they lose 2 Force. At end of opponent’s turn, if you control two battlegrounds (a site and a system) and opponent deployed a card with ability and did not initiate a battle, you may retrieve 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The X-wing’s display panel allows for different firing patterns for different weapons. This gives the pilot the ability to switch weapon types with minimum time and energy loss.",
+ "destiny": "3",
+ "base_page": "Weapons Display",
+ "art": {
+  "src": "src/vs6/24-SE-L-weaponsdisplay.gif",
+  "modern": "src/vs6/modern/24-VSh-L-weaponsdisplay-pre.gif"
+ },
+ "id": "vs6-24",
+ "virtual_set": 6,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (blended Effect/shield frame top edge on the slip, teal-blue shield frame). Printed base is a Special Edition Effect. Curly apostrophe in opponent’s. No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in X-wing’s (wiki straight). Base scan only at 350 px; copyright line is the Special Edition form, '1998' legible. Modern: the PC's Virtual Shields remake VSh-L-weaponsdisplay-pre.gif (350 px; non-pre also exists, not downloaded) — no V<N> or VB image.",
+ "game_text_lines": "Plays on table. Whenever opponent excludes any\ncharacter(s) from battle, they lose 2 Force. At end of\nopponent’s turn, if you control two battlegrounds (a site\nand a system) and opponent deployed a card with ability\nand did not initiate a battle, you may retrieve 1 Force."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "16",
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "•Luke’s Blaster Pistol",
+ "caption": "•Luke’s Blaster Pistol (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Luke. During battle, opponent may not move from here. Twice per battle, may target a character (target loses immunity to attrition for remainder of turn) or vehicle (with maneuver) for free. Draw destiny. Target hit and forfeit -3 if destiny +2 > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Merr-Sonn Model 57. Part of an arms lot purchased for the Alliance from a black market dealer on Ord Mantell. Carried by Luke as backup for his father’s lightsaber.",
+ "destiny": "3",
+ "base_page": "Luke's Blaster Pistol (Original)",
+ "art": {
+  "src": "src/vs6/16-CloudCity-L-lukesblasterpistol-decipher-archive.gif",
+  "modern": "src/vs6/modern/16-V8-L-lukesblasterpistol.gif"
+ },
+ "id": "vs6-16",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Luke’s). Green Character Weapon frame, banner CHARACTER WEAPON. No inline icons; slip text matches the stub. The wiki's default 'Luke's Blaster Pistol' page carries Glossary 2.0 errata text; printed face = 'Luke's Blaster Pistol (Original)' (same lore/destiny/set). The 745 px CC-L-lukesblasterpistol.gif is tagged D-E1 (errata face) — downloaded to src/vs6/16-CC-L-lukesblasterpistol.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from both scans: 'Carried by Luke as backup for his father’s lightsaber.' (wiki has 'as a backup'; curly apostrophe in father’s). Copyright 1997 legible on the 745 px face. Modern: V8-L-lukesblasterpistol.gif (745 px, Virtual Set 8 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on Luke. During battle, opponent may not move\nfrom here. Twice per battle, may target a character\n(target loses immunity to attrition for remainder of turn)\nor vehicle (with maneuver) for free. Draw destiny.\nTarget hit and forfeit -3 if destiny +2 > defense value."
+}

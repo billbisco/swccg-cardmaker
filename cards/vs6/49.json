@@ -1,0 +1,29 @@
+{
+ "number": "49",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Weather Vane",
+ "caption": "•Weather Vane (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Character here lost if new character arrives. Your Force generation is +2 while Bespin: Cloud City on table. During owner’s control phase, they must relocate character here to a Cloud City site (if a bounty hunter on Cloud City, character captured instead). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Not a good place to hang around.",
+ "destiny": "4",
+ "base_page": "Weather Vane (Dark)",
+ "art": {
+  "src": "src/vs6/49-CC-D-weathervane.gif",
+  "modern": "src/vs6/modern/49-VB2-D-weathervane-pre.gif"
+ },
+ "id": "vs6-49",
+ "virtual_set": 6,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Red circle-slash A at the end → {alter}. Curly apostrophe in owner’s. Slip text matches the stub (stub page 'Weather Vane (V) (Dark) (Virtual Set 6: City In The Clouds)'; the Light Side Weather Vane is vs6/22). Base page 'Weather Vane (Dark)' (the bare 'Weather Vane' page is the Light Side card). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2-D-weathervane-pre.gif, 350 px; non-pre also exists; V19-L-weathervane is the Light Side remake).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Character here lost if new character\narrives. Your Force generation is +2 while Bespin: Cloud\nCity on table. During owner’s control phase, they must\nrelocate character here to a Cloud City site (if a bounty\nhunter on Cloud City, character captured instead). {alter}"
+}
