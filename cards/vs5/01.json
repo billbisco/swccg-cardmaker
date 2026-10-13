@@ -1,0 +1,28 @@
+{
+ "number": "01",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Asteroids Do Not Concern Me",
+ "caption": "•Asteroids Do Not Concern Me (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Asteroid Sanctuary is canceled. When you complete Rycar’s Run, place it out of play. During your control phase, opponent loses 1 Force for each Asteroid Field you control (limit 3). During your deploy phase, may ▼ one Rycar’s Run or asteroid sector. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The personal fears of Vader’s minions do not affect his priorities.",
+ "destiny": "4",
+ "base_page": "Asteroids Do Not Concern Me",
+ "art": {
+  "src": "src/vs5/01-Dagobah-L-asteroidsdonotconcernme.gif",
+  "modern": "src/vs5/modern/01-VB2-L-asteroidsdonotconcernme-pre.gif"
+ },
+ "id": "vs5-01",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. The crop cuts off the slip's heading (only the tail of '(V)' visible); title taken from the bottom strip '•Asteroids Do Not Concern Me (V)'. Slip prints the ▼ triangle where the wiki stub expands 'deploy on table from Reserve Deck; reshuffle'; red circle-slash A at the end → {alter}. Printed base is a Utinni Effect (slip banner reads EFFECT). Lore matches the scan (curly apostrophe). Base scan only at 350 px; copyright 1997 (Dagobah) read off the 745 px Descent Into The Dark scan, not legible here. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Asteroid Sanctuary is canceled. When\nyou complete Rycar’s Run, place it out of play. During\nyour control phase, opponent loses 1 Force for each\nAsteroid Field you control (limit 3). During your deploy\nphase, may ▼ one Rycar’s Run or asteroid sector. {alter}"
+}

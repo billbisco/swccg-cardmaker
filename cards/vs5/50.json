@@ -1,0 +1,28 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "••Voyeur",
+ "caption": "••Voyeur (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If opponent has three non-battleground locations on table, activate 5 Force.\nLOST: ▼ a battleground location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "As there are very few local authorities on Dagobah, peeping astromechs can get away with just about anything.",
+ "destiny": "3",
+ "base_page": "Voyeur",
+ "art": {
+  "src": "src/vs5/50-Dagobah-D-voyeur.gif",
+  "modern": "src/vs5/modern/50-VB2-D-voyeur-pre.gif"
+ },
+ "id": "vs5-50",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Restricted (••). USED:/LOST: lines separated by \\n. Slip prints the ▼ triangle on the LOST line where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore corrected from scan: 'peeping astromechs' (wiki: 'peeping Nav Computers') — confirmed on both the Dagobah scan and the VB2 remake. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: If opponent has three non-battleground locations\non table, activate 5 Force.\nLOST: ▼ a battleground location."
+}

@@ -1,0 +1,44 @@
+{
+ "number": "39",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: MODIFIED CORELLIAN FREIGHTER",
+ "title": "•_Hound’s Tooth_",
+ "caption": "•_Hound’s Tooth_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "May add 1 alien pilot, 6 passengers, and 1 vehicle. Deploys (even using Combat Response) and moves like a starfighter. While Bossk piloting, adds one battle destiny and immune to attrition < 4.",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Controlled by state-of-the-art voice-activated X10-D computers. Internal sensors and security systems monitor prisoner activity. Modified for Bossk’s Trandoshan physiology.",
+ "destiny": "2",
+ "base_page": "Hound's Tooth",
+ "art": {
+  "src": "src/vs5/39-Dagobah-D-houndstooth.gif",
+  "modern": "src/vs5/modern/39-V0-D-houndstooth.gif"
+ },
+ "id": "vs5-39",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Hound’s Tooth' italic in the slip's title line and caption (marked _…_, as vs4/48 Stalker); curly apostrophe. Banner CAPITAL: MODIFIED CORELLIAN FREIGHTER. Stats POWER 5 / ARMOR 4 / HYPERSPEED 4; slip deploy 3 / forfeit 6 (printed 6 / 4). Scomp-link ring at the top-left of the text box → scomp true. Icon column top to bottom: blue spoked wheel → independent, red square with green dome → nav. Slip text matches the stub. Lore corrected from scan: 'state-of-the-art voice-activated' (wiki has a stray hyphen 'state-of-the-art-voice-activated'); curly apostrophe in Bossk’s — confirmed on the 745 px V0 remake. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: V0-D-houndstooth.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "May add 1 alien pilot, 6 passengers, and 1 vehicle.\nDeploys (even using Combat Response) and moves\nlike a starfighter. While Bossk piloting, adds one\nbattle destiny and immune to attrition < 4."
+}

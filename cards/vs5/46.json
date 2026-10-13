@@ -1,0 +1,44 @@
+{
+ "number": "46",
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: CORELLIAN JM 5000",
+ "title": "•_Punishing One_",
+ "caption": "•_Punishing One_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "MANEUVER",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "May add 1 alien pilot and 1 passenger. During battle here, while Dengar piloting, attrition against opponent is +3. Immune to attrition < 4.",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Old Corellian Engineering Corporation starfighter. Has outdated Class Three hyperdrive, but high sublight speed capability. Easy to maintain. Owned by Dengar.",
+ "destiny": "3",
+ "base_page": "Punishing One (Original)",
+ "art": {
+  "src": "src/vs5/46-Dagobah-D-punishingone-decipher-archive.gif",
+  "modern": "src/vs5/modern/46-V7-D-punishingone.gif"
+ },
+ "id": "vs5-46",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. 'Punishing One' italic in the slip's title line and caption (marked _…_ as vs5/39). Banner STARFIGHTER: CORELLIAN JM 5000. Stats POWER 2 / MANEUVER 5 / HYPERSPEED 3; deploy 2 / forfeit 4. Scomp-link ring → scomp true. Icon column top to bottom: independent, nav. Slip text matches the stub. The wiki's default 'Punishing One' page carries Glossary 2.0 errata text; printed face = 'Punishing One (Original)' (same lore/destiny/set). The 745 px Dagobah-D-punishingone.gif is the Errata face — downloaded to src/vs5/46-Dagobah-D-punishingone.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore matches both scans. Copyright 1997 legible on the 745 face. Modern: V7-D-punishingone.gif (745 px, the Virtual Set 7 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "May add 1 alien pilot and 1 passenger. During\nbattle here, while Dengar piloting, attrition against\nopponent is +3. Immune to attrition < 4."
+}

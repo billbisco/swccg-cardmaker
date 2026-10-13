@@ -1,0 +1,40 @@
+{
+ "number": "32",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Corporal Vandolay",
+ "caption": "•Corporal Vandolay (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:2}. Opponent’s smugglers are forfeit -2. During any control phase, may ▲ one Spice Mines Of Kessel. Once per game, may ▲ an Immediate Effect and/or a prison.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "ISB attaché to the _Executor_. Detention Officer. Political Liaison for COMPNOR. Responsible for all prisoner transfers. Fiercely loyal to the Emperor’s New Order.",
+ "destiny": "2",
+ "base_page": "Corporal Vandolay",
+ "art": {
+  "src": "src/vs5/32-Dagobah-D-corporalvandolay.gif",
+  "modern": "src/vs5/modern/32-V1-D-corporalvandolay.gif"
+ },
+ "id": "vs5-32",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. {pilot:2} at the start (stub omits it). Slip prints ▲ twice where the stub expands 'take into hand from Reserve Deck; reshuffle'. Third stat box printed blank. Icon column: pilot, warrior (printed card has Warrior only). Imperial. Lore corrected from scan: 'attaché' with the acute accent (wiki 'attache'), 'Executor' italic, curly apostrophe in Emperor’s — all confirmed on the 745 px V1 remake. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: V1-D-corporalvandolay.gif (745 px, Virtual Set 1 — different game text); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:2}. Opponent’s smugglers are forfeit -2. During\nany control phase, may ▲ one Spice Mines Of\nKessel. Once per game, may ▲ an Immediate\nEffect and/or a prison."
+}

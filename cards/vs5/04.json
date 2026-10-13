@@ -1,0 +1,28 @@
+{
+ "number": "04",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Descent Into The Dark",
+ "caption": "•Descent Into The Dark (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. While you have less than 10 Life Force, your battle and weapon destiny draws are +1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jedi training is a journey into the depths of an apprentice’s subconscious, where one must learn to use the Force wisely. “A Jedi’s strength flows from the Force.”",
+ "destiny": "4",
+ "base_page": "Descent Into The Dark (Original)",
+ "art": {
+  "src": "src/vs5/04-Dagobah-L-descentintothedark-decipher-archive.gif",
+  "modern": "src/vs5/modern/04-VB2-L-descentintothedark-pre.gif"
+ },
+ "id": "vs5-04",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. The wiki's default 'Descent Into The Dark' page carries Glossary Supplement text; the printed face is 'Descent Into The Dark (Original)' (same lore/destiny/set). Printed base is an Immediate Effect (slip banner reads EFFECT). The 745 px Dagobah-L-descentintothedark.gif is the Errata face — downloaded to src/vs5/, not used as art; 350 px decipher-archive used. Lore corrected from scan: curly double quotes around the Yoda line and curly apostrophes (wiki has straight single quotes). Copyright 1997 legible on the 745 px face. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. While you have less than 10 Life\nForce, your battle and weapon destiny draws are +1."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "20",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Shoo! Shoo!",
+ "caption": "•Shoo! Shoo! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Relocate an opponent’s ferocious creature to a related location (habitat permitting). OR During any move phase, initiate an attack against a creature. OR Cancel an attempt by Reegesk to steal a card; Reegesk is lost. {sense}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Oh! Go away! Go away! Beastly thing!”",
+ "destiny": "6",
+ "base_page": "Shoo! Shoo!",
+ "art": {
+  "src": "src/vs5/20-Dagobah-L-shooshoo.gif",
+  "modern": "src/vs5/modern/20-VB4-L-shooshoo-pre.gif"
+ },
+ "id": "vs5-20",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Red circle-slash S on its own last line → {sense} (stub: 'Immune to Sense.'). Slip text otherwise matches the wiki stub. Lore corrected from scan: curly double quotes (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "game_text_lines": "Relocate an opponent’s ferocious creature to a related\nlocation (habitat permitting). OR During any move\nphase, initiate an attack against a creature. OR Cancel\nan attempt by Reegesk to steal a card; Reegesk is lost.\n{sense}"
+}

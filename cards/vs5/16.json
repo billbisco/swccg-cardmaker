@@ -1,0 +1,29 @@
+{
+ "number": "16",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Polarized Negative Power Coupling",
+ "caption": "Polarized Negative Power Coupling (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Whenever a player plays a Used Interrupt, their opponent may stack it here. Either player may use 2 Force to place a card here in owner’s Used Pile or may lose 2 Force to place a card here in owner’s Lost Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imbalance in a converter’s inverse energy field can improperly polarize the negative axis, causing hyperdrive failure. Replacement often requires an inverted engineer.",
+ "destiny": "4",
+ "base_page": "Polarized Negative Power Coupling",
+ "art": {
+  "src": "src/vs5/16-Dagobah-L-polarizednegativepowercoupling.gif",
+  "modern": "src/vs5/modern/16-VB2-L-polarizednegativepowercoupling-pre.gif"
+ },
+ "id": "vs5-16",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). The crop cuts off the slip's heading (only the bottoms of the letters visible); title taken from the bottom strip 'Polarized Negative Power Coupling (V)' and the base card. The EFFECT banner carries the blue Grabber (hand) icon box at its right end, as on Immediate Effects (VS5 cover ICON KEY: 'indicates the card is a grabber') — recorded as grabber: true, not in the icon column. Slip text matches the wiki stub (curly apostrophes in 'owner’s'). No immunity icon. Lore corrected from scan: curly apostrophe in 'converter’s' (wiki straight). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "grabber": true,
+ "game_text_lines": "Deploy on table. Whenever a player plays a Used\nInterrupt, their opponent may stack it here. Either\nplayer may use 2 Force to place a card here in owner’s\nUsed Pile or may lose 2 Force to place a card here in\nowner’s Lost Pile."
+}

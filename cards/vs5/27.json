@@ -1,0 +1,29 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Awwww, Cannot Get Your Ship Out",
+ "caption": "Awwww, Cannot Get Your Ship Out (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just drew a starship or vehicle for destiny, deploy on table and stack that card here. Opponent may place a card (your choice) from your Lost Pile into your hand to place this Effect (and stacked cards) into owners’ Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Listen, friend, we didn’t mean to land in that puddle, and if we could get our ship out, we would, but we can’t so why don’t you just...”",
+ "destiny": "4",
+ "base_page": "Awwww, Cannot Get Your Ship Out",
+ "art": {
+  "src": "src/vs5/27-Dagobah-D-awwwwcannotgetyourshipout.gif",
+  "modern": "src/vs5/modern/27-VB2-D-awwwwcannotgetyourshipout-pre.gif"
+ },
+ "id": "vs5-27",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). The crop cuts off the slip's heading (only glyph tails visible); title taken from the bottom strip 'Awwww, Cannot Get Your Ship Out (V)'. Banner IMMEDIATE EFFECT with NO grabber icon at its right end (unlike VS3 Grappling Hook/Tentacle); printed base is a plain Effect. Curly apostrophe in owners’. Lore corrected from scan: curly double quotes around the whole quote and curly apostrophes (didn’t, can’t, don’t); wiki has straight single quotes. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "If opponent just drew a starship or vehicle for destiny,\ndeploy on table and stack that card here. Opponent\nmay place a card (your choice) from your Lost Pile\ninto your hand to place this Effect (and stacked cards)\ninto owners’ Used Pile.",
+ "grabber": false
+}

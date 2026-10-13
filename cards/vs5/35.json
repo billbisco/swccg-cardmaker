@@ -1,0 +1,28 @@
+{
+ "number": "35",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Desilijic Tattoo",
+ "caption": "•Desilijic Tattoo (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Bounty Hunters and your {independent} starships are defense value +1 and forfeit +2. Once per turn, when a bounty hunter uses a non-{lightsaber} weapon to hit a character, target is forfeit -2 and opponent places top card of Reserve Deck in Lost Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jabba The Hutt’s clan requires all members to carry ritual scarring identifying them forever as heirs to the Nal Hutta legacy. These tattoos are considered marks of power.",
+ "destiny": "4",
+ "base_page": "Desilijic Tattoo",
+ "art": {
+  "src": "src/vs5/35-SE-D-desilijictattoo.gif",
+  "modern": "src/vs5/modern/35-VB2-D-desilijictattoo-pre.gif"
+ },
+ "id": "vs5-35",
+ "virtual_set": 5,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Inline blue spoked-wheel square before 'starships' = Independent starship icon → {independent} (stub: 'Independent starships'). Inline black square with a green blade after 'non-' transcribed as {lightsaber} per this run's instructions (the GEMP text reads '[Permanent Weapon]' and STANDARD.md rev 8 calls this icon the Permanent Weapon icon — same glyph). Red circle-slash A at the end → {alter}. 'Bounty Hunters' capitalised as on the slip. Lore corrected from scan: 'Jabba The Hutt’s' with capital The and curly apostrophe (wiki 'Jabba the Hutt's'). Base scan only at 350 px; Special Edition copyright line taken as the SE form, year 1998, not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Bounty Hunters and your {independent} starships\nare defense value +1 and forfeit +2. Once per turn,\nwhen a bounty hunter uses a non-{lightsaber} weapon to hit a\ncharacter, target is forfeit -2 and opponent places top\ncard of Reserve Deck in Lost Pile. {alter}"
+}

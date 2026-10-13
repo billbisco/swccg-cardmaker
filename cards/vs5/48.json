@@ -1,0 +1,28 @@
+{
+ "number": "48",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Take Evasive Action",
+ "caption": "•Take Evasive Action (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Cancel Fallen Portal, Fly Casual, or T-47 Battle Formation (unless canceling Walker Garrison). {sense}\nLOST: If opponent just drew lightsaber combat or weapon destiny, cancel and redraw that destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Aoooga! Aoooga!",
+ "destiny": "4",
+ "base_page": "Take Evasive Action",
+ "art": {
+  "src": "src/vs5/48-Dagobah-D-takeevasiveaction.gif",
+  "modern": "src/vs5/modern/48-VB2-D-takeevasiveaction-pre.gif"
+ },
+ "id": "vs5-48",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. USED:/LOST: lines separated by \\n. Red circle-slash S at the end of the USED line → {sense} (stub: 'Immune to Sense.'). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: Cancel Fallen Portal, Fly Casual, or T-47 Battle\nFormation (unless canceling Walker Garrison). {sense}\nLOST: If opponent just drew lightsaber combat or\nweapon destiny, cancel and redraw that destiny."
+}

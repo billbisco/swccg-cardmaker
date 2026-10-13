@@ -1,0 +1,28 @@
+{
+ "number": "49",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "The Dark Path",
+ "caption": "The Dark Path (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During battle, if you just drew a destiny, may lose that card to cancel and redraw that destiny. When you draw battle destiny, may lose X Force (limit 3) to make attrition against opponent +X.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“If once you start down the dark path, forever will it dominate your destiny. Consume you it will, as it did Obi-Wan’s apprentice.”",
+ "destiny": "5",
+ "base_page": "The Dark Path",
+ "art": {
+  "src": "src/vs5/49-Dagobah-D-thedarkpath.gif",
+  "modern": "src/vs5/modern/49-V10-D-thedarkpath.gif"
+ },
+ "id": "vs5-49",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot; wiki: Unrestricted). Text transcribed as this Remaster sheet prints it; the sheet's cover notes errata to card #49 on 14 September 2007 (the stub's game_text_note says the same) — this transcription is the sheet's (post-errata) text; the pre-errata wording is not on this sheet. The slip's bottom strip prints a small gold/bronze sphere between the caption and the number (an errata marker, presumably) — not transcribed as an icon. Slip text matches the stub. Lore corrected from scan: curly double quotes “…” and curly apostrophe (wiki straight single quotes); 'Obi-Wan’s' is one hyphenated word broken at the line end on the printed card (wiki has 'Obi- Wan's' with a stray space) — confirmed on the 745 px V10 remake. Base scan only at 350 px; copyright 1997 (Dagobah) not legible on it. Modern: V10-D-thedarkpath.gif (745 px, the Virtual Set 10 remake); VB2 -pre (350) and a VB9 combo image (begin landing your troops & the dark path) also exist, not downloaded.",
+ "game_text_lines": "Deploy on table. During battle, if you just drew a\ndestiny, may lose that card to cancel and redraw that\ndestiny. When you draw battle destiny, may lose X\nForce (limit 3) to make attrition against opponent +X."
+}

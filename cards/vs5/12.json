@@ -1,0 +1,28 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "Levitation",
+ "caption": "Levitation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Take a droid or device from your Force Pile into hand; reshuffle.\nLOST: Once per game, if your apprentice is on Dagobah, cancel a Force drain at a non-Dagobah location.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Telekinesis is one of the powers awakened during a Jedi’s apprenticeship. Using this ability, a student of the Force can learn to levitate objects.",
+ "destiny": "6",
+ "base_page": "Levitation",
+ "art": {
+  "src": "src/vs5/12-Dagobah-L-levitation.gif",
+  "modern": "src/vs5/modern/12-VB2-L-levitation-pre.gif"
+ },
+ "id": "vs5-12",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Slip text matches the wiki stub. No immunity icon. Lore corrected from scan: curly apostrophe in 'Jedi’s' (wiki straight). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: Take a droid or device from your Force Pile\ninto hand; reshuffle.\nLOST: Once per game, if your apprentice is on\nDagobah, cancel a Force drain at a non-Dagobah\nlocation."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "02",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Away Put Your Weapon",
+ "caption": "•Away Put Your Weapon (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: An opponent’s just drawn {lightsaber} weapon destiny is -3. {sense}\nLOST: Once per game, place all of your weapon cards from Lost Pile and/or on table in Used Pile (limit 5).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I mean you no harm.”",
+ "destiny": "5",
+ "base_page": "Away Put Your Weapon",
+ "art": {
+  "src": "src/vs5/02-Dagobah-L-awayputyourweapon.gif",
+  "modern": "src/vs5/modern/02-VB2-L-awayputyourweapon-pre.gif"
+ },
+ "id": "vs5-02",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Inline icon after 'just drawn' is the black square with a diagonal green blade → {lightsaber} (wiki stub reads 'lightsaber'; same raster as the permanent-weapon icon). Red circle-slash S after '-3.' → {sense}. Lore corrected from scan: curly double quotes (wiki has straight single quotes). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "USED: An opponent’s just drawn {lightsaber} weapon destiny is\n-3. {sense}\nLOST: Once per game, place all of your weapon cards\nfrom Lost Pile and/or on table in Used Pile (limit 5)."
+}

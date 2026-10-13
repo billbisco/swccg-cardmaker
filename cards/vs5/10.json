@@ -1,0 +1,28 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Starting Effect",
+ "card_type": "STARTING EFFECT",
+ "title": "Ineffective Maneuver",
+ "caption": "Ineffective Maneuver (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table with 5 cards from outside your deck face-down under here. Three times per game, may play a Defensive Shield from here (as if from hand). {lightsaber} weapons may not reset forfeit to 0. Characters hit by {lightsaber} weapons are forfeit = (printed forfeit -3).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "To succeed in the Imperial Navy, an officer must be willing to take risks. Difficult choices must be made.",
+ "destiny": "3",
+ "base_page": "Ineffective Maneuver",
+ "art": {
+  "src": "src/vs5/10-Dagobah-L-ineffectivemaneuver.gif",
+  "modern": "src/vs5/modern/10-VB2-L-ineffectivemaneuver-pre.gif"
+ },
+ "id": "vs5-10",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Banner reads STARTING EFFECT (printed base is a plain Effect). Two inline black-square green-blade icons before 'weapons' → {lightsaber} (wiki stub reads 'Lightsaber weapons'). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table with 5 cards from outside your deck\nface-down under here. Three times per game, may play\na Defensive Shield from here (as if from hand). {lightsaber}\nweapons may not reset forfeit to 0. Characters hit by {lightsaber}\nweapons are forfeit = (printed forfeit -3)."
+}

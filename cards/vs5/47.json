@@ -1,0 +1,28 @@
+{
+ "number": "47",
+ "side": "Dark",
+ "slip_type": "Starting Effect",
+ "card_type": "STARTING EFFECT",
+ "title": "Sudden Impact",
+ "caption": "Sudden Impact (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table with 5 cards from outside your deck face-down under here. Three times per game, may play a Defensive Shield from here (as if from hand). {lightsaber} weapons may not reset forfeit to 0. Characters hit by {lightsaber} weapons are forfeit = (printed forfeit -3).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "An asteroid looming in one’s path can force a quick decision. One must choose, but choose wisely. This pilot chose poorly.",
+ "destiny": "3",
+ "base_page": "Sudden Impact",
+ "art": {
+  "src": "src/vs5/47-Dagobah-D-suddenimpact.gif",
+  "modern": "src/vs5/modern/47-VB2-D-suddenimpact-pre.gif"
+ },
+ "id": "vs5-47",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot; wiki: Unrestricted). Banner STARTING EFFECT (printed card is an Effect). Two inline black-square green-blade icons ('[icon] weapons may not reset…' and 'hit by [icon] weapons') transcribed as {lightsaber} per this run's instructions (the stub expands them as 'Lightsaber weapons'; STANDARD.md rev 8 calls this glyph the Permanent Weapon icon — same glyph). Lore corrected from scan: curly apostrophe in one’s (wiki straight). Base scan only at 350 px; copyright 1997 (Dagobah) not legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on table with 5 cards from outside your deck\nface-down under here. Three times per game, may play\na Defensive Shield from here (as if from hand). {lightsaber}\nweapons may not reset forfeit to 0. Characters hit by {lightsaber}\nweapons are forfeit = (printed forfeit -3)."
+}

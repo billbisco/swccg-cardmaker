@@ -1,0 +1,28 @@
+{
+ "number": "37",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Field Promotion",
+ "caption": "Field Promotion (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your captain or commander. This character is an admiral and a leader. Imperials are immune to Demotion. Once per game, may ▲ a card with “Imperial” in title. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial officers are fiercely competitive, especially on the _Executor_. Lord Vader’s flagship is a place where devious political calculation prospers. The naive are doomed to failure.",
+ "destiny": "4",
+ "base_page": "Field Promotion (Original)",
+ "art": {
+  "src": "src/vs5/37-Dagobah-D-fieldpromotion-decipher-archive.gif",
+  "modern": "src/vs5/modern/37-VB2-D-fieldpromotion-pre.gif"
+ },
+ "id": "vs5-37",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip or printed card). Slip prints ▲ where the stub expands 'take into hand from Reserve Deck; reshuffle'; red circle-slash A right after 'title.' → {alter}. The wiki's default 'Field Promotion' page carries Glossary Supplement wording; printed face = 'Field Promotion (Original)' (same lore/destiny/set). The 745 px Dagobah-D-fieldpromotion.gif is the PC Errata face — downloaded to src/vs5/37-Dagobah-D-fieldpromotion.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from scan: 'Executor' italic, curly apostrophe in Vader’s. Copyright 1997 (Dagobah). Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on your captain or commander. This character\nis an admiral and a leader. Imperials are immune to\nDemotion. Once per game, may ▲ a card with\n“Imperial” in title. {alter}"
+}

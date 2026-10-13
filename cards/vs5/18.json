@@ -1,0 +1,28 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Scrambled Transmission",
+ "caption": "•Scrambled Transmission (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Unless you have 13 or more cards in hand, opponent may not peek at or remove those cards (except with Monnok). Once per turn, may ▲ Logistical Delay, peek at a card placed face-down by You’re A Slave?, or lose 2 Force to cancel a Political Effect. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Rebel Alliance employs sophisticated jamming technology to block Imperial communications.",
+ "destiny": "4",
+ "base_page": "Scrambled Transmission",
+ "art": {
+  "src": "src/vs5/18-SE-L-scrambledtransmission.gif",
+  "modern": "src/vs5/modern/18-VB4-L-scrambledtransmission-pre.gif"
+ },
+ "id": "vs5-18",
+ "virtual_set": 5,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. The crop cuts off the top of the slip's heading (lower half of '•Scrambled Transmission (V)' visible); title confirmed from the bottom strip. Slip prints the ▲ triangle where the wiki stub expands 'take into hand from Reserve Deck; reshuffle'; red circle-slash A at the end → {alter} (stub: 'Immune to Alter.'). Lore matches the scan. Base scan only at 350 px; copyright line = Special Edition 1998 form, not legible at 350 px. Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Unless you have 13 or more cards in\nhand, opponent may not peek at or remove those cards\n(except with Monnok). Once per turn, may ▲ Logistical\nDelay, peek at a card placed face-down by You’re A\nSlave?, or lose 2 Force to cancel a Political Effect. {alter}"
+}

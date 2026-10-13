@@ -1,0 +1,44 @@
+{
+ "number": "21",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Son Of Skywalker",
+ "caption": "•Son Of Skywalker (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "5"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "8",
+ "game_text": "{pilot:2}. Deploys -3 to Dagobah. You must first lose 1 Force to substitute a destiny draw using Jedi Test #5. His training destiny draws are +1. During your deploy phase, may ▼ a card with “training destiny” in its game text. Immune to attrition < 4.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Luke Skywalker. Son of Anakin. Seeker of Yoda. Levitator of rocks. Ignorer of advice. Incapable of impossible. Reckless is he.",
+ "destiny": "1",
+ "base_page": "Son Of Skywalker",
+ "art": {
+  "src": "src/vs5/21-Dagobah-L-sonofskywalker.gif",
+  "modern": "src/vs5/modern/21-V24-L-sonofskywalker.gif"
+ },
+ "id": "vs5-21",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Yellow pilot-power icon followed by '2.' at the start → {pilot:2} — the wiki stub omits this phrase. The slip prints a long minus (en dash) in 'Deploys –3'; typed as '-3' like the earlier runs. Slip prints the ▼ triangle where the stub expands 'deploy on table from Reserve Deck; reshuffle'; curly double quotes around “training destiny”. Third stat box FORCE-SENSITIVE (label only). Icon column: pilot, warrior. Rebel (Dagobah frame, Rebel disc). Destiny from the printed base card (1; the stub lists 2). Lore matches the scan. Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: V24-L-sonofskywalker.gif (745 px, Virtual Set 24 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:2}. Deploys -3 to Dagobah. You must first lose\n1 Force to substitute a destiny draw using Jedi\nTest #5. His training destiny draws are +1. During\nyour deploy phase, may ▼ a card with “training\ndestiny” in its game text. Immune to attrition < 4."
+}

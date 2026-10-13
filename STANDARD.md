@@ -171,3 +171,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   almost to the frame's box edge so the fitter can grow to that size (capped at 63).
 - Rev 9f (Bill 2026-10-13): the Dark Objective frame is ONE purple over the whole frame — the red-purple of the slip
   (hue .76 / sat .64 / val .44), art half included. The PC card's bluer upper half (rev 9e's two-tone) is not wanted.
+- Rev 10 (VS5 run, 2026-10-13): `crop_slips.py` whites out only solid dark runs (> 200 px) above the heading — the
+  old "35 % dark row" test erased long headings (•Location, Location, Location); 20 earlier crops were re-cut and
+  re-uploaded. Icon column packing: two Warrior icons share Bardez's tall box (`col-warrior2.png`); when the stack
+  (plus the set sphere) is taller than the column, everything shrinks uniformly from the first slot down to the
+  sphere's bottom (IG-88: pilot, warrior×2, presence). Presence = Game Aid g013 (droid on red). Light Jedi Master
+  (Yoda) = the Rebel frame with Bardez's Dark Jedi Master disc re-hued to the blue blade (`disc-jedi-light.png`,
+  card `disc`). A grabber box on an EFFECT banner (#16) is `"grabber": true`; an Immediate Effect without one
+  (#27) is `"grabber": false`. `qa_text.py N` compares every card's text with the sheet's text layer. The VS5 set
+  sphere is the cover's own 46 px icon upscaled (`ovs-set-5.png`).

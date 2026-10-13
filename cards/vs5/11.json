@@ -1,0 +1,28 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "Jedi Levitation",
+ "caption": "Jedi Levitation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If you just drew a character for destiny, take that card into hand to cancel and redraw that destiny.\nLOST: Use 3 Force to retrieve a non-{maintenance} character into hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A Jedi can adjust the Force within and around an object, causing it to move as the Jedi wills.",
+ "destiny": "4",
+ "base_page": "Jedi Levitation",
+ "art": {
+  "src": "src/vs5/11-Dagobah-L-jedilevitation.gif",
+  "modern": "src/vs5/modern/11-V0-L-jedilevitation.gif"
+ },
+ "id": "vs5-11",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Printed base is a Lost Interrupt (slip banner reads USED OR LOST INTERRUPT). Inline icon after 'non-' is the gold spoked wheel on a gold square = the MAINTENANCE icon per the VS5 cover ICON KEY ('references a card with a maintenance cost') → {maintenance}; the wiki stub reads 'non-Episode I character', which does not match the slip. Lore corrected from scan: 'Force' is capitalized on the printed card (wiki base page has lowercase 'force'). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: V0-L-jedilevitation.gif (745) used; VB2 -pre (350) also exists on the wiki, not downloaded.",
+ "game_text_lines": "USED: If you just drew a character for destiny, take\nthat card into hand to cancel and redraw that destiny.\nLOST: Use 3 Force to retrieve a non-{maintenance} character into\nhand."
+}

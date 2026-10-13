@@ -1,0 +1,46 @@
+{
+ "number": "40",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•IG-88",
+ "caption": "•IG-88 (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "ASSASSIN DROID",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "5",
+ "game_text": "{pilot:2}. May use two weapons. Once per turn, if escorting a captive, may take any one card from Force Pile into hand; reshuffle. May lose 1 Force to cancel a just drawn weapon destiny targeting IG-88. Immune to attrition < 5.",
+ "icons": [
+  "pilot",
+  "warrior",
+  "warrior",
+  "presence"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Bounty hunter. Went berserk upon activation. Murdered all designers at Holowan Mechanicals. IG-88’s outstanding “dismantle on sight” warrant ignored by Darth Vader.",
+ "destiny": "1",
+ "base_page": "IG-88 (Original)",
+ "art": {
+  "src": "src/vs5/40-Dagobah-D-ig88-decipher-archive.gif",
+  "modern": "src/vs5/modern/40-V0-D-ig88.gif"
+ },
+ "id": "vs5-40",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. {pilot:2} at the start (stub omits it). Stats POWER 4 / ARMOR 5 and a wide third box ASSASSIN DROID (label only). Icon column top to bottom: pilot (yellow DS helmet), one tall blue box holding TWO warrior icons (listed as warrior, warrior), then a red square with a white figure = Decipher's printed Presence icon (GEMP lists Pilot, Warrior x2, Presence for IG-88 (V); the printed card has no Presence). Droid. The wiki's default 'IG-88' page carries Glossary 2.0 wording; printed face = 'IG-88 (Original)' (same lore/destiny/set). The 745 px Dagobah-D-ig88.gif is the PC Errata face (bold 'Bounty hunter') — downloaded to src/vs5/40-Dagobah-D-ig88.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from scan: curly double quotes around “dismantle on sight” (wiki single quotes), curly apostrophe in IG-88’s. Copyright 'TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.' read off the 745 px face. Modern: V0-D-ig88.gif (745 px); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:2}. May use two weapons. Once per turn, if\nescorting a captive, may take any one card from\nForce Pile into hand; reshuffle. May lose 1 Force\nto cancel a just drawn weapon destiny targeting\nIG-88. Immune to attrition < 5."
+}

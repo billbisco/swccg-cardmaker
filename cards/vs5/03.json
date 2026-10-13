@@ -1,0 +1,43 @@
+{
+ "number": "03",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Bron Burs",
+ "caption": "•Bron Burs (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Draws one battle destiny if unable to otherwise. Where present, cancels a non-docking bay site’s Dark side game text. While armed with a Blaster Rifle (which is a matching weapon for Bron), it fires for free and Bron is immune to attrition < 4.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Ugly scars cover this former commando from southern Nentan. Likes to be on his own. Crack shot. Off and on partner of Debnoli. Relies on intuition to survive.",
+ "destiny": "3",
+ "base_page": "Bron Burs",
+ "art": {
+  "src": "src/vs5/03-SE-L-bronburs.gif",
+  "modern": "src/vs5/modern/03-VB1-L-bronburs-pre.gif"
+ },
+ "id": "vs5-03",
+ "virtual_set": 5,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Icon column: warrior (blue square, blaster). Third stat box FORCE-ATTUNED (label only). Alien (Special Edition frame, single disc). Lore matches the scan. Base scan only at 350 px; copyright line = Special Edition 1998 form, not legible at 350 px. Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "game_text_lines": "Draws one battle destiny if unable to otherwise.\nWhere present, cancels a non-docking bay site’s\nDark side game text. While armed with a Blaster\nRifle (which is a matching weapon for Bron), it\nfires for free and Bron is immune to attrition < 4."
+}

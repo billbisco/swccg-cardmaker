@@ -1,0 +1,39 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Neb Dulo",
+ "caption": "•Neb Dulo (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "Your aliens here are defense value +2. During battle with your Rep, the Rep may not be targeted by weapons.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Disciple of Davrilat, a complicated religion based on the sanctity of harmonics. Originally from the desert planet Tocoya. Strong protective instincts.",
+ "destiny": "3",
+ "base_page": "Neb Dulo",
+ "art": {
+  "src": "src/vs5/13-SE-L-nebdulo.gif",
+  "modern": "src/vs5/modern/13-VB2-L-nebdulo-pre.gif"
+ },
+ "id": "vs5-13",
+ "virtual_set": 5,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Third stat box printed blank (no label). Icon column: warrior (blue square, blaster). Alien (Special Edition frame, single alien disc). Slip text matches the wiki stub. Lore matches the scan. Base scan only at 350 px; copyright line = Special Edition 1998 form, not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Your aliens here are defense value +2. During\nbattle with your Rep, the Rep may not be targeted\nby weapons."
+}

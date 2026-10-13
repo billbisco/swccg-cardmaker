@@ -1,0 +1,28 @@
+{
+ "number": "05",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "◊Encampment",
+ "caption": "◊Encampment (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a non-docking bay exterior planet site you occupy. While you occupy this site, at same and related sites, your characters may deploy regardless of location deployment restrictions. Once per game, your character may deploy -3 here. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Pirates, smugglers and Rebels operate from tiny camps which can be set up quickly and relocated at a moment’s notice. A surprise visitor made Luke an unhappy camper.",
+ "destiny": "3",
+ "base_page": "Encampment",
+ "art": {
+  "src": "src/vs5/05-Dagobah-L-encampment.gif",
+  "modern": "src/vs5/modern/05-VB2-L-encampment-pre.gif"
+ },
+ "id": "vs5-05",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Uniqueness is the ◊ (one per location) diamond, printed on the slip heading, caption and base card title — kept as ◊. Red circle-slash A at the end → {alter}. Lore matches the scan (curly apostrophe). Base scan only at 350 px; copyright 1997 (Dagobah) not legible at 350 px. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "Deploy on a non-docking bay exterior planet site you\noccupy. While you occupy this site, at same and related\nsites, your characters may deploy regardless of location\ndeployment restrictions. Once per game, your character\nmay deploy -3 here. {alter}"
+}

@@ -1,0 +1,40 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Corporal Derdram",
+ "caption": "•Corporal Derdram (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. While at an _Executor_ site, may use 1 Force to place a just lost non-unique smuggler (and all copies of that card in opponent’s Lost Pile) out of play. At same non-docking bay site, opponent may not deploy Jar Jar or spies.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Member of Imperial Intelligence, Internal Security division. Assigned by IntSec to _Executor_. Responsible for physical safety of Imperial personnel against Rebel saboteurs.",
+ "destiny": "2",
+ "base_page": "Corporal Derdram",
+ "art": {
+  "src": "src/vs5/31-Dagobah-D-corporalderdram.gif",
+  "modern": "src/vs5/modern/31-VB2-D-corporalderdram-pre.gif"
+ },
+ "id": "vs5-31",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Yellow (DS) pilot-power icon + '2.' at the start → {pilot:2}; the wiki stub omits this phrase. 'Executor' italic in game text. Third stat box printed blank. Icon column: pilot, warrior (printed card has Warrior only). Imperial. Lore corrected from scan: 'Executor' is italic (wiki plain). Base scan only at 350 px (Dagobah-D-corporalderdram.gif); copyright 1997 (Dagobah) not legible at this size. Modern: Virtual Block 2 only (VB2 -pre, 350 px); no V<N> remake on the wiki.",
+ "game_text_lines": "{pilot:2}. While at an _Executor_ site, may use 1 Force\nto place a just lost non-unique smuggler (and all\ncopies of that card in opponent’s Lost Pile) out of\nplay. At same non-docking bay site, opponent may\nnot deploy Jar Jar or spies."
+}

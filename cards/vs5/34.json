@@ -1,0 +1,40 @@
+{
+ "number": "34",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Dengar",
+ "caption": "•Dengar (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "{pilot:2}. Deploys free aboard _Punishing One_, and while piloting it, draws one battle destiny if unable to otherwise. At same site, Han’s game text is canceled. May not be attacked. Immune to Fallen Portal.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Corellian bounty hunter. Assassin trained by the Empire. Has reflex-enhancing cyber-implants. Gravely injured during a swoop race in the crystal swamp of Agrilat. Blames Han Solo.",
+ "destiny": "1",
+ "base_page": "Dengar (Original)",
+ "art": {
+  "src": "src/vs5/34-Dagobah-D-dengar-decipher-archive.gif",
+  "modern": "src/vs5/modern/34-V5-D-dengar.gif"
+ },
+ "id": "vs5-34",
+ "virtual_set": 5,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. {pilot:2} at the start (stub omits it). 'Punishing One' italic in game text. Third stat box printed blank. Icon column: pilot, warrior. Alien. The wiki's default 'Dengar' page carries Glossary 2.0 errata text; printed face = 'Dengar (Original)' (same lore/destiny/set). The 745 px Dagobah-D-dengar.gif is the PC Errata face (bold 'bounty hunter') — downloaded to src/vs5/34-Dagobah-D-dengar.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore matches the archive scan. Copyright 1997 legible on the 745 face. Modern: V5-D-dengar.gif (745 px, the Virtual Set 5 remake); V0-D-dengarwithblastercarbine.gif is a different card; VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:2}. Deploys free aboard _Punishing One_, and\nwhile piloting it, draws one battle destiny if unable\nto otherwise. At same site, Han’s game text is\ncanceled. May not be attacked. Immune to Fallen\nPortal."
+}
