@@ -1,0 +1,28 @@
+{
+ "id": "vs10-11",
+ "number": "11",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Shocking Revelation",
+ "caption": "•Shocking Revelation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Unless you have senate majority, if opponent just ▲ or ▼ a character (except with an Effect with “matching” in game text) or just drew a card from Reserve Deck using a character’s game text, they must place 2 other cards from hand on Used Pile (if possible).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Well, don’t blame me. I’m an interpreter. I’m not supposed to know a power socket from a computer terminal.”",
+ "destiny": "5",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Shocking Revelation",
+ "art": {
+  "src": "src/vs10/11-CC-D-shockingrevelation.gif",
+  "modern": "src/vs10/modern/11-VB2-D-shockingrevelation-pre.gif"
+ },
+ "notes": "Unique. Printed base is a Used Interrupt; banner USED INTERRUPT. The slip prints ▲ and ▼ where the stub expands 'Take into hand from Reserve Deck; reshuffle' / 'Deploy on table from Reserve Deck; reshuffle' (the slip sets 'just▲' tight; typed with a space). Curly double quotes around “matching”, curly apostrophe in character’s. Lore corrected from scan: curly double quotes and curly apostrophes in don’t / I’m (twice) (wiki straight single quotes). Base scan only at 350 px; copyright 1997 read at zoom. Modern: Virtual Block 2 only (VB2 -pre, 350 px; it reads 'a senate majority' — the 2006 slip has no 'a').",
+ "game_text_lines": "Unless you have senate majority, if opponent just ▲ or\n▼ a character (except with an Effect with “matching”\nin game text) or just drew a card from Reserve Deck\nusing a character’s game text, they must place 2 other\ncards from hand on Used Pile (if possible)."
+}

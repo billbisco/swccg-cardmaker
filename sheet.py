@@ -31,9 +31,12 @@ def pdf_words(vs: int):
     return out
 
 
-def raw_boxes(png: Path):
+DARK_THR = {10: 100}   # VS10's white-framed slips have a grey (not black) outline
+
+
+def raw_boxes(png: Path, thr: int = 60):
     a = np.array(Image.open(png).convert("RGB"))
-    dark = a.max(axis=2) < 60
+    dark = a.max(axis=2) < thr
     lab, _ = ndimage.label(ndimage.binary_closing(dark, iterations=3))
     bb = []
     for o in ndimage.find_objects(lab):
@@ -54,7 +57,7 @@ def slip_boxes(vs: int) -> dict[str, tuple[int, int, int, int, int]]:
     found: dict[str, tuple] = {}
     for png in sorted((ROOT / f"src/slips/vs{vs}").glob("p300-*.png")):
         pg = int(png.stem.split("-")[1])
-        for x, y, w, h in sorted(raw_boxes(png), key=lambda b: (b[1], b[0])):
+        for x, y, w, h in sorted(raw_boxes(png, DARK_THR.get(vs, 60)), key=lambda b: (b[1], b[0])):
             X, Y, W, H = [v * 72 / DPI for v in (x, y, w, h)]
             nums = [t for p, x0, y0, x1, y1, t in words if p == pg and X <= x0 <= X + W and Y + H - 20 <= y0 <= Y + H and re.fullmatch(r"\d\d", t)]
             if not nums:

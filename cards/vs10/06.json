@@ -1,0 +1,28 @@
+{
+ "id": "vs10-06",
+ "number": "06",
+ "virtual_set": 10,
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Mandalorian Mishap",
+ "caption": "•Mandalorian Mishap (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Suspend all Effects with “gangster” in game text for remainder of turn. OR Target a bounty hunter and/or gangster at a site. For remainder of turn, targets may not fire weapons and their game text is canceled.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Most space-faring adventurers meet their fate with a calm, quiet dignity.",
+ "destiny": "5",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Mandalorian Mishap",
+ "art": {
+  "src": "src/vs10/06-JP-L-mandalorianmishap.gif",
+  "modern": "src/vs10/modern/06-V8-L-mandalorianmishap.gif"
+ },
+ "notes": "Unique (dot on the printed title too). Banner USED INTERRUPT. Curly double quotes “gangster” (stub straight). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright 1998 (Jabba's Palace, Hoth-style line) read on the V8 remake. Modern: V8-L-mandalorianmishap.gif (745 px) is a LATER PC Mandalorian Mishap (V) (Virtual Set 8, different game text) — same printed art, art only; VB3-L-mandalorianmishap(-pre).gif (350) is this slip reissued, not downloaded.",
+ "game_text_lines": "Suspend all Effects with “gangster” in game text for\nremainder of turn. OR Target a bounty hunter and/or\ngangster at a site. For remainder of turn, targets may\nnot fire weapons and their game text is canceled."
+}

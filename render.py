@@ -854,7 +854,7 @@ def build_html(card: dict) -> str:
     .stat{{display:flex;align-items:center;padding-left:{t.get("stat_pl", 16)}px;padding-bottom:6px;box-sizing:border-box}}
     .stat .lab{{font-family:AGBoldCnA;font-size:59px;color:{t.get("stats_ink", ink)};letter-spacing:0.6px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
     .stat .val{{font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
-    .stat .val.r{{margin-left:auto;padding-left:18px;margin-right:{t.get("stat_pl", 16) + 2}px;transform-origin:right center}}
+    .stat .val.r{{margin-left:auto;padding-left:18px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
     .ctype{{font-family:AGBoldCnA;font-size:60px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:61px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}

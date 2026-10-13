@@ -1,0 +1,44 @@
+{
+ "id": "vs10-05",
+ "number": "05",
+ "virtual_set": 10,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Luke",
+ "caption": "•Luke (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "7",
+ "game_text": "{pilot:3}. Adds one battle destiny with Biggs or if piloting a T-16. While piloting a T-16 alone at Beggar’s Canyon, opponent must first use 1 Force to draw a card from Force pile or retrieve a Force. Once per game may ▼ a T-16 here.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Raised by guardians Owen and Beru Lars on a moisture farm on Tatooine, where Owen wanted him to stay. Nicknamed ‘Wormie’ by childhood friends Camie and Fixer.",
+ "destiny": "1",
+ "expansion": "Premiere Two-Player Introductory Game",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Luke (Premiere Two-Player Introductory Game)",
+ "art": {
+  "src": "src/vs10/05-P2P-L-luke.gif",
+  "modern": "src/vs10/modern/05-VB1-L-luke-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 3 / forfeit 7. Icon column: pilot, warrior (printed card has warrior only). Rebel. Inline pilot icon + '3.' → {pilot:3}. (stub expands 'Adds 3 to power of anything he pilots.'); the slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; Beggar’s curly. The stub's 'Decipher base: [[Luke]]' is a red link — no 'Luke' page exists; printed base = 'Luke (Premiere Two-Player Introductory Game)'. Lore corrected from the scan: curly single quotes ‘Wormie’ (wiki straight). Base scan only at 350 px; copyright 1995 just legible. Modern: Virtual Block 1 only (VB1-L-luke-pre.gif, 351 px; prints 'Force Pile' and 'Once per game, may' — Block revision).",
+ "game_text_lines": "{pilot:3}. Adds one battle destiny with Biggs or if\npiloting a T-16. While piloting a T-16 alone at\nBeggar’s Canyon, opponent must first use 1 Force\nto draw a card from Force pile or retrieve a Force.\nOnce per game may ▼ a T-16 here."
+}

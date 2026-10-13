@@ -1,0 +1,44 @@
+{
+ "id": "vs10-14",
+ "number": "14",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Veers",
+ "caption": "•Veers (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:4}. Deploys -2 to Hoth. Your combat vehicles are defense value +1 at same and related locations. While on Hoth, your AT-ATs and Imperials are deploy -1 and forfeit +1 at related locations.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "General of the AT-AT assault armor division sent by Darth Vader to crush the Rebellion on Hoth. Cold and ruthless.",
+ "destiny": "1",
+ "expansion": "The Empire Strikes Back Introductory Two-Player Game",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Veers",
+ "art": {
+  "src": "src/vs10/14-ESB2P-D-veers.gif",
+  "modern": "src/vs10/modern/14-V6-D-veers.gif"
+ },
+ "notes": "Unique. Base is the ESB Introductory Two-Player Game Veers (premium), not Hoth's General Veers. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 5. Yellow DS pilot-power icon followed by '4.' at the start → {pilot:4} (stub expands 'Adds 4 to power of anything he pilots'). Icon column top to bottom: pilot, warrior (printed card has warrior only). Imperial (Imperial disc top-left). Lore matches the scan. The ESB2P card prints a small silver/grey expansion sphere in the ring beside the lore box (the ESB Two-Player symbol; no icon cut yet). Copyright reads 1996 on the scan, read at zoom. Base scan only at 350 px. Modern: V6-D-veers.gif (745 px) is the Virtual Set 6 Veers (V) — a different text but the same art and lore; VB2-D-veers-pre.gif (350, Virtual Block 2) also downloaded to modern/.",
+ "game_text_lines": "{pilot:4}. Deploys -2 to Hoth. Your combat vehicles are\ndefense value +1 at same and related locations.\nWhile on Hoth, your AT-ATs and Imperials are\ndeploy -1 and forfeit +1 at related locations."
+}

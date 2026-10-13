@@ -1,0 +1,28 @@
+{
+ "id": "vs10-08",
+ "number": "08",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "•Darth Vader’s Lightsaber",
+ "caption": "•Darth Vader’s Lightsaber (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Vader. May add 1 to Force drain where present. May target a Jedi or Skywalker for free. Draw 3 destiny and choose 2. Target hit (may place any Interrupt from opponent’s Lost Pile out of play) and forfeit = 0, if total destiny > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Vader’s lightsaber. Symbol of the most feared man in the galaxy. Vader’s control of the dark side of the Force allows him to wield this weapon in surprising ways.",
+ "destiny": "1",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Darth Vader's Lightsaber",
+ "art": {
+  "src": "src/vs10/08-DS2-D-darthvaderslightsaber.gif",
+  "modern": "src/vs10/modern/08-V8-D-darthvaderslightsaber.gif"
+ },
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Vader’s). Green Character Weapon frame, banner CHARACTER WEAPON. No inline icons; slip text matches the stub (curly apostrophe in opponent’s). Lore matches the scan; corrected only for curly apostrophes in Vader’s (twice; wiki straight) — confirmed on the 745 px V8 remake. Base scan only at 350 px; copyright line is the SE-style form with 2000, legible. Modern: V8-D-darthvaderslightsaber.gif (745 px, Virtual Set 8 remake — a later different (V) text, same art); VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "Deploy on Vader. May add 1 to Force drain where\npresent. May target a Jedi or Skywalker for free. Draw\n3 destiny and choose 2. Target hit (may place any\nInterrupt from opponent’s Lost Pile out of play) and\nforfeit = 0, if total destiny > defense value."
+}

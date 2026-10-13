@@ -71,7 +71,7 @@ def main():
                 safe_b = re.sub(r"[^A-Za-z0-9]+", "_", (c.get("title_back") or "").replace("•", "")).strip("_")
                 (dest / f"OVS{vs}-{int(n):02d}b-{safe_b}-remaster.webp").write_bytes(webp_bytes(back))
     if not changed_only:
-        stubs = {int(v["image"][5:7]): v["image"] for v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).values()
+        stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): v["image"] for v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).values()
                  if v["set"] == f"Virtual Set {vs} (Original)"}
         for p in sorted((ROOT / f"src/slips/vs{vs}").glob("[0-9][0-9]-*.png")):
             shutil.copy(p, dest / stubs[int(p.name[:2])])

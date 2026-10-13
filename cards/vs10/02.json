@@ -1,0 +1,28 @@
+{
+ "id": "vs10-02",
+ "number": "02",
+ "virtual_set": 10,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Evacuation Control",
+ "caption": "•Evacuation Control (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table; shuffle your Reserve Deck, peek at top three cards, and stack them face-up here. During battle, may take a stacked card into hand to prevent players from drawing more than one battle destiny (those battle destiny draws may not be modified or canceled). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Give the evacuation code signal . . . and get to your transports!”",
+ "destiny": "3",
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Evacuation Control (Original)",
+ "art": {
+  "src": "src/vs10/02-Hoth-L-evacuationcontrol-decipher-archive.gif",
+  "modern": "src/vs10/modern/02-VB2-L-evacuationcontrol-pre.gif"
+ },
+ "notes": "ODD: the slip's heading prints 'Evacuation Control (V)' with NO dot, but its bottom-left caption prints '•Evacuation Control (V)' (and the wiki stub says Unique). The printed Hoth card is non-unique (no dot); title kept without dot, caption as the strip prints it. Red circle-slash A at the end → {alter} (stub 'Immune to Alter.'). Slip text otherwise matches the stub. The wiki's default 'Evacuation Control' page carries Glossary 2.0 errata text; printed face = 'Evacuation Control (Original)' (same lore/destiny/set). The 745 px Hoth-L-evacuationcontrol.gif is tagged D-E1 (errata face) — downloaded to src/vs10/02-Hoth-L-evacuationcontrol.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore corrected from both scans: curly double quotes (wiki straight single) and a spaced ellipsis 'signal . . . and' (wiki 'signal...and'; on the 745 face the gap before the first dot equals the gaps between dots). Copyright 1996 legible on the 745 face. Modern: Virtual Block 2 only (VB2-L-evacuationcontrol-pre.gif, 348 px) — its game text is a later revision ('prevent all battle destiny draws from being modified or canceled (each player may draw no more than one battle destiny)'), art only.",
+ "game_text_lines": "Deploy on table; shuffle your Reserve Deck, peek at top\nthree cards, and stack them face-up here. During battle,\nmay take a stacked card into hand to prevent players\nfrom drawing more than one battle destiny (those battle\ndestiny draws may not be modified or canceled). {alter}"
+}

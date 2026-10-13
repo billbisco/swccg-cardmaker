@@ -1,0 +1,44 @@
+{
+ "id": "vs10-03",
+ "number": "03",
+ "virtual_set": 10,
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: Y-WING",
+ "title": "•Gold Leader In Gold 1",
+ "caption": "•Gold Leader In Gold 1 (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "May add 1 pilot or passenger. Permanent pilot is •Dutch, who provides ability of 2. Opponent may not ‘react’ to here and must first use 1 Force to draw a card for battle destiny here.",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "At the Battle of Yavin, Dutch led his squadron of outdated but reliable Y-wings in the first wave of the assault against the Death Star.",
+ "destiny": "2",
+ "expansion": "Rebel Leader Packs",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Gold Leader In Gold 1",
+ "art": {
+  "src": "src/vs10/03-RL-L-goldleaderingold1.gif",
+  "modern": "src/vs10/modern/03-V0-L-goldleaderingold1.gif"
+ },
+ "notes": "Unique. Banner STARFIGHTER: Y-WING. Stats POWER 4 / MANEUVER 3 / HYPERSPEED 4; deploy 3 / forfeit 4. Scomp-link ring → scomp true. Icon column top to bottom: pilot helmet (permanent pilot on a starship → permanent-pilot, as vs7/09), red nav computer → nav. Curly single quotes around ‘react’ (stub straight); stub writes '(*) Dutch' for the slip's •Dutch. Lore matches the scan. Expansion per wiki 'Rebel Leader Packs' (Premium; grey ring icon beside the lore). Base scan only at 350 px and its copyright line is illegible; copyright 1996 read off the PC's 745 px V0 remake (which copies the printed top half) — verify if the Rebel Leader pack print differs. Modern: V0-L-goldleaderingold1.gif (745 px, same slip text and stats); VB1-L-goldleaderingold1(-pre).gif (350) also exists, not downloaded.",
+ "game_text_lines": "May add 1 pilot or passenger. Permanent pilot\nis •Dutch, who provides ability of 2. Opponent may\nnot ‘react’ to here and must first use 1 Force to\ndraw a card for battle destiny here."
+}

@@ -248,3 +248,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   set sphere, `ds2` column icon (Death Star II sphere, Luke Skywalker, Rebel Scout (V)). Bill: "spy" in "to spy on"
   is bolded too. The VS8 #20 inline icon is the Death Star II icon (GEMP), not Independent. VS9 sheet from the
   starwarsccg.org CDN (the IA capture no longer opens); release date not found (2005 or later from the credits).
+- Rev 17 (Bill 2026-10-13, Chewie's AT-ST (V)): right-set stat values stand in from the box's right end by the
+  inset + 26 px (the slips' gap), not tight against the bevel. VS10 Fourth Anthology: slips found with a grey-outline
+  threshold (`sheet.DARK_THR`), two-digit set numbers parsed by regex in crop_slips / make_upload / wiki_vs, "Out Of
+  Play Interrupt" links to [[Interrupt]], "just ▲ or ▼" written out; release dates of VS9/VS10 not found.
