@@ -232,12 +232,11 @@ TEMPLATES = {
         "icon_slots": [(1353, 1651), (1353, 1756)], "set_icon_abs": (1363, 1926), "expansion_ring": (1375, 400),
         "copyright_x": 1416,
     },
-    "objective": {   # Bardez "DS - Objective.xcf" template layer; the printed and PC Objectives have a WHITE text box with black text
+    "objective": {   # Bardez "DS - Objective.xcf" template layer: the printed and PC Dark Objectives have a BLACK text box with white text
         "frame": ("frames/objective.png", 67, 73),
         "art": (236, 380, 1150, 855), "title": (382, 204, 878, 95), "destiny": (1310, 204, 105, 107),
-        "fill_boxes": [(260, 1323, 1118, 681, "#f4f2f6")],
         "game_text": (290, 1350, 1060, 640), "set_icon_abs": (1300, 1930), "set_icon_size": 70,
-        "copyright_x": 1416, "gt_size": 56, "dark_text": True, "no_type": True,
+        "copyright_x": 1416, "gt_size": 56, "no_type": True,
     },
     "objective-ls": {   # Bardez "LS - Epic Objective.xcf" (frame + Objective icon): Light Side scoring, textured white text box
         "frame": ("frames/objective-ls.png", 0, 0),
