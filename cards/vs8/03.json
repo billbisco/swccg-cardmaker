@@ -1,0 +1,37 @@
+{
+ "id": "vs8-03",
+ "number": "03",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•BG-J38",
+ "caption": "•BG-J38 (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "MAINTENANCE DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "Your dejariks are destiny +2. Grimtaash is {sense}. Once per turn, may ▲ Grimtaash.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Roche J9 worker drone. Undefeated hologame player. Kept by Jabba as a source of entertainment. Hoping for escape or termination.",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "BG-J38",
+ "art": {
+  "src": "src/vs8/03-JP-L-bgj38.gif",
+  "modern": "src/vs8/modern/03-VB3-L-bgj38-pre.gif"
+ },
+ "notes": "Unique. Droid: POWER 1 + one wide MAINTENANCE DROID box (label only, spans the ability + third slots); deploy 2 / forfeit 3. Icon column empty. Droid (Jabba's Palace frame, gold droid disc). Red circle-slash S after 'Grimtaash is' → {sense} (stub 'Immune to Sense'); ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Lore matches the scan. Base scan only at 350 px; copyright 1998 (Jabba's Palace) not legible on it. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Your dejariks are destiny +2. Grimtaash is {sense}.\nOnce per turn, may ▲ Grimtaash."
+}

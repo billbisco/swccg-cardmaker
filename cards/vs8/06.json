@@ -1,0 +1,28 @@
+{
+ "id": "vs8-06",
+ "number": "06",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Don’t Forget The Droids",
+ "caption": "•Don’t Forget The Droids (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Cancel an attempt to target a droid.\nLOST: If a battle was just initiated at a site, lose 1 Force and place your droid there out of play to prevent opponent from drawing weapon or battle destiny during this battle.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“We’re on our way!”",
+ "destiny": "6",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Don't Forget The Droids",
+ "art": {
+  "src": "src/vs8/06-JP-L-dontforgetthedroids.gif",
+  "modern": "src/vs8/modern/06-VB3-L-dontforgetthedroids-pre.gif"
+ },
+ "notes": "Unique (•, on the slip and the printed title). Banner USED OR LOST INTERRUPT (same as the printed card). Curly apostrophe in the title/caption (Don’t) as the slip prints it. USED:/LOST: on separate lines. Slip text matches the stub. Lore corrected from the scan: curly double quotes “We’re on our way!” (wiki has straight single quotes); the lore line is not indented on the printed card. Base scan only at 350 px; copyright 1998 (Jabba's Palace) not legible on it. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "USED: Cancel an attempt to target a droid.\nLOST: If a battle was just initiated at a site, lose 1\nForce and place your droid there out of play to prevent\nopponent from drawing weapon or battle destiny during\nthis battle."
+}

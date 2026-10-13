@@ -11,7 +11,7 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "A New Hope": "icons/set-anh-grainy.png", "Premiere": None, "Premiere Limited": None, "Premiere Unlimited": None,
     "Jedi Pack": "icons/set-premium-grainy.png", "Hoth": "icons/set-hoth-bardez.png", "Dagobah": "icons/set-dagobah.png",
     "Special Edition": "icons/set-se-grainy.png", "Endor": "icons/set-endor-grainy.png",
-    "Cloud City": "icons/set-cloudcity-grainy.png", "Jabba's Palace": "icons/set-jabbaspalace-grainy.png", "Jabba's Palace Sealed Deck": "icons/set-jabbaspalace-grainy.png",
+    "Cloud City": "icons/set-cloudcity-grainy.png", "Jabba's Palace": "icons/set-jabbaspalace-grainy.png", "Jabba's Palace Sealed Deck": "icons/set-jabbaspalace-grainy.png", "Enhanced Jabba's Palace": "icons/set-ejp-grainy.png",
     "Reflections II": "icons/set-reflections2-grainy.png", "Coruscant": "icons/set-coruscant-grainy.png",
     "Death Star II": "icons/set-ds2-grainy.png", "Reflections III": "icons/set-reflections3-grainy.png",
 }

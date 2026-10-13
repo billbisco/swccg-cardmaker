@@ -1,0 +1,37 @@
+{
+ "id": "vs8-46",
+ "number": "46",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•URoRRuR’R’R",
+ "caption": "•URoRRuR’R’R (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "Deploys only on Tatooine. While with another Tusken Raider: opponent’s weapon destiny draws here are -2; once per turn, may place a card from hand on Force Pile to draw top card of Reserve Deck; and other Tusken Raiders here are forfeit +4.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "*Leader* of a Tusken Raider tribe. Unafraid of machines. Skilled hunter and marksman. Raids moisture farms for water. Roams the Jundland Wastes in search of unwary travelers.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "URoRRuR'R'R",
+ "art": {
+  "src": "src/vs8/46-ANH-D-urorrurrr.gif",
+  "modern": "src/vs8/modern/46-VB1-D-urorrurrr-pre.gif"
+ },
+ "notes": "Unique. Curly apostrophes in the slip heading/strip (URoRRuR’R’R); wiki title straight. Stats POWER 2 / ABILITY 1 (printed POWER 1), third box blank; deploy 3 / forfeit 4 (same as printed). Icon column empty. Alien. Curly apostrophe in opponent’s; slip text matches the stub. Lore matches the scan; 'Leader' set bold by INFERENCE (characteristic 'leader' on the wiki; base scan is 350 px only, where bold cannot be seen — e.g. 'Smuggler' on Wooof's 350 scan does not look bold either though the 745 face bolds it). Base card A New Hope (1996); copyright not legible at 350. Modern: Virtual Block 1 only (VB1 -pre, 350).",
+ "game_text_lines": "Deploys only on Tatooine. While with another\nTusken Raider: opponent’s weapon destiny draws\nhere are -2; once per turn, may place a card from\nhand on Force Pile to draw top card of Reserve\nDeck; and other Tusken Raiders here are forfeit +4."
+}

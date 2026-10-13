@@ -1,0 +1,39 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "title": "•Laudica",
+ "caption": "•Laudica (V)",
+ "game_text": "While Rayc Ryjerd or Tonnika Sisters on table, power +3. Whenever opponent Force drains at a non-battleground, you may retrieve 1 Force. During your deploy phase, may ▼ an Effect with “matching” in game text.",
+ "lore": "Corellian gun-runner. Skilled markswoman. Friends with Brindy Truchong and the Tonnika sisters. Romantically involved with Rayc Ryjerd, against her better judgment.",
+ "destiny": "3",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Laudica",
+ "art": {
+  "src": "src/vs8/11-JP-L-laudica.gif",
+  "modern": "src/vs8/modern/11-VB3-L-laudica-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 1 / forfeit 3. Icon column: warrior. Alien (Jabba's Palace frame, alien disc). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; curly double quotes around “matching” (stub straight). Lore matches the scan (no bold). Base scan only at 350 px (JP-L-laudica.gif); copyright line Hoth-style with 1998, legible on the zoomed scan. Modern: Virtual Block 3 only (VB3 -pre, 350 px; non-pre also exists, not downloaded).",
+ "id": "vs8-11",
+ "virtual_set": 8,
+ "game_text_lines": "While Rayc Ryjerd or Tonnika Sisters on table,\npower +3. Whenever opponent Force drains at a\nnon-battleground, you may retrieve 1 Force.\nDuring your deploy phase, may ▼ an Effect with\n“matching” in game text."
+}

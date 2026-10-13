@@ -1,0 +1,37 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "title": "•Tanus Spijek",
+ "caption": "•Tanus Spijek (V)",
+ "game_text": "Once per game, when deployed to a site, opponent loses 1 Force for each Dark Side character present. Draws one battle destiny if unable to otherwise.",
+ "lore": "Male Elom. Former *spy* for the Rebellion. Hired by the Alliance to carry messages between Alderaan and the Rebel base on Yavin 4.",
+ "destiny": "2",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Tanus Spijek",
+ "art": {
+  "src": "src/vs8/18-JP-L-tanusspijek.gif",
+  "modern": "src/vs8/modern/18-VB3-L-tanusspijek-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 1, third box blank; deploy 3 / forfeit 4. Icon column empty. Slip text matches the stub. Alien. Lore matches the scan; 'spy' reads plain weight on the 350 px scan — left unbolded (low-res judgment call, as Tamtel Skreej). Base scan only at 350 px; copyright 1998 (Jabba's Palace). Modern: Virtual Block 3 only (VB3 -pre, 350 px). Bold *spy* inferred from the Jabba's Palace printing pattern (Wooof, Jabba, Fozec show bold characteristics on 745 px scans); only 350 px scans of this card exist.",
+ "id": "vs8-18",
+ "virtual_set": 8,
+ "game_text_lines": "Once per game, when deployed to a site, opponent\nloses 1 Force for each Dark Side character\npresent. Draws one battle destiny if unable to\notherwise."
+}

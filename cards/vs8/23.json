@@ -1,0 +1,29 @@
+{
+ "id": "vs8-23",
+ "number": "23",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Ultimatum",
+ "caption": "•Ultimatum (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Once per turn, during a battle at a Jabba’s Palace site, your destiny draws are each +1 and your Interrupts may not be canceled. May place this Effect out of play to cause a player to activate 2 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Jabba! This is your last chance. Free us or die.”",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Ultimatum",
+ "art": {
+  "src": "src/vs8/23-JP-L-ultimatum.gif",
+  "modern": null
+ },
+ "notes": "Unique. Banner EFFECT, no grabber box. Curly apostrophe in Jabba’s. No inline icons; slip text matches the stub. Lore corrected from scan: curly double quotes “…” (wiki has straight single quotes). Base scan only at 350 px; '1998 DECIPHER INC.' legible. No modern PC remake or Virtual Block image found on the wiki (modern null).",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Once per turn, during a battle at a\nJabba’s Palace site, your destiny draws are each +1\nand your Interrupts may not be canceled. May place\nthis Effect out of play to cause a player to activate 2\nForce."
+}

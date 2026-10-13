@@ -789,7 +789,10 @@ def build_html(card: dict) -> str:
                      f'<div class="copyin">{esc(card["copyright"])}</div></div>')
     # slip credit lines in the side margins (Wokling (V): "Original concept by …" left, "GenCon 2002 Winner" right),
     # italic, reading bottom-to-top, spanning the banner + text box
-    for key, x in (("margin_left", 236), ("margin_right", 1404)):   # centred in the red margin between frame edge and text box, as the slip prints them (Bill 2026-10-13)
+    # centred in the coloured margin between frame edge and text box, as the slips print them (Bill 2026-10-13);
+    # margins measured on the frames: Light ≈169–246 / 1389–1433, Dark ≈145–264 / 1361–1483 (div is 40 px wide)
+    mx = (187, 1391) if t.get("dark_text") else (185, 1402)
+    for key, x in (("margin_left", mx[0]), ("margin_right", mx[1])):
         if card.get(key):
             gx, gy, gw, gh = t["game_text"]
             cx_, cy_, cw_, ch_ = t.get("card_type", (gx, gy - 160, gw, 61))
@@ -800,9 +803,9 @@ def build_html(card: dict) -> str:
                 # Emperor (V) prints it), white on the dark frames
                 top, bot = t.get("stats_y", top) - 10, t["deploy"][1] - 10
             # the rotated line is as long as the text; shrink the font so it fits the span (AGCn italic ≈ 0.40 em/char)
-            fs = min(40, int((bot - top) / (0.40 * len(card[key]))))
+            # the slips run the credit nearly the whole span at ~46 px; the fitcredit JS shrinks it only if it would overflow
             parts.append(f'<div class="copy" style="position:absolute;left:{x}px;top:{top}px;width:40px;height:{bot - top}px">'
-                         f'<div class="credit" style="color:{ink};font-size:{fs}px">{esc(card[key])}</div></div>')
+                         f'<div class="credit fitcredit" data-avail="{bot - top - 10}" style="color:{ink};font-size:46px">{esc(card[key])}</div></div>')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card.get("caption") or card["title"]
     cy = t.get("caption_y", 2082)
@@ -856,10 +859,30 @@ def build_html(card: dict) -> str:
             size += 1; lh += 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
           }
         }
+        // too wide: tighten the tracking a little first (to -1.2 px), as the slips set a long line
+        let ls = parseFloat(getComputedStyle(el).letterSpacing) || 0;
+        while (el.scrollWidth > el.clientWidth + 1 && ls > -1.2) { ls -= 0.2; el.style.letterSpacing = ls + 'px'; }
+        // too tall: tighten the line spacing first (to 0.94 em, as the slips do with a sixth line), then the size
+        while (el.scrollHeight > el.clientHeight + 1 && lh > size * 0.94 && el.scrollWidth <= el.clientWidth + 1) {
+          lh -= 1; el.style.lineHeight = lh + 'px';
+        }
         while ((el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) && size > 20) {
           size -= 1; lh -= 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
         }
       }
+      let creditFs = 46;   // rotated credits: unrotated width = run length; both share one size, as the slips print them
+      for (const el of document.querySelectorAll('.fitcredit')) {
+        let fs = 46; const avail = parseFloat(el.dataset.avail);
+        while (el.offsetWidth > avail && fs > 20) { fs -= 1; el.style.fontSize = fs + 'px'; }
+        if (fs < 34) {   // too small on one line: two lines, as The Emperor (V) slip prints "Original concept / by Mike Gemme"
+          el.style.whiteSpace = 'normal'; el.style.flexShrink = '0'; el.style.textWrap = 'balance'; el.style.width = avail + 'px'; el.style.textAlign = 'center';
+          fs = 34; el.style.fontSize = fs + 'px'; el.style.lineHeight = '1.0';
+          while (el.offsetHeight > 2.05 * fs && fs > 20) { fs -= 1; el.style.fontSize = fs + 'px'; }
+        }
+        creditFs = Math.min(creditFs, fs);
+      }
+      const cr = [...document.querySelectorAll('.fitcredit')];
+      if (cr.length == 2 && cr[0].dataset.avail == cr[1].dataset.avail) for (const el of cr) el.style.fontSize = creditFs + 'px';
       for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
         if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';

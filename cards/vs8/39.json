@@ -1,0 +1,44 @@
+{
+ "number": "39",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: UBRIKKIAN LUXURY SPACE YACHT",
+ "title": "•Jabba’s Space Cruiser",
+ "caption": "•Jabba’s Space Cruiser (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "May add 2 alien pilots and 6 passengers. May deploy an {independent} starship (with a pilot aboard, if unpiloted) here from hand and/or Reserve Deck (for free) as a ‘react;’ reshuffle. If Jabba here, immune to attrition.",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Flying fortress of Jabba Desilijic Tiure. Reaches speeds of 800 kph in atmosphere. The crime lord installed hidden gunports as an unpleasant surprise for would-be pirates.",
+ "destiny": "2",
+ "base_page": "Jabba's Space Cruiser",
+ "art": {
+  "src": "src/vs8/39-SE-D-jabbasspacecruiser.gif",
+  "modern": "src/vs8/modern/39-V10-D-jabbasspacecruiser.gif"
+ },
+ "id": "vs8-39",
+ "virtual_set": 8,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in heading and caption (Jabba’s). Banner CAPITAL: UBRIKKIAN LUXURY SPACE YACHT. Stats POWER 5 / ARMOR 5 / HYPERSPEED 4; slip deploy 4 / forfeit 6 (printed 5 / 5). Scomp-link ring → scomp true. Inline icon 'an [blue wheel] starship' → {independent} (stub 'Independent'). Curly single quotes ‘react;’ (semicolon inside). Icon column top to bottom: independent (blue wheel), nav (red square, green dome). Lore matches the scan (also checked on the 745 V10 remake). Base scan only at 350 px; copyright = Special Edition line (run default). Modern: V10-D-jabbasspacecruiser.gif (745 px, Virtual Set 10 remake); VB3 (350) also exists, not downloaded.",
+ "game_text_lines": "May add 2 alien pilots and 6 passengers. May deploy\nan {independent} starship (with a pilot aboard, if unpiloted)\nhere from hand and/or Reserve Deck (for free) as a\n‘react;’ reshuffle. If Jabba here, immune to attrition."
+}

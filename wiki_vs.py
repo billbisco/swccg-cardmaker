@@ -55,6 +55,11 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="fifth", remaster="the December 2006 Remaster sheet (re-edited 14 September 2007 with errata to #49): cover, set symbol and the slips shown below", pack="VS5O-pack.png", symbol="VS5O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    8: dict(sheet=("https://web.archive.org/web/20071026143738/http://www.swccgpc.com/Resources/VirtualCards8.pdf", "VirtualCards8.pdf", "26 October 2007", "4 December 2006 (errata to cards #5 and #30 on 25 June 2007 and #22 on 17 September 2007)"),
+            legal="24 November 2004 (release)", legal_ref="[https://web.archive.org/web/20041204170841/http://www.swccgpc.com/interior.htm swccgpc.com news page] (Internet Archive, 4 December 2004) — 24 November 2004: \"Virtual Set 8 is here! The SWCCG Player's Committee is pleased to present the latest addition to the Virtual Card family.\" The news post gives no separate tournament-legal date.",
+            ordinal="eighth", remaster="the December 2006 Remaster sheet (re-edited 25 June 2007 with errata to #5 and #30, and 17 September 2007 with errata to #22): cover, set symbol and the slips shown below", pack="VS8O-pack.png", symbol="VS8O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -71,7 +76,7 @@ TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immedia
              "DEVICE": ("Device", None), "UTINNI EFFECT": ("Effect", "Utinni Effect"), "TRANSPORT VEHICLE": ("Vehicle", "Transport"),
              "COMBAT VEHICLE": ("Vehicle", "Combat"), "CREATURE VEHICLE": ("Vehicle", "Creature"), "SHUTTLE VEHICLE": ("Vehicle", "Shuttle"),
              "POLITICAL EFFECT": ("Effect", "Political Effect"), "MOBILE EFFECT": ("Effect", "Mobile Effect"), "EPIC EVENT": ("Epic Event", None),
-             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "STARTING EFFECT": ("Effect", "Starting Effect"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None),
+             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "USED OR STARTING INTERRUPT": ("Interrupt", "Used or Starting Interrupt"), "STARTING EFFECT": ("Effect", "Starting Effect"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None),
              "VEHICLE WEAPON": ("Weapon", "Vehicle Weapon"), "STARSHIP WEAPON": ("Weapon", "Starship Weapon"), "SNOW CREATURE": ("Creature", None),
              "CREATURE": ("Creature", None)}
 ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Maintenance]",
@@ -88,11 +93,17 @@ def expand(c: dict) -> str:
     t = c["game_text"]
     for a, b in {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}", "{icon:virtual-set symbol}": "{ovs}"}.items():
         t = t.replace(a, b)
-    t = re.sub(r"\{pilot:(\d)\}, (\d): _Falcon_\.", lambda m: f"Adds {m.group(1)} to power of anything he pilots ({m.group(2)} if ''Falcon'').", t)
+    t = re.sub(r"\{pilot:(\d)\}, (\d): (_?)([^._]+?)\3\.", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots ({m.group(2)} if {chr(39)*2 if m.group(3) else ''}{m.group(4)}{chr(39)*2 if m.group(3) else ''}).", t)
+    t = re.sub(r"▲ and/or ▼\s*([^.?!\n]*?)([.?!])", r"Take into hand and/or deploy \1 from Reserve Deck; reshuffle\2", t)
+    t = t.replace("▲ or ▼ attempt (after the first in a turn)", "attempt (after the first in a turn) to take into hand or deploy from Reserve Deck")
+    t = re.sub(r"▼\s*([^.?!;\n]*?);", r"deploy \1 from Reserve Deck; reshuffle;", t)
     t = re.sub(r"\{pilot:(\d)\}\.?", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots.", t)
+    for k, w in (("alter", "Alter"), ("control", "Control"), ("sense", "Sense")):
+        t = t.replace(f" is {{{k}}}.", f" is immune to {w}.").replace(f" always {{{k}}}", f" always immune to {w}")
     t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("{ovs} ", "[Virtual] ")
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
-    SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant"}
+    SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant",
+            "jabbaspalace": "Jabba's Palace", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
     t = re.sub(r"\{set:([a-z0-9]+)\}", lambda m: f"[{SETS.get(m.group(1), m.group(1).title())}]", t)
     t = t.replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
     t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠")
@@ -257,6 +268,8 @@ def table(side):
     return "{| class=\"wikitable\" style=\"width:auto\"\n! # !! Slip !! Remaster !! Card !! Type !! Game text\n" + "\n".join(rows[side]) + "\n|}"
 
 
+LEGAL_SENT = (f"The Committee released the set on {META['legal'].replace(' (release)', '')}." if META['legal'].endswith('(release)')
+              else f"The set became tournament-legal on {META['legal']}.")
 page = f"""{{{{Hatnote|1=The {YEAR} Players Committee set, numbered before the 2009 reorganisation (code OVS{VS}). For the post-2014 set numbered {VS} see [[Virtual Set {VS}]].}}}}
 {{| class="wikitable expansion-infobox"
 ! colspan="2" | {SET}
@@ -282,7 +295,7 @@ page = f"""{{{{Hatnote|1=The {YEAR} Players Committee set, numbered before the 2
 || {NCARDS} ({len(rows['Light'])} Light, {len(rows['Dark'])} Dark)
 |}}
 
-'''Virtual Set {VS}: {SETNAME}''' is the {META['ordinal']} of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. Each of its {NCARDS} cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed. The set became tournament-legal on {META['legal']}.<ref name="legal" /> In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here.<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].
+'''Virtual Set {VS}: {SETNAME}''' is the {META['ordinal']} of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. Each of its {NCARDS} cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed. {LEGAL_SENT}<ref name="legal" /> In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here.<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].
 
 The second image in each row is a full-card remaster: the printed Decipher card with the slip re-typeset at 600 DPI in the style of the Committee's later Holotable cards, made for the wiki in 2026 (see [[Typography of Star Wars CCG cards]]). These are fan reconstructions, not Committee products. Game text is written out the way the sheet's icon key defines its shorthand.
 

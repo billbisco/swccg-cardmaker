@@ -1,0 +1,28 @@
+{
+ "id": "vs8-45",
+ "number": "45",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "•Twi’lek Advisor",
+ "caption": "•Twi’lek Advisor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Use 3 Force to deploy a unique (•) alien (for free) from hand or Used Pile; reshuffle.\nSTARTING: ▲ and/or ▼ up to three Effects of any kind with “Jabba” in lore or game text. Place this Interrupt in Reserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“He’s no Jedi.”",
+ "destiny": "5",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Twi'lek Advisor",
+ "art": {
+  "src": "src/vs8/45-JP-D-twilekadvisor.gif",
+  "modern": "src/vs8/modern/45-V11-D-twilekadvisor.gif"
+ },
+ "notes": "Unique. Curly apostrophe in the slip heading and strip (Twi’lek). Banner USED OR STARTING INTERRUPT. USED:/STARTING: lines separated by \\n as the slip prints them. Slip prints ▲ and ▼ where the stub expands 'Take into hand…' / 'Deploy on table…'; the stub's '(*)' is the bullet '(•)' on the slip; curly double quotes around “Jabba”. Lore corrected from scan: curly double quotes and curly apostrophe (wiki 'He's no Jedi.' with straight single quotes) — confirmed on the 745 px V11 card. Base scan 350 px; copyright 1998 legible on the V11 scan (Hoth-style line). Modern: V11-D-twilekadvisor.gif (745 px) is the PC's Virtual Set 11 Twi’lek Advisor — a DIFFERENT card (new game text) using the same art and lore; used for art only. VB3-D-twilekadvisor-pre.gif (350, the reissue of this slip) also downloaded to src/vs8/modern/45-VB3-D-twilekadvisor-pre.gif.",
+ "game_text_lines": "USED: Use 3 Force to deploy a unique (•) alien\n(for free) from hand or Used Pile; reshuffle.\nSTARTING: ▲ and/or ▼ up to three Effects of any kind\nwith “Jabba” in lore or game text. Place this Interrupt\nin Reserve Deck."
+}

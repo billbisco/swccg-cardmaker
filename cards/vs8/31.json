@@ -1,0 +1,29 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Den Of Thieves",
+ "caption": "•Den Of Thieves (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your aliens of ability < 3 may not have their forfeit values reduced (except by Molator). Your battle destiny draws are +1 where you have a character with “plotting to kill Jabba” in lore. May lose 1 Force to raise your converted {set:jabbaspalace} site to the top.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jabba’s palace is considered a safe haven to many on the run. It is also widely known to provide luxurious accommodations to its welcomed guests.",
+ "destiny": "4",
+ "base_page": "Den Of Thieves",
+ "art": {
+  "src": "src/vs8/31-JP-D-denofthieves.gif",
+  "modern": "src/vs8/modern/31-VB3-D-denofthieves-pre.gif"
+ },
+ "id": "vs8-31",
+ "virtual_set": 8,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Inline icon in 'your converted [icon] site': a small gold/brown sphere matching the Jabba's Palace expansion symbol (compared with assets/icons/set-jabbaspalace-grainy.png) → {set:jabbaspalace}; the stub drops it ('your converted site'). Curly double quotes around “plotting to kill Jabba” (stub straight). Lore corrected from scan: 'Jabba’s palace' — lowercase 'palace' and curly apostrophe as printed (wiki 'Jabba's Palace'). Base scan only at 350 px; copyright (Jabba's Palace 1998, Hoth-style line) not legible at that size — run default. Modern: Virtual Block 3 only (VB3 -pre, 350 px); VB8-D-denofthieves&specialdelivery (a combined VB8 card) also exists, not downloaded.",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. Your aliens of ability < 3 may not have\ntheir forfeit values reduced (except by Molator). Your\nbattle destiny draws are +1 where you have a character\nwith “plotting to kill Jabba” in lore. May lose 1 Force to\nraise your converted {set:jabbaspalace} site to the top."
+}

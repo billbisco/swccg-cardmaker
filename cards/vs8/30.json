@@ -1,0 +1,30 @@
+{
+ "id": "vs8-30",
+ "number": "30",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Starting Interrupt",
+ "card_type": "STARTING INTERRUPT",
+ "title": "•Combat Readiness",
+ "caption": "•Combat Readiness (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "STARTING: If your starting location was a battleground site, ▼ up to two related locations (one must be a system) with < 4 total {dark-force} and up to three Effects that are always {alter}. Place this Interrupt in Lost Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial troops remain prepared for quick deployment to seize valuable terrain.",
+ "destiny": "5",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Combat Readiness",
+ "art": {
+  "src": "src/vs8/30-Endor-D-combatreadiness.gif",
+  "modern": "src/vs8/modern/30-V0-D-combatreadiness.gif"
+ },
+ "notes": "Unique. Printed base is a Used or Starting Interrupt; slip banner reads STARTING INTERRUPT. ERRATA: the sheet cover notes errata to card #30 on 25 June 2007 (the stub's game_text_note calls the slip text post-errata) — this transcription is what this Remaster sheet prints. The slip's bottom strip prints a small gold/bronze sphere between the caption and the number (errata marker, as #22) — not transcribed as an icon. Inline icons: black box with red-tinted diagonal blade → {dark-force} (stub drops it: 'with < 4 total and'); red circle-slash A mid-sentence ('always {alter}.') → {alter} (stub: 'always Immune to Alter'). Slip prints ▼ where the stub expands it. Margin credits printed vertically: left 'Original concept by Kevin Brownell', right 'Illinois States 2004'. Lore corrected from scan: 'Imperial troops remain prepared' (wiki omits 'remain') — confirmed on the 745 px V0 remake. Base scan only at 350 px; copyright line Endor SE-style form, '1999' legible on the V0 remake. Modern: V0-D-combatreadiness.gif (745 px); VB4 -pre (350) also downloaded.",
+ "margin_left": "Original concept by Kevin Brownell",
+ "margin_right": "Illinois States 2004",
+ "game_text_lines": "STARTING: If your starting location was a battleground\nsite, ▼ up to two related locations (one must be a\nsystem) with < 4 total {dark-force} and up to three Effects\nthat are always {alter}. Place this Interrupt in Lost Pile."
+}

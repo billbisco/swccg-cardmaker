@@ -1,0 +1,41 @@
+{
+ "number": "38",
+ "side": "Dark",
+ "slip_type": "Transport Vehicle",
+ "card_type": "TRANSPORT VEHICLE",
+ "title": "•Jabba’s Sail Barge",
+ "caption": "•Jabba’s Sail Barge (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "LANDSPEED",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "Deploys only on Tatooine. May add 1 driver and 8 passengers. Scum And Villainy may deploy aboard. During your deploy phase, may ▼ one Jabba, Pote, or Passenger Deck aboard. Immune to attrition < 6.",
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Ubrikkian sail barge. Custom built for Jabba with an armored hull and weaponry. Top speed of 100 kph. Used by the Hutt crimelord on his many trips to Mos Eisley.",
+ "destiny": "3",
+ "base_page": "Jabba's Sail Barge",
+ "art": {
+  "src": "src/vs8/38-JabbasPalace-D-jabbassailbarge-decipher-archive.gif",
+  "modern": "src/vs8/modern/38-V4-D-jabbassailbarge.gif"
+ },
+ "id": "vs8-38",
+ "virtual_set": 8,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in the slip's heading and caption (Jabba’s); wiki title straight. Banner TRANSPORT VEHICLE. Stats POWER 4 / ARMOR 5 / LANDSPEED 2; slip deploy 3 / forfeit 5 (printed power 5, deploy 5 / forfeit 7). Scomp-link ring → scomp true. Icon column empty. Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore matches the scans. The 745 px JP-D-jabbassailbarge.gif is a D-E1 errata face — downloaded to src/vs8/38-JP-D-jabbassailbarge.gif for art only; the 350 px decipher-archive scan is src. Copyright (Jabba's Palace 1998) run default. Modern: V4-D-jabbassailbarge.gif (745 px, Virtual Set 4 remake); VB3 (350) also exists, not downloaded.",
+ "game_text_lines": "Deploys only on Tatooine. May add 1 driver and 8\npassengers. Scum And Villainy may deploy aboard.\nDuring your deploy phase, may ▼ one Jabba, Pote,\nor Passenger Deck aboard. Immune to attrition < 6."
+}

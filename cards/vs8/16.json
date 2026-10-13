@@ -1,0 +1,37 @@
+{
+ "number": "16",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "PROTOCOL DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "title": "•See-Threepio",
+ "caption": "•See-Threepio (V)",
+ "game_text": "Unless Jabba on table: you must first use 3 Force to play How Did We Get Into This Mess?; and, once per turn, if with R2-D2 at a Jabba’s Palace site, may place your hand in Used Pile to draw the same number of cards from Reserve Deck.",
+ "lore": "C-3PO was Jabba’s “khan chita,” or translator. Survived more battles than most members of the Alliance. Wasn’t informed of R2-D2’s role in the rescue of Han.",
+ "destiny": "2",
+ "expansion": "Enhanced Jabba's Palace",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "See-Threepio (Enhanced Jabba's Palace)",
+ "art": {
+  "src": "src/vs8/16-EJP-L-seethreepio.gif",
+  "modern": "src/vs8/modern/16-VB3-L-seethreepio-pre.gif"
+ },
+ "notes": "Unique. Droid: two stat boxes, POWER 1 and the wide PROTOCOL DROID label box; deploy 2 / forfeit 5 (printed 3/4). Icon column empty. Curly apostrophe in Jabba’s. Slip text matches the stub. BASE PAGE: the stub's 'Decipher base: [[See-Threepio]]' link redirects to the Premiere 'C-3PO (See-Threepio)' (wiki error) — the printed card is the Enhanced Jabba's Palace premium 'See-Threepio' (page 'See-Threepio (Enhanced Jabba's Palace)'), matching the slip's title and Jabba's Palace text. Droid (gold droid disc). Lore corrected from scan: curly double quotes “khan chita,” (wiki has straight single quotes) and curly apostrophes in Jabba’s, Wasn’t, R2-D2’s. Base scan only at 350 px; copyright SE-style form with 1999, legible on the zoomed scan. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs8-16",
+ "virtual_set": 8,
+ "game_text_lines": "Unless Jabba on table: you must first use 3 Force\nto play How Did We Get Into This Mess?; and,\nonce per turn, if with R2-D2 at a Jabba’s Palace\nsite, may place your hand in Used Pile to draw the\nsame number of cards from Reserve Deck."
+}

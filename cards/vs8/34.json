@@ -1,0 +1,40 @@
+{
+ "number": "34",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Gela Yeens",
+ "caption": "•Gela Yeens (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "3",
+ "game_text": "{pilot:3}. Opponent may not target Gela Yeens (or a starship he pilots) with weapons. While in battle with Jabba, opponent’s characters at same site are power and forfeit -2.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Bad-tempered *smuggler*. Makes a few credits more helping Jabba collect debts. Highly regarded for his uncanny anticipation in battle. Searching for Debnoli.",
+ "destiny": "1",
+ "base_page": "Gela Yeens",
+ "art": {
+  "src": "src/vs8/34-SE-D-gelayeens.gif",
+  "modern": "src/vs8/modern/34-VB3-D-gelayeens-pre.gif"
+ },
+ "id": "vs8-34",
+ "virtual_set": 8,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 3 / forfeit 3. DS pilot-power icon + '3.' → {pilot:3} (stub: 'Adds 3 to power of anything he pilots'). Curly apostrophe in opponent’s. Icon column top to bottom: pilot, warrior. Alien. Lore matches the wiki; 'smuggler' marked bold by the characteristic rule — inferred, the 350 px scan is too low-res to see weight. Base scan only at 350 px; copyright = Special Edition line (run default), not legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "{pilot:3}. Opponent may not target Gela Yeens (or a\nstarship he pilots) with weapons. While in battle\nwith Jabba, opponent’s characters at same site\nare power and forfeit -2."
+}

@@ -1,0 +1,28 @@
+{
+ "id": "vs8-04",
+ "number": "04",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Bargaining Table",
+ "caption": "•Bargaining Table (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your unique (•) aliens are forfeit +1. Your unique (•) aliens with printed deploy costs greater than or equal to printed forfeit are deploy -1 and forfeit +1. During your deploy phase, may ▼ one Attark, Crell, Ghoel, Laudica, Leslomy, Loje, or Vul. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The alcoves of Jabba’s palace are good places to make deals and place bets. Jabba gets a cut of the profits, of course.",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Bargaining Table",
+ "art": {
+  "src": "src/vs8/04-JP-L-bargainingtable.gif",
+  "modern": "src/vs8/modern/04-VB3-L-bargainingtable-pre.gif"
+ },
+ "notes": "Unique (•). Banner EFFECT, no grabber box. Slip differs from the stub: slip 'printed deploy costs' (stub 'cost'); stub writes (*) for the uniqueness dots, slip prints (•). ▼ where the stub expands the phrase; red circle-slash A at the end → {alter}. Lore: curly apostrophe in Jabba’s (wiki straight); otherwise matches. Base scan only at 350 px; copyright 1998 (Jabba's Palace) not legible on it. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Deploy on table. Your unique (•) aliens are forfeit +1.\nYour unique (•) aliens with printed deploy costs\ngreater than or equal to printed forfeit are deploy -1\nand forfeit +1. During your deploy phase, may ▼ one\nAttark, Crell, Ghoel, Laudica, Leslomy, Loje, or Vul. {alter}"
+}

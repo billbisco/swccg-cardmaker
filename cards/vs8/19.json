@@ -1,0 +1,28 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "title": "•The Signal",
+ "caption": "•The Signal (V)",
+ "game_text": "USED: Use 1 Force to ▲ a character weapon.\nSTARTING: ▲ and/or ▼ up to three Effects of any kind with “Jedi” in lore or game text. Place this Interrupt in Reserve Deck.",
+ "lore": "With a quick motion of his hand, Luke signaled Artoo and dramatically changed the situation.",
+ "destiny": "5",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "The Signal",
+ "art": {
+  "src": "src/vs8/19-JP-L-thesignal.gif",
+  "modern": "src/vs8/modern/19-VB3-L-thesignal-pre.gif"
+ },
+ "notes": "Unique (• on slip and printed title). Banner USED OR STARTING INTERRUPT (same type as the printed card). USED:/STARTING: lines separated by \\n. Slip prints ▲ / ▼ where the stub expands 'Take into hand from Reserve Deck; reshuffle' / 'Deploy on table from Reserve Deck; reshuffle'; curly double quotes around “Jedi”. Lore matches the scan. Base scan only at 350 px; copyright 1998 (Jabba's Palace). Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs8-19",
+ "virtual_set": 8,
+ "game_text_lines": "USED: Use 1 Force to ▲ a character weapon.\nSTARTING: ▲ and/or ▼ up to three Effects of any kind\nwith “Jedi” in lore or game text. Place this Interrupt in\nReserve Deck."
+}

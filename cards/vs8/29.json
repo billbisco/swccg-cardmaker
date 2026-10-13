@@ -1,0 +1,29 @@
+{
+ "id": "vs8-29",
+ "number": "29",
+ "virtual_set": 8,
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Cane Adiss",
+ "caption": "•Cane Adiss (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent just Force drained at a non-battleground location (or at any location for more than 3 Force), deploy on that location. To initiate a Force drain at same or related location, opponent must first place a card from hand in Lost Pile. {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Adventurous pilot. Boasts to Jabba that he has traveled to every uncharted planet in the galaxy. Has been hired by the Empire to keep an eye out for Rebel activity.",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Cane Adiss (Original)",
+ "art": {
+  "src": "src/vs8/29-JP-D-caneadiss.gif",
+  "modern": "src/vs8/modern/29-VB3-D-caneadiss-pre.gif"
+ },
+ "notes": "UNIQUENESS: the slip heading and caption print '•Cane Adiss (V)' (unique), but the printed card has no dot (wiki: Unrestricted) — title kept as printed (no dot), caption as the slip prints it (STANDARD: heading differs from printed card). Banner IMMEDIATE EFFECT with NO grabber box → grabber false (printed base is already an Immediate Effect). Red circle-slash C at the end → {control}. Slip text matches the stub. Lore matches the wiki and both scans. The wiki's default 'Cane Adiss' page is the Glossary Supplement wording; printed face = 'Cane Adiss (Original)'. Art: the 745 px JP-D-caneadiss.gif is tagged D-E1 (errata face) — art only; printed face JP-D-caneadiss-decipher-archive.gif (350 px, photo on white page) also downloaded. Copyright 1998 legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "If opponent just Force drained at a non-battleground\nlocation (or at any location for more than 3 Force),\ndeploy on that location. To initiate a Force drain at\nsame or related location, opponent must first place a\ncard from hand in Lost Pile. {control}"
+}

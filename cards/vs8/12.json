@@ -1,0 +1,40 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "title": "•Leslomy Tacema",
+ "caption": "•Leslomy Tacema (V)",
+ "game_text": "{pilot:3}. While on Tatooine, your docking bay transit to and from Tatooine is free. Power +2 at Cantina, Mos Eisley, or a docking bay. During your deploy phase, may ▼ one Bo Shuda, Ellorrs Madak, or Yerka Mig.",
+ "lore": "Female Duros. Expert pilot. Helps run the docking facilities in Mos Eisley. Friends with Ellorrs Madak. Approves all cargo manifests. Forgiving of minor transgressions.",
+ "destiny": "3",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Leslomy Tacema (Original)",
+ "art": {
+  "src": "src/vs8/12-JabbasPalace-L-leslomytacema-decipher-archive.gif",
+  "modern": "src/vs8/modern/12-V3-L-leslomytacema.gif"
+ },
+ "notes": "Unique. Stats POWER 1 / ABILITY 2, third box blank; deploy 2 / forfeit 3 (printed 2/2). Text opens with the yellow pilot icon + '3.' → {pilot:3} (stub expands 'Adds 3 to power of anything she pilots'); ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Icon column: pilot, warrior (the printed card has pilot only — the slip adds warrior). Alien. The wiki's default 'Leslomy Tacema' page is the Glossary 2.0 errata version; printed face = 'Leslomy Tacema (Original)'. The 745 px JP-L-leslomytacema.gif is tagged D-E1 (errata face) — downloaded to src/vs8/12-JP-L-leslomytacema.gif for art only; the 350 px decipher-archive scan is the printed face used as src. Lore matches both scans. Copyright 1998 (Jabba's Palace). Modern: V3-L-leslomytacema.gif (745 px, Virtual Set 3 remake); VB3 -pre (350) also exists, not downloaded.",
+ "id": "vs8-12",
+ "virtual_set": 8,
+ "game_text_lines": "{pilot:3}. While on Tatooine, your docking bay transit\nto and from Tatooine is free. Power +2 at Cantina,\nMos Eisley, or a docking bay. During your deploy\nphase, may ▼ one Bo Shuda, Ellorrs Madak, or\nYerka Mig."
+}

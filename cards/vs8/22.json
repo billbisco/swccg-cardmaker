@@ -1,0 +1,29 @@
+{
+ "id": "vs8-22",
+ "number": "22",
+ "virtual_set": 8,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Tusken Breath Mask",
+ "caption": "•Tusken Breath Mask (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on an exterior Tatooine battleground site. X = the face-up destiny number of your Objective. Once per turn, if all your ability on table is provided by aliens, your total ability during battle at a site is +X. This Effect canceled if opponent controls this site.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Sand People use a special mask to reclaim exhaled moisture in the hot, harsh environment of Tatooine. Protects by filtering blowing sand and dispersing excess heat.",
+ "destiny": "4",
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Tusken Breath Mask",
+ "art": {
+  "src": "src/vs8/22-Premiere-L-tuskenbreathmask.gif",
+  "modern": "src/vs8/modern/22-VB4-L-tuskenbreathmask-pre.gif"
+ },
+ "notes": "Unique. Printed base is a Utinni Effect; slip banner reads EFFECT, no grabber box. ERRATA: the sheet cover notes errata to card #22 on 17 September 2007 (the stub's game_text_note says the same) — this transcription is what this Remaster sheet prints; the pre-errata wording is not on this sheet. The slip's bottom strip prints a small gold/bronze sphere between the caption and the number (the errata marker, as vs5/49 and vs6/32) — not transcribed as an icon. Slip text matches the stub. Lore matches the wiki and the scan. Premiere prints no expansion ring. Base scan only at 350 px; copyright 1995 (Premiere) not legible. Modern: Virtual Block 4 only (VB4 -pre, 350 px).",
+ "grabber": false,
+ "game_text_lines": "Deploy on an exterior Tatooine battleground site. X =\nthe face-up destiny number of your Objective. Once per\nturn, if all your ability on table is provided by aliens,\nyour total ability during battle at a site is +X. This\nEffect canceled if opponent controls this site."
+}

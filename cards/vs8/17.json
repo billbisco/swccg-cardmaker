@@ -1,0 +1,44 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "title": "•Tamtel Skreej",
+ "caption": "•Tamtel Skreej (V)",
+ "game_text": "Deploys only to a Tatooine site as an Undercover spy. Once during each control phase, if Undercover, may relocate your character at a related site to Lando’s site (for free). Once per game, may ▼ Vibro-Ax on Lando for free.",
+ "lore": "*Gambler*. Lando Calrissian posed as a guard for Jabba in order to spy on the Hutt. Feared that he would be recognized by some of Jabba’s companions.",
+ "destiny": "1",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Tamtel Skreej",
+ "art": {
+  "src": "src/vs8/17-JP-L-tamtelskreej.gif",
+  "modern": "src/vs8/modern/17-VB3-L-tamtelskreej-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 6. Icon column: pilot, warrior. Curly apostrophe in Lando’s; ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Alien (Lando in disguise; alien disc on the scan). Lore corrected from scan: curly apostrophe in Jabba’s. 'Gambler' is a characteristic but reads as plain weight on the 346 px scan (same stroke as the rest of the line) — left unbolded; low-res only, so this is a judgment call (Jabba's Palace predates Decipher's bolded-keyword lore). Base scan only at 346×488; copyright 1998 (Jabba's Palace). Modern: Virtual Block 3 only (VB3 -pre, 350 px). Bold *Gambler* inferred from the Jabba's Palace printing pattern (Wooof, Jabba, Fozec show bold characteristics on 745 px scans); only 350 px scans of this card exist.",
+ "id": "vs8-17",
+ "virtual_set": 8,
+ "game_text_lines": "Deploys only to a Tatooine site as an Undercover\nspy. Once during each control phase, if\nUndercover, may relocate your character at a\nrelated site to Lando’s site (for free). Once per\ngame, may ▼ Vibro-Ax on Lando for free."
+}
