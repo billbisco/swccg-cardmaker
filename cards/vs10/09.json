@@ -1,0 +1,29 @@
+{
+ "id": "vs10-09",
+ "number": "09",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Imperial Justice",
+ "caption": "Imperial Justice (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table; shuffle your Reserve Deck, peek at top three cards, and stack them face-up here. During battle, may take a stacked card into hand to prevent players from drawing more than one battle destiny (those battle destiny draws may not be modified or canceled). {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“There’s nothing you could have done Luke, had you been there. You’d have been killed too.”",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Imperial Justice",
+ "grabber": false,
+ "art": {
+  "src": "src/vs10/09-ANH-D-imperialjustice.gif",
+  "modern": "src/vs10/modern/09-VB1-D-imperialjustice-pre.gif"
+ },
+ "notes": "Non-unique (no dot on slip heading, caption or printed title; wiki base 'Unrestricted'). Banner EFFECT, no grabber box. Red circle-slash A at the end → {alter} (stub expands 'Immune to Alter.'). Lore corrected from scan: curly double quotes and curly apostrophes in There’s / You’d (wiki has straight single quotes). Base scan only at 350 px; copyright 1996 legible (digit read at zoom). Modern: Virtual Block 1 only (VB1 -pre, 350 px; its text is a later revision, not this slip's).",
+ "game_text_lines": "Deploy on table; shuffle your Reserve Deck, peek at top\nthree cards, and stack them face-up here. During battle,\nmay take a stacked card into hand to prevent players\nfrom drawing more than one battle destiny (those battle\ndestiny draws may not be modified or canceled). {alter}"
+}

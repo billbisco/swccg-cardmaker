@@ -67,6 +67,12 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="ninth", remaster="the December 2006 Remaster sheet (re-edited 17 September 2007 with errata to #10): cover, set symbol and the slips shown below", pack="VS9O-pack.png", symbol="VS9O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    10: dict(sheet=("https://web.archive.org/web/20071024154531/http://www.swccgpc.com/Resources/VirtualCards10.pdf", "VirtualCards10.pdf", "24 October 2007", "4 December 2006"),
+            legal="Not found", legal_ref="No Virtual Set 10 release post survives in the archived swccgpc.com news (captures stop in February 2005, after Virtual Set 8).",
+            lead_legal="Its release date is not recorded in the surviving Committee news.",
+            ordinal="tenth", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below", pack="VS10O-pack.png", symbol="VS10O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -77,7 +83,7 @@ NCARDS = len(list((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")))
 NSIDE = {"Light": 0, "Dark": 0}
 for _p in (ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json"):
     NSIDE[json.load(open(_p, encoding="utf-8"))["side"]] += 1
-stubs = {int(v["image"][5:7]): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
+stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
 CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else ""   # current hub page: its history sections are carried over
 
 TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immediate Effect"), "USED INTERRUPT": ("Interrupt", "Used Interrupt"),
@@ -86,7 +92,7 @@ TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immedia
              "DEVICE": ("Device", None), "UTINNI EFFECT": ("Effect", "Utinni Effect"), "TRANSPORT VEHICLE": ("Vehicle", "Transport"),
              "COMBAT VEHICLE": ("Vehicle", "Combat"), "CREATURE VEHICLE": ("Vehicle", "Creature"), "SHUTTLE VEHICLE": ("Vehicle", "Shuttle"),
              "POLITICAL EFFECT": ("Effect", "Political Effect"), "MOBILE EFFECT": ("Effect", "Mobile Effect"), "EPIC EVENT": ("Epic Event", None),
-             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "USED OR STARTING INTERRUPT": ("Interrupt", "Used or Starting Interrupt"), "STARTING EFFECT": ("Effect", "Starting Effect"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None),
+             "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "USED OR STARTING INTERRUPT": ("Interrupt", "Used or Starting Interrupt"), "OUT OF PLAY INTERRUPT": ("Interrupt", "Out Of Play Interrupt"), "STARTING EFFECT": ("Effect", "Starting Effect"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None),
              "VEHICLE WEAPON": ("Weapon", "Vehicle Weapon"), "STARSHIP WEAPON": ("Weapon", "Starship Weapon"), "SNOW CREATURE": ("Creature", None),
              "CREATURE": ("Creature", None)}
 ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Maintenance]",
@@ -104,6 +110,7 @@ def expand(c: dict) -> str:
     for a, b in {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}", "{icon:virtual-set symbol}": "{ovs}"}.items():
         t = t.replace(a, b)
     t = re.sub(r"\{pilot:(\d)\}, (\d): (_?)([^._]+?)\3\.", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots ({m.group(2)} if {chr(39)*2 if m.group(3) else ''}{m.group(4)}{chr(39)*2 if m.group(3) else ''}).", t)
+    t = t.replace("just ▲ or ▼ ", "just took into hand or deployed from Reserve Deck ")
     t = re.sub(r"▲ and/or ▼\s*([^.?!\n]*?)([.?!])", r"Take into hand and/or deploy \1 from Reserve Deck; reshuffle\2", t)
     t = t.replace("▲ or ▼ attempt (after the first in a turn)", "attempt (after the first in a turn) to take into hand or deploy from Reserve Deck")
     t = re.sub(r"▼\s*([^.?!;\n]*?);", r"deploy \1 from Reserve Deck; reshuffle;", t)
@@ -178,7 +185,7 @@ for n in range(1, NCARDS + 1):
         typ, sub = TYPE_PAGE[banner]; model = ""
     else:
         typ, sub, model = "Character", (c.get("affiliation") or "").replace(" + ", "/"), ""
-    sub_link = {"Alien/Rebel": "Alien"}.get(sub, sub)
+    sub_link = {"Alien/Rebel": "Alien", "Out Of Play Interrupt": "Interrupt"}.get(sub, sub)
     if typ == "Vehicle":
         sub_link = "Vehicle"
     if typ == "Creature" and banner:

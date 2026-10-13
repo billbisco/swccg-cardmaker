@@ -1,0 +1,28 @@
+{
+ "id": "vs10-07",
+ "number": "07",
+ "virtual_set": 10,
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Shocking Information",
+ "caption": "•Shocking Information (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Unless you have senate majority, if opponent just ▲ or ▼ a character (except with an Effect with “matching” in game text) or just drew a card from Reserve Deck using a character’s game text, they must place 2 other cards from hand on Used Pile (if possible).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“R2-D2, you know better than to trust a strange computer.”",
+ "destiny": "5",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Shocking Information",
+ "art": {
+  "src": "src/vs10/07-CC-L-shockinginformation.gif",
+  "modern": "src/vs10/modern/07-VB2-L-shockinginformation-pre.gif"
+ },
+ "notes": "Unique (dot on the printed title too). Banner USED INTERRUPT. The slip prints ▲ or ▼ where the stub expands 'Take into hand from Reserve Deck; reshuffle or Deploy on table from Reserve Deck; reshuffle'; curly “matching” and character’s. Lore corrected from the scan: curly double quotes (wiki straight single). Base scan only at 350 px; copyright 1997 (Cloud City) not legible. Modern: Virtual Block 2 only (VB2-L-shockinginformation-pre.gif, 350 px; reads 'a senate majority' — Block revision).",
+ "game_text_lines": "Unless you have senate majority, if opponent just ▲ or\n▼ a character (except with an Effect with “matching”\nin game text) or just drew a card from Reserve Deck\nusing a character’s game text, they must place 2 other\ncards from hand on Used Pile (if possible)."
+}

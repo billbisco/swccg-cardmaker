@@ -6,7 +6,7 @@ Writes src/slips/vsN/NN-Title.png. The slip box is detected as a dark component 
 cleaned: columns outside the slip's own span (a neighbour's sliver) and every row above the heading that belongs to
 the slip above (its black caption bar) are whited out. Titles come from gempdata/original-vs-stubs.json."""
 from __future__ import annotations
-import json, sys
+import json, re, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
@@ -64,7 +64,7 @@ def main():
     vs = int(sys.argv[1])
     from sheet import slip_boxes as keyed_boxes
     stubs = json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8"))
-    names = {int(v["image"][5:7]): v["image"][8:-4] for v in stubs.values() if v["set"] == f"Virtual Set {vs} (Original)"}
+    names = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): v["image"].split("-", 2)[2][:-4] for v in stubs.values() if v["set"] == f"Virtual Set {vs} (Original)"}
     pages = {}
     n = 0
     for key, (pg, x, y, w, h) in sorted(keyed_boxes(vs).items()):

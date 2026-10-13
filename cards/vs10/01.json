@@ -1,0 +1,40 @@
+{
+ "id": "vs10-01",
+ "number": "01",
+ "virtual_set": 10,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Chewie",
+ "caption": "•Chewie (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "{pilot:3}, 4: _Falcon_. While piloting _Falcon_, it is maneuver +2, Chewie draws one battle destiny if unable to otherwise, and your battle destiny draws (and total battle destiny) at same system may not be modified, canceled, or reset by opponent.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Loyal Wookiee companion of Captain Han Solo. Co-pilot of the _Millennium Falcon_. Leia referred to him as a “walking carpet.”",
+ "destiny": "1",
+ "expansion": "The Empire Strikes Back Introductory Two-Player Game",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Chewie (The Empire Strikes Back Introductory Two-Player Game)",
+ "art": {
+  "src": "src/vs10/01-ESB2P-L-chewie.gif",
+  "modern": "src/vs10/modern/01-V0-L-chewie.gif"
+ },
+ "notes": "Unique. Stats POWER 6 / ABILITY 2, third box blank; deploy 3 / forfeit 6. Icon column top to bottom: pilot, warrior (the printed card has only a pilot icon). Rebel (Rebel disc on the printed card). Inline yellow pilot icon + '3, 4: Falcon' → {pilot:3}, 4: _Falcon_ (stub expands 'Adds 3 to power of anything he pilots. 4: Falcon'); Falcon italic both times. The stub's 'Decipher base: [[Chewie]]' is a red link — no 'Chewie' page exists; the printed base is the ESB Introductory Two-Player Game card ('Chewie (The Empire Strikes Back Introductory Two-Player Game)'). Lore corrected from the scan and the 745 px V0 remake: _Millennium Falcon_ italic (wiki plain 'Millennium Falcon') and curly double quotes “walking carpet.” with the period inside (wiki 'walking carpet.' in straight single quotes). Base scan only at 350 px (ESB2P-L-chewie.gif); copyright 1996 read on the V0 remake's line (also visible as 1996 on the 350 scan). The printed card shows a grey expansion ring icon beside the lore box (ESB 2-player game). Modern: V0-L-chewie.gif (745 px, PC Virtual Set 0 remake: text '{pilot:3}. While piloting Falcon…' without the ', 4: Falcon' clause — art only); VB2-L-chewie(-pre).gif (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:3}, 4: _Falcon_. While piloting _Falcon_, it is\nmaneuver +2, Chewie draws one battle destiny if\nunable to otherwise, and your battle destiny draws\n(and total battle destiny) at same system may not\nbe modified, canceled, or reset by opponent."
+}

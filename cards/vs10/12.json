@@ -1,0 +1,44 @@
+{
+ "id": "vs10-12",
+ "number": "12",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Vader",
+ "caption": "•Vader (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "DARK JEDI",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "8",
+ "game_text": "{pilot:4}. Jedi are defense value -1 and forfeit -2 at same and related sites. During battle, if you are about to draw a card for weapon or battle destiny, may instead use an Interrupt of destiny < 4 from hand. Immune to attrition < 5.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Sought to extinguish all Jedi. Former student of Obi-Wan Kenobi. Seduced by the dark side of the Force.",
+ "destiny": "1",
+ "expansion": "Premiere Two-Player Introductory Game",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Vader (Premiere Two-Player Introductory Game)",
+ "art": {
+  "src": "src/vs10/12-P2P-D-vader.gif",
+  "modern": "src/vs10/modern/12-V19-D-vader.gif"
+ },
+ "notes": "Unique. Base page is 'Vader (Premiere Two-Player Introductory Game)' (the plain 'Vader' page does not exist; the stub links [[Vader]] and the V19 'Vader (V)' page's hatnote names the P2P card). Stats POWER 6 / ABILITY 6 / DARK JEDI (label only); deploy 6 / forfeit 8. Yellow DS pilot-power icon followed by '4.' at the start → {pilot:4} (stub expands 'Adds 4 to power of anything he pilots'). Icon column top to bottom: pilot, warrior (printed card has warrior only). Imperial (Imperial disc top-left). Lore matches the scan. The printed P2P card has NO expansion-set ring beside the lore box (checked on the scan). Copyright reads 1995 on the scan (Premiere art reused), read at zoom. Base scan only at 350 px. Modern: V19-D-vader.gif (745 px) is the later Virtual Set 19 'Vader (V)' — a different text but the same art and lore; VB1-D-vader-pre.gif (350, Virtual Block 1 reissue of this slip) also downloaded to modern/.",
+ "game_text_lines": "{pilot:4}. Jedi are defense value -1 and forfeit -2 at\nsame and related sites. During battle, if you are\nabout to draw a card for weapon or battle destiny,\nmay instead use an Interrupt of destiny < 4 from\nhand. Immune to attrition < 5."
+}

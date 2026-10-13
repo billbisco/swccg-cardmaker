@@ -1,0 +1,29 @@
+{
+ "id": "vs10-10",
+ "number": "10",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Insignificant Rebellion",
+ "caption": "•Insignificant Rebellion (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If Ralltiir Operations on table, deploy on table. Ounee Ta is canceled. Your troopers are power = 2. Whenever you deploy a site to Ralltiir, may activate 3 Force. Whenever you draw battle destiny, may exchange a card from hand with a card of the same card type in Lost Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Your fleet is lost. And your friends on the Endor moon will not survive. There is no escape, my young apprentice.”",
+ "destiny": "4",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Insignificant Rebellion",
+ "grabber": false,
+ "art": {
+  "src": "src/vs10/10-DS2-D-insignificantrebellion.gif",
+  "modern": "src/vs10/modern/10-V10-D-insignificantrebellion.gif"
+ },
+ "notes": "Unique. Banner EFFECT, no grabber box. Red circle-slash A at the end → {alter} (stub expands 'Immune to Alter.'). Lore corrected from scan: curly double quotes (wiki has straight single quotes) — confirmed on the 745 px V10 remake. Base scan only at 350 px; copyright line is the SE-style form with 2000, legible. Modern: V10-D-insignificantrebellion.gif (745 px, Virtual Set 10 remake — a later different (V) text, same art); VB4 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "If Ralltiir Operations on table, deploy on table. Ounee Ta\nis canceled. Your troopers are power = 2. Whenever you\ndeploy a site to Ralltiir, may activate 3 Force. Whenever\nyou draw battle destiny, may exchange a card from hand\nwith a card of the same card type in Lost Pile. {alter}"
+}

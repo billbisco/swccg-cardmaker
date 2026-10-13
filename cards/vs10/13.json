@@ -1,0 +1,28 @@
+{
+ "id": "vs10-13",
+ "number": "13",
+ "virtual_set": 10,
+ "side": "Dark",
+ "slip_type": "Out Of Play Interrupt",
+ "card_type": "OUT OF PLAY INTERRUPT",
+ "title": "•Vader’s Anger",
+ "caption": "•Vader’s Anger (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Target a Jedi present with Vader. Initiate an epic duel between them. Both players draw two destiny and add power. Loser (lowest total) is placed out of play and losing player loses 5 Force. OR If Vader just hit a Jedi, retrieve any three cards.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Anger and aggression fuel the dark side of the Force.",
+ "destiny": "5",
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Vader's Anger",
+ "art": {
+  "src": "src/vs10/13-Tat-D-vadersanger.gif",
+  "modern": "src/vs10/modern/13-V11-D-vadersanger.gif"
+ },
+ "notes": "Unique. Banner OUT OF PLAY INTERRUPT (printed base is a Used Or Lost Interrupt) — the renderer needs an Out Of Play Interrupt banner on the Dark Interrupt frame. 'OR If' with capital I as printed. Curly apostrophe in the slip's heading and caption (Vader’s). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright line SE-style with 2001, legible. Modern: V11-D-vadersanger.gif (745 px) is the later Virtual Set 11 Vader's Anger (V) — a USED INTERRUPT with different text, same art and lore; no Virtual Block image found.",
+ "game_text_lines": "Target a Jedi present with Vader. Initiate an epic duel\nbetween them. Both players draw two destiny and add\npower. Loser (lowest total) is placed out of play and\nlosing player loses 5 Force. OR If Vader just hit a Jedi,\nretrieve any three cards."
+}
