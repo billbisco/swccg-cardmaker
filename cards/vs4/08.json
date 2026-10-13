@@ -23,7 +23,7 @@
  ],
  "scomp": false,
  "affiliation": "Rebel",
- "lore": "One of the original founders of the Rebel Alliance. Former civilian strategist with the House of Organa. Somber leader of Echo Base.",
+ "lore": "One of the original founders of the Rebel Alliance. Former civilian strategist with the House of Organa. Somber *leader* of Echo Base.",
  "destiny": "1",
  "base_page": "General Carlist Rieekan",
  "art": {
@@ -34,6 +34,6 @@
  "virtual_set": 4,
  "expansion": "Hoth",
  "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
- "notes": "Third stat box printed blank. Slip deploy 2 / forfeit 5 (printed 3/5). Icon column: warrior. Lore matches the scan. Base scan only at 350 px. Modern: V8-L-generalcarlistrieekan.gif (745) used; VB2 -pre (350) also downloaded. Copyright 1996 (Hoth), not legible.",
+ "notes": "Third stat box printed blank. Slip deploy 2 / forfeit 5 (printed 3/5). Icon column: warrior. Lore matches the scan. Base scan only at 350 px. Modern: V8-L-generalcarlistrieekan.gif (745) used; VB2 -pre (350) also downloaded. Copyright 1996 (Hoth), not legible. Lore emphasis (2026-10-13, Bill): *leader* — confirmed on the 745 px scan / PC remake.",
  "game_text_lines": "Your artillery weapons at same and related sites\nare powered and forfeit +2. During your deploy\nphase, may ▼ one A New Secret Base, an\nartillery weapon, or a non-creature card with\n“Hoth” in game text."
 }
