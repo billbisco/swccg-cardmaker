@@ -32,13 +32,19 @@
  "base_page": "Daultay Dofine",
  "art": {
   "src": "src/vs12/31-Cor-D-daultaydofine.gif",
-  "modern": "src/vs12/modern/31-V19-D-daultaydofine.gif"
+  "modern": "src/vs12/modern/31-V19-D-daultaydofine.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   325
+  ]
  },
  "id": "vs12-31",
  "virtual_set": 12,
  "expansion": "Coruscant",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Stats POWER 2 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 4. Yellow DS pilot-power icon + '3.' at the start → {pilot:3}. Inline round orange emblem in 'your [icon] Admiral’s Order' = the THEED PALACE set symbol → {set:theed} (the PC's VB5 reissue reads 'your [Theed Palace] Admiral's Order'; the wiki stub calls it 'grabber' — wrong). ▲ as printed. Curly apostrophe in Admiral’s. Icon column: pilot (yellow DS helmet) only. Affiliation Republic (Coruscant grey frame with the lilac Republic disc top-left; wiki subtype Republic). Margin credits two lines each: left 'Original concept' / 'by Justin Stratton', right 'Michigan' / 'States 2005'. Lore matches the wiki. Copyright '© 2001 …' (Coruscant, SE-style) read off the scan. Base scan 350 px only. Modern: V19-D-daultaydofine.gif (745 px, Virtual Set 19 remake — same art/lore, different (V) text); VB5 -pre also exists, not downloaded. Theed-D-captaindaultaydofine.gif is a different card.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 4. Yellow DS pilot-power icon + '3.' at the start → {pilot:3}. Inline round orange emblem in 'your [icon] Admiral’s Order' = the THEED PALACE set symbol → {set:theed} (the PC's VB5 reissue reads 'your [Theed Palace] Admiral's Order'; the wiki stub calls it 'grabber' — wrong). ▲ as printed. Curly apostrophe in Admiral’s. Icon column: pilot (yellow DS helmet) only. Affiliation Republic (Coruscant grey frame with the lilac Republic disc top-left; wiki subtype Republic). Margin credits two lines each: left 'Original concept' / 'by Justin Stratton', right 'Michigan' / 'States 2005'. Lore matches the wiki. Copyright '© 2001 …' (Coruscant, SE-style) read off the scan. Base scan 350 px only. Modern: V19-D-daultaydofine.gif (745 px, Virtual Set 19 remake — same art/lore, different (V) text); VB5 -pre also exists, not downloaded. Theed-D-captaindaultaydofine.gif is a different card. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "margin_left": "Original concept\nby Justin Stratton",
  "margin_right": "Michigan\nStates 2005",
  "game_text_lines": "{pilot:3}. Blockade Flagship is immune to attrition\n< 9. While piloting Blockade Flagship and your {set:theed}\nAdmiral’s Order on table, Blockade Flagship may\nnot be targeted by weapons or have its power\nreduced. Once per game, may ▲ Gunray or Haako.",

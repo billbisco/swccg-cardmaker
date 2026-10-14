@@ -356,3 +356,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
 - Rev 34 (Bill 2026-10-14, Watto (V)): a credit the slip prints in the black caption strip stays there
   (`credit_strip`, right-aligned before the number). Art from the printed scan by its own window (`art.rect`) when the
   auto frame detection zooms (dark Episode I frames); never a Virtual Block reissue whose art is cropped differently.
+- Rev 35 (Bill 2026-10-14, "zoom-in bug"): the Episode I-era edge trim (`art_trim`) cut bright picture edges as if they
+  were silver frame and zoomed the art. Every Coruscant / Theed Palace / Tatooine / Reflections III base card now maps
+  the printed scan by its measured window (`art.rect`): portraits ≈ [43,139,305,319–324] at 350 px (found by the
+  per-pixel variance across scans of the same frame, i.e. where the picture differs), sites ≈ [45,91,447,260] at
+  490 px; checked by template-matching the rendered art back into the scan (full window, ~263 px / ~400 px wide).
+  58 remasters re-rendered (VS5, 8–16).

@@ -29,7 +29,13 @@
  "base_page": "Sebulba",
  "art": {
   "src": "src/vs15/61-Tat-D-sebulba.gif",
-  "modern": "src/vs15/modern/61-VB5-D-sebulba-pre.gif"
+  "modern": "src/vs15/modern/61-VB5-D-sebulba-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   325
+  ]
  },
  "id": "vs15-61",
  "virtual_set": 15,
@@ -42,6 +48,6 @@
   "Original concept by Garrett Larson",
   "Minnesota States Sealed 2005"
  ],
- "notes": "Group: Everything else. Unique. Bottom-half slip. POWER 3 / ABILITY 2 / third box blank; deploy 3 / forfeit 5; icon column pilot (DS helmet), warrior. Leading DS pilot-power icon + '2: any combat vehicle.' → {pilot:2}: any combat vehicle (stub 'Adds 2 to power of anything he pilots: any combat vehicle'). Credits below the text box: 'Original concept by Garrett Larson' left, 'Minnesota States Sealed 2005' right. Alien disc; ring icons on the printed card: Tatooine sphere + Episode I → ring_icons ['episode1']. Printed POWER 4 (slip 3). Lore matches the scan; copyright 2001 line read on the scan. 350 px scan only. Modern: VB5-D-sebulba-pre.gif (Virtual Block 5) — same rules but the sentences are reordered ('Once per turn…' before 'Draws one battle destiny…'). Not V11-D-sebulba (that is Virtual Set 11's different Sebulba (V)).",
+ "notes": "Group: Everything else. Unique. Bottom-half slip. POWER 3 / ABILITY 2 / third box blank; deploy 3 / forfeit 5; icon column pilot (DS helmet), warrior. Leading DS pilot-power icon + '2: any combat vehicle.' → {pilot:2}: any combat vehicle (stub 'Adds 2 to power of anything he pilots: any combat vehicle'). Credits below the text box: 'Original concept by Garrett Larson' left, 'Minnesota States Sealed 2005' right. Alien disc; ring icons on the printed card: Tatooine sphere + Episode I → ring_icons ['episode1']. Printed POWER 4 (slip 3). Lore matches the scan; copyright 2001 line read on the scan. 350 px scan only. Modern: VB5-D-sebulba-pre.gif (Virtual Block 5) — same rules but the sentences are reordered ('Once per turn…' before 'Draws one battle destiny…'). Not V11-D-sebulba (that is Virtual Set 11's different Sebulba (V)). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "{pilot:2}: any combat vehicle. Brisky Morning\nMunchen is canceled. Draws one battle destiny if\nunable to otherwise. Once per turn, if any podrace\ntotal > 0, may take your just drawn destiny into\nhand to cancel and redraw that destiny."
 }

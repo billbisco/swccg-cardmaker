@@ -17,13 +17,19 @@
  "base_page": "Drop!",
  "art": {
   "src": "src/vs8/32-Cor-D-drop.gif",
-  "modern": "src/vs8/modern/32-VB6-D-drop-pre.gif"
+  "modern": "src/vs8/modern/32-VB6-D-drop-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   323
+  ]
  },
  "id": "vs8-32",
  "virtual_set": 8,
  "expansion": "Coruscant",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner STARTING EFFECT (printed base is a plain Effect), no grabber box. Inline icon in 'Unless [icon] Thrown Back on table': the orange VS8 set sphere itself → {ovs} (i.e. Thrown Back (V), VS8 #21); the stub drops it. Slip prints ▲ / ▼ where the stub expands 'Take into hand from Reserve Deck; reshuffle' / 'Deploy on table from Reserve Deck; reshuffle'. Curly apostrophe in player’s. 'Reserve deck' lowercase 'd' as printed. No comma after 'Four times per game' as printed. Lore corrected from scan: curly apostrophe in Qui-Gon’s (wiki straight). Coruscant base: the scan shows a second small round icon (a '+'-like mark) under the expansion ring beside the lore box — part of the printed Coruscant frame, not transcribed. Base scan only at 350 px; copyright = Coruscant 2001 SE-style line (run default, as vs5/19), not legible at 350 px. Modern: Virtual Block 6 only (VB6 -pre, 350 px).",
+ "notes": "Unique. Banner STARTING EFFECT (printed base is a plain Effect), no grabber box. Inline icon in 'Unless [icon] Thrown Back on table': the orange VS8 set sphere itself → {ovs} (i.e. Thrown Back (V), VS8 #21); the stub drops it. Slip prints ▲ / ▼ where the stub expands 'Take into hand from Reserve Deck; reshuffle' / 'Deploy on table from Reserve Deck; reshuffle'. Curly apostrophe in player’s. 'Reserve deck' lowercase 'd' as printed. No comma after 'Four times per game' as printed. Lore corrected from scan: curly apostrophe in Qui-Gon’s (wiki straight). Coruscant base: the scan shows a second small round icon (a '+'-like mark) under the expansion ring beside the lore box — part of the printed Coruscant frame, not transcribed. Base scan only at 350 px; copyright = Coruscant 2001 SE-style line (run default, as vs5/19), not legible at 350 px. Modern: Virtual Block 6 only (VB6 -pre, 350 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "grabber": false,
  "game_text_lines": "Deploy on table with 12 Defensive Shields from outside\nyour deck face-down under here. Four times per game\nmay play a card from here (as if from hand). Unless {ovs}\nThrown Back on table, each player’s ▲ or ▼ attempt\n(after the first in a turn) allows their opponent to draw\ntop card from Reserve deck and/or activate 1 Force.",
  "ring_icons": [

@@ -32,13 +32,19 @@
  "base_page": "Ki-Adi-Mundi",
  "art": {
   "src": "src/vs12/15-Cor-L-kiadimundi.gif",
-  "modern": "src/vs12/modern/15-VB5-L-kiadimundi-pre.gif"
+  "modern": "src/vs12/modern/15-VB5-L-kiadimundi-pre.gif",
+  "rect": [
+   44,
+   142,
+   312,
+   329
+  ]
  },
  "expansion": "Coruscant",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "margin_left": "Original concept\nby Michael Raveling",
  "margin_right": "Iowa States\n2005",
- "notes": "Unique. Stats POWER 5 / ABILITY 6 / JEDI KNIGHT (label only); deploy 6 / forfeit 5 (printed 5/6); the wiki stub has deploy=5 (differs). Icon column: warrior. Republic (Coruscant silver frame, Republic crest disc; the printed card has the Coruscant ring AND an Episode I icon beside the lore box). Inline blue-purple sphere before 'Jedi Lightsaber' = the Original Virtual Set 9 sphere (matches assets/icons/ovs-set-9.png; stub: 'Virtual Set 9 Jedi Lightsaber') → {ovs:9}. Curly apostrophes in Obi-Wan’s (twice). Margin credits printed vertically on two lines each. Lore corrected from scan: 'Jedi Council member' is BOLD (visible on the scan and the VB5 remake). Base scan 357 px only; copyright Coruscant 2001 SE-style form, partly legible.",
+ "notes": "Unique. Stats POWER 5 / ABILITY 6 / JEDI KNIGHT (label only); deploy 6 / forfeit 5 (printed 5/6); the wiki stub has deploy=5 (differs). Icon column: warrior. Republic (Coruscant silver frame, Republic crest disc; the printed card has the Coruscant ring AND an Episode I icon beside the lore box). Inline blue-purple sphere before 'Jedi Lightsaber' = the Original Virtual Set 9 sphere (matches assets/icons/ovs-set-9.png; stub: 'Virtual Set 9 Jedi Lightsaber') → {ovs:9}. Curly apostrophes in Obi-Wan’s (twice). Margin credits printed vertically on two lines each. Lore corrected from scan: 'Jedi Council member' is BOLD (visible on the scan and the VB5 remake). Base scan 357 px only; copyright Coruscant 2001 SE-style form, partly legible. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "id": "vs12-15",
  "virtual_set": 12,
  "game_text_lines": "While Maul present, Ki-Adi-Mundi is Heroic. Obi-Wan’s\nCape, Obi-Wan’s Journal, and {ovs:9} Jedi\nLightsaber may deploy on Ki-Adi-Mundi. Once per\ngame, may exchange two cards from hand with\nany one card in Lost Pile.",

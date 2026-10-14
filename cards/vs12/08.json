@@ -17,13 +17,19 @@
  "base_page": "Diversionary Tactics",
  "art": {
   "src": "src/vs12/08-Ref3-L-diversionarytactics.gif",
-  "modern": "src/vs12/modern/08-VB3-L-diversionarytactics-pre.gif"
+  "modern": "src/vs12/modern/08-VB3-L-diversionarytactics-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   320
+  ]
  },
  "id": "vs12-08",
  "virtual_set": 12,
  "expansion": "Reflections III",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner USED OR LOST INTERRUPT (printed card is a Lost Interrupt). USED:/LOST: lines separated by \\n. ODD ICON: the inline icon after 'Rebel (or' is a SQUARE silver tile with a grey Republic emblem (not the round silver crest of The Emperor/Mon Mothma (V)) — written {icon:republic} (stub: 'Republic'); the renderer may need a square Republic tile (probably the Republic starship/affiliation icon box). The slip leaves a small gap between the tile and ')' — icon padding, not typed. Margin credits: left 'Original concept by Thomas Caspersen', right 'Norwegian Nationals 2006'. Lore matches the scan. Only a 350 px scan; copyright Reflections III 2001 by set. Modern: Virtual Block 3 only (VB3 -pre, 350 px). Inline Republic icon: the square tile (Game Aid \"Republic\", Other Features), as the slip prints it; the round crest is \"Character - Republic\".",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT (printed card is a Lost Interrupt). USED:/LOST: lines separated by \\n. ODD ICON: the inline icon after 'Rebel (or' is a SQUARE silver tile with a grey Republic emblem (not the round silver crest of The Emperor/Mon Mothma (V)) — written {icon:republic} (stub: 'Republic'); the renderer may need a square Republic tile (probably the Republic starship/affiliation icon box). The slip leaves a small gap between the tile and ')' — icon padding, not typed. Margin credits: left 'Original concept by Thomas Caspersen', right 'Norwegian Nationals 2006'. Lore matches the scan. Only a 350 px scan; copyright Reflections III 2001 by set. Modern: Virtual Block 3 only (VB3 -pre, 350 px). Inline Republic icon: the square tile (Game Aid \"Republic\", Other Features), as the slip prints it; the round crest is \"Character - Republic\". Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "margin_left": "Original concept by Thomas Caspersen",
  "margin_right": "Norwegian Nationals 2006",
  "game_text_lines": "USED: Target one piloted starship at a system. That\nstarship is hyperspeed -1 for remainder of turn.\nLOST: If you have two unique (•) piloted Rebel (or\n{icon:republic-square}) starfighters in battle at a system, draw destiny.\nExclude one starship from that battle if destiny < 4."

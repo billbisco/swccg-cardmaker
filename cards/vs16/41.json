@@ -23,7 +23,13 @@
  "base_page": "Naboo: Theed Palace Throne Room (Dark)",
  "art": {
   "src": "src/vs16/41-Cor-D-nabootheedpalacethroneroom.gif",
-  "modern": "src/vs16/modern/41-VB5-D-coruscantchancellorsoffice-pre.gif"
+  "modern": "src/vs16/modern/41-VB5-D-coruscantchancellorsoffice-pre.gif",
+  "rect": [
+   45,
+   92,
+   446,
+   259
+  ]
  },
  "dark_text": "Once per game, may ▼ {ovs} Sidious here. While a Dark Jedi present, Force drains and Force drain bonuses here may not be canceled.",
  "heading": "•Coruscant: Chancellor’s Office (V)",
@@ -40,5 +46,5 @@
  ],
  "game_text_lines": "Unless a Jedi present, Force drain -1 here. Immune to Revolution.",
  "dark_text_lines": "Once per game, may ▼ {ovs} Sidious here. While a Dark Jedi present, Force drains and Force\ndrain bonuses here may not be canceled.",
- "notes": "Group: Imperial Senate (DARK SIDE). FULL portrait site overlay printed sideways that RENAMES the site: both bars read '•CORUSCANT: CHANCELLOR’S OFFICE' (curly apostrophe; red • on the Dark bar, dark • on the Light bar). Art window blank. Light half (right bar, grey box) = game_text, one line. Dark half (left bar, black box) = dark_text, two lines (break after 'Force drains and Force'). INLINE: ▼ then a blue sphere before 'Sidious' = the VS16 set sphere itself (matched against the sphere at the bottom of the slip; Lord Sidious (V) is VS16 #46) → {ovs}; the stub drops the sphere and expands ▼. Force slots: Dark bar TWO red sabers (dark_force_count 2), Light bar one blue saber — same as the printed card (Dark Force ×2, Light Force ×1). Icon boxes both bars, outermost first: planet (pink planet), interior (beige walls) — same as printed; no scomp. Bottom margin: the VS16 set sphere and a black EPISODE I icon → icons ['episode1'] (as vs13/03; the printed Coruscant site carries Episode I too). No credits. BASE: caption names Naboo: Theed Palace Throne Room (Dark) (Coruscant Dark site; printed Light 'Unless Amidala present, Force drain -1 here.', Dark 'If Haako or Gunray present, Force drain +1 here.'). Scan Cor-D-nabootheedpalacethroneroom.gif 490×353 only; copyright not legible there — Coruscant '© 2001 …' line as read on Coruscant Guard / V10 Plo Koon. lore '' (site). Modern: VB5-D-coruscantchancellorsoffice-pre.gif (490×350, Virtual Block 5 reissue as a full card). Stub concatenates both halves (Dark first). Stub: https://wiki.swccg.com/wiki/Coruscant:_Chancellor%27s_Office_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+ "notes": "Group: Imperial Senate (DARK SIDE). FULL portrait site overlay printed sideways that RENAMES the site: both bars read '•CORUSCANT: CHANCELLOR’S OFFICE' (curly apostrophe; red • on the Dark bar, dark • on the Light bar). Art window blank. Light half (right bar, grey box) = game_text, one line. Dark half (left bar, black box) = dark_text, two lines (break after 'Force drains and Force'). INLINE: ▼ then a blue sphere before 'Sidious' = the VS16 set sphere itself (matched against the sphere at the bottom of the slip; Lord Sidious (V) is VS16 #46) → {ovs}; the stub drops the sphere and expands ▼. Force slots: Dark bar TWO red sabers (dark_force_count 2), Light bar one blue saber — same as the printed card (Dark Force ×2, Light Force ×1). Icon boxes both bars, outermost first: planet (pink planet), interior (beige walls) — same as printed; no scomp. Bottom margin: the VS16 set sphere and a black EPISODE I icon → icons ['episode1'] (as vs13/03; the printed Coruscant site carries Episode I too). No credits. BASE: caption names Naboo: Theed Palace Throne Room (Dark) (Coruscant Dark site; printed Light 'Unless Amidala present, Force drain -1 here.', Dark 'If Haako or Gunray present, Force drain +1 here.'). Scan Cor-D-nabootheedpalacethroneroom.gif 490×353 only; copyright not legible there — Coruscant '© 2001 …' line as read on Coruscant Guard / V10 Plo Koon. lore '' (site). Modern: VB5-D-coruscantchancellorsoffice-pre.gif (490×350, Virtual Block 5 reissue as a full card). Stub concatenates both halves (Dark first). Stub: https://wiki.swccg.com/wiki/Coruscant:_Chancellor%27s_Office_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith) Art: printed scan by its measured Episode I window (art.rect; no zoom — Bill 2026-10-14)."
 }

@@ -17,14 +17,20 @@
  "base_page": "I Can't Believe He's Gone",
  "art": {
   "src": "src/vs12/12-Tat-L-icantbelievehesgone.gif",
-  "modern": "src/vs12/modern/12-V21-L-icantbelievehesgone.gif"
+  "modern": "src/vs12/modern/12-V21-L-icantbelievehesgone.gif",
+  "rect": [
+   42,
+   138,
+   306,
+   320
+  ]
  },
  "expansion": "Tatooine",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "grabber": false,
  "margin_left": "Original concept by Greg Shaw",
  "margin_right": "Mystic Visions 2003",
- "notes": "Unique. Banner IMMEDIATE EFFECT with NO grabber box (grabber false; printed base is also an Immediate Effect). Curly apostrophes in the slip title/caption (Can’t, He’s); wiki page titles use straight ones. Red circle-slash C at the end → {control}. Margin credits printed vertically, one line each: left 'Original concept by Greg Shaw', right 'Mystic Visions 2003'. Lore matches the scan (no quotes/apostrophes). Base scan only at 350 px; copyright line is the 2001 SE-style form, read off the V21 remake (745 px). Modern: V21-L-icantbelievehesgone.gif (745 px, a later PC remake as an EFFECT — same art, different bottom half); VB1 -pre (350) also exists, not downloaded.",
+ "notes": "Unique. Banner IMMEDIATE EFFECT with NO grabber box (grabber false; printed base is also an Immediate Effect). Curly apostrophes in the slip title/caption (Can’t, He’s); wiki page titles use straight ones. Red circle-slash C at the end → {control}. Margin credits printed vertically, one line each: left 'Original concept by Greg Shaw', right 'Mystic Visions 2003'. Lore matches the scan (no quotes/apostrophes). Base scan only at 350 px; copyright line is the 2001 SE-style form, read off the V21 remake (745 px). Modern: V21-L-icantbelievehesgone.gif (745 px, a later PC remake as an EFFECT — same art, different bottom half); VB1 -pre (350) also exists, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "id": "vs12-12",
  "virtual_set": 12,
  "game_text_lines": "If Obi-Wan is out of play (and not on table), use 1\nForce to deploy on table. During battle, may use 1\nForce to add 5 to your total power there for remainder\nof turn. Once per turn, if Luke a captive, may activate 1\nForce. {control}"

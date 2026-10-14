@@ -18,7 +18,13 @@
  "base_page": "Vote Now! (Dark)",
  "art": {
   "src": "src/vs16/50-Cor-D-votenow.gif",
-  "modern": "src/vs16/modern/50-VB5-D-withthunderousapplause-pre.gif"
+  "modern": "src/vs16/modern/50-VB5-D-withthunderousapplause-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   323
+  ]
  },
  "id": "vs16-50",
  "virtual_set": 16,
@@ -31,5 +37,5 @@
   "episode1"
  ],
  "grabber": false,
- "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (756×1099 crop): an EFFECT printed over the printed Used INTERRUPT Vote Now! (Dark) — red Effect frame, Effect disc (green swirl; printed card has the Interrupt disc); title '•With Thunderous Applause'; destiny 6. Lore printed on the slip = the printed card's lore (identical wording). Right of the lore box: Coruscant ring + EPISODE I icon, as printed → ring_icons ['episode1']. Art window blank white. Banner EFFECT (no grabber); no stats/D/F/column icons; game text 5 lines, no inline icons. Caption '•Vote Now! (Dark Side) (V)' — the wiki page is 'Vote Now! (Dark)'. Number 50. Frame proportions match the printed card (not a tall slip). Slip text matches the stub. CHANGES vs Decipher Vote Now! (Dark) (Coruscant, Cor-D-votenow.gif): card type Used Interrupt → Effect (disc, banner); title; destiny 5 → 6; game text replaced (printed: 'During your control phase, draw destiny. If destiny > 2, draw up to X cards (maximum 4) from Reserve Deck, where X = your total politics at Galactic Senate minus opponent’s total politics at Galactic Senate.'). Lore matches the wiki and the scan. Base scan 350 px only; copyright Coruscant 2001. Modern: VB5-D-withthunderousapplause-pre.gif (350; later wording 'At start of your turn, if at Senate, may draw…'; adds a small icon disc left of the lore box). V25-D-withthunderousapplause.gif is a different, later PC card — not downloaded."
+ "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (756×1099 crop): an EFFECT printed over the printed Used INTERRUPT Vote Now! (Dark) — red Effect frame, Effect disc (green swirl; printed card has the Interrupt disc); title '•With Thunderous Applause'; destiny 6. Lore printed on the slip = the printed card's lore (identical wording). Right of the lore box: Coruscant ring + EPISODE I icon, as printed → ring_icons ['episode1']. Art window blank white. Banner EFFECT (no grabber); no stats/D/F/column icons; game text 5 lines, no inline icons. Caption '•Vote Now! (Dark Side) (V)' — the wiki page is 'Vote Now! (Dark)'. Number 50. Frame proportions match the printed card (not a tall slip). Slip text matches the stub. CHANGES vs Decipher Vote Now! (Dark) (Coruscant, Cor-D-votenow.gif): card type Used Interrupt → Effect (disc, banner); title; destiny 5 → 6; game text replaced (printed: 'During your control phase, draw destiny. If destiny > 2, draw up to X cards (maximum 4) from Reserve Deck, where X = your total politics at Galactic Senate minus opponent’s total politics at Galactic Senate.'). Lore matches the wiki and the scan. Base scan 350 px only; copyright Coruscant 2001. Modern: VB5-D-withthunderousapplause-pre.gif (350; later wording 'At start of your turn, if at Senate, may draw…'; adds a small icon disc left of the lore box). V25-D-withthunderousapplause.gif is a different, later PC card — not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14)."
 }

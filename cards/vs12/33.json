@@ -17,13 +17,19 @@
  "base_page": "I'm Sorry",
  "art": {
   "src": "src/vs12/33-Tat-D-imsorry.gif",
-  "modern": "src/vs12/modern/33-V26-D-imsorry.gif"
+  "modern": "src/vs12/modern/33-V26-D-imsorry.gif",
+  "rect": [
+   42,
+   138,
+   306,
+   323
+  ]
  },
  "id": "vs12-33",
  "virtual_set": 12,
  "expansion": "Tatooine",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner EFFECT, no grabber box. Title has a curly apostrophe on the slip heading and caption (I’m); wiki page title straight. ▼ as printed; 'non-unique' is spelled out on the slip (the stub's note about a diamond uniqueness glyph is wrong). Red circle-slash A at the end → {alter}. Curly apostrophe in opponent’s. Margin credits one line each: left 'Original concept by Tyler Vastag', right 'Bespin Regionals 2006'. Lore corrected from scan: curly double quotes and curly apostrophe (wiki straight single quotes). Copyright '© 2001 …' (Tatooine) read off the scan. Base scan 350 px only. Modern: V26-D-imsorry.gif (745 px, Virtual Set 26 remake — same art/lore); VB2 -pre also exists, not downloaded.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Title has a curly apostrophe on the slip heading and caption (I’m); wiki page title straight. ▼ as printed; 'non-unique' is spelled out on the slip (the stub's note about a diamond uniqueness glyph is wrong). Red circle-slash A at the end → {alter}. Curly apostrophe in opponent’s. Margin credits one line each: left 'Original concept by Tyler Vastag', right 'Bespin Regionals 2006'. Lore corrected from scan: curly double quotes and curly apostrophe (wiki straight single quotes). Copyright '© 2001 …' (Tatooine) read off the scan. Base scan 350 px only. Modern: V26-D-imsorry.gif (745 px, Virtual Set 26 remake — same art/lore); VB2 -pre also exists, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "grabber": false,
  "margin_left": "Original concept by Tyler Vastag",
  "margin_right": "Bespin Regionals 2006",

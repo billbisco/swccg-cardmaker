@@ -28,13 +28,19 @@
  "base_page": "Naboo: Theed Palace Hallway (Dark)",
  "art": {
   "src": "src/vs13/17-Theed-D-nabootheedpalacehallway.gif",
-  "modern": "src/vs13/modern/17-VB4-D-coruscantisbcentraloffice-pre.gif"
+  "modern": "src/vs13/modern/17-VB4-D-coruscantisbcentraloffice-pre.gif",
+  "rect": [
+   45,
+   91,
+   443,
+   258
+  ]
  },
  "id": "vs13-17",
  "virtual_set": 13,
  "expansion": "Theed Palace",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Portrait site overlay that RENAMES the site: both bars read '•CORUSCANT: ISB CENTRAL OFFICE' (red dot on the Dark bar). Dark half (black bar, left on the slip) has one red Dark Force saber; the Light half's Force slot is an EMPTY black box → light_force false (the printed card has a Light Force icon). Icons both bars outermost first: planet, interior (as printed). No scomp. Inline icon after 'non-' is an ORANGE sphere in a silver ring that matches assets/icons/ovs-set-8.png (Original Virtual Set 8 symbol) → {ovs:8} (stub writes '[S]'; UNCERTAIN what the sphere stands for — please verify against the sheet's icon key). Curly quotes “advisor” and Empire’s (stub straight). Base page: the stub links [[Naboo: Theed Palace Hallway]] (the LIGHT card) but the slip is the Dark card (stub side=Dark, caption '(Dark)') — used Naboo: Theed Palace Hallway (Dark), Theed-D-nabootheedpalacehallway.gif (487×350, only scan). Printed Light text 'Force drain -1 here.', Dark text 'Once per game, may deploy a battle droid here from Reserve Deck; reshuffle.' Copyright read off the scan (2001 Theed Palace). Modern: VB4-D-coruscantisbcentraloffice-pre.gif (487 px, Virtual Block 4, same art). V1-L-nabootheedpalacehallway.gif exists but is the Light card — not used. No margin credits.",
+ "notes": "Portrait site overlay that RENAMES the site: both bars read '•CORUSCANT: ISB CENTRAL OFFICE' (red dot on the Dark bar). Dark half (black bar, left on the slip) has one red Dark Force saber; the Light half's Force slot is an EMPTY black box → light_force false (the printed card has a Light Force icon). Icons both bars outermost first: planet, interior (as printed). No scomp. Inline icon after 'non-' is an ORANGE sphere in a silver ring that matches assets/icons/ovs-set-8.png (Original Virtual Set 8 symbol) → {ovs:8} (stub writes '[S]'; UNCERTAIN what the sphere stands for — please verify against the sheet's icon key). Curly quotes “advisor” and Empire’s (stub straight). Base page: the stub links [[Naboo: Theed Palace Hallway]] (the LIGHT card) but the slip is the Dark card (stub side=Dark, caption '(Dark)') — used Naboo: Theed Palace Hallway (Dark), Theed-D-nabootheedpalacehallway.gif (487×350, only scan). Printed Light text 'Force drain -1 here.', Dark text 'Once per game, may deploy a battle droid here from Reserve Deck; reshuffle.' Copyright read off the scan (2001 Theed Palace). Modern: VB4-D-coruscantisbcentraloffice-pre.gif (487 px, Virtual Block 4, same art). V1-L-nabootheedpalacehallway.gif exists but is the Light card — not used. No margin credits. Art: printed scan by its measured Episode I window (art.rect; no zoom — Bill 2026-10-14).",
  "game_text_lines": "Unless Blount present, Empire’s Sinister Agents may not flip. Immune to Revolution.",
  "dark_text_lines": "If your spy here, you may play non-{ovs:8} Interrupts with “advisor” in title for 1 Force."
 }

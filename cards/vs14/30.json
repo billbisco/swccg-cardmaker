@@ -17,12 +17,18 @@
  "base_page": "Sith Fury",
  "art": {
   "src": "src/vs14/30-Tat-D-sithfury.gif",
-  "modern": "src/vs14/modern/30-V0-D-sithfury.gif"
+  "modern": "src/vs14/modern/30-V0-D-sithfury.gif",
+  "rect": [
+   42,
+   138,
+   306,
+   323
+  ]
  },
  "id": "vs14-30",
  "virtual_set": 14,
  "expansion": "Tatooine",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner USED OR LOST INTERRUPT (as printed). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. No margin credits. Lore matches the wiki (checked on the 745 px V0 remake). Copyright '… 2001 DECIPHER INC.' legible on V0. Base scan 350 px. Modern: V0-D-sithfury.gif (745 px); VB5 (350) also exists, not downloaded.",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT (as printed). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. No margin credits. Lore matches the wiki (checked on the 745 px V0 remake). Copyright '… 2001 DECIPHER INC.' legible on V0. Base scan 350 px. Modern: V0-D-sithfury.gif (745 px); VB5 (350) also exists, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "USED: If you just drew a character for destiny, take\nthat card into hand to cancel and redraw that destiny.\nLOST: Once per game, use 4 Force to ▼ a Dark Jedi."
 }

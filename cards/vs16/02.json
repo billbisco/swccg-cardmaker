@@ -40,7 +40,13 @@
  "base_page": "General Jar Jar",
  "art": {
   "src": "src/vs16/02-Theed-L-generaljarjar.gif",
-  "modern": "src/vs16/modern/02-VB5-L-senatorjarjarbinks-pre.gif"
+  "modern": "src/vs16/modern/02-VB5-L-senatorjarjarbinks-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   323
+  ]
  },
  "ring_icons": [
   "episode1"
@@ -49,6 +55,6 @@
   "Original concept by Brian Herold",
   "Minnesota States 2006"
  ],
- "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (755×1101) on the silver Light character frame. Title bar: Alien disc (black, glowing eyes, as printed) then the ROUND silver Republic crest → 'Alien + Republic'; title '•Senator Jar Jar Binks'; destiny 2. LORE PRINTED ON THE SLIP: 'Gungan.' (plain) → replaces the printed lore (kept in base_lore). Right of the lore box: Theed Palace ring (orange/black) and the EPISODE I disc, both as printed → ring_icons ['episode1']. Art window blank. Stats POWER 3 / ABILITY 3 / POLITICS 2; deploy 2 / forfeit 4; column: warrior (blue, blaster); VS16 sphere. Inline icons: pink Coruscant set symbol before 'Naboo' and before 'Political Effect' ({set:coruscant}), orange/black Theed Palace set symbol before 'vehicle' ({set:theed}, matched to set-theed-decipher.png); ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Italic credits printed UNDER the text box: left 'Original concept by Brian Herold', right 'Minnesota States 2006' → credit_bottom (the VB5 reissue prints them as one line 'Original concept by Brian Herold, Minnesota States 2006'). Slip text matches the stub. CHANGES vs Decipher General Jar Jar (Theed Palace): title; Republic disc added; lore replaced; destiny 2 unchanged; POWER 4 → 3, FORCE-ATTUNED → POLITICS 2; deploy 2, forfeit 4 unchanged; warrior icon kept; text replaced. Base lore matches the wiki (curly ’ in He’s). Base scan 350 px; Theed 2001 copyright legible. Modern: VB5-L-senatorjarjarbinks-pre.gif (350); an _ai VB5 variant also exists, not downloaded.",
+ "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (755×1101) on the silver Light character frame. Title bar: Alien disc (black, glowing eyes, as printed) then the ROUND silver Republic crest → 'Alien + Republic'; title '•Senator Jar Jar Binks'; destiny 2. LORE PRINTED ON THE SLIP: 'Gungan.' (plain) → replaces the printed lore (kept in base_lore). Right of the lore box: Theed Palace ring (orange/black) and the EPISODE I disc, both as printed → ring_icons ['episode1']. Art window blank. Stats POWER 3 / ABILITY 3 / POLITICS 2; deploy 2 / forfeit 4; column: warrior (blue, blaster); VS16 sphere. Inline icons: pink Coruscant set symbol before 'Naboo' and before 'Political Effect' ({set:coruscant}), orange/black Theed Palace set symbol before 'vehicle' ({set:theed}, matched to set-theed-decipher.png); ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Italic credits printed UNDER the text box: left 'Original concept by Brian Herold', right 'Minnesota States 2006' → credit_bottom (the VB5 reissue prints them as one line 'Original concept by Brian Herold, Minnesota States 2006'). Slip text matches the stub. CHANGES vs Decipher General Jar Jar (Theed Palace): title; Republic disc added; lore replaced; destiny 2 unchanged; POWER 4 → 3, FORCE-ATTUNED → POLITICS 2; deploy 2, forfeit 4 unchanged; warrior icon kept; text replaced. Base lore matches the wiki (curly ’ in He’s). Base scan 350 px; Theed 2001 copyright legible. Modern: VB5-L-senatorjarjarbinks-pre.gif (350); an _ai VB5 variant also exists, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text": "*Agendas:* justice, order. At same and related sites, vehicle weapon destiny draws are -2. Once per turn, may ▼ an electropole, a {set:coruscant} Naboo location, or a {set:theed} vehicle. If at Senate, may place Jar Jar and a {set:coruscant} Political Effect out of play."
 }

@@ -17,13 +17,19 @@
  "base_page": "Trade Federation Tactics",
  "art": {
   "src": "src/vs14/31-Theed-D-tradefederationtactics.gif",
-  "modern": "src/vs14/modern/31-V11-D-tradefederationtactics.gif"
+  "modern": "src/vs14/modern/31-V11-D-tradefederationtactics.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   323
+  ]
  },
  "id": "vs14-31",
  "virtual_set": 14,
  "expansion": "Theed Palace",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner USED OR LOST INTERRUPT (printed base is a Lost Interrupt). Inline black 'EPISODE I' circles (twice) → {episode1} (stub: 'Episode I'). NOTE: on this slip 'LOST:' follows 'starship.' on the SAME line (not on its own line), so the game text has a space, not \\n, before LOST:. No margin credits. Lore matches the wiki (checked on the 745 px V11 remake). Copyright '… 2001 DECIPHER INC.' legible on V11. Base scan 350 px. Modern: V11-D-tradefederationtactics.gif (745 px); VB5 (350) also exists, not downloaded.",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT (printed base is a Lost Interrupt). Inline black 'EPISODE I' circles (twice) → {episode1} (stub: 'Episode I'). NOTE: on this slip 'LOST:' follows 'starship.' on the SAME line (not on its own line), so the game text has a space, not \\n, before LOST:. No margin credits. Lore matches the wiki (checked on the 745 px V11 remake). Copyright '… 2001 DECIPHER INC.' legible on V11. Base scan 350 px. Modern: V11-D-tradefederationtactics.gif (745 px); VB5 (350) also exists, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "USED: For remainder of turn, if your starship is about\nto be hit (or lost), that action may instead affect your\ncharacter aboard that starship. LOST: If your {episode1}\ncharacter is about to be hit (or lost), that action\ninstead affects your other {episode1} character present.",
  "ring_icons": [
   "episode1"

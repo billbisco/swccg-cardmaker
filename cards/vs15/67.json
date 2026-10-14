@@ -17,7 +17,13 @@
  "base_page": "Qui-Gon's End",
  "art": {
   "src": "src/vs15/67-Ref3-D-quigonsend.gif",
-  "modern": "src/vs15/modern/67-VB5-D-trainedinthejediarts-pre.gif"
+  "modern": "src/vs15/modern/67-VB5-D-trainedinthejediarts-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   323
+  ]
  },
  "id": "vs15-67",
  "virtual_set": 15,
@@ -30,6 +36,6 @@
  "ring_icons": [
   "episode1"
  ],
- "notes": "Group: Everything else. Unique. COMBO / FULL-CARD OVERLAY (755×1100) on the red Effect frame: Effect-type disc (green swirl, as printed), title '•Trained In The Jedi Arts', destiny 5; white window covers lore box + art (no lore on the slip → printed lore stays, as on the VB5 reissue). Banner EFFECT (printed: IMMEDIATE EFFECT; no grabber box). Inline icons: black square with green blade → {lightsaber} (brief); gold spoked wheel on brown in a square → {maintenance} (brief; same pair as vs12/13); trailing red circle-slash A → {alter}. The stub reads the two icons as 'Reflections III and Coruscant cards' — the slip does not show set spheres there. Curly quotes as printed. Caption '•Qui-Gon’s End (V)'. CHANGES vs Decipher Qui-Gon's End (Reflections III): title; destiny 5, lore, disc unchanged; banner IMMEDIATE EFFECT → EFFECT; game text replaced (printed: 'Deploy on a site where Maul just defeated Qui-Gon in lightsaber combat. Place Qui-Gon out of play. While Obi-Wan at this site, his lightsaber combat total is +2 and opponent loses 1 Force at the end of each of your turns. (Immune to Control.)'). Ring icons on the printed card: Reflections III + Episode I. Lore matches the scan; copyright 2001 line read on the scan. 350 px scan only. Modern: VB5-D-trainedinthejediarts-pre.gif (same text and icons).",
+ "notes": "Group: Everything else. Unique. COMBO / FULL-CARD OVERLAY (755×1100) on the red Effect frame: Effect-type disc (green swirl, as printed), title '•Trained In The Jedi Arts', destiny 5; white window covers lore box + art (no lore on the slip → printed lore stays, as on the VB5 reissue). Banner EFFECT (printed: IMMEDIATE EFFECT; no grabber box). Inline icons: black square with green blade → {lightsaber} (brief); gold spoked wheel on brown in a square → {maintenance} (brief; same pair as vs12/13); trailing red circle-slash A → {alter}. The stub reads the two icons as 'Reflections III and Coruscant cards' — the slip does not show set spheres there. Curly quotes as printed. Caption '•Qui-Gon’s End (V)'. CHANGES vs Decipher Qui-Gon's End (Reflections III): title; destiny 5, lore, disc unchanged; banner IMMEDIATE EFFECT → EFFECT; game text replaced (printed: 'Deploy on a site where Maul just defeated Qui-Gon in lightsaber combat. Place Qui-Gon out of play. While Obi-Wan at this site, his lightsaber combat total is +2 and opponent loses 1 Force at the end of each of your turns. (Immune to Control.)'). Ring icons on the printed card: Reflections III + Episode I. Lore matches the scan; copyright 2001 line read on the scan. 350 px scan only. Modern: VB5-D-trainedinthejediarts-pre.gif (same text and icons). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "Deploy on table. Your {lightsaber} and {maintenance} cards are lost.\n“Vader” on your Interrupts may be treated as “Maul or\nMara Jade.” Wherever you have an Effect with “skill”\nin its game text, your Force drains and battle destiny\ndraws are +1. {alter}"
 }

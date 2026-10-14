@@ -21,9 +21,15 @@
  "base_page": "Thrown Back",
  "art": {
   "src": "src/vs8/21-Cor-L-thrownback.gif",
-  "modern": "src/vs8/modern/21-VB6-L-thrownback-pre.gif"
+  "modern": "src/vs8/modern/21-VB6-L-thrownback-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   320
+  ]
  },
- "notes": "Unique. Banner STARTING EFFECT, no grabber box (printed base is a plain Effect). Slip prints ▲ and ▼ where the stub expands them; 'Reserve deck' with lower-case d as printed. No immune icon. Lore matches the wiki and the scan. Base scan only at 350 px; copyright line taken as the Coruscant SE-style form (2001, as the other Coruscant base in this project) — '2001 DECIPHER' just legible. Modern: Virtual Block 6 only (VB6 -pre, 350 px).",
+ "notes": "Unique. Banner STARTING EFFECT, no grabber box (printed base is a plain Effect). Slip prints ▲ and ▼ where the stub expands them; 'Reserve deck' with lower-case d as printed. No immune icon. Lore matches the wiki and the scan. Base scan only at 350 px; copyright line taken as the Coruscant SE-style form (2001, as the other Coruscant base in this project) — '2001 DECIPHER' just legible. Modern: Virtual Block 6 only (VB6 -pre, 350 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "grabber": false,
  "game_text_lines": "Deploy on table with 12 Defensive Shields from outside\nyour deck face-down under here. Four times per game\nmay play a card from here (as if from hand). Unless\nYoda on Dagobah, each player’s ▲ or ▼ attempt (after\nthe first in a turn) allows their opponent to draw top\ncard from Reserve deck and/or activate 1 Force.",
  "ring_icons": [

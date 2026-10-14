@@ -29,13 +29,19 @@
  "base_page": "Lieutenant Williams",
  "art": {
   "src": "src/vs13/08-Cor-L-lieutenantwilliams.gif",
-  "modern": "src/vs13/modern/08-VB5-L-lieutenantwilliams-pre.gif"
+  "modern": "src/vs13/modern/08-VB5-L-lieutenantwilliams-pre.gif",
+  "rect": [
+   43,
+   138,
+   305,
+   323
+  ]
  },
  "id": "vs13-08",
  "virtual_set": 13,
  "expansion": "Coruscant",
  "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
- "notes": "Unique. Stats POWER 2 / ABILITY 2; third stat box printed EMPTY (blank). Deploy 2 / forfeit 4. {pilot:2} (stub expands). _Radiant VII_ italic in the slip text. Curly apostrophe opponent’s. Icon column: pilot, warrior. Republic (Coruscant frame, Republic disc; printed card also has an Episode I icon by the lore box). LORE CORRECTED: the scan prints the ship name italic — 'Pilot of the _Radiant VII._' (wiki plain). No margin credits. Copyright read off the scan's vertical line as '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (Coruscant set = 2000, not the brief's 2001). Modern: VB5-L-lieutenantwilliams-pre.gif (350 px).",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2; third stat box printed EMPTY (blank). Deploy 2 / forfeit 4. {pilot:2} (stub expands). _Radiant VII_ italic in the slip text. Curly apostrophe opponent’s. Icon column: pilot, warrior. Republic (Coruscant frame, Republic disc; printed card also has an Episode I icon by the lore box). LORE CORRECTED: the scan prints the ship name italic — 'Pilot of the _Radiant VII._' (wiki plain). No margin credits. Copyright read off the scan's vertical line as '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (Coruscant set = 2000, not the brief's 2001). Modern: VB5-L-lieutenantwilliams-pre.gif (350 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "{pilot:2}. While piloting _Radiant VII_, draws one battle\ndestiny if unable to otherwise. During battle at a\nsystem, if about to draw a battle destiny here, may\ninstead draw two and choose one; if at opponent’s\nsystem, may take other destiny into hand.",
  "ring_icons": [
   "episode1"

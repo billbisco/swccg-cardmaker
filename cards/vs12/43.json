@@ -21,9 +21,15 @@
  "base_page": "You Want This, Don't You?",
  "art": {
   "src": "src/vs12/43-Tat-D-youwantthisdontyou.gif",
-  "modern": "src/vs12/modern/43-VB3-D-youwantthisdontyou-pre.gif"
+  "modern": "src/vs12/modern/43-VB3-D-youwantthisdontyou-pre.gif",
+  "rect": [
+   42,
+   138,
+   305,
+   323
+  ]
  },
- "notes": "Unique. Printed base is an Effect; slip banner IMMEDIATE EFFECT with NO grabber box at the banner's right end → grabber false. Curly apostrophe in the slip's title (Don’t). Trailing red circle-slash C → {control} (stub 'Immune to Control'). Margin credits (one line each): left 'Original concept by Reid Smith', right 'Origins US Nationals 2005'. Lore corrected from scan: curly double quotes (wiki straight single). Base scan only 350 px; Tatooine copyright by set convention (2001 form), not legible. Modern: VB3 only (-pre, 350 px).",
+ "notes": "Unique. Printed base is an Effect; slip banner IMMEDIATE EFFECT with NO grabber box at the banner's right end → grabber false. Curly apostrophe in the slip's title (Don’t). Trailing red circle-slash C → {control} (stub 'Immune to Control'). Margin credits (one line each): left 'Original concept by Reid Smith', right 'Origins US Nationals 2005'. Lore corrected from scan: curly double quotes (wiki straight single). Base scan only 350 px; Tatooine copyright by set convention (2001 form), not legible. Modern: VB3 only (-pre, 350 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "grabber": false,
  "margin_left": "Original concept by Reid Smith",
  "margin_right": "Origins US Nationals 2005",

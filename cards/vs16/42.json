@@ -32,12 +32,18 @@
  "base_page": "Coruscant Guard (Dark)",
  "art": {
   "src": "src/vs16/42-Cor-D-coruscantguard.gif",
-  "modern": "src/vs16/modern/42-V17-D-coruscantguard.gif"
+  "modern": "src/vs16/modern/42-V17-D-coruscantguard.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   325
+  ]
  },
  "heading": "Coruscant Guard (V)",
  "ring_icons": [
   "episode1"
  ],
  "game_text_lines": "Heroic. Deploys -1 to Senate. While at Senate,\nSidious is cumulatively politics +2, and, during\nyour control phase, may place this character in\nUsed Pile to ▲ {ovs} Expand The Empire or take\nany one card into hand from Force Pile; reshuffle.",
- "notes": "Group: Imperial Senate (DARK SIDE). Non-unique (no dot). Bottom-half slip. The bottom strip prints 'Coruscant Guard (Dark) (V)' (caption); the heading above the slip 'Coruscant Guard (V)' (heading). Stats POWER 3 / ABILITY 2; the THIRD stat box is printed EMPTY (blank black box, no label — as on the printed card); deploy 3 / forfeit 4 (printed POWER 2 / ABILITY 1, deploy 2 / forfeit 4). INLINE: ▲ then a blue sphere before 'Expand The Empire' = the VS16 set sphere (matched against the slip's own sphere; Expand The Empire (V) is VS16 #44) → {ovs}; the stub drops the sphere and expands ▲. Icon column: warrior (blue, blaster) only. Affiliation Republic (Coruscant Dark frame, Republic crest disc; wiki subtype Republic). Printed card carries the Coruscant ring + Episode I icon → ring_icons ['episode1']. Lore matches the wiki; curly apostrophe in Coruscant’s (straight on the wiki; curly on the 745 px V17 face). Copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' read off the scan. Base Cor-D-coruscantguard.gif 350 px. Modern: V17-D-coruscantguard.gif (745 px, the PC's VS17 Coruscant Guard (V) — same art and lore, different text) and VB5-D-coruscantguard-pre.gif (350, Virtual Block 5 reissue of this slip; also in src/vs16/modern/42-…). Slip text matches the stub apart from the icons. Stub: https://wiki.swccg.com/wiki/Coruscant_Guard_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+ "notes": "Group: Imperial Senate (DARK SIDE). Non-unique (no dot). Bottom-half slip. The bottom strip prints 'Coruscant Guard (Dark) (V)' (caption); the heading above the slip 'Coruscant Guard (V)' (heading). Stats POWER 3 / ABILITY 2; the THIRD stat box is printed EMPTY (blank black box, no label — as on the printed card); deploy 3 / forfeit 4 (printed POWER 2 / ABILITY 1, deploy 2 / forfeit 4). INLINE: ▲ then a blue sphere before 'Expand The Empire' = the VS16 set sphere (matched against the slip's own sphere; Expand The Empire (V) is VS16 #44) → {ovs}; the stub drops the sphere and expands ▲. Icon column: warrior (blue, blaster) only. Affiliation Republic (Coruscant Dark frame, Republic crest disc; wiki subtype Republic). Printed card carries the Coruscant ring + Episode I icon → ring_icons ['episode1']. Lore matches the wiki; curly apostrophe in Coruscant’s (straight on the wiki; curly on the 745 px V17 face). Copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' read off the scan. Base Cor-D-coruscantguard.gif 350 px. Modern: V17-D-coruscantguard.gif (745 px, the PC's VS17 Coruscant Guard (V) — same art and lore, different text) and VB5-D-coruscantguard-pre.gif (350, Virtual Block 5 reissue of this slip; also in src/vs16/modern/42-…). Slip text matches the stub apart from the icons. Stub: https://wiki.swccg.com/wiki/Coruscant_Guard_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith) Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14)."
 }
