@@ -1,0 +1,43 @@
+{
+ "id": "vs16-29",
+ "number": "29",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•CORUSCANT: JEDI COUNCIL CHAMBER",
+ "title": "•Coruscant: Jedi Council Chamber",
+ "caption": "•Coruscant: Jedi Council Chamber (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "May not be deployed if your Senate on table. If you just deployed a Jedi Council Member here, may take any one card into hand from Used Pile; reshuffle.",
+ "game_text_lines": "May not be deployed if your Senate on table. If you just deployed a Jedi Council Member here, may take any one card into hand from Used Pile; reshuffle.",
+ "dark_text": "If your non-battleground site on table with no related locations (or if you do not control a battleground site), {ovs:9} Wipe Them Out, All Of Them is suspended.",
+ "dark_text_lines": "If your non-battleground site on table with no related locations (or if you do not control a\nbattleground site), {ovs:9} Wipe Them Out, All Of Them is suspended.",
+ "light_force": true,
+ "light_force_count": 3,
+ "dark_force": false,
+ "light_icons": [
+  "planet",
+  "interior"
+ ],
+ "dark_icons": [
+  "planet",
+  "interior"
+ ],
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Coruscant: Jedi Council Chamber",
+ "art": {
+  "src": "src/vs16/29-Cor-L-coruscantjedicouncilchamber.gif",
+  "modern": "src/vs16/modern/29-VB5-L-coruscantjedicouncilchamber-pre.gif"
+ },
+ "notes": "Group: Everything Else. FULL portrait SITE overlay printed sideways (both halves); NOT renamed — bars read '•CORUSCANT: JEDI COUNCIL CHAMBER' (red • on the Light bar, white • on the Dark bar). Light half (right column) = game_text; Dark half (left column) = dark_text; line breaks as the slip prints them. Light Force slot: THREE blue sabers (light_force_count 3, as the printed 3/0 site). Dark Force slot empty black → dark_force false (printed card has no Dark icon either). Icon boxes both bars, outermost first: planet (pink Coruscant-era planet), interior (tan); no scomp. INLINE ICON before 'Wipe Them Out, All Of Them': purple/white sphere = Original Virtual Set 9 sphere (pixel-matched to assets/icons/ovs-set-9.png; same as vs13/03) → {ovs:9}; the stub drops it. Bottom margin of the slip: VS16 sphere + black EPISODE I disc → icons ['episode1'] (the printed card carries the Coruscant ring + Episode I icon beside the art). CHANGES vs printed card (Coruscant): both texts replaced (printed Light: '[Episode I] Yoda may deploy here from Reserve Deck; reshuffle. Immune to Revolution.'; Dark: 'Non-unique lightsaber Force drain bonuses everywhere are canceled.'). Slip text matches the stub (except the dropped {ovs:9}). Base 490×353 only; copyright Coruscant 2001 line by set (vs14/11 practice; vertical line only partly legible, reads 2001). Modern: VB5-L-coruscantjedicouncilchamber-pre.gif (Virtual Block 5 reissue — prints a VB5 diamond '5' before Wipe Them Out). Sites have no lore."
+}

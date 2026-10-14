@@ -1,0 +1,48 @@
+{
+ "id": "vs16-07",
+ "virtual_set": 16,
+ "number": "07",
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•BLOCKADE FLAGSHIP: PRISON",
+ "title": "•Blockade Flagship: Prison",
+ "caption": "•Endor: Bunker (Light) (V)",
+ "heading": "•Blockade Flagship: Prison (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you occupy during your control phase, may release an imprisoned captive here. Immune to Revolution.",
+ "game_text_lines": "If you occupy during your control phase, may release an imprisoned captive here.\nImmune to Revolution.",
+ "dark_text": "While Palpatine imprisoned here, opponent’s Force drains everywhere are -1.",
+ "dark_text_lines": "While Palpatine imprisoned here, opponent’s Force drains everywhere are -1.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "scomp",
+  "starship",
+  "mobile",
+  "interior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "starship",
+  "mobile",
+  "interior"
+ ],
+ "icons": [
+  "episode1"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Endor: Bunker",
+ "art": {
+  "src": "src/vs16/07-Endor-L-endorbunker.gif",
+  "modern": "src/vs16/modern/07-VB5-L-blockadeflagshipprison-pre.gif"
+ },
+ "frame_style": "ls-starship",
+ "notes": "Group: Rescue The Chancellor. Full portrait SITE overlay printed sideways (755×1100) on the BLUE starship-site frame (frame_style ls-starship) that RENAMES the site: both bars read '•BLOCKADE FLAGSHIP: PRISON' (red • on the Light bar, white • on the black Dark bar). Light half (right column on the crop; blue Light Force saber) text 'If you occupy during your control phase, may release an imprisoned captive here. / Immune to Revolution.' (2 lines, centred). Dark half (left column; red Dark Force saber; white text on black) 'While Palpatine imprisoned here, opponent’s Force drains everywhere are -1.' One saber each side. Icon boxes both bars, outermost first: scomp ring, starship (grey ship hull), mobile (blue spoked disc), interior (tan) — same order on both bars; identified as in vs13/11 (the printed Coruscant Blockade Flagship: Bridge also carries Interior/Starship/Mobile). Bottom margin: black EPISODE I disc and the VS16 sphere → icons ['episode1']. CHANGES vs Decipher Endor: Bunker (Light card, Endor-L-endorbunker.gif): name; grey planet frame → blue starship-site frame; planet icon → starship + mobile; Light Force added (printed Light half has none); Light text (printed 'Force drain +1 here. If you initiate a battle here, add one battle destiny.') and Dark text (printed 'Once per game, you may deploy Endor Shield from Reserve Deck; reshuffle.') both replaced. The stub merges both halves into one game_text; the slip prints them on separate halves. Curly ’ in opponent’s. Base page 'Endor: Bunker' is the Light card (Dark = 'Endor: Bunker (Dark)'); caption adds '(Light)'. Copyright read off the 490×350 scan: '© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.' (no year before LUCASFILM). Modern: VB5-L-blockadeflagshipprison-pre.gif (490×350)."
+}

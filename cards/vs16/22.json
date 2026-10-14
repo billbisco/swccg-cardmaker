@@ -1,0 +1,32 @@
+{
+ "id": "vs16-22",
+ "number": "22",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•A Jedi’s Patience",
+ "caption": "•A Jedi’s Patience (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: If a captive on table, activate 3 Force. LOST: Once per game, if a Dark Jedi present with Leia or a Jedi (even as a non-frozen captive), they duel. Both players draw 2 destiny; add ability. Higher total wins. Loser may not participate in battle or move this turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Early on in his duel with Vader, Luke took his time in trying to sense his opponent’s weaknesses.",
+ "destiny": "5",
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "A Jedi's Patience",
+ "art": {
+  "src": "src/vs16/22-Tat-L-ajedispatience.gif",
+  "modern": "src/vs16/modern/22-VB3-L-ajedispatience-pre.gif"
+ },
+ "notes": "Group (sheet sub-heading): Everything Else. Unique. Banner USED OR LOST INTERRUPT. 'LOST:' runs on in the same line as the USED text on the slip (no line break between USED and LOST parts) — game_text kept as one paragraph accordingly. Credits printed UNDER the text box in italics: left 'Original concept by Tom Plis', right 'Chicago V-Lite 2006' → credit_bottom. No column icons; no Episode I disc on this slip. The printed Tatooine card shows only the Tatooine ring (no Episode I icon visible on the 350 px scan) → no ring_icons. Slip text matches the stub. Lore matches the wiki; curly apostrophe opponent’s. Tatooine 2001 copyright by set (350 px scan). Modern: VB3-L-ajedispatience-pre.gif (350, Virtual Block 3) — its text differs from this slip ('activate 2 Force', 'Skywalker (except Shmi)', winner immune to attrition) — a different revision; art same.",
+ "game_text_lines": "USED: If a captive on table, activate 3 Force. LOST:\nOnce per game, if a Dark Jedi present with Leia or a\nJedi (even as a non-frozen captive), they duel. Both\nplayers draw 2 destiny; add ability. Higher total wins.\nLoser may not participate in battle or move this turn.",
+ "credit_bottom": [
+  "Original concept by Tom Plis",
+  "Chicago V-Lite 2006"
+ ]
+}

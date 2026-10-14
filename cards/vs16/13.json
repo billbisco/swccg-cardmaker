@@ -1,0 +1,45 @@
+{
+ "id": "vs16-13",
+ "number": "13",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Chewbacca Of Kashyyyk",
+ "caption": "•Chewbacca Of Kashyyyk (V)",
+ "stats": [
+  [
+   "POWER",
+   "7"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "7",
+ "game_text": "{pilot:2}. Deploys -2 to Kashyyyk. While stacked on Grrrghrrrgh!, Wookiees are power and forfeit +1. While hit, Chewie’s power is doubled. If you have 8 or more cards in hand, add one destiny to total power in any battle involving your Wookiee.",
+ "icons": [
+  "pilot",
+  "warrior",
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Wookiee scout. Volunteered for Han’s Endor strike team. Keeps his distance, but doesn’t look like he’s keeping his distance. Always thinks with his stomach.",
+ "destiny": "1",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Chewbacca Of Kashyyyk",
+ "art": {
+  "src": "src/vs16/13-Endor-L-chewbaccaofkashyyyk.gif",
+  "modern": "src/vs16/modern/13-V27-L-chewbaccaofkashyyyk.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. Unique. Stats POWER 7 (printed 6) / ABILITY 2 / ARMOR 4 (printed third box empty); deploy 6 / forfeit 7 as printed. Leading yellow LS pilot icon + '2.' → {pilot:2} (stub expands it). Icon column top to bottom: pilot, warrior (blue box, rifle), then a black EPISODE I disc above the set sphere → 'episode1' (not on the printed Endor card). Rebel (Rebel disc on the printed card). Curly apostrophe Chewie’s. Slip text matches the stub. Lore: wiki wording matches the scan; curly apostrophes as printed. 'scout' is NOT visibly bold on the 350 px Endor scan (the PC's VB5 re-typeset bolds it) — left plain (renderer bolds keywords itself). Only a 350 px base scan; copyright Endor line by set (year 1999 legible). Modern: V27-L-chewbaccaofkashyyyk.gif (745, a LATER PC version — Chewbacca Of Kashyyyk (V) VS27 — same art, used for art quality) and VB5-L-chewbaccaofkashyyyk-pre.gif (350, Virtual Block 5, a different later text).",
+ "game_text_lines": "{pilot:2}. Deploys -2 to Kashyyyk. While stacked on\nGrrrghrrrgh!, Wookiees are power and forfeit +1.\nWhile hit, Chewie’s power is doubled. If you have\n8 or more cards in hand, add one destiny to total\npower in any battle involving your Wookiee."
+}

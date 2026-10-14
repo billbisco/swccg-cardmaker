@@ -1,0 +1,30 @@
+{
+ "id": "vs16-20",
+ "number": "20",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Wookiee Roar",
+ "caption": "•Wookiee Roar (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If a battle was just initiated involving a Wookiee, add one destiny to your total power (two if alone). That Wookiee is defense value +3 for remainder of turn. OR If you have 8 or more cards in hand, cancel a Force drain.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“GHRRRRAARRRRHG!”",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Wookiee Roar (Original)",
+ "art": {
+  "src": "src/vs16/20-ANH-L-wookieeroar-decipher-archive.gif",
+  "modern": "src/vs16/modern/20-V16-L-wookieeroar.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. Unique. Banner LOST INTERRUPT. Right margin: black EPISODE I disc above the set sphere → icons ['episode1'] (not on the printed card). Slip text matches the stub. LORE CORRECTED: wiki 'GHRRRRAARRRRHG!' in straight single quotes; the printed card has double quotes → “GHRRRRAARRRRHG!”. Base scan: the 350 px Decipher archive face (square-on, 350×490 — not a white-page photo); ANH-L-wookieeroar.gif (350) is the PC errata face ('E' footer), not used. ANH 1996 copyright by set. Modern: V16-L-wookieeroar.gif (745, the PC's later modern Wookiee Roar — Used Interrupt, different text, same art) and VB5-L-wookieeroar-pre.gif (350, Virtual Block 5 reissue of THIS slip's text).",
+ "game_text_lines": "If a battle was just initiated involving a Wookiee, add\none destiny to your total power (two if alone). That\nWookiee is defense value +3 for remainder of turn.\nOR If you have 8 or more cards in hand, cancel a\nForce drain."
+}

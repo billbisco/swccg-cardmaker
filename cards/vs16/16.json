@@ -1,0 +1,46 @@
+{
+ "id": "vs16-16",
+ "number": "16",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•KASHYYYK: SACRED FOREST",
+ "title": "•Kashyyyk: Sacred Forest",
+ "caption": "•••Endor: Great Forest (Light) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "At start of your turn, may draw a card from top of Reserve Deck for each Kashyyyk site where all your ability is provided only by Wookiees.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Endor: Great Forest",
+ "art": {
+  "src": "src/vs16/16-Endor-L-endorgreatforest.gif",
+  "modern": "src/vs16/modern/16-VB5-L-kashyyyksacredforest-pre.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. FULL SITE OVERLAY printed sideways (portrait 755×1100 crop), renaming Endor: Great Forest (Light) to •KASHYYYK: SACRED FOREST on both bars (red • on the Light silver bar, white • on the Dark black bar). Light half (right column, reads bottom-to-top): TWO blue sabers (printed: one), icon boxes outermost first planet, exterior. Dark half (left column): TWO red sabers (printed: one), icons planet, exterior; white text on black. Bottom margin: VS16 set sphere then a black EPISODE I disc → icons ['episode1']. Caption '•••Endor: Great Forest (Light) (V)' (three dots, base is restricted •••); title is unique • per the bars. Printed texts replaced on both halves (printed Light: 'Your character movement from here (except for Ewoks and scouts) requires +1 landspeed.'; Dark: '… (except for Yuzzum and scouts) …'). Slip text matches the stub. No margin credits. Base page 'Endor: Great Forest' (the stub's [[Endor: Great Forest (Light)]] has no page). 490×350 scan only; Endor 1999 copyright by set. Modern: VB5-L-kashyyyksacredforest-pre.gif (490 px, different later text).",
+ "base_title": "•••Endor: Great Forest",
+ "combo": true,
+ "game_text_lines": "At start of your turn, may draw a card from top of Reserve Deck for each Kashyyyk site where all your ability is provided only by Wookiees.",
+ "dark_text_lines": "Unless Mosep on table, Force lost from your Force drains here must come from hand, if possible.\nWhile opponent has less than 13 cards in hand, Wookiees are immune to Monnok.",
+ "dark_text": "Unless Mosep on table, Force lost from your Force drains here must come from hand, if possible. While opponent has less than 13 cards in hand, Wookiees are immune to Monnok.",
+ "light_force": true,
+ "light_force_count": 2,
+ "dark_force": true,
+ "dark_force_count": 2,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ]
+}

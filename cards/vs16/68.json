@@ -1,0 +1,28 @@
+{
+ "number": "68",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Wounded Wookiee",
+ "caption": "•Wounded Wookiee (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If opponent’s character was just hit during battle, add one destiny to your total power (two if character was a Wookiee); take cards drawn this way into hand. OR If you just lost X Force to a Force drain, draw up to X cards from Reserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "When blaster fire from the barge’s gun hit Chewie’s skiff, his leg was injured by shrapnel. This setback distracted the Rebels, causing them to momentarily lose their advantage.",
+ "destiny": "2",
+ "base_page": "Wounded Wookiee",
+ "art": {
+  "src": "src/vs16/68-JP-D-woundedwookiee.gif",
+  "modern": "src/vs16/modern/68-VB3-D-woundedwookiee-pre.gif"
+ },
+ "id": "vs16-68",
+ "virtual_set": 16,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "game_text_lines": "If opponent’s character was just hit during battle, add\none destiny to your total power (two if character was\na Wookiee); take cards drawn this way into hand. OR\nIf you just lost X Force to a Force drain, draw up to X\ncards from Reserve Deck.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Banner USED INTERRUPT (printed base: Lost Interrupt). 'OR If' with capital I as printed. Curly apostrophe in opponent’s. No inline icons; slip text matches the stub. Lore: curly apostrophes in barge’s / Chewie’s (wiki straight); wording matches. Base scan only at 350 px; copyright not legible — Jabba's Palace 1998 Hoth-style line per the brief. Modern: VB3 -pre (350) only (VB3/Ref2 'abyssinornament&woundedwookiee' combo images not used)."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "55",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "It’s Worse",
+ "caption": "It’s Worse (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▼ a pit. OR At end of your deploy phase, target a non-frozen captive at a site; captive is released and relocated to a related pit you do not occupy. OR During an attack, cancel a just drawn weapon destiny.",
+ "game_text_lines": "Use 1 Force to ▼ a pit. OR At end of your deploy\nphase, target a non-frozen captive at a site; captive\nis released and relocated to a related pit you do not\noccupy. OR During an attack, cancel a just drawn\nweapon destiny.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Things went from bad to worse when Luke was attacked by a dianoga, a parasitic predator native to the planet Vodran.",
+ "destiny": "6",
+ "base_page": "It's Worse",
+ "art": {
+  "src": "src/vs16/55-Premiere-D-itsworse.gif",
+  "modern": "src/vs16/modern/55-VB4-D-itsworse-pre.gif"
+ },
+ "id": "vs16-55",
+ "virtual_set": 16,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Group: Everything else. Not unique. Normal bottom-half slip (756×454): banner USED INTERRUPT (printed card is a LOST INTERRUPT); game text 5 lines; ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; 'OR' as printed (no line breaks before OR). No icon column, no credits. Curly ’ in title/caption. Printed text was 'If It Could Be Worse was just played, it is canceled and you may use X Force to raise damage against opponent by X amount. OR If opponent just lost Force from a battle, play to increase loss by 1 Force.' Lore matches the wiki and the scan. Premiere: no expansion ring. Base scan 350 px; copyright 1995 (legible). Modern: VB4-D-itsworse-pre.gif (350, same text)."
+}

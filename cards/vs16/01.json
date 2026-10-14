@@ -1,0 +1,48 @@
+{
+ "id": "vs16-01",
+ "virtual_set": 16,
+ "number": "01",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Bail Organa",
+ "caption": "Kirdo III Operative (V)",
+ "heading": "•Bail Organa (V)",
+ "combo": true,
+ "base_title": "Kirdo III Operative",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "POLITICS",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text_lines": "*Agenda:* rebellion. Adds one battle destiny with\nLeia. Your {set:coruscant} senators and {set:coruscant} Political Effects are\nlost. While at Senate: unique (•) Rebels of ability\n< 4 are power +2, and, if opponent just lost Force\nto a Force drain by a Rebel, may retrieve 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Rebel + Republic",
+ "lore": "Leader. Senator.",
+ "base_lore": "Some traders who run convoys to Kirdo III relay secret information from the Rebel population of Kirdo III. These traders have extensive experience with the Kitonak.",
+ "destiny": "3",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Kirdo III Operative",
+ "art": {
+  "src": "src/vs16/01-SE-L-kirdoiiioperative.gif",
+  "modern": "src/vs16/modern/01-VB5-L-bailorgana-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (756×1101) on the silver Light character frame. Title bar: TWO discs — Rebel disc (green/orange Rebel crest) then the ROUND silver Republic crest → affiliation 'Rebel + Republic'; title '•Bail Organa'; destiny 3. LORE PRINTED ON THE SLIP: 'Leader. Senator.' (plain weight on the slip — no visible bold; the PC's VB5 reissue prints 'Leader.' bold) → slip lore replaces the printed Kirdo III lore (kept in base_lore). Right of the lore box: Special Edition ring (orange starburst, as printed) and BELOW it a black EPISODE I disc that the printed Kirdo III Operative does NOT have → ring_icons ['episode1'] (added by the slip). Art window blank white (art stays). Stats POWER 3 / ABILITY 3 / POLITICS 2; deploy 2 / forfeit 5; no column icons (printed card: Warrior); VS16 sphere. Inline pink Coruscant set symbol twice ({set:coruscant}; stub drops both). 'Agenda:' bold incl. colon. Bottom strip 'Kirdo III Operative (V)' (no dot), number 01. Slip text matches the stub (stub '(*)' = •). CHANGES vs Decipher Kirdo III Operative (SE, unrestricted, Alien): title → •Bail Organa (now unique); Alien disc → Rebel + Republic discs; lore replaced; Episode I icon added; destiny 3 unchanged; POWER 1 → 3, ABILITY 1 → 3, blank third box → POLITICS 2; deploy 1 → 2; forfeit 3 → 5; Warrior icon dropped; text replaced. Base lore matches the wiki. Base scan only 350 px; copyright SE line legible ('© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.'). Modern: VB5-L-bailorgana-pre.gif (350, Virtual Block 5 reissue of this slip). The wiki page 'Bail Organa' is a different, modern V4 card.",
+ "game_text": "*Agenda:* rebellion. Adds one battle destiny with Leia. Your {set:coruscant} senators and {set:coruscant} Political Effects are lost. While at Senate: unique (•) Rebels of ability < 4 are power +2, and, if opponent just lost Force to a Force drain by a Rebel, may retrieve 1 Force."
+}

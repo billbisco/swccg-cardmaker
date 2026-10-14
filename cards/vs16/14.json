@@ -1,0 +1,35 @@
+{
+ "id": "vs16-14",
+ "number": "14",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Grrrghrrrgh!",
+ "caption": "•Let The Wookiee Win (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. If your Wookiee just lost, may stack it here. Wookiees are deploy -1, immune to attrition < X and defense value +X, where X = number of cards here. During any battle, may place a card here out of play to add one destiny to total power. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“It’s not wise to upset a Wookiee.” “But sir, nobody worries about upsetting a droid.” “That’s ‘cause a droid don’t pull people’s arms out of their sockets when they lose.”",
+ "destiny": "5",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Let The Wookiee Win (Original)",
+ "art": {
+  "src": "src/vs16/14-ANH-L-letthewookieewin.gif",
+  "modern": "src/vs16/modern/14-VB5-L-grrrghrrrgh-pre.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. COMBO — TALL FULL-CARD OVERLAY (756×1099 crop) over Let The Wookiee Win; heading '•Grrrghrrrgh! (V)', caption '•Let The Wookiee Win (V)'. Top to bottom as printed on the slip: TYPE DISC = green swirl Light EFFECT disc (printed card: red Interrupt disc); title '•Grrrghrrrgh!'; destiny 5 (unchanged). LORE printed on the slip, same wording as the printed card: three double-quoted lines with curly quotes; the slip prints ‘cause with an opening single quote, the printed card prints ’cause (apostrophe) — slip's lore used in 'lore', printed in 'base_lore'. Right of the lore box: A New Hope expansion ring (green with crossed light streaks = set-anh) and BELOW it a black EPISODE I disc → ring_icons ['episode1'] (NOT on the printed ANH card — added by the slip). Art window blank (art from the base scan); no copyright printed on the slip. Bottom half: banner EFFECT (printed: LOST INTERRUPT); no stats/deploy/forfeit; game text ends with the immune-to-Alter icon {alter}; no icon column; VS16 sphere bottom-right. Banner/text-box positions match the printed card (title→banner and title→text-box-bottom distances equal at slip scale) — not a raised tall slip. CHANGES vs printed Let The Wookiee Win: title, type disc, banner, game text, Episode I ring icon. Wiki lore corrected: wiki uses straight single quotes and 'cause' without apostrophe; printed card (745 scan) has curly double quotes. Art: ANH-L-letthewookieewin.gif (745) is the PC ERRATA face (footer D-E1) — art only; printed face 14-ANewHope-L-letthewookieewin-decipher-archive.gif (350). Modern: VB5-L-grrrghrrrgh-pre.gif (350, Virtual Block 5 Grrrghrrrgh! over LTWW; different text). Stub text matches the slip ('Immune to Alter' = {alter}).",
+ "heading": "•Grrrghrrrgh! (V)",
+ "base_title": "•Let The Wookiee Win",
+ "combo": true,
+ "game_text_lines": "Deploy on table. If your Wookiee just lost, may stack\nit here. Wookiees are deploy -1, immune to attrition\n< X and defense value +X, where X = number of\ncards here. During any battle, may place a card here\nout of play to add one destiny to total power. {alter}",
+ "ring_icons": [
+  "episode1"
+ ],
+ "base_lore": "“It’s not wise to upset a Wookiee.” “But sir, nobody worries about upsetting a droid.” “That’s ’cause a droid don’t pull people’s arms out of their sockets when they lose.”"
+}

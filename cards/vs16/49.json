@@ -1,0 +1,31 @@
+{
+ "number": "49",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Strategic Reserves",
+ "caption": "•Strategic Reserves (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your clones and Coruscant guards are destiny +1 when drawn for weapon or battle destiny. Once per turn, may cancel a Force drain by placing here from hand a clone or Coruscant guard. Characters may deploy from here as if from hand.",
+ "game_text_lines": "Deploy on table. Your clones and Coruscant guards\nare destiny +1 when drawn for weapon or battle\ndestiny. Once per turn, may cancel a Force drain by\nplacing here from hand a clone or Coruscant guard.\nCharacters may deploy from here as if from hand.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Empire is able to quickly relocate its manpower, deploying its troops as efficiently as possible.",
+ "destiny": "4",
+ "base_page": "Strategic Reserves",
+ "art": {
+  "src": "src/vs16/49-SE-D-strategicreserves.gif",
+  "modern": "src/vs16/modern/49-VB5-D-strategicreserves-pre.gif"
+ },
+ "id": "vs16-49",
+ "virtual_set": 16,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "grabber": false,
+ "notes": "Group: Imperial Senate. Unique. Normal bottom-half slip (755×454): banner EFFECT (no grabber box), game text 5 lines, icon column: EPISODE I (black disc) above the VS16 sphere → icons ['episode1']. No inline icons, no credits. Slip text matches the stub (stub has no destiny; destiny 4 from the printed card). Printed text was 'Deploy on your side of table. Once per turn, you may cancel a Force drain by placing here from hand any non-unique Imperial. Imperials may deploy from here as if from hand (if Effect canceled by opponent, any Imperials here may immediately deploy for free).' Lore matches the wiki and the scan. Base scan 350 px; copyright SE line '© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.' (year 1998 legible). Modern: VB5-D-strategicreserves-pre.gif (350, same text)."
+}

@@ -1,0 +1,30 @@
+{
+ "id": "vs16-19",
+ "number": "19",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Wookiee Guide",
+ "caption": "•Wookiee Guide (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Stack a Wookiee from your Lost Pile on Grrrghrrrgh!. OR Deploy a Wookiee stacked on Grrrghrrrgh! to Kashyyyk (as if from hand). OR Once per game, draw X cards from top of Reserve deck, where X = number of cards stacked on Grrrghrrrgh!.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Chewie felt right at home in the forests of Endor, which closely resemble the environment on his homeworld of Kashyyyk.",
+ "destiny": "4",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Wookiee Guide",
+ "art": {
+  "src": "src/vs16/19-Endor-L-wookieeguide.gif",
+  "modern": "src/vs16/modern/19-V16-L-wookieeguide.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. Unique. Banner USED INTERRUPT. Right margin: black EPISODE I disc above the set sphere → icons ['episode1'] (not on the printed card). The slip prints 'Reserve deck' (lower-case d; text layer agrees) — the stub has 'Reserve Deck'. Lore matches the wiki and the PC's 745 px V16 remake. 350 px base scan; Endor 1999 copyright. Modern: V16-L-wookieeguide.gif (745, the PC's later modern Wookiee Guide, same art/lore, different text) and VB5-L-wookieeguide-pre.gif (350).",
+ "game_text_lines": "Stack a Wookiee from your Lost Pile on Grrrghrrrgh!.\nOR Deploy a Wookiee stacked on Grrrghrrrgh! to\nKashyyyk (as if from hand). OR Once per game, draw\nX cards from top of Reserve deck, where X = number\nof cards stacked on Grrrghrrrgh!."
+}

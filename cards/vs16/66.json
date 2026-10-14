@@ -1,0 +1,47 @@
+{
+ "number": "66",
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: _LAMBDA_-CLASS SHUTTLE",
+ "title": "•Vader’s Personal Shuttle",
+ "caption": "•Vader’s Personal Shuttle (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "May add 2 pilots and 4 passengers. Vader deploys -3 aboard. While Vader piloting at a battleground, maneuver +2 and you lose no Force to Uncontrollable Fury or You Must Confront Vader.",
+ "icons": [
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Customized transport of Lord Vader. Employs advanced sensor jamming gear. Modified with enhanced tactical displays constructed to the Dark Lord’s specifications.",
+ "destiny": "3",
+ "base_page": "Vader's Personal Shuttle",
+ "art": {
+  "src": "src/vs16/66-SE-D-vaderspersonalshuttle.gif",
+  "modern": "src/vs16/modern/66-V0-D-vaderspersonalshuttle.gif"
+ },
+ "id": "vs16-66",
+ "virtual_set": 16,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Nate Meeker",
+  "World Champion 2006"
+ ],
+ "game_text_lines": "May add 2 pilots and 4 passengers. Vader deploys\n-3 aboard. While Vader piloting at a battleground,\nmaneuver +2 and you lose no Force to\nUncontrollable Fury or You Must Confront Vader.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Banner 'STARFIGHTER: _LAMBDA_-CLASS SHUTTLE' with 'Lambda' in italic. Stats POWER 2 / MANEUVER 3 / HYPERSPEED 5; deploy 2 / forfeit 4. Scomp-link ring left of the text box → scomp true. Icon column: Nav Computer only (printed card: Pilot, Nav, Scomp). Credits under the text box: 'Original concept by Nate Meeker' / 'World Champion 2006' → credit_bottom. Curly apostrophes in Vader’s (title/caption) and Lord’s (lore). Slip text matches the stub. Lore matches the scan and V0 remake. Copyright SE 1998 line read off the V0 remake. Modern: V0-D-vaderspersonalshuttle.gif (745); VB2 -pre (350) also exists, not downloaded."
+}

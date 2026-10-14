@@ -1,0 +1,48 @@
+{
+ "id": "vs16-10",
+ "virtual_set": 16,
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Supreme Chancellor Palpatine",
+ "caption": "•Stay Here, Where It’s Safe (V)",
+ "heading": "•Supreme Chancellor Palpatine (V)",
+ "combo": true,
+ "base_title": "•Stay Here, Where It’s Safe",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "POLITICS",
+   "5"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text_lines": "*Agendas:* ambition, order. While on Coruscant,\nAmbush is a Used Interrupt and, each time you\ninitiate a Force drain with a clone, may draw top\ncard from Reserve Deck. During your turn, may\nmake an additional regular move. Valorum is lost.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Republic",
+ "lore": "Leader.",
+ "base_lore": "Having enforced a momentous change upon the Senate, the headstrong Queen then wished to return to Naboo and do the same.",
+ "destiny": "0",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Stay Here, Where It's Safe",
+ "art": {
+  "src": "src/vs16/10-Cor-L-stayherewhereitssafe.gif",
+  "modern": "src/vs16/modern/10-VB5-L-supremechancellorpalpatine-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Rescue The Chancellor. COMBO / FULL-CARD OVERLAY (755×1101) that turns a USED INTERRUPT into a CHARACTER: silver Light character frame (red paint at the right edge); ROUND silver Republic crest → 'Republic' (printed: red Interrupt disc); title '•Supreme Chancellor Palpatine'; destiny 0 (printed 4). LORE PRINTED ON THE SLIP: 'Leader.' (plain; VB5 reissue prints it bold) → replaces the printed lore (base_lore). Right of the lore box: Coruscant ring (pink, as printed) and EPISODE I disc → ring_icons ['episode1']. Art blank. Stats POWER 2 / ABILITY 4 / POLITICS 5, deploy 4 / forfeit 6 (new); no column icons; VS16 sphere. 'Agendas:' bold incl. colon. Slip text matches the stub. Base lore matches the wiki. Base scan 350 px; Coruscant 2001 line by rule (not legible). Modern: VB5-L-supremechancellorpalpatine-pre.gif (350).",
+ "game_text": "*Agendas:* ambition, order. While on Coruscant, Ambush is a Used Interrupt and, each time you initiate a Force drain with a clone, may draw top card from Reserve Deck. During your turn, may make an additional regular move. Valorum is lost."
+}

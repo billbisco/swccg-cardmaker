@@ -1,0 +1,44 @@
+{
+ "number": "67",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Watto",
+ "caption": "•Watto (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "“Free” on You’re A Slave? is treated as “2 Force.” Once per turn, may shuffle Reserve Deck and draw destiny. If destiny is odd, for remainder of turn your Force drains at {episode1} sites are +1; if even, may take card drawn into hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Toydarian junk dealer. Skilled *gambler*. Won Shmi and Anakin in a Podrace bet with Gardulla the Hutt. Jedi mind tricks don’t work on him, only money.",
+ "destiny": "3",
+ "base_page": "Watto",
+ "art": {
+  "src": "src/vs16/67-Tat-D-watto.gif",
+  "modern": "src/vs16/modern/67-VB5-D-watto-pre.gif"
+ },
+ "id": "vs16-67",
+ "virtual_set": 16,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "ring_icons": [
+  "episode1"
+ ],
+ "credit_bottom": [
+  "Original concept by Blake Huffman",
+  "Justin Warren Memorial Tourney 2005"
+ ],
+ "game_text_lines": "“Free” on You’re A Slave? is treated as “2 Force.”\nOnce per turn, may shuffle Reserve Deck and\ndraw destiny. If destiny is odd, for remainder\nof turn your Force drains at {episode1} sites are +1; if\neven, may take card drawn into hand.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Stats POWER 3 / ABILITY 2 / empty third box (printed as on Watto); deploy 2 / forfeit 4 (as printed). No column icons. Alien (DS alien frame). Inline black EPISODE I circle in 'Force drains at [icon] sites' → {episode1} (stub 'Episode I sites'). Curly double quotes “Free” / “2 Force.” and You’re (stub straight single quotes). CREDITS: 'Original concept by Blake Huffman' printed under the text box at the LEFT; 'Justin Warren Memorial Tourney 2005' is printed in the bottom black strip between the caption and the number (not under the text box) — recorded as credit_bottom [left, right]; the renderer may need to place the right one in the caption strip. Lore: 'gambler' printed BOLD on the 350 px scan → *gambler*; curly apostrophe in don’t; wording matches the wiki. Ring: Tatooine sphere with the Episode I icon below it → ring_icons ['episode1']. Base scan only at 350 px (Tat-D-watto_ai.gif is the AI version, not used); copyright not legible — Tatooine 2001 line per the brief. Modern: VB5 -pre (350) only."
+}

@@ -1,0 +1,45 @@
+{
+ "id": "vs16-17",
+ "number": "17",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•KASHYYYK: WOOKIEE HAVEN (FOREST)",
+ "title": "•Kashyyyk: Wookiee Haven (Forest)",
+ "caption": "•Endor: Ewok Village (Light) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Your Force generation is +1 at Kashyyyk sites where you have a Wookiee.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Endor: Ewok Village",
+ "art": {
+  "src": "src/vs16/17-Endor-L-endorewokvillage.gif",
+  "modern": "src/vs16/modern/17-VB5-L-kashyyykwookieehavenforest-pre.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. FULL SITE OVERLAY printed sideways (portrait 756×1100 crop), renaming Endor: Ewok Village (Light) to •KASHYYYK: WOOKIEE HAVEN (FOREST) on both bars (red • on Light bar, white • on Dark bar). Light half: TWO blue sabers (printed: one); icons outermost first planet, exterior. Dark half: ONE red saber; icons planet, exterior. The printed card's INTERIOR icon is dropped on both halves (printed: planet, exterior, interior). Bottom margin: VS16 sphere then black EPISODE I disc → icons ['episode1']. Curly apostrophe opponent’s (text layer agrees). Printed texts replaced (printed Light: 'No starships or vehicles here. Ewok devices and Ewok weapons deploy -1 here.'; Dark: 'No starships or vehicles here. If no Ewoks on Endor, Force drain +1 here.'). Slip text matches the stub. Base page 'Endor: Ewok Village' (stub's [[Endor: Ewok Village (Light)]] has no page). 490×350 scan only; Endor 1999 copyright by set. Modern: VB5-L-kashyyykwookieehavenforest-pre.gif (490 px, different later text).",
+ "base_title": "•Endor: Ewok Village",
+ "combo": true,
+ "game_text_lines": "Your Force generation is +1 at Kashyyyk sites where you have a Wookiee.",
+ "dark_text_lines": "At end of opponent’s deploy phase, if opponent controls this site with at least two Wookiees and\nhas 8 or more cards in hand, lose 1 Force.",
+ "dark_text": "At end of opponent’s deploy phase, if opponent controls this site with at least two Wookiees and has 8 or more cards in hand, lose 1 Force.",
+ "light_force": true,
+ "light_force_count": 2,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ]
+}

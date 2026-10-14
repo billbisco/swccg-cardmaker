@@ -1,0 +1,28 @@
+{
+ "number": "63",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Resistance",
+ "caption": "•Resistance (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. While you occupy at least 3 battlegrounds or opponent occupies no battlegrounds, you lose no more than 2 Force from each Force drain or ‘insert’ card.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Oola had to choose between giving in to Jabba’s constant advances or resisting him and inciting his wrath.",
+ "destiny": "4",
+ "base_page": "Resistance",
+ "art": {
+  "src": "src/vs16/63-JP-D-resistance.gif",
+  "modern": null
+ },
+ "id": "vs16-63",
+ "virtual_set": 16,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "game_text_lines": "Plays on table. While you occupy at least 3\nbattlegrounds or opponent occupies no battlegrounds,\nyou lose no more than 2 Force from each Force drain\nor ‘insert’ card.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Banner DEFENSIVE SHIELD (slip shows the red→cyan shield fade; printed base is a Jabba's Palace Effect). Curly single quotes ‘insert’ (stub straight). No inline icons. LORE CORRECTED from the scan: 'inciting his wrath' (wiki typo 'wraith'); curly apostrophe in 'Jabba’s'. Base scan only at 350 px; copyright not legible — Jabba's Palace 1998 Hoth-style line per the brief. No modern remake (no V*/VB* resistance file; Ref3-D-resistance.gif is a separate Reflections III printing, not used)."
+}

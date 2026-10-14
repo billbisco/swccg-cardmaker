@@ -1,0 +1,29 @@
+{
+ "id": "vs16-28",
+ "number": "28",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "grabber": false,
+ "title": "•Corellian Engineering Corporation",
+ "caption": "•Corellian Engineering Corporation (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table if {ovs:9} Watch Your Step on table. X = number of spaceport sites controlled by Corellians. While you control Corellia, your total battle destiny is +X, and once per turn, if you are about to lose Force (except from your card), may reduce loss by X. {alter}",
+ "game_text_lines": "Deploy on table if {ovs:9} Watch Your Step on table. X =\nnumber of spaceport sites controlled by Corellians.\nWhile you control Corellia, your total battle destiny is\n+X, and once per turn, if you are about to lose Force\n(except from your card), may reduce loss by X. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Only one of the ‘Big Three’ starship manufacturers to sell primarily to civilians. CEC employees take great delight in calling their highly modifiable designs ‘stock’.",
+ "destiny": "4",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Corellian Engineering Corporation",
+ "art": {
+  "src": "src/vs16/28-SE-L-corellianengineeringcorporation.gif",
+  "modern": "src/vs16/modern/28-VB4-L-corellianengineeringcorporation-pre.gif"
+ },
+ "notes": "Group: Everything Else. Bottom-half slip; banner EFFECT (no grabber box). Unique. INLINE ICON before 'Watch Your Step': purple/white/blue sphere = the Original Virtual Set 9 sphere (pixel-matched against assets/icons/ovs-set-9.png, best by far; Watch Your Step (V) is VS9 #24) → {ovs:9}; the stub drops it. Text ends with the red circle-slash A → {alter}. No icon column (only the VS16 sphere). CHANGES vs printed card (Special Edition): text replaced (printed: 'Deploy on Corellia system. All your freighters are deploy -1 and hyperspeed +1. Also, all your Quad Laser Cannons deploy free and add 2 to each of their weapon destiny draws. Suspended while opponent controls Corellia. (Immune to Alter.)'). LORE corrected from the scan: curly single quotes ‘Big Three’ and ‘stock’. (wiki straight). Base scan only 350 px; SE copyright line by set. Modern: VB4-L-corellianengineeringcorporation-pre.gif (Virtual Block 4). Slip text otherwise matches the stub."
+}

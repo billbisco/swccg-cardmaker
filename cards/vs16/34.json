@@ -1,0 +1,45 @@
+{
+ "id": "vs16-34",
+ "number": "34",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lars’ Protocol Droid",
+ "caption": "•K-3PO (Kay-Threepio) (V)",
+ "heading": "•Lars’ Protocol Droid (V)",
+ "combo": true,
+ "base_title": "•K-3PO (Kay-Threepio)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "PROTOCOL DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "“Device” on Harvest may be treated as “{set:anh} or {set:hoth} droid.” While at a farm: your characters present are forfeit +3; may raise this site (if converted) to the top; and, once per move phase, may put hand in Used Pile to place a ‘crop’ on Reserve Deck.",
+ "game_text_lines": "“Device” on Harvest may be treated as “{set:anh} or {set:hoth}\ndroid.” While at a farm: your characters present\nare forfeit +3; may raise this site (if converted) to\nthe top; and, once per move phase, may put hand\nin Used Pile to place a ‘crop’ on Reserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "",
+ "base_lore": "Old-model protocol droid. Learned military tactics while under the ownership of Commander Narra. In charge of the droid pool at Echo Base.",
+ "destiny": "4",
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "K-3PO (Kay-Threepio) (Original)",
+ "art": {
+  "src": "src/vs16/34-Hoth-L-k3pokaythreepio-decipher-archive.gif",
+  "modern": "src/vs16/modern/34-VB4-L-larsprotocoldroid-pre.gif"
+ },
+ "credit_bottom": [
+  "Original concept by Drew Scott",
+  "World Champion 2005"
+ ],
+ "notes": "Group: Everything Else. COMBO / FULL-CARD OVERLAY (755×1101) over K-3PO (Kay-Threepio). Title bar: gold droid disc (as printed), '•Lars’ Protocol Droid' (curly ’), destiny 4. LORE BOX PRINTED EMPTY → lore '' (printed lore in base_lore). Ring right of lore box: Hoth sphere (as printed); no Episode I. Art window blank. Stats POWER 1 / PROTOCOL DROID (wide label-only box, as printed); deploy 2 / forfeit 3. No column icons (only the VS16 sphere). Credits under the text box: 'Original concept by Drew Scott' / 'World Champion 2005'. INLINE ICONS inside the second quote: two small set spheres, pixel-matched to Decipher's set icons: first = A New Hope (Death Star sphere, crossed white/red streaks; prints with a greenish tint) → {set:anh}; second = Hoth (silver) → {set:hoth}; the stub drops both ('‘or droid.’'). Curly “ ” and ‘crop’ as printed; period inside the closing quote ('droid.”'). Layout matches the printed card's proportions. CHANGES vs printed K-3PO (Hoth, unique, Droid): title; lore removed; text replaced (printed: 'May initiate battle and be battled. K-3PO is power +1 for each of your droids at same Hoth or Yavin 4 site. Functions as a leader if present with at least one of your other droids.'); POWER 1, PROTOCOL DROID, destiny 4, deploy 2 / forfeit 3 unchanged. BASE LORE corrected: the wiki's |lore= (both the default and (Original) pages) appends 'May initiate battle and be battled.' — that is game text, not on the printed lore box (checked on both scans). base_page = the printed '(Original)' face (default page is Glossary 2.0 errata). art.src = 350 px archive face; the 745 px Hoth-L-k3pokaythreepio.gif (also downloaded) is the errata face — art only; Hoth 1996 copyright legible. Modern: VB4-L-larsprotocoldroid-pre.gif (Virtual Block 4 reissue)."
+}

@@ -1,0 +1,36 @@
+{
+ "id": "vs16-05",
+ "virtual_set": 16,
+ "number": "05",
+ "side": "Light",
+ "slip_type": "Political Effect",
+ "card_type": "POLITICAL EFFECT",
+ "title": "•So This Is How Liberty Dies",
+ "caption": "•Vote Now! (Light) (V)",
+ "heading": "•So This Is How Liberty Dies (V)",
+ "combo": true,
+ "base_title": "•Vote Now!",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text_lines": "Deploy on Senate. Your {set:coruscant} Political Effects are lost.\nWhile you have a character here with *rebellion\nagenda*, your Force drains at battlegrounds where\nyou have a Rebel are +1 and may not be canceled.\nMay not be canceled or placed in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Vote now! Vote now! Vote now!”",
+ "base_lore": "‘Vote now! Vote now! Vote now!’",
+ "destiny": "3",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Vote Now!",
+ "art": {
+  "src": "src/vs16/05-Cor-L-votenow.gif",
+  "modern": "src/vs16/modern/05-VB5-L-sothisishowlibertydies-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (755×1099) that turns a USED INTERRUPT into a POLITICAL EFFECT: red frame; title bar with a GREEN swirl disc (the Effect type disc) where the printed Vote Now! has the red Interrupt disc; title '•So This Is How Liberty Dies'; destiny 3 (printed 5). LORE PRINTED ON THE SLIP: “Vote now! Vote now! Vote now!” with DOUBLE curly quotes (printed card: single ‘…’; same words) → lore = slip's, base_lore = printed. Right of the lore box: ONLY the EPISODE I disc — no Coruscant ring on the slip (VB5 reissue the same) → ring_icons ['episode1']. Art blank. Banner POLITICAL EFFECT (printed USED INTERRUPT); no stats, no deploy/forfeit, no column icons; VS16 sphere in the bottom-right corner. Inline pink Coruscant set symbol before 'Political Effects' ({set:coruscant}). 'rebellion agenda' BOLD (spans the line break). Caption on the strip '•Vote Now! (Light) (V)' — '(Light)' is the sheet's side disambiguation; base_title '•Vote Now!' as printed; wiki base page 'Vote Now!' (no '(Light)' page exists). Slip text matches the stub. Base scan 350 px; Coruscant 2001 line by rule (not legible). Modern: VB5-L-sothisishowlibertydies-pre.gif (350).",
+ "game_text": "Deploy on Senate. Your {set:coruscant} Political Effects are lost. While you have a character here with *rebellion agenda*, your Force drains at battlegrounds where you have a Rebel are +1 and may not be canceled. May not be canceled or placed in Used Pile.",
+ "no_expansion_ring": true
+}

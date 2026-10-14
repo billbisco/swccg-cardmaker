@@ -105,6 +105,13 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="fifteenth", remaster="the March 2008 sheet: cover, set symbol, rule cards and the slips shown below", pack="VS15O-pack.png", symbol="VS15O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    16: dict(sheet=("https://res.starwarsccg.org/legacyblocks/VirtualCards16.pdf", "VirtualCards16.pdf", "starwarsccg.org", "15 August 2008"),
+            sheet_where="starwarsccg.org CDN",
+            legal="Not found", legal_ref="No Virtual Set 16 release post survives in the archived swccgpc.com news (captures stop in February 2005). The sheet's official text is dated 15 August 2008; its slips credit winners of events up to 2008 (PC Volunteer Award 2008, Georgia States 2007).",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the sheet's official text is dated 15 August 2008.",
+            ordinal="sixteenth", remaster="the August 2008 sheet: cover, set symbol, rule cards and the slips shown below", pack="VS16O-pack.png", symbol="VS16O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -121,7 +128,7 @@ for _p in sorted((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")):   # renamed 
     if (_c.get("slip_type") or "").lower() in ("site", "system") or _c.get("combo"):   # combo slips rename too (Obi-Wan In Radiant VII, GEMP)
         _nm = lambda x: re.sub(r"\s*\((?:V|Light|Dark)\)", "", x.replace("•", "").replace("◊", "").replace("_", "")).strip().lower()
         _st = stubs.get(int(_p.stem), (None, {}))[1].get("title", "")   # the stub may already carry the slip's name (VS15)
-        _q = lambda x: _nm(x).replace("’", "'")
+        _q = lambda x: _nm(x).replace("’", "'").replace("é", "e")   # wiki titles keep Padme without the accent
         if _q(_c["title"]) != _q(_c.get("caption", "")) and _q(_c["title"]) != _q(_st) and int(_p.stem) not in META["title_fix"]:
             META["title_fix"][int(_p.stem)] = _c["title"].replace("•", "").replace("◊", "").replace("_", "").replace("’", "'").strip() + " (V)"
 CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else ""   # current hub page: its history sections are carried over
@@ -165,7 +172,7 @@ def expand(c: dict) -> str:
             "jabbaspalace": "Jabba's Palace", "theed": "Theed Palace", "hoth": "Hoth", "endor": "Endor", "tatooine": "Tatooine", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
     t = re.sub(r"\{set:([a-z0-9]+)\}", lambda m: f"[{SETS.get(m.group(1), m.group(1).title())}]", t)
     t = t.replace("{icon:republic-square}", "[Republic]").replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
-    t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠")
+    t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠").replace("{icon:maintenance-flag}", "⚑")
     t = re.sub(r"\{([\w-]+)\}", lambda m: ICON_WORD.get(m.group(1), f"[{m.group(1).title()}]"), t)
     # ▲ X / ▼ X — object runs to the next sentence end
     def tri(m):
@@ -222,7 +229,8 @@ for n in range(1, NCARDS + 1):
     elif "creature" in st and "vehicle" not in st:
         typ, sub, model = "Creature", "", ""
     elif banner.startswith("STARFIGHTER") or banner.startswith("CAPITAL") or banner.startswith("SQUADRON"):
-        typ, sub, model = "Starship", banner.split(":", 1)[0].strip().title(), banner.split(":", 1)[1].strip().title().replace("X-Wing", "X-wing").replace("Tie/Ln", "TIE/ln")
+        _bp = re.split(r"\s*(?::|–|—)\s*", banner, maxsplit=1) + [""]   # VS16 prints "STARFIGHTER – JEDI INTERCEPTOR"
+        typ, sub, model = "Starship", _bp[0].strip().title(), _bp[1].strip().title().replace("X-Wing", "X-wing").replace("Tie/Ln", "TIE/ln")
     elif "VEHICLE" in banner and "WEAPON" not in banner:
         typ, sub = "Vehicle", banner.split(":", 1)[0].replace("VEHICLE", "").strip().title()
         model = banner.split(":", 1)[1].strip().title().replace("At-At", "AT-AT").replace("At-St", "AT-ST") if ":" in banner else ""

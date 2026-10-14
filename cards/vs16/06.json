@@ -1,0 +1,30 @@
+{
+ "id": "vs16-06",
+ "virtual_set": 16,
+ "number": "06",
+ "side": "Light",
+ "slip_type": "Lost Interrupt",
+ "card_type": "LOST INTERRUPT",
+ "title": "•Ambush",
+ "caption": "•Ambush (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text_lines": "Use 1 Force to ▼ up to two clones. OR If your\nclones occupy three related battlegrounds during your\ncontrol phase, use 2 Force (free if at Coruscant) to\nretrieve any one card into hand. OR If your clone in\nbattle, add one battle destiny.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Well done. Hold them in the security tower, and keep it quiet. Move.”",
+ "destiny": "3",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Ambush",
+ "art": {
+  "src": "src/vs16/06-CC-L-ambush.gif",
+  "modern": "src/vs16/modern/06-VB5-L-ambush-pre.gif"
+ },
+ "notes": "Group: Rescue The Chancellor. Normal bottom-half slip (756×454), red Interrupt frame, banner LOST INTERRUPT (as printed). Unique (•Ambush, as printed). Text: ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; three 'OR' clauses in one paragraph. Right margin above the VS16 sphere: a black EPISODE I disc → icons ['episode1'] (the printed Cloud City card has none; the VB5 reissue shows it in the same place). Slip text matches the stub. Lore corrected from the scan: double curly quotes “…” (wiki has straight single quotes). Base scan 350 px; Cloud City 1997 by rule (not legible). Modern: VB5-L-ambush-pre.gif (350).",
+ "game_text": "Use 1 Force to ▼ up to two clones. OR If your clones occupy three related battlegrounds during your control phase, use 2 Force (free if at Coruscant) to retrieve any one card into hand. OR If your clone in battle, add one battle destiny."
+}

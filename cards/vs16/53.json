@@ -1,0 +1,43 @@
+{
+ "number": "53",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•DEATH STAR: CONFERENCE ROOM",
+ "title": "•Death Star: Conference Room",
+ "caption": "•Death Star: Conference Room (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "While opponent has total influence > 5 here, your Sense and Alter destiny draws are +2. {ovs:12} Laser Gate is immune to Sabotage.",
+ "game_text_lines": "While opponent has total influence > 5 here, your Sense and Alter destiny draws are +2. {ovs:12} Laser Gate is immune to Sabotage.",
+ "dark_text_lines": "While you occupy two non-Death Star battlegrounds and your total influence here is > 5,\nyou lose no Force to Visage Of The Emperor.",
+ "light_force": false,
+ "dark_force": true,
+ "light_icons": [
+  "scomp",
+  "mobile",
+  "interior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "mobile",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Death Star: Conference Room",
+ "art": {
+  "src": "src/vs16/53-ANH-D-deathstarconferenceroom.gif",
+  "modern": "src/vs16/modern/53-VB4-D-deathstarconferenceroom-pre.gif"
+ },
+ "id": "vs16-53",
+ "virtual_set": 16,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "heading": "•Death Star: Conference Room (V)",
+ "notes": "Group: Everything else. Unique. Portrait SITE overlay printed sideways, both halves (not renamed). Dark half (left column, black bar, red •): ONE red Dark Force saber → dark_force true; text 'While you occupy two non-Death Star battlegrounds and your total influence here is > 5, / you lose no Force to Visage Of The Emperor.' (the Dark bar prints a slightly wider gap after 'STAR:'). Light half (right column, silver bar, dark •): Force slot empty black → light_force false; text 'While opponent has total influence > 5 here, your Sense and Alter destiny draws are +2. / [sphere] Laser Gate is immune to Sabotage.' Inline pink/purple glitter sphere before 'Laser Gate' = Original Virtual Set 12 sphere (matched against assets/icons/ovs-set-12.png; ••Laser Gate (V) is VS12) → {ovs:12}; the stub drops it. Icon boxes on both bars, outermost first: scomp ring, Death Star icon (blue gridded sphere = the printed card's Mobile icon), interior (beige wall corner) — the same as the printed card. Bottom margin: VS16 sphere only (no Episode I). Texts read by rotating the crop. Stub runs both halves together (Dark first) — text matches. Printed texts: Light 'Force drain +1. If you control, may subtract 1 from total of Commence Primary Ignition.'; Dark 'If you control, with a leader here, may add 1 to total of Commence Primary Ignition.' Base scan 490×350 only; copyright ANH 1996 line by rule. Modern: VB4-D-deathstarconferenceroom-pre.gif (491×349, Virtual Block 4; same texts and icons, shown from the Dark seat).",
+ "dark_text": "While you occupy two non-Death Star battlegrounds and your total influence here is > 5, you lose no Force to Visage Of The Emperor."
+}

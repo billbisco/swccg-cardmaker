@@ -1,0 +1,47 @@
+{
+ "id": "vs16-30",
+ "number": "30",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•CORUSCANT: NIGHT CLUB",
+ "title": "•Coruscant: Night Club",
+ "caption": "•Tatooine: Cantina (Light) (V)",
+ "heading": "•Coruscant: Night Club (Light) (V)",
+ "combo": true,
+ "base_title": "•Tatooine: Cantina",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Your characters here are defense value -1 and may not be excluded from battle.",
+ "game_text_lines": "Your characters here are defense value -1 and may not be excluded from battle.",
+ "dark_text": "Your characters here are defense value -1 and may not be excluded from battle.",
+ "dark_text_lines": "Your characters here are defense value -1 and may not be excluded from battle.",
+ "light_force": true,
+ "light_force_count": 2,
+ "dark_force": true,
+ "dark_force_count": 2,
+ "light_icons": [
+  "planet",
+  "interior"
+ ],
+ "dark_icons": [
+  "planet",
+  "interior"
+ ],
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Tatooine: Cantina",
+ "art": {
+  "src": "src/vs16/30-Premiere-L-tatooinecantina.gif",
+  "modern": "src/vs16/modern/30-VB5-L-coruscantnightclub-pre.gif"
+ },
+ "notes": "Group: Everything Else. FULL portrait SITE overlay printed sideways that RENAMES the site (sleeve over Tatooine: Cantina (Light)): both bars '•CORUSCANT: NIGHT CLUB' (red • on Light bar, white • on Dark bar). Heading '•Coruscant: Night Club (Light) (V)'; caption '•Tatooine: Cantina (Light) (V)' — title named by the bar (rev 23). Both halves print the SAME text, one line each. Two blue sabers (Light) and two red sabers (Dark) — as the printed Cantina. Icon boxes both bars, outermost first: planet, interior; no scomp. Bottom margin: VS16 sphere + black EPISODE I disc → icons ['episode1'] (a Premiere card prints no Episode I icon). CHANGES vs printed Tatooine: Cantina (Premiere, Light): renamed; texts replaced (printed Light 'Your aliens here are each power +1.'; Dark 'Your aliens here, except Tusken Raiders, are each forfeit +1.'). Slip text matches the stub. Base 490×350 only; Premiere 1995 copyright by set. Modern: VB5-L-coruscantnightclub-pre.gif (Virtual Block 5 reissue of this slip, same Cantina art); V0-L-coruscantnightclub.gif (1039×745, Virtual Set 0 remake, same art, 'Tatooine: Cantina (Light)' caption) also downloaded — better art source. Sites have no lore."
+}

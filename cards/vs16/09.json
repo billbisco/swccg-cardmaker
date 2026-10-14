@@ -1,0 +1,50 @@
+{
+ "id": "vs16-09",
+ "virtual_set": 16,
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Clone Trooper",
+ "caption": "Blast The Door, Kid! (V)",
+ "heading": "Clone Trooper (V)",
+ "combo": true,
+ "base_title": "Blast The Door, Kid!",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text_lines": "Heroic. Power and forfeit +1 on Coruscant (+2\nif also at same site as a Jedi or leader). While {ovs}\nThey Will Be Lost And Confused on table,\nPalpatine is immune to attrition and your Force\ndrains at this Clone Trooper’s site are +1.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "lore": "",
+ "base_lore": "When Vader turned his attention to the escaping Rebels, Han immediately offered Luke some sage advice.",
+ "destiny": "3",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Blast The Door, Kid! (Original)",
+ "art": {
+  "src": "src/vs16/09-ANH-L-blastthedoorkid.gif",
+  "modern": "src/vs16/modern/09-VB5-L-clonetrooper-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Rescue The Chancellor. COMBO / FULL-CARD OVERLAY (756×1101) that turns a LOST INTERRUPT into a CHARACTER: silver Light character frame (red Interrupt paint showing at the right edge); ROUND silver Republic crest → 'Republic' (printed: red Interrupt disc); title 'Clone Trooper' (no dot); destiny 3 (printed 4). LORE BOX PRINTED EMPTY → lore '' (printed lore in base_lore). Right of the lore box: the A New Hope ring (as printed) and below it a black EPISODE I disc (added) → ring_icons ['episode1']. Art blank. Stats POWER 2 / ABILITY 2 / ARMOR 4, deploy 2 / forfeit 3 (all new); column: warrior; VS16 sphere. Inline blue sphere before 'They Will Be Lost And Confused' = the VS16 set sphere ({ovs}, matched against ovs-set-16.png; that objective is this set's #11). Curly ’ in Trooper’s. Slip text matches the stub. NOTE: the PC's VB5 reissue (modern file) prints DIFFERENT, later text ('While with Palpatine, Heroic… ABILITY 1… attrition < 6 … at same site are +1') and number 38E — art only. Base lore matches the wiki and the scan. ART: ANH-L-blastthedoorkid.gif is 745 px but tagged D-E1 (PC errata face) — used for art only; the printed face is the 350 px ANH-L-blastthedoorkid-decipher-archive.gif (also downloaded to src/vs16/). Copyright 1996 legible on the 745 face. Modern: VB5-L-clonetrooper-pre.gif (350).",
+ "game_text": "Heroic. Power and forfeit +1 on Coruscant (+2 if also at same site as a Jedi or leader). While {ovs} They Will Be Lost And Confused on table, Palpatine is immune to attrition and your Force drains at this Clone Trooper’s site are +1."
+}

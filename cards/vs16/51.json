@@ -1,0 +1,46 @@
+{
+ "number": "51",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•3B3-10",
+ "caption": "•3B3-10 (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "3"
+  ],
+  [
+   "BATTLE DROID",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "Heroic. When deployed, may play a Defensive Shield from under your Starting Effect (as if from hand). During your move phase, may use 1 Force to ‘break cover’ of an Undercover spy here. 3B3-10’s forfeit may not be reduced.",
+ "game_text_lines": "Heroic. When deployed, may play a Defensive\nShield from under your Starting Effect (as if\nfrom hand). During your move phase, may use\n1 Force to ‘break cover’ of an Undercover spy\nhere. 3B3-10’s forfeit may not be reduced.",
+ "icons": [
+  "presence"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Infantry battle droid who assumed command after his regiment’s commander fell to Amidala’s blaster. Re-routed Droid Control Ship orders to himself in the heat of battle.",
+ "destiny": "2",
+ "base_page": "3B3-10",
+ "art": {
+  "src": "src/vs16/51-Theed-D-3b310.gif",
+  "modern": "src/vs16/modern/51-VB6-D-3b310-pre.gif"
+ },
+ "id": "vs16-51",
+ "virtual_set": 16,
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Everything else. Unique. Normal bottom-half slip (756×454) on the Dark droid frame: stat boxes POWER 3 / ARMOR 3 / BATTLE DROID (label-only third box, three separate boxes as printed); deploy 2 / forfeit 3; game text 5 lines; curly single quotes ‘break cover’ and curly ’ in 3B3-10’s. Icon column: Presence (battle droid on red, Episode I style) → ['presence']. No inline icons, no credits. Slip text matches the stub (stub uses straight quotes). Printed text was 'While at Theed Palace Hallway, opponent’s characters may not move from here. Once per game may take Halt! into hand from Reserve Deck; reshuffle.' Printed card carries the Theed Palace ring and the EPISODE I icon → ring_icons ['episode1']. LORE CORRECTIONS from the scan: 'Droid Control Ship orders' (wiki 'order'); curly apostrophes in regiment’s / Amidala’s. Base scan 350 px only; copyright Theed Palace 2001. Modern: VB6-D-3b310-pre.gif (350) — same art, but a LATER, different game text ('While at an interior Naboo site, your [presence] droids here are immune to We’ll Handle This…'); art only."
+}

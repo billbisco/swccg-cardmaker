@@ -347,3 +347,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Reflections III, Theed Palace, Tatooine, Enhanced Jabba's Palace). Bardez/PC redraws (`-grainy`, `-bardez`,
   `set-theed.png`, `set-tatooine.png`) are no longer used. No-lore tall frames place the sphere in the frame's own
   ring position (1390, 373), clear of the art. 493 remasters re-uploaded.
+- Rev 33 (Bill 2026-10-14 + VS16 run): expansion spheres cut from Decipher scans are centred on the sphere by fitting
+  the black ring (circle fit, ring included, 2–3 scans averaged) — the earlier cut was off-centre (more black on one
+  side) and looked darker; Reflections II now matches the scan's purple. VS16: maintenance flag glyph
+  (`{icon:maintenance-flag}`, cut at 1200 DPI); `no_expansion_ring` (slips that drop the base card's ring); dual
+  affiliations "Rebel + Republic" / "Alien + Republic" draw the Republic crest as a second disc; wiki banners split on
+  ":" or "–"; slip-printed lore never written to base pages (`base_lore` used for the Decipher page's lore fix).

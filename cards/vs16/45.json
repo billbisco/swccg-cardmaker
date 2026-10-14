@@ -1,0 +1,46 @@
+{
+ "id": "vs16-45",
+ "number": "45",
+ "virtual_set": 16,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Keder The Black",
+ "caption": "•Keder The Black (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "While at Senate: Sidious is politics +3; “senators” on Squabbling Delegates is treated as “Coruscant guards;” and may lose 1 Force to place Keder and an opponent’s {set:coruscant} Political Effect (or {set:coruscant} senator here) in owner’s Lost Pile.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "lore": "A highly paid assassin and *spy*, Keder has infiltrated the Senate disguised as a Coruscant Guard. The identity of his target and his employer remains a mystery to all but him.",
+ "destiny": "1",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Keder The Black",
+ "art": {
+  "src": "src/vs16/45-Cor-D-kedertheblack.gif",
+  "modern": "src/vs16/modern/45-VB5-D-kedertheblack-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "game_text_lines": "While at Senate: Sidious is politics +3;\n“senators” on Squabbling Delegates is treated\nas “Coruscant guards;” and may lose 1 Force\nto place Keder and an opponent’s {set:coruscant} Political\nEffect (or {set:coruscant} senator here) in owner’s Lost Pile.",
+ "notes": "Group: Imperial Senate (DARK SIDE). Unique. Bottom-half slip. Stats POWER 4 / ABILITY 3 / FORCE-ATTUNED (label only) — same as printed; deploy 3 / forfeit 6 (printed 4 / 4). INLINE (twice): a round pink sphere with a yellow rim before 'Political Effect' and before 'senator' = the CORUSCANT expansion symbol → {set:coruscant} (the stub drops both). Curly double quotes “senators” and “Coruscant guards;” (stub straight single quotes), curly apostrophes opponent’s / owner’s. Icon column: warrior only. Affiliation Republic (Coruscant Dark frame, Republic crest disc; wiki subtype Republic). Printed card has the Coruscant ring + Episode I icon → ring_icons ['episode1']. LORE: 'spy' is printed BOLD on the scan (marked *spy*; 'assassin' plain). The punctuation after 'spy' is not resolvable on the 350 px scan (or the identical res.starwarsccg.org file) — the wiki's comma kept; please verify. Otherwise matches the wiki. Copyright Coruscant '© 2001 …' line. Base Cor-D-kedertheblack.gif 350 px only. Modern: VB5-D-kedertheblack-pre.gif (350, Virtual Block 5 reissue). Stub: https://wiki.swccg.com/wiki/Keder_The_Black_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+}

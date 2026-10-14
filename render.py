@@ -421,10 +421,10 @@ def game_text_html(text: str) -> str:
         elif name in ("alter", "control", "sense"):
             # the slips' red "no" circle with the letter: drawn (transparent), not a pasted raster
             out.append(f'<span class="noicon"><span class="nol">{name[0].upper()}</span></span>')
-        elif name == "icon" and arg in ("maintenance-star", "maintenance-skull"):
+        elif name == "icon" and arg in ("maintenance-star", "maintenance-skull", "maintenance-flag"):
             # Decipher's maintenance-cost glyphs, cut from the Remaster sheet at 1200 DPI (black on transparent)
-            g = "glyph-star" if arg == "maintenance-star" else "glyph-skull"
-            hpx = 46 if arg == "maintenance-star" else 60   # the star is cap-height, the skull a little taller than the x-height+descender
+            g = {"maintenance-star": "glyph-star", "maintenance-skull": "glyph-skull", "maintenance-flag": "glyph-flag"}[arg]
+            hpx = {"glyph-star": 46, "glyph-skull": 60, "glyph-flag": 48}[g]   # the flag (VS16 Jedi Survivor) cut at 1200 DPI   # the star is cap-height, the skull a little taller than the x-height+descender
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/{g}.png")}" style="height:{hpx}px;vertical-align:{-4 if g == "glyph-star" else -10}px;margin-right:{6 if g == "glyph-star" else 0}px{";filter:invert(1)" if not card_ctx.get("_dark_text") else ""}">')
         elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')

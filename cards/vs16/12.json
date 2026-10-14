@@ -1,0 +1,30 @@
+{
+ "id": "vs16-12",
+ "number": "12",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "Bowcaster",
+ "caption": "Bowcaster (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your Wookiee. May target a character or vehicle for free. Draw destiny (may take drawn card into hand). Target hit if destiny +X > defense value, where X = number of Kashyyyk sites you control.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Hand-crafted weapon of choice among Wookiees. Fires explosive ‘quarrels’ (which look like blaster bolts). Requires great strength to use. Extra ammo carried on bandoliers.",
+ "destiny": "2",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Bowcaster (Original)",
+ "art": {
+  "src": "src/vs16/12-ANH-L-bowcaster.gif",
+  "modern": "src/vs16/modern/12-V16-L-bowcaster.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. Not unique (no dot in heading or caption; base is Unrestricted). Banner CHARACTER WEAPON; no stats/deploy/forfeit. Right margin: black EPISODE I disc above the VS16 set sphere → icons ['episode1'] (the printed ANH card has no Episode I icon). Slip text matches the stub. LORE CORRECTED from the 745 px scan: 'bandoleers' (wiki) → 'bandoliers' (printed); curly ‘quarrels’. Art: ANH-L-bowcaster.gif (745) is the PC ERRATA face (footer D-E1, errata game text) — art only; printed face = 12-ANH-L-bowcaster-decipher-archive.gif (350, read for lore/copyright; same lore). Modern: V16-L-bowcaster.gif (745, the PC's later modern Virtual Set 16 Bowcaster with different text; same art) and VB5-L-bowcaster-pre.gif (345 px, Virtual Block 5 reissue of THIS slip's text) — both in src/vs16/modern/. Copyright ANH 1996 (legible on the 745 scan).",
+ "game_text_lines": "Deploy on your Wookiee. May target a character or\nvehicle for free. Draw destiny (may take drawn card\ninto hand). Target hit if destiny +X > defense value,\nwhere X = number of Kashyyyk sites you control."
+}

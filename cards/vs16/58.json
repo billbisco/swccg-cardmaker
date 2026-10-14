@@ -1,0 +1,43 @@
+{
+ "number": "58",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Myn Kyneugh",
+ "caption": "•Myn Kyneugh (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "Heroic. When deployed, may play a Defensive Shield (and/or deploy a Force Pike) from under your Starting Effect (as if from hand). When using a Force Pike, it fires for free and his total weapon destiny is +1. Immune to attrition < 4.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Royal Guard *leader*. Remembers nothing of his past other than serving his Emperor. Early instructor of Kir Kanos and Carnor Jax.",
+ "destiny": "4",
+ "base_page": "Myn Kyneugh",
+ "art": {
+  "src": "src/vs16/58-DS2-D-mynkyneugh.gif",
+  "modern": "src/vs16/modern/58-V8-D-mynkyneugh.gif"
+ },
+ "id": "vs16-58",
+ "virtual_set": 16,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "game_text_lines": "Heroic. When deployed, may play a Defensive\nShield (and/or deploy a Force Pike) from under\nyour Starting Effect (as if from hand). When\nusing a Force Pike, it fires for free and his total\nweapon destiny is +1. Immune to attrition < 4.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Stats POWER 4 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 5 (as printed). Icon column: warrior (blue box with weapon) only. Imperial (Imperial disc on the printed DS2 card). Slip text matches the stub. Lore: 'leader' printed BOLD (visible on the 350 px scan and on the 745 px V8 remake) → *leader*; wording matches the wiki. Copyright: DS2 line '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' read off the V8 remake (not legible on the 350 px scan). Modern: V8-D-mynkyneugh.gif (745, the Virtual Set 8 card — different game text, same art/lore); VB4 -pre (350) also exists, not downloaded."
+}

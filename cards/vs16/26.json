@@ -1,0 +1,52 @@
+{
+ "id": "vs16-26",
+ "number": "26",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: N-1 STARFIGHTER",
+ "title": "•Bravo Fighter",
+ "caption": "•Bravo Fighter (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "May add 1 astromech. During battle, may target a starship with no character piloting. Draw destiny. If destiny > defense value, target hit. Permanent pilot provides ability of 4. Immune to attrition < 3.",
+ "game_text_lines": "May add 1 astromech. During battle, may target a\nstarship with no character piloting. Draw destiny.\nIf destiny > defense value, target hit. Permanent\npilot provides ability of 4. Immune to attrition < 3.",
+ "icons": [
+  "republic",
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Flown by an unknown pilot who likes to spin a lot. Played the deciding role in the attack against the Droid Control Ship.",
+ "destiny": "3",
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Bravo Fighter",
+ "art": {
+  "src": "src/vs16/26-Theed-L-bravofighter.gif",
+  "modern": "src/vs16/modern/26-V0-L-bravofighter.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "credit_bottom": [
+  "Original concept by Brian Terwilliger",
+  "Syracuse V-Lite 2005"
+ ],
+ "notes": "Group: Everything Else. Bottom-half slip. Unique. Banner STARFIGHTER: N-1 STARFIGHTER; POWER 3 / MANEUVER 5 / HYPERSPEED 3; deploy 3 / forfeit 4; no scomp ring (none on the printed card either). Icon column top to bottom: square lavender Republic tile, Rebel pilot helmet on yellow (permanent pilot), astromech dome on red (nav); then VS16 sphere. Credits under the text box: 'Original concept by Brian Terwilliger' / 'Syracuse V-Lite 2005'. CHANGES vs printed Bravo Fighter (Theed Palace): POWER 2 → 3, MANEUVER 4 → 5, deploy 2 → 3, forfeit 3 → 4; text replaced (printed: 'Permanent pilot provides ability of 3. During your control phase, if landed aboard Blockade Flagship, may draw one destiny. If destiny > 6, place Bravo Fighter in your Used Pile; Flagship ‘blown away.’'); the printed column's middle icon is a different (Episode I-era) pilot face, the slip prints the classic Rebel helmet. Printed card carries the Theed Palace ring plus the Episode I icon → ring_icons ['episode1']. Lore matches the wiki and the V0 745 px remake. Copyright © 2001 line legible on V0-L-bravofighter.gif. Modern: V0-L-bravofighter.gif (745, Virtual Set 0 remake, same art; its text is a later rewrite) used for art; VB5-L-bravofighter-pre.gif (350, Virtual Block 5) also downloaded. Slip text matches the stub."
+}
