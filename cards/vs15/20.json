@@ -1,0 +1,47 @@
+{
+ "number": "20",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Melas",
+ "caption": "•Melas (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. Once per turn, may ‘smoke pipe’ by placing a card from hand on your Used Pile; Melas is power and defense value +2, but cannot move this turn (if during your draw phase, may instead peek at the top two cards of any Reserve Deck.)",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Sarkan *smuggler*. Smokes an Essoomian gruu pipe to heighten awareness. Exiled from his home planet of Sarka for displaying curiosity in other aliens. Misses his homeworld.",
+ "destiny": "2",
+ "base_page": "Melas",
+ "art": {
+  "src": "src/vs15/20-SE-L-melas.gif",
+  "modern": "src/vs15/modern/20-V1-L-melas.gif"
+ },
+ "id": "vs15-20",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Harikrishna Mehta",
+  "Berkeley V-Lite 2005"
+ ],
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 2 / ABILITY 4 / FORCE-SENSITIVE (label only); deploy 3 / forfeit 4 (same as printed). Leading yellow pilot icon + '2.' → {pilot:2}. Curly single quotes ‘smoke pipe’. The slip prints the period INSIDE the parenthesis: 'Reserve Deck.)' — kept as printed (stub has 'Reserve Deck).'). Icon column: pilot only. Alien (alien disc). Credits in italics under the text box: 'Original concept by Harikrishna Mehta' / 'Berkeley V-Lite 2005' → credit_bottom. Base: Special Edition 'Melas' (printed page). LORE: wiki matches wording; 'smuggler' is BOLD on the PC's 745 px V1 remake (same printed lore) → *smuggler*; on the 350 px SE scan the bold is not distinguishable. Only a 350 px Decipher scan; copyright SE line by rule. Modern: V1-L-melas.gif (745 px, PC's later Virtual Set 1 Melas — different text, same art/lore; art backport); VB1-L-melas-pre.gif (350) is this slip reissued.",
+ "game_text_lines": "{pilot:2}. Once per turn, may ‘smoke pipe’ by placing\na card from hand on your Used Pile; Melas is\npower and defense value +2, but cannot move\nthis turn (if during your draw phase, may instead\npeek at the top two cards of any Reserve Deck.)"
+}

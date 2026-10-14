@@ -1,0 +1,32 @@
+{
+ "number": "54",
+ "side": "Dark",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "Look Sir, Droids",
+ "caption": "Look Sir, Droids (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: ▲ a non-{presence} , non-{lightsaber} droid. OR Place a card from hand on Used Pile.\nSTARTING: ▼ two always {alter} Effects. If you have only one location (with < 3 {dark-force}) on table, may ▼ Central Office or Mos Eisley. Place this Interrupt in hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Trooper 1124, Davin Felth, discovered droid plating dropped by R2-D2 and C-3PO when exiting escape pod.",
+ "destiny": "3",
+ "base_page": "Look Sir, Droids",
+ "art": {
+  "src": "src/vs15/54-Premiere-D-looksirdroids.gif",
+  "modern": "src/vs15/modern/54-VB1-D-looksirdroids-pre.gif"
+ },
+ "id": "vs15-54",
+ "virtual_set": 15,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Mike Tomashewski",
+  "PC Volunteer Award 2006"
+ ],
+ "notes": "Sheet group: Everything else (Dark Side). Non-unique. Printed card is a Lost Interrupt; slip banner USED OR STARTING INTERRUPT. USED:/STARTING: lines separated by \\n. INLINE ICONS: (1) after 'non-' a red box with a tan battle-droid figure = the Episode I Presence icon (matches assets/icons/col-presence.png) → {presence}; the stub reads it 'Reflections II' (wrong). The slip prints a space before the following comma ('non-[icon] , non-') — kept. (2) after the second 'non-' a black square with a green blade → {lightsaber} per the helper brief (rev 8 of STANDARD calls this square the Permanent Weapon icon; 'non-permanent-weapon droid' fits the text) — the stub reads it 'droid' and drops it. (3) 'always [red circle-slash A] Effects' → {alter}. (4) '(with < 3 [white/red diagonal blade box])' = the Dark Force icon (Game Aid g050, matches inline-force-dark.png) → {dark-force}; stub 'Force icons'. ▲/▼ as printed (stub expands). Credits below the text box: left 'Original concept by Mike Tomashewski', right 'PC Volunteer Award 2006'. Printed text was 'Use 1 Force to search through the opponent’s Used Pile and move any droids you find there to opponent’s Lost Pile. OR Use X Force to destroy any one droid on table where X = droid’s deploy cost.' Lore matches the wiki and the scan. Base Premiere-D-looksirdroids.gif (350 px only); copyright 1995 legible; Premiere = no ring icon. Modern: Virtual Block 1 only (VB1 -pre, 350).",
+ "game_text_lines": "USED: ▲ a non-{presence} , non-{lightsaber} droid. OR Place a card\nfrom hand on Used Pile.\nSTARTING: ▼ two always {alter} Effects. If you have only\none location (with < 3 {dark-force}) on table, may ▼ Central\nOffice or Mos Eisley. Place this Interrupt in hand."
+}

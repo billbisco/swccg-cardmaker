@@ -1,0 +1,47 @@
+{
+ "number": "61",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Sebulba",
+ "caption": "•Sebulba (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:2}: any combat vehicle. Brisky Morning Munchen is canceled. Draws one battle destiny if unable to otherwise. Once per turn, if any podrace total > 0, may take your just drawn destiny into hand to cancel and redraw that destiny.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Bad tempered Dug from Pixelito. He was about to turn Jar Jar into orange goo, until Anakin intervened.",
+ "destiny": "2",
+ "base_page": "Sebulba",
+ "art": {
+  "src": "src/vs15/61-Tat-D-sebulba.gif",
+  "modern": "src/vs15/modern/61-VB5-D-sebulba-pre.gif"
+ },
+ "id": "vs15-61",
+ "virtual_set": 15,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "ring_icons": [
+  "episode1"
+ ],
+ "credit_bottom": [
+  "Original concept by Garrett Larson",
+  "Minnesota States Sealed 2005"
+ ],
+ "notes": "Group: Everything else. Unique. Bottom-half slip. POWER 3 / ABILITY 2 / third box blank; deploy 3 / forfeit 5; icon column pilot (DS helmet), warrior. Leading DS pilot-power icon + '2: any combat vehicle.' → {pilot:2}: any combat vehicle (stub 'Adds 2 to power of anything he pilots: any combat vehicle'). Credits below the text box: 'Original concept by Garrett Larson' left, 'Minnesota States Sealed 2005' right. Alien disc; ring icons on the printed card: Tatooine sphere + Episode I → ring_icons ['episode1']. Printed POWER 4 (slip 3). Lore matches the scan; copyright 2001 line read on the scan. 350 px scan only. Modern: VB5-D-sebulba-pre.gif (Virtual Block 5) — same rules but the sentences are reordered ('Once per turn…' before 'Draws one battle destiny…'). Not V11-D-sebulba (that is Virtual Set 11's different Sebulba (V)).",
+ "game_text_lines": "{pilot:2}: any combat vehicle. Brisky Morning\nMunchen is canceled. Draws one battle destiny if\nunable to otherwise. Once per turn, if any podrace\ntotal > 0, may take your just drawn destiny into\nhand to cancel and redraw that destiny."
+}

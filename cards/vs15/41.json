@@ -1,0 +1,28 @@
+{
+ "number": "41",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Collateral Damage",
+ "caption": "Collateral Damage (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you just initiated battle where you have at least two characters (one a trooper and the other a leader), add two battle destiny. Opponent takes no battle damage this battle. OR ▼ one Dewback.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Blast vests and helmets with blast shields cannot protect Rebel soldiers from grenades, panel explosions and other combat hazards.",
+ "destiny": "4",
+ "base_page": "Collateral Damage",
+ "art": {
+  "src": "src/vs15/41-Premiere-D-collateraldamage.gif",
+  "modern": "src/vs15/modern/41-VB1-D-collateraldamage-pre.gif"
+ },
+ "id": "vs15-41",
+ "virtual_set": 15,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Sheet group: Blockade. Non-unique. Banner USED INTERRUPT (printed card is a Lost Interrupt). ▼ typed (stub expands it). No credits. Slip text matches the stub. Lore matches the wiki and the scan (350 px only). Premiere → no expansion ring icon. Copyright 1995 roughly legible. Modern: Virtual Block 1 only (VB1-D-collateraldamage-pre.gif, 350 px; non-pre also exists). V14-D-altercollateraldamage.gif is the Alter & Collateral Damage combo, a different card.",
+ "game_text_lines": "If you just initiated battle where you have at least two\ncharacters (one a trooper and the other a leader), add\ntwo battle destiny. Opponent takes no battle damage\nthis battle. OR ▼ one Dewback."
+}

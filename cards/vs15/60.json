@@ -1,0 +1,35 @@
+{
+ "number": "60",
+ "side": "Dark",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "SD-17 Homing Missile",
+ "caption": "Concussion Missiles (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Boba Fett, Jodo Kast, or your character with a Jet Pack. May place this weapon in Used Pile to target a character or vehicle using 2 Force. Draw destiny. Character lost if destiny -1 > defense value. Vehicle hit if destiny +2 > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Originally developed by smugglers and pirates as defense against starfighters. Adapted by the Empire to serve as onboard defense for slow moving bombers.",
+ "destiny": "5",
+ "base_page": "Concussion Missiles (Dark)",
+ "art": {
+  "src": "src/vs15/60-DS2-D-concussionmissiles.gif",
+  "modern": "src/vs15/modern/60-VB3-D-sd17homingmissile-pre.gif"
+ },
+ "id": "vs15-60",
+ "virtual_set": 15,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "combo": true,
+ "heading": "SD-17 Homing Missile (V)",
+ "base_title": "Concussion Missiles",
+ "credit_bottom": [
+  "Original concept by Nate Albright",
+  "PC Volunteer Award 2007"
+ ],
+ "notes": "Group: Everything else. COMBO / FULL-CARD OVERLAY (755×1103) on the green weapon frame: weapon-type disc (as printed), title 'SD-17 Homing Missile' (no dot), destiny 5; white window covers lore box + art (no lore on the slip → printed lore stays, as on the VB3 reissue). Banner CHARACTER WEAPON; no stats, no deploy/forfeit; no icon column (VS15 sphere only). Credits below the text box, italic: 'Original concept by Nate Albright' left, 'PC Volunteer Award 2007' right → credit_bottom (list). Caption 'Concussion Missiles (V)' — the Dark DS2 card (wiki page 'Concussion Missiles (Dark)'; the plain 'Concussion Missiles' page is the Light card; the stub's 'Decipher base: [[Concussion Missiles]]' points to the Light one). CHANGES vs Decipher Concussion Missiles (Dark, DS2): title renamed; destiny 4 → 5; banner STARSHIP WEAPON → CHARACTER WEAPON; game text replaced (printed: 'Use 1 Force to deploy on your bomber, TIE Defender, freighter or transport. May target a starship for free. Draw destiny. Add 1 when targeting a starfighter or squadron. Target hit if total destiny > defense value.'); lore and disc unchanged. Lore matches the scan. 350 px scan; copyright DS2 line (2000) as it reads on the scan. Modern: VB3-D-sd17homingmissile-pre.gif (same text).",
+ "game_text_lines": "Deploy on Boba Fett, Jodo Kast, or your character\nwith a Jet Pack. May place this weapon in Used Pile\nto target a character or vehicle using 2 Force. Draw\ndestiny. Character lost if destiny -1 > defense value.\nVehicle hit if destiny +2 > defense value."
+}

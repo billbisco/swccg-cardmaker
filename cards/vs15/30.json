@@ -1,0 +1,44 @@
+{
+ "number": "30",
+ "slip_type": "Site",
+ "card_type": "•TATOOINE: LARS’ MOISTURE FARM",
+ "title": "•Tatooine: Lars’ Moisture Farm",
+ "caption": "•Tatooine: Lars Moisture Farm (Light) (V)",
+ "heading": "•Tatooine: Lars’ Moisture Farm (Light) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Once per game, may ▼ a non-{set:reflections2} Lars here. While a Lars present here with a hydroponics station or vaporator, your Force generation here is +1 (+2 if with both).",
+ "dark_text": "While No One To Stop Us This Time on table, Imperials are deploy -1 here.",
+ "game_text_lines": "Once per game, may ▼ a non-{set:reflections2} Lars here. While a Lars present here with a\nhydroponics station or vaporator, your Force generation here is +1 (+2 if with both).",
+ "dark_text_lines": "While No One To Stop Us This Time on table, Imperials are deploy -1 here.",
+ "light_force": true,
+ "dark_force": true,
+ "light_force_count": 2,
+ "light_icons": [
+  "scomp",
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "planet",
+  "exterior"
+ ],
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Tatooine: Lars' Moisture Farm",
+ "art": {
+  "src": "src/vs15/30-Premiere-L-tatooinelarsmoisturefarm.gif",
+  "modern": "src/vs15/modern/30-VB1-L-tatooinelarsmoisturefarm-pre.gif"
+ },
+ "notes": "Group: Farming. FULL portrait site overlay printed sideways (not renamed): both bars '•TATOOINE: LARS’ MOISTURE FARM' (red • on the Light bar, white • on the Dark bar). Art window blank. Light half (right) = game_text, Dark half (left) = dark_text. Force: TWO blue sabers on the Light bar (light_force_count 2, as printed), one red saber on the Dark bar. Icon boxes both bars, outermost first: scomp ring, planet, exterior — as printed. Bottom margin: VS15 sphere only → icons []. Heading prints 'Lars’' with apostrophe; the CAPTION prints 'Lars Moisture Farm' WITHOUT the apostrophe — kept as printed. ▼ (deploy from Reserve) — the stub expands it as ▲ 'Take into hand…' (wrong direction). INLINE purple spoked sphere before 'Lars' = Reflections II expansion icon (rendered from the PDF at 2400 dpi; matches the Game Aid Feb 2024 Reflections II icon; Owen Lars & •Beru Lars is a Reflections II combo) → {set:reflections2}; the stub reads it 'non-unique' — wrong. CHANGES vs printed Tatooine: Lars' Moisture Farm (Premiere; Light 'Beru Lars and Luke deploy -1 here.' / Dark 'Add 1 to each of your weapon destiny draws here.'): both texts replaced; icons/Force unchanged. Base scan 490×350 only; copyright Premiere 1995 read off the scan. Modern: VB1-L-tatooinelarsmoisturefarm-pre.gif (Virtual Block 1 reissue of this slip; same texts).",
+ "id": "vs15-30",
+ "virtual_set": 15,
+ "side": "Light"
+}

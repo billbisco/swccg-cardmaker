@@ -1,0 +1,50 @@
+{
+ "id": "vs15-02",
+ "number": "02",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "8",
+ "icons": [
+  "episode1",
+  "republic",
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: CORELLIAN CORVETTE",
+ "title": "•Alderaan Consular Ship",
+ "caption": "•_Masanya_ (V)",
+ "heading": "•Alderaan Consular Ship (V)",
+ "combo": true,
+ "base_title": "•_Masanya_",
+ "game_text": "May add 3 pilots and 4 passengers. Permanent pilot provides ability of 2. Opponent must use +2 Force to initiate battle here. Once per game, may ▼ a senator aboard. [Ship-docking]",
+ "lore": "",
+ "base_lore": "Frequently escorts Mon Calamari star cruisers. Personally assigned by Ackbar to main Rebel fleet. Advanced scanners continuously disrupt target acquisition signals.",
+ "destiny": "2",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Masanya",
+ "art": {
+  "src": "src/vs15/02-DS2-L-masanya.gif",
+  "modern": "src/vs15/modern/02-V4-L-masanya.gif"
+ },
+ "notes": "Group: Everything else. COMBO / FULL-CARD OVERLAY (755×1099). Title bar: the starship disc (dark disc, blue/white streaked starfighter image, as on printed Masanya), '•Alderaan Consular Ship' (not italic), destiny 2. LORE BOX PRINTED EMPTY (blank silver box, no text) → lore '' (Masanya's printed lore kept in base_lore for reference; the PC's VB5 reissue VB5-L-alderaanconsularship-pre.gif also shows the empty lore box, confirming it). NO expansion ring right of the lore box on the slip (Masanya's Death Star II ring is gone; only blue paint) — the VB5 reissue shows a small dark round icon (looks like Episode I) in that ring position. Art window blank (art stays from Masanya). Banner CAPITAL: CORELLIAN CORVETTE; stats POWER 5 / ARMOR 5 / HYPERSPEED 3; scomp ring; deploy 4 / forfeit 8. EPISODE I black circle printed at the right end of the stat row, i.e. top of the icon column, above: Republic square tile (silver Republic starship crest on lavender), pilot helmet on yellow (permanent pilot), red box with astromech dome (nav computer, as on printed Masanya); then VS15 sphere. Text ends with the literal bracketed text '[Ship-docking]' in plain type (no icon graphic; zoom-checked) — transcribed as printed (the VB5 reissue drops it). STUB DIFFERS: stub deploy=5; slip prints 4 (VB5 reissue also 4). CHANGES vs Decipher Masanya (DS2-L-masanya.gif): title •Masanya → •Alderaan Consular Ship; lore removed; DS2 ring removed; ARMOR 4 → 5; deploy 5 → 4; forfeit 8 same; text replaced (printed: 'Deploys –4 to same system as any non-unique Star Cruiser. May add 3 pilots, 4 passengers and 1 vehicle. Has ship-docking capability. Permanent pilot provides ability of 1. Cannot be ‘hit’ by missiles.'); icons pilot + nav → Episode I + Republic + permanent pilot + nav. Base scan 350 px; DS2 copyright line read on the PC's V4 Masanya remake. Modern: V4-L-masanya.gif (745, Masanya (V) VS4 — same art) used for art; VB5-L-alderaanconsularship-pre.gif (350) also downloaded.",
+ "game_text_lines": "May add 3 pilots and 4 passengers. Permanent pilot\nprovides ability of 2. Opponent must use +2 Force\nto initiate battle here. Once per game, may ▼ a\nsenator aboard. [Ship-docking]"
+}

@@ -1,0 +1,43 @@
+{
+ "number": "59",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Scout Mercenary",
+ "caption": "Raithal Operative (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}, 3: speeder bikes. During battle, unless Gall on table, may use 1 Force to fire a DH-17 blaster twice (for free), separately or combined. While piloting a vehicle, she may use its defense value and may not go missing (except from your card).",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Opportunists work with corrupt governments and Raithal casino operators. Keep the Empire informed of local Alliance activity, for a price.",
+ "destiny": "3",
+ "base_page": "Raithal Operative",
+ "art": {
+  "src": "src/vs15/59-SE-D-raithaloperative.gif",
+  "modern": "src/vs15/modern/59-VB4-D-scoutmercenary-pre.gif"
+ },
+ "id": "vs15-59",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "Scout Mercenary (V)",
+ "base_title": "Raithal Operative",
+ "notes": "Group: Mistryl. COMBO / FULL-CARD OVERLAY (755×1101) on the grey Dark character frame: Alien disc (glowing eyes, as printed), title 'Scout Mercenary' (no dot), destiny 3; the white window covers lore box + art (no lore on the slip → printed lore stays, as on the VB4 reissue). POWER 2 / ABILITY 2 / third box blank; deploy 2 / forfeit 3; icon column pilot (yellow DS helmet), warrior. Leading DS pilot-power icon + '2, 3: speeder bikes.' → {pilot:2}, 3: speeder bikes (stub: 'Deploys 2, 3: speeder bikes' — misreads the icon). Caption 'Raithal Operative (V)'. CHANGES vs Decipher Raithal Operative (SE): title; POWER 1 → 2, ABILITY 1 → 2; deploy 1 → 2, forfeit 2 → 3; icons Warrior → Pilot + Warrior; game text replaced (printed: 'While at a Raithal site: adds 1 to your Force drains there, is power +1 (or +2 if your gambler or tax collector is on Raithal) and, once during each of your deploy phases, may deploy one site to Raithal from Reserve Deck; reshuffle.' — wiki has '- reshuffle'); destiny, lore, disc unchanged. Lore matches the scan. 350 px scan only; copyright SE line by rule. Modern: VB4-D-scoutmercenary-pre.gif (same text).",
+ "game_text_lines": "{pilot:2}, 3: speeder bikes. During battle, unless Gall\non table, may use 1 Force to fire a DH-17 blaster\ntwice (for free), separately or combined. While\npiloting a vehicle, she may use its defense value\nand may not go missing (except from your card)."
+}

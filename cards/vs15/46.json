@@ -1,0 +1,41 @@
+{
+ "number": "46",
+ "side": "Dark",
+ "slip_type": "Creature Vehicle",
+ "card_type": "CREATURE VEHICLE",
+ "title": "Dewback",
+ "caption": "Dewback (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "LANDSPEED",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "_If just drawn for a non-lightsaber weapon destiny, opponent loses 1 Force._ Deploys only to Tatooine. May add 1 ‘rider’ (passenger). Ability = ¼. During battle, may make a character here defense value -1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Protected by hard skin composed of tough armored scales. Frequently ridden by sandtroopers stationed in desert environments.",
+ "destiny": "5",
+ "base_page": "Dewback",
+ "art": {
+  "src": "src/vs15/46-SE-D-dewback.gif",
+  "modern": "src/vs15/modern/46-VB1-D-dewback-pre.gif"
+ },
+ "id": "vs15-46",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Sheet group: Blockade (Dark Side). Non-unique (no dot). Banner CREATURE VEHICLE; stats POWER 2 / ARMOR 4 / LANDSPEED 2; deploy 2 / forfeit 4 (all as printed). No scomp ring, no column icons (only the VS15 set sphere). First sentence printed in italics (incl. its period). '¼' single fraction glyph, curly ‘rider’ quotes as printed. Printed text was 'Deploy only to a desert or Tatooine site. Ability = ¼. May add 1 ‘rider’ (passenger). When ‘ridden’ by a sandtrooper, may draw one battle destiny if not able to otherwise.' Lore matches the wiki and the scan. Base SE-D-dewback.gif (350 px only); copyright SE-style 1998 legible; SE ring icon right of the lore box. Modern: Virtual Block 1 only (VB1-D-dewback-pre.gif, 350).",
+ "game_text_lines": "_If just drawn for a non-lightsaber weapon destiny,\nopponent loses 1 Force._ Deploys only to Tatooine.\nMay add 1 ‘rider’ (passenger). Ability = ¼. During\nbattle, may make a character here defense value -1."
+}

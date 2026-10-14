@@ -1,0 +1,31 @@
+{
+ "id": "vs15-06",
+ "number": "06",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Beru Stew",
+ "caption": "•Beru Stew (V)",
+ "heading": "•Beru Stew (V)",
+ "combo": true,
+ "base_title": "•Beru Stew",
+ "game_text": "USED: Activate 1 Force (2 if a Lars on table). OR During battle at a farm, add the destiny number of your device on this farm to your total power. LOST: During battle at a farm, after battle destinies are drawn, place a ‘crop’ out of play to make attrition against you = 0.",
+ "lore": "Moisture farmers grow enough food to sustain Tatooine’s population. Beru Lars has devised many dishes using herbs and roots naturally found in Tatooine’s desert.",
+ "destiny": "4",
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Beru Stew (Original)",
+ "art": {
+  "src": "src/vs15/06-Premiere-L-berustew.gif",
+  "modern": "src/vs15/modern/06-VB1-L-berustew-pre.gif"
+ },
+ "notes": "Group: Farming. FULL-CARD OVERLAY (756×1101), not a rename: title bar with the Interrupt disc, '•Beru Stew', destiny 4; everything from below the title bar to the banner (lore box, ring, art) is blanked white → lore/art stay from the printed card. combo set true only because the slip is a full-card overlay; base_title = caption name. Banner USED OR LOST INTERRUPT (printed: Lost Interrupt). One paragraph: 'LOST:' begins mid-line on the slip. ‘crop’ curly. Slip text matches the stub. No credits. CHANGES vs printed: printed face (Original, 350 px archive) has no dot, the Glossary 1998 errata made it •Beru Stew — the slip prints the dot; banner Lost → Used Or Lost; text replaced. art.src = Premiere-L-berustew.gif (745) is the Glossary errata face (with •) — art only; lore read from it and the archive face: matches the wiki (curly Tatooine’s). The VB1 reissue reads 'after battle destiny is drawn' where this slip reads 'destinies are drawn' — transcribed from the slip.",
+ "game_text_lines": "USED: Activate 1 Force (2 if a Lars on table). OR\nDuring battle at a farm, add the destiny number of your\ndevice on this farm to your total power. LOST: During\nbattle at a farm, after battle destinies are drawn, place\na ‘crop’ out of play to make attrition against you = 0."
+}

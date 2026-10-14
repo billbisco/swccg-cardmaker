@@ -1,0 +1,48 @@
+{
+ "number": "45",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER",
+ "title": "•_Devastator_",
+ "caption": "•_Devastator_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "9"
+  ],
+  [
+   "ARMOR",
+   "6"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "9",
+ "game_text": "May add 6 pilots and 4 TIEs. [Ship-docking] Permanent pilot provides ability of 1. May follow an opponent’s starship that just moved from same system (if within range). Immune to attrition < 4.",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Supported the devastating subjugation of Ralltiir. While under the command of Darth Vader, chased and captured the traitor Princess Leia Organa aboard the consular ship _Tantive IV_.",
+ "destiny": "1",
+ "base_page": "Devastator",
+ "art": {
+  "src": "src/vs15/45-Premiere-D-devastator.gif",
+  "modern": "src/vs15/modern/45-V16-D-devastator.gif"
+ },
+ "id": "vs15-45",
+ "virtual_set": 15,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Thomas Caspersen",
+  "Sandvika V-Lite 2005"
+ ],
+ "notes": "Sheet group: Blockade (Dark Side). Unique. 'Devastator' italic in heading and caption (and in the printed title bar) → _Devastator_. Banner CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER ('IMPERIAL' italic, as on the printed card). Stats POWER 9 / ARMOR 6 / HYPERSPEED 3; deploy 8 / forfeit 9 (all as printed). Scomp ring at top-left of the text box → scomp true. Icon column top to bottom: permanent-pilot (DS pilot helmet on yellow, as printed), nav (astromech dome on red). The slip literally prints '[Ship-docking]' in square brackets as text (no icon) — kept as printed; stub writes 'Ship-docking.' with a period that the slip does not have. Curly apostrophe in opponent’s. Credits printed BELOW the text box (not in the side margins): left 'Original concept by Thomas Caspersen', right 'Sandvika V-Lite 2005' → credit_bottom (as vs14/15). Printed text was 'May add 6 pilots, 8 passengers, 2 vehicles and 4 TIEs. Has ship-docking capability. Permanent pilot aboard provides ability of 2.' Lore corrected from scan: _Tantive IV_ italic (wiki plain). Base Premiere-D-devastator.gif is the only scan (350 px); copyright 1995 Premiere line legible; Premiere = no ring icon. Modern: V16-D-devastator.gif (745 px, the PC's later Virtual Set 16 version — a different card text, art only) and VB1-D-devastator-pre.gif (350, Virtual Block 1 reissue of this slip) both downloaded.",
+ "game_text_lines": "May add 6 pilots and 4 TIEs. [Ship-docking]\nPermanent pilot provides ability of 1. May follow\nan opponent’s starship that just moved from same\nsystem (if within range). Immune to attrition < 4."
+}

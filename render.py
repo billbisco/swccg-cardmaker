@@ -496,10 +496,10 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
     im = im.convert("RGB")
     import numpy as np
     a = np.array(im).astype(int)
-    if card["art"].get("rect") and not win:
+    if card["art"].get("rect") and (not win or tag == "-rect"):
         # the scan's own art rectangle, cover-fitted to the window (tall-slip cards whose window shape differs)
         x0, y0, x1, y1 = card["art"]["rect"]
-        aw_, ah_ = TEMPLATES[card["template"]]["art"][2:]
+        aw_, ah_ = TEMPLATES[card["template"]]["art"][2:] if not win else win[2:]
         if (x1 - x0) / (y1 - y0) > aw_ / ah_:
             cw_ = (y1 - y0) * aw_ / ah_; x0, x1 = (x0 + x1 - cw_) / 2, (x0 + x1 + cw_) / 2
         else:
@@ -591,6 +591,28 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
 LOC = ASSETS / "loc"
 LOC_ICON_FILES = {k: f"icon-{k}.png" for k in
                   ("grabber", "underground", "interior", "planet", "space", "exterior", "underwater", "creature", "mobile", "starship", "vehicle")}
+
+
+def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
+    """A tall slip (VS15 Anger, Fear, Aggression (V), Knowledge And Defense (V)): the slip's banner sits higher and its
+    text box is taller, covering the bottom of the art window. Slide the frame's art-window bottom edge, banner and
+    text-box top up by `text_grow` px and stretch the text box; the art stays full size under the frame."""
+    import numpy as np
+    D = int(card["text_grow"])
+    ax, ay, aw, ah = t["art"]
+    gx, gy, gw, gh = t["game_text"]
+    F = np.array(Image.open(fr).convert("RGBA")); G = F.copy()
+    a0, a1 = ay + ah - 30 - fy, gy + 30 - fy          # art bottom edge .. text-box top (frame rows)
+    G[a0 - D:a1 - D] = F[a0:a1]
+    src = F[a1:gy + gh - 30 - fy]                      # text-box interior rows (with the frame's sides)
+    rows = np.concatenate([src] * (D // max(1, len(src)) + 2))[:D]
+    G[a1 - D:a1] = rows
+    p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
+    t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
+             game_text=(gx, gy - D, gw, gh + D))
+    if "banner_icon" in t:
+        t["banner_icon"] = (t["banner_icon"][0], t["banner_icon"][1] - D)
+    return p, t
 
 
 def loc_grow(card: dict) -> tuple[int, int]:
@@ -800,6 +822,8 @@ def build_html(card: dict) -> str:
     else:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
+        if card.get("text_grow"):
+            fr, t = grown_frame(card, t, fr, fx, fy)
     ax, ay, aw, ah = t["art"]
     art = art_crop(card) if card.get("art") else ""
 
@@ -815,8 +839,8 @@ def build_html(card: dict) -> str:
         # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
         # banner — lay the mapped scan over the frame's lore window too
         lx, ly, lw, lh = t["lore"]
-        win = (ax, ly - 34, aw, ay + ah - (ly - 34))
-        parts.append(f'<img src="{art_crop(card, win, "-full")}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
+        win = (ax, ly - 34, aw, ay + ah - (ly - 34) - int(card.get("text_grow") or 0))
+        parts.append(f'<img src="{art_crop(card, win, "-rect" if card["art"].get("rect") else "-full")}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
     if card.get("disc"):   # affiliation disc swapped over the frame's own (Yoda: the Light Jedi Master blade on the Rebel frame)
         dx_, dy__ = t.get("disc_at", (193, 176))
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc"]}.png")}" style="position:absolute;left:{dx_}px;top:{dy__}px">')
@@ -1072,7 +1096,7 @@ def build_html(card: dict) -> str:
     .nol{{position:absolute;left:0;top:0;width:50px;height:50px;line-height:52px;text-align:center;font-family:AGBoldCnA;font-size:46px;color:{ink}}}
     .stat{{display:flex;align-items:center;padding-left:{t.get("stat_pl", 16)}px;padding-bottom:6px;box-sizing:border-box}}
     .stat .lab{{font-family:AGBoldCnA;font-size:55px;color:{t.get("stats_ink", ink)};letter-spacing:1.4px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
-    .stat .val{{font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
+    .stat .val{{white-space:nowrap;font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
     .stat .val.r{{margin-left:auto;padding-left:30px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
     .ctype{{font-family:AGBoldCnA;font-size:60px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:61px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}

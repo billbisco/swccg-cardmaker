@@ -1,0 +1,29 @@
+{
+ "number": "52",
+ "side": "Dark",
+ "slip_type": "Starting Effect",
+ "card_type": "STARTING EFFECT",
+ "title": "•Knowledge And Defense",
+ "caption": "•Knowledge And Defense (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table with 12 cards from outside your deck face-down under here. Thrice per game, may play a Defensive Shield or deploy (at any time) {ovs:11} Restricted Access from here (as if from hand). Players do not draw or activate using Thrown Back. Each time a player attempts to ▼ or ▲ a card for free (except their first time per game) they must first use 1 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“A Jedi uses the Force for knowledge and defense, never for attack.”",
+ "destiny": "4",
+ "base_page": "Knowledge And Defense (Original)",
+ "art": {
+  "src": "src/vs15/52-Dagobah-D-knowledgeanddefense-decipher-archive.gif",
+  "modern": "src/vs15/modern/52-V0-D-knowledgeanddefense.gif"
+ },
+ "id": "vs15-52",
+ "virtual_set": 15,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Sheet group: Everything else (Dark Side). Unique. Printed card is an Effect; slip banner STARTING EFFECT. The inline gold sparkle sphere before 'Restricted Access' matches assets/icons/ovs-set-11.png (Restricted Access (V) is a Virtual Set 11 card) → {ovs:11} (stub drops it). ▼ and ▲ as printed (stub expands both). No credits, no column icons. Slip heading is complete; the crop shows only the bottom edge of the frame above the banner. Printed text was 'Insert in opponent’s Reserve Deck. When Effect reaches top it is lost, but opponent may not initiate any battles for remainder of turn. (Immune to Alter.)' The default 'Knowledge And Defense' page carries Glossary Supplement wording → base page 'Knowledge And Defense (Original)' (same lore/destiny/set). Lore corrected from scan: curly double quotes (wiki straight single quotes). The 745 px Dagobah-D-knowledgeanddefense.gif is tagged D-E1 (errata face) — downloaded to src/vs15/52-… for art only; src = the 350 px decipher-archive printed face. Copyright 1997 legible on the 745 face. Modern: V0-D-knowledgeanddefense.gif (745, PC Set 0 version, art only) and VB4 -pre (350).",
+ "game_text_lines": "Deploy on table with 12 cards from outside your deck\nface-down under here. Thrice per game, may play a\nDefensive Shield or deploy (at any time) {ovs:11}\nRestricted Access from here (as if from hand).\nPlayers do not draw or activate using Thrown Back.\nEach time a player attempts to ▼ or ▲ a card for\nfree (except their first time per game) they must first\nuse 1 Force.",
+ "text_grow": 320
+}

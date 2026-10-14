@@ -1,0 +1,48 @@
+{
+ "number": "63",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Sith Probe Droid",
+ "caption": "Sith Probe Droid (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "RECON DROID",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "2",
+ "game_text": "_When drawn for destiny during a battle or duel involving a Dark Jedi, destiny +2._ During your move phase, may use 2 Force to relocate a Dark Jedi (with any captives they are escorting) to same site; place this droid in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Patrol droids utilized by the Sith. Each droid has several multispectral imaging devices and a communications package. Used by Maul to track down Amidala.",
+ "destiny": "3",
+ "base_page": "Sith Probe Droid",
+ "art": {
+  "src": "src/vs15/63-Tat-D-sithprobedroid.gif",
+  "modern": "src/vs15/modern/63-VB5-D-sithprobedroid-pre.gif"
+ },
+ "id": "vs15-63",
+ "virtual_set": 15,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "ring_icons": [
+  "episode1"
+ ],
+ "credit_bottom": [
+  "Original concept by Lee Clarke",
+  "ACT Championship 2005"
+ ],
+ "notes": "Group: Everything else. Not unique. Bottom-half slip. Stat row POWER 1 / MANEUVER 3 / RECON DROID (label only, as printed); deploy 1 / forfeit 2; NO icon column (only the VS15 sphere; the printed card has none either). The first sentence is set in italics on the slip → _…_. Credits below the text box: 'Original concept by Lee Clarke' left, 'ACT Championship 2005' right. Droid (Episode I droid disc on the printed card). Ring icons on the printed card: Tatooine + Episode I. Stats/deploy/forfeit unchanged from the printed card; text replaced. Lore matches the scan; copyright 2001 read on the scan. 350 px scan only. Modern: VB5-D-sithprobedroid-pre.gif (same text).",
+ "game_text_lines": "_When drawn for destiny during a battle or duel\ninvolving a Dark Jedi, destiny +2._ During your\nmove phase, may use 2 Force to relocate a Dark\nJedi (with any captives they are escorting) to\nsame site; place this droid in Used Pile."
+}

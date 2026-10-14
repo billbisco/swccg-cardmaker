@@ -1,0 +1,32 @@
+{
+ "number": "18",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Learn About The Force, Luke",
+ "caption": "•Gift Of The Mentor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. Your non-{set:jabbaspalace} Interrupts with “alone” in game text are Used Interrupts, but if played during battle you draw no more than two battle destiny. Wherever you have a card with “skill” in its game text, your Force drains and battle destiny draws are +1. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Luke relied on Obi-Wan’s knowledge and advice to learn the ways of the Force. Obi-Wan continued to counsel Luke long after the old Jedi’s apparent ‘death.’",
+ "destiny": "5",
+ "base_page": "Gift Of The Mentor",
+ "art": {
+  "src": "src/vs15/18-Premiere-L-giftofthementor.gif",
+  "modern": "src/vs15/modern/18-VB1-L-learnabouttheforceluke-pre.gif"
+ },
+ "id": "vs15-18",
+ "virtual_set": 15,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "grabber": false,
+ "combo": true,
+ "heading": "•Learn About The Force, Luke (V)",
+ "base_title": "•Gift Of The Mentor",
+ "notes": "Sheet group: Everything else. COMBO CARD — TALL FULL-CARD OVERLAY (756×1100 crop) that turns a LOST INTERRUPT into an EFFECT: red frame; title bar with a GREEN swirl disc (the Effect type disc, as on printed Effects such as Insurrection) where the printed Gift Of The Mentor has the red Interrupt disc; title '•Learn About The Force, Luke'; destiny 5; white blank area over lore box and art window (no lore printed → lore = Gift Of The Mentor's); banner EFFECT (printed: LOST INTERRUPT); text 5 lines; no column icons; VS15 sphere. Caption '•Gift Of The Mentor (V)'; heading '•Learn About The Force, Luke (V)'. Inline icon after 'non-' = gold sphere with the Jabba's Palace eye → {set:jabbaspalace} (GEMP Legacy 'non-[Jabba's Palace] Interrupts'); the stub reads it 'Virtual set icon' — wrong. Curly “alone” / “skill”; trailing {alter}. CHANGES vs Decipher Gift Of The Mentor (Premiere, unique): title → '•Learn About The Force, Luke'; type Lost Interrupt → Effect (disc and banner); destiny 5 unchanged; game text replaced (printed: 'If Luke and Obi-Wan or Yoda are in a battle together, you may add two battle destiny. OR Use 1 Force to search through your Reserve Deck and take any one lightsaber into your hand. Shuffle deck, cut and replace.'). LORE corrected from the scan: curly apostrophes Obi-Wan’s / Jedi’s and curly single quotes ‘death.’ (wiki straight) — 350 px scan only, quotes read as curly but not certain. Copyright 1995 by rule. Modern: VB1-L-learnabouttheforceluke-pre.gif (350, same lore/art, EFFECT frame).",
+ "game_text_lines": "Deploy on table. Your non-{set:jabbaspalace} Interrupts with “alone”\nin game text are Used Interrupts, but if played during\nbattle you draw no more than two battle destiny.\nWherever you have a card with “skill” in its game text,\nyour Force drains and battle destiny draws are +1. {alter}"
+}

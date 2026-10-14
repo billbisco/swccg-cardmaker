@@ -1,0 +1,31 @@
+{
+ "number": "53",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Let’s Pass On That",
+ "caption": "Bantha Fodder (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During opponent’s control phase, your ferocious creature attacks. At end of turn, if that creature is at an unoccupied site and did not move, opponent loses 1 Force and you retrieve 1 Force. OR Use 3 Force to retrieve a creature.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Uu a’kingsa riika pagh bagla bis kachata weenow con bantha poodoo.”",
+ "destiny": "4",
+ "base_page": "Bantha Fodder",
+ "art": {
+  "src": "src/vs15/53-JP-D-banthafodder.gif",
+  "modern": "src/vs15/modern/53-VB4-D-letspassonthat-pre.gif"
+ },
+ "id": "vs15-53",
+ "virtual_set": 15,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Let’s Pass On That (V)",
+ "base_title": "Bantha Fodder",
+ "notes": "Sheet group: Everything else (Dark Side). COMBO CARD — TALL FULL-CARD OVERLAY (755×1099 crop) on the red Dark Interrupt frame: title bar with the DS Interrupt disc (red swirl), title '•Let’s Pass On That' (curly apostrophe), destiny 4 (unchanged). NO LORE BOX printed: the blank white art window covers the lore box and ring position — lore kept from the printed Bantha Fodder (the PC's VB4 reissue also keeps Bantha Fodder's lore and art). Banner USED INTERRUPT; text; VS15 sphere; no credits. Bottom strip: caption 'Bantha Fodder (V)', number 53. CHANGES vs Decipher Bantha Fodder (Jabba's Palace): title 'Bantha Fodder' → '•Let’s Pass On That' (now UNIQUE); game text replaced (printed: 'Cancel As Good As Gone or Innocent Scoundrel. OR Search your Reserve Deck and take one bantha, Tusken Raider, Taym Dren-garen or Weequay into hand; reshuffle.'); banner, destiny unchanged. Slip text matches the stub. Lore corrected from scan: curly double quotes and curly apostrophe in a’kingsa (wiki straight single quotes). Base JP-D-banthafodder.gif (350 px only); copyright 1998 Hoth-style line legible. Modern: VB4-D-letspassonthat-pre.gif (350, Virtual Block 4).",
+ "game_text_lines": "During opponent’s control phase, your ferocious\ncreature attacks. At end of turn, if that creature is at\nan unoccupied site and did not move, opponent loses\n1 Force and you retrieve 1 Force. OR Use 3 Force to\nretrieve a creature."
+}

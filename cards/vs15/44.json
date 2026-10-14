@@ -1,0 +1,35 @@
+{
+ "number": "44",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Dark Reconnaissance",
+ "caption": "•Quietly Observing (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on opponent’s location. Wherever you have two Mistryl, your Force drains are +1. “Stolen” on Swilla Corey is treated as “placed in owner’s Used Pile” and it may target a weapon instead of a device. Your Force drains here cannot be modified or canceled by opponent.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "On her assignment to kill Sharad Hett, Aurra used her patience and cunning to help track down the Jedi Master.",
+ "destiny": "4",
+ "base_page": "Quietly Observing",
+ "art": {
+  "src": "src/vs15/44-Tat-D-quietlyobserving.gif",
+  "modern": "src/vs15/modern/44-VB4-D-darkreconnaissance-pre.gif"
+ },
+ "id": "vs15-44",
+ "virtual_set": 15,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Dark Reconnaissance (V)",
+ "base_title": "•Quietly Observing",
+ "grabber": false,
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Sheet group: Mistryl. COMBO / RENAMED CARD — TALL FULL-CARD OVERLAY (755×1099 crop) on the printed Dark Effect frame (red). Top to bottom: (1) TITLE BAR: the green Effect disc at the left (as printed), title '•Dark Reconnaissance' in the Decipher title face, destiny 4 (unchanged). (2) NO LORE BOX printed — the blank white art window starts under the title bar and runs to the banner; no ring icons, no copyright → lore, Tatooine ring + Episode I icon (ring_icons ['episode1']) and copyright stay from the printed Quietly Observing. (3) Banner EFFECT (no grabber box → grabber false); game text 5 lines in the black text box; no icon column; VS15 set sphere at the bottom right. (4) Bottom strip: caption '•Quietly Observing (V)' (the base card), number 44; heading above the slip '•Dark Reconnaissance (V)'. Stub page 'Dark Reconnaissance (V) (Virtual Set 15: Galactic Frontier)'. CHANGES vs Decipher Quietly Observing (Tatooine, Tat-D-quietlyobserving.gif 350 px): title '•Quietly Observing' → '•Dark Reconnaissance'; destiny 4, disc, banner unchanged; game text replaced (printed: 'Deploy on Aurra Sing. While Aurra is alone at a site, your total ability here = 0. During your move phase, may lose Effect to target an opponent's lightsaber present. Draw destiny. If destiny > 3, Aurra may 'steal' that lightsaber.'). Curly quotes “Stolen”, “placed in owner’s Used Pile”, curly apostrophes opponent’s / owner’s. Slip text matches the stub. Lore matches the wiki and the scan. Copyright read off the 350 px scan: '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' Modern: VB4-D-darkreconnaissance-pre.gif (350 px, Virtual Block 4 reissue of this card as a full card, keeps the Quietly Observing lore/art; non-pre also exists). V11-D-quietlyobserving.gif is a different Quietly Observing (V) (VS11).",
+ "game_text_lines": "Deploy on opponent’s location. Wherever you have two\nMistryl, your Force drains are +1. “Stolen” on Swilla\nCorey is treated as “placed in owner’s Used Pile” and\nit may target a weapon instead of a device. Your Force\ndrains here cannot be modified or canceled by opponent."
+}

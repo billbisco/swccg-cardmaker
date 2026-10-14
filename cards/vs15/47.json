@@ -1,0 +1,32 @@
+{
+ "number": "47",
+ "side": "Dark",
+ "slip_type": "Out Of Play Interrupt",
+ "card_type": "OUT OF PLAY INTERRUPT",
+ "title": "•Force Push",
+ "caption": "•Force Push (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During battle, use 2 Force to target your Dark Jedi and opponent’s character of equal or lesser ability present. Both targets are excluded from battle. OR Exchange two cards from hand with any one card from Force Pile; reshuffle.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A fully-trained Sith warrior has more weapons at his disposal than just a lightsaber.",
+ "destiny": "5",
+ "base_page": "Force Push",
+ "art": {
+  "src": "src/vs15/47-Ref3-D-forcepush.gif",
+  "modern": "src/vs15/modern/47-V0-D-forcepush.gif"
+ },
+ "id": "vs15-47",
+ "virtual_set": 15,
+ "expansion": "Reflections III",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "ring_icons": [
+  "episode1"
+ ],
+ "credit_bottom": "Original concept by North Dakota States Players, 2006",
+ "notes": "Sheet group: Everything else (Dark Side). Unique. Printed card is a Used Interrupt; slip banner OUT OF PLAY INTERRUPT. Curly apostrophe in opponent’s. One credit line printed below the text box (left, italic): 'Original concept by North Dakota States Players, 2006' → credit_bottom (single string, as vs13/07). Slip text matches the stub. Printed text was 'Target opponent’s Jedi with at least one combat card present with your Dark Jedi. … (Immune to Sense.)'. Lore matches the wiki. Ring icons right of the lore box on the printed card: Reflections III sphere and the black EPISODE I disc → ring_icons ['episode1']. Base Ref3-D-forcepush.gif (350 px only); copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' read off the scan. Modern: V0-D-forcepush.gif (745 px, PC Set 0 version — Lost Interrupt with different text, same credit; art only) and VB5-D-forcepush-pre.gif (350) downloaded.",
+ "game_text_lines": "During battle, use 2 Force to target your Dark Jedi\nand opponent’s character of equal or lesser ability\npresent. Both targets are excluded from battle. OR\nExchange two cards from hand with any one card\nfrom Force Pile; reshuffle."
+}

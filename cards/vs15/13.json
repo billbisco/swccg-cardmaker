@@ -1,0 +1,44 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•IL-19",
+ "caption": "M-HYD ‘Binary’ Droid (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "BINARY HYDROPONICS DROID",
+   ""
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "game_text": "May deploy without presence or Force icons. While at a non-Hoth site, adds one {light-force}. If just forfeited, may use 1 Force to place this droid in Used Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Droid",
+ "lore": "Pretentious hydroponics droid. Specializes in working with binary load lifters and vaporators. Proficient in a number of languages but prefers to converse only in binary.",
+ "destiny": "4",
+ "base_page": "M-HYD 'Binary' Droid",
+ "art": {
+  "src": "src/vs15/13-ANH-L-mhydbinarydroid.gif",
+  "modern": "src/vs15/modern/13-VB1-L-il19-pre.gif"
+ },
+ "id": "vs15-13",
+ "virtual_set": 15,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 11111001100 DECIPHER INC.",
+ "combo": true,
+ "heading": "•IL-19 (V)",
+ "base_title": "M-HYD ‘Binary’ Droid",
+ "credit_bottom": [
+  "Original concept by Kyle Krueger",
+  "Washington States 2005"
+ ],
+ "notes": "Sheet group: Everything else. COMBO CARD — TALL FULL-CARD OVERLAY (756×1104 crop). Top to bottom as the slip prints it on the printed card's silver droid frame: title bar with the gold droid disc (same as the printed card) and title '•IL-19'; destiny 4 in the hole; then a white blank area covering BOTH the lore box and the art window (and the expansion-ring position) — the slip prints no lore, so lore = the printed card's (wiki lore matches the 745 px scan exactly); stat row POWER 2 / BINARY HYDROPONICS DROID (wide box, label only); deploy 1 / forfeit 3; text box (4 lines); no column icons, VS15 set sphere only; credits printed horizontally in italics under the text box: left 'Original concept by Kyle Krueger', right 'Washington States 2005' → credit_bottom. Inline icon after 'adds one' = blue/white Light Side Force icon → {light-force} (stub 'Light Side Force icon'). Caption strip 'M-HYD ‘Binary’ Droid (V)' (curly single quotes, also in the PDF text layer); heading '•IL-19 (V)'. CHANGES vs Decipher M-HYD 'Binary' Droid (A New Hope, ANH-L-mhydbinarydroid.gif 745 px): title 'M-HYD ‘Binary’ Droid' → '•IL-19' (non-unique → unique); destiny 2 → 4; deploy 3 → 1, forfeit 5 → 3; POWER 2 and BINARY HYDROPONICS DROID unchanged; game text replaced (printed: 'Adds 2 to forfeit of each non-droid character at same and adjacent sites. At any time, any player may use 1 Force to turn M-HYD off (face down) or on again (face up).'); disc unchanged; no icons either way. Expansion ring on the printed card: A New Hope. COPYRIGHT: the printed card's vertical line reads 'TM & © 1996 LUCASFILM LTD. TM, ® & © 11111001100 DECIPHER INC.' — Decipher printed the year in BINARY (11111001100 = 1996) on this binary droid; digits counted from a pixel profile of the 745 px scan. The PC's later VB1-L-il19 (Virtual Block 1, 350 px) prints lore 'Spy.' and drops 'May deploy without presence or Force icons.' — a later revision, not this slip. Slip text matches the stub.",
+ "game_text_lines": "May deploy without presence or Force icons.\nWhile at a non-Hoth site, adds one {light-force}. If just\nforfeited, may use 1 Force to place this droid in\nUsed Pile."
+}

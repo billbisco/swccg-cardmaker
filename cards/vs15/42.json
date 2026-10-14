@@ -1,0 +1,47 @@
+{
+ "number": "42",
+ "side": "Dark",
+ "slip_type": "Combat Vehicle",
+ "card_type": "COMBAT VEHICLE: AT-AT",
+ "title": "•Cyclone 1",
+ "caption": "•••Dune Walker (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "7"
+  ],
+  [
+   "LANDSPEED",
+   "1"
+  ]
+ ],
+ "deploy": "7",
+ "forfeit": "7",
+ "game_text": "Power +1 for each Sandtrooper present. Permanent pilots provide total ability of 2. May add 7 passengers. Once per game, may ▼ a vehicle site or vehicle weapon aboard. Immune to attrition < 4.",
+ "icons": [
+  "permanent-pilot",
+  "permanent-pilot"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Enclosed armored transport adapted for hot climates by replacing tertiary weapons systems with additional Sienar _z23_ heat dissipation units.",
+ "destiny": "1",
+ "base_page": "Dune Walker",
+ "art": {
+  "src": "src/vs15/42-SE-D-dunewalker.gif",
+  "modern": "src/vs15/modern/42-VB1-D-cyclone1-pre.gif"
+ },
+ "id": "vs15-42",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Cyclone 1 (V)",
+ "base_title": "•••Dune Walker",
+ "notes": "Sheet group: Blockade. COMBO / RENAMED CARD — TALL FULL-CARD OVERLAY (755×1102 crop) on the printed card's blue Dark combat-vehicle frame. Top to bottom: (1) TITLE BAR: round disc at the left = the AT-AT combat-vehicle disc (yellow walker on dark), as on the printed Dune Walker; title '•Cyclone 1' in the Decipher title face (single dot); destiny 1 in the black hole (unchanged). (2) NO LORE BOX printed — the blank white art window starts right under the title bar (lore box area included) and runs down to the banner; no ring icons and no copyright line printed → lore, ring area and copyright stay from the printed card (lore from the base scan; the PC's VB1 Cyclone 1 also keeps Dune Walker's lore). (3) Banner COMBAT VEHICLE: AT-AT; stat boxes POWER 5 / ARMOR 7 / LANDSPEED 1 (values set right, as printed); scomp-link ring left of the text box → scomp true; deploy 7 / forfeit 7; game text 4 lines; icon column top to bottom: two yellow DS pilot icons (permanent pilots — 'Permanent pilots provide total ability of 2') → ['permanent-pilot','permanent-pilot']; then the VS15 set sphere. (4) Bottom strip: caption '•••Dune Walker (V)' (the base card), number 42; heading above the slip '•Cyclone 1 (V)'. Stub page 'Cyclone 1 (V) (Virtual Set 15: Galactic Frontier)'. CHANGES vs Decipher Dune Walker (Special Edition, SE-D-dunewalker.gif 350 px): title '•••Dune Walker' → '•Cyclone 1' (restricted ••• → unique •); destiny 1, disc, banner, POWER 5 / ARMOR 7 / LANDSPEED 1, deploy 7 unchanged; forfeit 6 → 7; game text replaced (printed: 'Deploy -1 to a desert or Tatooine site. May add 1 pilot and 6 passengers. Immune to attrition < 4. Landspeed may not be increased. Permanent pilot provides ability of 1.'); icon column one permanent pilot → two. LORE CORRECTED from the scan: printed 'Sienar z23' (wiki 't23'); 'z23' appears italic on the printed scan and is clearly italic on the VB1 remake → _z23_. 'Enclosed' is plain on the 350 px printed scan (Hoth AT-ATs print it bold; here not visible) — left plain. Copyright SE line roughly legible. Modern: VB1-D-cyclone1-pre.gif (350 px, Virtual Block 1 reissue of this slip as a full card; non-pre also exists). VB6-D-cyclonewalker is a different card.",
+ "game_text_lines": "Power +1 for each Sandtrooper present. Permanent\npilots provide total ability of 2. May add 7\npassengers. Once per game, may ▼ a vehicle site\nor vehicle weapon aboard. Immune to attrition < 4."
+}

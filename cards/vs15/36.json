@@ -1,0 +1,45 @@
+{
+ "number": "36",
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: MODIFIED LIGHT FREIGHTER",
+ "title": "YT-1300 Transport",
+ "caption": "YT-1300 Transport (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "May add 1 pilot and 4 passengers. Permanent pilot provides ability of 1. While all your ability is provided by aliens, Jedi, and {independent} starship pilots, this starship is forfeit +1, maneuver +1, and immune to attrition < 4.",
+ "icons": [
+  "independent",
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Reliable and durable, Widely used freighter made by Corellian Engineering Corporation. Sales have dramatically increased in proportion to the fame of Han Solo’s ship.",
+ "destiny": "3",
+ "base_page": "YT-1300 Transport",
+ "art": {
+  "src": "src/vs15/36-Endor-L-yt1300transport.gif",
+  "modern": "src/vs15/modern/36-VB4-L-yt1300transport-pre.gif"
+ },
+ "id": "vs15-36",
+ "virtual_set": 15,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Sheet group: Rebel Cell. Non-unique (no dot). Slip heading prints 'YT-1300 Transport  (V)' with a double space; caption 'YT-1300 Transport (V)'. Banner STARFIGHTER: MODIFIED LIGHT FREIGHTER. Stats POWER 2 / MANEUVER 3 / HYPERSPEED 5 (as printed); deploy 2 / forfeit 4 (printed 3 / 5). Scomp-link ring → scomp true. Inline icon before 'starship pilots' is the blue spoked wheel = Independent → {independent}; the STUB READS IT AS 'Rebel' — wrong. Icon column top to bottom: independent (blue wheel), pilot helmet on yellow (permanent pilot — 'Permanent pilot provides ability of 1'), nav computer (red, astromech dome); printed card: Pilot, Nav Computer, Independent. LORE: printed 'Reliable and durable, Widely used…' — the scan shows a COMMA after 'durable' before a capital W (Decipher misprint; wiki has a period) — kept as printed, confirm on a better scan (350 px only; the VB4 remake shows the same comma). Curly apostrophe in Solo’s assumed (350 px, not certain). Copyright Endor line ('© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.') roughly legible. Modern: Virtual Block 4 only (VB4-L-yt1300transport-pre.gif, 350 px; non-pre also exists).",
+ "game_text_lines": "May add 1 pilot and 4 passengers. Permanent pilot\nprovides ability of 1. While all your ability is provided\nby aliens, Jedi, and {independent} starship pilots, this starship is\nforfeit +1, maneuver +1, and immune to attrition < 4."
+}

@@ -316,3 +316,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   [Republic]"), the SQUARE lavender tile = "Republic" under Other Features (starship icon column, Radiant VII; inline
   for starships: Black 3 (V), Diversionary Tactics (V)). `{icon:republic-square}` inline, column icon `republic` =
   col-republic.png (Game Aid g037). The column "republic" had been mapped to the maintenance icon by mistake.
+- Rev 28 (VS15 run 2026-10-14): `text_grow` (tall slips whose banner and text box sit higher: the frame's art
+  bottom, banner and text-box top slide up, the box stretches — Anger, Fear, Aggression (V), Knowledge And Defense
+  (V), Uncharted Settlements (V), Abyssin Ornament (V)); no-lore-box base cards (Reflections II combos) take the scan's
+  own art rectangle (`art.rect`) into the window above the raised banner; landscape site slip line breaks recorded
+  (`game_text_lines`/`dark_text_lines`); stat values never wrap (Brainiac "X-Y"). Wiki: no stub moves when the stub
+  already carries the slip's name (VS15 stubs were named by the slips); slip-printed lore that replaces the base
+  card's lore (Shada, The Mandalorian) is never written onto the Decipher base page.

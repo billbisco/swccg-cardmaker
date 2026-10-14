@@ -1,0 +1,47 @@
+{
+ "number": "62",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Shada",
+ "caption": "•Tonnika Sisters (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "6",
+ "game_text": "May deploy Shada and {ovs} No Bargain instead of Xizor with your {set:reflections2} objective. While that Effect on table, Force loss from your {set:reflections2} objective is +1 and, once per turn, may lose 1 Force to add a battle destiny anywhere. Immune to attrition < 4.",
+ "icons": [
+  "warrior",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Female spy and thief.",
+ "destiny": "2",
+ "base_page": "Tonnika Sisters",
+ "art": {
+  "src": "src/vs15/62-Premiere-D-tonnikasisters-decipher-archive.gif",
+  "modern": "src/vs15/modern/62-VB4-D-shada-pre.gif"
+ },
+ "id": "vs15-62",
+ "virtual_set": 15,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Shada (V)",
+ "base_title": "•Tonnika Sisters",
+ "notes": "Group: Mistryl. COMBO / FULL-CARD OVERLAY (756×1102) on the grey Dark character frame. Title '•Shada', destiny 2, Alien disc — the slip's disc shows ONE pair of glowing eyes, the printed Tonnika Sisters disc shows two pairs (twins); LORE PRINTED ON THE SLIP: 'Female spy and thief.' (one line, plain weight — no visible bold) → the slip's lore replaces the printed 'Twins. Thieves. Con artists. Spies. Swindlers. Double agents. Brea and Senni use their natural charm to sway the unwary on the fringe of society.' (the VB4 reissue prints the same new lore). No ring icon right of the lore box (Premiere). White window = art only. POWER 4 / ABILITY 4 / FORCE-SENSITIVE; deploy 4 / forfeit 6; icon column: two Warrior icons in one tall box (as printed). Inline: gold/brown sphere before 'No Bargain' = the VS15 set sphere → {ovs} (No Bargain (V) is VS15 #56); purple silver-rimmed sphere before 'objective' (twice) = Reflections II → {set:reflections2} (stub drops both icons). Caption '•Tonnika Sisters (V)'. CHANGES vs Decipher Tonnika Sisters (Premiere): title; lore; disc (one pair of eyes); POWER 2 → 4, ABILITY 2 → 4, + FORCE-SENSITIVE; deploy 2 → 4, forfeit 2 → 6; printed landspeed none shown; game text replaced (printed: 'Twice each turn during your control phase, you may use 2 Force to draw 2 destiny for 2 chances at a destiny = 2. If successful, may steal or destroy up to 2 weapons or 2 devices present. (Sisters are targeted as one character, but require double Force to move.)'); destiny 2 and warrior×2 unchanged. art.src = the 350×490 decipher-archive scan (square-on printed face); the other wiki scan Premiere-D-tonnikasisters.gif (348×488) is the PC errata face ('E', different text) — not used. Copyright Premiere 1995 by rule (not legible). Modern: VB4-D-shada-pre.gif (same text).",
+ "game_text_lines": "May deploy Shada and {ovs} No Bargain instead of\nXizor with your {set:reflections2} objective. While that Effect on\ntable, Force loss from your {set:reflections2} objective is +1 and,\nonce per turn, may lose 1 Force to add a battle\ndestiny anywhere. Immune to attrition < 4."
+}

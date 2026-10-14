@@ -1,0 +1,41 @@
+{
+ "number": "21",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Owen Lars",
+ "caption": "•Owen Lars (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Opponent activates no Force from Beru Stew. While present with Lars’ Vaporator: during your control phase, may use 3 Force to exchange one card from hand with one ‘crop’ card; cards with “lightsaber” in title may not deploy here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Guardian of Luke Skywalker. Husband of Beru Lars. Brother of Obi-Wan Kenobi. Farmer of moisture. Disapprover of Luke's desire to leave Tatooine.",
+ "destiny": "2",
+ "base_page": "Owen Lars (Original)",
+ "art": {
+  "src": "src/vs15/21-Premiere-L-owenlars.gif",
+  "modern": "src/vs15/modern/21-VB1-L-owenlars-pre.gif"
+ },
+ "id": "vs15-21",
+ "virtual_set": 15,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Sheet group: Farming. Unique. Stats POWER 1 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 2 / forfeit 4 (same as printed). Curly ’ in Lars’ Vaporator, ‘crop’, “lightsaber”. No inline icons; icon column empty (set sphere only). Rebel (Rebel disc). No credits. Slip text matches the stub. Base: default page = Glossary 2.0 errata → 'Owen Lars (Original)' (Premiere; same lore/destiny). The 745 px Premiere-L-owenlars.gif is the D-E1 errata face — art only (art.src); printed face Premiere-L-owenlars-decipher-archive.gif (350×490 square-on) also downloaded. Lore matches the 745 scan; the apostrophe in Luke's prints as a straight tick (Premiere typesetting) — kept straight. Copyright 1995 legible. Modern: VB1-L-owenlars-pre.gif (350) only.",
+ "game_text_lines": "Opponent activates no Force from Beru Stew.\nWhile present with Lars’ Vaporator: during your\ncontrol phase, may use 3 Force to exchange one\ncard from hand with one ‘crop’ card; cards with\n“lightsaber” in title may not deploy here."
+}

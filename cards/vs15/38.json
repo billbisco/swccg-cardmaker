@@ -1,0 +1,44 @@
+{
+ "number": "38",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Arica",
+ "caption": "•Arica (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "5"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "7",
+ "game_text": "Power +1 on Tatooine. Once per game, during your move phase, may relocate Arica to Luke’s location. During your control phase, if present at a battleground (and Luke is not), may retrieve 1 Force. Immune to Undercover and attrition < 4.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien + Imperial",
+ "lore": "Mara Jade posed as a dancer at Jabba’s Palace in an attempt to complete her master’s task and kill Luke. *Musician*. *Spy*. Unable to convince Jabba to take her on his skiff.",
+ "destiny": "1",
+ "base_page": "Arica",
+ "art": {
+  "src": "src/vs15/38-Ref2-D-arica.gif",
+  "modern": "src/vs15/modern/38-V0-D-arica.gif"
+ },
+ "id": "vs15-38",
+ "virtual_set": 15,
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 4 / ABILITY 5 / FORCE-SENSITIVE (label only), deploy 5 / forfeit 7 — all as printed. Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, blaster) — as printed. Affiliation: two discs top-left on the printed card, alien (eyes) and Imperial → 'Alien + Imperial' (wiki subtype Alien/Imperial). No credits on this slip. Curly apostrophe Luke’s. Slip text matches the stub. LORE CORRECTED from the 745 px scan: curly apostrophes Jabba’s, master’s; 'Musician' and 'Spy' printed BOLD (periods plain) → *Musician*. *Spy*. Base scan Ref2-D-arica.gif is 745 px but tagged D-E1 at the corner (PC errata face: its game text prints “break cover” in double quotes where the wiki printed text has 'break cover') — the only Decipher scan; used as src, lore/art as printed. Copyright legible: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' Modern: V0-D-arica.gif (745 px, Virtual Set 0 — same game text as this slip); VB4-D-arica-pre (353) also exists, not downloaded.",
+ "game_text_lines": "Power +1 on Tatooine. Once per game, during\nyour move phase, may relocate Arica to Luke’s\nlocation. During your control phase, if present at\na battleground (and Luke is not), may retrieve 1\nForce. Immune to Undercover and attrition < 4."
+}

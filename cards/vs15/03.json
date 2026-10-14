@@ -1,0 +1,28 @@
+{
+ "id": "vs15-03",
+ "number": "03",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "Artillery Remote",
+ "caption": "Artillery Remote (V)",
+ "game_text": "Use 2 Force to deploy on your warrior. Your artillery weapons at same and related sites are Heroic and may be targeted by weapons like a vehicle (use armor = 4). May place this device in Used Pile to add 2 to a just drawn artillery weapon destiny.",
+ "lore": "Although artillery weapons have a manual firing mechanism, this optional device allows weapons operation from a remote location. Uses coded signals.",
+ "destiny": "4",
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Artillery Remote",
+ "art": {
+  "src": "src/vs15/03-Hoth-L-artilleryremote.gif",
+  "modern": "src/vs15/modern/03-VB2-L-artilleryremote-pre.gif"
+ },
+ "notes": "Group: Everything else. Not unique (no dot). Slip text matches the stub. No credits. Lore matches the scan. Base scan 350 px only; Hoth 1996 copyright by set (line not legible). Modern: VB2 -pre only (350 px).",
+ "game_text_lines": "Use 2 Force to deploy on your warrior. Your artillery\nweapons at same and related sites are Heroic and may\nbe targeted by weapons like a vehicle (use armor = 4).\nMay place this device in Used Pile to add 2 to a just\ndrawn artillery weapon destiny."
+}

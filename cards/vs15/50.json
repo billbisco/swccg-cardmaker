@@ -1,0 +1,42 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "Imperial Entanglements",
+ "caption": "Ralltiir Operations (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Deploy Tatooine (with Devastator there) and a non-Jabba’s Palace Tatooine battleground site._ *For* remainder of game, you may not deploy systems, non-Imperial characters, non-Imperial starships, or Jabba’s Palace sites. *While* this side up, once per turn, may ▼ a Tatooine battleground site. Opponent loses no Force to Tatooine Occupation or your Force drains at Tatooine system. *Flip* this card if you control three Tatooine sites and opponent controls less than three Tatooine sites.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Ralltiir Operations / In The Hands Of The Empire",
+ "art": {
+  "src": "src/vs15/50-SE-D-ralltiiroperations.gif",
+  "modern": "src/vs15/modern/50-V1-D-imperialentanglements.gif"
+ },
+ "id": "vs15-50",
+ "virtual_set": 15,
+ "title_back": "No One To Stop Us This Time",
+ "caption_back": "In The Hands Of The Empire (V)",
+ "game_text_back": "*While* this side up, wherever you have a trooper ‘riding’ a dewback, add one battle destiny. {ovs:2} Local Trouble may be played at exterior Tatooine sites. Once during your control phase, may peek at the top X cards of your Reserve Deck, where X = number of Tatooine locations you occupy; take one into hand and reshuffle. Opponent’s characters require +1 Force to move from Tatooine sites using their landspeed. *Flip* this card if opponent controls more Tatooine sites than you.",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs15/50-SE-D-inthehandsoftheempire.gif",
+  "modern": "src/vs15/modern/50-V1-D-noonetostopusthistime.gif"
+ },
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "Imperial Entanglements (V)",
+ "heading_back": "No One To Stop Us This Time (V)",
+ "base_title": "Ralltiir Operations",
+ "base_title_back": "In The Hands Of The Empire",
+ "notes": "Sheet group: Blockade (Dark Side). COMBO OBJECTIVE — two TALL FULL-CARD OVERLAYS (front 50-, back 50b-) on the purple Dark Objective frame: title bar with the DS Objective disc (white starburst on black), titles 'Imperial Entanglements' (destiny 0) / 'No One To Stop Us This Time' (destiny 7), non-unique; blank white art window (no lore, as on any Objective); text box; VS15 set sphere. Captions name the base: front 'Ralltiir Operations (V)', back 'In The Hands Of The Empire (V)', both number 50. Front: italic deploy sentence, bold For/While/Flip, ▼ (stub expands). 'Devastator' is NOT italic in the text (as printed). Back: bold While/Flip; the inline orange sphere before 'Local Trouble' matches assets/icons/ovs-set-2.png (Local Trouble (V) is a Virtual Set 2 card) → {ovs:2} (the stub drops it); curly ‘riding’ and apostrophes as printed. CHANGES vs Decipher Ralltiir Operations / In The Hands Of The Empire (Special Edition): both titles renamed; destinies 0 / 7 unchanged; both texts replaced (printed front: 'Deploy Ralltiir system. While this side up, once during each of your deploy phases, may deploy from Reserve Deck to Ralltiir one site or non-unique Imperial; reshuffle. …'; printed back: 'While this side up, opponent’s Force drains are -1. …'). Wiki stub: 'Imperial Entanglements (V) / No One To Stop Us This Time (V) (Virtual Set 15: Galactic Frontier)'; base page 'Ralltiir Operations / In The Hands Of The Empire' (neither 'Ralltiir Operations' nor 'In The Hands Of The Empire' exists as its own page). Base scans SE-D-ralltiiroperations.gif / SE-D-inthehandsoftheempire.gif (350 px only); SE copyright 1998. Modern: V1-D-imperialentanglements.gif / V1-D-noonetostopusthistime.gif (745 px, the PC's later Virtual Set 1 version of this objective — text may differ, art reference only) and VB1 -pre reissues (350; they keep the Ralltiir art) downloaded.",
+ "game_text_lines": "_Deploy Tatooine (with Devastator there) and a non-Jabba’s\nPalace Tatooine battleground site._\n*For* remainder of game, you may not deploy systems,\nnon-Imperial characters, non-Imperial starships, or\nJabba’s Palace sites.\n*While* this side up, once per turn, may ▼ a Tatooine\nbattleground site. Opponent loses no Force to Tatooine\nOccupation or your Force drains at Tatooine system.\n*Flip* this card if you control three Tatooine sites and\nopponent controls less than three Tatooine sites.",
+ "game_text_back_lines": "*While* this side up, wherever you have a trooper\n‘riding’ a dewback, add one battle destiny. {ovs:2} Local\nTrouble may be played at exterior Tatooine sites. Once\nduring your control phase, may peek at the top X cards\nof your Reserve Deck, where X = number of Tatooine\nlocations you occupy; take one into hand and reshuffle.\nOpponent’s characters require +1 Force to move from\nTatooine sites using their landspeed.\n*Flip* this card if opponent controls more Tatooine sites\nthan you."
+}

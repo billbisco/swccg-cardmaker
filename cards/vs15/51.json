@@ -1,0 +1,39 @@
+{
+ "number": "51",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Imperial Pilot",
+ "caption": "Imperial Pilot (V)",
+ "stats": [
+  [
+   "POWER",
+   "0"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "2",
+ "game_text": "{pilot:2}. Matching pilot for TIE Avenger. While piloting a TIE: it is maneuver +2, it moves for free, and when this character is just lost, may use 1 Force to place her in Used Pile. Corvettes are deploy +1 here.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Among the Empire’s best pilots. Loyal and fearless. Use superior numbers to overwhelm opponents. Trained under combat conditions. Wear sealed, high-gravity flight suits.",
+ "destiny": "3",
+ "base_page": "Imperial Pilot",
+ "art": {
+  "src": "src/vs15/51-Premiere-D-imperialpilot-decipher-archive.gif",
+  "modern": "src/vs15/modern/51-VB1-D-imperialpilot-pre.gif"
+ },
+ "id": "vs15-51",
+ "virtual_set": 15,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Sheet group: Blockade (Dark Side). Non-unique. Stats POWER 0 / ABILITY 2; the third stat box is printed empty (as on the printed card) → not recorded. Deploy 1 (printed 2) / forfeit 2. Text opens with the yellow DS pilot-power icon + '2.' → {pilot:2} (stub omits it). 'her' as printed. Icon column: pilot (DS helmet on yellow). Imperial (grey Imperial frame, Imperial disc). Printed text was '* Power = 0 when at any site, but adds 2 to power of any starship he pilots.' Wiki 'Imperial Pilot' = printed archive face (PC Errata page separate). Lore corrected: curly apostrophe in Empire’s. The 745 px Premiere-D-imperialpilot.gif is tagged D-E1 (errata face 'Adds 2 to power of anything he pilots.') — downloaded to src/vs15/51-Premiere-D-imperialpilot.gif for art only; src = the 350 px decipher-archive printed face. Copyright 1995 legible. Modern: Virtual Block 1 only (VB1 -pre, 350).",
+ "game_text_lines": "{pilot:2}. Matching pilot for TIE Avenger. While\npiloting a TIE: it is maneuver +2, it moves for\nfree, and when this character is just lost, may use\n1 Force to place her in Used Pile. Corvettes are\ndeploy +1 here."
+}

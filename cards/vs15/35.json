@@ -1,0 +1,44 @@
+{
+ "number": "35",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Wes Janson",
+ "caption": "•Wes Janson (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "{pilot:2}. While piloting Red 3, it gains {nav} and Wes draws one battle destiny if unable to otherwise. While aboard a starship or vehicle, its total weapon destiny is +1; if with Jek and it hits a target, opponent loses 1 Force from Reserve Deck.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Served for many years as a gunner with friend Jek Porkins in the Tierfon Yellow Aces. Expert marksmanship helped the Alliance earn some of its earliest victories.",
+ "destiny": "2",
+ "base_page": "Wes Janson (Original)",
+ "art": {
+  "src": "src/vs15/35-Hoth-L-wesjanson-decipher-archive.gif",
+  "modern": "src/vs15/modern/35-VB4-L-wesjanson-pre.gif"
+ },
+ "id": "vs15-35",
+ "virtual_set": 15,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Alexander Sheynis",
+  "Berkeley V-Lite 2005"
+ ],
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 2 / ABILITY 2, third box empty; deploy 2 / forfeit 5 (same as printed). Yellow LS pilot icon + '2.' → {pilot:2}. Inline icon after 'it gains' is the red square with an astromech dome = Nav Computer → {nav}; the STUB READS IT AS 'shields' — wrong. 'Red 3' not italic on the slip. Icon column top to bottom: pilot, warrior (printed card: Warrior only). Rebel. Credits under the text box: 'Original concept by Alexander Sheynis' / 'Berkeley V-Lite 2005' → credit_bottom. Wiki default 'Wes Janson' is the Glossary 2.0 errata; printed face = 'Wes Janson (Original)' (Hoth-L-wesjanson-decipher-archive.gif, 350 px, src); Hoth-L-wesjanson.gif (350, same face) also downloaded. Lore matches the wiki and the scans (350 px only). Copyright 1996 (Hoth) legible enough. Modern: Virtual Block 4 only (VB4-L-wesjanson-pre.gif, 350 px; non-pre also exists).",
+ "game_text_lines": "{pilot:2}. While piloting Red 3, it gains {nav} and Wes\ndraws one battle destiny if unable to otherwise.\nWhile aboard a starship or vehicle, its total weapon\ndestiny is +1; if with Jek and it hits a target,\nopponent loses 1 Force from Reserve Deck."
+}

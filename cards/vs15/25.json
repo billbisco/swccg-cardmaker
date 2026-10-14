@@ -1,0 +1,43 @@
+{
+ "number": "25",
+ "slip_type": "Site",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "side": "Light",
+ "card_type": "◊REBEL CELL - SITUATION ROOM",
+ "title": "◊Rebel Cell - Situation Room",
+ "caption": "•Yavin 4: Briefing Room (V)",
+ "base_title": "•Yavin 4: Briefing Room",
+ "game_text": "Deploys only to same planet system as Rebel Cell - Hidden Landing Site. For each of your characters here, your power is +1 at related system.",
+ "dark_text": "For each of your characters here, your power is +1 at related system.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "base_page": "Yavin 4: Briefing Room",
+ "art": {
+  "src": "src/vs15/25-ANH-L-yavin4briefingroom.gif",
+  "modern": "src/vs15/modern/25-VB4-L-rebelcellsituationroom-pre.gif"
+ },
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "game_text_lines": "Deploys only to same planet system as Rebel Cell - Hidden Landing Site. For each of your\ncharacters here, your power is +1 at related system.",
+ "dark_text_lines": "For each of your characters here, your power is +1 at related system.",
+ "notes": "Group: Rebel Cell. FULL portrait site overlay printed sideways that RENAMES the site: bars '◊ REBEL CELL - SITUATION ROOM' (hollow ◊, red on Light bar, white on Dark bar). Art window blank. Light half (right) = game_text, Dark half (left) = dark_text. One blue saber; Dark bar ALSO prints one red saber (the printed Briefing Room has no Dark Force icon — the slip adds it). Icon boxes both bars, outermost first: planet, exterior (sky with suns), interior (beige room); NO scomp ring (the printed card has scomp on both halves and no exterior icon — the slip drops scomp and adds exterior). Bottom margin: VS15 set sphere only → icons []; the printed card's ANH ring is not on the slip. CHANGES vs printed Yavin 4: Briefing Room (A New Hope, unique •; Light 'If you control, with a leader here, may add 1 to total of Attack Run.' / Dark 'If you control, Force drain +1 here and subtract 1 from total of Attack Run.'): renamed ◊, both texts replaced, icons as above. Slip text matches the stub. Base 490×350 only; copyright ANH 1996 read off the scan. Modern: VB4-L-rebelcellsituationroom-pre.gif (Virtual Block 4; art only).",
+ "id": "vs15-25",
+ "virtual_set": 15
+}

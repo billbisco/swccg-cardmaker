@@ -1,0 +1,29 @@
+{
+ "id": "vs15-01",
+ "number": "01",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "slip_type": "Starting Effect",
+ "card_type": "STARTING EFFECT",
+ "title": "•Anger, Fear, Aggression",
+ "caption": "•Anger, Fear, Aggression (V)",
+ "game_text": "Deploy on table with 12 cards from outside your deck face-down under here. Thrice per game, may play a Defensive Shield or deploy (at any time) {ovs:9} The Professor from here (as if from hand). Players do not draw or activate using Drop!. Unless {ovs} Knowledge And Defense on table, each time a player attempts to ▼ or ▲ a card for free (except their first time per game) they must first use 1 Force.",
+ "lore": "“The dark side of the Force are they. Easily they flow, quick to join you in a fight.”",
+ "destiny": "4",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Anger, Fear, Aggression",
+ "art": {
+  "src": "src/vs15/01-Dagobah-L-angerfearaggression.gif",
+  "modern": "src/vs15/modern/01-V0-L-angerfearaggression.gif"
+ },
+ "notes": "Group: Everything else. Unique (•). STARTING EFFECT banner (printed card is an Effect; frame red Effect). Inline spheres: before 'The Professor' a blue-white-violet sphere matching assets/icons/ovs-set-9.png → {ovs:9} (The Professor (V) is Virtual Set 9); before 'Knowledge And Defense' the gold VS15 sphere = this slip's own set symbol → {ovs} (Knowledge And Defense (V) is VS15 #52). Slip text matches the stub (stub expands ▼/▲ and names the spheres). 'Drop!.' printed with both '!' and '.'. No credits. LORE CORRECTION: wiki uses single straight quotes; printed card (350 px scan and the PC's 745 px V0 remake) prints curly double quotes “…”. Base scan only 350 px; copyright read on V0 remake (1997). Modern: V0-L-angerfearaggression.gif (745 px; a later PC version, art same); VB4-L-angerfearaggression-pre.gif also exists (not downloaded).",
+ "game_text_lines": "Deploy on table with 12 cards from outside your deck\nface-down under here. Thrice per game, may play a\nDefensive Shield or deploy (at any time) {ovs:9} The\nProfessor from here (as if from hand). Players do not\ndraw or activate using Drop!. Unless {ovs} Knowledge And\nDefense on table, each time a player attempts to ▼ or ▲\na card for free (except their first time per game)\nthey must first use 1 Force.",
+ "text_grow": 300
+}

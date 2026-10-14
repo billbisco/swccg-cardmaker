@@ -1,0 +1,28 @@
+{
+ "number": "64",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Stunning Leader",
+ "caption": "Stunning Leader (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to ▼ (or retrieve) a Mistryl. OR If your Mistryl present during battle, use 1 Force to reveal the top three cards of opponent’s Reserve Deck. Add the destiny number of the highest-destiny male revealed (if any) to your total power. Replace revealed cards.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Stormtroopers are trained to stun, not kill, priority targets in order to split enemy forces and hold the leaders for interrogation. Stun effects wear off, requiring efficient action.",
+ "destiny": "4",
+ "base_page": "Stunning Leader (Original)",
+ "art": {
+  "src": "src/vs15/64-ANH-D-stunningleader.gif",
+  "modern": "src/vs15/modern/64-VB4-D-stunningleader-pre.gif"
+ },
+ "id": "vs15-64",
+ "virtual_set": 15,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Group: Mistryl. Not unique. Bottom-half slip, banner USED INTERRUPT (printed: LOST INTERRUPT). The slip prints ▼ (down triangle) before '(or retrieve)'; the stub expands it as 'Take into hand from Reserve Deck; reshuffle' (the ▲ expansion) while its note says 'Down-triangle' — the slip clearly shows ▼ (zoomed). Curly apostrophe in opponent’s. The default wiki 'Stunning Leader' page = the Original face. Scans: ANH-D-stunningleader-decipher-archive.gif is a 367×506 photo of the printed card (used only to read lore/copyright); ANH-D-stunningleader.gif (350×490) is the PC ERRATA face ('E', text 'If a battle was just initiated…') — same art, used as art.src for art only. Lore matches the printed card. Copyright ANH 1996 by rule. Modern: VB4-D-stunningleader-pre.gif (same text).",
+ "game_text_lines": "Use 1 Force to ▼ (or retrieve) a Mistryl. OR If your\nMistryl present during battle, use 1 Force to reveal the\ntop three cards of opponent’s Reserve Deck. Add the\ndestiny number of the highest-destiny male revealed\n(if any) to your total power. Replace revealed cards."
+}
