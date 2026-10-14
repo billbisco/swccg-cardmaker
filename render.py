@@ -593,6 +593,48 @@ LOC_ICON_FILES = {k: f"icon-{k}.png" for k in
                   ("grabber", "underground", "interior", "planet", "space", "exterior", "underwater", "creature", "mobile", "starship", "vehicle")}
 
 
+def nolore_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
+    """Tall slip over a printed card WITHOUT a lore box (Reflections II combos: Abyssin Ornament & Wounded Wookiee (V),
+    Uncharted Settlements (V)). Bill 2026-10-14: start from the base card's frame and build the taller card from the
+    bottom. Top = the no-lore frame of the base card's family (title bar, chamfered window corners under it):
+    Bardez's scratched LS Epic Objective frame recoloured to the LS Effect red (ls-nolore-top.png) or the Dark
+    no-lore red frame (ds-effect-tall.png); bottom = this template's own frame (window bottom edge, banner, text box),
+    raised by `text_grow`; window sides stretched between; the card-type disc and destiny hole are this template's."""
+    import numpy as np
+    D = int(card.get("text_grow") or 0)
+    ax, ay, aw, ah = t["art"]; gx, gy, gw, gh = t["game_text"]
+    c = Image.new("RGBA", (1632, 2220), (0, 0, 0, 0)); c.alpha_composite(Image.open(fr).convert("RGBA"), (fx, fy))
+    F = np.array(c)
+    light = card.get("side") == "Light"
+    T = np.array(Image.open(ASSETS / ("frames/ls-nolore-top.png" if light else "frames/ds-effect-tall.png")).convert("RGBA"))
+    Wt, Wtb = (377, 1265) if light else (379, 1085)
+    Wb = ay + ah
+    G = np.zeros_like(F)
+    k = Wt + 170
+    G[:k] = T[:k]
+    b0 = Wb - 40
+    G[b0 - D:gy + 30 - D] = F[b0:gy + 30]
+    if D:
+        G[gy + 30 - D:gy + 30] = np.array(Image.fromarray(F[gy + 40:gy + gh - 40]).resize((F.shape[1], D), Image.LANCZOS))
+    G[gy + 30:] = F[gy + 30:]
+    X = 40   # cross-fade the stretched top frame into the bottom frame over X rows (no seam)
+    mid = np.array(Image.fromarray(T[k:Wtb - 60]).resize((F.shape[1], b0 - D - k + X), Image.LANCZOS)).astype(float)
+    G[k:b0 - D] = mid[:b0 - D - k].astype(np.uint8)
+    w = np.linspace(1, 0, X)[:, None, None]
+    G[b0 - D:b0 - D + X] = (mid[b0 - D - k:] * w + G[b0 - D:b0 - D + X].astype(float) * (1 - w)).round().astype(np.uint8)
+    # the template's own disc and destiny hole, with their bevels, over the top frame's
+    yy, xx = np.mgrid[0:G.shape[0], 0:G.shape[1]]
+    for cx, cy, r in t.get("nolore_holes", [(258, 230, 80), (t["destiny"][0] + t["destiny"][2] // 2, t["destiny"][1] + t["destiny"][3] // 2, 80)]):
+        m = (xx - cx) ** 2 + (yy - cy) ** 2 <= r * r
+        G[m] = F[m]
+    p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
+    t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
+             game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, Wt - 10, aw, Wb - D + 6 - (Wt - 10)))
+    if "banner_icon" in t:
+        t["banner_icon"] = (t["banner_icon"][0], t["banner_icon"][1] - D)
+    return p, t, 0, 0
+
+
 def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     """A tall slip (VS15 Anger, Fear, Aggression (V), Knowledge And Defense (V)): the slip's banner sits higher and its
     text box is taller, as the PC's own reissues print it (V0 Knowledge And Defense): the art window gets shorter with
@@ -854,7 +896,9 @@ def build_html(card: dict) -> str:
     else:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
-        if card.get("text_grow"):
+        if card.get("text_grow") and card.get("no_lore_box"):
+            fr, t, fx, fy = nolore_frame(card, t, fr, fx, fy)
+        elif card.get("text_grow"):
             fr, t, fx, fy = grown_frame(card, t, fr, fx, fy)
     ax, ay, aw, ah = t["art"]
     art = art_crop(card) if card.get("art") else ""

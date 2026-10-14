@@ -333,3 +333,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
 - Rev 30 (Bill 2026-10-14): merged window on no-lore-box base cards (Reflections II combos) starts just under the
   title bar (lore top + 5) and its top corners are chamfered (corner rows sheared, 100 px at 45°) as the printed
   card shows them.
+- Rev 31 (Bill 2026-10-14, "start with the base card frame and build the taller card from the bottom"): tall slips
+  over printed cards WITHOUT a lore box use `nolore_frame()`: the top is the no-lore frame of the base card's family
+  (LS: Bardez's scratched LS Epic Objective frame recoloured to the LS Effect red → `ls-nolore-top.png`; DS:
+  `ds-effect-tall.png`) — title bar and the chamfered window corners exactly as the printed Reflections II combos;
+  the bottom (window bottom edge, banner, text box) is the template's own frame raised by `text_grow`; the window
+  sides between are stretched and cross-faded (40 rows); the template's card-type disc and destiny hole are pasted
+  back. Replaces the rev 30 corner shear.
