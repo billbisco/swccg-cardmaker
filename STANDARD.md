@@ -302,3 +302,6 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   the Light text box is the box interior (`ls_text` y 1344, h 86) so one line sits centred; `game_text_lines` /
   `dark_text_lines` carry the slip's line breaks (no re-wrapping); a two-line half gets the slip's taller text box
   (+28 px, bar and icons slide toward the art, `loc_grow`). Bar titles 57 px, 2 px tracking; text 56/58 px.
+- Rev 25 (Bill 2026-10-14): Dark locations (remaster and V-slip) are shown from the Dark Side's seat, as Decipher
+  prints them: the card is turned 180° (Dark half, icons, copyright and set sphere at the bottom/left), the picture
+  stays upright and the caption strip stays in the bottom margin; landscape slips turn the body +90° for Dark cards.

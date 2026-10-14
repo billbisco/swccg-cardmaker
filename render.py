@@ -1168,6 +1168,20 @@ def render(card: dict) -> tuple[Path, Path]:
         pg.wait_for_function("document.body.dataset.ready==='1'")
         pg.locator("#card").screenshot(path=str(master))
         b.close()
+    if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
+        # Dark locations are shown from the Dark Side's seat, as Decipher prints them (Executor: Comm Station): the
+        # whole card turned 180° (Dark half, its icons and credits at the bottom); the caption strip stays upright
+        # in the bottom margin (Bill 2026-10-14).
+        im = Image.open(master).convert("RGBA")
+        rot = im.rotate(180)
+        rot.paste(im.crop((0, 0, im.width, 144)), (0, 0))
+        rot.paste(im.crop((0, im.height - 145, im.width, im.height)), (0, im.height - 145))
+        ax, ay, aw, ah = TEMPLATES[card["template"]]["art"]   # the picture itself stays upright
+        DL, DD = loc_grow(card) if card["template"] == "loc-site" else (0, 0)
+        y0, y1 = ay + DD, ay + ah - DL
+        box = (im.width - 1 - (ax + aw - 1), im.height - 1 - (y1 - 1), im.width - (ax), im.height - y0)
+        rot.paste(rot.crop(box).rotate(180), box[:2])
+        rot.save(master)
     # Rounded corners (real cards and GEMP's images): transparent outside a rounded rectangle.
     def rounded(img: Image.Image, radius: int) -> Image.Image:
         from PIL import ImageDraw
