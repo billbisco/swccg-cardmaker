@@ -6,7 +6,7 @@ the bottom. The portrait crop is kept in src/slips/vsN/portrait/.
     python3 landscape_slips.py 13 03 04 09 …
 """
 from __future__ import annotations
-import glob, shutil, sys
+import glob, json, shutil, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -52,7 +52,9 @@ def main():
         a = np.array(im)
         head = im.crop((0, 0, im.width, HEAD))
         cy = caption_top(a[HEAD:]) + HEAD
-        body = im.crop((0, HEAD, im.width, cy)).rotate(-90, expand=True)
+        side = json.load(open(ROOT / f"cards/vs{vs}/{n}.json", encoding="utf-8")).get("side")
+        # Dark cards are shown from the Dark Side's seat (Dark half at the bottom), Light from the Light Side's (Bill)
+        body = im.crop((0, HEAD, im.width, cy)).rotate(90 if side == "Dark" else -90, expand=True)
         cap = im.crop((0, cy, im.width, im.height))
         W = body.width
         out = Image.new("RGB", (W, HEAD + body.height + cap.height), "white")
