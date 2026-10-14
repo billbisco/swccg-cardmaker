@@ -1,0 +1,33 @@
+{
+ "number": "61",
+ "side": "Dark",
+ "slip_type": "Immediate Effect",
+ "card_type": "IMMEDIATE EFFECT",
+ "title": "Pride Of The Empire",
+ "caption": "•Pride Of The Empire (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you just deployed a TIE/SA, deploy on a unique (•) TIE/SA. Bombing Run is {control}. May place this card in Used Pile to ▲ (or, once per game, retrieve) Bombing Run or ComScan Detection; opponent loses 1 Force. {control}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial starships that perform with distinction are highly publicized in an attempt to make the pilots look like heroes to the citizens of the Empire.",
+ "destiny": "3",
+ "base_page": "Pride Of The Empire (Original)",
+ "art": {
+  "src": "src/vs16/61-SpecialEdition-D-prideoftheempire-decipher-archive.gif",
+  "modern": "src/vs16/modern/61-V11-D-prideoftheempire.gif"
+ },
+ "id": "vs16-61",
+ "virtual_set": 16,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "grabber": false,
+ "credit_bottom": [
+  "Original concept by Dennis Hes",
+  "PC Volunteer Award 2007"
+ ],
+ "game_text_lines": "If you just deployed a TIE/SA, deploy on a unique (•)\nTIE/SA. Bombing Run is {control}. May place this card in\nUsed Pile to ▲ (or, once per game, retrieve)\nBombing Run or ComScan Detection; opponent loses\n1 Force. {control}",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Banner IMMEDIATE EFFECT, no grabber box → grabber false. Inline red circle-slash C after 'Bombing Run is' and at the end → {control} (stub 'Immune to Control'); ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. 'unique (•)' printed with the bullet. Credits under the text box: 'Original concept by Dennis Hes' (left) / 'PC Volunteer Award 2007' (right) → credit_bottom. UNIQUENESS: the printed Decipher face (350 px decipher-archive scan, square-on 350×490, used as art.src) prints the title WITHOUT a uniqueness dot; the slip heading and caption print '•Pride Of The Empire (V)' and the stub says Unique → title kept without dot (printed card), caption with dot (as vs10/vs11 precedent). The wiki default page is the Glossary Supplement errata; the printed face is 'Pride Of The Empire (Original)' (same lore/destiny/set). The 745 px SE-D-prideoftheempire.gif is the D-E1 errata face (adds the dot; same art) — downloaded to src/vs16/61-SE-D-prideoftheempire.gif for art only. Lore matches the scans. Copyright: SE line, 1998 legible on the 745 px face. Modern: V11-D-prideoftheempire.gif (745, the Virtual Set 11 card — different text, same art/lore); VB2 -pre (338) also exists, not downloaded."
+}

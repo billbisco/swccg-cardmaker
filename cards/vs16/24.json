@@ -1,0 +1,44 @@
+{
+ "id": "vs16-24",
+ "number": "24",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: B-WING",
+ "title": "•Blue Squadron 5",
+ "caption": "•Blue Squadron 5 (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "MANEUVER",
+   "2"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Heroic. Permanent pilot provides ability of 2. When deployed, may play a Defensive Shield (and/or deploy a weapon on this starship) from under your Starting Effect (as if from hand).",
+ "game_text_lines": "Heroic. Permanent pilot provides ability of 2. When\ndeployed, may play a Defensive Shield (and/or\ndeploy a weapon on this starship) from under your\nStarting Effect (as if from hand).",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Blue Squadron B-wing. Ordered to lead attack on _Executor_. Drew enemy fighters away from strike force led by General Calrissian and Commander Antilles.",
+ "destiny": "2",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Blue Squadron 5",
+ "art": {
+  "src": "src/vs16/24-DS2-L-bluesquadron5.gif",
+  "modern": null
+ },
+ "notes": "Group: Everything Else. Bottom-half slip (banner, stats, text, icon column). Unique. Banner STARFIGHTER: B-WING; POWER 4 / MANEUVER 2 / HYPERSPEED 4; deploy 2 / forfeit 4; scomp-link ring. Icon column top to bottom: Rebel pilot helmet on yellow (permanent pilot), astromech dome on red (nav computer); then the VS16 sphere. CHANGES vs printed Blue Squadron 5 (Death Star II): HYPERSPEED 3 → 4; icon column Nav → permanent pilot + Nav; text replaced (printed: 'May add 1 pilot. May fire two or more weapons during battle. Each of its weapon destiny draws is +2. Immune to attrition < 4 when Ten Numb piloting.'). Slip text matches the stub. LORE corrected from the scan: 'B-wing' (wiki 'B-Wing'), _Executor_ italic as printed. Base scan only 350 px (DS2-L-bluesquadron5.gif); copyright not legible — Death Star II line by set (as vs15/02). Ring right of lore box: Death Star II sphere (printed). No modern remake found (no V*/VB* bluesquadron5 file on the wiki)."
+}

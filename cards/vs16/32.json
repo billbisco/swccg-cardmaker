@@ -1,0 +1,55 @@
+{
+ "id": "vs16-32",
+ "number": "32",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER – JEDI INTERCEPTOR",
+ "title": "••Jedi Starfighter",
+ "caption": "•••Green Squadron A-wing (V)",
+ "heading": "••Jedi Starfighter (V)",
+ "combo": true,
+ "base_title": "•••Green Squadron A-wing",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "MANEUVER",
+   "✶"
+  ],
+  [
+   "HYPERSPEED",
+   "6"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "May add 1 pilot and 1 astromech. ✶ = pilot’s ability. Obi-wan and Plo are matching pilots and deploy -2 aboard. While a Jedi aboard, power +2 and immune to Lateral Damage and attrition < 5.",
+ "game_text_lines": "May add 1 pilot and 1 astromech. ✶ = pilot’s\nability. Obi-wan and Plo are matching pilots and\ndeploy -2 aboard. While a Jedi aboard, power +2\nand immune to Lateral Damage and attrition < 5.",
+ "icons": [
+  "republic",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "base_lore": "A-wing starfighters from Green Squadron. Assigned mission of screening Rebel capital starships from enemy fighters and bombers.",
+ "destiny": "2",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Green Squadron A-wing",
+ "art": {
+  "src": "src/vs16/32-DS2-L-greensquadronawing.gif",
+  "modern": "src/vs16/modern/32-VB5-L-jedistarfighter-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "credit_bottom": [
+  "Original concept by Steven Lewis",
+  "Georgia States 2007"
+ ],
+ "notes": "Group: Everything Else. COMBO / FULL-CARD OVERLAY (756×1099) over Green Squadron A-wing. Title bar: starship disc (as printed), '••Jedi Starfighter' (restricted ••), destiny 2. LORE BOX PRINTED EMPTY → lore '' (printed lore kept in base_lore; VB5 reissue also has the empty box). Right of the lore box: the Death Star II ring (as printed) and, below it, a black EPISODE I disc added by the slip → ring_icons ['episode1']. Art window blank. Banner 'STARFIGHTER – JEDI INTERCEPTOR' (spaced en-dash); POWER 2 / MANEUVER ✶ / HYPERSPEED 6 — the maneuver value is Decipher's black eight-pointed star glyph (sheet text layer 'X', stub 'X'), written ✶ as in vs4/50 and vs8/15; the same glyph opens '✶ = pilot’s ability'. Scomp ring; deploy 3 / forfeit 5. 'Obi-wan' with lower-case w as printed (VB5 reissue corrects to Obi-Wan and uses 'STARFIGHTER: JEDI INTERCEPTOR'). Icon column: square lavender Republic tile, Nav Computer; then VS16 sphere. Credits under the text box: 'Original concept by Steven Lewis' / 'Georgia States 2007'. Layout matches the printed card's proportions. CHANGES vs printed Green Squadron A-wing (DS2, •••, STARFIGHTER: A-WING): title → ••Jedi Starfighter; destiny 3 → 2; lore removed; Episode I icon added; POWER 3 → 2, MANEUVER 5 → ✶, HYPERSPEED 4 → 6; deploy 4 → 3, forfeit 3 → 5; icons Pilot + Nav → Republic + Nav; text replaced (printed: 'Deploy -2 to Sullust or same system or sector as Green Leader. Permanent pilot provides ability of 2 and adds 2 to power. Power -1 when opponent has a starfighter present with a higher maneuver.'). Base lore matches the scan. Base scan only 350 px; DS2 copyright by set. Modern: VB5-L-jedistarfighter-pre.gif (Virtual Block 5 reissue, A-wing art)."
+}

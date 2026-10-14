@@ -100,7 +100,7 @@ def convert(c: dict, vs: int) -> dict:
         "caption": c.get("caption") or f"{c['title']} (V)", "number": str(int(c["number"])), "virtual_set": vs,
         "destiny": c.get("destiny") or "", "lore": bold_keywords(c.get("lore") or "") if "character" in template_for(c) else c.get("lore") or "", "game_text": gt,
         "icons": c.get("icons") or [], "scomp": bool(c.get("scomp")),
-        "copyright": c.get("copyright") or "", "expansion_icon": SET_ICON.get(exp, None) if exp else None,
+        "copyright": c.get("copyright") or "", "expansion_icon": (SET_ICON.get(exp, None) if exp and not c.get("no_expansion_ring") else None),
         "expansion_icon_in_hole": False,
     }
     if c.get("card_type"):
@@ -121,7 +121,9 @@ def convert(c: dict, vs: int) -> dict:
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
     if "dark jedi" in (c.get("affiliation") or "").lower() and "imperial" in (c.get("affiliation") or "").lower():
         card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
-    if "republic" in (c.get("affiliation") or "").lower():
+    if "republic" in (c.get("affiliation") or "").lower() and "+" in (c.get("affiliation") or ""):
+        card["disc2"] = "republic"       # two affiliations (VS16 Senators: Rebel + Republic, Alien + Republic): frame disc + crest
+    elif "republic" in (c.get("affiliation") or "").lower():
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)

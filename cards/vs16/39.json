@@ -1,0 +1,47 @@
+{
+ "id": "vs16-39",
+ "number": "39",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•YAVIN 4: JEDI ACADEMY",
+ "title": "•Yavin 4: Jedi Academy",
+ "caption": "•Yavin 4: Massassi Ruins (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If a Dark Jedi on table, Force drain -1 here. Once per game, may ▼ Jedi Luke here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Yavin 4: Massassi Ruins",
+ "art": {
+  "src": "src/vs16/39-ANH-L-yavin4massassiruins.gif",
+  "modern": "src/vs16/modern/39-V9-L-yavin4massassiruins.gif"
+ },
+ "dark_text": "While opponent’s non-{episode1} Jedi here, destiny draws for Sense and Alter may not be modified.",
+ "heading": "•Yavin 4: Jedi Academy (V)",
+ "light_force": true,
+ "light_force_count": 2,
+ "dark_force": true,
+ "dark_force_count": 2,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ],
+ "credit_bottom": [
+  "Original concept by Charles Clarkson",
+  "New York States 2006"
+ ],
+ "game_text_lines": "If a Dark Jedi on table, Force drain -1 here. Once per game, may ▼ Jedi Luke here.",
+ "dark_text_lines": "While opponent’s non-{episode1} Jedi here, destiny draws for Sense and Alter may not be modified.",
+ "notes": "Group: Everything Else (LIGHT SIDE). FULL portrait site overlay printed sideways that RENAMES the site: both bars read '•YAVIN 4: JEDI ACADEMY' (red • on the Light bar, white • on the Dark bar). Art window blank. Light half (right bar, grey text box) = game_text, one line, ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Dark half (left bar, black text box) = dark_text, one line, with the black EPISODE I icon inline: 'non-[Episode I] Jedi' (a space is printed between the icon and 'Jedi') → {episode1}; curly apostrophe in opponent’s. Force slots: Light bar TWO blue sabers (as the printed Light Force ×2), Dark bar TWO red sabers (dark_force_count 2) — the printed card has NO Dark Force icon. Icon boxes on both bars, outermost first: planet (pink planet), exterior (orange sun) — same as printed; no scomp ring. Credits across the bottom border with the VS16 set sphere between them: left 'Original concept by Charles Clarkson', right 'New York States 2006' → credit_bottom (list). No Episode I icon in the margin. BASE: caption names Yavin 4: Massassi Ruins (A New Hope Light site; printed Light text 'If you control, with a leader here, your starships are each power +1 at Death Star system.', Dark 'If you control, Force drain +1 here.'). Scan ANH-L-yavin4massassiruins.gif 490×350 only; ANH 1996 copyright line by rule. lore '' (site). Modern: V9-L-yavin4massassiruins.gif (1039×745, the PC's VS9 Yavin 4: Massassi Ruins (V) — same art, different text) and VB4-L-yavin4jediacademy-pre.gif (489×349, Virtual Block 4 reissue of this slip as a full card; also in src/vs16/modern/39-…). Stub text concatenates both halves (Dark first) and spells 'non-Episode I'. Stub: https://wiki.swccg.com/wiki/Yavin_4:_Jedi_Academy_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+}

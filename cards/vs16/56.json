@@ -1,0 +1,51 @@
+{
+ "number": "56",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: _DREADNAUGHT_-CLASS HEAVY CRUISER",
+ "title": "•_Katana_",
+ "caption": "_Dreadnaught_-Class Heavy Cruiser (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "6",
+ "game_text": "May add 3 pilots, 6 passengers, and 4 TIEs. Your other Dreadnaughts here are power +1, forfeit +2, Heroic, and immune to attrition < 4. Permanent pilot provides ability of 3. Immune to attrition < 4.",
+ "game_text_lines": "May add 3 pilots, 6 passengers, and 4 TIEs. Your\nother Dreadnaughts here are power +1, forfeit +2,\nHeroic, and immune to attrition < 4. Permanent\npilot provides ability of 3. Immune to attrition < 4.",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Introduced during the Clone Wars. 600 meters long. Some have cargo space converted to TIE hangar bays. Still used to maintain an Imperial presence in the Outer Rim.",
+ "destiny": "3",
+ "base_page": "Dreadnaught-Class Heavy Cruiser",
+ "art": {
+  "src": "src/vs16/56-OTSD-D-dreadnaughtclassheavycruiser.gif",
+  "modern": "src/vs16/modern/56-VB4-D-katana-pre.gif"
+ },
+ "id": "vs16-56",
+ "virtual_set": 16,
+ "expansion": "Official Tournament Sealed Deck",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "•_Katana_ (V)",
+ "base_title": "_Dreadnaught_-Class Heavy Cruiser",
+ "credit_bottom": [
+  "Original concept by Thomas Caspersen",
+  "Sandvika V-Lite 2005"
+ ],
+ "notes": "Group: Everything else. Unique (• added; printed card is non-unique). COMBO / FULL-CARD OVERLAY (755×1101 crop) on the blue Dark capital-starship frame: starship disc (as printed); title '•Katana' with Katana italic → '•_Katana_'; destiny 3. Lore printed on the slip = the printed card's lore (same wording and breaks). Right of the lore box: the Official Tournament Sealed Deck ring (silver sphere), as printed; no Episode I. Art window blank white. Banner 'CAPITAL: _DREADNAUGHT_-CLASS HEAVY CRUISER' (DREADNAUGHT italic, as printed). Stats POWER 5 / ARMOR 4 / HYPERSPEED 3; scomp ring left of the text box; deploy 6 / forfeit 6; game text 4 lines ('Dreadnaughts' plain, not italic). Icon column: permanent pilot (DS pilot helmet on yellow), nav computer (astromech dome on red). Credits printed under the text box, italic: left 'Original concept by Thomas Caspersen', right 'Sandvika V-Lite 2005' → credit_bottom. Caption '_Dreadnaught_-Class Heavy Cruiser (V)' (italic ship class), number 56. Heading '•_Katana_ (V)'. Frame proportions match the printed card (not a tall slip). Slip text matches the stub. CHANGES vs Decipher Dreadnaught-Class Heavy Cruiser (OTSD): title (and uniqueness); deploy 5 → 6; forfeit 5 → 6; power/armor/hyperspeed, destiny, lore, banner unchanged; game text replaced (printed: 'May add 3 pilots, 6 passengers and 4 TIEs. Has ship-docking capability. Permanent pilots provide total ability of 2. Turbolaser Battery may deploy aboard. Your TIEs present are each power +1.'); icon column pilot ×2 + nav → permanent-pilot + nav. LORE CORRECTION: 'TIE hangar bays' (wiki 'hanger'; scan and slip print 'hangar'). Base scan OTSD-D-dreadnaughtclassheavycruiser.gif is 745 px but tagged D-E1 (a PC errata face — its text is the printed text; used for art; no other scan on the wiki; file is PNG data with a .gif name). Copyright legible on it: 'TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.' Modern: VB4-D-katana-pre.gif (349 px, Virtual Block 4; same text; it prints the credit as one line 'Original concept by Thomas Caspersen, Sandville V-Lite 2005')."
+}

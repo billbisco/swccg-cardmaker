@@ -1,0 +1,51 @@
+{
+ "id": "vs16-25",
+ "number": "25",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER – MODIFIED LIGHT FREIGHTER",
+ "title": "•BoShek’s Modified Light Freighter",
+ "caption": "Medium Bulk Freighter (V)",
+ "heading": "•BoShek’s Modified Light Freighter (V)",
+ "combo": true,
+ "base_title": "Medium Bulk Freighter",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "May add 2 pilots. While BoShek piloting: maneuver and hyperspeed +2; immune to attrition < 4; and if at a battleground system, may add 1 to Force drains here.",
+ "game_text_lines": "May add 2 pilots. While BoShek piloting:\nmaneuver and hyperspeed +2; immune to\nattrition < 4; and if at a battleground system,\nmay add 1 to Force drains here.",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Modern Corellian design. Length 100 meters. Features engine system similar to that of a Corellian corvette. Dorsal hatch reveals hangar bay.",
+ "destiny": "3",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Medium Bulk Freighter",
+ "art": {
+  "src": "src/vs16/25-SE-L-mediumbulkfreighter.gif",
+  "modern": null
+ },
+ "credit_bottom": [
+  "Original concept by JW Millet",
+  "PC Volunteer Award 2007"
+ ],
+ "notes": "Group: Everything Else. COMBO / FULL-CARD OVERLAY (756×1099): renamed card printed over Medium Bulk Freighter. Title bar: starship disc (dark disc, blue/white streaked starfighter, as printed), '•BoShek’s Modified Light Freighter' (curly ’), destiny 3. LORE printed on the slip, identical to the printed card (3 lines, first indented; 'engine system similar' with a space). Ring right of lore box: Special Edition sphere (as printed); no Episode I icon. Art window blank. Banner 'STARFIGHTER – MODIFIED LIGHT FREIGHTER' (spaced en-dash, as the sheet's text layer has it); POWER 3 / MANEUVER 3 / HYPERSPEED 4; scomp ring; deploy 3 / forfeit 4. Icon column: Independent (blue wheel), Nav Computer; then VS16 sphere. Credits under the text box: 'Original concept by JW Millet' (left) / 'PC Volunteer Award 2007' (right). Caption 'Medium Bulk Freighter (V)' (no dot — the base card is unrestricted), number 25. Layout matches the printed card's proportions (banner/text box not raised). CHANGES vs printed Medium Bulk Freighter (SE, CAPITAL: YV-CLASS FREIGHTER, unrestricted): title → •BoShek’s Modified Light Freighter (unique); banner CAPITAL → STARFIGHTER – MODIFIED LIGHT FREIGHTER; ARMOR 4 → MANEUVER 3 (POWER 3, HYPERSPEED 4, destiny 3, deploy 3 / forfeit 4 unchanged); icons Independent + Pilot + Nav → Independent + Nav; text replaced (printed: 'Deploys and moves like a starfighter. May add 2 pilots, 6 passengers and 1 vehicle. Permanent pilot provides ability of 1. Has ship-docking capability. Quad Laser Cannon may deploy aboard.'). Slip text matches the stub. Base scan only 350 px; SE copyright line read off the scan (1998). No modern remake of this slip found (the wiki has no 'BoShek's Modified Light Freighter' page/image despite the stub's link)."
+}

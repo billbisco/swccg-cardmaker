@@ -1,0 +1,32 @@
+{
+ "number": "64",
+ "side": "Dark",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "Surface Defense",
+ "caption": "•Surface Defense (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Use 1 Force to ▼ an Effect that deploys for free on table (or your side of table) and is always {alter}. STARTING: When drawing your starting hand, draw up to 12 cards instead of 8. Place this Interrupt in Reserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“The battle station is heavily shielded and carries a firepower greater than half the starfleet.”",
+ "destiny": "5",
+ "base_page": "Surface Defense",
+ "art": {
+  "src": "src/vs16/64-SE-D-surfacedefense.gif",
+  "modern": "src/vs16/modern/64-V0-D-surfacedefense.gif"
+ },
+ "id": "vs16-64",
+ "virtual_set": 16,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Steven Lewis",
+  "PC Volunteer Award 2008"
+ ],
+ "game_text_lines": "USED: Use 1 Force to ▼ an Effect that deploys for\nfree on table (or your side of table) and is always {alter}.\nSTARTING: When drawing your starting hand, draw\nup to 12 cards instead of 8. Place this Interrupt in\nReserve Deck.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Banner USED OR STARTING INTERRUPT (as printed). ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; red circle-slash A after 'always' → {alter} (followed by a period on the slip). USED: and STARTING: run on in one paragraph on the slip (STARTING: begins a new line) — game_text kept as one paragraph, line breaks in game_text_lines. Credits under the text box: 'Original concept by Steven Lewis' / 'PC Volunteer Award 2008' → credit_bottom. UNIQUENESS: printed Surface Defense is Unrestricted (no dot in the printed title); slip heading/caption print '•Surface Defense (V)' and the stub says Unique → title kept without dot, caption as printed. LORE CORRECTED: curly double quotes “…” (wiki straight single quotes). Copyright SE 1998 line read off the V0 remake. Modern: V0-D-surfacedefense.gif (745); VB1 -pre (350) also exists, not downloaded."
+}

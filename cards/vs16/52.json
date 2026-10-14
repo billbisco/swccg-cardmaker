@@ -1,0 +1,28 @@
+{
+ "number": "52",
+ "side": "Dark",
+ "slip_type": "Starship Weapon",
+ "card_type": "STARSHIP WEAPON",
+ "title": "Concussion Missiles",
+ "caption": "Concussion Missiles (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to deploy on your starfighter. May target a starship for free. Draw destiny (if on a Heroic starfighter, may first use 1 Force to add 3 to total). Target hit if total destiny > defense value.",
+ "game_text_lines": "Use 1 Force to deploy on your starfighter. May target\na starship for free. Draw destiny (if on a Heroic\nstarfighter, may first use 1 Force to add 3 to total).\nTarget hit if total destiny > defense value.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Originally developed by smugglers and pirates as defense against starfighters. Adapted by the Empire to serve as onboard defense for slow moving bombers.",
+ "destiny": "4",
+ "base_page": "Concussion Missiles (Dark)",
+ "art": {
+  "src": "src/vs16/52-DS2-D-concussionmissiles.gif",
+  "modern": "src/vs16/modern/52-VB3-D-concussionmissiles-pre.gif"
+ },
+ "id": "vs16-52",
+ "virtual_set": 16,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Group: Everything else. Not unique (no dot; printed card Unrestricted). Normal bottom-half slip (756×454) on the green weapon frame: banner STARSHIP WEAPON; game text 4 lines; no icon column (VS16 sphere only); no inline icons, no credits. Slip text matches the stub. BASE: the stub's 'Decipher base: [[Concussion Missiles]]' is the LIGHT DS2 card; this Dark slip sleeves the Dark DS2 card = wiki 'Concussion Missiles (Dark)' (DS2-D-concussionmissiles.gif) — used that. Printed text was 'Use 1 Force to deploy on your bomber, TIE Defender, freighter or transport. May target a starship for free. Draw destiny. Add 1 when targeting a starfighter or squadron. Target hit if total destiny > defense value.' Lore matches the wiki and the scan. Base scan 350 px; copyright DS2 line ('© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.', as vs15/60). Modern: VB3-D-concussionmissiles-pre.gif (350, Virtual Block 3; same text as this slip)."
+}

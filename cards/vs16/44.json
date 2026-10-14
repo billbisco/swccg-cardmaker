@@ -1,0 +1,31 @@
+{
+ "id": "vs16-44",
+ "number": "44",
+ "virtual_set": 16,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Expand The Empire",
+ "caption": "•Expand The Empire (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Senate. May raise your converted Senate to the top. Jedi here are politics +4. While your total politics here > 5, at battlegrounds where you have an Imperial, your Force drains and battle destiny draws are +1. Your aliens (except Mara), senators, Maul, and {independent} starships are lost. {alter}",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Emperor disbanded the Imperial Senate “for the duration of the emergency,” seizing absolute power. He planned to extend rule by terrorizing planets into submission.",
+ "destiny": "3",
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Expand The Empire",
+ "art": {
+  "src": "src/vs16/44-Premiere-D-expandtheempire.gif",
+  "modern": "src/vs16/modern/44-VB5-D-expandtheempire-pre.gif"
+ },
+ "grabber": false,
+ "game_text_lines": "Deploy on Senate. May raise your converted Senate\nto the top. Jedi here are politics +4. While your total\npolitics here > 5, at battlegrounds where you have an\nImperial, your Force drains and battle destiny draws\nare +1. Your aliens (except Mara), senators, Maul,\nand {independent} starships are lost. {alter}",
+ "notes": "Group: Imperial Senate (DARK SIDE). Unique. Bottom-half slip, banner EFFECT, no grabber box (grabber false). TALL SLIP: 6 text lines; the banner and text box sit higher than on a normal Effect slip (tall slip: banner higher by ~39 slip px — the banner sits at the same height under the heading as on Ultimatum #38, but the bottom border starts at y 443 instead of 404; crop 483 px tall vs 454). INLINE: 'and [icon] starships' = dark-blue square with a grey spoked wheel = the Independent icon → {independent} (the stub drops it: 'Maul, and starships'); red circle-slash A at the end → {alter} (stub 'Immune to Alter.'). '>' as printed. Right of the text box: the black EPISODE I icon above the VS16 set sphere → icons ['episode1'] (Premiere card, no Episode I printed). LORE corrected from the scan: curly double quotes “for the duration of the emergency,” (wiki straight single quotes). Base Premiere-D-expandtheempire.gif 350 px only; copyright Premiere 1995 line by rule. Expansion per the wiki base page (|set=Premiere Limited). Modern: VB5-D-expandtheempire-pre.gif (350, Virtual Block 5 reissue). Stub: https://wiki.swccg.com/wiki/Expand_The_Empire_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+}

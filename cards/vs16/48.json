@@ -1,0 +1,36 @@
+{
+ "number": "48",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Order 66",
+ "caption": "•Kill Them Immediately (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Sidious. If with {ovs} Expand The Empire during your control phase: relocate this card to an {episode1} Jedi at a battleground or Senate (otherwise, retrieve 1 Force). If on a Jedi, add one battle destiny here, and if that Jedi just lost, relocate this card to Sidious.",
+ "game_text_lines": "Deploy on Sidious. If with {ovs} Expand The Empire\nduring your control phase: relocate this card to an {episode1}\nJedi at a battleground or Senate (otherwise, retrieve 1\nForce). If on a Jedi, add one battle destiny here, and if\nthat Jedi just lost, relocate this card to Sidious.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "*Hologram*.",
+ "base_lore": "Darth Sidious instructed Nute Gunray to dispose of the Jedi ambassadors. Rune Haako was not so confident.",
+ "destiny": "7",
+ "base_page": "Kill Them Immediately",
+ "art": {
+  "src": "src/vs16/48-Cor-D-killthemimmediately.gif",
+  "modern": "src/vs16/modern/48-VB5-D-order66-pre.gif"
+ },
+ "id": "vs16-48",
+ "virtual_set": 16,
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Order 66 (V)",
+ "base_title": "•Kill Them Immediately",
+ "ring_icons": [
+  "episode1"
+ ],
+ "grabber": false,
+ "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (755×1099 crop): an EFFECT printed over the printed Used or Lost INTERRUPT Kill Them Immediately — red Effect frame with the Effect disc (green swirl; printed card has the Interrupt disc); title '•Order 66'; destiny 7. The slip prints its OWN lore 'Hologram.' (set larger, like the Episode I keyword style; the VB5 reissue shows it bold; 'hologram' is a Decipher bold keyword) → lore '*Hologram*.'; printed lore kept in base_lore. Right of the lore box: Coruscant ring + EPISODE I icon, as printed → ring_icons ['episode1']. Art window blank white. Banner EFFECT (no grabber); no stats/D/F/column icons. Inline icons (zoomed): blue sphere before 'Expand The Empire' = the VS16 sphere itself (matches ovs-set-16; Expand The Empire (V) is VS16 #44) → {ovs}; the stub drops it. Black EPISODE I disc before 'Jedi' → {episode1} (stub: 'Episode I Jedi'). Caption '•Kill Them Immediately (V)', number 48. Frame proportions match the printed card (not a tall slip). CHANGES vs Decipher Kill Them Immediately (Coruscant, Cor-D-killthemimmediately.gif): card type Used or Lost Interrupt → Effect (disc and banner); title; destiny 3 → 7; lore replaced; game text replaced (printed: 'Use 5 Force to reveal opponent’s hand. If opponent has no duplicate cards there, place this Interrupt in Used Pile. Otherwise USED: place a revealed card in opponent’s Used Pile. LOST: all cards opponent has two or more of are lost. (Immune to Sense.)'). Base lore matches the wiki and the scan. Base scan 350 px only; copyright Coruscant 2001 (legible as '© 2001 … 2001 DECIPHER INC'). Modern: VB5-D-order66-pre.gif (350; same text; it adds a small icon disc left of the lore box which the slip does not print)."
+}

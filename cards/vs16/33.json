@@ -1,0 +1,50 @@
+{
+ "id": "vs16-33",
+ "number": "33",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Jedi Survivor",
+ "caption": "•••Droid Merchant (V)",
+ "heading": "•••Jedi Survivor (V)",
+ "combo": true,
+ "base_title": "•••Droid Merchant",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "JEDI KNIGHT",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "5",
+ "game_text": "When deployed, you may not initiate battle here this turn. While at opponent’s site, adds one {light-force} and one {dark-force}. May ‘swing’ lightsabers for free. May never be won in sabacc. Immune to attrition < 5. End of your turn: {icon:maintenance-star} Use 1 or {icon:maintenance-flag} Lose 1 or {icon:maintenance-skull}.",
+ "game_text_lines": "When deployed, you may not initiate battle here\nthis turn. While at opponent’s site, adds one {light-force}\nand one {dark-force}. May ‘swing’ lightsabers for free. May\nnever be won in sabacc. Immune to attrition < 5.\nEnd of your turn: {icon:maintenance-star} Use 1 or {icon:maintenance-flag} Lose 1 or {icon:maintenance-skull}.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Female.",
+ "base_lore": "Careful manipulator of funds and Imperial taxation codes. Buys droids from Jawas and sells them to the Alliance.",
+ "destiny": "3",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Droid Merchant",
+ "art": {
+  "src": "src/vs16/33-SE-L-droidmerchant-decipher-archive.gif",
+  "modern": "src/vs16/modern/33-VB5-L-jedisurvivor-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Everything Else. COMBO / FULL-CARD OVERLAY (755×1101) over Droid Merchant. Title bar: the Alien disc (black disc, two yellow eyes — as printed), '•••Jedi Survivor', destiny 3. LORE printed by the slip: 'Female.' (replaces the base lore, kept in base_lore). Right of the lore box: Special Edition ring (as printed) + black EPISODE I disc added → ring_icons ['episode1']. Art window blank. Stats POWER 5 / ABILITY 6 / JEDI KNIGHT (label only); deploy 5 / forfeit 5. Icon column: warrior (weapon on cyan, Game Aid g029); then VS16 sphere. No credits. INLINE ICONS: 'adds one [blue saber square] and one [red saber square]' = the Light Force and Dark Force icons (Game Aid g036 / g050) → {light-force} / {dark-force}; the stub reads them as 'battle destiny' / 'destiny to total power' (interpretation, not what is printed). Last line prints Decipher's three maintenance glyphs: a black six-pointed star before 'Use 1' → {icon:maintenance-star}; an outlined pennant/flag glyph before 'Lose 1' → {icon:maintenance-flag} (NEW glyph, not seen in earlier sets — needs a cut from the sheet); skull-and-crossbones before the period → {icon:maintenance-skull}; each followed/preceded by a space as printed (stub: 'Use 1 Force or Lose 1 Force or N'). Curly ’ and ‘swing’ as printed. Layout matches the printed card's proportions. CHANGES vs printed Droid Merchant (SE, •••, Alien): title, lore, Episode I icon; POWER 1 → 5, ABILITY 2 → 6, third box blank → JEDI KNIGHT; deploy 1 → 5, forfeit 3 → 5; warrior icon added; text replaced (printed: 'Cumulatively activates 1 Force each time you deploy a droid (or retrieves 1 Force when you deploy an astromech to a starfighter). Spaceport Speeders may be played at same site (place droid in Used Pile instead of Lost Pile).'). Base lore matches both scans. art.src = the 350 px printed archive face; the 745 px SE-L-droidmerchant.gif (also downloaded) is the PC Errata face (D-E1 tag) — art only; SE 1998 copyright legible on it. Modern: VB5-L-jedisurvivor-pre.gif (Virtual Block 5 reissue)."
+}

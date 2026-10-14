@@ -1,0 +1,32 @@
+{
+ "number": "62",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Release Your Anger",
+ "caption": "•Release Your Anger (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Destiny +2 when drawn for weapon or lightsaber combat destiny._ USED: ▲ Your Powers Are Weak, Old Man. LOST: If you just lost a character armed with a non-{lightsaber} lightsaber, lose 1 Force to take that character (or lightsaber) into hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Only your hatred can destroy me.”",
+ "destiny": "4",
+ "base_page": "Release Your Anger",
+ "art": {
+  "src": "src/vs16/62-CC-D-releaseyouranger.gif",
+  "modern": "src/vs16/modern/62-VB2-D-releaseyouranger-pre.gif"
+ },
+ "id": "vs16-62",
+ "virtual_set": 16,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Nate Meeker",
+  "Coruscant Regionals 2006"
+ ],
+ "game_text_lines": "_Destiny +2 when drawn for weapon or lightsaber\ncombat destiny._ USED: ▲ Your Powers Are Weak,\nOld Man. LOST: If you just lost a character armed\nwith a non-{lightsaber} lightsaber, lose 1 Force to take that\ncharacter (or lightsaber) into hand.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Banner USED OR LOST INTERRUPT (printed base: Lost Interrupt). First sentence 'Destiny +2 when drawn for weapon or lightsaber combat destiny.' printed in ITALIC (spans the first line break). ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Inline black square with green blade in 'non-[icon] lightsaber' → {lightsaber} (the stub drops it: 'non-lightsaber'). Credits under the text box: 'Original concept by Nate Meeker' / 'Coruscant Regionals 2006' → credit_bottom. LORE CORRECTED: curly double quotes “…” as printed (wiki straight single quotes); lore line not indented on the scan. Base scan only at 350 px; copyright not legible — Cloud City 1997 line per the brief. Modern: VB2 -pre (350) only."
+}

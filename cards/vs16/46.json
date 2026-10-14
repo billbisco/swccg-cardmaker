@@ -1,0 +1,51 @@
+{
+ "number": "46",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lord Sidious",
+ "caption": "•Emperor’s Power (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "7"
+  ],
+  [
+   "DARK JEDI MASTER",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "8",
+ "game_text": "Whenever a Jedi is forfeited and you have exactly two Dark Jedi on table, retrieve 2 Force. While at your Senate and you have no senators here, Sidious is politics +4 and his game text may not be canceled. Immune to {ovs:3} Leia and attrition.",
+ "game_text_lines": "Whenever a Jedi is forfeited and you have exactly\ntwo Dark Jedi on table, retrieve 2 Force. While\nat your Senate and you have no senators here,\nSidious is politics +4 and his game text may not\nbe canceled. Immune to {ovs:3} Leia and attrition.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Dark Jedi Master",
+ "disc": "dark-jedi",
+ "lore": "*Leader*. Trade Federation.",
+ "base_lore": "From his throne room aboard the second Death Star, Emperor Palpatine monitors activity throughout the galaxy.",
+ "destiny": "1",
+ "base_page": "Emperor's Power",
+ "art": {
+  "src": "src/vs16/46-DS2-D-emperorspower.gif",
+  "modern": "src/vs16/modern/46-VB5-D-lordsidious-pre.gif"
+ },
+ "id": "vs16-46",
+ "virtual_set": 16,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Lord Sidious (V)",
+ "base_title": "•Emperor’s Power",
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (755×1102 crop) — a Dark Jedi Master CHARACTER printed over the printed EFFECT Emperor’s Power. Top to bottom: (1) title bar of a Dark character frame (blue-grey with red glow at right): round disc = Dark Jedi Master (red lightsaber blade on black) → affiliation 'Dark Jedi Master', disc 'dark-jedi'; title '•Lord Sidious'; destiny 1. (2) Lore box: the slip prints its OWN lore 'Leader. Trade Federation.' — 'Leader.' set larger/heavier than 'Trade Federation.'; the 350 px VB5 reissue shows 'Leader.' bold → lore '*Leader*. Trade Federation.'; printed Emperor’s Power lore kept in base_lore. Right of the lore box: the Death Star II expansion ring (blue/red streak sphere, as printed) AND a black EPISODE I icon below it (NOT on the printed Emperor’s Power) → ring_icons ['episode1']. (3) Art window blank white (art from the printed card; the white also covers the copyright margin). (4) Stat boxes POWER 5 / ABILITY 7 / DARK JEDI MASTER (label-only); deploy 6 / forfeit 8; game text 5 lines; inline gold/white striped sphere before 'Leia' = Original Virtual Set 3 sphere (matched against assets/icons/ovs-set-3.png; Leia (V) is VS3 #12) → {ovs:3}; the stub drops it ('Immune to Leia'). Icon column: warrior (blaster on cyan). VS16 sphere. (5) Caption '•Emperor’s Power (V)' (curly ’), number 46. Frame proportions match the printed card (banner/text box not raised — not a tall slip). Stub 'Lord Sidious (V) (Virtual Set 16: Revenge Of The Sith)' (stub notes say 'Dark Jedi Master. Trade Federation.' — the slip prints 'Leader. Trade Federation.'). CHANGES vs Decipher Emperor’s Power (Death Star II, Effect, DS2-D-emperorspower.gif): card type Effect → Character (Dark Jedi Master); title; destiny 5 → 1; lore replaced; Episode I icon added; banner EFFECT → stats POWER 5 / ABILITY 7 / DARK JEDI MASTER, deploy 6 / forfeit 8; game text replaced (printed: 'Deploy on your Throne Room. You may not Force drain here. While Emperor here, opponent’s characters are deploy +2 to Death Star II sites and, once per turn, you may lose Effect (or 1 Force from top of Reserve Deck) to add one battle destiny anywhere. (Immune to Alter.)'); warrior icon added. Base lore matches the wiki and the scan. Base scan only 350 px; copyright line read off it as the SE-style form with 2000 ('© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'). Modern: VB5-D-lordsidious-pre.gif (350, Virtual Block 5 reissue of this slip, same text). Not downloaded: V8-D-lordsidious.gif (a different PC card, V8 Lord Sidious) and VB3-D-emperorspower (the VS11 Emperor’s Power (V))."
+}

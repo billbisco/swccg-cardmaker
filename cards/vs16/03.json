@@ -1,0 +1,46 @@
+{
+ "id": "vs16-03",
+ "virtual_set": 16,
+ "number": "03",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Senator Leia Organa",
+ "caption": "•Princess Organa (V)",
+ "heading": "•Senator Leia Organa (V)",
+ "combo": true,
+ "base_title": "•Princess Organa",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "POLITICS",
+   "1"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text_lines": "*Agendas*: justice, rebellion. When deployed, may\nplay a Defensive Shield from under your Starting\nEffect (as if from hand). While aboard Alderaan\nConsular Ship, it is immune to Lateral Damage\nand attrition. Attrition against opponent is +2 here.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel + Republic",
+ "lore": "Adopted by Bail Organa. Former senator of Alderaan. Natural *leader*. Helped steal the Death Star plans. A key figure in the Rebel Alliance.",
+ "destiny": "2",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Princess Organa",
+ "art": {
+  "src": "src/vs16/03-SE-L-princessorgana.gif",
+  "modern": "src/vs16/modern/03-VB4-L-senatorleiaorgana-pre.gif"
+ },
+ "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (755×1101) on the silver Light character frame. Title bar: Rebel disc + ROUND silver Republic crest → 'Rebel + Republic' (printed Princess Organa: Rebel disc only); title '•Senator Leia Organa'; destiny 2 (printed: 1). LORE PRINTED ON THE SLIP, same wording as the printed card but with 'leader' in BOLD (clearly visible on the slip; line breaks differ: slip 'Adopted by Bail Organa. Former senator of Alderaan. Natural / leader. Helped steal the Death Star plans. A key figure in / the Rebel Alliance.'); the 350 px base scan shows 'leader' plain, so the bold is the slip's. The VB4 reissue prints 'Death Star Plans' (capital P) — the slip has lower-case 'plans'. Ring: Special Edition only (no Episode I), as printed → no ring_icons. Art blank. Stats POWER 3 / ABILITY 3 / POLITICS 1 (printed: FORCE-ATTUNED); deploy 3 (unchanged) / forfeit 5 (printed 7); column: warrior only (printed: pilot + warrior); VS16 sphere. 'Agendas' bold, the colon NOT bold. Slip text matches the stub. Base lore matches the wiki. Base scan 350 px; SE copyright line legible. Modern: VB4-L-senatorleiaorgana-pre.gif (350, Virtual Block 4 — same card; no VB5 file).",
+ "game_text": "*Agendas*: justice, rebellion. When deployed, may play a Defensive Shield from under your Starting Effect (as if from hand). While aboard Alderaan Consular Ship, it is immune to Lateral Damage and attrition. Attrition against opponent is +2 here."
+}

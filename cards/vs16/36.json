@@ -1,0 +1,43 @@
+{
+ "id": "vs16-36",
+ "number": "36",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Sergeant Doallyn",
+ "caption": "•Sergeant Doallyn (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "Heroic. Smuggler. When deployed, may play a Defensive Shield (and/or deploy a Vibro-Ax on him for free) from under your Starting Effect (as if from hand). When using a Vibro-Ax, it fires for free. Immune to attrition < 4.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Humanoid mercenary. Gambler. Blackmailed into working for Jabba. Friend of Yarna d’al’ Gargan. Expert in breathing apparatus. Needs Hydron 3 cartridges to breathe.",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Sergeant Doallyn",
+ "art": {
+  "src": "src/vs16/36-JP-L-sergeantdoallyn.gif",
+  "modern": "src/vs16/modern/36-VB4-L-sergeantdoallyn-pre.gif"
+ },
+ "game_text_lines": "Heroic. Smuggler. When deployed, may play a\nDefensive Shield (and/or deploy a Vibro-Ax on\nhim for free) from under your Starting Effect (as\nif from hand). When using a Vibro-Ax, it fires for\nfree. Immune to attrition < 4.",
+ "notes": "Group: Everything Else (LIGHT SIDE). Unique. Bottom-half slip. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only) — printed: POWER 3 / ABILITY 2 / empty third box; deploy 3 / forfeit 4 (as printed). Icon column: warrior (blue, blaster) only. No inline icons; no credits. Affiliation Alien (Jabba's Palace alien frame, eyes disc). Lore: curly apostrophes in d’al’ (the wiki has straight ones; the 350 px scan shows comma-shaped marks — Decipher's usual curly assumed); 'Gambler.' looks plain on the 350 px scan (not marked bold — low-res, not inferred). Otherwise matches the wiki. Base scan JP-L-sergeantdoallyn.gif 350 px only; copyright not legible — Jabba's Palace 1998 line by rule. Modern: VB4-L-sergeantdoallyn-pre.gif (350, Virtual Block 4 reissue; its text is a later revision: 'Vibro-Ax is a matching weapon for (and deploys for free on) Doallyn…'). Slip text matches the stub. Stub: https://wiki.swccg.com/wiki/Sergeant_Doallyn_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+}

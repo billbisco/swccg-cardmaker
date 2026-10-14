@@ -1,0 +1,45 @@
+{
+ "id": "vs16-43",
+ "number": "43",
+ "virtual_set": 16,
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Elite Squadron Stormtrooper",
+ "caption": "•••Elite Squadron Stormtrooper (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "3",
+ "game_text": "Clone. Heroic. Deploys -1 if a Dark Jedi at Senate. Power +2 if with Order 66. Jedi here are Heroic. Permanent weapon is blaster rifle (may target a character or vehicle for free; draw destiny; target hit if destiny > defense value).",
+ "icons": [
+  "warrior",
+  "permanent-weapon",
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Commander Igar selected the Empire’s most dedicated stormtroopers to guard Endor for the Emperor. All they know is killing and white uniforms.",
+ "destiny": "3",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "base_page": "Elite Squadron Stormtrooper",
+ "art": {
+  "src": "src/vs16/43-Endor-D-elitesquadronstormtrooper.gif",
+  "modern": "src/vs16/modern/43-VB5-D-elitesquadronstormtrooper-pre.gif"
+ },
+ "game_text_lines": "Clone. Heroic. Deploys -1 if a Dark Jedi at\nSenate. Power +2 if with Order 66. Jedi here\nare Heroic. Permanent weapon is blaster rifle\n(may target a character or vehicle for free; draw\ndestiny; target hit if destiny > defense value).",
+ "notes": "Group: Imperial Senate (DARK SIDE). Restricted (•••). Bottom-half slip. Stats POWER 3 / ABILITY 2 / ARMOR 4 (value box); deploy 3 / forfeit 3 (printed POWER 1 / ABILITY 2 / empty third box, deploy 2 / forfeit 3). '>' as printed. Icon column top to bottom: warrior (blue, blaster), permanent weapon (black box with green blade), the black EPISODE I icon (column icon, above the VS16 set sphere) → icons ['warrior','permanent-weapon','episode1']; the printed Endor card has warrior only and no Episode I icon. Affiliation Imperial. No credits. Lore matches the wiki; curly apostrophe in Empire’s assumed (wiki straight; not resolvable on the 350 px scan). Base Endor-D-elitesquadronstormtrooper.gif 350 px only; copyright not legible — Endor 1999 line in the form used for the other Endor cards. Modern: VB5-D-elitesquadronstormtrooper-pre.gif (350, Virtual Block 5 reissue). Slip text matches the stub. Stub: https://wiki.swccg.com/wiki/Elite_Squadron_Stormtrooper_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+}

@@ -1,0 +1,42 @@
+{
+ "id": "vs16-11",
+ "virtual_set": 16,
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "We Have A Plan",
+ "caption": "We Have A Plan (V)",
+ "title_back": "They Will Be Lost And Confused",
+ "caption_back": "They Will Be Lost And Confused (V)",
+ "heading": "We Have A Plan (V)",
+ "heading_back": "They Will Be Lost And Confused (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text_lines": "_Deploy Coruscant system (may not be converted) and\nBlockade Flagship: Prison with Palpatine imprisoned\nthere. May deploy Security Control._\n*For* remainder of game, your Force generation is +1 at\nCoruscant battlegrounds. Unless you have 13 or more\ncards in hand, clones are immune to Monnok.\n*While* this side up, at Blockade Flagship sites,\nimprisoned captives may not be transferred. Once per\nturn, may ▼ a battleground site to Coruscant.\n*Flip* this card if Palpatine on Coruscant.",
+ "game_text_back_lines": "*Immediately* ▲ any one card.\n*While* this side up, whenever a card of ability > 2 is\nlost, its owner loses 1 Force. While you control two\nbattlegrounds with clones, opponent must have two\ncards with ability (or two {presence} droids) to initiate a Force\ndrain. Once per turn, may deploy a clone from Lost\nPile. Clones are immune to attrition < 4.\n*Flip* this card (and if possible, relocate Palpatine to a\nprison and imprison him there) if Palpatine about to be\ncaptured, lost, missing, or removed from table.",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs16/11-Theed-L-theywillbelostandconfused.gif",
+  "modern": "src/vs16/modern/11-VB5-L-theywillbelostandconfused-pre.gif"
+ },
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "We Have A Plan / They Will Be Lost And Confused",
+ "art": {
+  "src": "src/vs16/11-Theed-L-wehaveaplan.gif",
+  "modern": "src/vs16/modern/11-VB5-L-wehaveaplan-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Group: Rescue The Chancellor. Objective, two normal bottom-half slips on the purple Objective frame (white text box): front 11-We_Have_A_Plan.png (heading/strip 'We Have A Plan (V)'), back 11b-We_Have_A_Plan.png (heading/strip 'They Will Be Lost And Confused (V)'), both number 11. Non-unique. Front: italic deploy lines (3 lines), bold lead words For/While/Flip; ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Back: bold Immediately/While/Flip; ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'; inline red box with a battle-droid figure before 'droids' = {presence} (stub drops it); '> 2' and '< 4' as printed. The back reads 'if Palpatine about to be captured' — the VB5 reissue reads 'if Palpatine is about to be captured'. Slip texts match the stub. Base: Theed Palace Objective 'We Have A Plan / They Will Be Lost And Confused' (wiki page 'We Have A Plan' now redirects to the VB5 (V) page). Destiny front 0 / back 7 (printed). Printed card: EPISODE I icon at the top-left under the disc and the Theed Palace ring at the top-right → ring_icons ['episode1']. Objectives carry no lore. Base scans 350 px; Theed 2001 copyright by rule (the same set's General Jar Jar scan shows the '© 2001 …' line). Modern: VB5-L-wehaveaplan-pre.gif / VB5-L-theywillbelostandconfused-pre.gif (350).",
+ "game_text": "_Deploy Coruscant system (may not be converted) and Blockade Flagship: Prison with Palpatine imprisoned there. May deploy Security Control._ *For* remainder of game, your Force generation is +1 at Coruscant battlegrounds. Unless you have 13 or more cards in hand, clones are immune to Monnok. *While* this side up, at Blockade Flagship sites, imprisoned captives may not be transferred. Once per turn, may ▼ a battleground site to Coruscant. *Flip* this card if Palpatine on Coruscant.",
+ "game_text_back": "*Immediately* ▲ any one card. *While* this side up, whenever a card of ability > 2 is lost, its owner loses 1 Force. While you control two battlegrounds with clones, opponent must have two cards with ability (or two {presence} droids) to initiate a Force drain. Once per turn, may deploy a clone from Lost Pile. Clones are immune to attrition < 4. *Flip* this card (and if possible, relocate Palpatine to a prison and imprison him there) if Palpatine about to be captured, lost, missing, or removed from table."
+}

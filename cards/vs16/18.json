@@ -1,0 +1,40 @@
+{
+ "id": "vs16-18",
+ "number": "18",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Wookiee",
+ "caption": "Wookiee (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "4",
+ "game_text": "Deploys -1 to Kashyyyk. May move as a ‘react.’ During battle, if he fires a bowcaster, adds one destiny to your total power. If about to be lost from table, may place any cards on him in owner’s Used Pile and may draw top card from Reserve Deck.",
+ "icons": [
+  "warrior",
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Wookiees are known to be fierce warriors. Combine high technology with a primitive lifestyle. Escaped Imperial slavery after the Battle of Endor.",
+ "destiny": "2",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Wookiee",
+ "art": {
+  "src": "src/vs16/18-SE-L-wookiee.gif",
+  "modern": "src/vs16/modern/18-VB5-L-wookiee-pre.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. Not unique (base Unrestricted). Stats POWER 4 / ABILITY 2 (printed ABILITY 1); third stat box printed EMPTY (as on the printed card). Deploy 4 / forfeit 4 as printed. Icon column: warrior (blue), then black EPISODE I disc above the set sphere → 'episode1' (not on the printed SE card). Alien (Wookiee eyes disc). Curly ‘react.’ and owner’s (text layer agrees). Slip text matches the stub. Lore matches wiki and the 350 px scan. SE copyright line by set. Modern: VB5-L-wookiee-pre.gif (350, different later text).",
+ "game_text_lines": "Deploys -1 to Kashyyyk. May move as a ‘react.’\nDuring battle, if he fires a bowcaster, adds one\ndestiny to your total power. If about to be lost from\ntable, may place any cards on him in owner’s Used\nPile and may draw top card from Reserve Deck."
+}

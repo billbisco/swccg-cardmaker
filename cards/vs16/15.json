@@ -1,0 +1,42 @@
+{
+ "id": "vs16-15",
+ "number": "15",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "System",
+ "card_type": "•KASHYYYK",
+ "title": "•Kashyyyk",
+ "caption": "•Kashyyyk (Light) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If this was your starting location, once per turn may ▼ one Grrrghrrrgh! and/or a site to Kashyyyk. May not be converted.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Kashyyyk",
+ "art": {
+  "src": "src/vs16/15-ANH-L-kashyyyk.gif",
+  "modern": "src/vs16/modern/15-VB5-L-kashyyyk-pre.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. SYSTEM, Light half only (short landscape slip, like Corellia #27): two blue sabers in the Force slot (light_force_count 2, as printed), bar '•KASHYYYK' (red dot), planet icon box, parsec 6. Right margin: black EPISODE I disc above the VS16 sphere → icons ['episode1'] (not on the printed card). ▼ starts the slip's second line. Dark half not on the slip → printed Dark text kept (dark_text), Dark Force (one red saber) and planet icon as printed. The stub's game text is garbled: '▼' was expanded as 'Deploy on table from Reserve Deck; reshuffle' — the slip simply prints ▼ (deploy from Reserve Deck). Stub's base link [[Kashyyyk (Light)]] does not exist; base = [[Kashyyyk]] (ANH Light). Systems have no lore. 350 px scan only; copyright ANH 1996 by set. Modern: VB5-L-kashyyyk-pre.gif (350, different text).",
+ "game_text_lines": "If this was your starting location, once per turn may ▼\none Grrrghrrrgh! and/or a site to Kashyyyk. May not\nbe converted.",
+ "dark_text": "Total ability of 6 or more required for you to draw battle destiny here.",
+ "parsec": 6,
+ "light_force": true,
+ "light_force_count": 2,
+ "dark_force": true,
+ "light_icons": [
+  "planet"
+ ],
+ "dark_icons": [
+  "planet"
+ ],
+ "dark_text_lines": "Total ability of 6 or more required for you to draw battle\ndestiny here."
+}

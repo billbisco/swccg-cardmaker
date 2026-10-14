@@ -1,0 +1,39 @@
+{
+ "id": "vs16-27",
+ "number": "27",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "System",
+ "card_type": "•CORELLIA",
+ "title": "•Corellia",
+ "caption": "•Corellia (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Once per turn, if you occupy with a Corellian, may activate 1 Force.",
+ "game_text_lines": "Once per turn, if you occupy with a Corellian, may\nactivate 1 Force.",
+ "dark_text": "Your starships are hyperspeed +1 when moving from here.",
+ "dark_text_lines": "Your starships are hyperspeed +1 when moving\nfrom here.",
+ "parsec": 1,
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet"
+ ],
+ "dark_icons": [
+  "planet"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Corellia",
+ "art": {
+  "src": "src/vs16/27-ANH-L-corellia.gif",
+  "modern": "src/vs16/modern/27-VB4-L-corellia-pre.gif"
+ },
+ "notes": "Group: Everything Else. Landscape SYSTEM slip printing only the Light half: one blue saber in the Force slot (left), silver bar '•CORELLIA' (red dot), one icon box = planet (pink planet), parsec 1 in the black box; Light text (2 lines). No Dark half on the slip → dark_text = the printed card's Dark text (with the printed line break), dark_force true / dark_icons ['planet'] from the scan. VS16 sphere in the right margin. Slip text matches the stub. Printed Light text replaced: 'Your Corellian Corvettes and _Millennium Falcon_ may deploy here as a ‘react.’' Base: the default wiki page is the printed archive face (ANH-L-corellia-decipher-archive.gif, 350, downloaded to src/vs16/27-ANH-L-corellia-decipher-archive.gif); the 745 px ANH-L-corellia.gif is the PC Errata face (D-E1 tag, Light text 'Your _Falcon_ and your Corellian corvettes…') — used for ART ONLY (same art), as cards/corellia-v-vs16.json does with its PC scan. Copyright ANH 1996 by set (vertical line not legible). Modern: VB4-L-corellia-pre.gif (Virtual Block 4 reissue). Systems have no lore."
+}

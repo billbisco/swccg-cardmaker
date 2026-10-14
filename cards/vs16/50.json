@@ -1,0 +1,35 @@
+{
+ "number": "50",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•With Thunderous Applause",
+ "caption": "•Vote Now! (Dark Side) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Sidious. If at Senate, at start of your turn may draw 2 cards from Reserve Deck. During your move phase, relocate this Effect to a Rebel or Jedi at a battleground; that character loses all immunity to attrition. If this Effect just lost, relocate it to Sidious.",
+ "game_text_lines": "Deploy on Sidious. If at Senate, at start of your turn\nmay draw 2 cards from Reserve Deck. During your\nmove phase, relocate this Effect to a Rebel or Jedi at\na battleground; that character loses all immunity to\nattrition. If this Effect just lost, relocate it to Sidious.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "With enough political support, any number of devious plans can be put into motion.",
+ "destiny": "6",
+ "base_page": "Vote Now! (Dark)",
+ "art": {
+  "src": "src/vs16/50-Cor-D-votenow.gif",
+  "modern": "src/vs16/modern/50-VB5-D-withthunderousapplause-pre.gif"
+ },
+ "id": "vs16-50",
+ "virtual_set": 16,
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "combo": true,
+ "heading": "•With Thunderous Applause (V)",
+ "base_title": "•Vote Now!",
+ "ring_icons": [
+  "episode1"
+ ],
+ "grabber": false,
+ "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (756×1099 crop): an EFFECT printed over the printed Used INTERRUPT Vote Now! (Dark) — red Effect frame, Effect disc (green swirl; printed card has the Interrupt disc); title '•With Thunderous Applause'; destiny 6. Lore printed on the slip = the printed card's lore (identical wording). Right of the lore box: Coruscant ring + EPISODE I icon, as printed → ring_icons ['episode1']. Art window blank white. Banner EFFECT (no grabber); no stats/D/F/column icons; game text 5 lines, no inline icons. Caption '•Vote Now! (Dark Side) (V)' — the wiki page is 'Vote Now! (Dark)'. Number 50. Frame proportions match the printed card (not a tall slip). Slip text matches the stub. CHANGES vs Decipher Vote Now! (Dark) (Coruscant, Cor-D-votenow.gif): card type Used Interrupt → Effect (disc, banner); title; destiny 5 → 6; game text replaced (printed: 'During your control phase, draw destiny. If destiny > 2, draw up to X cards (maximum 4) from Reserve Deck, where X = your total politics at Galactic Senate minus opponent’s total politics at Galactic Senate.'). Lore matches the wiki and the scan. Base scan 350 px only; copyright Coruscant 2001. Modern: VB5-D-withthunderousapplause-pre.gif (350; later wording 'At start of your turn, if at Senate, may draw…'; adds a small icon disc left of the lore box). V25-D-withthunderousapplause.gif is a different, later PC card — not downloaded."
+}

@@ -1,0 +1,46 @@
+{
+ "id": "vs16-21",
+ "number": "21",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Yarua",
+ "caption": "•Yarua (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ],
+  [
+   "POLITICS",
+   "2"
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "4",
+ "game_text": "*Agenda:* taxation. Deploys -2 to Coruscant or Kashyyyk. At end of your deploy phase, if with a Wookiee on Kashyyyk and you have 8 or more cards in hand, opponent must lose 1 Force. Your Wookiees on Kashyyyk move for free.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "lore": "Kashyyyk’s senior Wookiee *senator*. Believes that a thorough taxation plan will assist funding of other worthwhile Republic programs. Despises the corruption around him.",
+ "destiny": "2",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Yarua",
+ "art": {
+  "src": "src/vs16/21-Cor-L-yarua.gif",
+  "modern": "src/vs16/modern/21-V16-L-yarua.gif"
+ },
+ "notes": "Group (sheet sub-heading): Battle Of Kashyyyk. Unique. Stats POWER 6 (printed 5) / ABILITY 2 / POLITICS 2; deploy 5 (printed 3) / forfeit 4. 'Agenda:' bold on the slip. Icon column: warrior (blue) only — new (the printed card has no column icons); no Episode I disc in this slip's column. Republic (Republic crest disc, Coruscant frame); printed card has the Coruscant ring and an Episode I icon beside the lore box → ring_icons ['episode1']. Slip text matches the stub. LORE: 'senator' is visibly BOLD on the 350 px scan and on the PC's 745 px V16 remake → *senator*; curly apostrophe Kashyyyk’s. Copyright read off the V16 745 remake: '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' (Coruscant base scan shows 2001 too). Modern: V16-L-yarua.gif (745, later modern Yarua, different text, same art) and VB5-L-yarua-pre.gif (350).",
+ "game_text_lines": "*Agenda:* taxation. Deploys -2 to Coruscant or\nKashyyyk. At end of your deploy phase, if with\na Wookiee on Kashyyyk and you have 8 or more\ncards in hand, opponent must lose 1 Force. Your\nWookiees on Kashyyyk move for free.",
+ "ring_icons": [
+  "episode1"
+ ]
+}

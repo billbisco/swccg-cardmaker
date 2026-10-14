@@ -1,0 +1,35 @@
+{
+ "id": "vs16-37",
+ "number": "37",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Simple Tricks And Nonsense",
+ "caption": "•You Will Take Me To Jabba Now (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. While you occupy a battleground and opponent occupies less than two battlegrounds, cancel opponent’s Force drains at non-battleground locations and opponent’s Force retrieval.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Et tu taka bu Jabba now.”",
+ "destiny": "0",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "You Will Take Me To Jabba Now",
+ "art": {
+  "src": "src/vs16/37-JP-L-youwilltakemetojabbanow.gif",
+  "modern": "src/vs16/modern/37-VD-L-simpletricksandnonsense.gif"
+ },
+ "heading": "•Simple Tricks And Nonsense (V)",
+ "combo": true,
+ "base_title": "•You Will Take Me To Jabba Now",
+ "base_destiny": "5",
+ "ring_icons": [
+  "episode1"
+ ],
+ "game_text_lines": "Plays on table. While you occupy a battleground\nand opponent occupies less than two battlegrounds,\ncancel opponent’s Force drains at non-battleground\nlocations and opponent’s Force retrieval.",
+ "notes": "Group: Everything Else (LIGHT SIDE). COMBO / FULL-CARD OVERLAY (755×1099 crop) on the Defensive Shield frame (blue with the red fade at the upper right and lower right, as the VS shield slips). Top to bottom: (1) TITLE BAR: the purple Defensive Shield disc at the left (printed card: red Used Interrupt disc); title '•Simple Tricks And Nonsense'; destiny 0 (printed 5 → destiny '0', base_destiny '5'). (2) LORE BOX: '“Et tu taka bu Jabba now.”' — same as the printed lore. Right of the lore box: the Jabba's Palace expansion ring (gold) and BELOW it a black EPISODE I icon, which the printed card does NOT have → ring_icons ['episode1'] (slip addition). (3) ART WINDOW blank white; no copyright printed (stays from the printed card). (4) Banner DEFENSIVE SHIELD; game text 4 lines; no icon column; VS16 set sphere at the bottom right. Not a tall slip: banner and text box at the printed card's heights (checked by overlaying the scan). (5) Bottom strip: caption '•You Will Take Me To Jabba Now (V)', number 37; heading '•Simple Tricks And Nonsense (V)'. CHANGES vs Decipher You Will Take Me To Jabba Now (Jabba's Palace Used Interrupt, JP-L-youwilltakemetojabbanow.gif 350 px): title, disc, destiny 5 → 0, banner USED INTERRUPT → DEFENSIVE SHIELD, frame red → shield blue, Episode I icon added, game text replaced (printed: 'If Jabba is at a Jabba's Palace site, relocate one of your characters to that location from a related site. OR During your deploy phase, deploy one alien (at normal use of the Force) from Reserve Deck to the Audience Chamber; reshuffle.'). LORE corrected from the scan (and the PC's 745 px VD remake): curly double quotes “…” with the period inside (wiki has straight single quotes). Curly apostrophes in opponent’s (×2). Copyright not legible on the 350 px scan — Jabba's Palace 1998 line by rule. Modern: VD-L-simpletricksandnonsense.gif (745 px, the PC's modern Simple Tricks And Nonsense — same art, lore, destiny 0 and text) and VSh-L-simpletricksandnonsense-pre.gif (350, Virtual Shields; also in src/vs16/modern/37-…). Slip text matches the stub (stub straight apostrophes). Stub: https://wiki.swccg.com/wiki/Simple_Tricks_And_Nonsense_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+}

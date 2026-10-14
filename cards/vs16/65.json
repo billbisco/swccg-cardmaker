@@ -1,0 +1,45 @@
+{
+ "number": "65",
+ "side": "Dark",
+ "slip_type": "Creature",
+ "card_type": "CREATURE - FORCE EATER",
+ "title": "•Thrawn’s Pet",
+ "caption": "Sleen (V)",
+ "stats": [
+  [
+   "FEROCITY",
+   "3"
+  ],
+  [
+   "FANGS",
+   "4"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "0",
+ "game_text": "Habitat: sites. Parasite: Imperials. While attached and present, at same site: all Force generation is canceled, Dark Jedi and Jedi are defense value -1 and their weapon destinies are -1, and no attacks.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "4",
+ "base_page": "Sleen",
+ "art": {
+  "src": "src/vs16/65-Dagobah-D-sleen.gif",
+  "modern": null
+ },
+ "id": "vs16-65",
+ "virtual_set": 16,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "heading": "•Thrawn’s Pet (V)",
+ "combo": true,
+ "base_title": "Sleen",
+ "base_lore": "Slow, omnivorous swamp forager. Eats insects. Seeks damp, dark environments strong with the Force.",
+ "credit_bottom": [
+  "Original concept by Jeffrey Johns",
+  "PC Volunteer Award 2007"
+ ],
+ "game_text_lines": "Habitat: sites. Parasite: Imperials. While attached\nand present, at same site: all Force generation is\ncanceled, Dark Jedi and Jedi are defense value -1\nand their weapon destinies are -1, and no attacks.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). COMBO / FULL-CARD OVERLAY (755×1102 crop) on the silver Dark creature frame. Top to bottom: (1) TITLE BAR: round disc at left = red/green creature-eye disc, identical to the printed Sleen's; title '•Thrawn’s Pet' (curly apostrophe, uniqueness dot added); destiny 4 in the black hole. (2) LORE BOX PRINTED EMPTY (solid black box, no text) → lore '' (printed Sleen lore kept in base_lore, as vs15/02). Right of the lore box: the Dagobah expansion ring (Yoda-eye sphere), as printed; no Episode I icon. (3) ART WINDOW blank white; the white also covers the right margin where the printed copyright line runs, so no copyright is printed on the slip (stays from the printed card: Dagobah 1997). (4) Banner CREATURE - FORCE EATER; stat boxes FEROCITY 3 / FANGS 4; deploy 2 / forfeit 0 boxes; game text 4 lines; icon column EMPTY (only the VS16 set sphere). Credits under the text box: 'Original concept by Jeffrey Johns' / 'PC Volunteer Award 2007' → credit_bottom. (5) Bottom strip: caption 'Sleen (V)' (no dot), number 65. Heading above the slip: '•Thrawn’s Pet (V)'. Stub page is named by the slip: 'Thrawn’s Pet (V) (Virtual Set 16: Revenge Of The Sith)' (hatnote: sleeve over Sleen; a modern PC card 'Thrawn's Pet' also exists). CHANGES vs Decipher Sleen (Dagobah, Dagobah-D-sleen.gif): title 'Sleen' (no dot) → '•Thrawn’s Pet'; destiny 3 → 4; lore removed (box blank); banner SWAMP CREATURE → CREATURE - FORCE EATER; stats FEROCITY * / CLAWS 2 → FEROCITY 3 / FANGS 4; game text replaced (printed: '* Ferocity = destiny - 3. Habitat: planet sites (except Hoth and Tatooine) and Dark Waters. Cumulatively absorbs (temporarily cancels) one [Light Side Force] icon present. Parasite: None.'); icon column: printed Selective Creature icon (green box) → none; disc, ring, deploy 2 / forfeit 0 unchanged. Stub agrees (destiny 4, ferocity 3, fangs 4, deploy 2, forfeit 0). Base scan 348×488 (the printed face carries an 'E' mark at the bottom right); no modern remake on the wiki. Sleen base lore matches the scan (no first-line indent)."
+}

@@ -1,0 +1,33 @@
+{
+ "id": "vs16-31",
+ "number": "31",
+ "virtual_set": 16,
+ "side": "Light",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "Don’t Tread On Me",
+ "caption": "•Don’t Tread On Me (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Use 1 Force to ▼ an Effect that deploys for free on table (or your side of table) and is always {alter}.\nSTARTING: When drawing your starting hand, draw up to 12 cards instead of 8. Place this Interrupt in Reserve Deck.",
+ "game_text_lines": "USED: Use 1 Force to ▼ an Effect that deploys for\nfree on table (or your side of table) and is always {alter}.\nSTARTING: When drawing your starting hand, draw\nup to 12 cards instead of 8. Place this Interrupt in\nReserve Deck.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Han did not take kindly to Jabba’s posturing.",
+ "lore_indent": 0,
+ "destiny": "5",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Don't Tread On Me",
+ "art": {
+  "src": "src/vs16/31-SE-L-donttreadonme.gif",
+  "modern": "src/vs16/modern/31-V0-L-donttreadonme.gif"
+ },
+ "credit_bottom": [
+  "Original concept by Steven Lewis",
+  "PC Volunteer Award 2008"
+ ],
+ "notes": "Group: Everything Else. Bottom-half slip; banner USED OR STARTING INTERRUPT (letter-spaced). Slip heading and caption print '•' (unique); the printed SE card is unrestricted and has no dot — title kept as printed ('Don’t Tread On Me'), caption as the slip prints it (same practice as vs8/29, vs10/02). ▼ inline; '{alter}' = the red circle-slash A before the final period of the USED line (stub expands it to 'Immune to Alter' and ▼ to 'Deploy on table from Reserve Deck; reshuffle'). USED:/STARTING: lines separated by \\n. Credits under the text box: 'Original concept by Steven Lewis' / 'PC Volunteer Award 2008'. CHANGES vs printed card: text replaced (printed: 'USED: Add 1 to your just-drawn weapon destiny. STARTING: If you have deployed a battleground, deploy Ultimatum, Scrambled Transmission and/or Do, Or Do Not from Reserve Deck. Place Interrupt in Reserve Deck.'). LORE: curly apostrophe Jabba’s (wiki straight); printed lore starts flush left with NO first-line indent (scan and V0 745 remake) → lore_indent 0. Copyright SE 1998 legible on V0-L-donttreadonme.gif. Modern: V0-L-donttreadonme.gif (745, Virtual Set 0 remake, same art) used; VB1-L-donttreadonme-pre.gif (350, Virtual Block 1) also downloaded."
+}

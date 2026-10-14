@@ -1,0 +1,29 @@
+{
+ "number": "60",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Organa’s Ceremonial Necklace",
+ "caption": "•Organa’s Ceremonial Necklace (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. While you have < 13 cards in hand, opponent may not peek at or remove those cards (except with Grimtaash). May lose 2 Force to target two {set:coruscant} Political Effects; opponent may not place cards on either until the next time you use this text. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Necklace worn by Princess Leia during the awards ceremony after the Battle of Yavin. A powerful artifact in the Alderaanian royal family for dozens of generations.",
+ "destiny": "4",
+ "base_page": "Organa's Ceremonial Necklace",
+ "art": {
+  "src": "src/vs16/60-Premiere-D-organasceremonialnecklace.gif",
+  "modern": "src/vs16/modern/60-VB1-D-organasceremonialnecklace-pre.gif"
+ },
+ "id": "vs16-60",
+ "virtual_set": 16,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "grabber": false,
+ "game_text_lines": "Deploy on table. While you have < 13 cards in hand,\nopponent may not peek at or remove those cards\n(except with Grimtaash). May lose 2 Force to target\ntwo {set:coruscant} Political Effects; opponent may not place cards\non either until the next time you use this text. {alter}",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Banner EFFECT, no grabber box (printed base is a Premiere Utinni Effect). Inline icon before 'Political Effects' = pink/lavender sphere with yellow rim = the Coruscant expansion symbol → {set:coruscant}; the stub drops it. Game text ends with the red circle-slash A → {alter} (stub 'Immune to Alter.'). Curly apostrophe in the title/caption 'Organa’s'. STUB DISCREPANCY: the stub has destiny=6, but the printed card's destiny is 4 (wiki base page and scan) and the slip does not print a destiny — kept 4. Lore matches the scan. Premiere: no expansion ring. Base scan only at 350 px; copyright not legible — Premiere 1995 line per the brief. Modern: VB1 -pre (350) only."
+}

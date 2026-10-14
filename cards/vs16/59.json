@@ -1,0 +1,44 @@
+{
+ "number": "59",
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: TIE DEFENDER",
+ "title": "•Onyx 2",
+ "caption": "•Onyx 2 (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "Heroic. Permanent pilot provides ability of 2. When deployed, may play a Defensive Shield (and/or deploy a non-cannon weapon on this starship) from under your Starting Effect (as if from hand).",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Part of limited production run of TIE defenders. Testing of the prototype defender indicated the need for a more powerful hyperdrive, which was added for this production model.",
+ "destiny": "2",
+ "base_page": "Onyx 2",
+ "art": {
+  "src": "src/vs16/59-DS2-D-onyx2.gif",
+  "modern": "src/vs16/modern/59-V0-D-onyx2.gif"
+ },
+ "id": "vs16-59",
+ "virtual_set": 16,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "game_text_lines": "Heroic. Permanent pilot provides ability of 2. When\ndeployed, may play a Defensive Shield (and/or\ndeploy a non-cannon weapon on this starship)\nfrom under your Starting Effect (as if from hand).",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Banner STARFIGHTER: TIE DEFENDER. Stats POWER 4 / MANEUVER 4 / HYPERSPEED 3; deploy 2 / forfeit 4. No scomp ring. Icon column top to bottom: DS pilot helmet on yellow (permanent pilot, 'Permanent pilot provides ability of 2') → permanent-pilot; Nav Computer (astromech dome on red) → nav. Slip text matches the stub. Lore matches the scan and the V0 remake. Copyright DS2 2000 line read off the V0 remake. Modern: V0-D-onyx2.gif (745); VB4 -pre (350) also exists, not downloaded."
+}

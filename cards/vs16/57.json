@@ -1,0 +1,30 @@
+{
+ "number": "57",
+ "side": "Dark",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "•Mandalorian Armor",
+ "caption": "•Mandalorian Armor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your alien of ability < 4. Character gains bounty hunter skill and immunity to attrition < 4. If character just hit, may place this device in Lost Pile (Used Pile if on The Mandalorian) to restore it to normal.",
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Contains wrist lasers, rocket dart launchers, a flame projector, a projected grappling hook, a concussion grenade launcher, four kinds of sensors and a broad band antenna.",
+ "destiny": "3",
+ "base_page": "Mandalorian Armor",
+ "art": {
+  "src": "src/vs16/57-CC-D-mandalorianarmor.gif",
+  "modern": "src/vs16/modern/57-VB5-D-mandalorianarmor-pre.gif"
+ },
+ "id": "vs16-57",
+ "virtual_set": 16,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "game_text_lines": "Deploy on your alien of ability < 4. Character gains\nbounty hunter skill and immunity to attrition < 4.\nIf character just hit, may place this device in Lost\nPile (Used Pile if on The Mandalorian) to restore it\nto normal.",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Green Device frame; banner DEVICE, no grabber box. Icon column: the black EPISODE I icon (column icon, above the VS16 set sphere) → icons ['episode1']. No inline icons. Slip text matches the stub. LORE CORRECTED from the scan: the printed card reads 'a projected grappling hook' (wiki 'projectable'); read at 6× zoom on the 350 px scan, same on the VB5 reissue. Base scan only at 350 px; copyright not legible — Cloud City 1997 line per the brief. Modern: VB5-D-mandalorianarmor-pre.gif (350, Virtual Block reissue); no V0/V<N> remake on the wiki."
+}
