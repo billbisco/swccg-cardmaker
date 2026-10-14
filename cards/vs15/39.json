@@ -1,0 +1,42 @@
+{
+ "number": "39",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Bib Fortuna",
+ "caption": "•Bib Fortuna (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "Opponent’s non-Jedi characters are deploy +1 to {set:jabbaspalace} sites. Once during your control phase, you may place three cards from hand in Used Pile to reveal top card of Reserve Deck; if it is an alien, take it into hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Twi’lek leader and majordomo of Jabba’s palace. Succeeded Jabba’s last majordomo, Naroon Cuthus. Plotting to kill Jabba.",
+ "destiny": "1",
+ "base_page": "Bib Fortuna",
+ "art": {
+  "src": "src/vs15/39-JP-D-bibfortuna.gif",
+  "modern": "src/vs15/modern/39-V25-D-bibfortuna.gif"
+ },
+ "id": "vs15-39",
+ "virtual_set": 15,
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "heading": "•Bib Fortuna ({set:jabbaspalace} persona only) (V)",
+ "credit_bottom": [
+  "Original concept by Steven Lewis",
+  "Yavin 4 Regionals 2006"
+ ],
+ "notes": "Sheet group: Everything else. Unique. Slip heading '•Bib Fortuna ([gold eye sphere] persona only) (V)' — the sphere is the Jabba's Palace expansion symbol (matches set-jabbaspalace-grainy.png) → heading with {set:jabbaspalace}; bottom strip prints '•Bib Fortuna (V)'. The same Jabba's Palace symbol is printed inline in 'deploy +1 to [JP] sites' → {set:jabbaspalace}; the STUB DROPS IT ('deploy +1 to sites'). Stats POWER 3 / ABILITY 1, third box empty; deploy 3 / forfeit 4 (as printed). Icon column empty (printed card has none either). Alien. Credits under the text box: 'Original concept by Steven Lewis' / 'Yavin 4 Regionals 2006' → credit_bottom. LORE corrected: curly apostrophes Twi’lek, Jabba’s ×2 (wiki straight). 'leader' plain on the 350 px printed scan; the PC's V25 remake prints it bold — left plain. Copyright JP 1998 line legible enough. Modern: V25-D-bibfortuna.gif (745 px, Virtual Set 25 Bib Fortuna (V), same printed lore/art); VB3-D-bibfortuna-pre (350, probably this slip reissued) also exists, not downloaded.",
+ "game_text_lines": "Opponent’s non-Jedi characters are deploy +1\nto {set:jabbaspalace} sites. Once during your control phase, you\nmay place three cards from hand in Used Pile to\nreveal top card of Reserve Deck; if it is an alien,\ntake it into hand."
+}

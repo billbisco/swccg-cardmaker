@@ -1,0 +1,37 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "Hidden Base",
+ "caption": "Hidden Base (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Deploy a planet system (with {ovs} Hidden Landing Site there) and Uncharted Settlements. Choose: Rebel/Rebel starship, Alien/{independent} starship, or Republic/{icon:republic-square} starship._ *For* remainder of game, you may not deploy cards with ability except vehicles, Jedi Masters, and the pair you chose. Once per turn, may ▼ a battleground system. *While* this side up, once per turn, may ▼ a Rebel Cell site or a character (of ability-2 or -3) to a Rebel Cell site. *Flip* this card if you occupy three Rebel Cell sites (and opponent controls no Rebel Cell sites).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Hidden Base / Systems Will Slip Through Your Fingers",
+ "art": {
+  "src": "src/vs15/12-SE-L-hiddenbase.gif",
+  "modern": "src/vs15/modern/12-VB4-L-hiddenbase-pre.gif"
+ },
+ "id": "vs15-12",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "title_back": "Systems Will Slip Through Your Fingers",
+ "caption_back": "Systems Will Slip Through Your Fingers (V)",
+ "game_text_back": "*While* this side up, your Force drains are +1 at each battleground system. At Rebel Cell sites, sectors and each battleground system: your characters of ability < 4, {set:hoth} artillery weapons, and starships are immune to attrition < 4 (or add 2 to immunity). Koensayr Manufacturing and Incom Corporation instead affect all your non-unique starships (except squadrons and corvettes). Once per turn, if you just won a battle against an Imperial or Imperial starship, may ▲ any one card. *Flip* this card if opponent controls two Rebel Cell sites.",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs15/12-SE-L-systemswillslipthroughyourfingers.gif",
+  "modern": "src/vs15/modern/12-VB4-L-systemswillslipthroughyourfingers-pre.gif"
+ },
+ "notes": "Sheet group: Rebel Cell. Objective, two slips: front 12-Hidden_Base.png (heading/strip 'Hidden Base (V)'), back 12b-Hidden_Base.png (heading/strip 'Systems Will Slip Through Your Fingers (V)', same number 12). Non-unique (no dot). Front: the first three lines (deploy + Choose) are italic; bold lead words For/While/Flip; back: bold While/Flip. Inline icons (zoomed): front line 1 gold sphere before 'Hidden Landing Site' = the VS15 set sphere itself (identical to the slip's own set symbol; Rebel Cell - Hidden Landing Site is VS15 #22) → {ovs}; 'Alien/' + blue square with spoked wheel = Independent → {independent} (GEMP '[Independent Starship]'); 'Republic/' + square lavender tile with the silver crest = {icon:republic-square} (GEMP '[Republic]'). Back line 4: plain silver/white sphere before 'artillery weapons' = the Hoth expansion icon (matches assets/icons/set-hoth-grainy.png; GEMP Legacy text '[Hoth] artillery weapons') → {set:hoth}. Stub differences: stub reads the front {ovs} as 'Rebel' ('Rebel Hidden Landing Site') and the back Hoth icon as 'Rebel artillery weapons' — both wrong; ▼/▲ expanded on the stub. Base: Special Edition Objective 'Hidden Base / Systems Will Slip Through Your Fingers' (printed page; Errata/PC Errata pages also exist). Objectives have no lore. Destiny: front 0, back 7 (wiki base). Base scans SE-L-hiddenbase.gif and SE-L-systemswillslipthroughyourfingers.gif are 745 px; copyright '© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.' legible on both. Modern: Virtual Block 4 -pre files (348/347 px) for both faces (no V0/V<N> 745 remake on the wiki).",
+ "game_text_lines": "_Deploy a planet system (with {ovs} Hidden Landing Site\nthere) and Uncharted Settlements. Choose: Rebel/Rebel\nstarship, Alien/{independent} starship, or Republic/{icon:republic-square} starship._\n*For* remainder of game, you may not deploy cards with\nability except vehicles, Jedi Masters, and the pair you\nchose. Once per turn, may ▼ a battleground system.\n*While* this side up, once per turn, may ▼ a Rebel Cell\nsite or a character (of ability-2 or -3) to a Rebel Cell site.\n*Flip* this card if you occupy three Rebel Cell sites (and\nopponent controls no Rebel Cell sites).",
+ "game_text_back_lines": "*While* this side up, your Force drains are +1 at each\nbattleground system. At Rebel Cell sites, sectors and\neach battleground system: your characters of ability < 4, {set:hoth}\nartillery weapons, and starships are immune\nto attrition < 4 (or add 2 to immunity). Koensayr\nManufacturing and Incom Corporation instead affect\nall your non-unique starships (except squadrons and\ncorvettes). Once per turn, if you just won a battle against\nan Imperial or Imperial starship, may ▲ any one card.\n*Flip* this card if opponent controls two Rebel Cell sites."
+}

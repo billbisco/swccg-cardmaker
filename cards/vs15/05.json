@@ -1,0 +1,37 @@
+{
+ "id": "vs15-05",
+ "number": "05",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "3",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Beru Lars",
+ "caption": "•Beru Lars (V)",
+ "game_text": "Once per turn, if present at a farm and a destiny was just drawn that is within 1 of the destiny of your ‘crop,’ may use 1 Force to place ‘crop’ in Used Pile. Whenever you play Beru Stew or Blue Milk, may draw top card from Reserve Deck.",
+ "lore": "Wife of Owen Lars and guardian of Luke Skywalker. Quietly lobbied Owen to allow Luke to attend Academy. Maintains Lars’ farm hydroponics labs.",
+ "destiny": "2",
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Beru Lars",
+ "art": {
+  "src": "src/vs15/05-Premiere-L-berulars.gif",
+  "modern": "src/vs15/modern/05-VB1-L-berulars-pre.gif"
+ },
+ "notes": "Group: Farming. Stats POWER 1 / ABILITY 1; third stat box printed EMPTY (blank, no label). Deploy 1 / forfeit 3. No column icons. Curly ‘crop,’ / ‘crop’. Slip text matches the stub. No credits. Lore matches (curly Lars’ as printed on the 745 scan). Copyright 1995 legible on the 745 scan. Modern: VB1 -pre only.",
+ "game_text_lines": "Once per turn, if present at a farm and a destiny\nwas just drawn that is within 1 of the destiny of\nyour ‘crop,’ may use 1 Force to place ‘crop’ in\nUsed Pile. Whenever you play Beru Stew or Blue\nMilk, may draw top card from Reserve Deck."
+}

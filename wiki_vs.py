@@ -98,6 +98,13 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="fourteenth", remaster="the December 2007 sheet: cover, set symbol, rule card and the slips shown below", pack="VS14O-pack.png", symbol="VS14O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    15: dict(sheet=("https://res.starwarsccg.org/legacyblocks/VirtualCards15.pdf", "VirtualCards15.pdf", "starwarsccg.org", "21 March 2008"),
+            sheet_where="starwarsccg.org CDN",
+            legal="Not found", legal_ref="No Virtual Set 15 release post survives in the archived swccgpc.com news (captures stop in February 2005). The sheet's official text is dated 21 March 2008; its slips credit winners of events up to 2007 (Norwegian Open 2007, Australia Nationals 2007, PC Volunteer Award 2007).",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the sheet's official text is dated 21 March 2008.",
+            ordinal="fifteenth", remaster="the March 2008 sheet: cover, set symbol, rule cards and the slips shown below", pack="VS15O-pack.png", symbol="VS15O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -113,8 +120,10 @@ for _p in sorted((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")):   # renamed 
     _c = json.load(open(_p, encoding="utf-8"))
     if (_c.get("slip_type") or "").lower() in ("site", "system") or _c.get("combo"):   # combo slips rename too (Obi-Wan In Radiant VII, GEMP)
         _nm = lambda x: re.sub(r"\s*\((?:V|Light|Dark)\)", "", x.replace("•", "").replace("◊", "").replace("_", "")).strip().lower()
-        if _nm(_c["title"]) != _nm(_c.get("caption", "")) and int(_p.stem) not in META["title_fix"]:
-            META["title_fix"][int(_p.stem)] = _c["title"].replace("•", "").replace("◊", "").replace("_", "").strip() + " (V)"
+        _st = stubs.get(int(_p.stem), (None, {}))[1].get("title", "")   # the stub may already carry the slip's name (VS15)
+        _q = lambda x: _nm(x).replace("’", "'")
+        if _q(_c["title"]) != _q(_c.get("caption", "")) and _q(_c["title"]) != _q(_st) and int(_p.stem) not in META["title_fix"]:
+            META["title_fix"][int(_p.stem)] = _c["title"].replace("•", "").replace("◊", "").replace("_", "").replace("’", "'").strip() + " (V)"
 CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else ""   # current hub page: its history sections are carried over
 
 TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immediate Effect"), "USED INTERRUPT": ("Interrupt", "Used Interrupt"),
@@ -379,6 +388,7 @@ The second image in each row is a full-card remaster: the printed Decipher card 
 """
 (OUT / "page.wiki").write_text(page, encoding="utf-8")
 tsv.insert(0, f"{SET}\t{OUT.name}/page.wiki")
-(OUT / "moves.txt").write_text("\n".join(moves) + "\n", encoding="utf-8")
+moves = [m for m in moves if m.split("|")[0] != m.split("|")[1]]
+(OUT / "moves.txt").write_text("\n".join(moves) + ("\n" if moves else ""), encoding="utf-8")
 (OUT / f"y-vs{VS}wiki.tsv").write_text("\n".join(tsv) + "\n", encoding="utf-8")
 print(len(tsv), "pages")

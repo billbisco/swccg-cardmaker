@@ -1,0 +1,41 @@
+{
+ "number": "37",
+ "side": "Dark",
+ "slip_type": "Used Or Starting Interrupt",
+ "card_type": "USED OR STARTING INTERRUPT",
+ "title": "•Abyssin Ornament & •Wounded Wookiee",
+ "caption": "•Abyssin Ornament & •Wounded Wookiee (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: Creature attacks at pits are immune to At Peace and Yarna d’al’ Gargan until end of your next turn. {sense} OR Cancel an attempt to target a rancor with a character weapon. OR Use 1 Force (2 if a rancor on table) to ▼ Nal Hutta. STARTING: If Great Pit Of Carkoon on table, ▼ an Effect that is always {alter} and choose: ▼ Rancor Pit and a rancor there, OR ▼ Power Of The Hutt and Sarlacc. Place this Interrupt in hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "2",
+ "base_page": "Abyssin Ornament & •Wounded Wookiee",
+ "art": {
+  "src": "src/vs15/37-Ref2-D-abyssinornament&woundedwookiee.gif",
+  "modern": null,
+  "modern_unused": "src/vs15/modern/37-VB3-D-abyssinornament&woundedwookiee-pre.gif",
+  "rect": [
+   40,
+   72,
+   312,
+   255
+  ]
+ },
+ "id": "vs15-37",
+ "virtual_set": 15,
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "no_lore_box": true,
+ "credit_bottom": [
+  "Original concept by Proofing Team",
+  "PC Volunteer Award 2007"
+ ],
+ "notes": "Sheet group: Everything else. CUT-OFF HEADING: the crop's heading reads '•Abyssin Ornament & •Wounded Wookiee (V' (cut at the right edge); title/caption taken from the bottom strip '•Abyssin Ornament & •Wounded Wookiee (V)'. Printed card title (Reflections II combo, 354 px scan) also dots BOTH names — the wiki base page title drops the first dot (as vs12/42). Banner USED OR STARTING INTERRUPT (printed: USED OR LOST INTERRUPT). Game text: USED and STARTING sections separated by \\n (the slip starts STARTING: on a new line). Inline: red circle-slash S after 'turn.' → {sense}; red circle-slash A after 'always' → {alter}; ▼ ×4 typed. 'Yarna d’al’ Gargan' with curly apostrophes. Credits under the text box: 'Original concept by Proofing Team' / 'PC Volunteer Award 2007' → credit_bottom. NO LORE BOX on the printed Reflections II combo Interrupt (split art window Abyssin ornament | Chewbacca runs from title bar to banner) → lore '', no_lore_box true (model vs12/42; an art.rect for the scan's own art rectangle may be needed as there — not measured). Base set wiki '|set=Reflections II: Expanding the Galaxy' → 'Reflections II' as earlier runs; destiny 2; Premium. Copyright read (barely) off the 354 px scan: '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' Stub text matches apart from expanded icons. Modern: Virtual Block 3 only (VB3-D-abyssinornament&woundedwookiee-pre.gif, 354 px; non-pre also exists). VB8-D-abyssinornament is a different (single) card.",
+ "game_text_lines": "USED: Creature attacks at pits are immune to At\nPeace and Yarna d’al’ Gargan until end of your next\nturn. {sense} OR Cancel an attempt to target a rancor with\na character weapon. OR Use 1 Force (2 if a rancor on\ntable) to ▼ Nal Hutta.\nSTARTING: If Great Pit Of Carkoon on table, ▼ an\nEffect that is always {alter} and choose: ▼ Rancor Pit\nand a rancor there, OR ▼ Power Of The Hutt and\nSarlacc. Place this Interrupt in hand.",
+ "text_grow": 300
+}

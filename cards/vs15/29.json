@@ -1,0 +1,43 @@
+{
+ "number": "29",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Talon Karrde",
+ "caption": "•Talon Karrde (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. If your {ovs} objective on table: aliens are forfeit +2 at Rebel Cell sites; Yerka Mig may deploy on a Rebel Cell site, ignores Jedi, is {alter}, and for remainder of game, you retrieve Force with it only once per turn.",
+ "game_text_lines": "{pilot:2}. If your {ovs} objective on table: aliens are\nforfeit +2 at Rebel Cell sites; Yerka Mig may\ndeploy on a Rebel Cell site, ignores Jedi, is {alter},\nand for remainder of game, you retrieve Force\nwith it only once per turn.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "*Smuggler* and *information broker*. Operates intelligence network. Pragmatic businessman. Strong sense of personal honor. Bounty placed on his head by Grand Admiral Thrawn.",
+ "destiny": "3",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Talon Karrde",
+ "art": {
+  "src": "src/vs15/29-Ref2-L-talonkarrde.gif",
+  "modern": "src/vs15/modern/29-VB4-L-talonkarrde-pre.gif"
+ },
+ "notes": "Group: Rebel Cell. Unique. Stats POWER 2 / ABILITY 3 / FORCE-ATTUNED (label only) — same as printed; deploy 3 / forfeit 4. Leading yellow LS pilot icon + '2.' → {pilot:2}. INLINE gold sphere before 'objective' = the VS15 set symbol (gold disc with figure, same as the cover symbol and the slip's own set sphere) → {ovs} (i.e. Hidden Base (V)); the stub drops it and its note calls it an 'Independent set icon' — wrong. Red circle-slash A after 'is' → {alter}. Icon column: pilot (yellow LS helmet). Affiliation Alien (wiki subtype; printed Ref II frame). LORE: wiki text matches; 'Smuggler' and 'information broker' are visibly bold on the 354 px scan and on the VB4 reissue → *bold*. Printed card's Reflections II ring stays. Base scan 354×492 only; copyright '© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' read off the scan. Modern: VB4-L-talonkarrde-pre.gif (354 px, Virtual Block 4).",
+ "id": "vs15-29",
+ "virtual_set": 15,
+ "side": "Light"
+}

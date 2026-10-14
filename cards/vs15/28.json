@@ -1,0 +1,28 @@
+{
+ "number": "28",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Skull",
+ "caption": "•Skull (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During opponent’s control phase, your pack attacks. Weapons may only target the lead creature. Pack may then move to an adjacent site. OR If a card was just ‘eaten,’ card’s owner loses 2 Force. OR Use 3 Force to retrieve a creature.",
+ "game_text_lines": "During opponent’s control phase, your pack attacks.\nWeapons may only target the lead creature. Pack may\nthen move to an adjacent site. OR If a card was just\n‘eaten,’ card’s owner loses 2 Force. OR Use 3 Force to\nretrieve a creature.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Bidlo Kwerve was involved in both the procurement and (posthumously) the loss of the rancor.",
+ "destiny": "4",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Skull",
+ "art": {
+  "src": "src/vs15/28-JP-L-skull.gif",
+  "modern": "src/vs15/modern/28-VB4-L-skull-pre.gif"
+ },
+ "notes": "Group: Everything else. Bottom-half slip: banner USED INTERRUPT, text box, VS15 sphere bottom-right; no margin credits. Curly ’ and ‘eaten,’ as printed (stub straight quotes). Slip text matches the stub. Printed Skull (Jabba's Palace, unique) is a Used Interrupt too; JP ring right of the lore box stays from the printed card. Lore matches the wiki and the scan. Base scan 350 px only; copyright JP 1998 line read off the scan. Modern: VB4-L-skull-pre.gif (350 px, Virtual Block 4).",
+ "id": "vs15-28",
+ "virtual_set": 15,
+ "side": "Light"
+}

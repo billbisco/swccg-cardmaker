@@ -1,0 +1,28 @@
+{
+ "number": "56",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•No Bargain",
+ "caption": "•No Bargain (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on your {set:reflections2} objective; “Xizor” on it (and on Guri) is treated as “Shada.” Non-{lightsaber} alien females are Mistryl and Black Sun agents. You may not deploy cards with ability except Mistryl and {independent} starships. Unique (•) Mistryl (except Kitik) are power +2. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Zeet tu seet. Jabba no tuzindy honkabee.”",
+ "destiny": "4",
+ "base_page": "No Bargain",
+ "art": {
+  "src": "src/vs15/56-SE-D-nobargain.gif",
+  "modern": "src/vs15/modern/56-VB4-D-nobargain-pre.gif"
+ },
+ "id": "vs15-56",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Group: Mistryl. Unique. Bottom-half slip, red EFFECT banner (no grabber box). Inline icons: purple sphere with silver rim before 'objective' = Reflections II set symbol → {set:reflections2} (matched by eye against assets/icons/set-reflections2-grainy.png; Reflections II's Dark objective is Agents Of Black Sun / Vengeance Of The Dark Prince, the Xizor objective — the stub drops the icon, 'your objective'); black square with green blade after 'Non-' → {lightsaber} per the brief (the stub reads it as an Alien icon: 'Non-alien females'); blue spoked wheel in a square before 'starships' → {independent} (stub: 'starship icon named', prints just 'starships'); trailing red circle-slash A → {alter}. Curly quotes as printed; 'Unique (•)' as printed (stub '(*)'). Base scan SE-D-nobargain.gif (350 px only); ring icon right of the lore box = Special Edition. LORE CORRECTION: the printed lore is in curly DOUBLE quotes “Zeet tu seet. Jabba no tuzindy honkabee.” (wiki has straight single quotes). Copyright SE line by rule (not legible at 350 px). Modern: VB4-D-nobargain-pre.gif (Virtual Block 4 reissue, 350 px) — its text is a LATER revision (‘Mistryl (except Kitik) are power +1 (+2 if unique (•)) and, while Scum And Villainy on table, deploy +1’), not the VS15 text; same inline icons.",
+ "game_text_lines": "Deploy on your {set:reflections2} objective; “Xizor” on it (and on\nGuri) is treated as “Shada.” Non-{lightsaber} alien females\nare Mistryl and Black Sun agents. You may not deploy\ncards with ability except Mistryl and {independent} starships.\nUnique (•) Mistryl (except Kitik) are power +2. {alter}"
+}

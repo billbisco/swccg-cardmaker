@@ -1,0 +1,44 @@
+{
+ "number": "34",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Wedge Antilles",
+ "caption": "•Wedge Antilles (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "6",
+ "game_text": "{pilot:3}. While piloting _Pulsar Skate_, it is maneuver +2 and Wedge draws one battle destiny if unable to otherwise. While at Tatooine (or with Booster, Luke, or Mirax), Set For Stun may not target characters here and Overwhelmed may not be played here.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Highly decorated Corellian. Piloted Red 2 at the Battle of Yavin. A wealthy orphan, he bought a freighter with his inheritance. First joined the Alliance as weapons smuggler.",
+ "destiny": "4",
+ "base_page": "Wedge Antilles (Original)",
+ "art": {
+  "src": "src/vs15/34-ANH-L-wedgeantilles-decipher-archive.gif",
+  "modern": "src/vs15/modern/34-V2-L-wedgeantilles.gif"
+ },
+ "id": "vs15-34",
+ "virtual_set": 15,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by James Barnes",
+  "Texas States 2007"
+ ],
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 2 / ABILITY 2, third box empty; deploy 2 / forfeit 6 (same as printed). Yellow LS pilot icon + '3.' at the start → {pilot:3} (stub expands it). _Pulsar Skate_ italic on the slip. Icon column top to bottom: pilot, warrior (printed card also Pilot, Warrior). Rebel. Credits printed horizontally in italics under the text box: left 'Original concept by James Barnes', right 'Texas States 2007' → credit_bottom. Slip text matches the stub (apart from the expanded pilot icon and the italics). Wiki default 'Wedge Antilles' carries Glossary 2.0 errata; printed face = 'Wedge Antilles (Original)' (ANH-L-wedgeantilles-decipher-archive.gif, 350 px, used as src). ANH-L-wedgeantilles.gif (348 px, same printed lore) also downloaded to src/vs15/34-ANH-L-wedgeantilles.gif. LORE CORRECTED from the scan: printed 'First joined the Alliance as weapons smuggler.' (no 'a'; wiki has 'as a weapons smuggler') — confirmed on both Decipher scans and the V2 remake. 'smuggler' is plain on the printed 350 px scan; the PC's V2 remake prints it bold — left plain (renderer bolds keywords itself). Copyright 1996 (ANH line) legible enough on the 350 px scan. Modern: V2-L-wedgeantilles.gif (745 px, the Virtual Set 2 Wedge Antilles (V), same printed lore/art); VB1-L-wedgeantilles-pre.gif (350) also exists (Virtual Block 1; not checked whether it reissues the VS2 or VS15 slip), not downloaded.",
+ "game_text_lines": "{pilot:3}. While piloting _Pulsar Skate_, it is maneuver\n+2 and Wedge draws one battle destiny if unable to\notherwise. While at Tatooine (or with Booster, Luke,\nor Mirax), Set For Stun may not target characters\nhere and Overwhelmed may not be played here."
+}

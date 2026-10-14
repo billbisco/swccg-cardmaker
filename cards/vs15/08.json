@@ -1,0 +1,41 @@
+{
+ "id": "vs15-08",
+ "number": "08",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "X-Y"
+  ],
+  [
+   "ABILITY",
+   "π"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Alien",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Brainiac",
+ "caption": "•Brainiac (V)",
+ "game_text": "X = Light Side cards in hand. Y = Dark Side cards in hand. If X < Y, your Force generation is +1. If X = Y, adds one battle destiny. Once per turn, if X > Y, may lose a card from hand to make a just drawn weapon or battle destiny = π.",
+ "lore": "BoShek nicknamed this male Siniteen ‘Brainiac’ due to his ability to calculate hyperspace coordinates in his head. “He’s the brains, sweetheart!”",
+ "destiny": "π",
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "base_page": "Brainiac",
+ "art": {
+  "src": "src/vs15/08-ANH-L-brainiac.gif",
+  "modern": "src/vs15/modern/08-VB1-L-brainiac-pre.gif"
+ },
+ "notes": "Group: Everything else. Stats POWER X-Y / ABILITY π (Greek pi, larger glyph) / FORCE-ATTUNED (label only); deploy 3 / forfeit 4. No column icons on the slip. Text ends '= π.' Slip text matches the stub. No credits. LORE CORRECTION: wiki has single straight quotes round the last sentence; printed card has curly ‘Brainiac’ and “He’s the brains, sweetheart!” (double quotes). Destiny π as printed. Base scan 350 px; ANH 1996 by set. Modern: VB1 -pre only.",
+ "game_text_lines": "X = Light Side cards in hand. Y = Dark Side cards\nin hand. If X < Y, your Force generation is +1.\nIf X = Y, adds one battle destiny. Once per turn,\nif X > Y, may lose a card from hand to make a just\ndrawn weapon or battle destiny = π."
+}

@@ -1,0 +1,43 @@
+{
+ "number": "43",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Danz Borin",
+ "caption": "•Danz Borin (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:3}. May add 1 to Force drains at same Nal Hutta location. Danz is a matching pilot for any {independent} starship and while piloting one, may not draw more than one battle destiny here (that destiny may not be canceled or modified by opponent).",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Cocky gunner and bounty hunter. Maintains a residence on Nar Shaddaa, the spaceport moon of the Hutt homeworld. To his companions’ delight, he’s nearly as good as he boasts.",
+ "destiny": "3",
+ "base_page": "Danz Borin",
+ "art": {
+  "src": "src/vs15/43-ANH-D-danzborin-decipher-archive.gif",
+  "modern": "src/vs15/modern/43-V22-D-danzborin.gif"
+ },
+ "id": "vs15-43",
+ "virtual_set": 15,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Tyler Vastag",
+  "Twin Cities V-Lite 2006"
+ ],
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 2 / ABILITY 2, third box empty (printed POWER 1 / ABILITY 2); deploy 2 / forfeit 4 (printed 2 / 3). Yellow DS pilot icon + '3.' → {pilot:3}. Inline blue spoked wheel before 'starship' = Independent → {independent} (stub: 'Starship icon named' — it is the Independent icon). Icon column: pilot (as printed). Alien. Credits under the text box: 'Original concept by Tyler Vastag' / 'Twin Cities V-Lite 2006' → credit_bottom. LORE corrected: curly apostrophes companions’, he’s. 'bounty hunter' is plain on the printed 350 px decipher-archive scan (used as src, it is the wiki base page's image); the 745 px ANH-D-danzborin.gif is the PC errata face (corner D-E1, game text 'Adds 1 to weapon destiny draws of anything he is aboard as a passenger') with bold 'bounty hunter' — downloaded to src/vs15/43-ANH-D-danzborin.gif for art only. Copyright 1996 (ANH) legible enough. Modern: V22-D-danzborin.gif (745 px, Virtual Set 22 Danz Borin (V), same lore/art, bold 'bounty hunter'); VB1-D-danzborin-pre (350) also exists, not downloaded.",
+ "game_text_lines": "{pilot:3}. May add 1 to Force drains at same Nal\nHutta location. Danz is a matching pilot for any {independent}\nstarship and while piloting one, may not draw\nmore than one battle destiny here (that destiny\nmay not be canceled or modified by opponent)."
+}

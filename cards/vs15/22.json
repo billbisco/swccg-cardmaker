@@ -1,0 +1,42 @@
+{
+ "number": "22",
+ "slip_type": "Site",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "side": "Light",
+ "card_type": "◊REBEL CELL - HIDDEN LANDING SITE",
+ "title": "◊Rebel Cell - Hidden Landing Site",
+ "caption": "•Tatooine: City Outskirts (V)",
+ "base_title": "•Tatooine: City Outskirts",
+ "game_text": "Your starfighters may deploy here (for -1 Force), and take off and land here for free. Incom Corporation and Koensayr Manufacturing may deploy here.",
+ "dark_text": "May not deploy to Bespin, Coruscant, Dagobah, Dantooine, Endor, Hoth, or Subjugated Planet. Rebel Cell sites are immune to Revolution and No Escape. Limit one copy on table.",
+ "light_force": true,
+ "dark_force": true,
+ "light_force_count": 2,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "base_page": "Tatooine: City Outskirts",
+ "art": {
+  "src": "src/vs15/22-Tat-L-tatooinecityoutskirts.gif",
+  "modern": "src/vs15/modern/22-VB4-L-rebelcellhiddenlandingsite-pre.gif"
+ },
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "game_text_lines": "Your starfighters may deploy here (for -1 Force), and take off and land here for free. Incom\nCorporation and Koensayr Manufacturing may deploy here.",
+ "dark_text_lines": "May not deploy to Bespin, Coruscant, Dagobah, Dantooine, Endor, Hoth, or Subjugated Planet. Rebel\nCell sites are immune to Revolution and No Escape.",
+ "notes": "Group: Rebel Cell. FULL portrait site overlay printed sideways that RENAMES the site: both bars read '◊ REBEL CELL - HIDDEN LANDING SITE' (hollow diamond ◊ = non-unique; red outline on the Light bar, white on the Dark bar). Art window blank. Light half (right bar) = game_text, Dark half (left bar, black text box) = dark_text. Force slots: Light bar TWO blue sabers (light_force_count 2, as the printed card's Light Force ×2), Dark bar one red saber. Icon boxes both bars, outermost first: planet (pink planet), exterior (sky with suns); no scomp ring (printed card has none either). Bottom margin: VS15 set sphere only (gold disc with figure = the cover set symbol) → icons []; the printed card's Tatooine expansion ring + Episode I icon (right margin) are not shown on the slip. Caption '•Tatooine: City Outskirts (V)' names the base card. CHANGES vs printed Tatooine: City Outskirts (Tatooine, unique •, Light 'Once per game, may deploy a Jedi here from Reserve Deck; reshuffle.' / Dark 'Maul moves to here for free when using his landspeed.'): renamed ◊ (non-unique), both texts replaced; Force icons and planet/exterior boxes unchanged. Slip text matches the wiki stub (stub concatenates both halves). Base scan 490×350 only (res.starwarsccg.org); copyright Tatooine 2001 SE-style line read off the scan. Modern: VB4-L-rebelcellhiddenlandingsite-pre.gif (Virtual Block 4 reissue; it prints a later errata text, 103E — art only).",
+ "id": "vs15-22",
+ "virtual_set": 15
+}

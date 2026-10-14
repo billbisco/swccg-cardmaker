@@ -1,0 +1,45 @@
+{
+ "number": "65",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•TATOOINE: MOS EISLEY",
+ "title": "•Tatooine: Mos Eisley",
+ "caption": "•Tatooine: Mos Eisley (Dark) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Immune to Revolution. If a stormtrooper here, you must first use 2 Force to deploy a weapon or device at same or adjacent site.",
+ "dark_text": "Once per turn, when a player’s Landing Craft takes off or lands here, that player may retrieve 1 Force.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "scomp",
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Tatooine: Mos Eisley (Dark)",
+ "art": {
+  "src": "src/vs15/65-Premiere-D-tatooinemoseisley.gif",
+  "modern": "src/vs15/modern/65-VB1-D-tatooinemoseisley-pre.gif"
+ },
+ "id": "vs15-65",
+ "virtual_set": 15,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "heading": "•Tatooine: Mos Eisley (Dark) (V)",
+ "notes": "Group: Blockade. Unique. Portrait SITE overlay printed sideways, both halves (not renamed: bars read '•TATOOINE: MOS EISLEY'; red • on the Dark (black) bar, dark • on the Light (silver) bar). Dark half (left column, black bar): ONE red Dark Force saber (the second Force slot below it is empty black) → dark_force true, single — the printed card has TWO Dark Force icons (no dark_force_count set). Light half (right column, silver bar): one blue Light Force saber. Icon boxes on both bars, outermost first: scomp ring, planet (Tatooine sphere), exterior (sky with two suns), interior (beige wall corner). Printed card: planet + exterior only, no scomp, no interior. Texts read by rotating the crop; ‘player’s’ curly. Printed Dark text was 'Your spies, thieves, bounty hunters and smugglers are each power and forfeit +1 here.'; printed Light half had no text. Stub text matches (it runs both halves together). Base scan 490×350 only; copyright Premiere 1995 by rule. Modern: VB1-D-tatooinemoseisley-pre.gif (Virtual Block 1, 490×353) — same texts and icons (shown from the Dark seat).",
+ "game_text_lines": "Immune to Revolution. If a stormtrooper here, you must first use 2 Force to deploy a weapon or\ndevice at same or adjacent site.",
+ "dark_text_lines": "Once per turn, when a player’s Landing Craft takes off or lands here, that player may retrieve 1\nForce."
+}

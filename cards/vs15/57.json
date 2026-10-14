@@ -1,0 +1,47 @@
+{
+ "number": "57",
+ "side": "Dark",
+ "slip_type": "Starship",
+ "card_type": "STARFIGHTER: _SENTINEL_-CLASS LANDING CRAFT",
+ "title": "Raider Craft",
+ "caption": "_Sentinel_-Class Landing Craft (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "3"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "May add 2 alien pilots, 4 passengers, and 1 vehicle. Any Mistryl or smuggler is a matching pilot (while aboard, adds at least 1 to maneuver and draws one battle destiny if not able to otherwise).",
+ "icons": [
+  "independent",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Modified light freighter. Length 20 meters. Heavily armored for a landing craft. Has ion cannon mounts. Often carries speeder bikes for reconnaissance purposes.",
+ "destiny": "2",
+ "base_page": "Sentinel-Class Landing Craft",
+ "art": {
+  "src": "src/vs15/57-SE-D-sentinelclasslandingcraft.gif",
+  "modern": "src/vs15/modern/57-VB4-D-raidercraft-pre.gif"
+ },
+ "id": "vs15-57",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "Raider Craft (V)",
+ "base_title": "_Sentinel_-Class Landing Craft",
+ "notes": "Group: Mistryl. COMBO / FULL-CARD OVERLAY (755×1101 crop) on the blue starship frame: title bar with the starfighter-type disc (same as the printed card), title 'Raider Craft' (no uniqueness dot), destiny 2; the white blank window covers BOTH the lore box and the art (no lore printed on the slip → printed lore stays; the VB4 reissue shows the same printed lore). Banner STARFIGHTER: _SENTINEL_-CLASS LANDING CRAFT (Sentinel italic); POWER 3 / MANEUVER 3 / HYPERSPEED 3; scomp ring top-left of the text box; deploy 3 / forfeit 4; icon column top to bottom: Independent (blue spoked wheel on dark blue), Nav Computer (astromech dome on red); then the VS15 set sphere. Caption '_Sentinel_-Class Landing Craft (V)'. CHANGES vs Decipher Sentinel-Class Landing Craft (SE): title renamed; stats, deploy/forfeit, destiny, lore, banner unchanged; icon column Pilot + Nav → Independent + Nav (printed scomp kept); game text replaced (printed: 'May add 1 pilot, 4 passengers and 2 speeder bikes. Permanent pilot provides ability of 1. Any starship cannon may deploy here. Takes off and lands for free.'). Lore matches the wiki and the scan. Stub game text matches. Base scan 350 px only; copyright SE line by rule. Modern: VB4-D-raidercraft-pre.gif (Virtual Block 4, 350 px, same text).",
+ "game_text_lines": "May add 2 alien pilots, 4 passengers, and 1 vehicle.\nAny Mistryl or smuggler is a matching pilot (while\naboard, adds at least 1 to maneuver and draws\none battle destiny if not able to otherwise)."
+}

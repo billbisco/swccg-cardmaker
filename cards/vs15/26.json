@@ -1,0 +1,50 @@
+{
+ "number": "26",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: CORELLIAN CORVETTE",
+ "title": "Republic Corvette",
+ "caption": "Corellian Corvette (V)",
+ "heading": "Republic Corvette (V)",
+ "combo": true,
+ "base_title": "Corellian Corvette",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "8",
+ "game_text": "May add 3 Republic pilots and 4 passengers. Quad Laser Cannons may not deploy aboard. Permanent pilot provides ability of 2. While with an _Imperial_-class Star Destroyer, power +1. [Ship-docking]",
+ "game_text_lines": "May add 3 Republic pilots and 4 passengers. Quad\nLaser Cannons may not deploy aboard. Permanent\npilot provides ability of 2. While with an _Imperial_-class\nStar Destroyer, power +1. [Ship-docking]",
+ "icons": [
+  "episode1",
+  "republic",
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "base_lore": "Multi-purpose Rebel Blockade Runner. Modular interior designed for troop or cargo transport. 150 meters long. Used by Rebels, pirates, corporations and the Empire.",
+ "destiny": "1",
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Corellian Corvette",
+ "art": {
+  "src": "src/vs15/26-Premiere-L-corelliancorvette.gif",
+  "modern": "src/vs15/modern/26-VB5-L-republiccorvette-pre.gif"
+ },
+ "notes": "Group: Rebel Cell. COMBO / FULL-CARD OVERLAY (755×1099), blue Premiere starship frame. Title bar: starship disc (dark disc with blue/white streaked starship image, as on the printed Corellian Corvette), title 'Republic Corvette' (no uniqueness dot; printed card is unrestricted), destiny 1 unchanged. NO LORE BOX: the blank white art window starts right under the title bar and covers the lore area → lore '' (printed lore kept in base_lore; the PC's VB5 reissue shows an EMPTY lore box, confirming no lore). Banner CAPITAL: CORELLIAN CORVETTE (printed card: 'CAPITAL: CORVETTE'). Stats POWER 5 / ARMOR 4 / HYPERSPEED 3 (unchanged). Scomp ring at top-left of text box (as printed). Deploy 5 (printed 4) / forfeit 8 (unchanged). Game text: '_Imperial_-' italic as printed, hyphen ending the line; ends with the literal bracketed text '[Ship-docking]' in plain type (no icon graphic) — transcribed as printed (stub: 'Ship-docking.'; VB5 reissue drops it). Icon column: black EPISODE I circle at the right end of the stat row (top of the column), then Republic square tile (silver crest on lavender), pilot helmet on yellow (permanent pilot), red box with astromech dome (nav computer); then the VS15 sphere. CHANGES vs Decipher Corellian Corvette (Premiere): title; lore removed; banner CORVETTE → CORELLIAN CORVETTE; deploy 4 → 5; text replaced (printed: 'May add 3 pilots, 4 passengers and 1 vehicle. Has ship-docking capability. Permanent pilot aboard provides ability of 1.'); column Pilot + Nav → Episode I + Republic + Pilot + Nav. Stub text otherwise matches (stub 'Imperial-class' not italic). Base scan 350 px only (res.starwarsccg.org); copyright Premiere 1995 read off the scan. Modern: VB5-L-republiccorvette-pre.gif (350 px, Virtual Block 5 reissue — no Episode I icon, no [Ship-docking]; art same Corvette).",
+ "id": "vs15-26",
+ "virtual_set": 15,
+ "side": "Light"
+}

@@ -1,0 +1,48 @@
+{
+ "number": "55",
+ "side": "Dark",
+ "slip_type": "Transport Vehicle",
+ "card_type": "TRANSPORT VEHICLE",
+ "title": "•Maul’s Sith Speeder",
+ "caption": "Flare-S Racing Swoop (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "MANEUVER",
+   "6"
+  ],
+  [
+   "LANDSPEED",
+   "6"
+  ]
+ ],
+ "deploy": "1",
+ "forfeit": "2",
+ "game_text": "May add Maul as driver. May deploy with Maul as a ‘react’. During battle, Maul may disembark (place this vehicle in Used Pile) to cancel the immunity to attrition of a Jedi here. Immune to attrition.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Attain speeds of up to 600 kph. 3 meters long. Extremely difficult to control at high speeds. Dengar rode a similar swoop when injured in a race with Han at Agrilat.",
+ "destiny": "5",
+ "base_page": "Flare-S Racing Swoop",
+ "art": {
+  "src": "src/vs15/55-SE-D-flaresracingswoop.gif",
+  "modern": "src/vs15/modern/55-VB5-D-maulssithspeeder-pre.gif"
+ },
+ "id": "vs15-55",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Maul’s Sith Speeder (V)",
+ "base_title": "Flare-S Racing Swoop",
+ "credit_bottom": [
+  "Original concept by Ryan French",
+  "Seattle V-Lite 2005"
+ ],
+ "notes": "Sheet group: Everything else (Dark Side). COMBO CARD — TALL FULL-CARD OVERLAY (755×1099 crop) on the blue DS vehicle frame: title bar with the yellow transport-vehicle disc, title '•Maul’s Sith Speeder' (curly apostrophe), destiny 5 (unchanged). NO LORE BOX printed: the blank white art window covers the lore box and ring position — lore kept from the printed Flare-S Racing Swoop (the PC's VB5 reissue also keeps its lore and art). Banner TRANSPORT VEHICLE; stats POWER 1 / MANEUVER 6 / LANDSPEED 6; deploy 1 / forfeit 2; no scomp ring, no column icons (only the VS15 sphere). ‘react’. with the period outside the closing quote, as printed. Credits below the text box: left 'Original concept by Ryan French', right 'Seattle V-Lite 2005'. Bottom strip prints 'Flare-S Racing Swoop  (V)' with a double space before (V) — normalised to one space in caption. CHANGES vs Decipher Flare-S Racing Swoop (Special Edition): title → '•Maul’s Sith Speeder' (now UNIQUE); POWER 0 → 1, MANEUVER 5 → 6, LANDSPEED * → 6; deploy 2 → 1; forfeit 2 unchanged; game text replaced (printed: 'May add 1 driver and 1 passenger. *Landspeed = driver’s ability, and may be used at any time to follow an opponent’s vehicle or character that just moved from same site (if within range).'); banner and destiny unchanged. Slip text matches the stub. Lore matches the wiki and scan. Base SE-D-flaresracingswoop.gif (350 px only); SE copyright 1998. Modern: VB5-D-maulssithspeeder-pre.gif (350, Virtual Block 5 — a later revision: prints ARMOR 6 instead of MANEUVER 6 and a scomp ring; art only).",
+ "game_text_lines": "May add Maul as driver. May deploy with Maul as\na ‘react’. During battle, Maul may disembark (place\nthis vehicle in Used Pile) to cancel the immunity\nto attrition of a Jedi here. Immune to attrition."
+}

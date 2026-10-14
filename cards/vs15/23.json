@@ -1,0 +1,41 @@
+{
+ "number": "23",
+ "slip_type": "Site",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "side": "Light",
+ "card_type": "◊REBEL CELL - MONITORING STATION",
+ "title": "◊Rebel Cell - Monitoring Station",
+ "caption": "•Tatooine: Anchorhead (V)",
+ "base_title": "•Tatooine: Anchorhead",
+ "game_text": "Deploys only to same planet system as Rebel Cell - Hidden Landing Site. While you occupy, your Force drains may not be modified by opponent’s objective.",
+ "dark_text": "Unless you control, each of your weapons at Rebel Cell sites may fire only once per battle.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "base_page": "Tatooine: Anchorhead",
+ "art": {
+  "src": "src/vs15/23-SE-L-tatooineanchorhead.gif",
+  "modern": "src/vs15/modern/23-VB4-L-rebelcellmonitoringstation-pre.gif"
+ },
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "game_text_lines": "Deploys only to same planet system as Rebel Cell - Hidden Landing Site. While you occupy, your\nForce drains may not be modified by opponent’s objective.",
+ "dark_text_lines": "Unless you control, each of your weapons at Rebel Cell sites may fire only once per battle.",
+ "notes": "Group: Rebel Cell. FULL portrait site overlay printed sideways that RENAMES the site: bars '◊ REBEL CELL - MONITORING STATION' (hollow ◊, red on Light bar, white on Dark bar). Art window blank. Light half (right) = game_text, Dark half (left) = dark_text. One blue saber (Light), one red saber (Dark). Icon boxes both bars, outermost first: planet, exterior; no scomp. Bottom margin: VS15 set sphere only → icons []; the printed card's Special Edition ring (right margin) is not on the slip. CHANGES vs printed Tatooine: Anchorhead (Special Edition, unique •; Light 'During your move phase, may move your characters from here to Mos Eisley.' / Dark 'If you occupy, opponent’s Anchorhead game text is canceled.'): renamed ◊, both texts replaced; Force/planet/exterior unchanged. Stub differs only in 'opponent's Objective' (slip: lower-case 'objective', curly ’). Base scan 490×350 only; copyright SE 1998 line read off the scan. Modern: VB4-L-rebelcellmonitoringstation-pre.gif (Virtual Block 4 reissue; art only).",
+ "id": "vs15-23",
+ "virtual_set": 15
+}

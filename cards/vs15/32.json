@@ -1,0 +1,43 @@
+{
+ "number": "32",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Theron Nett",
+ "caption": "•Theron Nett (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. During your deploy phase, if piloting Red 10, may target one of your starships; ▼ a non-{set:theed} astromech or matching pilot aboard target.",
+ "game_text_lines": "{pilot:2}. During your deploy phase, if piloting Red 10,\nmay target one of your starships; ▼ a non-{set:theed}\nastromech or matching pilot aboard target.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Experienced smuggler from Ord Mantell. Piloted Red 10 at the Battle of Yavin. Long-time wingman of Garven Dreis.",
+ "destiny": "2",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Theron Nett",
+ "credit_bottom": [
+  "Original concept by Brian Herold",
+  "Minnesota States 2005"
+ ],
+ "art": {
+  "src": "src/vs15/32-SE-L-theronnett.gif",
+  "modern": "src/vs15/modern/32-VB1-L-theronnett-pre.gif"
+ },
+ "notes": "Group: Everything else. Unique. Stats POWER 2 / ABILITY 2 / empty third box; deploy 2 / forfeit 4 (all as printed). Leading yellow LS pilot icon + '2.' → {pilot:2}. ▼ = deploy (the stub expands it as ▲ 'Take into hand…' — wrong). INLINE dark sphere with an orange starfighter before 'astromech' = Theed Palace expansion icon (rendered from the PDF at 2400 dpi; matches the Game Aid Feb 2024 Theed Palace icon) → {set:theed}; the stub reads it 'Immune-to-attrition icon' — wrong. Icon column: pilot (yellow LS helmet). Rebel (Rebel disc on the printed card). CREDITS in italics under the text box: 'Original concept by Brian Herold' left, 'Minnesota States 2005' right → credit_bottom. 'smuggler' looks plain (not bold) on the 350 px scan — left unmarked. Lore matches wiki. Copyright SE 1998 line read off the scan. Modern: VB1-L-theronnett-pre.gif (Virtual Block 1 reissue of this slip). Not used: V4-L-theronnett.gif = the different Virtual Set 4 Theron Nett (V).",
+ "id": "vs15-32",
+ "virtual_set": 15,
+ "side": "Light"
+}

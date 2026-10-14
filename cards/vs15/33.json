@@ -1,0 +1,40 @@
+{
+ "number": "33",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Uncharted Settlements",
+ "caption": "•Path Of Least Resistance & Revealed (V)",
+ "heading": "•Uncharted Settlements (V)",
+ "combo": true,
+ "base_title": "•Path Of Least Resistance & •Revealed",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on {ovs} Hidden Base. {ovs:8} Ellorrs Madak, Organized Attack, S-Foils, and Your Destiny (unless you chose Rebel/Rebel Starship) are canceled. You may not deploy operatives or {ovs:6} Rebel Planners. Opponent’s combat vehicles, droids, Imperials, and Maul are deploy +2 (cannot be further increased by your cards) to Rebel Cell sites. {alter}",
+ "game_text_lines": "Deploy on {ovs} Hidden Base. {ovs:8} Ellorrs Madak, Organized\nAttack, S-Foils, and Your Destiny (unless you chose\nRebel/Rebel Starship) are canceled. You may not\ndeploy operatives or {ovs:6} Rebel Planners. Opponent’s\ncombat vehicles, droids, Imperials, and Maul are\ndeploy +2 (cannot be further increased by your cards)\nto Rebel Cell sites. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "2",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Path Of Least Resistance & •Revealed",
+ "art": {
+  "src": "src/vs15/33-Ref2-L-pathofleastresistance&revealed.gif",
+  "modern": null,
+  "modern_unused": "src/vs15/modern/33-VB4-L-unchartedsettlements-pre.gif",
+  "rect": [
+   40,
+   72,
+   312,
+   255
+  ]
+ },
+ "notes": "Group: Rebel Cell. COMBO / FULL-CARD OVERLAY (756×1099), red Effect frame. Title bar: green swirl disc (the Effect type disc; the printed card has the red Interrupt disc), title '•Uncharted Settlements', destiny 2 (printed card: 3) in the black hole; the grey 'combo' screw decoration at top right is kept as on the printed Ref II card. No lore box (the printed combo card has none either) → lore ''. Art window blank. Banner EFFECT (printed: LOST INTERRUPT). No deploy/forfeit, no column icons; VS15 sphere bottom-right. The printed card's Reflections II sphere right of the destiny is not visible on the slip (area is white art window). INLINE ICONS (rendered from the PDF at 1600 dpi and matched to assets/icons/ovs-set-N.png): gold disc with figure before 'Hidden Base' = VS15 sphere → {ovs} (Hidden Base (V) is VS15 #12); amber/gold glass sphere before 'Ellorrs Madak' = VS8 sphere → {ovs:8}; red glass sphere with white figure before 'Rebel Planners' = VS6 sphere → {ovs:6}; trailing red circle-slash A → {alter}. The stub drops the {ovs} icon and calls the other two 'Rebel icons' — wrong. 'Rebel/Rebel Starship' (slip prints a small gap after the slash; text layer has no space). Base page: wiki title 'Path Of Least Resistance & •Revealed' (caption prints 'Revealed' without the dot). CHANGES vs printed: title, type Lost Interrupt → Effect, disc, destiny 3 → 2, text replaced. Base scan 354 px only; copyright Ref II 2000 line read off the scan. Modern: VB4-L-unchartedsettlements-pre.gif (Virtual Block 4; prints a later errata text — art only, shows Ref II ring).",
+ "id": "vs15-33",
+ "virtual_set": 15,
+ "side": "Light",
+ "no_lore_box": true,
+ "text_grow": 110
+}

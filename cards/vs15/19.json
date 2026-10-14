@@ -1,0 +1,28 @@
+{
+ "number": "19",
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "•Luke’s Hunting Rifle",
+ "caption": "•Luke’s Hunting Rifle (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 1 Force to deploy on Crell, Luke (of ability < 5), or Owen Lars. May target a character or creature using 1 Force. Draw destiny. If destiny + X > defense value, target’s power = 0 (lost if a creature), where X = the number of your devices at same and related locations.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Czerka 6-2Aug2. Extended barrel provides long-range targeting without expensive laser sight. Sturdy construction, but no match for a Tusken Raider’s gaderffii stick.",
+ "destiny": "5",
+ "base_page": "Luke's Hunting Rifle (Original)",
+ "art": {
+  "src": "src/vs15/19-ANH-L-lukeshuntingrifle.gif",
+  "modern": "src/vs15/modern/19-V7-L-lukeshuntingrifle.gif"
+ },
+ "id": "vs15-19",
+ "virtual_set": 15,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Sheet group: Farming. Unique. Green weapon frame, banner CHARACTER WEAPON. Curly apostrophes Luke’s (title/caption) and target’s. No inline icons, no column icons. Slip text matches the stub. Base: default page = Glossary 2.0 errata → 'Luke's Hunting Rifle (Original)' (A New Hope; same lore/destiny). The 745 px ANH-L-lukeshuntingrifle.gif is the D-E1 errata face — art only (used as art.src); printed face ANH-L-lukeshuntingrifle-decipher-archive.gif (350×490 square-on) also downloaded. LORE corrected from the 745 scan and the V7 remake: curly apostrophe Raider’s (wiki straight). Copyright 1996 legible. Modern: V7-L-lukeshuntingrifle.gif (745 px, PC's later Virtual Set 7 version, different text, same art/lore — art backport only); VB1-L-lukeshuntingrifle-pre.gif (350) also downloaded.",
+ "game_text_lines": "Use 1 Force to deploy on Crell, Luke (of ability < 5), or\nOwen Lars. May target a character or creature using\n1 Force. Draw destiny. If destiny + X > defense value,\ntarget’s power = 0 (lost if a creature), where X = the\nnumber of your devices at same and related locations."
+}

@@ -1,0 +1,32 @@
+{
+ "number": "49",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Imperial Detainment",
+ "caption": "•First Strike (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. We Have A Prisoner is a Used Interrupt. TIEs are deploy +1 to Launch Bay. During your deploy phase, may ▼ (or retrieve) one Besieged or a Launch Bay. Once per turn, when your Imperial captures a character, opponent loses 1 Force. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“There’ll be no escape for the princess this time.”",
+ "destiny": "4",
+ "base_page": "First Strike",
+ "art": {
+  "src": "src/vs15/49-SE-D-firststrike.gif",
+  "modern": "src/vs15/modern/49-VB1-D-imperialdetainment-pre.gif"
+ },
+ "id": "vs15-49",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Imperial Detainment (V)",
+ "base_title": "•First Strike",
+ "grabber": false,
+ "notes": "Sheet group: Blockade (Dark Side). COMBO CARD — TALL FULL-CARD OVERLAY (755×1099 crop) on the red Dark Effect frame: title bar with the green-swirl Effect disc top-left, title '•Imperial Detainment' (Decipher title face), destiny 4 in the hole (unchanged). NO LORE BOX printed: the blank white art window starts right under the title bar and covers the lore box and the expansion ring position, so the slip prints no lore of its own — lore kept from the printed First Strike (the PC's VB1 reissue of this card also keeps First Strike's lore and art). Then banner EFFECT (no grabber box), game text, VS15 set sphere; no column icons, no credits. Bottom strip: caption '•First Strike (V)', number 49. Text ends with the red circle-slash A → {alter}; ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. CHANGES vs Decipher First Strike (Special Edition): title '•First Strike' → '•Imperial Detainment' (still unique); game text replaced (printed: 'Deploy on your side of table. Whenever a battle is initiated, player initiating battle retrieves 1 Force and defender loses 1 Force. Also, during a battle you initiate, each time opponent plays an interrupt, opponent must first use 1 Force. (Immune to Alter.)'); destiny, banner, disc unchanged. Lore corrected from scan: curly double quotes and curly apostrophe “There’ll … time.” (wiki straight single quotes). Base SE-D-firststrike.gif (350 px only); SE copyright line legible. Modern: VB1-D-imperialdetainment-pre.gif (350, Virtual Block 1).",
+ "game_text_lines": "Deploy on table. We Have A Prisoner is a Used\nInterrupt. TIEs are deploy +1 to Launch Bay. During\nyour deploy phase, may ▼ (or retrieve) one Besieged\nor a Launch Bay. Once per turn, when your Imperial\ncaptures a character, opponent loses 1 Force. {alter}"
+}

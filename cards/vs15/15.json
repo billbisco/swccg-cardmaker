@@ -1,0 +1,48 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lando Calrissian",
+ "caption": "•Lando Calrissian (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "{pilot:2}, 3: _Falcon_. May convert opponent’s Lando present at a site. While with Leia, Lando is Heroic. During battle, may use 1 Force to cancel the game text of opponent’s character of ability < 5 (or with a {permanent-weapon}) at same site.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "*Gambler*. Scoundrel. Former owner of the _Millennium Falcon_. Despite a notorious past, has become a successful chief administrator of a Tibanna gas mining facility.",
+ "destiny": "1",
+ "base_page": "Lando Calrissian (Original)",
+ "art": {
+  "src": "src/vs15/15-CC-L-landocalrissian.gif",
+  "modern": "src/vs15/modern/15-V1-L-landocalrissian.gif"
+ },
+ "id": "vs15-15",
+ "virtual_set": 15,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Tim Simon",
+  "PA States 2006"
+ ],
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 3 / forfeit 6 (printed POWER 2, D/F 3/6). Leading yellow pilot icon + '2, 3: _Falcon_.' → '{pilot:2}, 3: _Falcon_.' (Falcon italic). Trailing inline icon '(or with a [icon])' = black square with green blade = Permanent Weapon → {permanent-weapon} (GEMP Legacy '[Permanent Weapon]'); the stub reads it 'bounty hunter' — wrong. Curly apostrophes in opponent’s (×2). Icon column: pilot (helmet on yellow), warrior (blue box). Alien (alien disc on the printed card). Credits in italics under the text box: 'Original concept by Tim Simon' / 'PA States 2006' → credit_bottom (the PC's VB2 reissue spells it 'Pennsylvania States 2006'). Base: default 'Lando Calrissian' page is Glossary 2.0 errata → 'Lando Calrissian (Original)' (Cloud City; same lore/destiny). The 745 px CC-L-landocalrissian.gif is the D-E1 errata face — art only (used as art.src: same art, higher res); printed face CloudCity-L-landocalrissian-decipher-archive.gif (350×490, square-on) also downloaded. LORE corrected from the 745 scan: 'Gambler.' printed BOLD → *Gambler*; '_Millennium Falcon_' italic (wiki plain). Copyright '© 1997' legible on the 745 scan. Modern: V1-L-landocalrissian.gif (745 px) is the PC's later Virtual Set 1 Lando (different text; same art/lore incl. bold Gambler) — art backport only; VB2-L-landocalrissian-pre.gif (350) is this slip reissued.",
+ "game_text_lines": "{pilot:2}, 3: _Falcon_. May convert opponent’s Lando\npresent at a site. While with Leia, Lando is Heroic.\nDuring battle, may use 1 Force to cancel the\ngame text of opponent’s character of ability < 5\n(or with a {permanent-weapon}) at same site."
+}

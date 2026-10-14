@@ -1,0 +1,45 @@
+{
+ "number": "27",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Republic Trooper with Blaster Rifle",
+ "caption": "Rebel Guard (V)",
+ "heading": "Republic Trooper with Blaster Rifle (V)",
+ "combo": true,
+ "base_title": "Rebel Guard",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "4",
+ "game_text": "Deploys -1 to same site as your Republic leader. Permanent weapon is blaster rifle (may target a character or creature for free; draw destiny; target hit, and forfeit -2, if destiny +1 > defense value).",
+ "game_text_lines": "Deploys -1 to same site as your Republic leader.\nPermanent weapon is blaster rifle (may target\na character or creature for free; draw destiny;\ntarget hit, and forfeit -2, if destiny +1 > defense\nvalue).",
+ "icons": [
+  "episode1",
+  "warrior",
+  "permanent-weapon"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "lore": "",
+ "base_lore": "Galen Torg was selected for honor guard duty during ceremony following the Battle of Yavin. He is typical of the hard-working, unsung heroes in the Rebel Alliance.",
+ "destiny": "3",
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Rebel Guard",
+ "art": {
+  "src": "src/vs15/27-Premiere-L-rebelguard-decipher-archive.gif",
+  "modern": "src/vs15/modern/27-VB5-L-republictrooperwithblasterrifle-pre.gif"
+ },
+ "notes": "Group: Rebel Cell. COMBO / FULL-CARD OVERLAY (756×1101), silver Light character frame. Title bar: ROUND silver Republic crest disc (light blue) → affiliation Republic (printed Rebel Guard has the Rebel disc); title 'Republic Trooper with Blaster Rifle' (lower-case 'with' on slip heading, title and in the stub; the VB5 reissue prints 'With'); no uniqueness dot; destiny 3 unchanged. LORE BOX PRINTED EMPTY (blank silver box) → lore '' (printed lore kept in base_lore; VB5 reissue also has the empty lore box). Art window blank. Stats POWER 2 / ABILITY 2 / empty third box (printed: POWER * / ABILITY 1). Deploy 3 / forfeit 4 (printed 2 / 1). Text: '>' as printed; a small speck after 'creature' on the slip is print noise. Icon column: black EPISODE I circle at the right end of the stat row (top of column), then blue box with blaster rifle (warrior), black box with green lightsaber (permanent weapon); then VS15 sphere. CHANGES vs Decipher Rebel Guard (Premiere): title, disc Rebel → Republic, lore removed, stats/deploy/forfeit, text replaced (printed 'Cannot move. *Power = 0 during an offensive battle, but Power = 4 when defending a battle.'), icons added. Slip text matches the stub. LORE CORRECTION (base_lore): wiki 'unsung heros' → printed 'unsung heroes' (read on the scan). Art src = the wiki's Premiere-L-rebelguard-decipher-archive.gif (350×490 square-on scan of the printed face); the res.starwarsccg.org large scan (src/vs15/27-Premiere-L-rebelguard.gif, same art) is an ERRATA face ('Power +4 when defending a battle. Cannot move.', E mark) — art only. Copyright Premiere 1995 read off the scan. Modern: VB5-L-republictrooperwithblasterrifle-pre.gif (350 px, Virtual Block 5).",
+ "id": "vs15-27",
+ "virtual_set": 15,
+ "side": "Light"
+}

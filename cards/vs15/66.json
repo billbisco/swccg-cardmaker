@@ -1,0 +1,53 @@
+{
+ "number": "66",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•The Mandalorian",
+ "caption": "•Jodo Kast (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. May ▼ Jet Pack on him for free; he moves using it for -1 Force. Permanent weapon is Dual Blasters (may lose 1 Force to target a Jedi; until end of turn, choose: target may not fire weapons OR target loses immunity to attrition).",
+ "icons": [
+  "episode1",
+  "pilot",
+  "warrior",
+  "permanent-weapon"
+ ],
+ "scomp": false,
+ "affiliation": "Alien",
+ "lore": "Trade Federation.",
+ "destiny": "2",
+ "base_page": "Jodo Kast",
+ "art": {
+  "src": "src/vs15/66-EJP-D-jodokast.gif",
+  "modern": null
+ },
+ "id": "vs15-66",
+ "virtual_set": 15,
+ "expansion": "Enhanced Jabba's Palace",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "combo": true,
+ "heading": "•The Mandalorian (V)",
+ "base_title": "•Jodo Kast",
+ "credit_bottom": [
+  "Original concept by Chris Clarke",
+  "Australia Nationals 2007"
+ ],
+ "notes": "Group: Everything else. COMBO / FULL-CARD OVERLAY (755×1102) on the grey Dark character frame: Alien disc, title '•The Mandalorian', destiny 2. LORE PRINTED ON THE SLIP: 'Trade Federation.' (one line, plain; the PDF text layer reads the same) → replaces the printed lore; the stub's note calls it 'Episode I / Trade Federation lore icons named', but the slip prints the words, no icon — odd, flagged for Bill. White window = art only. POWER 3 / ABILITY 3 / ARMOR 5; deploy 4 / forfeit 4. A round black EPISODE I disc sits at the top of the icon column, level with the stat row, ABOVE the boxed icons (not beside the lore box) → recorded as the first column icon 'episode1' (position noted; could instead be a ring_icon). Boxed icons top to bottom: pilot (DS helmet), warrior, permanent weapon (black square with green blade). Game text: leading DS pilot-power icon + '2.' → {pilot:2}; the slip prints ▼ before 'Jet Pack' (zoomed; PDF glyph 'q' as on Stunning Leader); the stub says 'up-triangle' and expands it 'Take into hand from Reserve Deck; reshuffle'. Credits below the text box: 'Original concept by Chris Clarke' left, 'Australia Nationals 2007' right. Caption '•Jodo Kast (V)'. CHANGES vs Decipher Jodo Kast (Enhanced Jabba's Palace): title; lore (printed: 'Bounty hunter and scout. Perfectionist. Equipped with Mandalorian armor and a jet pack. He doesn’t mind being mistaken for Boba Fett. Occasionally works for Black Sun.' — wiki has 'Bounty Hunter', 'mandalorian'; bold/apostrophe not legible at 350 px); forfeit 3 → 4; icons Warrior → Episode I + Pilot + Warrior + Permanent Weapon; game text replaced; destiny 2, POWER/ABILITY/ARMOR, deploy 4 unchanged. EJP ring icon right of the printed lore box (not shown on the slip). 350 px scan only; copyright EJP 1999 SE-style line by rule (as other EJP cards in this repo). Modern: none — VB6-D-jodokast-pre.gif is a DIFFERENT Jodo Kast (V) (VB6 3-05: 'Once per game, if a character was just ‘transported’ here by Nabrun Leids…'), not downloaded.",
+ "game_text_lines": "{pilot:2}. May ▼ Jet Pack on him for free; he moves\nusing it for -1 Force. Permanent weapon is Dual\nBlasters (may lose 1 Force to target a Jedi; until\nend of turn, choose: target may not fire weapons\nOR target loses immunity to attrition)."
+}

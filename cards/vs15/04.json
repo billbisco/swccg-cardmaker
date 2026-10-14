@@ -1,0 +1,43 @@
+{
+ "id": "vs15-04",
+ "number": "04",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ASTROMECH DROID",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "5",
+ "icons": [
+  "astromech"
+ ],
+ "scomp": false,
+ "affiliation": "Droid",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Artoo",
+ "caption": "•Artoo (V)",
+ "game_text": "Heroic. Death Star Plans ignores objective game text, but only draws one destiny. Leia may not move (or be carried) the turn she is released. Once per game, may ▼ Trash Compactor. May not be Undercover, ‘choked,’ or targeted by Emperor.",
+ "lore": "Counterpart to C-3PO. Spy. Obstinate, headstrong and always full of surprises. R2-D2 was an integral part of Luke Skywalker’s rescue plans.",
+ "destiny": "1 or 6",
+ "expansion": "Jabba's Palace",
+ "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Artoo (Jabba's Palace) (Original)",
+ "credit_bottom": [
+  "Original concept by Jared Lockwood",
+  "Origins V-Lite 2005"
+ ],
+ "art": {
+  "src": "src/vs15/04-JP-L-artoo.gif",
+  "modern": "src/vs15/modern/04-V19-L-artoo.gif"
+ },
+ "notes": "Group: Everything else. Droid: two stat boxes POWER 1 / wide ASTROMECH DROID (as printed). Deploy 4 / forfeit 5 (as printed). Icon column: one red box with an astromech dome → 'astromech' (as vs3/16 R2-D2; the same graphic is named 'nav' on starships). Curly ‘choked,’. Credits printed horizontally under the text box → credit_bottom. STUB: links [[Artoo]] which does not exist; base is 'Artoo (Jabba's Palace)' (default = Glossary errata) → used 'Artoo (Jabba's Palace) (Original)'. Stub lists armor=4 — not printed on the slip. Slip text otherwise matches. art.src = JP-L-artoo.gif (745) is the Decipher D-E1 errata face — art only; lore read off the printed archive face 04-JP-L-artoo-decipher-archive.gif: 'Spy.' looks plain there (the D-E1 face bolds it) → left unbolded; renderer bolds keywords itself. Curly apostrophe Skywalker’s. Copyright 1998 read on the 745 face. Modern: V19-L-artoo.gif (745) is Artoo (V) from Virtual Set 19 (different text; art same); VB1-L-artoo-pre.gif (350, reissue of this slip) also downloaded.",
+ "game_text_lines": "Heroic. Death Star Plans ignores objective game\ntext, but only draws one destiny. Leia may not\nmove (or be carried) the turn she is released.\nOnce per game, may ▼ Trash Compactor. May not\nbe Undercover, ‘choked,’ or targeted by Emperor."
+}

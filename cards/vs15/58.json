@@ -1,0 +1,39 @@
+{
+ "number": "58",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "Sandtrooper",
+ "caption": "Sandtrooper (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "Deploys only to Tatooine or any desert. Immune to Sandwhirl. Your desert locations are destiny = 4. While ‘riding’ a dewback, power +3 and may not be targeted by lightsabers.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Equipped for harsh, high-temperature environments. Primarily assigned to search-and-destroy missions, but sometimes break up local disputes or recover stolen droids.",
+ "destiny": "3",
+ "base_page": "Sandtrooper",
+ "art": {
+  "src": "src/vs15/58-SE-D-sandtrooper.gif",
+  "modern": "src/vs15/modern/58-VB1-D-sandtrooper-pre.gif"
+ },
+ "id": "vs15-58",
+ "virtual_set": 15,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Group: Blockade. Not unique. Bottom-half slip. POWER 2 / ABILITY 1, third box printed blank; deploy 2 / forfeit 3; icon column: warrior only. Curly single quotes around ‘riding’ (stub straight). Imperial (Imperial disc on the base scan). LORE CORRECTION: wiki 'sometimes beaks up' → printed 'sometimes break up' (read on the 350 px scan). Base scan 350 px only; copyright SE line by rule. Modern: VB1-D-sandtrooper-pre.gif (Virtual Block 1, 350 px) — same text as this slip.",
+ "game_text_lines": "Deploys only to Tatooine or any desert. Immune to\nSandwhirl. Your desert locations are destiny = 4.\nWhile ‘riding’ a dewback, power +3 and may not\nbe targeted by lightsabers."
+}

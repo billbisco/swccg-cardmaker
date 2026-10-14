@@ -1,0 +1,52 @@
+{
+ "id": "vs15-07",
+ "number": "07",
+ "virtual_set": 15,
+ "side": "Light",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "4",
+ "icons": [
+  "independent",
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: _BAUDO_-CLASS STAR YACHT",
+ "title": "•Booster In _Pulsar Skate_",
+ "caption": "•_Pulsar Skate_ (V)",
+ "heading": "•Booster In _Pulsar Skate_ (V)",
+ "combo": true,
+ "base_title": "•_Pulsar Skate_",
+ "game_text": "May add 1 pilot and 6 passengers. Permanent pilot is •Booster, who provides ability of 3. May not be targeted by weapons or Utinni Effects. Once per game, may ▼ Mirax here. Immune to attrition < 5.",
+ "lore": "Owned by legendary Terrik family of smugglers. Used to chase down the pirates who killed Wedge’s parents. On Corellian Security’s most wanted list. 37.5 meters long.",
+ "destiny": "2",
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Pulsar Skate",
+ "credit_bottom": [
+  "Original concept by Thomas Caspersen",
+  "Norwegian Open 2007"
+ ],
+ "art": {
+  "src": "src/vs15/07-Ref2-L-pulsarskate.gif",
+  "modern": "src/vs15/modern/07-V0-L-boosterinpulsarskate.gif"
+ },
+ "notes": "Group: Everything else. COMBO / FULL-CARD OVERLAY (755×1099): title bar with the starship disc, '•Booster In _Pulsar Skate_' (Pulsar Skate italic), destiny 2; lore box, ring and art blanked white → lore, Reflections II ring and art stay from the printed card. Banner 'STARFIGHTER: BAUDO-CLASS STAR YACHT' with BAUDO italic. Stats POWER 4 / MANEUVER 4 / HYPERSPEED 5; scomp ring; deploy 4 / forfeit 4. Icons: Independent (blue wheel), pilot helmet on yellow (permanent pilot), red astromech box (nav computer). Credits under the text box → credit_bottom. STUB DIFFERS: stub deploy=2; slip prints 4 (the PC's V0 remake also prints 4). CHANGES vs Decipher Pulsar Skate (Ref2-L-pulsarskate.gif): title •Pulsar Skate → •Booster In Pulsar Skate; POWER 2 → 4; deploy 2 → 4; forfeit 5 → 4; text replaced (printed: 'May add 2 pilots and 6 passengers. May add ability of your (•) unique smuggler aboard to X on Kessel Run targeting that smuggler. When Booster, Mirax or Wedge piloting, immune to attrition < 5.'); icons Independent + nav → Independent + permanent pilot + nav. Lore matches the scans ('smugglers' not bold on the 354 px scan or the V0 remake; curly apostrophes). Copyright read on V0 remake. Modern: V0-L-boosterinpulsarskate.gif (745) is a LATER version (text adds 'Immune to Lateral Damage', drops the weapons/Utinni line) — art only.",
+ "game_text_lines": "May add 1 pilot and 6 passengers. Permanent pilot\nis •Booster, who provides ability of 3. May not be\ntargeted by weapons or Utinni Effects. Once per\ngame, may ▼ Mirax here. Immune to attrition < 5."
+}

@@ -1,0 +1,31 @@
+{
+ "number": "17",
+ "side": "Light",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "•Lars’ Vaporator",
+ "caption": "Vaporator (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a farm. Characters at same site are immune to Sandwhirl. Whenever you are about to activate Force from Beru Stew or Blue Milk, you may first ▲ Biggs, Camie, Crell, Fixer, Moisture Farmer, a Lars, or a {set:se} Tatooine site.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Essential for life on desert planets. Condenses water vapor from atmosphere. Has purification filters and coolant tanks. Protects against drought and harsh conditions.",
+ "destiny": "4",
+ "base_page": "Vaporator",
+ "art": {
+  "src": "src/vs15/17-Premiere-L-vaporator.gif",
+  "modern": "src/vs15/modern/17-VB1-L-larsvaporator-pre.gif"
+ },
+ "id": "vs15-17",
+ "virtual_set": 15,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Lars’ Vaporator (V)",
+ "base_title": "Vaporator",
+ "notes": "Sheet group: Farming. COMBO CARD — TALL FULL-CARD OVERLAY (755×1102 crop) on the green Device frame: device disc (as printed), title '•Lars’ Vaporator'; destiny 4; white blank area over lore box and art window (no lore printed → printed card's lore, matches the scan); banner DEVICE; text 5 lines; no D/F, no column icons; VS15 sphere. Caption 'Vaporator (V)' (no dot); heading '•Lars’ Vaporator (V)'. Inline icon before 'Tatooine site' = orange/white glowing sphere = Special Edition expansion icon (matches assets/icons/set-se-grainy.png; GEMP Legacy '[Special Edition] Tatooine site') → {set:se}; the stub reads it 'Tatooine set icon' — wrong. ▲ before 'Biggs' (stub expands). CHANGES vs Decipher Vaporator (Premiere): title 'Vaporator' → '•Lars’ Vaporator' (non-unique → unique); destiny 4, lore, disc, banner unchanged; game text replaced (printed: 'Use 1 Force to deploy on any Tatooine site. Cannot be moved. Protects all characters at same site, or an adjacent site, from Gravel Storm.'). Only a 350 px scan (printed face, black border); copyright 1995 by rule. Modern: VB1-L-larsvaporator-pre.gif (350; the later VB1 card prints destiny 3).",
+ "game_text_lines": "Deploy on a farm. Characters at same site are immune\nto Sandwhirl. Whenever you are about to activate\nForce from Beru Stew or Blue Milk, you may first ▲ Biggs,\nCamie, Crell, Fixer, Moisture Farmer, a Lars, or\na {set:se} Tatooine site."
+}

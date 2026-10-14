@@ -1,0 +1,29 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Insurrection",
+ "caption": "•Insurrection (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. “Battleground system” on your {ovs} objective is treated as “unique (•) battleground site.” When targeted by weapons, your characters of ability = 3 may use the defense value of your other character present. Once per turn, may ▼ No Disintegrations! {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Rebel insurgents and local activists are the first step in breaking the Imperial stranglehold on a world.",
+ "destiny": "5",
+ "base_page": "Insurrection",
+ "art": {
+  "src": "src/vs15/14-Endor-L-insurrection.gif",
+  "modern": "src/vs15/modern/14-VB4-L-insurrection-pre.gif"
+ },
+ "id": "vs15-14",
+ "virtual_set": 15,
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "grabber": false,
+ "notes": "Sheet group: Rebel Cell. Unique. Red Effect frame, banner EFFECT (no grabber box). Curly double quotes “Battleground system” and “unique (•) battleground site.” as printed; • inside the quote. Inline gold sphere at the start of line 2 before 'objective' = the VS15 set sphere (identical to the slip's own symbol; GEMP Legacy '[Virtual Block 4] objective') → {ovs}; the stub drops it ('on your objective'). ▼ before 'No Disintegrations!' (stub expands); trailing red circle-slash A → {alter}. No column icons. Base: Endor 'Insurrection' (printed; the Coruscant combo 'Insurrection & Aim High' is a different card). Lore matches the scan. Only a 350 px scan; copyright Endor line by rule (not legible). Modern: VB4-L-insurrection-pre.gif (350 px); no V0/V<N> remake.",
+ "game_text_lines": "Deploy on table. “Battleground system” on your {ovs}\nobjective is treated as “unique (•) battleground site.”\nWhen targeted by weapons, your characters of ability\n= 3 may use the defense value of your other character\npresent. Once per turn, may ▼ No Disintegrations! {alter}"
+}
