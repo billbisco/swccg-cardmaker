@@ -126,7 +126,7 @@ TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immedia
              "STARTING INTERRUPT": ("Interrupt", "Starting Interrupt"), "USED OR STARTING INTERRUPT": ("Interrupt", "Used or Starting Interrupt"), "OUT OF PLAY INTERRUPT": ("Interrupt", "Out Of Play Interrupt"), "STARTING EFFECT": ("Effect", "Starting Effect"), "OBJECTIVE": ("Objective", None), "ADMIRAL'S ORDER": ("Admiral's Order", None),
              "VEHICLE WEAPON": ("Weapon", "Vehicle Weapon"), "STARSHIP WEAPON": ("Weapon", "Starship Weapon"), "SNOW CREATURE": ("Creature", None),
              "CREATURE": ("Creature", None)}
-ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Maintenance]",
+ICON_WORD = {"permanent-weapon": "[[Permanent Weapon]]", "lightsaber": "[[Permanent Weapon]]", "maintenance": "[Maintenance]", "republic": "[Republic]",
              "nav": "[[Nav Computer]]", "set": None, "independent": "[Independent]", "presence": "[Presence]", "ovs": "[Virtual]"}
 COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astromech", "permanent-pilot": "[[Permanent Pilot]]", "nav": "[[Nav Computer]]"}
 
@@ -155,7 +155,7 @@ def expand(c: dict) -> str:
     SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant",
             "jabbaspalace": "Jabba's Palace", "theed": "Theed Palace", "hoth": "Hoth", "endor": "Endor", "tatooine": "Tatooine", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
     t = re.sub(r"\{set:([a-z0-9]+)\}", lambda m: f"[{SETS.get(m.group(1), m.group(1).title())}]", t)
-    t = t.replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
+    t = t.replace("{icon:republic-square}", "[Republic]").replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
     t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠")
     t = re.sub(r"\{([\w-]+)\}", lambda m: ICON_WORD.get(m.group(1), f"[{m.group(1).title()}]"), t)
     # ▲ X / ▼ X — object runs to the next sentence end

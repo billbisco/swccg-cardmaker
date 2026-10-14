@@ -21,7 +21,7 @@
  ],
  "deploy": "1",
  "forfeit": "3",
- "game_text": "Heroic. May add 1 pilot. When this starship is targeted by Tallon Roll, “Rebel” in its game text may be treated as “{independent}” or “{icon:republic}”. While DS-61-3 piloting, immune to attrition < 5.",
+ "game_text": "Heroic. May add 1 pilot. When this starship is targeted by Tallon Roll, “Rebel” in its game text may be treated as “{independent}” or “{icon:republic-square}”. While DS-61-3 piloting, immune to attrition < 5.",
  "icons": [],
  "scomp": false,
  "affiliation": null,
@@ -36,6 +36,6 @@
  "virtual_set": 14,
  "expansion": "Premiere Limited",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
- "notes": "Unique. Banner STARFIGHTER: TIE/ln (lower-case 'ln' as printed). Stats POWER 1 / MANEUVER 3 / NO HYPERDRIVE (label only); deploy 1 / forfeit 3. No column icons, no scomp ring on the slip. INLINE ICONS inside curly quotes: first a blue square tile with a spoked wheel = Independent starship icon (matches inline-independent.png) → {independent}; second a lavender square tile with a silver Republic emblem → {icon:republic} (square tile, not the round crest — same as vs12/08; the renderer maps {icon:republic} to the round crest and may need a square tile). GEMP's Virtual Block 1 text confirms '[Independent Starship]' or '[Republic]'. The wiki stub reads them as “Imperial” or “Cloud City” — WRONG, stub should be corrected. Lore matches the scan. Only a 350 px scan; copyright 1995 (Premiere) by set, not legible. Modern: V10-D-black3.gif (745 px) is the PC's later Virtual Set 10 Black 3 (V) (different text) — art backport only; VB1 -pre (350) also exists, not downloaded.",
- "game_text_lines": "Heroic. May add 1 pilot. When this starship is\ntargeted by Tallon Roll, “Rebel” in its game text\nmay be treated as “{independent}” or “{icon:republic}”. While DS-61-3\npiloting, immune to attrition < 5."
+ "notes": "Unique. Banner STARFIGHTER: TIE/ln (lower-case 'ln' as printed). Stats POWER 1 / MANEUVER 3 / NO HYPERDRIVE (label only); deploy 1 / forfeit 3. No column icons, no scomp ring on the slip. INLINE ICONS inside curly quotes: first a blue square tile with a spoked wheel = Independent starship icon (matches inline-independent.png) → {independent}; second a lavender square tile with a silver Republic emblem → {icon:republic} (square tile, not the round crest — same as vs12/08; the renderer maps {icon:republic} to the round crest and may need a square tile). GEMP's Virtual Block 1 text confirms '[Independent Starship]' or '[Republic]'. The wiki stub reads them as “Imperial” or “Cloud City” — WRONG, stub should be corrected. Lore matches the scan. Only a 350 px scan; copyright 1995 (Premiere) by set, not legible. Modern: V10-D-black3.gif (745 px) is the PC's later Virtual Set 10 Black 3 (V) (different text) — art backport only; VB1 -pre (350) also exists, not downloaded. Inline Republic icon: the square tile (Game Aid \"Republic\", Other Features), as the slip prints it; the round crest is \"Character - Republic\".",
+ "game_text_lines": "Heroic. May add 1 pilot. When this starship is\ntargeted by Tallon Roll, “Rebel” in its game text\nmay be treated as “{independent}” or “{icon:republic-square}”. While DS-61-3\npiloting, immune to attrition < 5."
 }
