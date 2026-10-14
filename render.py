@@ -341,7 +341,7 @@ ICON_FILES = {
     "astromech": "icons/astromech-bardez.png",
     "independent": "icons/inline-independent.png", "presence": "icons/col-presence.png",
     "republic-crest": "icons/inline-republic-crest.png",
-    "ds2": "icons/set-ds2-grainy.png",   # Death Star II icon in the column (Luke Skywalker, Rebel Scout (V))
+    "ds2": "icons/set-ds2-decipher.png",   # Death Star II icon in the column (Luke Skywalker, Rebel Scout (V))
     "light-force": "icons/inline-force-light.png", "dark-force": "icons/inline-force-dark.png",   # Game Aid g036 / g050 (Imperial Decree (V))
     "episode1": "icons/inline-episode1.png",   # Game Aid g033 (Hopping Mad (V): "non-[Episode I] C-3PO")   # the Republic affiliation icon itself (The Emperor (V): "Gains [Republic] at opponent's Senate")   # Presence = Game Aid g013 (droid on red), as on IG-88
     "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
@@ -429,7 +429,10 @@ def game_text_html(text: str) -> str:
         elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
-            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/set-{arg}-grainy.png")}" style="height:56px">')
+            sf = ASSETS / f"icons/set-{arg}-decipher.png"   # Decipher's own sphere (Bill 2026-10-14)
+            if not sf.exists():
+                sf = ASSETS / f"icons/set-{arg}-grainy.png"
+            out.append(f'<img class="gt-icon" src="{data_uri(sf)}" style="height:56px;border-radius:50%;box-shadow:0 0 0 3px #000">')
         else:
             out.append(icon_img(name))
         pos = m.end()
@@ -629,7 +632,8 @@ def nolore_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
         G[m] = F[m]
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
-             game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, Wt - 10, aw, Wb - D + 6 - (Wt - 10)))
+             game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, Wt - 10, aw, Wb - D + 6 - (Wt - 10)),
+             expansion_ring=(1390, 373), expansion_size=70)   # the no-lore frame's own ring, clear of the art (Bill)
     if "banner_icon" in t:
         t["banner_icon"] = (t["banner_icon"][0], t["banner_icon"][1] - D)
     return p, t, 0, 0
@@ -1143,7 +1147,7 @@ def build_html(card: dict) -> str:
     if (t.get("landscape") or t.get("system")) and card.get("icons") and t.get("set_icon_abs"):
         sx_, sy_ = t["set_icon_abs"]; sz_ = t.get("set_icon_size", 60)
         for k, ic in enumerate(card["icons"]):   # margin discs the slip prints beside the set sphere (Episode I)
-            f_ = ICON_FILES.get(ic) or (f"icons/set-{ic[4:]}-grainy.png" if ic.startswith("set:") else None)
+            f_ = ICON_FILES.get(ic) or ((f"icons/set-{ic[4:]}-decipher.png" if (ASSETS / f"icons/set-{ic[4:]}-decipher.png").exists() else f"icons/set-{ic[4:]}-grainy.png") if ic.startswith("set:") else None)
             if f_:
                 parts.append(f'<img src="{data_uri(ASSETS / f_)}" style="position:absolute;left:{sx_}px;top:{sy_ - (k + 1) * (sz_ + 14)}px;width:{sz_}px;height:{sz_}px">')
     # bottom strip in the black border: title (as the slip prints it) left, card number right

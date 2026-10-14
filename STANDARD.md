@@ -340,3 +340,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   the bottom (window bottom edge, banner, text box) is the template's own frame raised by `text_grow`; the window
   sides between are stretched and cross-faded (40 rows); the template's card-type disc and destiny hole are pasted
   back. Replaces the rev 30 corner shear.
+- Rev 32 (Bill 2026-10-14, "they all really need to be the originals"): every expansion sphere (ring right of the
+  lore box, inline `{set:…}`, margin `set:…`, column `ds2`) is Decipher's own: `set-<key>-decipher.png` = the inner
+  disc of the wiki's Icon-set-* images (A New Hope, Cloud City, Death Star II, Endor, Hoth, Jabba's Palace, Special
+  Edition, premium; Dagobah earlier), else cut from a 745 px Decipher scan at the ring (Coruscant, Reflections II,
+  Reflections III, Theed Palace, Tatooine, Enhanced Jabba's Palace). Bardez/PC redraws (`-grainy`, `-bardez`,
+  `set-theed.png`, `set-tatooine.png`) are no longer used. No-lore tall frames place the sphere in the frame's own
+  ring position (1390, 373), clear of the art. 493 remasters re-uploaded.
