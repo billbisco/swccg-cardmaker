@@ -33,13 +33,19 @@
  "base_page": "Chewie, Enraged",
  "art": {
   "src": "src/vs12/04-Ref3-L-chewieenraged.gif",
-  "modern": "src/vs12/modern/04-VB1-L-chewieenraged-pre.gif"
+  "modern": "src/vs12/modern/04-VB1-L-chewieenraged-pre.gif",
+  "rect": [
+   43,
+   138,
+   305,
+   323
+  ]
  },
  "id": "vs12-04",
  "virtual_set": 12,
  "expansion": "Reflections III",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Stats POWER 6 / ABILITY 2 / ARMOR 4 (third box ARMOR with value); deploy 4 / forfeit 6. The wiki stub has deploy=6 and forfeit blank — wrong, the slip prints 4 over 6; the stub's game_text_note also mentions FORCE-ATTUNED, which the slip does not print. Leading yellow LS pilot icon + '2.' → {pilot:2}. _Falcon_ italic on the slip. Icon column: pilot, warrior (printed card also has maintenance — slip column replaces it). Credit printed in italic centred BELOW the text box (credit_bottom, as vs11 Lord Vader), not in the margins. Rebel (Rebel disc on the printed card). Lore: 'Smuggler' visibly bold on the 350 px scan → *Smuggler*. Only a 350 px scan; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' legible enough on it. Modern: Virtual Block 1 only (VB1 -pre, 349 px).",
+ "notes": "Unique. Stats POWER 6 / ABILITY 2 / ARMOR 4 (third box ARMOR with value); deploy 4 / forfeit 6. The wiki stub has deploy=6 and forfeit blank — wrong, the slip prints 4 over 6; the stub's game_text_note also mentions FORCE-ATTUNED, which the slip does not print. Leading yellow LS pilot icon + '2.' → {pilot:2}. _Falcon_ italic on the slip. Icon column: pilot, warrior (printed card also has maintenance — slip column replaces it). Credit printed in italic centred BELOW the text box (credit_bottom, as vs11 Lord Vader), not in the margins. Rebel (Rebel disc on the printed card). Lore: 'Smuggler' visibly bold on the 350 px scan → *Smuggler*. Only a 350 px scan; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' legible enough on it. Modern: Virtual Block 1 only (VB1 -pre, 349 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "credit_bottom": "Original concept by Peter Jacobson, PC Volunteer Award 2006",
  "game_text_lines": "{pilot:2}. While present at a site with Han or Leia,\nChewie is Heroic and, unless hit, may be forfeited\nto satisfy all remaining attrition and battle damage\nagainst you. Once per game, may ▲ Kashyyyk or\n_Falcon_."
 }

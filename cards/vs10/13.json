@@ -21,8 +21,14 @@
  "base_page": "Vader's Anger",
  "art": {
   "src": "src/vs10/13-Tat-D-vadersanger.gif",
-  "modern": "src/vs10/modern/13-V11-D-vadersanger.gif"
+  "modern": "src/vs10/modern/13-V11-D-vadersanger.gif",
+  "rect": [
+   42,
+   138,
+   305,
+   322
+  ]
  },
- "notes": "Unique. Banner OUT OF PLAY INTERRUPT (printed base is a Used Or Lost Interrupt) — the renderer needs an Out Of Play Interrupt banner on the Dark Interrupt frame. 'OR If' with capital I as printed. Curly apostrophe in the slip's heading and caption (Vader’s). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright line SE-style with 2001, legible. Modern: V11-D-vadersanger.gif (745 px) is the later Virtual Set 11 Vader's Anger (V) — a USED INTERRUPT with different text, same art and lore; no Virtual Block image found.",
+ "notes": "Unique. Banner OUT OF PLAY INTERRUPT (printed base is a Used Or Lost Interrupt) — the renderer needs an Out Of Play Interrupt banner on the Dark Interrupt frame. 'OR If' with capital I as printed. Curly apostrophe in the slip's heading and caption (Vader’s). No inline icons; slip text matches the stub. Lore matches the scan. Base scan only at 350 px; copyright line SE-style with 2001, legible. Modern: V11-D-vadersanger.gif (745 px) is the later Virtual Set 11 Vader's Anger (V) — a USED INTERRUPT with different text, same art and lore; no Virtual Block image found. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "Target a Jedi present with Vader. Initiate an epic duel\nbetween them. Both players draw two destiny and add\npower. Loser (lowest total) is placed out of play and\nlosing player loses 5 Force. OR If Vader just hit a Jedi,\nretrieve any three cards."
 }

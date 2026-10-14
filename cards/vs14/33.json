@@ -17,13 +17,19 @@
  "base_page": "Where Are Those Droidekas?!",
  "art": {
   "src": "src/vs14/33-Ref3-D-wherearethosedroidekas.gif",
-  "modern": "src/vs14/modern/33-V8-D-wherearethosedroidekas.gif"
+  "modern": "src/vs14/modern/33-V8-D-wherearethosedroidekas.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   322
+  ]
  },
  "id": "vs14-33",
  "virtual_set": 14,
  "expansion": "Reflections III",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner EFFECT, no grabber box. Red circle-slash A at the end → {alter} (stub: 'Immune to Alter'). Curly apostrophe in opponent’s. CREDITS: printed in italic BELOW the text box (above the caption bar), not in the side margins — left 'Original concept by Alden Peterson', right 'GenCon 2005'; recorded as margin_left / margin_right per the brief (renderer may need a below-the-box placement). Lore corrected: curly apostrophe in droid’s (wiki straight; apostrophe shape not clearly resolvable on the scans — Decipher's usual curly assumed). Copyright '… 2001 DECIPHER INC.' legible on the V8 745 px face. Base scan 350 px. Modern: V8-D-wherearethosedroidekas.gif (745 px); VB5 (350) also exists, not downloaded.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Red circle-slash A at the end → {alter} (stub: 'Immune to Alter'). Curly apostrophe in opponent’s. CREDITS: printed in italic BELOW the text box (above the caption bar), not in the side margins — left 'Original concept by Alden Peterson', right 'GenCon 2005'; recorded as margin_left / margin_right per the brief (renderer may need a below-the-box placement). Lore corrected: curly apostrophe in droid’s (wiki straight; apostrophe shape not clearly resolvable on the scans — Decipher's usual curly assumed). Copyright '… 2001 DECIPHER INC.' legible on the V8 745 px face. Base scan 350 px. Modern: V8-D-wherearethosedroidekas.gif (745 px); VB5 (350) also exists, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "grabber": false,
  "game_text_lines": "Deploy on table. Scum And Villainy is canceled.\nNon-unique destroyer droids are deploy -1 and forfeit\n+1. While all your characters at sites are destroyer\ndroids, opponent’s characters are defense value -1 for\neach destroyer droid present. {alter}",
  "ring_icons": [

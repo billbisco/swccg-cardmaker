@@ -17,13 +17,19 @@
  "base_page": "Changing The Odds",
  "art": {
   "src": "src/vs12/03-Tat-L-changingtheodds.gif",
-  "modern": "src/vs12/modern/03-VB5-L-changingtheodds-pre.gif"
+  "modern": "src/vs12/modern/03-VB5-L-changingtheodds-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   319
+  ]
  },
  "id": "vs12-03",
  "virtual_set": 12,
  "expansion": "Tatooine",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner USED INTERRUPT. No inline icons; slip text matches the stub. Margin credits: left 'Original concept by Evan Fitzgerald', right 'PC Volunteer Award 2005'. Lore corrected from the scan: curly single quotes ‘chance’ and curly apostrophe Watto’s (wiki straight). Printed card shows an Episode I icon below the Tatooine ring (top half, unchanged). Only a 350 px scan; copyright 2001 (Tatooine) by set, not legible. Modern: Virtual Block 5 only (VB5 -pre, 350 px).",
+ "notes": "Unique. Banner USED INTERRUPT. No inline icons; slip text matches the stub. Margin credits: left 'Original concept by Evan Fitzgerald', right 'PC Volunteer Award 2005'. Lore corrected from the scan: curly single quotes ‘chance’ and curly apostrophe Watto’s (wiki straight). Printed card shows an Episode I icon below the Tatooine ring (top half, unchanged). Only a 350 px scan; copyright 2001 (Tatooine) by set, not legible. Modern: Virtual Block 5 only (VB5 -pre, 350 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "margin_left": "Original concept by Evan Fitzgerald",
  "margin_right": "PC Volunteer Award 2005",
  "game_text_lines": "If a player is about to draw destiny for an Epic Event,\nInterrupt, Objective, or weapon, that player must first\nactivate 1 Force and shuffle their Reserve Deck. OR If\nboth players just drew one battle destiny, cancel and\nredraw both destiny draws.",

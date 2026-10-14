@@ -18,7 +18,13 @@
  "base_page": "Accepting Trade Federation Control",
  "art": {
   "src": "src/vs16/47-Cor-D-acceptingtradefederationcontrol.gif",
-  "modern": "src/vs16/modern/47-VB5-D-nutegunraysbounty-pre.gif"
+  "modern": "src/vs16/modern/47-VB5-D-nutegunraysbounty-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   322
+  ]
  },
  "id": "vs16-47",
  "virtual_set": 16,
@@ -31,5 +37,5 @@
   "episode1"
  ],
  "grabber": false,
- "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (756×1099 crop) on the red Dark Effect frame: Effect disc (green swirl) — the printed card's own (Political Effect, same disc); title '•Nute Gunray’s Bounty' (curly ’); destiny 4. Lore printed on the slip = the printed card's lore with the closing period ('…just for the time being.'). Right of the lore box: Coruscant ring (pink sphere, yellow rim) + EPISODE I icon, as printed → ring_icons ['episode1']. Art window blank white. Banner EFFECT (no grabber box); no stats, no D/F, no column icons; game text 5 lines, 'opponent’s' curly. Caption '•Accepting Trade Federation Control (V)', number 47. Frame proportions match the printed card (not a tall slip). Slip text matches the stub. CHANGES vs Decipher Accepting Trade Federation Control (Coruscant, Cor-D-acceptingtradefederationcontrol.gif): title; destiny 3 → 4; banner POLITICAL EFFECT → EFFECT; game text replaced (printed: 'Deploy on table. If no senator here, you may place a senator here from hand to subtract 3 from any battle destiny just drawn. If a *taxation agenda* here, during your draw phase, you may activate 1 Force; opponent must use 1 Force (if possible).'); lore, disc, ring icons unchanged. LORE CORRECTION: wiki lacks the final period; the scan and the slip print 'being.' Base scan 350 px only; copyright Coruscant 2001 (SE-style line, as vs14/11). Modern: VB5-D-nutegunraysbounty-pre.gif (350; same text, last line breaks differently)."
+ "notes": "Group: Imperial Senate. Unique. COMBO / FULL-CARD OVERLAY (756×1099 crop) on the red Dark Effect frame: Effect disc (green swirl) — the printed card's own (Political Effect, same disc); title '•Nute Gunray’s Bounty' (curly ’); destiny 4. Lore printed on the slip = the printed card's lore with the closing period ('…just for the time being.'). Right of the lore box: Coruscant ring (pink sphere, yellow rim) + EPISODE I icon, as printed → ring_icons ['episode1']. Art window blank white. Banner EFFECT (no grabber box); no stats, no D/F, no column icons; game text 5 lines, 'opponent’s' curly. Caption '•Accepting Trade Federation Control (V)', number 47. Frame proportions match the printed card (not a tall slip). Slip text matches the stub. CHANGES vs Decipher Accepting Trade Federation Control (Coruscant, Cor-D-acceptingtradefederationcontrol.gif): title; destiny 3 → 4; banner POLITICAL EFFECT → EFFECT; game text replaced (printed: 'Deploy on table. If no senator here, you may place a senator here from hand to subtract 3 from any battle destiny just drawn. If a *taxation agenda* here, during your draw phase, you may activate 1 Force; opponent must use 1 Force (if possible).'); lore, disc, ring icons unchanged. LORE CORRECTION: wiki lacks the final period; the scan and the slip print 'being.' Base scan 350 px only; copyright Coruscant 2001 (SE-style line, as vs14/11). Modern: VB5-D-nutegunraysbounty-pre.gif (350; same text, last line breaks differently). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14)."
 }

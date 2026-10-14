@@ -40,12 +40,18 @@
  "base_page": "I've Decided To Go Back",
  "art": {
   "src": "src/vs16/04-Cor-L-ivedecidedtogoback.gif",
-  "modern": "src/vs16/modern/04-VB5-L-senatorpadmeamidala-pre.gif"
+  "modern": "src/vs16/modern/04-VB5-L-senatorpadmeamidala-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   320
+  ]
  },
  "ring_icons": [
   "episode1"
  ],
- "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (756×1101) that turns a USED OR LOST INTERRUPT into a CHARACTER: the slip prints the silver Light character frame (with red paint flecks where the Interrupt frame shows through at the right edge), Rebel disc + ROUND silver Republic crest → 'Rebel + Republic' (printed: red Interrupt disc); title '•Senator Padmé Amidala' (é as printed; stub page uses 'Padme'); destiny 1 (printed 4). LORE PRINTED ON THE SLIP: 'Leader. Senator.' (plain on the slip; VB5 reissue prints 'Leader.' bold) → replaces the printed lore (kept in base_lore). Right of the lore box: ONLY the EPISODE I disc — the printed card's Coruscant ring is NOT on the slip (VB5 reissue also shows only Episode I) → ring_icons ['episode1']; renderer should not draw the Coruscant ring if it follows the slip. Art blank. Stats POWER 3 / ABILITY 4 / POLITICS 4 (new — printed card has no stats); deploy 3 / forfeit 7 (new); column: warrior; VS16 sphere. Inline gold spoked wheel after 'non-' = {maintenance} (per the VS3 icon key; stub drops it, PDF text layer reads 'non- Rebel'). 'Agendas:' bold incl. colon. Slip text matches the stub. Base lore read off the scan: single curly quotes ‘…’ (wiki straight ')). Base scan 350 px; Coruscant copyright not legible → 2001 SE-style line by the brief/VS12–15 precedent. Modern: VB5-L-senatorpadmeamidala-pre.gif (350).",
+ "notes": "Group: Rebel Senate. COMBO / FULL-CARD OVERLAY (756×1101) that turns a USED OR LOST INTERRUPT into a CHARACTER: the slip prints the silver Light character frame (with red paint flecks where the Interrupt frame shows through at the right edge), Rebel disc + ROUND silver Republic crest → 'Rebel + Republic' (printed: red Interrupt disc); title '•Senator Padmé Amidala' (é as printed; stub page uses 'Padme'); destiny 1 (printed 4). LORE PRINTED ON THE SLIP: 'Leader. Senator.' (plain on the slip; VB5 reissue prints 'Leader.' bold) → replaces the printed lore (kept in base_lore). Right of the lore box: ONLY the EPISODE I disc — the printed card's Coruscant ring is NOT on the slip (VB5 reissue also shows only Episode I) → ring_icons ['episode1']; renderer should not draw the Coruscant ring if it follows the slip. Art blank. Stats POWER 3 / ABILITY 4 / POLITICS 4 (new — printed card has no stats); deploy 3 / forfeit 7 (new); column: warrior; VS16 sphere. Inline gold spoked wheel after 'non-' = {maintenance} (per the VS3 icon key; stub drops it, PDF text layer reads 'non- Rebel'). 'Agendas:' bold incl. colon. Slip text matches the stub. Base lore read off the scan: single curly quotes ‘…’ (wiki straight ')). Base scan 350 px; Coruscant copyright not legible → 2001 SE-style line by the brief/VS12–15 precedent. Modern: VB5-L-senatorpadmeamidala-pre.gif (350). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text": "*Agendas:* justice, rebellion. Once per turn, if at Senate with Bail, may lose 1 Force to deploy a unique (•), non-{maintenance} Rebel of ability < 4 from Lost Pile. If just lost from same site as Vader, place her out of play; opponent loses 4 Force.",
  "no_expansion_ring": true
 }

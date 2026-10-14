@@ -32,7 +32,13 @@
  "base_page": "Chokk",
  "art": {
   "src": "src/vs15/40-Cor-D-chokk.gif",
-  "modern": "src/vs15/modern/40-VB5-D-chokk-pre.gif"
+  "modern": "src/vs15/modern/40-VB5-D-chokk-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   325
+  ]
  },
  "id": "vs15-40",
  "virtual_set": 15,
@@ -45,6 +51,6 @@
   "Original concept by Greg Shaw",
   "Coruscant Regionals 2004"
  ],
- "notes": "Sheet group: Everything else. Unique. Stats POWER 4 / ABILITY 1 / ARMOR 4 (value box); deploy 3 / forfeit 3 — all as printed. Icon column: warrior (as printed). Alien. Credits under the text box: 'Original concept by Greg Shaw' / 'Coruscant Regionals 2004' → credit_bottom. 'Deploys -1' printed with a short hyphen. Slip text matches the stub. Printed card carries the Coruscant ring icon and the Episode I icon below it → ring_icons ['episode1']. Lore matches the wiki (350 px scan only). Copyright read off the 350 px scan: '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' Modern: Virtual Block 5 only (VB5-D-chokk-pre.gif, 350 px; non-pre also exists).",
+ "notes": "Sheet group: Everything else. Unique. Stats POWER 4 / ABILITY 1 / ARMOR 4 (value box); deploy 3 / forfeit 3 — all as printed. Icon column: warrior (as printed). Alien. Credits under the text box: 'Original concept by Greg Shaw' / 'Coruscant Regionals 2004' → credit_bottom. 'Deploys -1' printed with a short hyphen. Slip text matches the stub. Printed card carries the Coruscant ring icon and the Episode I icon below it → ring_icons ['episode1']. Lore matches the wiki (350 px scan only). Copyright read off the 350 px scan: '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' Modern: Virtual Block 5 only (VB5-D-chokk-pre.gif, 350 px; non-pre also exists). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "Deploys -1 to Tatooine. While with your non-droid\ncharacter, if a battle was just initiated here,\nmay use 1 Force to place Chokk in Used Pile;\nInterrupts may not be played until the weapons\nsegment ends."
 }

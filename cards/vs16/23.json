@@ -32,9 +32,15 @@
  "base_page": "Artoo, Brave Little Droid",
  "art": {
   "src": "src/vs16/23-Theed-L-artoobravelittledroid.gif",
-  "modern": "src/vs16/modern/23-VB5-L-artoobravelittledroid-pre.gif"
+  "modern": "src/vs16/modern/23-VB5-L-artoobravelittledroid-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   323
+  ]
  },
- "notes": "Group (sheet sub-heading): Everything Else. Unique. Stats POWER 2 (printed 1) / ASTROMECH DROID (wide label-only box); deploy 3 (printed 4) / forfeit 4. Inline black EPISODE I circle before 'starship' → {episode1} (stub: 'Episode I starship'). Curly ‘fly’ and opponent’s. Icon column: Nav Computer (red box, astromech dome), as printed; no Episode I disc in the column. Droid (gold droid disc, Theed frame); printed card has the Theed Palace ring and an Episode I icon below it → ring_icons ['episode1']. Slip text matches the stub. Lore matches the wiki; curly apostrophe Amidala’s. 350 px scan; Theed Palace 2001 copyright by set. Modern: VB5-L-artoobravelittledroid-pre.gif (350, Virtual Block 5 reissue of this slip's text). Wiki also has an AI (alternate image) printing, not used.",
+ "notes": "Group (sheet sub-heading): Everything Else. Unique. Stats POWER 2 (printed 1) / ASTROMECH DROID (wide label-only box); deploy 3 (printed 4) / forfeit 4. Inline black EPISODE I circle before 'starship' → {episode1} (stub: 'Episode I starship'). Curly ‘fly’ and opponent’s. Icon column: Nav Computer (red box, astromech dome), as printed; no Episode I disc in the column. Droid (gold droid disc, Theed frame); printed card has the Theed Palace ring and an Episode I icon below it → ring_icons ['episode1']. Slip text matches the stub. Lore matches the wiki; curly apostrophe Amidala’s. 350 px scan; Theed Palace 2001 copyright by set. Modern: VB5-L-artoobravelittledroid-pre.gif (350, Virtual Block 5 reissue of this slip's text). Wiki also has an AI (alternate image) printing, not used. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "May ‘fly’ (landspeed = 2). Once per game, may\ntarget up to two opponent’s droids present; owner\nmust place targets in Used Pile or lose 4 Force.\nWhile aboard an {episode1} starship, it is power +3 and\nimmune to attrition < 4 (or adds 2 to immunity).",
  "ring_icons": [
   "episode1"

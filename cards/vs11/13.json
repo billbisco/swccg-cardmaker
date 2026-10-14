@@ -33,7 +33,13 @@
  "base_page": "Padme Naberrie",
  "art": {
   "src": "src/vs11/13-Tat-L-padmenaberrie.gif",
-  "modern": "src/vs11/modern/13-V3-L-padmenaberrie.gif"
+  "modern": "src/vs11/modern/13-V3-L-padmenaberrie.gif",
+  "rect": [
+   43,
+   138,
+   305,
+   323
+  ]
  },
  "id": "vs11-13",
  "virtual_set": 11,
@@ -41,7 +47,7 @@
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "margin_left": "Original concept\nby Lee Clarke",
  "margin_right": "CanCon\n2005",
- "notes": "Unique. Title with é as printed and as the slip prints it ('•Padmé Naberrie'); wiki pages spell it 'Padme' (the stub is 'Padme Naberrie (V) (Virtual Set 11: Gathering Storm)'; the 'Padmé' spelling returns no page). NEW AFFILIATION: printed base is a Republic character (Tatooine, silver frame, Republic crest disc) → \"Republic\". Slip stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE differ from the printed POWER 3 / ABILITY 3 / FORCE-ATTUNED; deploy 3 / forfeit 6 (printed 2/5). Starts with the yellow LS pilot-power icon + '1.' → {pilot:1}. Slip prints ▲ (tight: 'to▲one'). Icon column: pilot, warrior (printed: warrior only). Margin credits printed vertically in two lines each: left 'Original concept' / 'by Lee Clarke', right 'CanCon' / '2005'. Lore matches the scan. Base scan only at 350 px; copyright 2001 (Tatooine) legible. Modern: V3-L-padmenaberrie.gif (745 px) is the PC's Virtual Set 3 Padmé Naberrie — a different later card with the same art and lore; used for art only. VB5 -pre and the _ai (Alternate Image) printings exist, not downloaded.",
+ "notes": "Unique. Title with é as printed and as the slip prints it ('•Padmé Naberrie'); wiki pages spell it 'Padme' (the stub is 'Padme Naberrie (V) (Virtual Set 11: Gathering Storm)'; the 'Padmé' spelling returns no page). NEW AFFILIATION: printed base is a Republic character (Tatooine, silver frame, Republic crest disc) → \"Republic\". Slip stats POWER 3 / ABILITY 4 / FORCE-SENSITIVE differ from the printed POWER 3 / ABILITY 3 / FORCE-ATTUNED; deploy 3 / forfeit 6 (printed 2/5). Starts with the yellow LS pilot-power icon + '1.' → {pilot:1}. Slip prints ▲ (tight: 'to▲one'). Icon column: pilot, warrior (printed: warrior only). Margin credits printed vertically in two lines each: left 'Original concept' / 'by Lee Clarke', right 'CanCon' / '2005'. Lore matches the scan. Base scan only at 350 px; copyright 2001 (Tatooine) legible. Modern: V3-L-padmenaberrie.gif (745 px) is the PC's Virtual Set 3 Padmé Naberrie — a different later card with the same art and lore; used for art only. VB5 -pre and the _ai (Alternate Image) printings exist, not downloaded. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "{pilot:1}. During opponent’s control phase, may use\n2 Force to ▲ one Leia or non-Jedi Luke. At end\nof opponent’s turn, opponent loses 1 Force for\neach Skywalker occupying a battleground (-1\nForce if Vader on table).",
  "margin_right_at": "top",
  "ring_icons": [

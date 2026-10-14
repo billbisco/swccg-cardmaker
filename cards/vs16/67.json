@@ -29,10 +29,10 @@
   "modern_unused": "src/vs16/modern/67-VB5-D-watto-pre.gif",
   "modern": null,
   "rect": [
-   41,
-   139,
-   317,
-   323
+   42,
+   138,
+   306,
+   325
   ]
  },
  "id": "vs16-67",
@@ -47,6 +47,6 @@
   ""
  ],
  "game_text_lines": "“Free” on You’re A Slave? is treated as “2 Force.”\nOnce per turn, may shuffle Reserve Deck and\ndraw destiny. If destiny is odd, for remainder\nof turn your Force drains at {episode1} sites are +1; if\neven, may take card drawn into hand.",
- "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Stats POWER 3 / ABILITY 2 / empty third box (printed as on Watto); deploy 2 / forfeit 4 (as printed). No column icons. Alien (DS alien frame). Inline black EPISODE I circle in 'Force drains at [icon] sites' → {episode1} (stub 'Episode I sites'). Curly double quotes “Free” / “2 Force.” and You’re (stub straight single quotes). CREDITS: 'Original concept by Blake Huffman' printed under the text box at the LEFT; 'Justin Warren Memorial Tourney 2005' is printed in the bottom black strip between the caption and the number (not under the text box) — recorded as credit_bottom [left, right]; the renderer may need to place the right one in the caption strip. Lore: 'gambler' printed BOLD on the 350 px scan → *gambler*; curly apostrophe in don’t; wording matches the wiki. Ring: Tatooine sphere with the Episode I icon below it → ring_icons ['episode1']. Base scan only at 350 px (Tat-D-watto_ai.gif is the AI version, not used); copyright not legible — Tatooine 2001 line per the brief. Modern: VB5 -pre (350) only. Credit \"Justin Warren Memorial Tourney 2005\" sits in the black caption strip as the slip prints it (credit_strip). Art: the printed scan (the VB5 reissue crops the art differently).",
+ "notes": "Group: Everything else (sheet page 'Virtual Set 16: Everything else', DARK SIDE). Unique (•). Stats POWER 3 / ABILITY 2 / empty third box (printed as on Watto); deploy 2 / forfeit 4 (as printed). No column icons. Alien (DS alien frame). Inline black EPISODE I circle in 'Force drains at [icon] sites' → {episode1} (stub 'Episode I sites'). Curly double quotes “Free” / “2 Force.” and You’re (stub straight single quotes). CREDITS: 'Original concept by Blake Huffman' printed under the text box at the LEFT; 'Justin Warren Memorial Tourney 2005' is printed in the bottom black strip between the caption and the number (not under the text box) — recorded as credit_bottom [left, right]; the renderer may need to place the right one in the caption strip. Lore: 'gambler' printed BOLD on the 350 px scan → *gambler*; curly apostrophe in don’t; wording matches the wiki. Ring: Tatooine sphere with the Episode I icon below it → ring_icons ['episode1']. Base scan only at 350 px (Tat-D-watto_ai.gif is the AI version, not used); copyright not legible — Tatooine 2001 line per the brief. Modern: VB5 -pre (350) only. Credit \"Justin Warren Memorial Tourney 2005\" sits in the black caption strip as the slip prints it (credit_strip). Art: the printed scan (the VB5 reissue crops the art differently). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "credit_strip": "Justin Warren Memorial Tourney 2005"
 }

@@ -37,7 +37,13 @@
  "base_page": "Plo Koon",
  "art": {
   "src": "src/vs16/35-Cor-L-plokoon.gif",
-  "modern": "src/vs16/modern/35-V10-L-plokoon.gif"
+  "modern": "src/vs16/modern/35-V10-L-plokoon.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   323
+  ]
  },
  "ring_icons": [
   "episode1"
@@ -47,5 +53,5 @@
   "Iowa States 2006"
  ],
  "game_text_lines": "{pilot:2}. Once per game, may ▼ a weapon here.\nWhile piloting, may battle regardless of objective\nrestrictions. If a battle was just initiated here,\nmay place your weapon here in Used Pile to\nmake all non-vehicle weapon destiny draws -1.",
- "notes": "Group: Everything Else (sheet page 'Virtual Set 16: Everything Else', LIGHT SIDE). Unique. Bottom-half slip. Stats POWER 5 / ABILITY 7 / JEDI MASTER (label only); deploy 6 / forfeit 5 (same as printed). Yellow LS pilot-power icon + '2.' at the start → {pilot:2} (stub expands 'Adds 2 to power of anything he pilots'); ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. 'objective' lower-case as printed. Icon column top to bottom: pilot (yellow helmet), warrior (blue, blaster) — the printed card has warrior only. Credits printed in italics UNDER the text box (left 'Original concept by Peter Jacobson', right 'Iowa States 2006') → credit_bottom. Light Jedi Master (Coruscant frame, blue-blade Jedi Master disc; wiki subtype Jedi Master) as vs9/14 Mace Windu. Printed card carries the Coruscant ring and the Episode I icon beside the lore box → ring_icons ['episode1']. LORE corrected from the 745 px V10 remake: 'Jedi Council member' is BOLD; curly apostrophe in Plo Koon’s (wiki straight). Copyright '© 2001 … 2001 DECIPHER INC.' legible on the V10 face. Base Cor-L-plokoon.gif (350 px only; same file at res.starwarsccg.org). Modern: V10-L-plokoon.gif (745 px, the PC's VS10 Plo Koon (V) — same art and lore, different text) and VB5-L-plokoon-pre.gif (350, Virtual Block 5 reissue of this slip, also downloaded to src/vs16/modern/35-VB5-L-plokoon-pre.gif). Slip text matches the stub apart from the expansions. Stub: https://wiki.swccg.com/wiki/Plo_Koon_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith)"
+ "notes": "Group: Everything Else (sheet page 'Virtual Set 16: Everything Else', LIGHT SIDE). Unique. Bottom-half slip. Stats POWER 5 / ABILITY 7 / JEDI MASTER (label only); deploy 6 / forfeit 5 (same as printed). Yellow LS pilot-power icon + '2.' at the start → {pilot:2} (stub expands 'Adds 2 to power of anything he pilots'); ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. 'objective' lower-case as printed. Icon column top to bottom: pilot (yellow helmet), warrior (blue, blaster) — the printed card has warrior only. Credits printed in italics UNDER the text box (left 'Original concept by Peter Jacobson', right 'Iowa States 2006') → credit_bottom. Light Jedi Master (Coruscant frame, blue-blade Jedi Master disc; wiki subtype Jedi Master) as vs9/14 Mace Windu. Printed card carries the Coruscant ring and the Episode I icon beside the lore box → ring_icons ['episode1']. LORE corrected from the 745 px V10 remake: 'Jedi Council member' is BOLD; curly apostrophe in Plo Koon’s (wiki straight). Copyright '© 2001 … 2001 DECIPHER INC.' legible on the V10 face. Base Cor-L-plokoon.gif (350 px only; same file at res.starwarsccg.org). Modern: V10-L-plokoon.gif (745 px, the PC's VS10 Plo Koon (V) — same art and lore, different text) and VB5-L-plokoon-pre.gif (350, Virtual Block 5 reissue of this slip, also downloaded to src/vs16/modern/35-VB5-L-plokoon-pre.gif). Slip text matches the stub apart from the expansions. Stub: https://wiki.swccg.com/wiki/Plo_Koon_(V)_(Virtual_Set_16:_Revenge_Of_The_Sith) Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14)."
 }

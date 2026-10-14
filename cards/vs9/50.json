@@ -17,11 +17,17 @@
  "base_page": "Wipe Them Out, All Of Them",
  "art": {
   "src": "src/vs9/50-Cor-D-wipethemoutallofthem.gif",
-  "modern": "src/vs9/modern/50-VB5-D-wipethemoutallofthem-pre.gif"
+  "modern": "src/vs9/modern/50-VB5-D-wipethemoutallofthem-pre.gif",
+  "rect": [
+   42,
+   139,
+   306,
+   323
+  ]
  },
  "expansion": "Coruscant",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. Banner EFFECT, no grabber box. Inline icon black square + green blade → {lightsaber} (stub 'lightsaber'); red circle-slash A at the end → {alter} (stub 'Immune to Alter'). 'non-battleground' hyphenated across the slip's line break ('non-' / 'battleground'). Curly apostrophes as printed. Margin credits: left 'Original concept by Michael Raveling', right 'Minnesota State Winner 2004'. Coruscant base (Dark Effect); the scan shows a second small round icon under the expansion ring beside the lore box (part of the printed Coruscant frame, as noted on vs8/32), not transcribed. Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Coruscant 2001 SE-style line (as vs5/19), not legible. Modern: Virtual Block 5 only (VB5 -pre, 355 px). Wiki also has 'Wipe Them Out, All Of Them (Dark)' — not used.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Inline icon black square + green blade → {lightsaber} (stub 'lightsaber'); red circle-slash A at the end → {alter} (stub 'Immune to Alter'). 'non-battleground' hyphenated across the slip's line break ('non-' / 'battleground'). Curly apostrophes as printed. Margin credits: left 'Original concept by Michael Raveling', right 'Minnesota State Winner 2004'. Coruscant base (Dark Effect); the scan shows a second small round icon under the expansion ring beside the lore box (part of the printed Coruscant frame, as noted on vs8/32), not transcribed. Lore matches the scan except: Lore apostrophes written curly ’ per Decipher typesetting and this project's convention (the wiki has straight '; not resolvable at 350 px). Base scan only at 350 px; copyright = Coruscant 2001 SE-style line (as vs5/19), not legible. Modern: Virtual Block 5 only (VB5 -pre, 355 px). Wiki also has 'Wipe Them Out, All Of Them (Dark)' — not used. Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "grabber": false,
  "margin_left": "Original concept by Michael Raveling",
  "margin_right": "Minnesota State Winner 2004",

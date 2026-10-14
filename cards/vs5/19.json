@@ -17,13 +17,19 @@
  "base_page": "Secure Route",
  "art": {
   "src": "src/vs5/19-Cor-L-secureroute.gif",
-  "modern": null
+  "modern": null,
+  "rect": [
+   43,
+   139,
+   306,
+   320
+  ]
  },
  "id": "vs5-19",
  "virtual_set": 5,
  "expansion": "Coruscant",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Non-unique (no dot). Slip has italic credit text in the red side margins outside the text box: left margin (bottom-to-top) 'Original concept by Scott Lingrell', right margin 'Playtest Contest Winner 2003' — stored as margin_left / margin_right, not game text. Slip text matches the wiki stub. No immunity icon. Lore matches the scan. Base card is Coruscant (2001); copyright line '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' read off the 350 px scan and confirmed on a 745 px Coruscant scan (Allegations Of Corruption). Base scan only at 350 px. No modern/VB remake image and no 'Secure Route (V)' page exist on the wiki (modern null).",
+ "notes": "Non-unique (no dot). Slip has italic credit text in the red side margins outside the text box: left margin (bottom-to-top) 'Original concept by Scott Lingrell', right margin 'Playtest Contest Winner 2003' — stored as margin_left / margin_right, not game text. Slip text matches the wiki stub. No immunity icon. Lore matches the scan. Base card is Coruscant (2001); copyright line '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' read off the 350 px scan and confirmed on a 745 px Coruscant scan (Allegations Of Corruption). Base scan only at 350 px. No modern/VB remake image and no 'Secure Route (V)' page exist on the wiki (modern null). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "margin_left": "Original concept by Scott Lingrell",
  "margin_right": "Playtest Contest Winner 2003",
  "game_text_lines": "Deploy on a site. Cancels other Secure Routes. Your\nRepublic characters may deploy here regardless of\nObjective deployment restrictions. Once per turn, if you\njust deployed a Republic character to an interior Naboo\nsite, take a non-character card from Lost Pile into hand.",

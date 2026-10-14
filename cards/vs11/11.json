@@ -33,12 +33,18 @@
  "base_page": "Obi-Wan Kenobi, Jedi Knight",
  "art": {
   "src": "src/vs11/11-Ref3-L-obiwankenobijediknight.gif",
-  "modern": "src/vs11/modern/11-VB5-L-obiwankenobijediknight-pre.gif"
+  "modern": "src/vs11/modern/11-VB5-L-obiwankenobijediknight-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   323
+  ]
  },
  "id": "vs11-11",
  "virtual_set": 11,
  "expansion": "Reflections III",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
- "notes": "Unique. NEW AFFILIATION: printed base is a Republic character (Reflections III, Episode I-style silver frame with the round silver Republic crest disc; wiki subtype Republic) → affiliation \"Republic\" (no earlier VS card used it; the renderer may need a Republic character frame/disc). Stats POWER 6 / ABILITY 6 / JEDI KNIGHT (label only, as printed); deploy 7 / forfeit 8 (printed 7/8). Inline black 'EPISODE I' circle → {episode1} (stub: 'Episode I sites'); slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly apostrophe in Obi-Wan’s. Icon column top to bottom: pilot (yellow LS helmet), warrior — the printed card has warrior only (the slip adds pilot). Wiki set 'Reflections III: A Collector's Bounty' recorded as 'Reflections III' (build_vs ring-icon key). Lore matches the scan (no bold keywords). Base scan only at 350 px; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' legible. No V<N> remake on the wiki; modern = Virtual Block 5 only (VB5 -pre, 350 px).",
+ "notes": "Unique. NEW AFFILIATION: printed base is a Republic character (Reflections III, Episode I-style silver frame with the round silver Republic crest disc; wiki subtype Republic) → affiliation \"Republic\" (no earlier VS card used it; the renderer may need a Republic character frame/disc). Stats POWER 6 / ABILITY 6 / JEDI KNIGHT (label only, as printed); deploy 7 / forfeit 8 (printed 7/8). Inline black 'EPISODE I' circle → {episode1} (stub: 'Episode I sites'); slip prints ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly apostrophe in Obi-Wan’s. Icon column top to bottom: pilot (yellow LS helmet), warrior — the printed card has warrior only (the slip adds pilot). Wiki set 'Reflections III: A Collector's Bounty' recorded as 'Reflections III' (build_vs ring-icon key). Lore matches the scan (no bold keywords). Base scan only at 350 px; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' legible. No V<N> remake on the wiki; modern = Virtual Block 5 only (VB5 -pre, 350 px). Art: printed scan by its measured Episode I window (art.rect; the old trim zoomed in — Bill 2026-10-14).",
  "game_text_lines": "Deploys -1 to {episode1} sites. During a battle (or duel)\nwith a Dark Jedi, unless Obi-Wan’s Journal on\ntable, may use 1 Force to cancel a just drawn\nduel, weapon, or battle destiny. Once per game,\nmay ▲ Disarmed. Immune to attrition < 5."
 }
