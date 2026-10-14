@@ -1,0 +1,41 @@
+{
+ "id": "vs17-21",
+ "number": "21",
+ "virtual_set": 17,
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•TIE Fighter Construction Facility",
+ "caption": "•Mobilization Points (V)",
+ "heading": "•TIE Fighter Construction Facility (V)",
+ "base_title": "•Mobilization Points",
+ "combo": true,
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. TIE/ads and restricted (•••) TIEs are deploy = 2, forfeit = 4, and immune to attrition < 4. Ignore “unique (•)” in Watch Your Back’s game text. Attrition against opponent is +3 where your capital starship present with a non-squadron TIE. {alter}",
+ "game_text_lines": "Deploy on table. TIE/ads and restricted (•••) TIEs\nare deploy = 2, forfeit = 4, and immune to attrition\n< 4. Ignore “unique (•)” in Watch Your Back’s game\ntext. Attrition against opponent is +3 where your\ncapital starship present with a non-squadron TIE. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "base_lore": "The Imperial noose relies on swift troop dispatch from docking bays.",
+ "destiny": "4",
+ "base_destiny": "3",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Mobilization Points",
+ "slip_art": true,
+ "art": {
+  "src": "src/slips/vs17/21-TIE_Fighter_Construction_Facility.png",
+  "rect": [
+   98,
+   351,
+   653,
+   731
+  ],
+  "base_src": "src/vs17/21-DS2-D-mobilizationpoints.gif",
+  "modern": null
+ },
+ "notes": "COMBO CARD — TALL FULL-CARD OVERLAY (755×1098 crop) on the Death Star II red DS Effect frame. Top to bottom: (1) TITLE BAR: green streaked Effect disc at left (as printed); title '•TIE Fighter Construction Facility'; destiny 4 in the black hole — CHANGED from the printed 3 (stub also says 4). (2) LORE BOX: printed BLANK BLACK on the slip (the slip covers Mobilization Points’ lore and prints none) → lore '' and base_lore = the printed lore. Right of the lore box: the Death Star II expansion sphere (blue/red) — expansion, not {ovs}. (3) ART WINDOW: the slip PRINTS ITS OWN ART (Force Unleashed game art: the TIE Fighter Construction Facility in space, planet edges top-left and bottom-right) → slip_art true, art.src = the slip crop, art.rect [98,351,653,731] measured with numpy just inside the red bevel (bevel is slightly trapezoidal: picture's left edge runs x 92→98 and right edge 659→653 from top to bottom; rect taken at the innermost values so no frame shows). No copyright line is printed beside the slip's art (the slip's frame covers the base card's vertical copyright); copyright from the base scan: '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (legible). (4) Banner 'E F F E C T' (spaced EFFECT, as printed). (5) TEXT BOX: 5 lines; ends with the red circle-slash A icon = Immune to Alter → {alter} (stub: 'Immune to Alter.'). '(•••)' and '(•)' dots as printed (stub '***'/'*'); curly “ ” ’ as printed. No icon column, no deploy/forfeit, no margin credits; VS17 diamond at bottom right. (6) Bottom strip: caption '•Mobilization Points (V)', number 21. CHANGES vs Decipher Mobilization Points (Death Star II, DS2-D-mobilizationpoints.gif): title; destiny 3 → 4; lore removed (blank box); art replaced by slip art; game text replaced (printed: 'Deploy on table. Your Force generation is +1 at each docking bay you occupy (or +2 if you control). Once per game, you may take one Carida, Wakeelmui, Gall, Kuat or Rendili system or _Executor_ into hand from Reserve Deck; reshuffle. (Immune to Alter.)'). LORE CORRECTION (base_lore): wiki 'The imperial noose…' → scan 'The Imperial noose…' (capital I). Base scan only 350 px (no 745 px on the wiki). No modern remake found (no VB*/V0 tiefighterconstructionfacility file on the wiki) → modern null. FILE NOTE: copying the base scan into src/vs17/ was refused by the session's permission classifier; the file is at /tmp/claude-0/h17-f/DS2-D-mobilizationpoints.gif and must be copied to art.base_src."
+}

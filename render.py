@@ -428,6 +428,12 @@ def game_text_html(text: str) -> str:
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/{g}.png")}" style="height:{hpx}px;vertical-align:{-4 if g == "glyph-star" else -10}px;margin-right:{6 if g == "glyph-star" else 0}px{";filter:invert(1)" if not card_ctx.get("_dark_text") else ""}">')
         elif name == "ovs":   # the slip prints its own Original Virtual set sphere inline (= "the (V) version of")
             out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/ovs-set-{arg or card_ctx.get('virtual_set', 3)}.png")}" style="height:56px">')
+        elif name == "vset":   # VS17 slips: the Committee's diamond set mark with a number = "Virtual Set N's" (e.g. {vset:9})
+            svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 86">'
+                   '<polygon points="50,3 97,43 50,83 3,43" fill="#111" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>'
+                   '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="miter"/>'
+                   f'<text x="50" y="53" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="{40 if len(arg or "") < 2 else 36}" fill="#fff">{esc(arg or "")}</text></svg>')
+            out.append(f'<img class="gt-icon" src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}" style="height:60px;vertical-align:-12px">')
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
             sf = ASSETS / f"icons/set-{arg}-decipher.png"   # Decipher's own sphere (Bill 2026-10-14)
             if not sf.exists():

@@ -1,0 +1,42 @@
+{
+ "id": "vs17-10",
+ "virtual_set": 17,
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "We’ll Handle This",
+ "caption": "We’ll Handle This (V)",
+ "title_back": "Duel Of The Fates",
+ "caption_back": "Duel Of The Fates (V)",
+ "heading": "We’ll Handle This (V)",
+ "heading_back": "Duel Of The Fates (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "_Deploy Jedi Council Chamber._ *For* remainder of game, you may not deploy Affect Mind, Senate, Rebel starships, or Rebels of ability > 2. You lose no Force to Vengeance Of The Dark Prince or Your Destiny. Jedi Survivor’s {maintenance} is canceled. Speak With The Jedi Council is a Used Interrupt. *While* this side up, Yoda is deploy -3 to Jedi Council Chamber. Your Force drains are -1. *Flip* this card if Yoda and two other Jedi are at Jedi Council Chamber.",
+ "game_text_lines": "_Deploy Jedi Council Chamber._\n*For* remainder of game, you may not deploy Affect Mind,\nSenate, Rebel starships, or Rebels of ability > 2. You\nlose no Force to Vengeance Of The Dark Prince or Your\nDestiny. Jedi Survivor’s {maintenance} is canceled. Speak With The\nJedi Council is a Used Interrupt.\n*While* this side up, Yoda is deploy -3 to Jedi Council\nChamber. Your Force drains are -1.\n*Flip* this card if Yoda and two other Jedi are at Jedi\nCouncil Chamber.",
+ "game_text_back": "*While* this side up, Jedi are immune to attrition < 5 and ignore location deployment restrictions listed in their game text. Your lightsaber Force drain bonuses may not be canceled. You may not Force drain at Jedi Council Chamber. Whenever you initiate battle with a Jedi, may retrieve 2 Force. Jedi Test #2 may deploy on any Jedi (as if completed), but applies only at that site. *Flip* this card (and place all Jedi Tests in Used Pile) if less than two Jedi at Jedi Council Chamber (unless Yoda there).",
+ "game_text_back_lines": "*While* this side up, Jedi are immune to attrition < 5\nand ignore location deployment restrictions listed in\ntheir game text. Your lightsaber Force drain bonuses\nmay not be canceled. You may not Force drain at Jedi\nCouncil Chamber. Whenever you initiate battle with a\nJedi, may retrieve 2 Force. Jedi Test #2 may deploy on\nany Jedi (as if completed), but applies only at that site.\n*Flip* this card (and place all Jedi Tests in Used Pile)\nif less than two Jedi at Jedi Council Chamber (unless\nYoda there).",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs17/10-Ref3-L-duelofthefates.gif",
+  "modern": "src/vs17/modern/10-VB5-L-duelofthefates-pre.gif"
+ },
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Reflections III",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "We'll Handle This / Duel Of The Fates",
+ "art": {
+  "src": "src/vs17/10-Ref3-L-wellhandlethis.gif",
+  "modern": "src/vs17/modern/10-VB5-L-wellhandlethis-pre.gif"
+ },
+ "ring_icons": [
+  "episode1"
+ ],
+ "notes": "Objective, two normal bottom-half slips (756×521 each) on the purple Objective frame with the white/silver text box and black text (as the printed Reflections III Light objective): front 10-Well_Handle_This.png (heading/strip 'We’ll Handle This (V)'), back 10b-Duel_Of_The_Fates.png (heading/strip 'Duel Of The Fates (V)'), both number 10. Non-unique. Front: first line italic (_Deploy Jedi Council Chamber._), bold lead words For / While / Flip. INLINE ICON: 'Jedi Survivor’s [icon] is canceled' — a brown square tile with a gold six-spoked wheel, pixel-for-pixel the maintenance icon (assets/icons/inline-maintenance.png) → {maintenance}; the wiki stub reads it as '[Tatooine]' (stub wrong or the PC used the maintenance glyph for something else — flag for Bill). Back: bold While / Flip, '< 5' and '#2' as printed. Curly apostrophes (We’ll, Survivor’s) as printed; straight hyphens in '-3' / '-1'. Bottom-right of each text box: the black diamond '17' VS17 set marker (not an icon). Stub text otherwise matches (stub drops bold/italic). Base: Reflections III Light Objective 'We’ll Handle This / Duel Of The Fates' (wiki base page We'll Handle This / Duel Of The Fates), destiny 0 front / 7 back; Episode I icon at the top-left of the art window and the Reflections III sphere at top-right → ring_icons ['episode1']. Objectives have no lore. Scans Ref3-L-wellhandlethis.gif / Ref3-L-duelofthefates.gif, 350×490 only; copyright 2001 SE-style line read off the scan's vertical margin (as other Reflections III cards in the repo). Modern: Virtual Block 5 (VB5-L-wellhandlethis-pre.gif / VB5-L-duelofthefates-pre.gif, 350) — NOTE the VB5 front prints a later text ('…Senate, [Rebel icon] characters or starships, Rebel starships, or Rebels of ability > 2…'), not this slip's; the VB5 back matches this slip."
+}

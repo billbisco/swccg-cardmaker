@@ -1,0 +1,58 @@
+{
+ "id": "vs17-08",
+ "number": "08",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Jedi Guardian",
+ "heading": "•••Jedi Guardian (V)",
+ "caption": "Do, Or Do Not (V)",
+ "stats": [
+  [
+   "POWER",
+   "5"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "JEDI KNIGHT",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "6",
+ "game_text": "Deploys +3 unless your {vset:17} objective on table. Whenever this Jedi uses a lightsaber to hit a character, opponent loses 1 Force. Immune to attrition < 4.",
+ "game_text_lines": "Deploys +3 unless your {vset:17} objective on table.\nWhenever this Jedi uses a lightsaber to hit a\ncharacter, opponent loses 1 Force. Immune to\nattrition < 4.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "disc": "republic",
+ "lore": "A Jedi may choose to intervene in the natural course of events, but must accept responsibility for the consequences.",
+ "destiny": "1",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Do, Or Do Not",
+ "combo": true,
+ "base_title": "•Do, Or Do Not",
+ "ring_icons": [
+  "episode1"
+ ],
+ "slip_art": true,
+ "art": {
+  "src": "src/slips/vs17/08-Jedi_Guardian.png",
+  "rect": [
+   99,
+   351,
+   653,
+   733
+  ],
+  "base_src": "src/vs17/08-Dagobah-L-doordonot.gif",
+  "modern": "src/vs17/modern/08-VB5-L-jediguardian-pre.gif"
+ },
+ "notes": "COMBO / FULL-CARD OVERLAY (756×1099 crop) — SLIP PRINTS ITS OWN ART (Force Unleashed art: hooded Jedi in a dark robe holding a blue lightsaber in a wintry forest) → art.src = the slip crop, art.rect [99,351,653,733] measured with numpy just inside the bevel (same window geometry as #06: picture edges left x 91→98, right 662→654, top y 350, bottom 733; rect = largest clean rectangle inside). The slip RETYPES the card: printed Do, Or Do Not is an EFFECT (red frame, green Effect disc, destiny 4). Slip: silver Light character frame, LILAC REPUBLIC disc (matches assets/icons/disc-republic.png) → affiliation Republic, disc 'republic'; title '•••Jedi Guardian', destiny 1. Lore box: same wording as printed but broken into 3 lines on the slip ('A Jedi may choose to intervene in the natural course / of events, but must accept responsibility for the / consequences.'; printed card has 2 lines). Right of the lore box: Dagobah ring (green eye sphere, as printed) AND a black EPISODE I disc below it — Episode I disc is NEW → ring_icons ['episode1']. Stats POWER 5 / ABILITY 6 / JEDI KNIGHT (label only); deploy 5 / forfeit 6; icon column: warrior (blue box, rifle) only. Inline: small black diamond '17' before 'objective' → {vset:17} (stub: '[Light Side] objective'). Caption 'Do, Or Do Not (V)' — NO uniqueness dot on the slip's caption although the printed card is •Do, Or Do Not (base_title keeps the •). CHANGES vs Decipher Do, Or Do Not (Dagobah-L-doordonot.gif, 745 px): title, type Effect → Character (frame, disc, banner gone), uniqueness • → •••, destiny 4 → 1, Episode I disc added, art (slip art replaces the X-wing-in-swamp art), stats/deploy/forfeit/icon added, game text replaced (printed: 'Deploy on table. Sense and Alter are now Lost Interrupts. Also, when any player makes a destiny draw for Sense or Alter, and that destiny draw is successful, that player loses 2 Force. (Immune to Alter.)' — wiki has typo 'when and player'); lore unchanged and matches the wiki/scan. Copyright: Dagobah 1997 line by rule. Modern: VB5-L-jediguardian-pre.gif (same art) — its game text DIFFERS from this VS17 slip ('Never deploys if Inner Strength on table. Deploys +3 unless We’ll Handle This (or Duel Of The Fates) on table. Whenever this Jedi uses a lightsaber to hit a character, opponent loses 1 Force. Immune to attrition < 4.'). Stub: https://wiki.swccg.com/wiki/Jedi_Guardian_(V)_(Virtual_Set_17:_The_Force_Unleashed)"
+}

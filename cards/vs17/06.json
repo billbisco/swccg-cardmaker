@@ -1,0 +1,57 @@
+{
+ "id": "vs17-06",
+ "number": "06",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Fallen Jedi",
+ "heading": "•Fallen Jedi (V)",
+ "caption": "•Advantage (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ABILITY",
+   "6"
+  ],
+  [
+   "JEDI KNIGHT",
+   ""
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "7",
+ "game_text": "Matching weapon is Elegant Lightsaber, and, if Sai’torr Kal Fas on table, may lose 2 Force to ▼ it on her. While with Galen or a {vset:16} Effect, adds one battle destiny. Immune to {lightsaber} weapons and attrition < 5.",
+ "game_text_lines": "Matching weapon is Elegant Lightsaber, and, if\nSai’torr Kal Fas on table, may lose 2 Force to ▼\nit on her. While with Galen or a {vset:16} Effect, adds\none battle destiny. Immune to {lightsaber} weapons and\nattrition < 5.",
+ "icons": [
+  "warrior",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Republic",
+ "disc": "republic",
+ "lore": "With only a few Jedi remaing in the galaxy, each confrontation between them has far reaching consequences. Female.",
+ "base_lore": "With only a few Jedi remaining in the galaxy, each confrontation between them has far reaching consequences.",
+ "destiny": "1",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Advantage",
+ "combo": true,
+ "base_title": "•Advantage",
+ "slip_art": true,
+ "art": {
+  "src": "src/slips/vs17/06-Fallen_Jedi.png",
+  "rect": [
+   99,
+   351,
+   653,
+   733
+  ],
+  "base_src": "src/vs17/06-CC-L-advantage.gif",
+  "modern": null
+ },
+ "notes": "COMBO / FULL-CARD OVERLAY (755×1099 crop) — SLIP PRINTS ITS OWN ART (Force Unleashed art: a woman with red eyes between two red lightsaber blades, fiery background) → art.src = the slip crop, art.rect [99,351,653,733] measured with numpy just inside the bevel (the crop is very slightly keystoned: picture left edge runs x 92→98 and right edge 662→654 top to bottom, top edge y 350, bottom 733 — rect is the largest clean rectangle inside). The slip RETYPES the card: printed Advantage is an IMMEDIATE EFFECT (red frame, green Effect disc, destiny 4). The slip prints the silver Light character frame (Coruscant-style, no red), the LILAC REPUBLIC disc (matches assets/icons/disc-republic.png) → affiliation Republic, disc 'republic'; title '•Fallen Jedi', destiny 1. LORE PRINTED ON THE SLIP (differs from the printed card): 'With only a few Jedi remaing in the galaxy, / each confrontation between them has far reaching / consequences. Female.' — slip typo 'remaing' kept as printed, and 'Female.' added → lore = slip; base_lore = printed Advantage lore. Right of the lore box: ONLY the Cloud City ring (orange-red sphere) — no Episode I disc on this slip. Stats POWER 6 / ABILITY 6 / JEDI KNIGHT (label only); deploy 6 / forfeit 7; icon column: ONE tall blue box holding TWO warrior (rifle) icons → ['warrior','warrior'] (as vs15/62 Shada). Inline: black ▼ at the end of line 2 ('to ▼ / it on her') — the stub expands it as 'Deploy on table from Reserve Deck; reshuffle'(garbled: 'to Deploy on table from Reserve Deck; reshuffle it on her'); small black diamond '16' before 'Effect' → {vset:16} (stub: '[Dark Side] Effect'); black square with green lightsaber blade before 'weapons' → {lightsaber}. Curly apostrophe Sai’torr. VS17 diamond-17 set mark bottom-right. Stats/text at the printed character height. CHANGES vs Decipher Advantage (Cloud City): everything except the Cloud City ring and the lore core — title, type (Immediate Effect → Character), frame, disc, destiny 4 → 1, lore (typo + 'Female.'), art (slip art replaces the Bespin duel art), game text (printed: 'If you just won a battle or duel where an opponent’s character of ability > 3 was lost, deploy on one of your warriors involved. Warrior is power +2. During each of opponent’s move phases, opponent loses 1 Force (2 if character was a Dark Jedi). (Immune to Control.)'). base_src = CC-L-advantage.gif 745 px, which is the PC ERRATA face (different game text 'If an opponent’s character of ability > 3 was just lost…') — art only; the square-on printed face is src/vs17/06-CC-L-advantage-decipher-archive.gif (350×490, also downloaded; lore read there). Copyright Cloud City 1997 by rule. No modern remake found (no VB*/V* fallenjedi file on the wiki). Stub: https://wiki.swccg.com/wiki/Fallen_Jedi_(V)_(Virtual_Set_17:_The_Force_Unleashed)"
+}

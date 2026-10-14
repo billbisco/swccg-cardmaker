@@ -1,0 +1,37 @@
+{
+ "id": "vs17-20",
+ "number": "20",
+ "virtual_set": 17,
+ "side": "Dark",
+ "slip_type": "Epic Event",
+ "card_type": "",
+ "title": "•The Force Unleashed",
+ "caption": "•Epic Duel (V)",
+ "heading": "•The Force Unleashed (V)",
+ "base_title": "•Epic Duel",
+ "combo": true,
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. During battle, Lightsaber Parry, Tarkin’s Orders, and There Is No Conflict gain: “If Vader or Galen present: USED: Target a vehicle or starship present. Draw destiny. If destiny > 2, target ‘thrown’ (hit and adds its printed defense value to your total power). LOST: Target opponent’s character present and choose (then draw destiny): if destiny > ability, target ‘choked’ (lost); OR if destiny +1 > ability, target ‘drained of life’ (hit and opponent loses 2 Force).”",
+ "game_text_lines": "Deploy on table. During battle, Lightsaber Parry,\nTarkin’s Orders, and There Is No Conflict gain: “If Vader\nor Galen present: USED: Target a vehicle or starship\npresent. Draw destiny. If destiny > 2, target ‘thrown’\n(hit and adds its printed defense value to your total\npower). LOST: Target opponent’s character present\nand choose (then draw destiny): if destiny > ability,\ntarget ‘choked’ (lost); OR if destiny +1 > ability, target\n‘drained of life’ (hit and opponent loses 2 Force).”",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Epic Duel",
+ "art": {
+  "src": "src/vs17/20-CC-D-epicduel.gif",
+  "modern": "src/vs17/modern/20-VB4-D-theforceunleashed-pre.gif",
+  "rect": [
+   39,
+   66,
+   306,
+   273
+  ]
+ },
+ "notes": "COMBO CARD — TALL FULL-CARD OVERLAY (756×1103 crop) on the Cloud City EPIC EVENT frame (purple, no lore box). Top to bottom: (1) TITLE BAR: Epic Event disc at left (white/red/green/blue disc, same as printed Epic Duel); title '•The Force Unleashed'; destiny 0 in the black hole (unchanged). Right of the art window top: the Cloud City expansion sphere (orange) — expansion, not {ovs}. (2) ART WINDOW: BLANK WHITE on the slip (with the Epic Event top-left notch) → art from the base scan, no slip_art. The slip's white also covers the right margin where the printed copyright runs (crop shows white to the right edge there — probably sheet trim, not a design element); copyright taken from the base scan: 'TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.' (legible-ish vertical line on the 350 px scan). (3) TEXT BOX: black, white text, no type banner (like vs11/17 Deep Hatred) → card_type ''. 9 lines; USED:/LOST: are run-in inside the quoted gained text (not separate lines) so game_text is one paragraph; no bold seen. Curly ’ ‘ “ ” as printed. No icon column, no deploy/forfeit, no margin credits. VS17 diamond at bottom right of the text box. (4) Bottom strip: caption '•Epic Duel (V)', number 20. CHANGES vs Decipher Epic Duel (Cloud City, CC-D-epicduel.gif): title '•Epic Duel' → '•The Force Unleashed'; game text replaced (printed: 'Deploy on your side of table. The Circle Is Now Complete or Vader’s Obsession may be played to initiate an epic duel as follows: …'); disc, destiny 0, ring, art unchanged. No lore on the printed card (Epic Event) → lore ''. Wiki stub text matches the slip apart from straight quotes. Base scan only 350 px (no 745 px Epic Duel on the wiki). art.rect = the Epic Duel art window measured on the 350 px base scan (approx., window has a slanted top-left corner). modern = Virtual Block 4 reissue VB4-D-theforceunleashed-pre.gif (350 px, same Epic Duel art; its wording differs: 'During battle, you may play Lightsaber Parry, Tarkin’s Orders, and There Is No Conflict as follows: …' — the 2009 VB text; the slip/stub wording is used here). VB6-D-epicduel-pre.gif is a different card (Epic Duel (V), VB6) — not used. FILE NOTE: downloading/copying the images into src/vs17/ was refused by the session's permission classifier; the files are in /tmp/claude-0/h17-f/ (CC-D-epicduel.gif, VB4-D-theforceunleashed-pre.gif) and must be copied to the art paths above."
+}

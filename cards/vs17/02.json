@@ -1,0 +1,31 @@
+{
+ "id": "vs17-02",
+ "number": "02",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•A Jedi’s Plans",
+ "caption": "•Wise Advice (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a site. Nightfall is canceled. While you have 8 or fewer cards in hand, non-unique characters (except clones), vehicles, starships, weapons, and devices are immune to Monnok. Once per turn, may use 2 Force to ▼ Jedi Archives or a battleground planet location (except a sector) not on table. {alter}",
+ "game_text_lines": "Deploy on a site. Nightfall is canceled. While you\nhave 8 or fewer cards in hand, non-unique characters\n(except clones), vehicles, starships, weapons, and\ndevices are immune to Monnok. Once per turn, may\nuse 2 Force to ▼ Jedi Archives or a battleground\nplanet location (except a sector) not on table. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "grabber": false,
+ "lore": "The guidance of experienced Jedi allowed Luke to confront Vader.",
+ "destiny": "3",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Wise Advice",
+ "combo": true,
+ "base_title": "•Wise Advice",
+ "art": {
+  "src": "src/vs17/02-SE-L-wiseadvice.gif",
+  "modern": "src/vs17/modern/02-VB5-L-ajedisplans-pre.gif"
+ },
+ "notes": "COMBO / FULL-CARD OVERLAY (756×1099 crop). Renamed: title '•A Jedi’s Plans', destiny 3 (printed Wise Advice: 4); green Effect disc, lore and Special Edition expansion ring (glowing orange-white sphere) as printed; art window BLANK white → printed art from the base scan; copyright not on the slip (SE line, '1998' legible on the scan). TALL SLIP: art window bottom, banner and text box sit ~35 slip px higher than on the printed card / on slip 01 (banner centre y≈755 vs 790; text box taller for six lines) → text_grow. Banner EFFECT, no grabber. Game text: ▼ before 'Jedi Archives' (stub expands it); trailing {alter}. No column icons; VS17 diamond-17 mark. CHANGES vs Decipher Wise Advice (SE-L-wiseadvice.gif): title, destiny 4→3, game text replaced (printed: 'Deploy on your side of table. Your training destiny draws are each +1. Your Immediate Effects may deploy for free. Whenever opponent cancels your card with Sense or Alter, place that canceled card in Used Pile. (Immune to Alter.)'); lore, banner, disc unchanged. Lore matches the wiki (no corrections, no bold). Slip text matches the stub. Base scan 350 px only. Modern: VB5-L-ajedisplans-pre.gif (350 px)."
+}

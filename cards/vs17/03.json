@@ -1,0 +1,38 @@
+{
+ "id": "vs17-03",
+ "number": "03",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•An Unusual Amount Of Fear",
+ "caption": "•An Unusual Amount Of Fear (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Jedi Council Chamber or Yoda’s Hut. Once per turn, may use 1 Force to ▲ a card with “A Jedi’s” in title (except A Jedi’s Resilience). {vset:9} Wipe Them Out, All Of Them and opponent’s {vset:16} Effects here are canceled. {alter}",
+ "game_text_lines": "Deploy on Jedi Council Chamber or Yoda’s Hut. Once\nper turn, may use 1 Force to ▲ a card with “A Jedi’s”\nin title (except A Jedi’s Resilience). {vset:9} Wipe Them\nOut, All Of Them and opponent’s {vset:16} Effects here are\ncanceled. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "grabber": false,
+ "lore": "The peacekeepers of the galaxy are not to be taken lightly.",
+ "destiny": "0",
+ "expansion": "Reflections III",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "An Unusual Amount Of Fear",
+ "ring_icons": [
+  "episode1"
+ ],
+ "art": {
+  "src": "src/vs17/03-Ref3-L-anunusualamountoffear.gif",
+  "modern": "src/vs17/modern/03-VB5-L-anunusualamountoffear-pre.gif",
+  "rect": [
+   43,
+   139,
+   306,
+   323
+  ]
+ },
+ "notes": "Ordinary BOTTOM-HALF slip (755×454 crop: banner, text box, caption) — not a full overlay. Banner EFFECT (printed card: STARTING EFFECT); no grabber box. Inline icons: two BLACK DIAMOND number marks (the VS17-style diamond, like the diamond-17 set mark), '9' before 'Wipe Them Out, All Of Them' (a VS9 card) and '16' before 'Effects' (opponent’s VS16 Effects) → written {vset:9} / {vset:16}; NOTE for the renderer: the slip prints them as monochrome diamonds, not the coloured VS9/VS16 spheres — may need a diamond glyph token. The stub reads them '[Shield]' and '[Dark Side]' (wrong); the VB5 reissue prints a diamond and a dark sphere. ▲ before 'a card'; curly quotes “A Jedi’s”; trailing {alter}. Top half from the printed Reflections III premium card: destiny 0, lore 'The peacekeepers of the galaxy are not to be taken lightly.' (matches wiki), Reflections III ring + black Episode I icon right of the lore box → ring_icons ['episode1']. Copyright: Reflections III 2001 line as in vs11 (not legible on the 350 px scan). Art: printed scan by its measured Reflections III window art.rect [43,139,306,323] (same frame as vs11/11; edges checked against that scan). Modern: VB5-L-anunusualamountoffear-pre.gif (350 px)."
+}

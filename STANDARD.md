@@ -362,3 +362,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   per-pixel variance across scans of the same frame, i.e. where the picture differs), sites ≈ [45,91,447,260] at
   490 px; checked by template-matching the rendered art back into the scan (full window, ~263 px / ~400 px wide).
   58 remasters re-rendered (VS5, 8–16).
+- Rev 36 (VS17 The Force Unleashed, 2026-10-14): VS17 prints no Virtual sphere — its set mark is the cover's
+  diamond-17 (`ovs-set-17.png`, cut from the cover with transparency; shown in the lower icon slot as the slips do).
+  Inline diamond marks with a number = that Virtual Set's card (`{vset:N}`, drawn as SVG; wiki text "[Virtual Set N]").
+  Slips that print their own art (Force Unleashed photos) use the slip crop as the art source, mapped by its window
+  (`art.src` = slip, `art.rect`, `slip_art`, base scan kept as `art.base_src`). AI (alternate image) slips are their
+  own card file (`NNb.json`, `alt_image`, id `vsN-NNb`), with their own stub and hub row ("12 AI"). Sith affiliation
+  disc (Darth Maul face) cut from the slip (`disc-sith.png`). Female characters (lore "Female.") get "she" in the
+  wiki's pilot-icon expansion. Hub leads for VS12+ no longer claim a December 2006 Remaster reissue (that covered
+  VS1–11 only); VS13+ leads say some slips cover the whole card.
