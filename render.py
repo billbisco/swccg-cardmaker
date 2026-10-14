@@ -38,7 +38,7 @@ TEMPLATES = {
         "title": (398, 200, 779, 100),
         "destiny": (1308, 204, 104, 104),
         "lore": (321, 378, 989, 190),
-        "card_type": (621, 1508, 399, 61),
+        "card_type": (271, 1508, 1109, 61),
         "game_text": (320, 1667, 1000, 328),
         "banner_icon": (1292, 1492),
         "set_icon_abs": (1391, 1940), "set_icon_size": 64,
@@ -595,24 +595,35 @@ LOC_ICON_FILES = {k: f"icon-{k}.png" for k in
 
 def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     """A tall slip (VS15 Anger, Fear, Aggression (V), Knowledge And Defense (V)): the slip's banner sits higher and its
-    text box is taller, covering the bottom of the art window. Slide the frame's art-window bottom edge, banner and
-    text-box top up by `text_grow` px and stretch the text box; the art stays full size under the frame."""
+    text box is taller, as the PC's own reissues print it (V0 Knowledge And Defense): the art window gets shorter with
+    its own corners, banner and text-box top move up by `text_grow` px, the text box stretches. A base card with no
+    lore box (Reflections II combos) also merges the lore window into the art window (Uncharted Settlements (V)).
+    Works on a full-card canvas; returns (frame path, template, 0, 0) and t["_artwin"] = the new art window."""
     import numpy as np
-    D = int(card["text_grow"])
+    D = int(card.get("text_grow") or 0)
     ax, ay, aw, ah = t["art"]
     gx, gy, gw, gh = t["game_text"]
-    F = np.array(Image.open(fr).convert("RGBA")); G = F.copy()
-    a0, a1 = ay + ah - 30 - fy, gy + 30 - fy          # art bottom edge .. text-box top (frame rows)
-    G[a0 - D:a1 - D] = F[a0:a1]
-    src = F[a1:gy + gh - 30 - fy]                      # text-box interior rows (with the frame's sides)
-    rows = np.concatenate([src] * (D // max(1, len(src)) + 2))[:D]
-    G[a1 - D:a1] = rows
+    c = Image.new("RGBA", (1632, 2220), (0, 0, 0, 0)); c.alpha_composite(Image.open(fr).convert("RGBA"), (fx, fy))
+    F = np.array(c); G = np.zeros_like(F)
+    top = (t["lore"][1] - 20) if card.get("no_lore_box") and t.get("lore") else ay
+    bot = ay + ah - D
+    T0, T1 = ay - 25, ay + 70                  # art window top edge with its corners
+    B0, B1 = ay + ah - 95, gy + 30             # art window bottom edge with its corners, banner, text-box top
+    G[:top - 25] = F[:top - 25]
+    G[top - 25:top - 25 + (T1 - T0)] = F[T0:T1]
+    m0, m1 = top - 25 + (T1 - T0), bot - 95    # straight window sides: the frame's own, stretched to fit
+    G[m0:m1] = np.array(Image.fromarray(F[T1:B0]).resize((F.shape[1], m1 - m0), Image.LANCZOS))
+    G[m1:m1 + (B1 - B0)] = F[B0:B1]
+    e = m1 + (B1 - B0)                         # = gy + 30 - D
+    if D:
+        G[e:gy + 30] = np.array(Image.fromarray(F[gy + 40:gy + gh - 40]).resize((F.shape[1], gy + 30 - e), Image.LANCZOS))
+    G[gy + 30:] = F[gy + 30:]
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
-             game_text=(gx, gy - D, gw, gh + D))
+             game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
     if "banner_icon" in t:
         t["banner_icon"] = (t["banner_icon"][0], t["banner_icon"][1] - D)
-    return p, t
+    return p, t, 0, 0
 
 
 def loc_grow(card: dict) -> tuple[int, int]:
@@ -823,7 +834,7 @@ def build_html(card: dict) -> str:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
         if card.get("text_grow"):
-            fr, t = grown_frame(card, t, fr, fx, fy)
+            fr, t, fx, fy = grown_frame(card, t, fr, fx, fy)
     ax, ay, aw, ah = t["art"]
     art = art_crop(card) if card.get("art") else ""
 
@@ -832,10 +843,17 @@ def build_html(card: dict) -> str:
         return f"left:{x}px;top:{y}px;width:{w}px;height:{h}px;{style}"
 
     parts = [f'<div id="card"{' class="inv"' if card.get("invert_text") else ''} style="position:relative;width:{W}px;height:{H}px;background:#000;overflow:hidden">']
-    if art:
+    if art and t.get("_artwin"):   # reshaped window (tall slips): the art fills it, under the frame
+        wx, wy, ww, wh = t["_artwin"]
+        if card.get("no_lore_box") and card["art"].get("rect"):
+            parts.append(f'<img src="{art_crop(card, t["_artwin"], "-rect")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
+        else:
+            parts.append(f'<div style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px;overflow:hidden">'
+                         f'<img src="{art}" style="position:absolute;left:0;top:{(wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
+    elif art:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
-    if card.get("no_lore_box") and card.get("art") and t.get("lore"):
+    if card.get("no_lore_box") and card.get("art") and t.get("lore") and not t.get("_artwin"):
         # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
         # banner — lay the mapped scan over the frame's lore window too
         lx, ly, lw, lh = t["lore"]
