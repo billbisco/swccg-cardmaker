@@ -1160,6 +1160,9 @@ def build_html(card: dict) -> str:
         parts.append(f'<div style="position:absolute;left:{t.get("credit_x", 186)}px;top:430px;width:44px;height:760px;display:flex;align-items:center;justify-content:center">'
                      f'<div style="flex-shrink:0;width:760px;transform:rotate(90deg);display:flex;justify-content:space-between;font-family:AGCn;font-style:italic;font-size:36px;color:#000;white-space:nowrap">'
                      f'<span>{esc(a_)}</span><span>{esc(b_)}</span></div></div>')
+    if card.get("credit_strip"):   # a credit printed in the black caption strip, right, before the number (Watto (V), VS16)
+        parts.append(f'<div style="position:absolute;right:{1632 - 1240}px;top:{cy + 4}px;height:48px;line-height:48px;font-family:AGCn;font-style:italic;'
+                     f'font-size:38px;color:#fff;white-space:nowrap">{esc(card["credit_strip"])}</div>')
     if card.get("number"):
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
     parts.append("</div>")
