@@ -15,12 +15,12 @@
  "light_icons": [
   "planet",
   "exterior",
-  "underwater"
+  "grabber"
  ],
  "dark_icons": [
   "planet",
   "exterior",
-  "underwater"
+  "grabber"
  ],
  "icons": [],
  "scomp": false,

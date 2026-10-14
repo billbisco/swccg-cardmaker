@@ -461,6 +461,16 @@ def margin_ink(frame_path, x: int, top: int, bot: int) -> str:
         return "#fff"
 
 
+def loc_title(card: dict, bar: str = "Light") -> str:
+    """Location bar title as the Remaster slips letter it (Bill 2026-10-14): AG Bold Condensed caps. The uniqueness
+    dot / diamond is red on the bar of the card's own side and in the bar's text colour on the other (VS13 slips:
+    Light cards print a white dot on the Dark bar, Dark cards a black dot on the Light bar)."""
+    t = card.get("card_type") or card["title"]
+    h = esc_i(t)
+    cls = "dot" if bar == card.get("side", "Light") else "dot plain"
+    return '<span class="lt">' + re.sub(r"^([•◊]+)", lambda m: f'<span class="{cls}">{m.group(1)}</span>', h) + '</span>'
+
+
 def title_html(s: str) -> str:
     """esc_i() for card titles: Fiorello has no accented letters, so é/è/á are an e/a with the accent drawn above it
     (Padmé Naberrie (V))."""
@@ -575,7 +585,7 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
 
 LOC = ASSETS / "loc"
 LOC_ICON_FILES = {k: f"icon-{k}.png" for k in
-                  ("underground", "interior", "planet", "space", "exterior", "underwater", "creature", "mobile", "starship", "vehicle")}
+                  ("grabber", "underground", "interior", "planet", "space", "exterior", "underwater", "creature", "mobile", "starship", "vehicle")}
 
 
 def loc_frame(card: dict, t: dict) -> Path:
@@ -602,16 +612,30 @@ def loc_frame(card: dict, t: dict) -> Path:
                 from PIL import ImageChops
                 reg = canvas.crop((pos[0], pos[1], pos[0] + g.width, pos[1] + g.height))
                 canvas.paste(ImageChops.lighter(reg.convert("RGB"), g.convert("RGB")).convert("RGBA"), pos)
+    if card.get("frame_tint"):   # starship-site frames the slips print in blue (Executor / Redemption, VS13)
+        import numpy as np
+        fa = np.array(frame).astype(float)
+        lum = fa[:, :, :3].mean(axis=2, keepdims=True) / 172.0   # silver ≈ 172 → the slip's colour
+        silver = (np.abs(fa[:, :, 0] - fa[:, :, 2]) < 25) & (fa[:, :, :3].mean(axis=2) > 90)
+        tint = np.clip(lum * np.array(card["frame_tint"], dtype=float), 0, 255)
+        fa[:, :, :3] = np.where(silver[:, :, None], tint, fa[:, :, :3])
+        frame = Image.fromarray(fa.astype(np.uint8), "RGBA")
+    # The slips run the title bar right up to the first icon box: slide the bar's end cap over the frame's two
+    # default boxes and fill the rest with plain silver (light bar, then the dark bar in the 180°-turned frame).
+    def extend_bar(img, n, y0, y1, cap1):
+        E = (t["ls_slot0"] - (n - 1) * t["slot_pitch"] - 55 - 4) if n else 1790
+        S = E - cap1
+        if S <= 0:
+            return img
+        img = img.copy()
+        img.alpha_composite(img.crop((1795, y0, 1795 + 1790 - E, y1)), (E, y0)) if E < 1790 else None
+        img.alpha_composite(img.crop((1300, y0, cap1, y1)), (1300 + S, y0))
+        return img
+    frame = extend_bar(frame, len(card.get("light_icons", [])), 1134, 1252, 1574)
+    frame = extend_bar(frame.rotate(180), len(card.get("dark_icons", [])), 1155, 1270, 1581).rotate(180)
     canvas.alpha_composite(frame, (fx, fy))
-    # cover the two default icon boxes on each bar with a clean patch of the bar
     ly = t["slot_y"]
-    patch = frame.crop((900, ly - 8, 1100, ly + 119))
-    for x in (1583, 1691):
-        canvas.alpha_composite(patch.crop((0, 0, 100, 127)), (fx + x - 6, fy + ly - 8))
     dy = 1479 - ly - 111
-    dpatch = frame.crop((1000, dy - 8, 1200, dy + 119))
-    for x in (288, 395):
-        canvas.alpha_composite(dpatch.crop((0, 0, 100, 127)), (fx + x - 6, fy + dy - 8))
     box = Image.open(LOC / "box.png").convert("RGBA")
     ring = Image.open(LOC / "scomp.png").convert("RGBA")
 
@@ -652,7 +676,16 @@ def sys_frame(card: dict, t: dict) -> Path:
     """Portrait system: force glows under the bar assembly's force holes, planet icon(s), parsec boxes."""
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     if card.get("light_force", True):
-        canvas.alpha_composite(Image.open(LOC / "sysforce-light.png").convert("RGBA"), t["ls_force"])
+        g = Image.open(LOC / "sysforce-light.png").convert("RGBA")
+        n = int(card.get("light_force_count") or 1)
+        canvas.alpha_composite(g, t["ls_force"])
+        if n > 1:   # two Light Force icons = a second saber beside the first (Alderaan (Blown Away) (V))
+            import numpy as np
+            ga = np.array(g).astype(float); lum = ga[:, :, :3].max(axis=2)
+            ga[:, :, 3] = np.clip(lum * 1.4, 0, 255) * (ga[:, :, 3] > 250); ga[:48] = 0
+            sab = Image.fromarray(ga.astype(np.uint8), "RGBA")
+            for k in range(1, n):
+                canvas.alpha_composite(sab, (t["ls_force"][0] + 82 * k, t["ls_force"][1]))
     if card.get("dark_force", False):
         canvas.alpha_composite(Image.open(LOC / "sysforce-dark.png").convert("RGBA"), t["ds_force"])
     fx, fy = t["frame_off"]
@@ -721,23 +754,23 @@ def build_html(card: dict) -> str:
     # title + destiny
     if t.get("landscape"):
         # Light title centred in the grey bar between the force slot and the first icon box; Dark mirrored, rotated.
-        nbox = len([i for i in card.get("light_icons", []) if i != "scomp"])
+        nbox = len(card.get("light_icons", []))
         x0, y, h = t["ls_bar"]
-        x1 = t["ls_bar_x1"] if nbox == 0 else fx + t["ls_slot0"] - (nbox - 1) * t["slot_pitch"] - 55 + t["frame_off"][0]
-        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{esc_i(card["title"])}</div>')
-        nbox = len([i for i in card.get("dark_icons", []) if i != "scomp"])
+        x1 = fx + 1790 - 15 + t["frame_off"][0] - fx if nbox == 0 else fx + t["ls_slot0"] - (nbox - 1) * t["slot_pitch"] - 55 + t["frame_off"][0]
+        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{loc_title(card, "Light")}</div>')
+        nbox = len(card.get("dark_icons", []))
         dx, dy_, dw, dh = t["ds_bar"]
         dx0 = dx if nbox == 0 else t["frame_off"][0] + t["ds_slot0"] + (nbox - 1) * t["slot_pitch"] + 55
-        parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{esc_i(card["title"])}</div>')
+        parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
         lx, ly_, lw, lh = t["ls_text"]
         parts.append(f'<div class="ltext fit" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
         tx, ty, tw, th = t["ds_text"]
         parts.append(f'<div class="dtext fit" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
     elif t.get("system"):
         x, y, w, h = t["ls_bar"]
-        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc_i(card["title"])}</div>')
+        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Light")}</div>')
         x, y, w, h = t["ds_bar"]
-        parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc_i(card["title"])}</div>')
+        parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Dark")}</div>')
         x, y, w, h = t["ls_text"]
         parts.append(f'<div class="ltext fit" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
         x, y, w, h = t["ds_text"]
@@ -915,16 +948,22 @@ def build_html(card: dict) -> str:
         cink = "#000" if t.get("dark_text") else "#ddd"
         parts.append(f'<div style="position:absolute;left:{gx - 60}px;top:{t.get("credit_bottom_y", 2024)}px;width:{gw + 120}px;height:44px;text-align:center;'
                      f'font-family:AGCn;font-style:italic;font-size:36px;line-height:44px;color:{cink};white-space:nowrap">{esc(card["credit_bottom"])}</div>')
+    if (t.get("landscape") or t.get("system")) and card.get("icons") and t.get("set_icon_abs"):
+        sx_, sy_ = t["set_icon_abs"]; sz_ = t.get("set_icon_size", 60)
+        for k, ic in enumerate(card["icons"]):   # margin discs the slip prints beside the set sphere (Episode I)
+            f_ = ICON_FILES.get(ic) or (f"icons/set-{ic[4:]}-grainy.png" if ic.startswith("set:") else None)
+            if f_:
+                parts.append(f'<img src="{data_uri(ASSETS / f_)}" style="position:absolute;left:{sx_}px;top:{sy_ - (k + 1) * (sz_ + 14)}px;width:{sz_}px;height:{sz_}px">')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card.get("caption") or card["title"]
     cy = t.get("caption_y", 2082)
     parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
-    if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")):
-        # locations: the slip prints its credits across the bottom border, between the caption and the number
-        cred = "  ·  ".join(x.replace("\n", " ") for x in (card.get("margin_left"), card.get("margin_right")) if x)
-        cw = W
-        parts.append(f'<div style="position:absolute;left:{cw // 2 - 120}px;top:{cy + 6}px;width:{cw // 2 - 260}px;height:44px;text-align:right;'
-                     f'font-family:AGCn;font-style:italic;font-size:32px;line-height:44px;color:#ddd;white-space:nowrap">{esc(cred)}</div>')
+    if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")) and t.get("landscape"):
+        # locations: the slips print the credits up the left margin between the two bars (Carida (V)), reading top-down
+        a_, b_ = (card.get("margin_left") or "").replace("\n", " "), (card.get("margin_right") or "").replace("\n", " ")
+        parts.append(f'<div style="position:absolute;left:{t.get("credit_x", 186)}px;top:430px;width:44px;height:760px;display:flex;align-items:center;justify-content:center">'
+                     f'<div style="flex-shrink:0;width:760px;transform:rotate(90deg);display:flex;justify-content:space-between;font-family:AGCn;font-style:italic;font-size:36px;color:#000;white-space:nowrap">'
+                     f'<span>{esc(a_)}</span><span>{esc(b_)}</span></div></div>')
     if card.get("number"):
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
     parts.append("</div>")
@@ -957,11 +996,15 @@ def build_html(card: dict) -> str:
     .cap .dot{{font-size:40px}}
     .dot{{font-family:Fiorello}}
     .num{{font-family:AGMedExt;font-weight:bold;font-size:44px;color:#fff;line-height:52px;text-align:right;transform:skewX(-14deg)}}
+    .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:74px;letter-spacing:1.5px;text-transform:uppercase}}
+    .ltitle .dot, .dtitle .dot{{font-family:"DejaVu Sans",sans-serif;color:#d4141c;font-size:0.8em;margin-right:6px;vertical-align:0.05em}}
+    .ltitle .dot.plain, .dtitle .dot.plain{{color:inherit}}
+    .ltitle span.lt, .dtitle span.lt{{display:inline-block;white-space:nowrap;transform-origin:center center}}
     .ltitle{{color:#000;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box}}
     .dtitle{{color:#fff;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box;transform:rotate(180deg)}}
     .ltext{{font-family:AGCn;font-size:62px;color:#000;letter-spacing:0.5px;line-height:65px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px}}
     .dtext{{font-family:AGCn;font-size:62px;color:#fff;letter-spacing:0.5px;line-height:65px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px;transform:rotate(180deg)}}
-    .parsec{{font-family:Craft;font-size:65px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:4px;box-sizing:border-box}}
+    .parsec{{font-family:AGMedExt;font-size:72px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:4px;box-sizing:border-box}}
     .copy{{display:flex;align-items:center;justify-content:center}}
     .credit{{font-family:AGCn;font-style:italic;font-size:40px;color:#000;white-space:nowrap;transform:rotate(-90deg)}}
     .copyin{{font-family:AGBoldCnA;font-size:24px;color:{ink};letter-spacing:1px;white-space:nowrap;transform:rotate(-90deg)}}
@@ -1005,6 +1048,10 @@ def build_html(card: dict) -> str:
       }
       const cr = [...document.querySelectorAll('.fitcredit')].filter(e => !e.dataset.solo);
       if (cr.length == 2 && cr[0].dataset.avail == cr[1].dataset.avail) for (const el of cr) el.style.fontSize = creditFs + 'px';
+      for (const el of document.querySelectorAll('.ltitle .lt, .dtitle .lt')) {   // location bar titles: condense to the bar
+        const avail = el.parentElement.clientWidth - 30, w = el.offsetWidth;
+        if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';
+      }
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
         const w = el.scrollWidth, avail = el.clientWidth;
         if (w > avail + 1) { el.style.transformOrigin = 'left center'; el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')'; el.style.width = w + 'px'; }

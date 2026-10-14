@@ -102,6 +102,12 @@ NSIDE = {"Light": 0, "Dark": 0}
 for _p in (ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json"):
     NSIDE[json.load(open(_p, encoding="utf-8"))["side"]] += 1
 stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
+for _p in sorted((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")):   # renamed locations: the card IS the new name (Bill 2026-10-14)
+    _c = json.load(open(_p, encoding="utf-8"))
+    if (_c.get("slip_type") or "").lower() in ("site", "system"):
+        _nm = lambda x: re.sub(r"\s*\((?:V|Light|Dark)\)", "", x.replace("•", "").replace("◊", "").replace("_", "")).strip().lower()
+        if _nm(_c["title"]) != _nm(_c.get("caption", "")) and int(_p.stem) not in META["title_fix"]:
+            META["title_fix"][int(_p.stem)] = _c["title"].replace("•", "").replace("◊", "").replace("_", "").strip() + " (V)"
 CARRY = Path(sys.argv[3]).read_text(encoding="utf-8") if len(sys.argv) > 3 else ""   # current hub page: its history sections are carried over
 
 TYPE_PAGE = {"EFFECT": ("Effect", None), "IMMEDIATE EFFECT": ("Effect", "Immediate Effect"), "USED INTERRUPT": ("Interrupt", "Used Interrupt"),
@@ -225,7 +231,8 @@ for n in range(1, NCARDS + 1):
         _norm = lambda x: re.sub(r"\s*\((?:V|Light|Dark)\)", "", x.replace("•", "").replace("◊", "").replace("_", "")).strip().lower()
         renamed = c["title"].replace("_", "''") if _norm(c["title"]) != _norm(c.get("caption", "")) else ""
         dlab = "Dark (printed)" if c.get("dark_text_printed") else "Dark"
-        parts_ = ([f"'''{renamed}'''" + (f" (parsec {c['parsec']})" if c.get("parsec") is not None else "")] if renamed else []) + ([f"'''Light:''' {gt}"] if c.get("game_text") else []) + ([f"'''{dlab}:''' {expand(dict(c, game_text=c['dark_text']))}"] if c.get("dark_text") else [])
+        _base = re.sub(r"\s*\(V\)\s*$", "", c.get("caption", "")).replace("•", "").replace("◊", "").strip()
+        parts_ = ([f"Slip on the Decipher card ''{_base}''" + (f"; parsec {c['parsec']}" if c.get("parsec") is not None else "")] if renamed else []) + ([f"'''Light:''' {gt}"] if c.get("game_text") else []) + ([f"'''{dlab}:''' {expand(dict(c, game_text=c['dark_text']))}"] if c.get("dark_text") else [])
         gt = "<br />".join(parts_)
     extra_gallery[page] = f"<gallery mode=\"packed\" heights=\"180\">\nFile:{s['image']}|{c['title'].replace('•', '')} (V) slip\nFile:{slip2}|{c.get('title_back')} (V) slip\n</gallery>\n" if rem2 else ""
     stats = dict(c.get("stats") or [])
