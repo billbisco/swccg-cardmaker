@@ -1,0 +1,43 @@
+{
+ "number": "01",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Admiral Ackbar",
+ "caption": "•Admiral Ackbar (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "{pilot:3}. It’s a Trap! is destiny +2. Adds one battle destiny while piloting a Mon Calamari Star Cruiser. Once per game, may ▼ a capital starship to a system (even as a ‘react’).",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Mon Calamari *leader* of Rebel fleet. Master military strategist. Early prisoner of Grand Moff Tarkin. Convinced his people to join the Alliance.",
+ "destiny": "1",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Admiral Ackbar",
+ "art": {
+  "src": "src/vs14/01-DS2-L-admiralackbar.gif",
+  "modern": "src/vs14/modern/01-V3-L-admiralackbar.gif"
+ },
+ "notes": "Unique. Stats POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only); deploy 4 / forfeit 7. Inline yellow pilot icon + '3.' → {pilot:3}. (stub expands 'Adds 3 to power of anything he pilots'); curly ’ in It’s and ‘react’; the stub's 'Deploy on table from Reserve Deck; reshuffle' is the slip's ▼. Icon column: pilot only. Rebel (Rebel disc on the printed card). Lore corrected: 'leader' is printed bold (*leader*), visible on the 350 px scan and the 745 px V3 remake; otherwise matches the wiki. Base scan only 350 px (res.starwarsccg.org Images-HT DeathStarII-Light, same as wiki DS2-L-admiralackbar.gif). Copyright not legible on the 350 scan; SE-style 2000 line as on the V3 remake and earlier DS2 cards. Modern: V3-L-admiralackbar.gif (745 px, Virtual Set 3 remake, same art); VB3 -pre (350) also exists, not downloaded.",
+ "id": "vs14-01",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "{pilot:3}. It’s a Trap! is destiny +2. Adds one battle\ndestiny while piloting a Mon Calamari Star Cruiser.\nOnce per game, may ▼ a capital starship to a\nsystem (even as a ‘react’)."
+}

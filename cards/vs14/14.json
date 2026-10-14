@@ -1,0 +1,32 @@
+{
+ "number": "14",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Wesa Ready To Do Our-sa Part",
+ "caption": "•Wesa Ready To Do Our-sa Part (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on Endor system or Naboo system. Your total power here is +1 for each Ewok or Gungan at related sites. Once per turn, may place your just lost Ewok or Gungan in Used Pile. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Every Gungan that died on the battle plains gave Amidala and her troops that much more time to capture the Viceroy.",
+ "destiny": "5",
+ "base_page": "Wesa Ready To Do Our-sa Part",
+ "art": {
+  "src": "src/vs14/14-Theed-L-wesareadytodooursapart.gif",
+  "modern": "src/vs14/modern/14-VB5-L-wesareadytodooursapart-pre.gif"
+ },
+ "id": "vs14-14",
+ "virtual_set": 14,
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "grabber": false,
+ "notes": "Unique. Banner EFFECT, no grabber box → grabber false. Red circle-slash A at the end → {alter}. Slip text matches the stub. Slip crop file is named '…Oursa_Part' but the slip prints 'Our-sa' (hyphenated) in heading and caption. Lore matches the wiki and the scan. Base scan only 350 px; copyright Theed Palace 2001 SE-style line (partly legible). Modern: Virtual Block 5 only (VB5 -pre, 350 px).",
+ "game_text_lines": "Deploy on Endor system or Naboo system. Your total\npower here is +1 for each Ewok or Gungan at related\nsites. Once per turn, may place your just lost Ewok or\nGungan in Used Pile. {alter}",
+ "ring_icons": [
+  "episode1"
+ ]
+}

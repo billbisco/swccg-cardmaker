@@ -1,0 +1,28 @@
+{
+ "number": "27",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•I Can’t Shake Him!",
+ "caption": "•I Can’t Shake Him! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "For remainder of turn, opponent must first use 1 Force to fire a weapon and opponent’s starship weapon destiny draws are -1. OR During opponent’s deploy phase, ▼ an Imperial of ability < 3 (except an admiral) aboard your starship.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“You’ve picked one up . . . watch it!”",
+ "destiny": "5",
+ "base_page": "I Can't Shake Him!",
+ "art": {
+  "src": "src/vs14/27-SE-D-icantshakehim.gif",
+  "modern": "src/vs14/modern/27-V0-D-icantshakehim.gif"
+ },
+ "id": "vs14-27",
+ "virtual_set": 14,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique (• on slip heading, caption and printed title). Banner USED INTERRUPT (printed base is also a Used Interrupt). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; curly apostrophes in opponent’s (twice); '-1' with a hyphen as printed. No margin credits. Lore corrected from scans: curly double quotes and curly apostrophe (wiki has straight single quotes 'You've picked one up... watch it!'); the ellipsis is printed spaced ' . . . ' (745 px V0 remake). Copyright: Special Edition form, '1998' legible on the V0 745 px face. Base scan 350 px (SE-D-icantshakehim.gif). Modern: V0-D-icantshakehim.gif (745 px); VB1 (350) also exists, not downloaded.",
+ "game_text_lines": "For remainder of turn, opponent must first use 1 Force\nto fire a weapon and opponent’s starship weapon\ndestiny draws are -1. OR During opponent’s deploy\nphase, ▼ an Imperial of ability < 3 (except an\nadmiral) aboard your starship."
+}

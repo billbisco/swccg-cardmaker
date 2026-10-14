@@ -1,0 +1,39 @@
+{
+ "number": "22",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Commander Nemet",
+ "caption": "•Commander Nemet (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:1}. While piloting at a battleground system, your Force drains here may not be canceled. While piloting at a system with a ‘probe’ card, during your deploy phase (or if just forfeited), may be placed as a ‘probe’ card at any system.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Logistics officer for the _Avenger_, member of the Line Branch of the Imperial Navy. Relays important scanner information to Captain Needa. Fiercely competitive.",
+ "destiny": "2",
+ "base_page": "Commander Nemet (Original)",
+ "art": {
+  "src": "src/vs14/22-Dagobah-D-commandernemet-decipher-archive.gif",
+  "modern": "src/vs14/modern/22-V3-D-commandernemet.gif"
+ },
+ "id": "vs14-22",
+ "virtual_set": 14,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 1 / ABILITY 2, third box blank; deploy 2 / forfeit 3. Leading yellow DS pilot-power icon + '1.' → {pilot:1}. Curly single quotes ‘probe’ (twice). Icon column: pilot only. Imperial (Imperial disc). The wiki's default page carries Glossary 2.0 errata text; printed face = 'Commander Nemet (Original)' (same lore/destiny/set). The 745 px Dagobah-D-commandernemet.gif is the D-E1 errata face — downloaded to src/vs14/22-Dagobah-D-commandernemet.gif for art only; the 350 px decipher-archive scan (350×490) is the printed face used as src. Lore corrected from scan: _Avenger_ italic (wiki plain). Copyright 1997 legible on the 745 face. Modern: V3-D-commandernemet.gif (745 px) is the PC's Virtual Set 3 Commander Nemet (V) (different text) — art backport only; VB2 -pre (350, this slip reissued) also exists, not downloaded.",
+ "game_text_lines": "{pilot:1}. While piloting at a battleground system,\nyour Force drains here may not be canceled.\nWhile piloting at a system with a ‘probe’ card,\nduring your deploy phase (or if just forfeited),\nmay be placed as a ‘probe’ card at any system."
+}

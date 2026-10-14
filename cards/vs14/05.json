@@ -1,0 +1,39 @@
+{
+ "number": "05",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•General Walex Blissex",
+ "caption": "•General Walex Blissex (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:1}. While piloting a capital starship at a battleground system, in each battle a player’s first battle destiny draw may not be canceled or reduced and if opponent canceled a just drawn battle destiny, they lose 1 Force.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Engineer who worked with Jan Dodonna to design the A-wing starfighter. Given honorary rank due to his service to the Rebellion.",
+ "destiny": "3",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "General Walex Blissex",
+ "art": {
+  "src": "src/vs14/05-DS2-L-generalwalexblissex.gif",
+  "modern": "src/vs14/modern/05-V9-L-generalwalexblissex.gif"
+ },
+ "notes": "Unique. Stats POWER 1 / ABILITY 2, third box empty on the slip; deploy 2 / forfeit 3. Inline pilot icon + '1.' → {pilot:1}. Curly ’ in player’s. Icon column: pilot only. Rebel. Lore matches the 350 px scan and the 745 px V9 remake (no bold keywords). Copyright as on the V9 remake (2000 SE-style). Modern: V9-L-generalwalexblissex.gif (745 px, Virtual Set 9 remake, same art; it carries a credit 'Original concept by Grady Hutchins' that belongs to V9, not this slip); VB3 -pre (350) also exists, not downloaded.",
+ "id": "vs14-05",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "{pilot:1}. While piloting a capital starship at a\nbattleground system, in each battle a player’s\nfirst battle destiny draw may not be canceled or\nreduced and if opponent canceled a just drawn\nbattle destiny, they lose 1 Force."
+}

@@ -1,0 +1,43 @@
+{
+ "number": "07",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: HEAVILY-MODIFIED LIGHT FREIGHTER",
+ "title": "•_Millennium Falcon_",
+ "caption": "•_Millennium Falcon_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "6"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "7",
+ "game_text": "May add 2 pilots. Chewie deploys -3 aboard. If _Falcon_ is about to use hyperspeed, draw destiny; if destiny < 3, hyperspeed = 0 this turn. Immune to attrition < 4 if Han or Chewie piloting (< 9 if both).",
+ "icons": [
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Modified YT-1300 freighter. Owned by Lando Calrissian until won by Han in a sabacc game. 26.7 meters long. “She may not look like much, but she’s got it where it counts.”",
+ "destiny": "2",
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "base_page": "Millennium Falcon",
+ "art": {
+  "src": "src/vs14/07-Premiere-L-millenniumfalcon.gif",
+  "modern": "src/vs14/modern/07-V20-L-millenniumfalcon.gif"
+ },
+ "notes": "Unique. 'Millennium Falcon' italic in the slip heading and caption (_…_); _Falcon_ italic in the game text. Banner STARFIGHTER: HEAVILY-MODIFIED LIGHT FREIGHTER (printed card: MODIFIED LIGHT FREIGHTER). Stats POWER 3 / MANEUVER 5 / HYPERSPEED 6; deploy 3 / forfeit 7. Scomp ring → true. Icon column: nav (red box, R2 dome) only. Slip text matches the stub. Lore corrected from the scan: curly double quotes “She … counts.” (wiki has straight single quotes) and she’s; otherwise matches. Wiki set 'Premiere Limited'. Base scan only 350 px; copyright 1995 read off the V20 remake (TM & © 1995 LUCASFILM LTD. …). Modern: V20-L-millenniumfalcon.gif (745 px) is the Virtual Set 20 remake of the Falcon (different game text, same art) — art only; VB1 -pre (350) also exists, not downloaded.",
+ "id": "vs14-07",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "May add 2 pilots. Chewie deploys -3 aboard. If\n_Falcon_ is about to use hyperspeed, draw destiny; if\ndestiny < 3, hyperspeed = 0 this turn. Immune to\nattrition < 4 if Han or Chewie piloting (< 9 if both)."
+}

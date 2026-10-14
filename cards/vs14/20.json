@@ -1,0 +1,39 @@
+{
+ "number": "20",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Captain Yorr",
+ "caption": "•Captain Yorr (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}, 3: any starfighter. If your starship participating in a battle is about to be excluded (even if that starship may not participate in battle) or made lost by opponent, you may choose for it to be ‘hit’ instead.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Former member of Imperial Demonstration Team. Flew test flights during development of various TIE prototypes. Jendon’s wingman. Has scored 24 combat victories.",
+ "destiny": "2",
+ "base_page": "Captain Yorr",
+ "art": {
+  "src": "src/vs14/20-DS2-D-captainyorr.gif",
+  "modern": "src/vs14/modern/20-VB3-D-captainyorr-pre.gif"
+ },
+ "id": "vs14-20",
+ "virtual_set": 14,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box blank; deploy 2 / forfeit 3. Leading yellow DS pilot-power icon + '2, 3: any starfighter.' → {pilot:2}, 3: any starfighter. (stub: 'Adds 2 to power of anything he pilots, 3: any starfighter.'). Curly single quotes ‘hit’. Icon column: pilot only. Imperial (Imperial disc on the scan). Lore corrected from scan: curly apostrophe in Jendon’s (wiki straight). Only a 350 px scan; copyright '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (DS2 style) barely legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "{pilot:2}, 3: any starfighter. If your starship\nparticipating in a battle is about to be excluded\n(even if that starship may not participate in\nbattle) or made lost by opponent, you may choose\nfor it to be ‘hit’ instead."
+}

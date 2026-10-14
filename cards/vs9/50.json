@@ -27,5 +27,8 @@
  "margin_right": "Minnesota State Winner 2004",
  "id": "vs9-50",
  "virtual_set": 9,
- "game_text_lines": "Deploy on a site. Unless a player controls a battleground\nsite, that player’s {lightsaber} weapon destiny draws are -2.\nDuring opponent’s draw phase, if opponent’s non-battleground\nsite (with no related locations) on table,\nmay activate or retrieve 1 Force. {alter}"
+ "game_text_lines": "Deploy on a site. Unless a player controls a battleground\nsite, that player’s {lightsaber} weapon destiny draws are -2.\nDuring opponent’s draw phase, if opponent’s non-battleground\nsite (with no related locations) on table,\nmay activate or retrieve 1 Force. {alter}",
+ "ring_icons": [
+  "episode1"
+ ]
 }

@@ -1,0 +1,44 @@
+{
+ "number": "16",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER",
+ "title": "•_Accuser_",
+ "caption": "•_Accuser_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "7"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "9",
+ "game_text": "Deploy -3 if Death Star II on table. May add 6 pilots, 8 passengers, 2 vehicles, and 4 TIEs. Permanent pilot aboard provides ability of 2. Power and forfeit + 1 for each Rebel starship here. [Ship-docking]",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Patrol ship. Modified for optimal crisis response time. Veteran crew experienced at monitoring shipping lanes and Imperial port traffic.",
+ "destiny": "1",
+ "base_page": "Accuser",
+ "art": {
+  "src": "src/vs14/16-DS2-D-accuser.gif",
+  "modern": "src/vs14/modern/16-VB3-D-accuser-pre.gif"
+ },
+ "id": "vs14-16",
+ "virtual_set": 14,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. DARK side (VS14's Light slips end at #15; Dark run 16–33). 'Accuser' italic in heading and caption; 'Imperial' italic in the banner CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER. Stats POWER 7 / ARMOR 5 / HYPERSPEED 4; deploy 8 / forfeit 9 (unchanged). Scomp-link ring left of the text box → scomp true. Icon column: TIE pilot helmet on yellow (permanent pilot), Nav Computer (astromech dome on red). '[Ship-docking]' is printed literally as bracketed text at the end. 'forfeit + 1' printed with a space between + and 1 (line start) — kept as printed (stub '+1'). 'Deploy -3' with a hyphen. Lore corrected from scan: the printed lore begins 'Patrol ship.' — missing on the wiki. Base scan only 350 px; copyright '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Deploy -3 if Death Star II on table. May add 6 pilots,\n8 passengers, 2 vehicles, and 4 TIEs. Permanent\npilot aboard provides ability of 2. Power and forfeit\n+ 1 for each Rebel starship here. [Ship-docking]"
+}

@@ -1,0 +1,31 @@
+{
+ "number": "31",
+ "side": "Dark",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Trade Federation Tactics",
+ "caption": "•Trade Federation Tactics (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "USED: For remainder of turn, if your starship is about to be hit (or lost), that action may instead affect your character aboard that starship. LOST: If your {episode1} character is about to be hit (or lost), that action instead affects your other {episode1} character present.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Organizations as wealthy as the Trade Federation can afford large amounts of military hardware, all purchased under the guise of protecting their commercial interests.",
+ "destiny": "6",
+ "base_page": "Trade Federation Tactics",
+ "art": {
+  "src": "src/vs14/31-Theed-D-tradefederationtactics.gif",
+  "modern": "src/vs14/modern/31-V11-D-tradefederationtactics.gif"
+ },
+ "id": "vs14-31",
+ "virtual_set": 14,
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT (printed base is a Lost Interrupt). Inline black 'EPISODE I' circles (twice) → {episode1} (stub: 'Episode I'). NOTE: on this slip 'LOST:' follows 'starship.' on the SAME line (not on its own line), so the game text has a space, not \\n, before LOST:. No margin credits. Lore matches the wiki (checked on the 745 px V11 remake). Copyright '… 2001 DECIPHER INC.' legible on V11. Base scan 350 px. Modern: V11-D-tradefederationtactics.gif (745 px); VB5 (350) also exists, not downloaded.",
+ "game_text_lines": "USED: For remainder of turn, if your starship is about\nto be hit (or lost), that action may instead affect your\ncharacter aboard that starship. LOST: If your {episode1}\ncharacter is about to be hit (or lost), that action\ninstead affects your other {episode1} character present.",
+ "ring_icons": [
+  "episode1"
+ ]
+}

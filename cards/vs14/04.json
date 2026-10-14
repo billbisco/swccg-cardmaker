@@ -1,0 +1,34 @@
+{
+ "number": "04",
+ "slip_type": "Admiral’s Order",
+ "card_type": "",
+ "title": "•Capital Support",
+ "caption": "•Capital Support (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Starships may not have their deploy costs reduced below their printed deploy costs. During battle, may place 3 Defensive Shields from under your Starting Effect out of play to make your starship immune to attrition this turn. At sites related to systems you occupy, your total battle destiny is +1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "6",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Capital Support",
+ "art": {
+  "src": "src/vs14/04-DS2-L-capitalsupport.gif",
+  "modern": null,
+  "bbox": [
+   15.8,
+   18.5,
+   330.0,
+   473.7
+  ]
+ },
+ "notes": "Unique. ADMIRAL'S ORDER (printed base is a Death Star II Admiral's Order, full-art): the slip is the black text box only — no banner, stats or icons (as vs9/16). The stub's type 'Effect' is wrong; the base is an Admiral's Order. Admiral's Orders print no lore → lore ''. Slip text matches the stub. art.bbox not measured (vs9/16 carries one — needs measuring for the Admiral's Order template). Base scan only 350 px; copyright line just legible vertically right of the text box, '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.'. No modern PC remake found on the wiki (V0–V50, VB1–VB7 searched) → modern null.",
+ "id": "vs14-04",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "Starships may not have their deploy costs reduced\nbelow their printed deploy costs. During battle, may\nplace 3 Defensive Shields from under your Starting\nEffect out of play to make your starship immune to\nattrition this turn. At sites related to systems you\noccupy, your total battle destiny is +1."
+}

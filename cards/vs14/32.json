@@ -1,0 +1,39 @@
+{
+ "number": "32",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Warrant Officer M’Kae",
+ "caption": "•Warrant Officer M’Kae (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "3",
+ "game_text": "{pilot:2}. If your starship is about to be lost, may place devices aboard in owner’s Used Pile. Once per turn, may ▼ a device that deploys on a starship. Once per game, if just forfeited, may take the bottom card of your Lost Pile into hand.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Hard-working _Avenger_ signal officer. Coordinates and tests tractor beam operations. Apprises _Executor_ of his ship’s activities and relays orders from the flagship to his captain.",
+ "destiny": "3",
+ "base_page": "Warrant Officer M'Kae (Original)",
+ "art": {
+  "src": "src/vs14/32-Dagobah-D-warrantofficermkae-decipher-archive.gif",
+  "modern": "src/vs14/modern/32-VB2-D-warrantofficermkae-pre.gif"
+ },
+ "id": "vs14-32",
+ "virtual_set": 14,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Curly apostrophe in M’Kae on slip heading and caption. Stats POWER 2 / ABILITY 2; the slip's third stat box is printed EMPTY (as on the printed card) → only two stats. Deploy 2 / forfeit 3 (as printed). Leading yellow DS pilot-power icon + '2.' → {pilot:2}; slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Curly apostrophe in owner’s. Icon column: pilot (yellow DS helmet) only, as printed. Imperial (Imperial disc). The default wiki page carries Glossary 2.0 errata; printed face = 'Warrant Officer M'Kae (Original)' (same lore/destiny/set). Dagobah-D-warrantofficermkae.gif (348 px) is the errata face (E mark) — downloaded to src/vs14/32-Dagobah-D-warrantofficermkae.gif for reference only; art.src is the 350×490 square-on decipher-archive scan. Lore corrected from scan: _Avenger_ and _Executor_ italic, curly apostrophe in ship’s. Copyright 1997 (Dagobah) barely legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px).",
+ "game_text_lines": "{pilot:2}. If your starship is about to be lost, may\nplace devices aboard in owner’s Used Pile. Once\nper turn, may ▼ a device that deploys on a\nstarship. Once per game, if just forfeited, may\ntake the bottom card of your Lost Pile into hand."
+}

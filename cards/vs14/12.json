@@ -1,0 +1,40 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Red Leader",
+ "caption": "•Red Leader (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "5",
+ "game_text": "{pilot:2}. While piloting at Dantooine system, when opponent deploys a character to a related site, they choose: opponent must lose 1 Force. OR that character may not battle or move this turn.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "X-wing pilot Garven Dreis. Led Red Squadron at the Battle of Yavin, and fired an unsuccessful shot at the Death Star thermal exhaust port. Served at Dantooine Rebel base.",
+ "destiny": "1",
+ "base_page": "Red Leader (Original)",
+ "art": {
+  "src": "src/vs14/12-Premiere-L-redleader.gif",
+  "modern": "src/vs14/modern/12-VB1-L-redleader-pre.gif"
+ },
+ "id": "vs14-12",
+ "virtual_set": 14,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 2; third stat box printed EMPTY (blank silver box, no label) — stored as two stats like vs13/07. Deploy 2 / forfeit 5. Yellow pilot icon + '2.' → {pilot:2} (stub expands). Icon column: pilot (helmet on yellow), warrior (blue, blaster). Rebel (Rebel disc on the printed card). Default wiki page is Glossary errata; printed face = 'Red Leader (Original)' (Premiere Limited, black border). The 347 px Premiere-L-redleader.gif is the errata face (E; 'anything he pilots…') — used as art.src (square-on scan, same art); the 367×506 decipher-archive file is a PHOTO of the printed card on a white page — downloaded for lore/copyright only, NOT art. Lore matches the wiki and the scans; 'leader' is not a word in this lore. Copyright 1995 (Premiere). Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "game_text_lines": "{pilot:2}. While piloting at Dantooine system, when\nopponent deploys a character to a related site,\nthey choose: opponent must lose 1 Force. OR that\ncharacter may not battle or move this turn."
+}

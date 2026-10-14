@@ -1,0 +1,51 @@
+{
+ "number": "15",
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Yoda, Master Of The Force",
+ "caption": "•Yoda, Master of the Force (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "7"
+  ],
+  [
+   "JEDI MASTER",
+   ""
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "7",
+ "game_text": "Deploys only to battlegrounds. Power +3 in defensive battles. You may not deploy {episode1} Jedi. While with a Wookiee, adds one battle destiny. Once per game, may lose 2 Force from Force Pile to cancel a non-{sense} Interrupt. Immune to attrition.",
+ "icons": [
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Jedi Master",
+ "lore": "*Jedi Council member*. “More to say have you?”",
+ "destiny": "4",
+ "base_page": "Yoda, Master Of The Force",
+ "art": {
+  "src": "src/vs14/15-Ref3-L-yodamasteroftheforce.gif",
+  "modern": "src/vs14/modern/15-V13-L-yodamasteroftheforce.gif"
+ },
+ "id": "vs14-15",
+ "virtual_set": 14,
+ "expansion": "Reflections III",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "disc": "jedi-light",
+ "credit_bottom": [
+  "Original concept by Steven Lewis",
+  "Tennessee States 2006"
+ ],
+ "notes": "Unique. Stats POWER 3 / ABILITY 7 / JEDI MASTER (label only); deploy 5 / forfeit 7 (printed 4/7). Icon column: warrior (blue box, blaster) — the printed card has no column icons. Inline: black 'EPISODE I' circle → {episode1}; red circle-slash S (the slash crossing the S makes it look like an 8 at this size; stub confirms 'non-(Immune to Sense)') → {sense}. CREDITS printed horizontally in italics under the text box: left 'Original concept by Steven Lewis', right 'Tennessee States 2006' → credit_bottom (as vs13/07). TITLE: printed card reads 'Yoda, Master Of The Force' (capital O/T); the slip's heading and caption print 'Master of the Force' — title = printed, caption as slip. Light Jedi Master disc (blue blade) top-left on the printed card → affiliation 'Jedi Master', disc 'jedi-light' (as vs5 Yoda / vs12 Yoda, Senior Council Member). Lore corrected from scan: curly double quotes “More to say have you?” (wiki straight single quotes); 'Jedi Council member' prints visibly heavier than the quote on the 745 px V13 remake → *bold*. Base scan only 350 px; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' legible on the V13 remake. Modern: V13-L-yodamasteroftheforce.gif (745 px) is the PC's later Virtual Set 13 Yoda, Master Of The Force (different text, 'Original concept by The KToD'); same art/lore — art backport only. No V14 remake of this slip found.",
+ "game_text_lines": "Deploys only to battlegrounds. Power +3 in\ndefensive battles. You may not deploy {episode1} Jedi.\nWhile with a Wookiee, adds one battle destiny.\nOnce per game, may lose 2 Force from Force Pile\nto cancel a non-{sense} Interrupt. Immune to attrition.",
+ "ring_icons": [
+  "episode1"
+ ]
+}

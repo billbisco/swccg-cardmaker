@@ -1,0 +1,35 @@
+{
+ "number": "29",
+ "side": "Dark",
+ "slip_type": "Admiral’s Order",
+ "card_type": "",
+ "title": "•Nothing Can Get Through Our Shield",
+ "caption": "•Nothing Can Get Through Our Shield (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Starships may not have their deploy costs reduced below their printed deploy costs. During battle, may place 3 Defensive Shields from under your Starting Effect out of play to make your starship immune to attrition this turn. At sites related to systems you occupy, your total battle destiny is +1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "6",
+ "base_page": "Nothing Can Get Through Our Shield",
+ "art": {
+  "src": "src/vs14/29-Theed-D-nothingcangetthroughourshield.gif",
+  "bbox": [
+   15.8,
+   18.5,
+   330.0,
+   473.7
+  ],
+  "modern_unused": "src/vs14/modern/29-VB5-D-nothingcangetthroughourshield-pre.gif",
+  "modern": null
+ },
+ "id": "vs14-29",
+ "virtual_set": 14,
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. ADMIRAL'S ORDER: the printed card (Theed Palace) is a full-art Admiral's Order; the slip is the black text box over starfield only — no banner, no stats, no icons (as VS9 #16 No Questions Asked). The wiki STUB says type=Effect — wrong; the base page says Admiral's Order. Slip text matches the stub. Admiral's Orders print no lore → lore ''. art.bbox (used by VS9 #16 for the Admiral's Order template) not measured here. Printed card: Admiral's Order icon top-left, Theed Palace ring and Episode I icon under the destiny. Copyright line on the 350 px scan is barely legible ('… 2001 DECIPHER INC.'); written in the Theed Palace form used for earlier Theed cards. Base scan only 350 px. Modern: Virtual Block 5 only (VB5 -pre, 350 px). Art: the printed scan (the VB pre image has another geometry; bbox measured on the scan).",
+ "game_text_lines": "Starships may not have their deploy costs reduced\nbelow their printed deploy costs. During battle, may\nplace 3 Defensive Shields from under your Starting\nEffect out of play to make your starship immune to\nattrition this turn. At sites related to systems you\noccupy, your total battle destiny is +1."
+}

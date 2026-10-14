@@ -41,5 +41,8 @@
  "notes": "Unique. Stats POWER 6 / ABILITY 7 / JEDI MASTER (label only); deploy 7 / forfeit 7 (printed 8/9). Icon column: warrior. Jedi Master (blue-blade disc, Coruscant frame; printed card shows the Coruscant ring and an Episode I icon beside the lore). Two inline black EPISODE I circles → {episode1}; ▲ where the stub expands. Curly apostrophe in opponent’s. Margin credits on two lines each. Lore matches the scan and the V0 remake. Base scan 350 px; copyright 2001 legible on the V0 remake (SE-style). Modern: V0-L-masterquigon.gif (745 px); _ai and VB5 variants also exist, not downloaded.",
  "id": "vs12-16",
  "virtual_set": 12,
- "game_text_lines": "Deploys -1 to {episode1} locations. If you just lost Force\nto opponent’s Effect, may ▲ an {episode1} Interrupt\n(except Control) or place a card from hand under\nCredits Will Do Fine. Immune to Disarmed, You\nAre Beaten, and attrition."
+ "game_text_lines": "Deploys -1 to {episode1} locations. If you just lost Force\nto opponent’s Effect, may ▲ an {episode1} Interrupt\n(except Control) or place a card from hand under\nCredits Will Do Fine. Immune to Disarmed, You\nAre Beaten, and attrition.",
+ "ring_icons": [
+  "episode1"
+ ]
 }

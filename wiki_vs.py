@@ -91,6 +91,13 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="thirteenth", remaster="the July 2007 sheet: cover, set symbol, rule card and the slips shown below", pack="VS13O-pack.png", symbol="VS13O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    14: dict(sheet=("https://res.starwarsccg.org/legacyblocks/VirtualCards14.pdf", "VirtualCards14.pdf", "starwarsccg.org", "22 December 2007"),
+            sheet_where="starwarsccg.org CDN; the Internet Archive holds only 2021 redirects for the swccgpc.com copy",
+            legal="Not found", legal_ref="No Virtual Set 14 release post survives in the archived swccgpc.com news (captures stop in February 2005). The sheet's official text is dated 22 December 2007; its slips credit winners of 2005 and 2006 events (GenCon 2005, Quebec Provincial 2005, Tennessee States 2006, PC Volunteer Award 2006).",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the sheet's official text is dated 22 December 2007.",
+            ordinal="fourteenth", remaster="the December 2007 sheet: cover, set symbol, rule card and the slips shown below", pack="VS14O-pack.png", symbol="VS14O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -104,7 +111,7 @@ for _p in (ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json"):
 stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
 for _p in sorted((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")):   # renamed locations: the card IS the new name (Bill 2026-10-14)
     _c = json.load(open(_p, encoding="utf-8"))
-    if (_c.get("slip_type") or "").lower() in ("site", "system"):
+    if (_c.get("slip_type") or "").lower() in ("site", "system") or _c.get("combo"):   # combo slips rename too (Obi-Wan In Radiant VII, GEMP)
         _nm = lambda x: re.sub(r"\s*\((?:V|Light|Dark)\)", "", x.replace("•", "").replace("◊", "").replace("_", "")).strip().lower()
         if _nm(_c["title"]) != _nm(_c.get("caption", "")) and int(_p.stem) not in META["title_fix"]:
             META["title_fix"][int(_p.stem)] = _c["title"].replace("•", "").replace("◊", "").replace("_", "").strip() + " (V)"
@@ -142,7 +149,7 @@ def expand(c: dict) -> str:
     t = re.sub(r"\{pilot:(\d)\}\.?", lambda m: f"Adds {m.group(1)} to power of anything {pronoun(c)} pilots.", t)
     for k, w in (("alter", "Alter"), ("control", "Control"), ("sense", "Sense")):
         t = t.replace(f" is {{{k}}}.", f" is immune to {w}.").replace(f" always {{{k}}}", f" always immune to {w}")
-    t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("{ovs} ", "[Virtual] ")
+    t = t.replace(" is {alter}.", " is immune to Alter.").replace("non-{alter}", "non-[Immune to Alter]").replace("non-{sense}", "non-[Immune to Sense]").replace("non-{control}", "non-[Immune to Control]").replace("{ovs} ", "[Virtual] ")
     t = re.sub(r"\{ovs:(\d+)\}", lambda m: f"[Virtual Set {m.group(1)}]", t)
     t = t.replace("{alter}", "(Immune to Alter.)").replace("{control}", "(Immune to Control.)").replace("{sense}", "(Immune to Sense.)")
     SETS = {"anh": "A New Hope", "ds2": "Death Star II", "reflections3": "Reflections III", "cloudcity": "Cloud City", "coruscant": "Coruscant",

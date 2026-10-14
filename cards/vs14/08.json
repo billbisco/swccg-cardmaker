@@ -1,0 +1,44 @@
+{
+ "number": "08",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: MON CALAMARI STAR CRUISER",
+ "title": "Mon Calamari Star Cruiser",
+ "caption": "Mon Calamari Star Cruiser (V)",
+ "stats": [
+  [
+   "POWER",
+   "7"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "9",
+ "game_text": "For each Imperial starship on table, deploys -1 (to a minimum of 3). May add 5 pilots, 6 passengers, 1 vehicle, and 3 starfighters. Permanent pilot provides ability of 2. [Ship-docking]",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "Mon Cal MC80 cruiser. Originally a civilian ship. Converted to military use following the liberation of Mon Calamari from the Empire.",
+ "destiny": "1",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Mon Calamari Star Cruiser",
+ "art": {
+  "src": "src/vs14/08-DS2-L-moncalamaristarcruiser.gif",
+  "modern": "src/vs14/modern/08-VB3-L-moncalamaristarcruiser-pre.gif"
+ },
+ "notes": "Non-unique (no dot; wiki uniqueness 'Unrestricted'). Banner CAPITAL: MON CALAMARI STAR CRUISER. Stats POWER 7 / ARMOR 5 / HYPERSPEED 3; deploy 8 / forfeit 9. Scomp ring → true. Icon column top to bottom: yellow pilot helmet (permanent pilot, 'Permanent pilot provides ability of 2') → permanent-pilot, red box with R2 dome → nav. '[Ship-docking]' as printed. Slip text matches the stub. Lore matches the 350 px scan. Base scan 350×489; copyright not legible (DS2 2000 line by set). Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs14-08",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "For each Imperial starship on table, deploys -1 (to\na minimum of 3). May add 5 pilots, 6 passengers,\n1 vehicle, and 3 starfighters. Permanent pilot\nprovides ability of 2. [Ship-docking]"
+}
