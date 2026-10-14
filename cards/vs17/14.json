@@ -1,0 +1,49 @@
+{
+ "id": "vs17-14",
+ "number": "14",
+ "virtual_set": 17,
+ "side": "Dark",
+ "slip_type": "Starfighter",
+ "card_type": "STARFIGHTER: TRANSPORT",
+ "title": "•Galen’s Fighter",
+ "caption": "•_IG-2000_ (V)",
+ "heading": "•Galen’s Fighter (V)",
+ "combo": true,
+ "base_title": "•_IG-2000_",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "MANEUVER",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "5"
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "May add 2 pilots and 2 passengers. If Black Leader piloting, adds one battle destiny. If it just took off, may use its hyperspeed and land. Immune to attrition < 7 if Galen on table, even while landed.",
+ "game_text_lines": "May add 2 pilots and 2 passengers. If Black Leader\npiloting, adds one battle destiny. If it just took\noff, may use its hyperspeed and land. Immune to\nattrition < 7 if Galen on table, even while landed.",
+ "icons": [
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "base_lore": "IG-88’s assault starfighter. Custom designed. Boasts a Kuat Galaxy-15 engine from a Nebulon-B frigate. Heavy ion cannon often used to disable starships before boarding.",
+ "destiny": "2",
+ "base_destiny": "4",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "IG-2000 (Original)",
+ "art": {
+  "src": "src/vs17/14-Dagobah-D-ig2000.gif",
+  "modern": "src/vs17/modern/14-VB4-D-rogueshadow-pre.gif"
+ },
+ "ring_icons": [],
+ "notes": "COMBO / FULL-CARD OVERLAY (756×1100) over IG-2000 on the printed blue Dark starship frame. ART WINDOW IS BLANK WHITE on this slip (the white also runs over the right margin where the copyright line sits) — contrary to the set note listing Galen's Fighter among the slips with their own art; the crop's centre is 100% pure white, so NO slip_art / rect; art from the printed IG-2000 scan as usual. Title bar: starship disc (as printed), '•Galen’s Fighter' (curly ’, upright — not italic), destiny 2 (printed 4). LORE BOX PRINTED EMPTY (solid black) → lore '' (printed lore in base_lore). Right of the lore box: the Dagobah expansion ring (Yoda-eye sphere), as printed; no Episode I. Banner STARFIGHTER: TRANSPORT (printed STARFIGHTER: TRILON AGGRESSOR); POWER 3 / MANEUVER 4 / HYPERSPEED 5 (printed 3/3/3); scomp ring at the top-left of the text box (as printed); deploy 3 / forfeit 6 (printed 4 / 3); game text 4 lines; icon column: Nav Computer (astromech dome on red) only — the printed card's second icon (Independent) is gone; then the diamond-17 set mark. Caption '•IG-2000 (V)' with IG-2000 italic. CHANGES vs printed IG-2000 (Dagobah): title, destiny 4→2, lore removed, banner model, maneuver 3→4, hyperspeed 3→5, deploy 4→3, forfeit 3→6, Independent icon dropped, game text replaced (printed: 'May add 1 pilot (must be a smuggler or bounty hunter) and 2 passengers. Maneuver +3 and immune to attrition < 3 if IG-88 piloting. Ion Cannon may deploy here.'). Slip text matches the stub. Base lore matches the 745 scan (apostrophe in IG-88’s taken as curly). Base scans: Dagobah-D-ig2000.gif (745) is the Glossary 2.0 errata face ('Ion Cannon may deploy aboard') — art only, same art as the archive face; Dagobah-D-ig2000-decipher-archive.gif (350, printed face) also downloaded. Modern: VB4-D-rogueshadow-pre.gif (Virtual Block 4 reissue renamed 'Rogue Shadow', same IG-2000 art). FILES: scans in /tmp/claude-0/h17-d/dl/ (and dl/modern/) — copy to src/vs17/ and src/vs17/modern/ (writes to src/vs17 were refused). Stub: https://wiki.swccg.com/wiki/Galen%27s_Fighter_(V)_(Virtual_Set_17:_The_Force_Unleashed)"
+}

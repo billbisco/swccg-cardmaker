@@ -103,6 +103,8 @@ def convert(c: dict, vs: int) -> dict:
         "copyright": c.get("copyright") or "", "expansion_icon": (SET_ICON.get(exp, None) if exp and not c.get("no_expansion_ring") else None),
         "expansion_icon_in_hole": False,
     }
+    if c.get("alt_image") and c.get("id"):   # AI (alternate image) slip: same card, its own art and file (VS17 Black Leader AI)
+        card["id"] = c["id"]
     if c.get("card_type"):
         card["card_type"] = c["card_type"]
     if c.get("stats"):
@@ -125,6 +127,8 @@ def convert(c: dict, vs: int) -> dict:
         card["disc2"] = "republic"       # two affiliations (VS16 Senators: Rebel + Republic, Alien + Republic): frame disc + crest
     elif "republic" in (c.get("affiliation") or "").lower():
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
+    if (c.get("affiliation") or "").lower() == "sith":
+        card["disc"] = "sith"            # VS17 Galen: the Darth Maul face disc printed on the slip (cut from the slip, 300 dpi)
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
     for k in ("credit_strip", "text_grow", "ring_icons", "frame_tint", "frame_style", "text_lines", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
@@ -148,7 +152,7 @@ def convert(c: dict, vs: int) -> dict:
 
 if __name__ == "__main__":
     vs = int(sys.argv[1])
-    nums = [f"{int(n):02d}" for n in sys.argv[2:]] or sorted(p.stem for p in (ROOT / f"cards/vs{vs}").glob("[0-9][0-9].json"))
+    nums = [f"{int(n):02d}" if n.isdigit() else n for n in sys.argv[2:]] or sorted(p.stem for p in (ROOT / f"cards/vs{vs}").glob("[0-9][0-9]*.json") if re.fullmatch(r"\d\d[a-z]?", p.stem))
     for n in nums:
         c = json.loads((ROOT / f"cards/vs{vs}/{n}.json").read_text(encoding="utf-8"))
         card = convert(c, vs)

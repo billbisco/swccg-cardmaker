@@ -1,0 +1,29 @@
+{
+ "id": "vs17-09",
+ "virtual_set": 17,
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•NOOOOOOOOOOOO!",
+ "caption": "•NOOOOOOOOOOOO! (V)",
+ "heading": "•NOOOOOOOOOOOO! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Cancel Broken Concentration, The Circle Is Now Complete, or a duel initiated during battle. (Immune to Young Fool.) OR During any draw phase, place a card from hand under your Used Pile to take any one card into hand from Force Pile; reshuffle.",
+ "game_text_lines": "Cancel Broken Concentration, The Circle Is Now\nComplete, or a duel initiated during battle. (Immune to\nYoung Fool.) OR During any draw phase, place a card\nfrom hand under your Used Pile to take any one card\ninto hand from Force Pile; reshuffle.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Sometimes, the truth isn’t very pretty.",
+ "destiny": "5",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "NOOOOOOOOOOOO!",
+ "art": {
+  "src": "src/vs17/09-CC-L-noooooooooooo.gif",
+  "modern": "src/vs17/modern/09-VB2-L-noooooooooooo-pre.gif"
+ },
+ "notes": "Normal bottom-half slip (755×454 crop) on the printed Cloud City silver/red Interrupt frame: banner USED INTERRUPT (printed card: USED OR LOST INTERRUPT), 5-line text box, no icons, no deploy/forfeit. Unique (dot on heading, caption and printed title); 12 O’s counted on the heading. Bottom strip '•NOOOOOOOOOOOO! (V)', number 09. Slip text matches the wiki stub word for word (no inline icons). Base: Cloud City Used Or Lost Interrupt (CC-L-noooooooooooo.gif, 350 px only — no 745 scan on the wiki); lore matches the wiki wording, apostrophe set curly (isn’t) per Decipher’s print (not resolvable at 350 px); no bold in lore. Copyright Cloud City 1997 (by set; not legible at 350 px). Modern: VB2-L-noooooooooooo-pre.gif (Virtual Block 2, 350 px) prints the same text as this slip, caption '•NOOOOOOOOOOOO! (V)' no. 150."
+}

@@ -1,0 +1,40 @@
+{
+ "id": "vs17-18",
+ "virtual_set": 17,
+ "number": "18",
+ "side": "Dark",
+ "slip_type": "Epic Event",
+ "card_type": "",
+ "title": "•If The Trace Was Correct",
+ "caption": "•If The Trace Was Correct (V)",
+ "heading": "•If The Trace Was Correct (V)",
+ "combo": true,
+ "base_title": "•If The Trace Was Correct",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text_lines": "Deploy on table. Instead of firing Galen’s Lightsaber,\nmay ‘throw’ it to Used Pile: draw destiny; choose up to\nhalf that number (round up) of opponent’s ability < 3\ncharacters present to be hit. Galen’s Fighter may deploy\nto sites, moves for free (unless relocating), is immune\nto attrition < 4, and you may use 3 Force to relocate\nit to a battleground site (as a regular move during\nyour move phase). If it just moved to a site opponent\noccupies, may take top card of Used Pile into hand (or\nif it just landed, any one card in Used Pile; reshuffle).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "If The Trace Was Correct",
+ "slip_art": true,
+ "art": {
+  "src": "src/slips/vs17/18-If_The_Trace_Was_Correct.png",
+  "rect": [
+   98,
+   212,
+   656,
+   638
+  ],
+  "base_src": "src/vs17/18-Tat-D-ifthetracewascorrect.gif",
+  "modern": "src/vs17/modern/18-VB4-D-ifthetracewascorrect-pre.gif"
+ },
+ "ring_icons": [],
+ "notes": "FULL-CARD OVERLAY (755×1103) on the purple Tatooine Epic Event frame. Title bar: Effect/Epic-Event disc (white/red/green pie) at the left, title '•If The Trace Was Correct' (same as the printed card — only the game text changes), destiny 0 (unchanged). Tatooine expansion ring (yellow twin-suns sphere) at the top right of the art window as printed. The printed card's EPISODE I icon at the top-left (left of the art window, under the disc) is NOT on the slip — the frame there is plain purple → ring_icons [] (renderer must not keep the printed Episode I icon; flag for review if the frame is reused from the base scan). No banner (Tatooine Epic Events print none) → card_type ''. No lore box (Epic Event) → lore ''. SLIP ART: the art window prints The Force Unleashed game art (a blue hologram of a bald man in armour in a dark hangar), replacing Maul + probe droid → slip_art true, art.src = the slip crop, art.rect [98,212,656,638] = the largest fully-picture rectangle inside the bevel. Caveats measured: the picture's left edge slants slightly (x≈88 at y 250 → x≈98 at y 610) and the right edge sits at ≈656–660 (≈674 at some rows where the bevel shadow is dark); top corners are chamfered (top-right diagonal from ≈(600,210) to ≈(671,255)), so the rect's top-right corner includes a little frame. Text box (black, white text) at the printed position (≈y 680–1030 on the slip). Copyright line not printed on the slip; the Tatooine scan reads '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.'. CHANGES vs Decipher (Tatooine Tat-D-ifthetracewascorrect.gif, 350 px): art, game text (printed: 'Deploy on I Will Find Them Quickly, Master. Once during each of your deploy phases may deploy a Sith Probe Droid …'), Episode I icon dropped. Slip text matches the stub (curly ’ ‘ ’ as printed; '< 3', '< 4'). Modern: VB4-D-ifthetracewascorrect-pre.gif (350).",
+ "game_text": "Deploy on table. Instead of firing Galen’s Lightsaber, may ‘throw’ it to Used Pile: draw destiny; choose up to half that number (round up) of opponent’s ability < 3 characters present to be hit. Galen’s Fighter may deploy to sites, moves for free (unless relocating), is immune to attrition < 4, and you may use 3 Force to relocate it to a battleground site (as a regular move during your move phase). If it just moved to a site opponent occupies, may take top card of Used Pile into hand (or if it just landed, any one card in Used Pile; reshuffle)."
+}

@@ -112,6 +112,13 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="sixteenth", remaster="the August 2008 sheet: cover, set symbol, rule cards and the slips shown below", pack="VS16O-pack.png", symbol="VS16O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    17: dict(sheet=("https://res.starwarsccg.org/legacyblocks/VirtualCards17.pdf", "VirtualCards17.pdf", "starwarsccg.org", "6 February 2009"),
+            sheet_where="starwarsccg.org CDN",
+            legal="Not found", legal_ref="No Virtual Set 17 release post survives in the archived swccgpc.com news (captures stop in February 2005). The sheet's official text is dated 6 February 2009.",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the sheet's official text is dated 6 February 2009.",
+            ordinal="seventeenth", remaster="the February 2009 sheet: cover (with the diamond-17 set mark) and the slips shown below", pack="VS17O-pack.png", symbol="VS17O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -122,7 +129,8 @@ NCARDS = len(list((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")))
 NSIDE = {"Light": 0, "Dark": 0}
 for _p in (ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json"):
     NSIDE[json.load(open(_p, encoding="utf-8"))["side"]] += 1
-stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET}
+stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET and not v["image"].endswith("_AI.png")}
+AI_STUBS = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): (k, v) for k, v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).items() if v["set"] == OLDSET and v["image"].endswith("_AI.png")}   # VS17 Black Leader AI
 for _p in sorted((ROOT / f"cards/vs{VS}").glob("[0-9][0-9].json")):   # renamed locations: the card IS the new name (Bill 2026-10-14)
     _c = json.load(open(_p, encoding="utf-8"))
     if (_c.get("slip_type") or "").lower() in ("site", "system") or _c.get("combo"):   # combo slips rename too (Obi-Wan In Radiant VII, GEMP)
@@ -148,7 +156,7 @@ COL_ICON = {"pilot": "[[Pilot]]", "warrior": "[[Warrior]]", "astromech": "Astrom
 
 
 def pronoun(c):
-    return "she" if any(w in c["title"] for w in ("Leia", "Padm", "Amidala", "Mara", "Mon Mothma", "Aurra", "Guri", "Laudica", "Yarna", "Aved Luun", "Shada", "Jyn")) else "he"
+    return "she" if re.search(r"(?<![A-Za-z])Female\.", c.get("lore") or "") or any(w in c["title"] for w in ("Leia", "Padm", "Amidala", "Mara", "Mon Mothma", "Aurra", "Guri", "Laudica", "Yarna", "Aved Luun", "Shada", "Jyn")) else "he"
 
 
 def expand(c: dict) -> str:
@@ -172,6 +180,7 @@ def expand(c: dict) -> str:
             "jabbaspalace": "Jabba's Palace", "theed": "Theed Palace", "hoth": "Hoth", "endor": "Endor", "tatooine": "Tatooine", "se": "Special Edition", "ejp": "Enhanced Jabba's Palace"}
     t = re.sub(r"\{set:([a-z0-9]+)\}", lambda m: f"[{SETS.get(m.group(1), m.group(1).title())}]", t)
     t = t.replace("{icon:republic-square}", "[Republic]").replace("{icon:republic}", "[Republic]").replace("{episode1}", "[Episode I]").replace("{light-force}", "[Light Side Force]").replace("{dark-force}", "[Dark Side Force]")
+    t = re.sub(r"\{vset:(\d+)\}", lambda m: f"[Virtual Set {m.group(1)}]", t)   # VS17 diamond set marks
     t = t.replace("{icon:maintenance-star}", "★").replace("{icon:maintenance-skull}", "☠").replace("{icon:maintenance-flag}", "⚑")
     t = re.sub(r"\{([\w-]+)\}", lambda m: ICON_WORD.get(m.group(1), f"[{m.group(1).title()}]"), t)
     # ▲ X / ▼ X — object runs to the next sentence end
@@ -315,6 +324,15 @@ for n in range(1, NCARDS + 1):
         rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{slip2}|320px|link={page}]] || [[File:{rem2}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{back_t}]] || style=\"white-space:nowrap\" | {type_cell} ({c.get('destiny_back') or '7'}) || {expand(dict(c, game_text=c['game_text_back']))}")
     else:
         rows[c["side"]].append(f"|-\n| {n:02d} || [[File:{s['image']}|320px|link={page}]] || [[File:{rem}|200px|link={page}]] || style=\"white-space:nowrap\" | [[{page}|{s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
+    if n in AI_STUBS:   # AI (alternate image) slip of the same card: its own stub (same text, its slip + remaster)
+        ai_page, ai_s = AI_STUBS[n]
+        ai_page = newtitle(ai_page)
+        ai_rem = f"OVS{VS}-{n:02d}-{safe}-AI-remaster.webp"
+        ai_stub = stub.replace(s["image"], ai_s["image"]).replace(rem, ai_rem).replace("|title=" + s["title"], "|title=" + ai_s["title"])
+        ai_stub = ai_stub.replace(f"(slip {n:02d}) — this page", f"(slip {n:02d}, alternate image) — this page; standard image: [[{page}]]")
+        fa = OUT / "stubs" / (re.sub(r"[^A-Za-z0-9]+", "_", ai_page) + ".wiki")
+        fa.write_text(ai_stub, encoding="utf-8"); tsv.append(f"{ai_page}\t{OUT.name}/stubs/{fa.name}")
+        rows[c["side"]].append(f"|-\n| {n:02d} AI || [[File:{ai_s['image']}|320px|link={ai_page}]] || [[File:{ai_rem}|200px|link={ai_page}]] || style=\"white-space:nowrap\" | [[{ai_page}|{ai_s['title']}]] || style=\"white-space:nowrap\" | {type_cell} || {gt}")
     # the slips of an Objective's back go on the stub as a gallery below the Card template
 
 
@@ -346,6 +364,10 @@ def table(side):
     return "{| class=\"wikitable\" style=\"width:auto\"\n! # !! Slip !! Remaster !! Card !! Type !! Game text\n" + "\n".join(rows[side]) + "\n|}"
 
 
+SLIP_SENT = (f"Each of its {NCARDS} cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed." if VS < 13 else
+             f"Its {NCARDS} cards are printed slips placed over [[Decipher]] cards: some replace only the bottom half (new game text, stats and icons) while the card's title, lore and art stay as printed; others cover the whole card and make it a new card, named on the slip, with the Decipher card it covers named in the slip's caption.")
+SHEET_SENT = ("In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here." if VS < 12 else
+              f"The Committee's sheet for the set (official text as of {SHEET[3]}) is the source for the slips shown here.")
 LEGAL_SENT = META["lead_legal"] if META.get("lead_legal") else (f"The Committee released the set on {META['legal'].replace(' (release)', '')}." if META['legal'].endswith('(release)')
               else f"The set became tournament-legal on {META['legal']}.")
 page = f"""{{{{Hatnote|1=The {str(YEAR) + ' ' if YEAR else ''}Players Committee set, numbered before the 2009 reorganisation (code OVS{VS}). For the post-2014 set numbered {VS} see [[Virtual Set {VS}]].}}}}
@@ -373,7 +395,7 @@ page = f"""{{{{Hatnote|1=The {str(YEAR) + ' ' if YEAR else ''}Players Committee 
 || {NCARDS} ({NSIDE['Light']} Light, {NSIDE['Dark']} Dark)
 |}}
 
-'''Virtual Set {VS}: {SETNAME}''' is the {META['ordinal']} of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. Each of its {NCARDS} cards is a printed slip that replaces the bottom half of a [[Decipher]] card (new game text, stats and icons) while the card's title, lore and art stay as printed. {LEGAL_SENT}<ref name="legal" /> In December 2006 the Committee reissued it as a ''Remaster'' sheet with new pack art, a set symbol and the final text; that sheet is the source for the slips shown here.<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].
+'''Virtual Set {VS}: {SETNAME}''' is the {META['ordinal']} of the [[Virtual Sets (2002-2009)|numbered Virtual Sets]] the [[Players Committee]] released between 2002 and 2009. {SLIP_SENT} {LEGAL_SENT}<ref name="legal" /> {SHEET_SENT}<ref name="ia" /> Icons used on the slips are explained at [[Virtual card icons]].
 
 The second image in each row is a full-card remaster: the printed Decipher card with the slip re-typeset at 600 DPI in the style of the Committee's later Holotable cards, made for the wiki in 2026 (see [[Typography of Star Wars CCG cards]]). These are fan reconstructions, not Committee products. Game text is written out the way the sheet's icon key defines its shorthand.
 

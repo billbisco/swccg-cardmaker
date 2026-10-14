@@ -1,0 +1,31 @@
+{
+ "id": "vs17-01",
+ "number": "01",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•A Jedi’s Cunning",
+ "caption": "•Somersault (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on table. While Sidious or an {episode1} hologram on table, opponent may not cancel immunity to attrition of your Jedi and draws no more than two battle destiny at sites where you have a Jedi. Opponent draws no more than two battle destiny where Luke present. {alter}",
+ "game_text_lines": "Deploy on table. While Sidious or an {episode1} hologram on\ntable, opponent may not cancel immunity to attrition of\nyour Jedi and draws no more than two battle destiny at\nsites where you have a Jedi. Opponent draws no more\nthan two battle destiny where Luke present. {alter}",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "grabber": false,
+ "lore": "Luke’s sudden reversal of fortune allowed him to turn the tables on Vader.",
+ "destiny": "5",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Somersault",
+ "combo": true,
+ "base_title": "•Somersault",
+ "art": {
+  "src": "src/vs17/01-CC-L-somersault.gif",
+  "modern": "src/vs17/modern/01-VB5-L-ajediscunning-pre.gif"
+ },
+ "notes": "COMBO / FULL-CARD OVERLAY (756×1099 crop). The slip renames and RETYPES the card: printed Somersault is a LOST INTERRUPT (red Interrupt type disc, destiny 3); the slip prints the green Effect type disc top-left, title '•A Jedi’s Cunning', destiny 5, banner EFFECT (no grabber box). Lore box, Cloud City expansion ring right of the lore box (orange-red sphere) and frame are as printed; art window BLANK white → printed art from the base scan; copyright line not on the slip (stays from printed card; Cloud City 1997 line, '1997' legible on the 350 px scan). Game text: inline black EPISODE I disc before 'hologram' → {episode1}; trailing red circle-slash A → {alter}. No icon column icons; VS17 diamond-17 mark bottom-right of the text box. Banner/text box at the printed card's height (not a tall slip). CHANGES vs Decipher Somersault (CC-L-somersault.gif): title, type disc Interrupt→Effect, destiny 3→5, banner LOST INTERRUPT→EFFECT, game text replaced (printed: 'During a battle at a site, just before drawing battle destiny, if opponent has less than double your total power, use 4 Force to switch your total power with opponent’s. OR If both players just drew one battle destiny, use 1 Force to switch numbers.'); lore unchanged. Lore correction vs wiki: curly apostrophe in Luke’s. No bold in lore. Slip text matches the stub (stub expands [Episode I], 'Immune to Alter'). Base scan only 350 px (no 745 px file on the wiki). Modern: VB5-L-ajediscunning-pre.gif (350 px, Virtual Block 5 reissue). Title apostrophe typed curly as the slip heading prints it."
+}

@@ -1,0 +1,39 @@
+{
+ "id": "vs17-17",
+ "virtual_set": 17,
+ "number": "17",
+ "side": "Dark",
+ "slip_type": "Objective",
+ "card_type": "",
+ "title": "Hunt Down And Destroy The Jedi",
+ "caption": "Hunt Down And Destroy The Jedi (V)",
+ "title_back": "Their Fire Has Gone Out Of The Universe",
+ "caption_back": "Their Fire Has Gone Out Of The Universe (V)",
+ "heading": "Hunt Down And Destroy The Jedi (V)",
+ "heading_back": "Their Fire Has Gone Out Of The Universe (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text_lines": "_Deploy Coruscant system, Imperial City, and A Sith’s\nPlans. May also deploy If The Trace Was Correct._\n*For* remainder of game, you may not deploy {episode1} Dark\nJedi. Whenever a character hit by Galen’s Lightsaber or\nVader’s Lightsaber leaves table, opponent loses 2 Force.\n*While* this side up, may ▲ Galen’s Fighter. Galen’s\nimmunity to attrition is +2 for each Jedi present.\n*Flip* this card if Galen or Vader at a battleground site\nand opponent does not have a unique (•) character of\nability > 3 present at a battleground site.",
+ "game_text_back_lines": "*While* this side up, opponent’s Force drain bonuses\nare canceled and your Force drains at battlegrounds\nmay not be canceled. During your control phase, may\nretrieve 1 Force. During your control phase, may use 2\nForce to ▲ any one card without ability. If targeting\na vehicle or starship with Lightsaber Parry, Tarkin’s\nOrders, or There Is No Conflict, that destiny draw is +2.\n*Flip* this card if opponent has a unique (•) character of\nability > 3 present at a battleground site.",
+ "destiny_back": "7",
+ "art_back": {
+  "src": "src/vs17/17-SE-D-theirfirehasgoneoutoftheuniverse.gif",
+  "modern": "src/vs17/modern/17-VB4-D-theirfirehasgoneoutoftheuniverse-pre.gif"
+ },
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Hunt Down And Destroy The Jedi / Their Fire Has Gone Out Of The Universe",
+ "art": {
+  "src": "src/vs17/17-SE-D-huntdownanddestroythejedi.gif",
+  "modern": "src/vs17/modern/17-VB4-D-huntdownanddestroythejedi-pre.gif"
+ },
+ "notes": "Objective, two normal bottom-half slips (756×528 / 756×523) on the purple Objective frame with the BLACK text box and white text (as the printed SE objective): front 17-Hunt_Down_And_Destroy_The_Jedi.png (heading/strip 'Hunt Down And Destroy The Jedi (V)'), back 17b-Their_Fire_Has_Gone_Out_Of_The_Universe.png (heading/strip 'Their Fire Has Gone Out Of The Universe (V)'), both number 17; front heading fully legible (no page bleed). Non-unique. Front: first two lines italic (deploy line), bold lead words For/While/Flip; inline silver round EPISODE I disc before 'Dark Jedi' → {episode1} (the stub renders it '[Dark Side] Dark Jedi' — the slip clearly prints the EPISODE I icon, not a Dark Force icon); ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'; '(•)' where the stub has '(*)'. Back: bold While/Flip; ▲ likewise; '(•)'. '> 3' as printed. Otherwise slip texts match the stub. No set sphere printed on these slips (diamond 17 at the bottom right). Base: Special Edition Objective 'Hunt Down And Destroy The Jedi / Their Fire Has Gone Out Of The Universe' (wiki page 'Hunt Down And Destroy The Jedi' redirects to the VB4 (V) page). Destiny front 0 / back 7 (printed). Printed card: SE ring at the top-right, no Episode I icon → no ring_icons. Objectives carry no lore. Base scans 350 px; SE copyright line '© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.' faintly legible on the front scan. Modern: Virtual Block 4 VB4-D-huntdownanddestroythejedi-pre.gif / VB4-D-theirfirehasgoneoutoftheuniverse-pre.gif (350). Per coordinator, the back is stored in this file (no 17b.json).",
+ "game_text": "_Deploy Coruscant system, Imperial City, and A Sith’s Plans. May also deploy If The Trace Was Correct._ *For* remainder of game, you may not deploy {episode1} Dark Jedi. Whenever a character hit by Galen’s Lightsaber or Vader’s Lightsaber leaves table, opponent loses 2 Force. *While* this side up, may ▲ Galen’s Fighter. Galen’s immunity to attrition is +2 for each Jedi present. *Flip* this card if Galen or Vader at a battleground site and opponent does not have a unique (•) character of ability > 3 present at a battleground site.",
+ "game_text_back": "*While* this side up, opponent’s Force drain bonuses are canceled and your Force drains at battlegrounds may not be canceled. During your control phase, may retrieve 1 Force. During your control phase, may use 2 Force to ▲ any one card without ability. If targeting a vehicle or starship with Lightsaber Parry, Tarkin’s Orders, or There Is No Conflict, that destiny draw is +2. *Flip* this card if opponent has a unique (•) character of ability > 3 present at a battleground site."
+}

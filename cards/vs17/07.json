@@ -1,0 +1,49 @@
+{
+ "id": "vs17-07",
+ "number": "07",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Jedi Advisor",
+ "heading": "•••Jedi Advisor (V)",
+ "caption": "Alderaan Operative (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ABILITY",
+   "7"
+  ],
+  [
+   "JEDI MASTER",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "6",
+ "game_text": "Never deploys, except to Coruscant. While Yoda here, Force retrieval from your {vset:17} objective cannot be canceled (except by Secret Plans). Unless Inner Strength on table, your duel destiny and lightsaber combat totals are cumulatively +1.",
+ "game_text_lines": "Never deploys, except to Coruscant. While Yoda\nhere, Force retrieval from your {vset:17} objective\ncannot be canceled (except by Secret Plans).\nUnless Inner Strength on table, your duel destiny\nand lightsaber combat totals are cumulatively +1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Jedi Master",
+ "disc": "jedi-light",
+ "lore": "Female. Jedi Council Member.",
+ "base_lore": "Many of the Alliance’s generals and commanders are from Alderaan. Not all of Alderaan’s population are active members of the Rebellion, but most support the cause.",
+ "destiny": "2",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Alderaan Operative",
+ "combo": true,
+ "base_title": "Alderaan Operative",
+ "ring_icons": [
+  "episode1"
+ ],
+ "art": {
+  "src": "src/vs17/07-SE-L-alderaanoperative.gif",
+  "modern": "src/vs17/modern/07-VB5-L-jediadvisor-pre.gif"
+ },
+ "notes": "COMBO / FULL-CARD OVERLAY (756×1099 crop). Printed Alderaan Operative is an Alien character (SE white/grey frame, Alien disc, destiny 3, unrestricted). The slip prints the silver Light character frame with the BLUE-BLADE Light Jedi Master disc → affiliation 'Jedi Master', disc 'jedi-light' (as vs12/21, vs14/15); title '•••Jedi Advisor', destiny 2. LORE PRINTED ON THE SLIP: 'Female. Jedi Council Member.' (one line, NOT indented, plain weight — no visible bold) → replaces the printed lore (base_lore). Right of the lore box: the Special Edition ring (gold/orange sparkle sphere, as printed) AND a black EPISODE I disc below it — the Episode I disc is NEW (the printed SE card has none) → ring_icons ['episode1']. Art window BLANK white → printed art (Leia-like figure in blue cape on white steps) from the base scan. Stats POWER 4 / ABILITY 7 / JEDI MASTER (label only); deploy 3 / forfeit 6; icon column EMPTY (only the VS17 diamond-17 set mark; printed card has a warrior icon). Inline: small black diamond '17' before 'objective' → {vset:17} (stub: '[Light Side] objective'). Caption 'Alderaan Operative (V)' (no dot). CHANGES vs Decipher Alderaan Operative (SE-L-alderaanoperative.gif, 350 px only): title, disc Alien → Jedi Master, uniqueness unrestricted → •••, destiny 3 → 2, lore, Episode I disc added, POWER 1 → 4, ABILITY 1 → 7 + JEDI MASTER box, deploy 1 → 3, forfeit 3 → 6, warrior icon removed, game text replaced (printed: 'While at an Alderaan site: adds 1 to your Force drains there, is forfeit +1 (and power +1 if your general is on Alderaan) and, once during each of your deploy phases, may deploy one site to Alderaan from Reserve Deck; reshuffle.'). base_lore: wiki straight apostrophes typed curly (Alliance’s, Alderaan’s); bold not determinable on the 350 px scan. Copyright: SE line by rule (not legible on the 350 px scan). Modern: VB5-L-jediadvisor-pre.gif (same text; same printed art). Stub: https://wiki.swccg.com/wiki/Jedi_Advisor_(V)_(Virtual_Set_17:_The_Force_Unleashed)"
+}

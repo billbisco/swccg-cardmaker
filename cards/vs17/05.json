@@ -1,0 +1,34 @@
+{
+ "id": "vs17-05",
+ "number": "05",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Character Weapon",
+ "card_type": "CHARACTER WEAPON",
+ "title": "Elegant Lightsaber",
+ "heading": "Elegant Lightsaber (V)",
+ "caption": "•Inconsequential Barriers (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a Jedi. May add 1 to Force drain at opponent’s site where present. May target a character or creature for free. Draw two destiny. If total destiny > defense value, target hit and may not be used to satisfy attrition.",
+ "game_text_lines": "Deploy on a Jedi. May add 1 to Force drain at\nopponent’s site where present. May target a character\nor creature for free. Draw two destiny. If total\ndestiny > defense value, target hit and may not be\nused to satisfy attrition.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The lightsaber is an extremely versatile weapon, making a Jedi a rather difficult opponent to slow down. “This is impossible!”",
+ "destiny": "2",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "base_page": "Inconsequential Barriers",
+ "combo": true,
+ "base_title": "•Inconsequential Barriers",
+ "ring_icons": [
+  "episode1"
+ ],
+ "art": {
+  "src": "src/vs17/05-Cor-L-inconsequentialbarriers.gif",
+  "modern": "src/vs17/modern/05-VB5-L-elegantlightsaber-pre.gif"
+ },
+ "notes": "COMBO / FULL-CARD OVERLAY (756×1098 crop). The slip RETYPES the card: printed Inconsequential Barriers is a USED INTERRUPT (red frame, red Interrupt disc, destiny 4, uniqueness •). The slip prints a green weapon-type frame (green paint with a red patch at the right edge, as the Character Weapon frame), the weapon disc top-left (weapon over orange flame, with two small rivets below), title 'Elegant Lightsaber' (NO uniqueness dot), destiny 2, banner CHARACTER WEAPON (letter-spaced), no stats, no deploy/forfeit, no icon column (only the VS17 diamond-17 set mark bottom-right). Lore box as printed (3 lines, first indented): 'The lightsaber is an extremely versatile weapon, / making a Jedi a rather difficult opponent to slow down. / “This is impossible!”'. Right of the lore box: Coruscant expansion ring (pink/lilac flower sphere) and the black EPISODE I disc below it — both as on the printed card → ring_icons ['episode1']. Art window BLANK white → printed art from the base scan. Copyright not printed on the slip; Coruscant SE-style 2001 line by rule (350 px scan not legible). Banner/text box at the printed card's height (not a tall slip). Renderer note: no weapon-disc asset exists in assets/icons (disc-*.png) — the weapon frame/disc needs the Character Weapon template. CHANGES vs Decipher Inconsequential Barriers (Cor-L-inconsequentialbarriers.gif, 350 px only): title (and • dropped), type Used Interrupt → Character Weapon (frame, disc, banner), destiny 4 → 2, game text replaced (printed: 'Cancel Imperial Barrier, None Shall Pass, or Set For Stun. OR Peek at the top card of your Force Pile; either return it, or place it under your Force Pile or Reserve Deck.'); lore unchanged. LORE CORRECTION vs wiki: wiki has single quotes 'This is impossible!' — the scan and slip print double curly quotes “This is impossible!”. No bold in lore. Slip text matches the stub (stub has straight apostrophe). Modern: VB5-L-elegantlightsaber-pre.gif (Virtual Block 5 reissue, 350 px) — its game text DIFFERS from this VS17 slip ('… Draw two destiny. Target hit, and may not be used to satisfy attrition if total destiny > defense value.'); art is the printed Qui-Gon art. Stub: https://wiki.swccg.com/wiki/Elegant_Lightsaber_(V)_(Virtual_Set_17:_The_Force_Unleashed)"
+}

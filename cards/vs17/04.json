@@ -1,0 +1,43 @@
+{
+ "id": "vs17-04",
+ "number": "04",
+ "virtual_set": 17,
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•CORUSCANT: JEDI ARCHIVES",
+ "title": "•Coruscant: Jedi Archives",
+ "caption": "•Cloud City: North Corridor (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Once per game, if Jedi Council Chamber on table, may ▲ Speak With The Jedi Council.",
+ "dark_text": "May not be separated from Jedi Council Chamber (if on table). Force drain +1 here.",
+ "game_text_lines": "Once per game, if Jedi Council Chamber on table, may ▲ Speak With The Jedi Council.",
+ "dark_text_lines": "May not be separated from Jedi Council Chamber (if on table). Force drain +1 here.",
+ "light_force": true,
+ "dark_force": false,
+ "light_icons": [
+  "planet",
+  "interior"
+ ],
+ "dark_icons": [
+  "planet",
+  "interior"
+ ],
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Cloud City: North Corridor",
+ "base_title": "•Cloud City: North Corridor",
+ "art": {
+  "src": "src/vs17/04-SE-L-cloudcitynorthcorridor.gif",
+  "modern": "src/vs17/modern/04-VB5-L-coruscantjediarchives-pre.gif"
+ },
+ "notes": "Full portrait SITE overlay printed sideways (756×1099 crop; read by rotating). Renames the site: both bars '•CORUSCANT: JEDI ARCHIVES' (red • on the Light silver bar, white • on the Dark black bar). Light half (right column in the crop; Force slot shows ONE blue saber) text: 'Once per game, if Jedi Council Chamber on table, may ▲ Speak With The Jedi Council.' Dark half (left column): 'May not be separated from Jedi Council Chamber (if on table). Force drain +1 here.' — the Dark Force slot is EMPTY black → dark_force false. Icon boxes on both bars, outermost first: planet (pink Coruscant globe), interior (gold); NO scomp ring and no mobile icon. Bottom margin: VS17 diamond-17 mark and a black EPISODE I disc → icons ['episode1']. Art window blank → printed art. One line per half on the slip. CHANGES vs Decipher Cloud City: North Corridor (SE Light, SE-L-cloudcitynorthcorridor.gif, 490×350): name; icons Interior/Mobile/Scomp (+Light Force ×2, Dark Force) → Planet/Interior, one Light saber, no Dark Force; Episode I icon added; texts replaced (printed Light: 'If you control, once per turn may use 1 Force to cancel a Force drain at a Cloud City site.' / Dark: '… use 2 Force …'). Classic SE grey site frame (not Episode I) → no art.rect. Copyright SE 1998 line (legible on the VB5 reissue/scan). Slip text matches the stub ('Take into hand…' = ▲). Modern: VB5-L-coruscantjediarchives-pre.gif (490 px)."
+}

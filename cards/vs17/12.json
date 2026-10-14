@@ -1,0 +1,60 @@
+{
+ "id": "vs17-12",
+ "virtual_set": 17,
+ "number": "12",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Black Leader",
+ "caption": "•Human Shield (V)",
+ "heading": "•Black Leader (V)",
+ "base_title": "•Human Shield",
+ "combo": true,
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "3"
+  ],
+  [
+   "FORCE-ATTUNED",
+   ""
+  ]
+ ],
+ "deploy": "3",
+ "forfeit": "5",
+ "game_text": "{pilot:3}. Deploys -1 to starships. Naboo Blaster is a matching weapon for Black Leader. While with Galen at a site, adds one battle destiny. During your control phase, may use 2 Force to retrieve a card with “back” in title. Immune to attrition < 3.",
+ "game_text_lines": "{pilot:3}. Deploys -1 to starships. Naboo Blaster is\na matching weapon for Black Leader. While with\nGalen at a site, adds one battle destiny. During\nyour control phase, may use 2 Force to retrieve a\ncard with “back” in title. Immune to attrition < 3.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "A shining example of Imperial honor and bravery. Female.",
+ "base_lore": "A shining example of Imperial honor and bravery.",
+ "destiny": "3",
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "base_page": "Human Shield",
+ "slip_art": true,
+ "art": {
+  "src": "src/slips/vs17/12-Black_Leader.png",
+  "rect": [
+   99,
+   352,
+   655,
+   738
+  ],
+  "base_src": "src/vs17/12-CC-D-humanshield.gif",
+  "modern": null
+ },
+ "credit_bottom": [
+  "",
+  "Image courtesy of Julia Tischler"
+ ],
+ "notes": "COMBO CARD — TALL FULL-CARD OVERLAY (756×1100 crop): a new Dark Imperial CHARACTER printed over the Cloud City Interrupt Human Shield, on the blue-grey Dark Imperial character frame. Top to bottom: (1) TITLE BAR: round Imperial crest disc at the left (Imperial affiliation); title '•Black Leader'; destiny 3 in the black hole. (2) LORE BOX: 'A shining example of Imperial honor and bravery. / Female.' — first line indented; the slip's lore adds 'Female.' to the printed lore → lore = slip, base_lore = printed card. No bold visible. Right of the lore box: the Cloud City expansion sphere (two red cloud cars on orange) — expansion, not {ovs}. (3) ART WINDOW: FILLED with the slip's own photo → slip_art, art.rect measured by differencing the 12 and 12b crops (same frame, different picture): picture spans x 91–663, y 351–740 with the side edges slightly slanted (left 91→98, right 661→657 top to bottom), so rect [99,352,655,738] is the largest rectangle just inside the bevel. (4) Stat boxes POWER 3 / ABILITY 3 / FORCE-ATTUNED (label only). Deploy 3 / forfeit 5 boxes left of the text box. No banner (character). Game text 5 lines, starting with the yellow DS pilot icon + '3.' → {pilot:3} (stub: 'Adds 3 to power of anything she pilots'); curly “back”. Icon column top to bottom: pilot (yellow box, DS pilot helmet), warrior (light-blue box, blaster rifle). Diamond '17' VS17 marker at the bottom-right of the text box (not an icon). Credit printed UNDER the text box, right half, gold italic: 'Image courtesy of Julia Tischler' → credit_bottom ['', '…'] (right-aligned). (5) Bottom strip: caption '•Human Shield (V)' (the slip prints a dot although the printed Human Shield is unrestricted — base_title follows the caption), number 12. CHANGES vs Decipher Human Shield (Cloud City Used Or Lost Interrupt, destiny 5): card type Interrupt → Character (new frame, Imperial disc, stats, D/F, icon column); title Human Shield → •Black Leader; destiny 5 → 3; lore + 'Female.'; art replaced; game text replaced (printed USED/LOST text). Base scan: CC-D-humanshield.gif is the PC's 745 px ERRATA face (marked 'D-E1', errata game text) — art/lore only; the printed archive face CloudCity-D-humanshield-decipher-archive.gif (350) was not used for art. Lore read on the 745 scan: 'A shining example of Imperial honor and bravery.' = wiki. Copyright Cloud City 1997 (legible on the 745 scan's vertical line). No modern remake found (no V*/VB* blackleader file). Stub text matches (stub expands the pilot icon). Wiki stub: https://wiki.swccg.com/wiki/Black_Leader_(V)_(Virtual_Set_17:_The_Force_Unleashed). Alternate-image slip: vs17-12b."
+}
