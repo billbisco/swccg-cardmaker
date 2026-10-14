@@ -39,5 +39,6 @@
  "expansion": "Premiere",
  "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
  "notes": "Full portrait SITE overlay (printed sideways). Renames the site: both bars read '•DANTOOINE: BASE - DOCKING BAY' (short hyphen as printed; red • on Light bar). Game texts unchanged from the printed card (Light 'is free', Dark 'requires 2 Force'). Both halves have Force-icon glows (blue Light, red Dark). Icon boxes on both bars outermost first: scomp ring, planet, exterior (sky with sun and moon), interior (room corner) — same as the printed card. Stub text matches. Base Premiere Limited Light site, 490×350 scan only; copyright Premiere 1995 (legible). No modern remake found.",
- "game_text_lines": "Your docking bay transit from here is free."
+ "game_text_lines": "Your docking bay transit from here is free.",
+ "dark_text_lines": "Your docking bay transit from here requires 2 Force."
 }

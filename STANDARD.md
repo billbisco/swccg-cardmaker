@@ -296,3 +296,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   slip is unclear: Carida = grabber). Site slips are published landscape (`landscape_slips.py`: heading on top, body
   turned 90°, the whole caption kept left and only the number moved to the right edge). Site credits run up the left
   margin. Republic disc re-cut light blue and brighter, as Decipher prints it.
+- Rev 24 (Bill 2026-10-14): starship/vehicle sites take Decipher's blue frame (`frame_style`): `ls-starship` = Home One:
+  War Room (blue paint worn through to silver, silver rim round the art), `ds-starship` = Executor: Comm Station
+  (smooth deeper blue); title bars, Force slots and text boxes keep silver / black. Site text is set as the slips:
+  the Light text box is the box interior (`ls_text` y 1344, h 86) so one line sits centred; `game_text_lines` /
+  `dark_text_lines` carry the slip's line breaks (no re-wrapping); a two-line half gets the slip's taller text box
+  (+28 px, bar and icons slide toward the art, `loc_grow`). Bar titles 57 px, 2 px tracking; text 56/58 px.
