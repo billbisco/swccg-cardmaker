@@ -323,3 +323,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (`game_text_lines`/`dark_text_lines`); stat values never wrap (Brainiac "X-Y"). Wiki: no stub moves when the stub
   already carries the slip's name (VS15 stubs were named by the slips); slip-printed lore that replaces the base
   card's lore (Shada, The Mandalorian) is never written onto the Decipher base page.
+- Rev 29 (Bill 2026-10-14): tall slips are built like the PC's own reissue (V0 Knowledge And Defense): the art window
+  gets shorter WITH its own corners (frame rows rebuilt top edge / stretched sides / bottom edge), banner and text box
+  move up by `text_grow`, the art is centre-cropped into the window under the frame (no overlay over the frame); a
+  no-lore-box base merges the lore window into the art window. Grows kept small (01: 160, 52: 170, 33: 110, 37: 230)
+  to show more picture. ds-effect banner box spans the bar (STARTING EFFECT no longer condensed). Dagobah expansion
+  icon = Decipher's Yoda-eye sphere (`set-dagobah-decipher.png`, from the wiki's Icon-set-Dagobah inner disc), not the
+  dark-green redraw; 64 Dagobah-based remasters re-uploaded.
