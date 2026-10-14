@@ -36,5 +36,6 @@
  "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
  "dark_force_count": 2,
  "notes": "Portrait site overlay that RENAMES the site: bars read '•KESSEL: SPICE MINES - PRISON' — the printed card's ◊ becomes •. Dark Force slot shows TWO red sabers → dark_force_count 2 (printed card has one); Light half one blue saber. Icons both bars outermost first: planet, interior (printed card: planet, creature site, exterior, interior — slip drops creature site and exterior). No scomp. Heading/caption '◊ Big One: …' (gap after ◊, written without space). Base page: stub links [[Big One: Asteroid Cave or Space Slug Belly]] (Light; wiki page title uses 'Or') but the slip is the Dark card — used 'Big One: Asteroid Cave Or Space Slug Belly (Dark)', Dagobah-D-bigoneasteroidcaveorspaceslugbelly.gif (490×350). Dagobah copyright 1997 by rule. Modern: VB4-D-kesselspiceminesprison-pre.gif (490 px, same art). No margin credits.",
- "game_text_lines": "If you control, may release any captives imprisoned here (may retrieve 1 Force for each)."
+ "game_text_lines": "If you control, may release any captives imprisoned here (may retrieve 1 Force for each).",
+ "dark_text_lines": "Whenever a droid is imprisoned here, may retrieve 3 Force (once per captive)."
 }

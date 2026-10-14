@@ -36,5 +36,6 @@
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "dark_force_count": 2,
  "notes": "Portrait site overlay that RENAMES the site: bars read '•KESSEL: SPICE MINES - EXTRACTION FACILITY'. Dark Force slot shows TWO red sabers (as the printed card: Dark Force ×2) → dark_force_count 2; Light half has one blue saber (printed card has NO Light Force icon — the slip adds one). Icons both bars outermost first: planet, exterior (as printed). No scomp. Curly ‘spice’ and owner’s (stub straight). Base Tat-D-tatooinedesertlandingsite.gif (490×350, only scan); copyright 2001 (SE-style line with year, as the Tatooine scans read). Modern: VB4-D-kesselspiceminesextractionfacility-pre.gif (490 px, same art). No margin credits.",
- "game_text_lines": "If you occupy, may use 3 Force to place a ‘spice’ card out of play."
+ "game_text_lines": "If you occupy, may use 3 Force to place a ‘spice’ card out of play.",
+ "dark_text_lines": "During your control phase, may use 1 Force to place a ‘spice’ card in owner’s Used Pile."
 }

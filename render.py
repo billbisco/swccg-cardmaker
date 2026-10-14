@@ -293,7 +293,7 @@ TEMPLATES = {
         "ls_bar": (527, 1224, 90),                 # x0 of the Light title bar text area, y, h (frame 453,1148)
         "ls_bar_x1": 1657,                         # bar end when no icon boxes (frame 1583)
         "ds_bar": (580, 313, 1112, 90),            # Dark title bar (black) x, y, w, h  (frame 506,237)
-        "ls_text": (250, 1341, 1719, 120),
+        "ls_text": (250, 1344, 1719, 86),           # the box interior (frame 1268-1352)
         "ds_text": (250, 195, 1719, 99),
         "ls_slot0": 1855, "ds_slot0": 216,          # frame x of the centre of the right-most Light / left-most Dark icon box
         "slot_y": 1155, "slot_pitch": 111,
@@ -588,6 +588,62 @@ LOC_ICON_FILES = {k: f"icon-{k}.png" for k in
                   ("grabber", "underground", "interior", "planet", "space", "exterior", "underwater", "creature", "mobile", "starship", "vehicle")}
 
 
+def loc_grow(card: dict) -> tuple[int, int]:
+    """Two-line site texts: the slips print a taller text box (by ~14 slip px = 28 px here) and move that half's title
+    bar and icons toward the art (VS13: Outpost, AT-AT: Deployment Platform, Dungeon, ISB Sector Office)."""
+    if not card.get("text_lines"):
+        return 0, 0
+    return (28 if "\n" in card.get("game_text", "") else 0), (28 if "\n" in card.get("dark_text", "") else 0)
+
+
+def starship_frame(frame: Image.Image, card: dict, t: dict, DL: int, DD: int) -> Image.Image:
+    """Starship / vehicle site frames as Decipher prints them (Bill 2026-10-14): the frame field is painted blue while
+    the title bars, Force slots and text boxes keep their silver (Light) and black (Dark) with silver bevels.
+    ls-starship = Home One: War Room (Death Star II): blue paint worn through to the silver in chips and scuffs;
+    ds-starship = Executor: Comm Station (Dagobah): smooth deeper blue. Colours sampled from those scans."""
+    import numpy as np
+    fa = np.array(frame).astype(float)
+    H, Wd = fa.shape[:2]
+    keep = np.zeros((H, Wd), bool)
+    def E(n, slot0):
+        return (slot0 - (n - 1) * t["slot_pitch"] - 55 - 4) if n else 1790
+    lb = max(1574, E(len(card.get("light_icons", [])), t["ls_slot0"]))
+    db = 2072 - max(1581, E(len(card.get("dark_icons", [])), t["ls_slot0"]))
+    m = 4   # bevels stay silver
+    for x0, y0, x1, y1 in ((163, 1135 - DL, 444, 1252 - DL), (440, 1135 - DL, lb + 2, 1252 - DL),   # Light slot, bar
+                           (163, 1252 - DL, 1900, 1370),                                              # Light text box
+                           (163, 106, 1900, 225 + DD),                                                # Dark text box
+                           (db - 2, 225 + DD, 1634, 336 + DD), (1630, 225 + DD, 1900, 336 + DD)):     # Dark bar, slot
+        keep[max(0, y0 - m):y1 + m, max(0, x0 - m):x1 + m] = True
+    if card["frame_style"] == "ls-starship":   # Home One keeps a silver rim round the art window
+        ax0, ay0, ax1, ay1 = 188, 382 + DD, 1883, 1095 - DL
+        ring = np.zeros_like(keep); ring[ay0 - 12:ay1 + 12, ax0 - 12:ax1 + 12] = True; ring[ay0:ay1, ax0:ax1] = False
+        keep |= ring
+    rgb = fa[:, :, :3]
+    silver = (np.abs(rgb[:, :, 0] - rgb[:, :, 2]) < 30) & (rgb.mean(axis=2) > 80) & (fa[:, :, 3] > 0)
+    paint = silver & ~keep
+    lum = rgb.mean(axis=2, keepdims=True) / 172.0
+    if card["frame_style"] == "ls-starship":
+        col = np.array([38, 118, 162], float)
+        rng = np.random.default_rng(abs(hash(card["id"])) % 2**32)
+        from PIL import ImageFilter
+        chips = np.zeros((H, Wd))
+        for sc, wgt in ((24, 1.0), (9, 0.6), (4, 0.35)):   # worn paint: multi-scale blotches, more of them near the rim
+            n = rng.random((H // sc + 2, Wd // sc + 2))
+            chips += wgt * np.array(Image.fromarray((n * 255).astype(np.uint8)).resize((Wd + 2 * sc, H + 2 * sc), Image.BICUBIC))[sc:sc + H, sc:sc + Wd] / 255.0
+        yy, xx = np.mgrid[0:H, 0:Wd]
+        edge = np.minimum.reduce([xx - 70, Wd - 74 - xx, yy - 70, H - 90 - yy]).clip(0, 400) / 400.0
+        worn = chips > (1.47 + 0.18 * edge)
+        worn = np.array(Image.fromarray((worn * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(3))) > 0
+        paint &= ~worn
+    else:
+        col = np.array([18, 95, 160], float)
+    tint = np.clip(lum * col * 1.08, 0, 255)
+    rgb[paint] = tint[paint]
+    fa[:, :, :3] = rgb
+    return Image.fromarray(fa.astype(np.uint8), "RGBA")
+
+
 def loc_frame(card: dict, t: dict) -> Path:
     """Assemble a landscape location frame for this card from Bardez's layers: light-saber glows under the
     frame's force-icon holes, the icon boxes packed from the outside in (as Decipher printed them), scomp-link
@@ -597,15 +653,16 @@ def loc_frame(card: dict, t: dict) -> Path:
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     glow = Image.open(LOC / "force-light.png").convert("RGBA")
     gx, gy = t["ls_force"]
+    DL, DD = loc_grow(card)
     if card.get("light_force", True):
-        canvas.alpha_composite(glow, (fx + gx, fy + gy))
+        canvas.alpha_composite(glow, (fx + gx, fy + gy - DL))
     if card.get("dark_force", False):
         g = Image.open(LOC / "force-dark.png").convert("RGBA").rotate(180)   # the Dark Force icon is the red saber
         # mirror of the light glow box about the card centre (frame coords: x' = 2071-x-w, y' = 1479-y-h)
         n = int(card.get("dark_force_count") or 1)
         for k in range(n):   # two Dark Force icons print two sabers in the slot (VS13 #19, #21, #22)
             off = (-40 - k * 64) if n > 1 else 0
-            pos = (fx + 2071 - gx - glow.width + off, fy + 1479 - gy - glow.height)
+            pos = (fx + 2071 - gx - glow.width + off, fy + 1479 - gy - glow.height + DD)
             if k == 0:
                 canvas.alpha_composite(g, pos)
             else:   # the glow bitmaps are opaque black around the saber: lighten, not cover
@@ -633,6 +690,16 @@ def loc_frame(card: dict, t: dict) -> Path:
         return img
     frame = extend_bar(frame, len(card.get("light_icons", [])), 1134, 1252, 1574)
     frame = extend_bar(frame.rotate(180), len(card.get("dark_icons", [])), 1155, 1270, 1581).rotate(180)
+    if DL or DD:   # taller text box: slide the title band toward the art, stretch the box interior
+        import numpy as np
+        fa = np.array(frame); old = fa.copy()
+        if DL:
+            fa[1096 - DL:1320 - DL] = old[1096:1320]; fa[1320 - DL:1320] = old[1272:1272 + DL]
+        if DD:
+            fa[160 + DD:381 + DD] = old[160:381]; fa[160:160 + DD] = old[122:122 + DD]
+        frame = Image.fromarray(fa, "RGBA")
+    if card.get("frame_style") in ("ls-starship", "ds-starship"):
+        frame = starship_frame(frame, card, t, DL, DD)
     canvas.alpha_composite(frame, (fx, fy))
     ly = t["slot_y"]
     dy = 1479 - ly - 111
@@ -641,8 +708,8 @@ def loc_frame(card: dict, t: dict) -> Path:
 
     def place(icons, light):
         # Boxes are cut from the printed Hoth card (brighter than Bardez's), 100×94, sitting inside the title bar.
-        by = ly - 7
-        dby = 1479 - by - 94
+        by = ly - 7 - DL
+        dby = 1479 - (ly - 7) - 94 + DD
         for k, name in enumerate(icons):
             cx = (t["ls_slot0"] - k * t["slot_pitch"]) if light else (t["ds_slot0"] + k * t["slot_pitch"])
             if name == "scomp":
@@ -657,7 +724,7 @@ def loc_frame(card: dict, t: dict) -> Path:
                     b = b.rotate(180)
                 canvas.alpha_composite(b, (fx + cx - 50, fy + (by if light else dby)))
                 continue
-            y = ly if light else dy
+            y = (ly - DL) if light else (dy + DD)
             b = box if light else box.rotate(180)
             canvas.alpha_composite(b, (fx + cx - 55, fy + y))
             ic = Image.open(LOC / LOC_ICON_FILES[name]).convert("RGBA")
@@ -752,29 +819,31 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{359}px;top:{174}px">')
         t = dict(t, title=(t["title"][0] + 170, t["title"][1], t["title"][2] - 170, t["title"][3]))
     # title + destiny
+    pre = " pre" if card.get("text_lines") else ""
     if t.get("landscape"):
         # Light title centred in the grey bar between the force slot and the first icon box; Dark mirrored, rotated.
+        DL, DD = loc_grow(card)
         nbox = len(card.get("light_icons", []))
-        x0, y, h = t["ls_bar"]
+        x0, y, h = t["ls_bar"]; y -= DL
         x1 = fx + 1790 - 15 + t["frame_off"][0] - fx if nbox == 0 else fx + t["ls_slot0"] - (nbox - 1) * t["slot_pitch"] - 55 + t["frame_off"][0]
         parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{loc_title(card, "Light")}</div>')
         nbox = len(card.get("dark_icons", []))
-        dx, dy_, dw, dh = t["ds_bar"]
+        dx, dy_, dw, dh = t["ds_bar"]; dy_ += DD
         dx0 = dx if nbox == 0 else t["frame_off"][0] + t["ds_slot0"] + (nbox - 1) * t["slot_pitch"] + 55
         parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
-        lx, ly_, lw, lh = t["ls_text"]
-        parts.append(f'<div class="ltext fit" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
-        tx, ty, tw, th = t["ds_text"]
-        parts.append(f'<div class="dtext fit" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+        lx, ly_, lw, lh = t["ls_text"]; ly_ -= DL; lh += DL
+        parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
+        tx, ty, tw, th = t["ds_text"]; th += DD
+        parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
     elif t.get("system"):
         x, y, w, h = t["ls_bar"]
         parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Light")}</div>')
         x, y, w, h = t["ds_bar"]
         parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Dark")}</div>')
         x, y, w, h = t["ls_text"]
-        parts.append(f'<div class="ltext fit" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
+        parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
         x, y, w, h = t["ds_text"]
-        parts.append(f'<div class="dtext fit" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+        parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
         if card.get("parsec") is not None:
             x, y, w, h = t["ls_parsec"]
             parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc(str(card["parsec"]))}</div>')
@@ -996,14 +1065,15 @@ def build_html(card: dict) -> str:
     .cap .dot{{font-size:40px}}
     .dot{{font-family:Fiorello}}
     .num{{font-family:AGMedExt;font-weight:bold;font-size:44px;color:#fff;line-height:52px;text-align:right;transform:skewX(-14deg)}}
-    .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:74px;letter-spacing:1.5px;text-transform:uppercase}}
+    .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:57px;letter-spacing:2px;text-transform:uppercase}}
+    .ltext.pre span, .dtext.pre span{{white-space:pre}}
     .ltitle .dot, .dtitle .dot{{font-family:"DejaVu Sans",sans-serif;color:#d4141c;font-size:0.8em;margin-right:6px;vertical-align:0.05em}}
     .ltitle .dot.plain, .dtitle .dot.plain{{color:inherit}}
     .ltitle span.lt, .dtitle span.lt{{display:inline-block;white-space:nowrap;transform-origin:center center}}
     .ltitle{{color:#000;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box}}
     .dtitle{{color:#fff;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box;transform:rotate(180deg)}}
-    .ltext{{font-family:AGCn;font-size:62px;color:#000;letter-spacing:0.5px;line-height:65px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px}}
-    .dtext{{font-family:AGCn;font-size:62px;color:#fff;letter-spacing:0.5px;line-height:65px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px;transform:rotate(180deg)}}
+    .ltext{{font-family:AGCn;font-size:56px;color:#000;letter-spacing:1.5px;line-height:58px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px}}
+    .dtext{{font-family:AGCn;font-size:56px;color:#fff;letter-spacing:1.5px;line-height:58px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px;transform:rotate(180deg)}}
     .parsec{{font-family:AGMedExt;font-size:72px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:4px;box-sizing:border-box}}
     .copy{{display:flex;align-items:center;justify-content:center}}
     .credit{{font-family:AGCn;font-style:italic;font-size:40px;color:#000;white-space:nowrap;transform:rotate(-90deg)}}

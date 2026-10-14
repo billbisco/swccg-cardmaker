@@ -37,5 +37,6 @@
  "expansion": "Jabba's Palace",
  "copyright": "TM & © 1998 LUCASFILM LTD. TM, ® & © 1998 DECIPHER INC.",
  "notes": "Portrait site overlay that RENAMES the site: bars read '◊DUNGEON (PRISON)' (red outline ◊ on the Dark bar, dark ◊ on the Light bar) — the unique • of the printed card becomes ◊. Both Force sabers present (printed card has NO Light Force icon — the slip adds one). Icons both bars outermost first: planet, exterior (purple-grey sky with suns), interior — the printed card has only planet, interior, so the slip adds exterior. No scomp. Dark text prints on two centred lines (first sentence alone) — kept as one paragraph. Caption apostrophe curly (Jabba’s). Base JP-D-jabbaspalacedungeon.gif (490×350, only scan); copyright Jabba's Palace 1998 (Hoth-style line, partly legible). Modern: VB3-D-dungeonprison-pre.gif (490 px, Virtual Block 3, same art). No margin credits.",
- "game_text_lines": "If you control, instead of Force draining, may release one imprisoned captive here."
+ "game_text_lines": "If you control, instead of Force draining, may release one imprisoned captive here.",
+ "dark_text_lines": "May not deploy to Bespin, Dagobah, or a Rebel Base.\nWhenever you imprison a captive (without a bounty) here, may retrieve 2 Force (once per captive)."
 }

@@ -123,14 +123,17 @@ def convert(c: dict, vs: int) -> dict:
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("frame_tint", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("frame_tint", "frame_style", "text_lines", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
     if t in ("loc-site", "loc-system"):
         if c.get("parsec") is not None:
             card["parsec"] = c["parsec"]
         card["light_force"] = bool(c.get("light_force")); card["dark_force"] = bool(c.get("dark_force"))
-        card["dark_text"] = c.get("dark_text") or ""
+        card["dark_text"] = c.get("dark_text_lines") or c.get("dark_text") or ""
+        for k, v in TOKEN_FIX.items():
+            card["dark_text"] = card["dark_text"].replace(k, v)
+        card["text_lines"] = bool(c.get("game_text_lines") or c.get("dark_text_lines"))   # slip line breaks: no re-wrapping
     if t.startswith("objective"):
         card["destiny"] = c.get("destiny") or "0"
         card["back"] = {"title": c.get("title_back") or "", "caption": c.get("caption_back") or f"{c.get('title_back','')} (V)",

@@ -36,5 +36,6 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
  "dark_force_count": 2,
  "notes": "Portrait site overlay that RENAMES the site: bars read '◊ISB SECTOR OFFICE' (red ◊ on Dark bar). The Dark Force slot shows TWO red sabers = two Dark Force icons (added field dark_force_count 2; the printed card has one); Light half one blue saber. Icons both bars outermost first: planet, exterior. The printed card has a SCOMP ring on both halves — the slip prints none → scomp false. Heading/caption print '◊ Spaceport Prefect’s Office (V)' with a gap after ◊ (written without space, as vs13/15) and a curly apostrophe. '+ X' printed with a space, kept. Base SE-D-spaceportprefectsoffice.gif (490×350, only scan); SE copyright line. Modern: VB4-D-isbsectoroffice-pre.gif (490 px, same art). No margin credits.",
- "game_text_lines": "May not deploy to Bespin, Dagobah, Endor, Hoth, Kashyyyk, Ralltiir or Yavin 4."
+ "game_text_lines": "May not deploy to Bespin, Dagobah, Endor, Hoth, Kashyyyk, Ralltiir or Yavin 4.",
+ "dark_text_lines": "Your total weapon and battle destiny here is + X, where X = highest printed influence at Conference Room.\nAt related sites, may apply the ability of one Imperial Council Member here toward drawing battle destiny."
 }
