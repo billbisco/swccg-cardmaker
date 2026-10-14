@@ -311,3 +311,8 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   list); long banners tighten then condense (HEAVILY-MODIFIED LIGHT FREIGHTER); GIF transparency (PC remakes mark
   their brightest highlight transparent) composited on white; combo slips renamed like locations (Obi-Wan In Radiant
   VII (V), GEMP agrees); wiki "non-[Immune to Sense]". sheet.py skips the stray "00" under VS14's numbers.
+- Rev 27 (Bill 2026-10-14, Black 3 (V)): two Republic icons, as the PC Game Aid (Feb 2024) lists them: the ROUND crest
+  = "Character - Republic" (affiliation disc; inline when the text means a character, The Emperor (V) "Gains
+  [Republic]"), the SQUARE lavender tile = "Republic" under Other Features (starship icon column, Radiant VII; inline
+  for starships: Black 3 (V), Diversionary Tactics (V)). `{icon:republic-square}` inline, column icon `republic` =
+  col-republic.png (Game Aid g037). The column "republic" had been mapped to the maintenance icon by mistake.

@@ -337,7 +337,7 @@ ICON_FILES = {
     "sense": "icons/VS-icon-immune-sense.png", 
     "grabber": "icons/grabber-fist.png", "pilotpower": "icons/VS-icon-pilot-power-x.png", "pilotpower-dark": "icons/VS-icon-pilot-power-x-dark.png",
     "lightsaber": "icons/inline-permanent-weapon.png", "permanent-weapon": "icons/inline-permanent-weapon.png",
-    "republic": "icons/inline-maintenance.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
+    "republic": "icons/col-republic.png", "republic-square": "icons/inline-republic-square.png", "maintenance": "icons/inline-maintenance.png", "nav": "icons/inline-nav.png",
     "astromech": "icons/astromech-bardez.png",
     "independent": "icons/inline-independent.png", "presence": "icons/col-presence.png",
     "republic-crest": "icons/inline-republic-crest.png",

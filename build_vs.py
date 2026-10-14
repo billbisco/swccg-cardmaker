@@ -18,7 +18,7 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Death Star II": "icons/set-ds2-grainy.png", "Reflections III": "icons/set-reflections3-grainy.png",
 }
 TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
-             "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}"}
+             "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}", "{icon:republic-square}": "{republic-square}"}
 
 
 KEYWORDS = r"bounty hunter|information broker|leader|spy|smuggler|gambler|scout|thief|gangster|assassin"
