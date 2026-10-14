@@ -1,0 +1,28 @@
+{
+ "number": "06",
+ "side": "Light",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "Eyes In The Dark",
+ "caption": "Eyes In The Dark (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on a holosite. {ovs:9} Wipe Them Out, All Of Them ignores this site. “Effect” on Alter may be treated as “Mantellian Savrip.” The game text of your Effects here may not be suspended. Except during battles here, may play your Interrupts here as if from hand.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“I don’t like the look of this.”",
+ "destiny": "5",
+ "base_page": "Eyes In The Dark",
+ "art": {
+  "src": "src/vs13/06-Premiere-L-eyesinthedark.gif",
+  "modern": "src/vs13/modern/06-V23-L-eyesinthedark.gif"
+ },
+ "id": "vs13-06",
+ "virtual_set": 13,
+ "expansion": "Premiere",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot). Banner EFFECT, no grabber box. Inline sphere before 'Wipe Them Out, All Of Them' = Original Virtual Set 9 sphere (matches ovs-set-9.png; the card is Wipe Them Out, All Of Them (V) (Virtual Set 9)) → {ovs:9}; the stub reads it '[Empire]' (wrong). Curly double quotes “Effect” and “Mantellian Savrip.” (period inside). LORE CORRECTED: wiki has single straight quotes 'I don't like the look of this.' — the printed card (350 px scan and the 745 px V23 remake) prints double curly quotes “I don’t like the look of this.” Copyright Premiere 1995 by set. Modern: V23-L-eyesinthedark.gif (745 px; a later Virtual Set 23 remake with different text — art/lore only); VB4 -pre (350) also exists.",
+ "game_text_lines": "Deploy on a holosite. {ovs:9} Wipe Them Out, All Of Them\nignores this site. “Effect” on Alter may be treated as\n“Mantellian Savrip.” The game text of your Effects here\nmay not be suspended. Except during battles here, may\nplay your Interrupts here as if from hand."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "16",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "ComScan Detection",
+ "caption": "ComScan Detection (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If two related unique (•) sites are on table, ▼ the related system. OR Peek at a face down card on table (except a Hidden Base indicator). OR If a character or starship’s power was just reduced, reset that card’s power to its printed power for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Imperial Navy boasts the best communications network in the galaxy. Sophisticated control technology allows the Empire to dispatch armed forces without delay.",
+ "destiny": "4",
+ "base_page": "ComScan Detection",
+ "art": {
+  "src": "src/vs13/16-Hoth-D-comscandetection.gif",
+  "modern": "src/vs13/modern/16-V21-D-comscandetection.gif"
+ },
+ "id": "vs13-16",
+ "virtual_set": 13,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Banner USED INTERRUPT. ▼ where the stub expands it. Lore matches the wiki (checked on the 350 px archive scan and the 745 px face). art.src Hoth-D-comscandetection.gif is 745 px but it is the PC ERRATA face (D-E1, different game text) — art only; the printed face is Hoth-D-comscandetection-decipher-archive.gif (350 px, square-on scan, same art/lore). Copyright read off the 745 px: 'TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.'. Modern: V21-D-comscandetection.gif (745 px, Virtual Set 21 remake); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "If two related unique (•) sites are on table, ▼ the\nrelated system. OR Peek at a face down card on table\n(except a Hidden Base indicator). OR If a character or\nstarship’s power was just reduced, reset that card’s\npower to its printed power for remainder of turn."
+}

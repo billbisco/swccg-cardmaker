@@ -1,0 +1,41 @@
+{
+ "number": "14",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•••AT-AT: DEPLOYMENT PLATFORM",
+ "title": "•••AT-AT: Deployment Platform",
+ "caption": "•_Executor_: Comm Station (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Your characters may enter/exit here for 2 Force each. Unless you occupy, AT-AT’s immunity to attrition is +1 (or immune to attrition if non-unique).",
+ "dark_text": "May ▼ Biker Scout Gear here, and while here, “deploy for free” in its game text may be treated as “may ▼ for free.”",
+ "light_force": false,
+ "dark_force": true,
+ "light_icons": [
+  "scomp",
+  "vehicle",
+  "interior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "vehicle",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Executor: Comm Station",
+ "art": {
+  "src": "src/vs13/14-Dagobah-D-executorcommstation.gif",
+  "modern": "src/vs13/modern/14-VB2-D-atatdeploymentplatform-pre.gif"
+ },
+ "id": "vs13-14",
+ "virtual_set": 13,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Portrait site overlay that RENAMES the site to a vehicle site: bars read '•••AT-AT: DEPLOYMENT PLATFORM' (three red dots on the Dark bar, dark dots on the Light bar). Caption/heading print _Executor_ in italics → caption '•_Executor_: Comm Station (V)'. Dark half (left bar) has the red Dark Force saber; the Light half's Force slot (bottom of right bar) is empty black → light_force false. Icons both bars, outermost first: scomp ring, vehicle site (yellow schematic on black — matches the wiki's Icon-vehicle-site), interior. The printed card's mobile/starship icons are dropped. ▼ twice in the Dark text where the stub expands it; curly quotes as printed. Slip text matches the stub. Copyright Dagobah 1997 by rule (490×350 scan only). Modern: VB2-D-atatdeploymentplatform-pre.gif (490 px, Virtual Block 2).",
+ "game_text_lines": "Your characters may enter/exit here for 2 Force each. Unless you occupy, AT-AT’s immunity to attrition is +1 (or immune to attrition if non-unique)."
+}

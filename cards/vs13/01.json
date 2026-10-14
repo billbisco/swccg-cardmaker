@@ -1,0 +1,38 @@
+{
+ "number": "01",
+ "side": "Light",
+ "slip_type": "System",
+ "card_type": "•ALDERAAN (BLOWN AWAY)",
+ "title": "•Alderaan (Blown Away)",
+ "caption": "◊◊◊ Asteroid Field (Light) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "May not be deployed if an Alderaan site (or sector) on table. Star Cruisers ignore location deployment restrictions in their game text.",
+ "dark_text": "When deployed, you choose: flip Set Your Course For Alderaan immediately or at the end of your next turn.",
+ "parsec": 2,
+ "light_force": true,
+ "dark_force": false,
+ "light_icons": [
+  "space"
+ ],
+ "dark_icons": [
+  "space"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Asteroid Field",
+ "art": {
+  "src": "src/vs13/01-Dagobah-L-asteroidfield.gif",
+  "modern": null
+ },
+ "id": "vs13-01",
+ "virtual_set": 13,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Full portrait SYSTEM overlay. The slip renames the card: both bars read '•ALDERAAN (BLOWN AWAY)' (red • on the Light bar, white • on the upside-down Dark bar); caption '◊◊◊ Asteroid Field (Light) (V)' (three ◊ with a space before 'Asteroid'). Base = Asteroid Field (Light), a Dagobah ◊◊◊ SECTOR (no parsec); the slip turns it into a system with parsec box '2' on both bars. Each bar has one icon box = black with white stars → 'space' (the printed card's icon is Space). Light bar: blue saber glow in the Force slot → light_force true. Dark bar (top, upside down): the Force slot is empty black → dark_force false (the printed card has a Dark Force icon there). No scomp. RIGHT MARGIN: above the VS13 set sphere sits a second sphere — orange with a white starburst in a silver ring — which matches the Special Edition set icon (assets/icons/set-se-grainy.png); not a Dagobah icon. Not in the site-note's icon list, so icons [] here; the renderer will need to decide whether to print it (possibly marks the 'Alderaan (Blown Away)' as SE-related). Stub text matches the slip. Sites/systems have no lore. Only a 350 px scan (Dagobah-L-asteroidfield.gif); copyright not legible, Dagobah 1997 by set. No modern remake found.",
+ "game_text_lines": "May not be deployed if an Alderaan site (or sector) on\ntable. Star Cruisers ignore location deployment\nrestrictions in their game text."
+}

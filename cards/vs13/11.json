@@ -1,0 +1,43 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•_REDEMPTION_: COMMAND POST",
+ "title": "•_Redemption_: Command Post",
+ "caption": "•Yavin 4: Briefing Room (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "During your move phase, may relocate your leader here to a site you occupy.",
+ "dark_text": "While _Redemption_ is at a system you do not occupy, you may only deploy spies here.",
+ "light_force": true,
+ "dark_force": false,
+ "light_icons": [
+  "scomp",
+  "mobile",
+  "starship",
+  "interior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "mobile",
+  "starship",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Yavin 4: Briefing Room",
+ "art": {
+  "src": "src/vs13/11-ANH-L-yavin4briefingroom.gif",
+  "modern": "src/vs13/modern/11-VB2-L-redemptioncommandpost-pre.gif"
+ },
+ "id": "vs13-11",
+ "virtual_set": 13,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Portrait site overlay that RENAMES the site to a starship site: bars read '• _REDEMPTION_: COMMAND POST' (REDEMPTION italic; red dot on the Light bar, white on the Dark bar). Light half (right bar) has the blue Light Force saber; the Dark half's Force slot (top of left bar) is empty black → dark_force false. Icons both bars outermost first: scomp ring, mobile (blue disc), starship (ship hull), interior — identified against the wiki's Icon-mobile / Icon-starship-site / Icon-interior files. _Redemption_ italic in the Dark text. Slip text matches the stub. Copyright ANH 1996 by rule (not legible on the landscape scan; only 490×350). Modern: VB2-L-redemptioncommandpost-pre.gif (490 px Virtual Block 2 reissue).",
+ "game_text_lines": "During your move phase, may relocate your leader here to a site you occupy."
+}

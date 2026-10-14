@@ -590,9 +590,18 @@ def loc_frame(card: dict, t: dict) -> Path:
     if card.get("light_force", True):
         canvas.alpha_composite(glow, (fx + gx, fy + gy))
     if card.get("dark_force", False):
-        g = glow.rotate(180)
+        g = Image.open(LOC / "force-dark.png").convert("RGBA").rotate(180)   # the Dark Force icon is the red saber
         # mirror of the light glow box about the card centre (frame coords: x' = 2071-x-w, y' = 1479-y-h)
-        canvas.alpha_composite(g, (fx + 2071 - gx - glow.width, fy + 1479 - gy - glow.height))
+        n = int(card.get("dark_force_count") or 1)
+        for k in range(n):   # two Dark Force icons print two sabers in the slot (VS13 #19, #21, #22)
+            off = (-40 - k * 64) if n > 1 else 0
+            pos = (fx + 2071 - gx - glow.width + off, fy + 1479 - gy - glow.height)
+            if k == 0:
+                canvas.alpha_composite(g, pos)
+            else:   # the glow bitmaps are opaque black around the saber: lighten, not cover
+                from PIL import ImageChops
+                reg = canvas.crop((pos[0], pos[1], pos[0] + g.width, pos[1] + g.height))
+                canvas.paste(ImageChops.lighter(reg.convert("RGB"), g.convert("RGB")).convert("RGBA"), pos)
     canvas.alpha_composite(frame, (fx, fy))
     # cover the two default icon boxes on each bar with a clean patch of the bar
     ly = t["slot_y"]
@@ -693,7 +702,7 @@ def build_html(card: dict) -> str:
         x, y, w, h = t[key]
         return f"left:{x}px;top:{y}px;width:{w}px;height:{h}px;{style}"
 
-    parts = [f'<div id="card" style="position:relative;width:{W}px;height:{H}px;background:#000;overflow:hidden">']
+    parts = [f'<div id="card"{' class="inv"' if card.get("invert_text") else ''} style="position:relative;width:{W}px;height:{H}px;background:#000;overflow:hidden">']
     if art:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
@@ -876,7 +885,7 @@ def build_html(card: dict) -> str:
     # margins measured on the frames: Light ≈169–246 / 1389–1433, Dark ≈145–264 / 1361–1483 (div is 40 px wide)
     mx = t.get("credit_mx") or ((187, 1391) if t.get("dark_text") else (185, 1402))
     for key, x in (("margin_left", mx[0]), ("margin_right", mx[1]), ("margin_right_top", mx[1])):
-        if card.get(key):
+        if card.get(key) and "game_text" in t:
             gx, gy, gw, gh = t["game_text"]
             cx_, cy_, cw_, ch_ = t.get("card_type", (gx, gy - 160, gw, 61))
             top, bot = cy_, gy + gh
@@ -910,6 +919,12 @@ def build_html(card: dict) -> str:
     cap = card.get("caption") or card["title"]
     cy = t.get("caption_y", 2082)
     parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
+    if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")):
+        # locations: the slip prints its credits across the bottom border, between the caption and the number
+        cred = "  ·  ".join(x.replace("\n", " ") for x in (card.get("margin_left"), card.get("margin_right")) if x)
+        cw = W
+        parts.append(f'<div style="position:absolute;left:{cw // 2 - 120}px;top:{cy + 6}px;width:{cw // 2 - 260}px;height:44px;text-align:right;'
+                     f'font-family:AGCn;font-style:italic;font-size:32px;line-height:44px;color:#ddd;white-space:nowrap">{esc(cred)}</div>')
     if card.get("number"):
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
     parts.append("</div>")
@@ -918,6 +933,7 @@ def build_html(card: dict) -> str:
     css = f"""
     {font_css}
     body{{margin:0;background:#000}}
+    .inv .title, .inv .lore, .inv .ctype, .inv .gt, .inv .destiny {{rotate:180deg}}   /* Dagobah's upside-down cards (Through The Force Things You Will See) */
     .title{{font-family:Fiorello;font-size:80px;color:{ink};letter-spacing:1px;line-height:90px;white-space:nowrap}}
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", LP["ind"])}px}}

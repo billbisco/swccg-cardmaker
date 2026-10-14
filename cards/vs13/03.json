@@ -1,0 +1,41 @@
+{
+ "number": "03",
+ "side": "Light",
+ "slip_type": "Site",
+ "card_type": "•CORUSCANT: SENATE LANDING PLATFORM",
+ "title": "•Coruscant: Senate Landing Platform",
+ "caption": "•Coruscant: Docking Bay (Light) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Starships may deploy here. Once per turn, may ▼ a starship site if its starship card on table.",
+ "dark_text": "Unless you occupy, {ovs:9} Wipe Them Out, All Of Them ignores starship and holosite sites.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ],
+ "icons": [
+  "episode1"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Coruscant: Docking Bay (Coruscant)",
+ "art": {
+  "src": "src/vs13/03-Cor-L-coruscantdockingbay.gif",
+  "modern": null
+ },
+ "id": "vs13-03",
+ "virtual_set": 13,
+ "expansion": "Coruscant",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Full portrait SITE overlay (printed sideways). Renames the site: both bars read '•CORUSCANT: SENATE LANDING PLATFORM' (red • on Light bar). Light half (right column, blue saber glow) text: 'Starships may deploy here. Once per turn, may ▼ a starship site…' (stub expands ▼). Dark half (left column, red saber glow): inline sphere before 'Wipe Them Out, All Of Them' is blue-white-violet = the Original Virtual Set 9 sphere (matched against assets/icons/ovs-set-9.png; Wipe Them Out, All Of Them (V) is a VS9 card) → {ovs:9}; the stub reads it '[Empire]' (wrong). Icon boxes on both bars (outermost first): planet, exterior (sky with sun); NO scomp ring on either bar. Bottom margin: VS13 set sphere plus a black EPISODE I disc → icons ['episode1']. BASE: the stub's 'Decipher base: [[Coruscant: Docking Bay]]' is the Special Edition DARK card (scomp, no Light Force); the slip is the Light card with Episode I and Light Force icons = the Coruscant-set Light 'Coruscant: Docking Bay (Coruscant)' (Cor-L-coruscantdockingbay.gif, icons Exterior/Planet, no scomp) — used that. Printed texts: Light 'Your docking bay transit from here requires 1 Force.', Dark '… requires 2 Force.' Only a 490×352 scan. Copyright year not legible here; Coruscant set line read as © 2000 on Lieutenant Williams (vs13/08) — brief's table says 2001, the scans say 2000.",
+ "game_text_lines": "Starships may deploy here. Once per turn, may ▼ a starship site if its starship card on table."
+}
