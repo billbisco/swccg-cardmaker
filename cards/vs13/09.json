@@ -28,13 +28,14 @@
  "base_page": "Endor: Back Door",
  "art": {
   "src": "src/vs13/09-Endor-L-endorbackdoor.gif",
-  "modern": "src/vs13/modern/09-VB4-L-outpost-pre.gif"
+  "modern_unused": "src/vs13/modern/09-VB4-L-outpost-pre.gif",
+  "modern": null
  },
  "id": "vs13-09",
  "virtual_set": 13,
  "expansion": "Endor",
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
- "notes": "Portrait site overlay that RENAMES the site: both bars read '◊ OUTPOST' (hollow diamond ◊ printed in red outline on the Light bar, white on the Dark bar; slight gap after ◊ on the bars and in the heading/caption — written without a space as earlier ◊Encampment). Light half (right bar, blue Light Force saber) text = game_text; Dark half (left bar, red Dark Force saber) = dark_text. Icon boxes on both bars: planet, exterior (no scomp; the printed card also has scomp — the slip drops it). Slip text matches the stub. Printed base (Endor, 490×350 only scan) Light/Dark text differs entirely. Copyright Endor 1999 by rule (not legible on the landscape scan). Modern: VB4-L-outpost-pre.gif (490 px Virtual Block 4 reissue of this slip as ◊Outpost).",
+ "notes": "Portrait site overlay that RENAMES the site: both bars read '◊ OUTPOST' (hollow diamond ◊ printed in red outline on the Light bar, white on the Dark bar; slight gap after ◊ on the bars and in the heading/caption — written without a space as earlier ◊Encampment). Light half (right bar, blue Light Force saber) text = game_text; Dark half (left bar, red Dark Force saber) = dark_text. Icon boxes on both bars: planet, exterior (no scomp; the printed card also has scomp — the slip drops it). Slip text matches the stub. Printed base (Endor, 490×350 only scan) Light/Dark text differs entirely. Copyright Endor 1999 by rule (not legible on the landscape scan). Modern: VB4-L-outpost-pre.gif (490 px Virtual Block 4 reissue of this slip as ◊Outpost). Art: the printed base card (Bill 2026-10-14); the VB4 reissue has other art.",
  "game_text_lines": "May not deploy to Bespin, Coruscant, Hoth, Kessel or Tatooine.\nNon-Jedi scouts are landspeed +1 when moving from here.",
  "dark_text_lines": "Unless opponent’s matching operative at same or adjacent site, those sites are immune to\nNo Escape."
 }
