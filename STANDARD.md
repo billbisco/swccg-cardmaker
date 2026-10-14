@@ -286,3 +286,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   destiny upside down in an upright frame (Dagobah's Through The Force Things You Will See). Wiki rows for renamed
   locations lead with the new name (and parsec) and give both halves ("Dark (printed)" only when the slip prints one
   half). Sheet crops: tall site slips (`sheet.MAX_H[13]`), the upside-down #12 turned upright by hand.
+- Rev 23 (Bill 2026-10-14, VS13 locations): a renamed location is named by its bar title (Alderaan (Blown Away) (V),
+  not "Asteroid Field (Light) (V)"): on these slips the caption only names the base card + (V); stubs move to the new
+  title (`moves.txt`, redirects kept). Bar titles in the slip lettering: AG Bold Condensed caps, 74 px, condensed to
+  the bar; the uniqueness dot/diamond is red on the bar of the card's own side and in the bar's text colour on the
+  other (black on Light bar, white on Dark bar). Parsec in AG Medium Extended. The title bar runs right up to the
+  first icon box (the end cap is slid over the frame's default boxes; no empty box). `light_force_count: 2` = two
+  blue sabers on a system. Starship-site frames tinted as printed (`frame_tint`). Icons per slip (and GEMP where the
+  slip is unclear: Carida = grabber). Site slips are published landscape (`landscape_slips.py`: heading on top, body
+  turned 90°, the whole caption kept left and only the number moved to the right edge). Site credits run up the left
+  margin. Republic disc re-cut light blue and brighter, as Decipher prints it.
