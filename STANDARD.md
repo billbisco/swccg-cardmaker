@@ -330,3 +330,6 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   to show more picture. ds-effect banner box spans the bar (STARTING EFFECT no longer condensed). Dagobah expansion
   icon = Decipher's Yoda-eye sphere (`set-dagobah-decipher.png`, from the wiki's Icon-set-Dagobah inner disc), not the
   dark-green redraw; 64 Dagobah-based remasters re-uploaded.
+- Rev 30 (Bill 2026-10-14): merged window on no-lore-box base cards (Reflections II combos) starts just under the
+  title bar (lore top + 5) and its top corners are chamfered (corner rows sheared, 100 px at 45°) as the printed
+  card shows them.

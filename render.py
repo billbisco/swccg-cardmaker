@@ -605,19 +605,40 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     gx, gy, gw, gh = t["game_text"]
     c = Image.new("RGBA", (1632, 2220), (0, 0, 0, 0)); c.alpha_composite(Image.open(fr).convert("RGBA"), (fx, fy))
     F = np.array(c); G = np.zeros_like(F)
-    top = (t["lore"][1] - 20) if card.get("no_lore_box") and t.get("lore") else ay
+    top = (t["lore"][1] + 5) if card.get("no_lore_box") and t.get("lore") else ay
     bot = ay + ah - D
     T0, T1 = ay - 25, ay + 70                  # art window top edge with its corners
     B0, B1 = ay + ah - 95, gy + 30             # art window bottom edge with its corners, banner, text-box top
     G[:top - 25] = F[:top - 25]
     G[top - 25:top - 25 + (T1 - T0)] = F[T0:T1]
-    m0, m1 = top - 25 + (T1 - T0), bot - 95    # straight window sides: the frame's own, stretched to fit
+    m0 = top - 25 + (T1 - T0)
+    m1 = bot - 95    # straight window sides: the frame's own, stretched to fit
     G[m0:m1] = np.array(Image.fromarray(F[T1:B0]).resize((F.shape[1], m1 - m0), Image.LANCZOS))
     G[m1:m1 + (B1 - B0)] = F[B0:B1]
     e = m1 + (B1 - B0)                         # = gy + 30 - D
     if D:
         G[e:gy + 30] = np.array(Image.fromarray(F[gy + 40:gy + gh - 40]).resize((F.shape[1], gy + 30 - e), Image.LANCZOS))
     G[gy + 30:] = F[gy + 30:]
+    if card.get("no_lore_box") and t.get("lore"):
+        # the printed no-lore cards chamfer the window's top corners under the title bar (Bill 2026-10-14,
+        # Abyssin Ornament (V)): shear the corner rows so the window edge runs in diagonally, bevel included
+        def run(row, c):
+            a = c; b = c
+            while a > 0 and row[a - 1]: a -= 1
+            while b < len(row) - 1 and row[b + 1]: b += 1
+            return a, b
+        cx = ax + aw // 2
+        A0, A1 = run(F[ay + ah // 2, :, 3] < 20, cx)
+        op = np.nonzero(F[ay + ah // 2, :, 3] > 200)[0]; E0, E1 = op.min() + 30, op.max() - 30
+        Hc = 100
+        y_top = top - 25
+        X = np.arange(G.shape[1])
+        for y in range(y_top, y_top + Hc + 30):
+            sh = int(np.clip(Hc - (y - y_top - 10), 0, Hc))
+            if not sh:
+                continue
+            src = np.interp(X, [0, E0, A0 + sh, cx, A1 - sh, E1, X[-1]], [0, E0, A0, cx, A1, E1, X[-1]]).round().astype(int)
+            G[y] = G[y][src]
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
              game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
