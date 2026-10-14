@@ -1,0 +1,28 @@
+{
+ "number": "13",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "Abyss",
+ "caption": "Abyss (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Substituted battle destinies do not count against battle destiny limits. If all your battle destinies were canceled (and not redrawn) your total battle destiny = 1. Once per game, may play a Defensive Shield from under your Starting Effect.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Careless abuse of the Force by a young Jedi trainee can have dire consequences. When hanging from the weather vane of Cloud City, Luke’s balance was his only hope.",
+ "destiny": "4",
+ "base_page": "Abyss",
+ "art": {
+  "src": "src/vs13/13-CC-D-abyss.gif",
+  "modern": "src/vs13/modern/13-VSh-D-abyss-pre.gif"
+ },
+ "id": "vs13-13",
+ "virtual_set": 13,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Banner DEFENSIVE SHIELD (teal shield frame blended with the red Effect top). Caption prints no uniqueness dot ('Abyss (V)'), stub uniqueness blank — title kept without • as printed (STANDARD says Defensive Shields are unique; renderer's call). No inline icons; slip text matches the stub. Lore corrected from scan: curly apostrophe in Luke’s. Base scan 350 px only; copyright Cloud City 1997 by rule (low-res). Modern: VSh-D-abyss-pre.gif (350 px, PC Virtual Shields remake).",
+ "game_text_lines": "Substituted battle destinies do not count against battle\ndestiny limits. If all your battle destinies were canceled\n(and not redrawn) your total battle destiny = 1. Once\nper game, may play a Defensive Shield from under your\nStarting Effect."
+}

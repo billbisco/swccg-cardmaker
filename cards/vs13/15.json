@@ -1,0 +1,43 @@
+{
+ "number": "15",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•CARIDA: ISB TRAINING ACADEMY",
+ "title": "•Carida: ISB Training Academy",
+ "caption": "◊Spaceport Street (Dark) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Imperial Council Members are forfeit +2 here. Immune to Revolution.",
+ "dark_text": "Once per game, if opponent just played an Interrupt with “Rebel” in title, may stack it here.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior",
+  "underwater"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior",
+  "underwater"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Spaceport Street (Dark)",
+ "art": {
+  "src": "src/vs13/15-SE-D-spaceportstreet.gif",
+  "modern": "src/vs13/modern/15-VB4-D-caridaisbtrainingacademy-pre.gif"
+ },
+ "id": "vs13-15",
+ "virtual_set": 13,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Portrait site overlay that RENAMES the site: bars read '•CARIDA: ISB TRAINING ACADEMY' (red dot on the Dark bar, dark dot on the Light bar). Heading/caption '◊ Spaceport Street (Dark) (V)' (gap after ◊, written without space as earlier ◊Encampment). Both Force sabers present. Icons both bars outermost first: planet, exterior, then a third box (dark figure silhouette on lavender-blue) — UNCERTAIN: named 'underwater' (the wiki's Icon-underwater file is a lavender-blue tile, the only location icon with that ground; it is not creature-site/vehicle/mobile/starship); please verify. Margin credits printed under the slip: left 'Original concept by Greg Shaw', right 'New Jersey States 2004'. Base page: the stub links [[Spaceport Street]] (the LIGHT card) but the slip is the Dark card (stub side=Dark, caption '(Dark)') — used Spaceport Street (Dark), SE-D-spaceportstreet.gif (490×350, only scan). Copyright SE 1998 line by rule. Modern: VB4-D-caridaisbtrainingacademy-pre.gif (490 px, Virtual Block 4).",
+ "margin_left": "Original concept by Greg Shaw",
+ "margin_right": "New Jersey States 2004",
+ "game_text_lines": "Imperial Council Members are forfeit +2 here. Immune to Revolution."
+}

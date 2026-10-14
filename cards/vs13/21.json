@@ -1,0 +1,40 @@
+{
+ "number": "21",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•KESSEL: SPICE MINES - EXTRACTION FACILITY",
+ "title": "•Kessel: Spice Mines - Extraction Facility",
+ "caption": "•Tatooine: Desert Landing Site (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you occupy, may use 3 Force to place a ‘spice’ card out of play.",
+ "dark_text": "During your control phase, may use 1 Force to place a ‘spice’ card in owner’s Used Pile.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Tatooine: Desert Landing Site",
+ "art": {
+  "src": "src/vs13/21-Tat-D-tatooinedesertlandingsite.gif",
+  "modern": "src/vs13/modern/21-VB4-D-kesselspiceminesextractionfacility-pre.gif"
+ },
+ "id": "vs13-21",
+ "virtual_set": 13,
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "dark_force_count": 2,
+ "notes": "Portrait site overlay that RENAMES the site: bars read '•KESSEL: SPICE MINES - EXTRACTION FACILITY'. Dark Force slot shows TWO red sabers (as the printed card: Dark Force ×2) → dark_force_count 2; Light half has one blue saber (printed card has NO Light Force icon — the slip adds one). Icons both bars outermost first: planet, exterior (as printed). No scomp. Curly ‘spice’ and owner’s (stub straight). Base Tat-D-tatooinedesertlandingsite.gif (490×350, only scan); copyright 2001 (SE-style line with year, as the Tatooine scans read). Modern: VB4-D-kesselspiceminesextractionfacility-pre.gif (490 px, same art). No margin credits.",
+ "game_text_lines": "If you occupy, may use 3 Force to place a ‘spice’ card out of play."
+}

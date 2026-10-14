@@ -1,0 +1,28 @@
+{
+ "number": "05",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Darklighter Spin",
+ "caption": "•Darklighter Spin (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▼ a {ovs} site. OR If opponent just modified your battle destiny draw, cancel and redraw it (and it may not be modified). OR If opponent just canceled your battle destiny draw, make that destiny = X instead, where X is the number of battlegrounds you occupy.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Biggs improvised this maneuver shortly after joining the Alliance. By spinning his starfighter while firing all four cannons, he was able to destroy multiple incoming targets.",
+ "destiny": "3",
+ "base_page": "Darklighter Spin",
+ "art": {
+  "src": "src/vs13/05-SE-L-darklighterspin.gif",
+  "modern": "src/vs13/modern/05-VB1-L-darklighterspin-pre.gif"
+ },
+ "id": "vs13-05",
+ "virtual_set": 13,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner USED INTERRUPT (printed base is a Lost Interrupt). Inline sphere in '▼ a [icon] site' is the slip's OWN VS13 sphere (dark teal, matches assets/icons/ovs-set-13.png and the slip's set symbol) → {ovs}; the stub reads it '[Rebel] site' and expands ▼ (wrong icon reading). Lore matches the 350 px scan. Only 350 px scan; copyright SE 1998 by set. Modern: VB1-L-darklighterspin-pre.gif (Virtual Block 1, 350 px).",
+ "game_text_lines": "▼ a {ovs} site. OR If opponent just modified your battle\ndestiny draw, cancel and redraw it (and it may not be\nmodified). OR If opponent just canceled your battle\ndestiny draw, make that destiny = X instead, where X\nis the number of battlegrounds you occupy."
+}

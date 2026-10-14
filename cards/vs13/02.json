@@ -1,0 +1,28 @@
+{
+ "number": "02",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "Chasm",
+ "caption": "Chasm (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Substituted battle destinies do not count against battle destiny limits. If all your battle destinies were canceled (and not redrawn) your total battle destiny = 1. Once per game, may play a Defensive Shield from under your Starting Effect.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "At Cloud City, Luke came face to face with his own destiny. Looking into the abyss, he made his decision.",
+ "destiny": "4",
+ "base_page": "Chasm",
+ "art": {
+  "src": "src/vs13/02-CC-L-chasm.gif",
+  "modern": "src/vs13/modern/02-VSh-L-chasm-pre.gif"
+ },
+ "id": "vs13-02",
+ "virtual_set": 13,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip heading/caption; printed Chasm is Unrestricted). Banner DEFENSIVE SHIELD (shield frame with the red Effect top edge blended in); printed base is a Cloud City Effect. No inline icons; text matches the stub. Lore matches the 350 px scan (no curly characters involved). Only a 350 px scan; copyright Cloud City 1997 by set. Modern: VSh-L-chasm-pre.gif (Virtual Shields, 350 px); non-pre also exists.",
+ "game_text_lines": "Substituted battle destinies do not count against battle\ndestiny limits. If all your battle destinies were canceled\n(and not redrawn) your total battle destiny = 1. Once\nper game, may play a Defensive Shield from under your\nStarting Effect."
+}

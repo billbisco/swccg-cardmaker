@@ -1,0 +1,29 @@
+{
+ "number": "12",
+ "side": "Light",
+ "slip_type": "Out Of Play Interrupt",
+ "card_type": "OUT OF PLAY INTERRUPT",
+ "title": "Through The Force Things You Will See",
+ "caption": "Through The Force Things You Will See (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you are about to recirculate at the end of your turn, and you have fewer cards in Used Pile than Force Pile, place your Used Pile under your Force Pile instead. OR Place the top card of your Used Pile on top of your Force Pile.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "One training exercise for a Jedi’s apprentice is to invert one’s view to see things from a different perspective. “The future, the past. Old friends long gone.”",
+ "destiny": "3",
+ "base_page": "Through The Force Things You Will See",
+ "art": {
+  "src": "src/vs13/12-Dagobah-L-throughtheforcethingsyouwillsee.gif",
+  "modern": "src/vs13/modern/12-VB2-L-throughtheforcethingsyouwillsee-pre.gif"
+ },
+ "id": "vs13-12",
+ "virtual_set": 13,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Non-unique. Banner OUT OF PLAY INTERRUPT (printed base is a Lost Interrupt). The slip was printed upside down on the sheet (like the printed card, which is printed inverted) — crop turned upright; caption strip and number sit at the TOP of the slip, banner at the bottom. No inline icons; slip text matches the stub. Lore corrected from the (upside-down) scan: curly apostrophes in Jedi’s / one’s and curly DOUBLE quotes “The future, the past. Old friends long gone.” (wiki has straight single quotes). Base scan 350 px only (printed inverted — art.src image is upside down as printed); copyright Dagobah 1997 by rule. Modern: VB2-L-throughtheforcethingsyouwillsee-pre.gif (350 px, Virtual Block 2).",
+ "game_text_lines": "If you are about to recirculate at the end of your turn,\nand you have fewer cards in Used Pile than Force Pile,\nplace your Used Pile under your Force Pile instead.\nOR Place the top card of your Used Pile on top of your\nForce Pile.",
+ "invert_text": true
+}

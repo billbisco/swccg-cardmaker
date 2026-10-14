@@ -1,0 +1,39 @@
+{
+ "number": "24",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•RALLTIIR: IMPERIAL SUPPLY ROUTE",
+ "title": "•Ralltiir: Imperial Supply Route",
+ "caption": "•Tatooine: Jawa Canyon (Dark) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If you control, opponent’s Imperial Supply Route game text is canceled.",
+ "dark_text": "Place all devices (and Effects) on your characters just lost from table in owner’s Used Pile.",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Tatooine: Jawa Canyon (Dark)",
+ "art": {
+  "src": "src/vs13/24-SE-D-tatooinejawacanyon.gif",
+  "modern": "src/vs13/modern/24-VB4-D-ralltiirsupplyroute-pre.gif"
+ },
+ "id": "vs13-24",
+ "virtual_set": 13,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Portrait site overlay that RENAMES the site: bars read '•RALLTIIR: IMPERIAL SUPPLY ROUTE'. One saber each side. Icons both bars outermost first: planet, exterior (as printed). No scomp. Curly apostrophes (owner’s, opponent’s). Base page: stub links [[Tatooine: Jawa Canyon]] (Light) but the slip is the Dark card — used Tatooine: Jawa Canyon (Dark), SE-D-tatooinejawacanyon.gif (490×350). SE copyright line. Modern: VB4-D-ralltiirsupplyroute-pre.gif (490 px, same art) — NB the Virtual Block reissue renames it '•Ralltiir: Supply Route' with different text; art only. No margin credits.",
+ "game_text_lines": "If you control, opponent’s Imperial Supply Route game text is canceled."
+}

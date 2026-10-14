@@ -279,3 +279,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (`margin_right_at: "top"`, Mara Jade, Stinger) or split around them (`margin_right_top` + `margin_right`, Aurra
   Sing). Left credit stays above the scomp ring. Stinger's column icons are Independent + Nav Computer (GEMP), not
   Nav + Astromech. Two-line credits on dark frames start at 48 px.
+- Rev 22 (VS13 run 2026-10-13): full location overlays (both halves, renamed sites) render as landscape sites
+  (`loc-site`) and a renamed system (`loc-system`, with parsec); the Dark Force icon on sites is now the red saber
+  (`assets/loc/force-dark.png`, a red recolour of the Light glow), `dark_force_count: 2` prints two sabers. Site
+  credits run across the bottom border between caption and number. `invert_text` turns title, lore, banner, text and
+  destiny upside down in an upright frame (Dagobah's Through The Force Things You Will See). Wiki rows for renamed
+  locations lead with the new name (and parsec) and give both halves ("Dark (printed)" only when the slip prints one
+  half). Sheet crops: tall site slips (`sheet.MAX_H[13]`), the upside-down #12 turned upright by hand.

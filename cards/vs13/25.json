@@ -1,0 +1,28 @@
+{
+ "number": "25",
+ "side": "Dark",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Watch Your Back!",
+ "caption": "•Watch Your Back! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "▼ a {ovs} site. OR If opponent just modified your battle destiny draw, cancel and redraw it (and it may not be modified). OR If opponent just canceled your battle destiny draw, make that destiny = X instead, where X is the number of battlegrounds you occupy.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Fighters above you, coming in!”",
+ "destiny": "3",
+ "base_page": "Watch Your Back!",
+ "art": {
+  "src": "src/vs13/25-SE-D-watchyourback.gif",
+  "modern": "src/vs13/modern/25-VB1-D-watchyourback-pre.gif"
+ },
+ "id": "vs13-25",
+ "virtual_set": 13,
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner USED INTERRUPT (printed base is a Lost Interrupt). Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Inline icon before 'site' is the teal VS13 set sphere itself (same as the slip's set symbol) → {ovs} (= a Virtual Set 13 site; stub writes '[site]'). Lore corrected from the 350 px scan: printed with curly double quotes “Fighters above you, coming in!” (wiki has straight single quotes). SE copyright line (partly legible, 1998). Modern: VB1-D-watchyourback-pre.gif (350 px, Virtual Block 1).",
+ "game_text_lines": "▼ a {ovs} site. OR If opponent just modified your battle\ndestiny draw, cancel and redraw it (and it may not be\nmodified). OR If opponent just canceled your battle\ndestiny draw, make that destiny = X instead, where X\nis the number of battlegrounds you occupy."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "Perimeter Scan",
+ "caption": "Perimeter Scan (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If two related unique (•) sites are on table, ▼ the related system. OR Peek at a face down card on table. OR If a character or starship’s power was just reduced, reset that card’s power to its printed power for remainder of turn.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“It’s a good bet the Empire knows we’re here.”",
+ "destiny": "4",
+ "base_page": "Perimeter Scan",
+ "art": {
+  "src": "src/vs13/10-Hoth-L-perimeterscan.gif",
+  "modern": "src/vs13/modern/10-V1-L-perimeterscan.gif"
+ },
+ "id": "vs13-10",
+ "virtual_set": 13,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Non-unique. Banner USED INTERRUPT (printed base is a Used Interrupt). ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore corrected from scans: wiki has straight single quotes 'It's … we're here.' — printed card has curly double quotes and curly apostrophes. Base scan Hoth-L-perimeterscan.gif 350 px only; copyright read off the 745 px V1 remake: 'TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.'. Modern: V1-L-perimeterscan.gif (745 px, Virtual Set 1 remake — different game text, same lore/art); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "If two related unique (•) sites are on table, ▼ the\nrelated system. OR Peek at a face down card on table.\nOR If a character or starship’s power was just reduced,\nreset that card’s power to its printed power for\nremainder of turn."
+}

@@ -46,6 +46,8 @@ def template_for(c: dict) -> str:
         return "creature"
     if st == "site":
         return "loc-site"
+    if st == "system":
+        return "loc-system"
     if c.get("no_lore_box") and st in ("effect",) and side == "ds":
         return "ds-effect-tall"
     if st == "epic event":
@@ -121,10 +123,12 @@ def convert(c: dict, vs: int) -> dict:
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
-    if t == "loc-site":
+    if t in ("loc-site", "loc-system"):
+        if c.get("parsec") is not None:
+            card["parsec"] = c["parsec"]
         card["light_force"] = bool(c.get("light_force")); card["dark_force"] = bool(c.get("dark_force"))
         card["dark_text"] = c.get("dark_text") or ""
     if t.startswith("objective"):

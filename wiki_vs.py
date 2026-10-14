@@ -85,6 +85,12 @@ META = {   # per set: Remaster sheet (IA url, file, IA capture date, "official t
             ordinal="twelfth", remaster="the January 2007 sheet: cover, set symbol, three rule cards and the slips shown below", pack="VS12O-pack.png", symbol="VS12O-set-symbol.png",
             title_fix={}, already_renamed=True,
             carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
+    13: dict(sheet=("https://web.archive.org/web/20071024153505/http://www.swccgpc.com/Resources/VirtualCards13.pdf", "VirtualCards13.pdf", "24 October 2007", "22 July 2007"),
+            legal="Not found", legal_ref="No Virtual Set 13 release post survives in the archived swccgpc.com news (captures stop in February 2005). The sheet's official text is dated 22 July 2007.",
+            lead_legal="Its release date is not recorded in the surviving Committee news; the sheet's official text is dated 22 July 2007.",
+            ordinal="thirteenth", remaster="the July 2007 sheet: cover, set symbol, rule card and the slips shown below", pack="VS13O-pack.png", symbol="VS13O-set-symbol.png",
+            title_fix={}, already_renamed=True,
+            carry_fix={"Do not invent card text on this stub.": "", "Do not collapse launch packaging and the Remaster sheet into one unverified gloss: keep launch (or earliest documented presence) separate from the Remaster cover used here for pack and set-symbol art.": ""}),
     3: dict(sheet=("https://web.archive.org/web/20071024153955/http://www.swccgpc.com/Resources/VirtualCards3.pdf", "VirtualCards3.pdf", "24 October 2007", "4 December 2006"),
             legal="20 September 2002", legal_ref="[https://res.starwarsccg.org/legacyblocks/VirtualCards3.pdf VirtualCards3.pdf] (starwarsccg.org CDN) — 2002 slip sheet with the legal date.",
             ordinal="third", remaster="the December 2006 Remaster sheet: cover, set symbol and the slips shown below; errata to #39 on 28 July 2007", pack="VS3O-pack.png", symbol="VS3O-set-symbol.png",
@@ -189,6 +195,8 @@ for n in range(1, NCARDS + 1):
         typ, sub, model, banner = "Objective", "", "", "OBJECTIVE"
     elif st == "site":
         typ, sub, model, banner = "Location", "Site", "", "SITE"
+    elif st == "system":
+        typ, sub, model, banner = "Location", "System", "", "SYSTEM"
     elif "creature" in st and "vehicle" not in st:
         typ, sub, model = "Creature", "", ""
     elif banner.startswith("STARFIGHTER") or banner.startswith("CAPITAL") or banner.startswith("SQUADRON"):
@@ -213,8 +221,12 @@ for n in range(1, NCARDS + 1):
         rem2 = f"OVS{VS}-{n:02d}b-{safe_b}-remaster.webp"
         slip2 = s.get("image2") or f"VS{VS}O-{n:02d}-{safe_b}.png"
         gt = f"'''{c.get('destiny') or '0'} side – {c['title'].replace('•', '')} (V)'''<br />{gt}<br /><br />'''{c.get('destiny_back') or '7'} side – {c.get('title_back')} (V)'''<br />{expand(dict(c, game_text=c['game_text_back']))}"
-    if c.get("dark_text") and (c.get("slip_type") or "").lower() == "site":
-        gt = f"'''Light:''' {gt}<br />'''Dark (printed):''' {expand(dict(c, game_text=c['dark_text']))}"
+    if (c.get("slip_type") or "").lower() in ("site", "system"):
+        _norm = lambda x: re.sub(r"\s*\((?:V|Light|Dark)\)", "", x.replace("•", "").replace("◊", "").replace("_", "")).strip().lower()
+        renamed = c["title"].replace("_", "''") if _norm(c["title"]) != _norm(c.get("caption", "")) else ""
+        dlab = "Dark (printed)" if c.get("dark_text_printed") else "Dark"
+        parts_ = ([f"'''{renamed}'''" + (f" (parsec {c['parsec']})" if c.get("parsec") is not None else "")] if renamed else []) + ([f"'''Light:''' {gt}"] if c.get("game_text") else []) + ([f"'''{dlab}:''' {expand(dict(c, game_text=c['dark_text']))}"] if c.get("dark_text") else [])
+        gt = "<br />".join(parts_)
     extra_gallery[page] = f"<gallery mode=\"packed\" heights=\"180\">\nFile:{s['image']}|{c['title'].replace('•', '')} (V) slip\nFile:{slip2}|{c.get('title_back')} (V) slip\n</gallery>\n" if rem2 else ""
     stats = dict(c.get("stats") or [])
     icons = " ".join(COL_ICON.get(i, i.title()) for i in c.get("icons") or [])

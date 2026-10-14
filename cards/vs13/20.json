@@ -1,0 +1,41 @@
+{
+ "number": "20",
+ "side": "Dark",
+ "slip_type": "Site",
+ "card_type": "•KESSEL: SPICE MINES - DOCKING BAY",
+ "title": "•Kessel: Spice Mines - Docking Bay",
+ "caption": "•Hoth: Echo Command Center (War Room) (Dark) (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Your docking bay transit from here requires 3 Force (free if your smuggler present).",
+ "dark_text": "Your docking bay transit from here requires 1 Force (free if your smuggler present).",
+ "light_force": true,
+ "dark_force": true,
+ "light_icons": [
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "dark_icons": [
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "0",
+ "base_page": "Hoth: Echo Command Center (War Room) (Dark)",
+ "art": {
+  "src": "src/vs13/20-Hoth-D-hothechocommandcenterwarroom.gif",
+  "modern": "src/vs13/modern/20-VB4-D-kesselspiceminesdockingbay-pre.gif"
+ },
+ "id": "vs13-20",
+ "virtual_set": 13,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Portrait site overlay that RENAMES the site: bars read '•KESSEL: SPICE MINES - DOCKING BAY' (dash measured as a hyphen, spaced). Both Force sabers present (one each). Icons both bars outermost first: planet, exterior, interior (printed card: planet, interior, underground + scomp — the slip drops underground and scomp, adds exterior). The slip's TOP heading has a typo '•Hoth: Echo Command Center (War Room (Dark) (V)' (missing ')'); caption from the bottom strip, which is correct. Base page: stub links [[Hoth: Echo Command Center (War Room)]] (the Light card) but the slip is the Dark card — used Hoth: Echo Command Center (War Room) (Dark), Hoth-D-hothechocommandcenterwarroom.gif (490×350). Hoth copyright 1996 by rule. Modern: VB4-D-kesselspiceminesdockingbay-pre.gif (490 px, same art); VB6-L-…warroom is the Light card, not used. No margin credits.",
+ "game_text_lines": "Your docking bay transit from here requires 3 Force (free if your smuggler present)."
+}
