@@ -1,0 +1,28 @@
+{
+ "number": "09",
+ "side": "Light",
+ "slip_type": "Used Or Lost Interrupt",
+ "card_type": "USED OR LOST INTERRUPT",
+ "title": "•Our Only Hope",
+ "caption": "•Our Only Hope (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If your {set:ds2} objective on table, USED: ▼ Luke. OR during your move phase, relocate Luke to a site opponent occupies. LOST: If your Rebel of ability > 2 just won a battle or duel, ▲ any one card (if Rebel is Luke, may also retrieve any one card).",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“The Emperor knew, as I did, if Anakin were to have any offspring, they would be a threat to him.”",
+ "destiny": "4",
+ "base_page": "Our Only Hope",
+ "art": {
+  "src": "src/vs14/09-DS2-L-ouronlyhope.gif",
+  "modern": "src/vs14/modern/09-V14-L-ouronlyhope.gif"
+ },
+ "id": "vs14-09",
+ "virtual_set": 14,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner USED OR LOST INTERRUPT. INLINE ICON: 'If your [sphere] objective' — the small blue/white/red swirl sphere is the Death Star II expansion symbol (identical to the ring icon beside the lore on the printed card) → {set:ds2}; the wiki stub reads it as 'Light Side objective' — wrong (= a Death Star II objective). Slip prints ▼ before 'Luke' and ▲ before 'any one card' (stub expands them). USED: and LOST: run inline in one paragraph on the slip (not on separate lines), so no \\n. Lore corrected from scan: curly double quotes “…” (wiki has straight single quotes). Base scan only 350 px; copyright SE-style DS2 line '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' read off the 745 px V14 remake. Modern: V14-L-ouronlyhope.gif (745 px) is the PC's LATER Virtual Set 14 card (different text: 'Relocate Prophecy Of The Force…', E1), same art/lore — art backport only; VB3 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "If your {set:ds2} objective on table, USED: ▼ Luke. OR\nduring your move phase, relocate Luke to a site\nopponent occupies. LOST: If your Rebel of ability > 2\njust won a battle or duel, ▲ any one card (if Rebel is\nLuke, may also retrieve any one card)."
+}

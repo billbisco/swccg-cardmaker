@@ -1,0 +1,44 @@
+{
+ "number": "23",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER",
+ "title": "•_Conquest_",
+ "caption": "•_Conquest_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "8"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "3"
+  ]
+ ],
+ "deploy": "8",
+ "forfeit": "8",
+ "game_text": "May add 6 pilots, 8 passengers, 2 vehicles, and 4 TIEs. Permanent pilot provides ability of 2. Once per turn, may lose 1 Force to cancel an Interrupt targeting a starship here. [Ship-docking]",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "One of the Imperial cruisers that chased the _Millennium Falcon_ from Tatooine. It scanned the _Falcon_ just before Han punched his starship to lightspeed.",
+ "destiny": "1",
+ "base_page": "Conquest (Original)",
+ "art": {
+  "src": "src/vs14/23-ANH-D-conquest-decipher-archive.gif",
+  "modern": "src/vs14/modern/23-V0-D-conquest.gif"
+ },
+ "id": "vs14-23",
+ "virtual_set": 14,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique. 'Conquest' italic in the slip's heading, caption and on the printed title (marked _…_); 'IMPERIAL' italic in the banner. Stats POWER 8 / ARMOR 5 / HYPERSPEED 3 (printed 9/6/3); deploy 8 / forfeit 8 (printed 8/9). Scomp-link ring → scomp true. Icon column top to bottom: yellow DS pilot helmet (permanent-pilot), red nav computer. The slip prints '[Ship-docking]' literally. Slip text matches the stub. Printed face = 'Conquest (Original)' (decipher-archive scan 350×490, square-on, used as src); the 745 px ANH-D-conquest.gif is the D-E1 errata face — downloaded to src/vs14/23-ANH-D-conquest.gif for art only. Lore corrected from scan: _Millennium Falcon_ and _Falcon_ italic (wiki plain). Copyright 1996 legible on the 745 face. Modern: V0-D-conquest.gif (745 px) is the PC's Set 0 Conquest (V) (different text) — art backport only; V0 _ai alternate image and VB1 -pre (348 px, this slip reissued) also exist, not downloaded.",
+ "game_text_lines": "May add 6 pilots, 8 passengers, 2 vehicles, and 4\nTIEs. Permanent pilot provides ability of 2. Once\nper turn, may lose 1 Force to cancel an Interrupt\ntargeting a starship here. [Ship-docking]"
+}

@@ -1,0 +1,40 @@
+{
+ "number": "06",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Lieutenant Blount",
+ "caption": "•Lieutenant Blount (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. Double Agent is a Used Interrupt. Once per game: may ▲ Double Agent. OR if you just targeted with Double Agent, may add 2 to your total destiny. OR may target opponent’s bounty hunter with Double Agent instead of their spy.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Rebel",
+ "lore": "Wingman of Colonel Cracken. *Spy* and *scout*. Former agent of the Imperial Security Bureau. Defected and joined Rebel Intelligence. Seasoned combat veteran.",
+ "destiny": "2",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "base_page": "Lieutenant Blount",
+ "art": {
+  "src": "src/vs14/06-DS2-L-lieutenantblount.gif",
+  "modern": "src/vs14/modern/06-VB3-L-lieutenantblount-pre.gif"
+ },
+ "notes": "Unique. Stats POWER 2 / ABILITY 2, third box empty; deploy 2 / forfeit 4. Inline pilot icon + '2.' → {pilot:2}; ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. Curly ’ in opponent’s. Icon column top to bottom: pilot, warrior. Rebel. Lore corrected: 'Spy' and 'scout' printed bold (*Spy* and *scout*, periods not bold) — visible on the 350 px scan. Base scan only 350 px; copyright not legible (DS2 2000 line by set). Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "id": "vs14-06",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "{pilot:2}. Double Agent is a Used Interrupt. Once\nper game: may ▲ Double Agent. OR if you just\ntargeted with Double Agent, may add 2 to your\ntotal destiny. OR may target opponent’s bounty\nhunter with Double Agent instead of their spy."
+}

@@ -1,0 +1,28 @@
+{
+ "number": "10",
+ "side": "Light",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Put That Down",
+ "caption": "•Put That Down (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If your character or starship is about to be captured or lost during the weapons segment of a battle, it is hit instead and may not be captured or lost until the damage segment. OR If opponent just played an Interrupt during battle, activate 2 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Lord Vader interceded between the trigger-happy mercenary and his target.",
+ "destiny": "4",
+ "base_page": "Put That Down",
+ "art": {
+  "src": "src/vs14/10-CloudCity-L-putthatdown-decipher-archive.gif",
+  "modern": "src/vs14/modern/10-V0-L-putthatdown.gif"
+ },
+ "id": "vs14-10",
+ "virtual_set": 14,
+ "expansion": "Cloud City",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner USED INTERRUPT. No inline icons; slip text matches the stub (capital 'OR If' as printed). Lore corrected from scan: 'trigger-happy' hyphenated (wiki 'trigger happy'). The 745 px CC-L-putthatdown.gif is the D-E1 errata face ('targeted by a weapon…') — downloaded to src/vs14/10-CC-L-putthatdown.gif for art only; the 350 px decipher-archive file is a square-on scan of the printed face (350×490, not a photo) used as src. Copyright 1997 Cloud City line legible on the 745 faces. Modern: V0-L-putthatdown.gif (745 px, the PC's remake of this (V) card: same text, art and lore); VB2 -pre (350) also exists, not downloaded.",
+ "game_text_lines": "If your character or starship is about to be captured or\nlost during the weapons segment of a battle, it is hit\ninstead and may not be captured or lost until the\ndamage segment. OR If opponent just played an\nInterrupt during battle, activate 2 Force."
+}

@@ -1,0 +1,37 @@
+{
+ "number": "24",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•••Death Star Gunner",
+ "caption": "•••Death Star Gunner (V)",
+ "stats": [
+  [
+   "POWER",
+   "1"
+  ],
+  [
+   "ABILITY",
+   "1"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "2",
+ "game_text": "While on Death Star: cancels opponent’s game text on your non-docking bay Death Star sites, your {set:anh} Epic Event total is cumulatively +2, and during your deploy phase, may place this character in Used Pile to ▲ Superlaser.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Most gunners in the Imperial Navy once aspired to be TIE pilots, but lacked sufficient skills to fly starfighters. A few were assigned to the Death Star to man the main artillery.",
+ "destiny": "2",
+ "base_page": "Death Star Gunner",
+ "art": {
+  "src": "src/vs14/24-ANH-D-deathstargunner.gif",
+  "modern": "src/vs14/modern/24-VB1-D-deathstargunner-pre.gif"
+ },
+ "id": "vs14-24",
+ "virtual_set": 14,
+ "expansion": "A New Hope",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Restricted (•••). Stats POWER 1 / ABILITY 1, third box blank; deploy 2 / forfeit 2. No column icons. Inline icon before 'Epic Event': green sphere with crossed red/white streaks = A New Hope (Death Star) set icon (matches set-anh-grainy.png) → {set:anh} (GEMP VB1: '[A New Hope] Epic Event'); the wiki stub drops it and expands ▲. Curly apostrophe in opponent’s. Imperial (Imperial disc). NOTE the slip reads 'cancels opponent’s game text on your non-docking bay Death Star sites'; GEMP's Virtual Block 1 legacy text reads 'cancels Force drain bonuses from Death Star sites’ game text' — transcribed as the slip prints. Lore matches the scan. Only a 350 px scan; copyright 1996 (ANH) by set. Modern: Virtual Block 1 only (VB1 -pre, 350 px).",
+ "game_text_lines": "While on Death Star: cancels opponent’s game\ntext on your non-docking bay Death Star sites,\nyour {set:anh} Epic Event total is cumulatively +2,\nand during your deploy phase, may place this\ncharacter in Used Pile to ▲ Superlaser."
+}

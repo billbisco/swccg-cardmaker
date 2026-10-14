@@ -1,0 +1,48 @@
+{
+ "number": "25",
+ "side": "Dark",
+ "slip_type": "Capital",
+ "card_type": "CAPITAL: _VICTORY_-CLASS STAR DESTROYER",
+ "title": "•_Dominator_",
+ "caption": "•_Dominator_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "6"
+  ],
+  [
+   "ARMOR",
+   "5"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "6",
+ "forfeit": "6",
+ "game_text": "_Destiny +2 when drawn for destiny._ May add 2 pilots, 4 passengers, and 2 TIEs. Permanent pilot provides ability of 2. May reveal this starship from hand to place on Used Pile. [Ship-docking]",
+ "icons": [
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": true,
+ "affiliation": null,
+ "lore": "_Victory_-class hull overhauled with powerful thrusters and latest hyperdrive technology. Engineered to support task forces combating Rebel starfighters.",
+ "destiny": "1",
+ "base_page": "Dominator",
+ "art": {
+  "src": "src/vs14/25-DS2-D-dominator.gif",
+  "modern": "src/vs14/modern/25-VB3-D-dominator-pre.gif"
+ },
+ "id": "vs14-25",
+ "virtual_set": 14,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "credit_bottom": [
+  "Original concept by Dominic Gaudreault",
+  "Quebec Provincial 2005"
+ ],
+ "notes": "Unique. 'Dominator' italic in the slip's heading, caption and printed title (_…_); 'VICTORY' italic in the banner. Game text opens with the italic sentence _Destiny +2 when drawn for destiny._ Stats POWER 6 / ARMOR 5 / HYPERSPEED 4; deploy 6 / forfeit 6 (printed 7/7). Scomp-link ring → scomp true. Icon column: yellow DS pilot helmet (permanent-pilot), red nav computer. '[Ship-docking]' printed literally. CREDITS printed horizontally in italics under the text box: left 'Original concept by Dominic Gaudreault', right 'Quebec Provincial 2005' → credit_bottom (as vs14/15, vs11/26). Lore corrected from scan: _Victory_ italic (wiki plain). Only a 350 px scan; copyright '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (DS2 style) barely legible. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "_Destiny +2 when drawn for destiny._ May add 2\npilots, 4 passengers, and 2 TIEs. Permanent pilot\nprovides ability of 2. May reveal this starship from\nhand to place on Used Pile. [Ship-docking]"
+}

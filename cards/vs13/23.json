@@ -24,5 +24,8 @@
  "expansion": "Tatooine",
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "notes": "Unique. Banner EFFECT, no grabber box. Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Inline icons: blue saber box then red saber box → {light-force} and {dark-force} (stub has them in the opposite order: '[Dark Side] and [Light Side]'). Curly ‘react.’ (stub straight). '4 - number' printed with a short hyphen, kept. Red circle-slash A at the end → {alter}. Lore matches the 350 px scan (no corrections). Copyright 2001 read off the scan. Modern: V11-D-quietlyobserving.gif (745 px, Virtual Set 11 remake with different text and no lore box — art only); VB4 -pre (350) also exists.",
- "game_text_lines": "Deploy on table. Once per game, may ▼ Bluffs. Bluffs\ngains {light-force} and {dark-force}. Once per battle, may deploy a bluff\ncard (if it is a character or vehicle) as a ‘react.’ To\nreveal a bluff card, opponent must first use X Force,\nwhere X = 4 - number of bluff cards. {alter}"
+ "game_text_lines": "Deploy on table. Once per game, may ▼ Bluffs. Bluffs\ngains {light-force} and {dark-force}. Once per battle, may deploy a bluff\ncard (if it is a character or vehicle) as a ‘react.’ To\nreveal a bluff card, opponent must first use X Force,\nwhere X = 4 - number of bluff cards. {alter}",
+ "ring_icons": [
+  "episode1"
+ ]
 }

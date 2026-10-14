@@ -27,5 +27,8 @@
  "grabber": false,
  "margin_left": "Original concept by Michael Richards",
  "margin_right": "Oklahoma States 2004",
- "game_text_lines": "If Invasion on table, deploy on table. Maul ignores\nobjective deployment restrictions. Your {presence} droids are\ndefense value +2. Your starships are deploy -1.\nImmunity to attrition of opponent’s cards is -3. {alter}"
+ "game_text_lines": "If Invasion on table, deploy on table. Maul ignores\nobjective deployment restrictions. Your {presence} droids are\ndefense value +2. Your starships are deploy -1.\nImmunity to attrition of opponent’s cards is -3. {alter}",
+ "ring_icons": [
+  "episode1"
+ ]
 }

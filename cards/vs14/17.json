@@ -1,0 +1,39 @@
+{
+ "number": "17",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Admiral Ozzel",
+ "caption": "•Admiral Ozzel (V)",
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "2",
+ "forfeit": "4",
+ "game_text": "{pilot:2}. While piloting a capital starship at a battleground system, in each battle a player’s first battle destiny draw may not be canceled or reduced and if opponent canceled a just drawn battle destiny, they lose 1 Force.",
+ "icons": [
+  "pilot"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "Leader of the Emperor’s Death Squadron assigned to hunt down and crush the Rebellion. As clumsy as he is stupid. Has just failed Darth Vader for the next-to-last time.",
+ "destiny": "0",
+ "base_page": "Admiral Ozzel (Original)",
+ "art": {
+  "src": "src/vs14/17-Hoth-D-admiralozzel-decipher-archive.gif",
+  "modern": "src/vs14/modern/17-V13-D-admiralozzel.gif"
+ },
+ "id": "vs14-17",
+ "virtual_set": 14,
+ "expansion": "Hoth",
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 3 / ABILITY 2, third box printed blank; deploy 2 / forfeit 4 (printed 0/4). Leading yellow DS pilot-power icon + '2.' → {pilot:2} (stub: 'Adds 2 to power of anything he pilots'). Curly apostrophe in player’s. Icon column: pilot (yellow DS helmet) only. Imperial (Imperial disc top-left on the scans). The wiki's default 'Admiral Ozzel' page carries Glossary Supplement errata text; printed face = 'Admiral Ozzel (Original)' (same lore/destiny/set). The 745 px Hoth-D-admiralozzel.gif is the D-E1 errata face — downloaded to src/vs14/17-Hoth-D-admiralozzel.gif for art only; the 350 px decipher-archive scan (square-on, 350×490) is the printed face used as src. Lore corrected from scan: curly apostrophe in Emperor’s (wiki straight). 'Leader' is bold on the 745 errata face but plain on the printed archive scan → left unbolded (renderer bolds keywords itself). Copyright 1996 legible on the 745 face. Modern: V13-D-admiralozzel.gif (745 px) is the PC's later Virtual Set 13 Admiral Ozzel (V) (different text) — art backport only; VB2 -pre (350, this slip reissued) also exists, not kept.",
+ "game_text_lines": "{pilot:2}. While piloting a capital starship at a\nbattleground system, in each battle a player’s\nfirst battle destiny draw may not be canceled or\nreduced and if opponent canceled a just drawn\nbattle destiny, they lose 1 Force."
+}

@@ -258,6 +258,7 @@ TEMPLATES = {
         "set_icon_abs": (1430, 1972), "set_icon_size": 60, "expansion_ring": (1379, 400), "expansion_size": 70,
         "dark_text": True, "no_type": True, "no_copyright": True,
     },
+    # Decipher printed both sides' Admiral's Orders in the same frame (Nothing Can Get Through Our Shield = Taking Them With Us)
     "epic-event": {   # Bardez "DS - Epic Event.xcf" (Epic Event icon + Epic Objective frame + text box), recoloured to the
         # Reflections III purple the slips print (hue .773 / sat .66 / val .45; make via make_objective_frames.recolour)
         "frame": ("frames/epic-event.png", 0, 0),
@@ -325,6 +326,7 @@ TEMPLATES = {
 # Shields (make_shield_fade.py). The hybrid (hard cut) above stays the primary shield template; a card opts in with
 # "shield_style": "fade" (build_vs.py sets it for the Original Virtual sets).
 TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
+TEMPLATES["ds-admirals-order"] = dict(TEMPLATES["ls-admirals-order"])   # Decipher printed both sides' Admiral's Orders in one frame
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 
@@ -488,7 +490,10 @@ def esc_i(s: str) -> str:
 def art_crop(card: dict, win=None, tag: str = "") -> str:
     """Crop the art window out of a Decipher scan (any size: the silver frame is located, then mapped)."""
     src = Path(card["art"]["src"])
-    im = Image.open(src).convert("RGB")
+    im = Image.open(src)
+    if im.mode == "P" and "transparency" in im.info:   # Virtual Block "-pre" GIFs mark their brightest highlight transparent
+        bg = Image.new("RGBA", im.size, (255, 255, 255, 255)); bg.alpha_composite(im.convert("RGBA")); im = bg
+    im = im.convert("RGB")
     import numpy as np
     a = np.array(im).astype(int)
     if card["art"].get("rect") and not win:
@@ -906,7 +911,7 @@ def build_html(card: dict) -> str:
         sx0 = (stat_boxes(t, 3) or t["stats"])[0][0]
         parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["stat_icon"]])}" style="position:absolute;left:{sx0 - 100}px;top:{t["stats_y"] - 14}px;width:96px;height:96px">')
     if "card_type" in t and card.get("card_type"):
-        parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}">{esc_i(card["card_type"])}</div>')
+        parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}"><span class="ct">{esc_i(card["card_type"])}</span></div>')
     if card.get("banner_icon") and "banner_icon" in t:
         bx, by = t["banner_icon"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box-effect.png")}" style="position:absolute;left:{bx}px;top:{by}px">')
@@ -976,6 +981,11 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
+    # Episode I icon below the ring, as the Episode I-era printed cards carry it (Radiant VII, Wesa Ready To Do Our-sa Part)
+    if "episode1" in (card.get("ring_icons") or []) and "expansion_ring" in t:
+        x, y = t["expansion_ring"]
+        sz = t.get("expansion_size", 62)
+        parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc.png")}" style="position:absolute;left:{x + 3}px;top:{y + sz + 30}px;width:{sz - 6}px;height:{sz - 6}px">')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
     if card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
@@ -1015,8 +1025,14 @@ def build_html(card: dict) -> str:
     if card.get("credit_bottom") and "game_text" in t:   # a credit set under the text box (Lord Vader (V))
         gx, gy, gw, gh = t["game_text"]
         cink = "#000" if t.get("dark_text") else "#ddd"
-        parts.append(f'<div style="position:absolute;left:{gx - 60}px;top:{t.get("credit_bottom_y", 2024)}px;width:{gw + 120}px;height:44px;text-align:center;'
-                     f'font-family:AGCn;font-style:italic;font-size:36px;line-height:44px;color:{cink};white-space:nowrap">{esc(card["credit_bottom"])}</div>')
+        cb = card["credit_bottom"]
+        if isinstance(cb, list):   # left + right under the text box (Yoda, Dominator, Thrawn (V), VS14)
+            inner = "".join(f"<span>{esc(x)}</span>" for x in cb)
+            parts.append(f'<div style="position:absolute;left:{gx - 20}px;top:{t.get("credit_bottom_y", 2024)}px;width:{gw + 40}px;height:44px;display:flex;justify-content:space-between;'
+                         f'font-family:AGCn;font-style:italic;font-size:38px;line-height:44px;color:{cink};white-space:nowrap">{inner}</div>')
+        else:
+            parts.append(f'<div style="position:absolute;left:{gx - 60}px;top:{t.get("credit_bottom_y", 2024)}px;width:{gw + 120}px;height:44px;text-align:center;'
+                         f'font-family:AGCn;font-style:italic;font-size:36px;line-height:44px;color:{cink};white-space:nowrap">{esc(cb)}</div>')
     if (t.get("landscape") or t.get("system")) and card.get("icons") and t.get("set_icon_abs"):
         sx_, sy_ = t["set_icon_abs"]; sz_ = t.get("set_icon_size", 60)
         for k, ic in enumerate(card["icons"]):   # margin discs the slip prints beside the set sphere (Episode I)
@@ -1081,6 +1097,13 @@ def build_html(card: dict) -> str:
     """
     fit_js = """
     document.fonts.ready.then(()=>{
+      for (const el of document.querySelectorAll('.ctype')) {   // a long banner (HEAVILY-MODIFIED LIGHT FREIGHTER): tighten, then condense as the slip does
+        const sp = el.querySelector('.ct'); if (!sp) continue;
+        sp.style.display = 'inline-block';
+        let ls = parseFloat(getComputedStyle(el).letterSpacing) || 0;
+        while (sp.offsetWidth > el.clientWidth - 24 && ls > 0) { ls -= 0.5; el.style.letterSpacing = ls + 'px'; }
+        if (sp.offsetWidth > el.clientWidth - 24) { sp.style.transform = 'scaleX(' + ((el.clientWidth - 24) / sp.offsetWidth) + ')'; }
+      }
       for (const el of document.querySelectorAll('.fit')) {
         let size = parseFloat(getComputedStyle(el).fontSize);
         let lh = parseFloat(getComputedStyle(el).lineHeight);

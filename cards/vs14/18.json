@@ -1,0 +1,31 @@
+{
+ "number": "18",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•After Her!",
+ "caption": "•After Her! (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Unless she is present at a site, {set:reflections3} Leia’s game text is canceled. Each Amidala stacked on a Political Effect is a senator. Once per game, may ▲ {ovs:3} Astromech Shortage.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "‘This one’s a decoy!’",
+ "destiny": "5",
+ "base_page": "After Her!",
+ "art": {
+  "src": "src/vs14/18-Theed-D-afterher.gif",
+  "modern": "src/vs14/modern/18-VBDS-D-afterher.gif"
+ },
+ "id": "vs14-18",
+ "virtual_set": 14,
+ "expansion": "Theed Palace",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Printed base is an Immediate Effect (Theed Palace); slip banner DEFENSIVE SHIELD. Inline icons: before 'Leia’s' a blue disc with a dark figure holding a red double-bladed saber = the Reflections III set icon → {set:reflections3} (GEMP VB text: '[Reflections 3] Leia'); before 'Astromech Shortage' a tan/white striped sphere = the Original Virtual Set 3 sphere (matches ovs-set-3.png; Astromech Shortage (V) is VS3) → {ovs:3} (GEMP: '[Virtual Block 1] Astromech Shortage'). The wiki stub drops both icons and expands ▲ as 'Take into hand from Reserve Deck; reshuffle'. Curly apostrophe in Leia’s. Lore corrected from scan: curly single quotes ‘This one’s a decoy!’ (wiki straight 'This one's a decoy!'). Only a 350 px scan exists; copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' just legible on it. Modern: no V-remake; the Virtual Block DS reissue (350 px, res.starwarsccg.org legacy VirtualBlockDS-Dark/afterher.gif) downloaded as src/vs14/modern/18-VBDS-D-afterher.gif.",
+ "game_text_lines": "Plays on table. Unless she is present at a site, {set:reflections3}\nLeia’s game text is canceled. Each Amidala stacked\non a Political Effect is a senator. Once per game, may ▲ {ovs:3}\nAstromech Shortage.",
+ "ring_icons": [
+  "episode1"
+ ]
+}

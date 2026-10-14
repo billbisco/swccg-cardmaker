@@ -1,0 +1,48 @@
+{
+ "number": "26",
+ "side": "Dark",
+ "slip_type": "Character",
+ "card_type": "",
+ "title": "•Grand Admiral Thrawn",
+ "caption": "•Grand Admiral Thrawn (V)",
+ "stats": [
+  [
+   "POWER",
+   "2"
+  ],
+  [
+   "ABILITY",
+   "4"
+  ],
+  [
+   "FORCE-SENSITIVE",
+   ""
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "7",
+ "game_text": "{pilot:3}. Your {independent} starships are lost. Once per turn, if at a system of parsec > 6, may deploy a Dreadnaught here from under your Starting Effect. Once per turn, if opponent’s alien at same or related location, may peek at opponent’s hand.",
+ "icons": [
+  "pilot",
+  "warrior"
+ ],
+ "scomp": false,
+ "affiliation": "Imperial",
+ "lore": "The last remaining Grand Admiral. Found legendary _Katana_ fleet of missing Dreadnaughts. Military genius. Master of unorthodox tactics. Passionate collector of art. *Leader*.",
+ "destiny": "1",
+ "base_page": "Grand Admiral Thrawn",
+ "art": {
+  "src": "src/vs14/26-Ref2-D-grandadmiralthrawn.gif",
+  "modern": "src/vs14/modern/26-V7-D-grandadmiralthrawn.gif"
+ },
+ "id": "vs14-26",
+ "virtual_set": 14,
+ "expansion": "Reflections II",
+ "copyright": "© 2000 LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Stats POWER 2 / ABILITY 4 / FORCE-SENSITIVE (label only), deploy 4 / forfeit 7 (as printed). Leading yellow DS pilot-power icon + '3.' → {pilot:3} (stub: 'Adds 3 to power of anything he pilots'). Inline blue spoked wheel in 'Your [icon] starships' → {independent} (stub: 'Independent'). Curly apostrophes in opponent’s (twice); 'parsec > 6' as printed. Icon column top to bottom: pilot (yellow DS helmet), warrior (blue, weapon) — as printed. Imperial (Imperial disc top-left on both scans). CREDITS: printed in italic BELOW the text box (frame strip above the caption bar), not in the side margins — left 'Original concept by Nick Kolnik', right 'Volunteer Award 2006'; recorded as margin_left / margin_right per the brief (same layout as VS13 #15's credits; the renderer may need a 'below the box, left + right' placement, cf. credit_bottom on VS11 #26). Lore corrected from both scans (354 px Ref2 and 745 px V7 remake): _Katana_ italic, 'Dreadnaughts' capitalised (wiki 'dreadnaughts'), *Leader* bold (visible on both). Copyright '© 2000 LUCASFILM LTD. & TM. …' legible on the V7 745 px face (Reflections II). Base scan only 354 px (Ref2-D-grandadmiralthrawn.gif). Modern: V7-D-grandadmiralthrawn.gif (745 px, Virtual Set 7 remake; a V7-…_ai.gif variant exists, not downloaded); VB4 (353) also exists, not downloaded.",
+ "game_text_lines": "{pilot:3}. Your {independent} starships are lost. Once per turn,\nif at a system of parsec > 6, may deploy a\nDreadnaught here from under your Starting\nEffect. Once per turn, if opponent’s alien at same\nor related location, may peek at opponent’s hand.",
+ "credit_bottom": [
+  "Original concept by Nick Kolnik",
+  "Volunteer Award 2006"
+ ]
+}

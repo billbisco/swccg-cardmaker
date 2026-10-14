@@ -1,0 +1,34 @@
+{
+ "number": "13",
+ "side": "Light",
+ "slip_type": "Admiral’s Order",
+ "card_type": "",
+ "title": "•Taking Them With Us",
+ "caption": "•Taking Them With Us (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Each player may, once per battle at a system, lose 1 Force to target two participating unique (•) piloted starships with immunity to attrition (one from each player); both starships lose all immunity to attrition this turn. When deploying to capital starships, your Mon Calamari pilots are deploy = 1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "",
+ "destiny": "6",
+ "base_page": "Taking Them With Us",
+ "art": {
+  "src": "src/vs14/13-DS2-L-takingthemwithus.gif",
+  "modern": "src/vs14/modern/13-VB3-L-takingthemwithus-pre.gif",
+  "bbox": [
+   15.8,
+   18.5,
+   330.0,
+   473.7
+  ]
+ },
+ "id": "vs14-13",
+ "virtual_set": 14,
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. ADMIRAL'S ORDER (printed card is a full-art Death Star II Admiral's Order; model vs9/16): the slip is the black text box over starfield only — no banner, no stats, no icons. '(•)' and 'deploy = 1' as printed. Slip text matches the stub. Admiral's Orders print no lore → lore ''. Base scan only 350 px; copyright line (vertical, right of the text box) not legible — DS2 SE-style 2000 line assumed (as vs11 DS2 cards). art.bbox (text-box bevel ↔ scan) not measured — the vs9/16 model has one; renderer will need it. Modern: Virtual Block 3 only (VB3 -pre, 350 px).",
+ "game_text_lines": "Each player may, once per battle at a system, lose 1\nForce to target two participating unique (•) piloted\nstarships with immunity to attrition (one from each\nplayer); both starships lose all immunity to attrition\nthis turn. When deploying to capital starships, your\nMon Calamari pilots are deploy = 1."
+}

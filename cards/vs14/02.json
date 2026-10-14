@@ -1,0 +1,28 @@
+{
+ "number": "02",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Antilles Maneuver",
+ "caption": "•Antilles Maneuver (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "For remainder of turn, opponent must first use 1 Force to fire a weapon and opponent’s starship weapon destiny draws are -1. OR During opponent’s deploy phase, ▼ a Rebel of ability < 3 (except an admiral) aboard your starship.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "As their war with the Empire continued, Rebel pilots learned ways to counter standard Imperial tactics such as the Tallon Roll.",
+ "destiny": "5",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Antilles Maneuver",
+ "art": {
+  "src": "src/vs14/02-SE-L-antillesmaneuver.gif",
+  "modern": "src/vs14/modern/02-V0-L-antillesmaneuver.gif"
+ },
+ "notes": "Unique. Banner USED INTERRUPT. Curly ’ in opponent’s; ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'. Lore matches the 350 px scan and the 745 px V0 remake. Base scan only 350 px; copyright read off the V0 remake (© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.). Modern: V0-L-antillesmaneuver.gif (745 px; prints this slip's text); VB1 -pre/-non-pre and VB6 combo (350) also exist, not downloaded.",
+ "id": "vs14-02",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "For remainder of turn, opponent must first use 1 Force\nto fire a weapon and opponent’s starship weapon\ndestiny draws are -1. OR During opponent’s deploy\nphase, ▼ a Rebel of ability < 3 (except an admiral)\naboard your starship."
+}

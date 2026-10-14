@@ -1,0 +1,51 @@
+{
+ "number": "11",
+ "side": "Light",
+ "slip_type": "Starship",
+ "card_type": "STARFIGHTER: CORELLIAN REPUBLIC CRUISER",
+ "title": "•Obi-Wan In _Radiant VII_",
+ "caption": "•_Radiant VII_ (V)",
+ "stats": [
+  [
+   "POWER",
+   "4"
+  ],
+  [
+   "ARMOR",
+   "4"
+  ],
+  [
+   "HYPERSPEED",
+   "4"
+  ]
+ ],
+ "deploy": "5",
+ "forfeit": "6",
+ "game_text": "May add 1 pilot. Permanent pilot is •Obi-Wan, who provides ability of 6. Opponent’s starships may not cloak. Your total ability here may not be reduced.",
+ "icons": [
+  "republic",
+  "permanent-pilot",
+  "nav"
+ ],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Optimized for diplomatic missions with sensor-proof pods that have ejection capabilities. Easily identified by its red coloration.",
+ "destiny": "2",
+ "base_page": "Radiant VII",
+ "art": {
+  "src": "src/vs14/11-Cor-L-radiantvii.gif",
+  "modern": null
+ },
+ "id": "vs14-11",
+ "virtual_set": 14,
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "combo": true,
+ "heading": "•Obi-Wan In _Radiant VII_ (V)",
+ "base_title": "•_Radiant VII_",
+ "notes": "COMBO CARD — TALL FULL-CARD OVERLAY (755×1099 crop, the whole card face, not a bottom-half slip). Layout top to bottom, as the slip prints it on the printed card's blue Episode I-era starship frame: (1) TITLE BAR (silver): a round disc at the left — dark disc with a blue/white streaked starfighter image, identical to the disc on the printed Radiant VII (the Coruscant-era starship-type disc), not a character affiliation disc; title '•Obi-Wan In _Radiant VII_' in the Decipher title face with 'Radiant VII' italic; destiny 2 in the black hole at the right (unchanged). (2) LORE BOX: 'Optimized for diplomatic missions with sensor-proof / pods that have ejection capabilities. Easily identified by its / red coloration.' — first line indented; identical wording and line breaks to the printed card. Right of the lore box, top to bottom: the Coruscant expansion ring icon (pink sphere with yellow rim) and the black EPISODE I icon — both as on the printed card. (3) ART WINDOW: blank white on the slip (the printed art stays; renderer maps the art from the base scan). Copyright line not printed on the slip (stays from the printed card). (4) Starship half: banner STARFIGHTER: CORELLIAN REPUBLIC CRUISER; stat boxes POWER 4 / ARMOR 4 / HYPERSPEED 4; deploy 5 / forfeit 6 boxes left of the text box; no scomp ring; game text (4 lines: 'May add 1 pilot. Permanent pilot is •Obi-Wan, who / provides ability of 6. Opponent’s starships may not / cloak. Your total ability here may not be reduced.'); icon column top to bottom: Republic (silver Republic starship crest on lavender/white box), Pilot helmet on yellow (permanent pilot — LS Rebel helmet), Nav Computer (astromech dome on red); then the VS14 set sphere (orange). (5) Bottom strip: caption '•_Radiant VII_ (V)' (italic ship name), number 11. The heading above the slip reads '•Obi-Wan In _Radiant VII_ (V)'; stub page is 'Radiant VII (V) (Virtual Set 14: Armed & Operational)'. CHANGES vs Decipher Radiant VII (Coruscant, Cor-L-radiantvii.gif): title '•Radiant VII' → '•Obi-Wan In Radiant VII'; lore, destiny 2, disc, banner, ring icons unchanged; POWER 5 → 4 (ARMOR 4, HYPERSPEED 4 unchanged); deploy 4 → 5; forfeit 7 → 6; game text replaced (printed: 'May add 3 pilots and 3 passengers. Has ship-docking capability. While Madakor or Williams piloting, immune to Lateral Damage and attrition < 5.'); icon column Republic + Nav → Republic + permanent Pilot + Nav. Base title italic not certain on the 350 px scan — base_title marked _Radiant VII_ following the slip's caption. Base scan only 350 px; copyright not legible — Coruscant SE-style 2001 line taken from the PC's V1 Mace Windu (Coruscant) remake where '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' is legible (vs13/03 and vs13/08 used 2000). No modern remake found (no V*/VB* radiantvii file on the wiki). Lore matches the wiki. 'Opponent’s' curly apostrophe as printed. Stub text matches except '(*)Obi-Wan' = •Obi-Wan.",
+ "game_text_lines": "May add 1 pilot. Permanent pilot is •Obi-Wan, who\nprovides ability of 6. Opponent’s starships may not\ncloak. Your total ability here may not be reduced.",
+ "ring_icons": [
+  "episode1"
+ ]
+}

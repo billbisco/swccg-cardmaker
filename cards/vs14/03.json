@@ -1,0 +1,28 @@
+{
+ "number": "03",
+ "slip_type": "Used Interrupt",
+ "card_type": "USED INTERRUPT",
+ "title": "•Balanced Attack",
+ "caption": "•Balanced Attack (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "If your corvette, cruiser, and frigate are in battle together, cancel an opponent’s non-{sense} Interrupt. OR ▼ a frigate (deploys -2) to same system as your corvette and cruiser. OR ▼ a cruiser (deploys -3) to same system as your corvette and frigate.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Alliance starfighter pilots cross-train with other starship types to maximize combat efficiency.",
+ "destiny": "4",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "base_page": "Balanced Attack",
+ "art": {
+  "src": "src/vs14/03-SE-L-balancedattack.gif",
+  "modern": "src/vs14/modern/03-VB1-L-balancedattack-pre.gif"
+ },
+ "notes": "Unique. Banner USED INTERRUPT. Inline red circle-slash S after 'non-' → {sense} (stub: 'non-(Immune to Sense)'); two ▼ where the stub expands them. Curly ’ in opponent’s. Lore matches the 350 px scan. Base scan only 350 px; copyright (SE 1998) not legible. Modern: Virtual Block 1 only (VB1 -pre, 350 px); V24 'Balanced Attack & Darklighter Spin' is a different combo card, not downloaded.",
+ "id": "vs14-03",
+ "virtual_set": 14,
+ "side": "Light",
+ "game_text_lines": "If your corvette, cruiser, and frigate are in battle\ntogether, cancel an opponent’s non-{sense} Interrupt. OR\n▼ a frigate (deploys -2) to same system as your\ncorvette and cruiser. OR ▼ a cruiser (deploys -3) to\nsame system as your corvette and frigate."
+}

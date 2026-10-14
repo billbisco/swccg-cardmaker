@@ -27,5 +27,8 @@
  "margin_left": "Original concept by Garrett Larson",
  "margin_right": "Bespin Regionals 2005",
  "notes": "Non-unique (no dot; wiki Unrestricted). Banner EFFECT, no grabber box. Slip prints ▼ where the stub expands 'Deploy on table from Reserve Deck; reshuffle'; red circle-slash A at the end → {alter}. Margin credits printed vertically: left 'Original concept by Garrett Larson', right 'Bespin Regionals 2005'. Lore matches the scan. Base scan only at 350 px (copyright year blurry there); copyright '© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.' read off the 745 px V0 remake. Modern: V0-D-establishcontrol.gif (745 px, the PC's remake of this (V) card: same art/lore, text '+1 at docking bays you occupy'); VB5 -pre (350) also exists, not downloaded.",
- "game_text_lines": "Deploy on table. Your Force generation is +2 at\ndocking bays you control. Your docking bays controlled\nby opponent are battlegrounds. Once per game, may ▼\nCorulag or Fondor. If Mobilization Points on table,\nthis Effect lost. {alter}"
+ "game_text_lines": "Deploy on table. Your Force generation is +2 at\ndocking bays you control. Your docking bays controlled\nby opponent are battlegrounds. Once per game, may ▼\nCorulag or Fondor. If Mobilization Points on table,\nthis Effect lost. {alter}",
+ "ring_icons": [
+  "episode1"
+ ]
 }

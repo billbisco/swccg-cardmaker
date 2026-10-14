@@ -1,0 +1,29 @@
+{
+ "number": "28",
+ "side": "Dark",
+ "slip_type": "Effect",
+ "card_type": "EFFECT",
+ "title": "•Much Anger In Him",
+ "caption": "•Much Anger In Him (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Use 4 Force to deploy on opponent’s non-droid, non-Jedi Master character (or 2 Force on a Rebel). Character’s game text is canceled and they draw one battle destiny if unable to otherwise. Opponent may lose three cards from hand (may not be reduced) to cancel this Effect.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Adventure, heh. Excitement, heh. A Jedi craves not these things. You are reckless.”",
+ "destiny": "3",
+ "base_page": "Much Anger In Him",
+ "art": {
+  "src": "src/vs14/28-Dagobah-D-muchangerinhim.gif",
+  "modern": "src/vs14/modern/28-VB2-D-muchangerinhim-pre.gif"
+ },
+ "id": "vs14-28",
+ "virtual_set": 14,
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner EFFECT, no grabber box. Curly apostrophes in opponent’s / Character’s. No inline icons, no margin credits; slip text matches the stub. Lore corrected from scan: curly double quotes (wiki has straight single quotes). Base scan only 350 px; copyright 1997 (Dagobah) barely legible. Modern: Virtual Block 2 only (VB2 -pre, 350 px, same face as the base scan).",
+ "grabber": false,
+ "game_text_lines": "Use 4 Force to deploy on opponent’s non-droid, non-Jedi\nMaster character (or 2 Force on a Rebel). Character’s\ngame text is canceled and they draw one battle destiny\nif unable to otherwise. Opponent may lose three cards\nfrom hand (may not be reduced) to cancel this Effect."
+}

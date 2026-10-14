@@ -305,3 +305,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
 - Rev 25 (Bill 2026-10-14): Dark locations (remaster and V-slip) are shown from the Dark Side's seat, as Decipher
   prints them: the card is turned 180° (Dark half, icons, copyright and set sphere at the bottom/left), the picture
   stays upright and the caption strip stays in the bottom margin; landscape slips turn the body +90° for Dark cards.
+- Rev 26 (VS14 run 2026-10-14): `ds-admirals-order` (same frame as Light; Decipher printed both sides alike); Episode I
+  icon under the expansion ring (`ring_icons: ["episode1"]`, Bardez site layers, as the Coruscant/Theed/Tatooine/
+  Reflections III printed cards carry it; set on earlier cards too); bottom credits left + right (`credit_bottom` as a
+  list); long banners tighten then condense (HEAVILY-MODIFIED LIGHT FREIGHTER); GIF transparency (PC remakes mark
+  their brightest highlight transparent) composited on white; combo slips renamed like locations (Obi-Wan In Radiant
+  VII (V), GEMP agrees); wiki "non-[Immune to Sense]". sheet.py skips the stray "00" under VS14's numbers.

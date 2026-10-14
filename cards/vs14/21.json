@@ -1,0 +1,28 @@
+{
+ "number": "21",
+ "side": "Dark",
+ "slip_type": "Device",
+ "card_type": "DEVICE",
+ "title": "Comlink",
+ "caption": "Comlink (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Deploy on an Imperial. While present at a battleground (or deployed on Emperor), Imperials lost from Life Force satisfy an additional 2 Force loss. If Luke deploys using your objective, he deploys to Vader’s site (if possible). Once per game, may ▲ Rise, My Friend.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Hand-held communication device. Military comlinks have scrambling and variable frequency programming for secure communication during battles or emergencies.",
+ "destiny": "3",
+ "base_page": "Comlink",
+ "art": {
+  "src": "src/vs14/21-Premiere-D-comlink.gif",
+  "modern": "src/vs14/modern/21-VB6-D-comlink-pre.gif"
+ },
+ "id": "vs14-21",
+ "virtual_set": 14,
+ "expansion": "Premiere Limited",
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "notes": "Non-unique (no dot on slip or printed card; wiki: Unrestricted). Green Device frame, banner DEVICE. Curly apostrophe in Vader’s; ▲ where the stub expands 'Take into hand from Reserve Deck; reshuffle'. No inline icons. Lore matches the scan. Only a 350 px scan; copyright 1995 (Premiere) by set, not legible. Modern: Virtual Block 6 only (VB6 -pre, 350 px) — note GEMP's VB6 Comlink (V) carries different text from this slip.",
+ "game_text_lines": "Deploy on an Imperial. While present at a battleground\n(or deployed on Emperor), Imperials lost from Life\nForce satisfy an additional 2 Force loss. If Luke\ndeploys using your objective, he deploys to Vader’s site\n(if possible). Once per game, may ▲ Rise, My Friend."
+}
