@@ -8,14 +8,16 @@ import render
 ROOT = Path(__file__).resolve().parent
 
 SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Premiere prints — checked on BoShek/Black 2 scans)
-    "A New Hope": "icons/set-anh-grainy.png", "Premiere": None, "Premiere Limited": None, "Premiere Unlimited": None,
-    "Jedi Pack": "icons/set-premium-grainy.png", "Hoth": "icons/set-hoth-bardez.png", "Dagobah": "icons/set-dagobah-decipher.png",
-    "Special Edition": "icons/set-se-grainy.png", "Endor": "icons/set-endor-grainy.png",
-    "Cloud City": "icons/set-cloudcity-grainy.png", "Jabba's Palace": "icons/set-jabbaspalace-grainy.png", "Jabba's Palace Sealed Deck": "icons/set-jabbaspalace-grainy.png", "Enhanced Jabba's Palace": "icons/set-ejp-grainy.png",
-    "Reflections II": "icons/set-reflections2-grainy.png", "Coruscant": "icons/set-coruscant-grainy.png",
-    "Tatooine": "icons/set-tatooine.png", "Theed Palace": "icons/set-theed.png",   # Bardez "DS - Epic Event.xcf" expansion layers
-    "Enhanced Cloud City": "icons/set-premium-grainy.png", "Official Tournament Sealed Deck": "icons/set-premium-grainy.png",   # silver premium sphere
-    "Death Star II": "icons/set-ds2-grainy.png", "Reflections III": "icons/set-reflections3-grainy.png",
+    # Bill 2026-10-14: always Decipher's own expansion spheres (no Bardez/PC redraws): the wiki's clean Icon-set-*
+    # discs where they exist, else cut from 745 px Decipher scans (Coruscant, Ref II, Ref III, Theed, Tatooine, EJP)
+    "A New Hope": "icons/set-anh-decipher.png", "Premiere": None, "Premiere Limited": None, "Premiere Unlimited": None,
+    "Jedi Pack": "icons/set-premium-decipher.png", "Hoth": "icons/set-hoth-decipher.png", "Dagobah": "icons/set-dagobah-decipher.png",
+    "Special Edition": "icons/set-se-decipher.png", "Endor": "icons/set-endor-decipher.png",
+    "Cloud City": "icons/set-cloudcity-decipher.png", "Jabba's Palace": "icons/set-jabbaspalace-decipher.png", "Jabba's Palace Sealed Deck": "icons/set-jabbaspalace-decipher.png", "Enhanced Jabba's Palace": "icons/set-ejp-decipher.png",
+    "Reflections II": "icons/set-reflections2-decipher.png", "Coruscant": "icons/set-coruscant-decipher.png",
+    "Tatooine": "icons/set-tatooine-decipher.png", "Theed Palace": "icons/set-theed-decipher.png",
+    "Enhanced Cloud City": "icons/set-premium-decipher.png", "Official Tournament Sealed Deck": "icons/set-premium-decipher.png",   # silver premium sphere
+    "Death Star II": "icons/set-ds2-decipher.png", "Reflections III": "icons/set-reflections3-decipher.png",
 }
 TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
              "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}", "{icon:republic-square}": "{republic-square}"}
