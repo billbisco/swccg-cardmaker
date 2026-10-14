@@ -353,3 +353,6 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (`{icon:maintenance-flag}`, cut at 1200 DPI); `no_expansion_ring` (slips that drop the base card's ring); dual
   affiliations "Rebel + Republic" / "Alien + Republic" draw the Republic crest as a second disc; wiki banners split on
   ":" or "–"; slip-printed lore never written to base pages (`base_lore` used for the Decipher page's lore fix).
+- Rev 34 (Bill 2026-10-14, Watto (V)): a credit the slip prints in the black caption strip stays there
+  (`credit_strip`, right-aligned before the number). Art from the printed scan by its own window (`art.rect`) when the
+  auto frame detection zooms (dark Episode I frames); never a Virtual Block reissue whose art is cropped differently.
