@@ -300,7 +300,7 @@ TEMPLATES = {
         "slot_y": 1155, "slot_pitch": 111,
         "ls_scomp": (1790, 1142), "ds_scomp": (181, 236),
         "ls_force": (140, 1105), "ds_force": None,  # frame coords of the light-saber glow crop (DS = rotated mirror)
-        "set_icon_abs": (1984, 1363),
+        "set_icon_abs": (1984, 193),   # PC set mark: top-right (the Dark half's end), as the PC sites print it (Maz's Castle: Antechamber)
         "expansion_ring": (1991, 453), "expansion_size": 50,
         "copyright": (2002, 560, 36, 600),
         "caption_y": 1494,
@@ -316,7 +316,7 @@ TEMPLATES = {
         "ls_icon": (1232, 1797), "ds_icon": (406, 421),          # centres of the black icon boxes
         "ls_parsec": (1298, 1752, 89, 86), "ds_parsec": (250, 380, 88, 86),
         "ls_force": (230, 1700), "ds_force": (1110, 330),
-        "set_icon_abs": (1410, 1923), "set_icon_size": 72,
+        "set_icon_abs": (1410, 225), "set_icon_size": 72,   # PC set mark: top-right margin (mirrored half of the scans)
         "system_ring": (138, 186, 52),
         "copyright_split": ((176, 1686, 36, 420), (1424, 1686, 36, 420)),   # Lucasfilm left / Decipher right margin (Dagobah)   # the printed systems' expansion sphere, top-left margin (Hoth, Bespin scans)
         "caption_y": 2082,
@@ -363,6 +363,7 @@ TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-j
 # Light Epic Events (Attack Run, Boonta Eve Podrace) print on the Light Objective frame with the Epic Event disc
 for _k in ("objective-ls", "objective"):   # printed Objectives carry the expansion sphere right of the art, under the destiny
     TEMPLATES[_k].setdefault("expansion_ring", (1412, 295)); TEMPLATES[_k].setdefault("expansion_size", 70)
+TEMPLATES["ls-jeditest-olive"] = dict(TEMPLATES["ls-jeditest-tall"], frame=("frames/ls-jeditest-olive.png", 0, 0))   # printed Jedi Tests: olive throughout
 TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
 # Virtual Block Missions (make_mission_frames.py): full art under the Admiral's Order title bar, tan panel at the foot
 for _sd, _D in (("ls", 324), ("ds", 336)):
@@ -680,8 +681,17 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
                     piece = crop.crop((xa, src_edge - h, xb, src_edge)).transpose(Image.FLIP_TOP_BOTTOM); crop.paste(piece, (xa, y)); y += h
                 else:        # fill upward from y1 with the rows below y1, flipped
                     piece = crop.crop((xa, src_edge, xb, src_edge + h)).transpose(Image.FLIP_TOP_BOTTOM); crop.paste(piece, (xa, y - h)); y -= h
-        mirror_fill(40, 390, True, 0, 1343)
-        mirror_fill(1540, 1931, False, 0, 1343)
+        # where the scan's own bar assemblies are: rows that are silver across most of the width (the printings put
+        # them at slightly different heights: Death Star II, Rendezvous Point); none = a half the card doesn't print
+        hsv = np.array(crop.convert("HSV")).astype(int)[:, 150:1200]
+        sil = (hsv[:, :, 1] < 45) & (hsv[:, :, 2] > 105)
+        silver = (sil.mean(axis=1) > 0.8) & (sil[:, :120].mean(axis=1) > 0.7) & (sil[:, -120:].mean(axis=1) > 0.7)
+        top = [y for y in range(0, 560) if silver[y]]
+        bot = [y for y in range(1380, 1931) if silver[y]]
+        if top:
+            mirror_fill(0, min(top[-1] + 22, 580), True, 0, 1343)
+        if bot:
+            mirror_fill(max(bot[0] - 22, 1360), 1931, False, 0, 1343)
     p = OUT / f"_art_{card['id']}{tag}.png"
     crop.save(p)
     return data_uri(p)
@@ -1007,7 +1017,22 @@ def sys_frame(card: dict, t: dict) -> Path:
                 canvas.alpha_composite(sab, (t["ds_force"][0] - 82 * k, t["ds_force"][1]))
     fx, fy = t["frame_off"]
     canvas.alpha_composite(Image.open(ASSETS / t["frame_png"]).convert("RGBA"), (fx, fy))
+    for half, light in (("light", True), ("dark", False)):
+        # a system that prints one half only (Death Star: no Light Side bar or text): open the other half to the art
+        if card.get(f"{half}_half_absent"):
+            import numpy as np
+            ca = np.array(canvas); y0, y1 = (1590, 2110) if light else (110, 630)
+            ca[y0:y1, 90:1545, 3] = 0; canvas = Image.fromarray(ca)
+    if card.get("parsec") in (None, ""):   # sectors (Asteroid Field, Clouds) print no parsec box: open it to the art
+        import numpy as np
+        ca = np.array(canvas)
+        for k in ("ls_parsec", "ds_parsec"):
+            x, y, w, h = t[k]
+            ca[y - 12:y + h + 12, x - 14:x + w + 16, 3] = 0
+        canvas = Image.fromarray(ca)
     for key, light in (("light_icons", True), ("dark_icons", False)):
+        if card.get("light_half_absent" if light else "dark_half_absent"):
+            continue
         for name in card.get(key, [])[:1]:
             cx, cy = t["ls_icon"] if light else t["ds_icon"]
             sb = LOC / f"scanbox-{name}.png"
@@ -1171,21 +1196,28 @@ def build_html(card: dict) -> str:
         tx, ty, tw, th = t["ds_text"]; th += DD
         parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
     elif t.get("system"):
-        x, y, w, h = t["ls_bar"]
-        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Light")}</div>')
-        x, y, w, h = t["ds_bar"]
-        parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Dark")}</div>')
+        LA, DA = card.get("light_half_absent"), card.get("dark_half_absent")   # one-sided systems (Death Star)
+        if not LA:
+            x, y, w, h = t["ls_bar"]
+            parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Light")}</div>')
+        if not DA:
+            x, y, w, h = t["ds_bar"]
+            parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Dark")}</div>')
         sec('location_text')
-        x, y, w, h = t["ls_text"]
-        parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
-        x, y, w, h = t["ds_text"]
-        parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+        if not LA:
+            x, y, w, h = t["ls_text"]
+            parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
+        if not DA:
+            x, y, w, h = t["ds_text"]
+            parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
         sec('parsec')
         if card.get("parsec") is not None:
-            x, y, w, h = t["ls_parsec"]
-            parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc(str(card["parsec"]))}</div>')
-            x, y, w, h = t["ds_parsec"]
-            parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
+            if not LA:
+                x, y, w, h = t["ls_parsec"]
+                parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc(str(card["parsec"]))}</div>')
+            if not DA:
+                x, y, w, h = t["ds_parsec"]
+                parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
     else:
         parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
     sec('destiny')
@@ -1466,7 +1498,7 @@ def build_html(card: dict) -> str:
     .inv .title, .inv .lore, .inv .ctype, .inv .gt, .inv .destiny {{rotate:180deg}}   /* Dagobah's upside-down cards (Through The Force Things You Will See) */
     .title{{font-family:Fiorello;font-size:80px;color:{t.get("title_ink", ink)};letter-spacing:1px;line-height:90px;white-space:nowrap}}
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
-    .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", LP["ind"])}px}}
+    .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};overflow-wrap:anywhere;text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
     .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{t.get("gt_ink", ink)};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 3)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
     .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:1.0em;line-height:0;vertical-align:0.02em}}
