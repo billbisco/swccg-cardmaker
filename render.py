@@ -1211,6 +1211,9 @@ def build_html(card: dict) -> str:
         sz = t.get("expansion_size", 62)
         k = 0 if (card.get("ring_fill") and not card.get("expansion_icon")) else 1   # card maker: no sphere -> the first disc takes its place (Aayla Secura)
         for nm in card["ring_icons"]:
+            if nm == "sidious" and "game_text" in t:   # printed in the right margin at the text box top (Unlimited Power!)
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{t["game_text"][1] - 70}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+                continue
             if nm in RING_DISCS:
                 parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
                 k += 1
