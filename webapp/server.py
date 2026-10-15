@@ -51,16 +51,24 @@ for _c in CARDS.values():   # one card spells the Force icon keys in lower case
     for _a, _b in (("lightsideIcons", "lightSideIcons"), ("darksideIcons", "darkSideIcons")):
         if _a in _c["front"]: _c["front"].setdefault(_b, _c["front"].pop(_a))
 _CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if (ROOT / "gempdata/corrections.json").exists() else {}
+_FILL = json.load(open(ROOT / "gempdata/fill.json", encoding="utf-8")) if (ROOT / "gempdata/fill.json").exists() else {}
+for _g, _vals in _FILL.items():   # values the PC JSON lacks, transcribed from the printed cards (Force icons, INFLUENCE, …)
+    if _g in CARDS and isinstance(_vals, dict):
+        for _k, _v in _vals.items():
+            if not _k.startswith("_"):
+                CARDS[_g]["front"][_k] = _v
 for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
     if _g in CARDS:
-        for _k, (_wrong, _right) in _fix.items():
+        for _k, _pairs in _fix.items():
             _side, _, _kk = _k.rpartition(".")   # "gametext" (front) or "back.gametext"
             _f = CARDS[_g].get(_side or "front") or {}
-            if isinstance(_f.get(_kk), str):
-                _f[_kk] = _f[_kk].replace(_wrong, _right)
+            for _wrong, _right in ([_pairs] if isinstance(_pairs[0], str) else _pairs):
+                if isinstance(_f.get(_kk), str):
+                    _f[_kk] = _f[_kk].replace(_wrong, _right)
 for _g, _c in CARDS.items():   # title -> Decipher expansion (sets 1-14, 101-112), for the PC (V) cards' spheres
     _sid = str(_c.get("set"))
     if _sid.isdigit() and int(_sid) < 200 and adapter.SETS.get(_sid):
+        adapter.BASE_ICONS.setdefault(re.sub(r"[^a-z0-9]", "", adapter.strip_printing(_c["front"].get("title") or "").lower().replace("•", "")), _c["front"].get("icons") or [])
         adapter.BASE_EXP.setdefault(re.sub(r"[^a-z0-9]", "", adapter.strip_printing(_c["front"].get("title") or "").lower().replace("•", "")), adapter.SETS[_sid])
 for _c in CARDS.values():   # Force icons per location title, for Virtual Block printings that lack them
     _f = _c["front"]

@@ -14,8 +14,326 @@
   },
   "205_14": {
     "back.gametext": [
-      "cross Lule over",
-      "cross Luke over"
+      [
+        "cross Lule over",
+        "cross Luke over"
+      ],
+      [
+        "cross Lule over",
+        "cross Luke over"
+      ]
+    ]
+  },
+  "110_9": {
+    "gametext": [
+      "landspeeed = 3",
+      "landspeed = 3"
+    ]
+  },
+  "9_76": {
+    "lore": [
+      "Afforced special care",
+      "Afforded special care"
+    ]
+  },
+  "9_116": {
+    "lore": [
+      "Wedge Antillies",
+      "Wedge Antilles"
+    ]
+  },
+  "102_9": {
+    "gametext": [
+      [
+        "Bothuwui",
+        "Bothawui"
+      ],
+      [
+        "Corscant",
+        "Coruscant"
+      ]
+    ]
+  },
+  "9_60": {
+    "gametext": [
+      "Mon Calmari",
+      "Mon Calamari"
+    ]
+  },
+  "9_181": {
+    "lore": [
+      "Campatable",
+      "Compatible"
+    ]
+  },
+  "14_7": {
+    "lore": [
+      "Consistantly",
+      "Consistently"
+    ]
+  },
+  "200_105": {
+    "lore": [
+      "second Dearth Star",
+      "second Death Star"
+    ]
+  },
+  "9_121": {
+    "lore": [
+      "second Dearth Star",
+      "second Death Star"
+    ]
+  },
+  "207_2": {
+    "gametext": [
+      "any Reserve Desk",
+      "any Reserve Deck"
+    ]
+  },
+  "9_36": {
+    "gametext": [
+      "Effecte canceled",
+      "Effect canceled"
+    ]
+  },
+  "9_70": {
+    "gametext": [
+      "Lieutenat Telsij",
+      "Lieutenant Telsij"
+    ]
+  },
+  "14_86": {
+    "gametext": [
+      "Theed Palce Throne Room",
+      "Theed Palace Throne Room"
+    ]
+  },
+  "14_87": {
+    "gametext": [
+      "Theed Palce Throne Room",
+      "Theed Palace Throne Room"
+    ]
+  },
+  "6_44": {
+    "lore": [
+      "Quarien accountant",
+      "Quarren accountant"
+    ]
+  },
+  "209_3": {
+    "gametext": [
+      "Clone Snipe Rifle",
+      "Clone Sniper Rifle"
+    ]
+  },
+  "1_112": {
+    "lore": [
+      "Spacesport Speeders",
+      "Spaceport Speeders"
+    ]
+  },
+  "7_309": {
+    "gametext": [
+      "Talon Roll",
+      "Tallon Roll"
+    ]
+  },
+  "7_17": {
+    "gametext": [
+      "Advanced Preparation",
+      "Advance Preparation"
+    ]
+  },
+  "207_8": {
+    "gametext": [
+      "[Restistance]",
+      "[Resistance]"
+    ]
+  },
+  "2_13": {
+    "lore": [
+      "bubblink pink swamps",
+      "bubbling pink swamps"
+    ]
+  },
+  "7_227": {
+    "gametext": [
+      "placing her from hand",
+      "placing here from hand"
+    ]
+  },
+  "7_244": {
+    "lore": [
+      "harassing the local inhibitors",
+      "harassing the local inhabitants"
+    ]
+  },
+  "7_170": {
+    "gametext": [
+      "a minor or refinery",
+      "a miner or refinery"
+    ]
+  },
+  "209_47": {
+    "lore": [
+      "land out troops",
+      "land our troops"
+    ]
+  },
+  "201_12": {
+    "gametext": [
+      "place your character our of play",
+      "out of play"
+    ]
+  },
+  "4_128": {
+    "gametext": [
+      "has presences",
+      "has presence"
+    ]
+  },
+  "7_237": {
+    "gametext": [
+      "battleground sit you occupy",
+      "battleground site"
+    ]
+  },
+  "9_54": {
+    "gametext": [
+      "more that one",
+      "more than one"
+    ]
+  },
+  "206_6": {
+    "gametext": [
+      "more battlegrounds that you",
+      "more battlegrounds than you"
+    ]
+  },
+  "6_144": {
+    "gametext": [
+      "transfered",
+      "transferred"
+    ]
+  },
+  "6_97": {
+    "lore": [
+      "Fearful of Jabba's wraith",
+      "Fearful of Jabba's wrath"
+    ]
+  },
+  "200_58": {
+    "gametext": [
+      "if your control",
+      "if you control"
+    ]
+  },
+  "7_200": {
+    "gametext": [
+      "each time your deploy",
+      "each time you deploy"
+    ]
+  },
+  "5_161": {
+    "gametext": [
+      "all of you devices",
+      "all of your devices"
+    ]
+  },
+  "2_47": {
+    "gametext": [
+      "on you targeted starfighter",
+      "on your targeted starfighter"
+    ]
+  },
+  "4_173": {
+    "gametext": [
+      "'diffuse'",
+      "'defuse'"
+    ]
+  },
+  "6_162": {
+    "gametext": [
+      "One per game",
+      "Once per game"
+    ]
+  },
+  "7_202": {
+    "lore": [
+      "snowtrooper plotoon",
+      "snowtrooper platoon"
+    ]
+  },
+  "7_126": {
+    "gametext": [
+      "(or 2 is freighter)",
+      "(or -2 if freighter)"
+    ]
+  },
+  "9_171": {
+    "gametext": [
+      "ability of 2 add adds 1",
+      "and adds 1"
+    ]
+  },
+  "1_90": {
+    "lore": [
+      "Leia point out",
+      "Leia pointed out"
+    ]
+  },
+  "8_93": {
+    "gametext": [
+      "Bunker of an Endor battleground",
+      "Bunker or an Endor battleground"
+    ]
+  },
+  "207_12": {
+    "gametext": [
+      "Rebel of Republic character",
+      "Rebel or Republic character"
+    ]
+  },
+  "7_78": {
+    "gametext": [
+      "Effect canceled of opponent controls",
+      "if opponent controls"
+    ]
+  },
+  "6_146": {
+    "gametext": [
+      "you make use 2 Force",
+      "you may use 2 Force"
+    ]
+  },
+  "6_135": {
+    "gametext": [
+      "your Jawa's forfeit",
+      "your Jawas' forfeit"
+    ]
+  },
+  "201_31": {
+    "gametext": [
+      "[Jabba's Place] site",
+      "[Jabba's Palace] site"
+    ]
+  },
+  "7_262": {
+    "lore": [
+      "Imperial batlestations",
+      "Imperial battlestations"
+    ]
+  },
+  "3_75": {
+    "lore": [
+      "Golan Arms DForfeit: 9 anti-infantry battery",
+      "Golan Arms DF.9 anti-infantry battery"
+    ]
+  },
+  "6_147": {
+    "lore": [
+      "inciting his wraith.",
+      "inciting his wrath."
     ]
   }
 }

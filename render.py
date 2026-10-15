@@ -364,6 +364,16 @@ TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-j
 for _k in ("objective-ls", "objective"):   # printed Objectives carry the expansion sphere right of the art, under the destiny
     TEMPLATES[_k].setdefault("expansion_ring", (1412, 295)); TEMPLATES[_k].setdefault("expansion_size", 70)
 TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
+# Virtual Block Missions (make_mission_frames.py): full art under the Admiral's Order title bar, tan panel at the foot
+for _sd, _D in (("ls", 324), ("ds", 336)):
+    _e = TEMPLATES[f"{_sd}-effect"]; _P = 1080
+    TEMPLATES[f"{_sd}-mission"] = dict(TEMPLATES["ls-admirals-order"], frame=(f"frames/{_sd}-mission.png", 0, 0),
+        art=(146, 146, 1344, _P + 40 - 146), card_type=(_e["card_type"][0], _e["card_type"][1] - _D) + _e["card_type"][2:],
+        game_text=(_e["game_text"][0], _e["game_text"][1] - _D, _e["game_text"][2], _e["game_text"][3] + _D),
+        set_icon_abs=_e["set_icon_abs"], no_type=False)
+    TEMPLATES[f"{_sd}-mission"].pop("gt_ink", None)
+    if _sd == "ds":
+        TEMPLATES["ds-mission"].pop("dark_text", None); TEMPLATES["ds-mission"]["ctype_ink"] = TEMPLATES["ds-mission"]["title_ink"] = "#000"
 TEMPLATES["ds-admirals-order"] = dict(TEMPLATES["ls-admirals-order"])   # Decipher printed both sides' Admiral's Orders in one frame
 # Decipher's own Defensive Shield frames (all-cyan Light / its Dark twin, shield icon) for the card maker's printed cards
 TEMPLATES["ls-shield-dc"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield.png", 148, 142))
@@ -376,6 +386,7 @@ TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shi
 # Virtual Block Dark shields (No Escape (V)): Decipher's Dark shield frame, cyan fading to red at the foot
 # Decipher's printed Light droid disc is brass-gold (2X-3KPR, C-3PO); Bardez's frame has it copper
 TEMPLATES["ls-character-droid-dc"] = dict(TEMPLATES["ls-character-droid"], frame=("frames/ls-character-droid-dc.png",) + TEMPLATES["ls-character-droid"]["frame"][1:])
+TEMPLATES["ds-character-droid-dc"] = dict(TEMPLATES["ds-character-droid"], frame=("frames/ds-character-droid-dc.png",) + TEMPLATES["ds-character-droid"]["frame"][1:])
 TEMPLATES["ds-shield-vb"] = dict(TEMPLATES["ds-shield-dc"], frame=("frames/ds-shield-vb.png",) + TEMPLATES["ds-shield-dc"]["frame"][1:])
 
 ICON_FILES = {
