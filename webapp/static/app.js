@@ -241,23 +241,26 @@ $("#browseBtn").onclick = async () => {
   if (box.hidden) { $("#results").hidden = true; return; }
   if (!setsLoaded) {
     const d = await j(API + "sets"); setsLoaded = true;
-    const sel = $("#bSet"); sel.innerHTML = "";
+    const sel = $("#bSet"); sel.innerHTML = '<option value="">All sets</option>';
     const groups = {};
     for (const s of d.sets) {
       if (!groups[s.group]) { groups[s.group] = document.createElement("optgroup"); groups[s.group].label = s.group; sel.appendChild(groups[s.group]); }
       const o = document.createElement("option"); o.value = s.id; o.textContent = `${s.name} (${s.count})`; groups[s.group].appendChild(o);
     }
+    for (const e of d.expansions || []) { const o = document.createElement("option"); o.value = e.id; o.textContent = `${e.name} (${e.count})`; $("#bExp").appendChild(o); }
     for (const t of d.types) { const o = document.createElement("option"); o.textContent = t; $("#bType").appendChild(o); }
+    sel.value = "1";   // start on Premiere, as before
   }
   runBrowse();
 };
 async function runBrowse() {
-  const p = new URLSearchParams({ set: $("#bSet").value, side: $("#bSide").value, type: $("#bType").value });
+  const p = new URLSearchParams({ exp: $("#bExp").value, set: $("#bSet").value, side: $("#bSide").value, type: $("#bType").value });
   const list = await j(API + "browse?" + p);
   $("#bCount").textContent = `${list.length} card${list.length === 1 ? "" : "s"}`;
   showList(list);
 }
 for (const id of ["#bSet", "#bSide", "#bType"]) $(id).onchange = runBrowse;
+$("#bExp").onchange = () => { if ($("#bExp").value) $("#bSet").value = ""; runBrowse(); };   // a symbol spans many sets
 
 function readFile(input, cb) {
   const f = input.files[0]; if (!f) return;
