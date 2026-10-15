@@ -18,6 +18,7 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Tatooine": "icons/set-tatooine-decipher.png", "Theed Palace": "icons/set-theed-decipher.png",
     "Enhanced Cloud City": "icons/set-premium-decipher.png", "Official Tournament Sealed Deck": "icons/set-premium-decipher.png",   # silver premium sphere
     "Death Star II": "icons/set-ds2-decipher.png", "Reflections III": "icons/set-reflections3-decipher.png",
+    "Reflections Gold": "icons/set-reflections-gold.png",   # gold sphere cut from Andy Talaga's reconstructions (card maker)
 }
 TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
              "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}", "{icon:republic-square}": "{republic-square}"}
@@ -52,6 +53,10 @@ def template_for(c: dict) -> str:
         return "loc-system"
     if c.get("no_lore_box") and st in ("effect",) and side == "ds":
         return "ds-effect-tall"
+    if c.get("wide") and ("interrupt" in st or "effect" in st):   # card maker: Reflections Gold wide vision
+        return f"rg-{side}-{'interrupt' if 'interrupt' in st else 'effect'}"
+    if st.startswith("jedi test"):   # card maker: Dagobah Jedi Tests (no lore box) use the tall slip
+        return "ls-jeditest-tall"
     if st == "epic event":
         return "ls-jeditest-tall" if side == "ls" else "epic-event"
     if "admiral" in st:
@@ -131,7 +136,7 @@ def convert(c: dict, vs: int) -> dict:
         card["disc"] = "sith"            # VS17 Galen: the Darth Maul face disc printed on the slip (cut from the slip, 300 dpi)
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("credit_strip", "text_grow", "ring_icons", "frame_tint", "frame_style", "text_lines", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("credit_strip", "text_grow", "ring_icons", "frame_tint", "frame_style", "text_lines", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "stat_icon", "credit_bottom", "margin_left", "margin_right", "credits", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
     if t in ("loc-site", "loc-system"):
