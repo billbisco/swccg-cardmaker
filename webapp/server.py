@@ -51,9 +51,10 @@ _CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if
 for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
     if _g in CARDS:
         for _k, (_wrong, _right) in _fix.items():
-            _f = CARDS[_g]["front"]
-            if isinstance(_f.get(_k), str):
-                _f[_k] = _f[_k].replace(_wrong, _right)
+            _side, _, _kk = _k.rpartition(".")   # "gametext" (front) or "back.gametext"
+            _f = CARDS[_g].get(_side or "front") or {}
+            if isinstance(_f.get(_kk), str):
+                _f[_kk] = _f[_kk].replace(_wrong, _right)
 for _g, _c in CARDS.items():   # title -> Decipher expansion (sets 1-14, 101-112), for the PC (V) cards' spheres
     _sid = str(_c.get("set"))
     if _sid.isdigit() and int(_sid) < 200 and adapter.SETS.get(_sid):
@@ -270,18 +271,32 @@ JOBS: "queue.Queue[tuple]" = queue.Queue()
 def worker():
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
-        b = p.chromium.launch(args=["--disable-dev-shm-usage"])
-        pg = b.new_page(viewport={"width": render.W, "height": render.H}, device_scale_factor=1)
+        b = pg = None
+        n = 0
         while True:
             card, done = JOBS.get()
-            try:
-                land = render.is_wide(render.TEMPLATES[card["template"]])
-                pg.set_viewport_size({"width": render.H, "height": render.W} if land else {"width": render.W, "height": render.H})
-                done["img"] = render.screenshot_card(card, pg); done["land"] = land
-            except Exception as e:   # noqa: BLE001
-                done["err"] = f"{type(e).__name__}: {e}"; traceback.print_exc()
-            finally:
-                done["ev"].set()
+            for attempt in (1, 2):   # a crashed / closed browser is relaunched once, then the job is retried
+                try:
+                    if pg is None or n >= 400:   # fresh browser every 400 renders (Chromium memory grows)
+                        try:
+                            b and b.close()
+                        except Exception:   # noqa: BLE001
+                            pass
+                        b = p.chromium.launch(args=["--disable-dev-shm-usage"])
+                        pg = b.new_page(viewport={"width": render.W, "height": render.H}, device_scale_factor=1); n = 0
+                    land = render.is_wide(render.TEMPLATES[card["template"]])
+                    pg.set_viewport_size({"width": render.H, "height": render.W} if land else {"width": render.W, "height": render.H})
+                    done["img"] = render.screenshot_card(card, pg); done["land"] = land; n += 1
+                    done.pop("err", None)
+                    break
+                except Exception as e:   # noqa: BLE001
+                    done["err"] = f"{type(e).__name__}: {e}"; traceback.print_exc()
+                    if "crash" in str(e).lower() or "closed" in str(e).lower():
+                        pg = None; continue
+                    break
+            for tmp in render.OUT.glob(f"_*{card['id']}*"):   # per-card crops / frames: not kept (disk)
+                tmp.unlink(missing_ok=True)
+            done["ev"].set()
 
 
 threading.Thread(target=worker, daemon=True).start()
@@ -337,7 +352,7 @@ def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
     else:
         im.save(buf, "WEBP", quality=88 if size == "preview" else 95)
     data = buf.getvalue()
-    if art_ok:
+    if art_ok and not os.environ.get("CARDMAKER_NO_CACHE"):   # QA sweeps render thousands of cards: no cache writes
         cp.write_bytes(data); bp.write_text(json.dumps(boxes))
     return data, fmt
 
