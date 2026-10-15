@@ -181,12 +181,20 @@
   </section>
 
   <section class="preview" aria-label="Preview">
+    <div class="toolbar" role="toolbar" aria-label="Preview">
+      <span id="status" class="status" data-state="ok" aria-live="polite"><span class="dot"></span><span class="txt">Preview up to date</span></span>
+      <span class="tools">
+        <button type="button" id="undoBtn" class="ghost small" title="Undo (Ctrl+Z)">↶ Undo</button>
+        <button type="button" id="redoBtn" class="ghost small" title="Redo (Ctrl+Shift+Z)">↷ Redo</button>
+        <button type="button" id="updateBtn" class="ghost small" title="Update the preview now (Ctrl+Enter)" hidden>Retry</button>
+      </span>
+    </div>
     <div class="stage">
       <div id="cardwrap" class="cardwrap" tabindex="0" aria-label="Card preview — click a piece to select it, drag to move, arrow keys to nudge">
         <img id="card" alt="Card preview" draggable="false">
+        <div id="dragfrom" class="dragfrom" hidden></div><canvas id="ghost" class="dragghost" hidden></canvas>
         <div id="selbox" class="selbox" hidden><span class="selname"></span><div class="handle" title="Drag to resize"></div></div>
       </div>
-      <div id="spinner" class="spinner" hidden>Rendering…</div>
       <div id="err" class="err" hidden></div>
     </div>
     <p class="note">Rendered with the same engine as the wiki's Virtual Set remasters. Card art © Lucasfilm Ltd.; card designs © Decipher Inc. Fan project.</p>
