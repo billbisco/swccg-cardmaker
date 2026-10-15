@@ -980,6 +980,28 @@ def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
     return f'<div style="position:absolute;left:{cx - w / 2 - ss * .1:.0f}px;top:{cy - h / 2 + ss * .2:.0f}px;line-height:0">{svg}</div>'
 
 
+_HOLE: dict = {}
+
+
+def frame_hole(t: dict) -> tuple:
+    """The transparent window of the template's frame around its art box (card px), measured once per frame."""
+    fr, fx, fy = t["frame"]
+    key = (fr, fx, fy, t["art"])
+    if key not in _HOLE:
+        import numpy as np
+        a = np.array(Image.open(ASSETS / fr).convert("RGBA"))[:, :, 3] < 128
+        ax, ay, aw, ah = t["art"]
+        cx, cy = ax + aw // 2 - fx, ay + ah // 2 - fy
+        def run(line, i, step):
+            while 0 <= i + step < len(line) and line[i + step]:
+                i += step
+            return i
+        rows = [run(a[cy + d], cx, -1) for d in (-ah // 3, 0, ah // 3)], [run(a[cy + d], cx, 1) for d in (-ah // 3, 0, ah // 3)]
+        cols = [run(a[:, cx + d], cy, -1) for d in (-aw // 3, 0, aw // 3)], [run(a[:, cx + d], cy, 1) for d in (-aw // 3, 0, aw // 3)]
+        _HOLE[key] = (min(rows[0]) + fx, min(cols[0]) + fy, max(rows[1]) + fx + 1, max(cols[1]) + fy + 1)
+    return _HOLE[key]
+
+
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
@@ -1026,6 +1048,12 @@ def build_html(card: dict) -> str:
         else:
             parts.append(f'<div style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px;overflow:hidden">'
                          f'<img src="{art}" style="position:absolute;left:0;top:{(wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
+    elif art and card.get("art_cover_hole") and not t.get("landscape") and not t.get("system") and not t.get("wide"):
+        # card maker: the picture fills the frame's whole window (some frames' holes run a few px past the template's
+        # art box — a black sliver showed on Ahsoka Tano With Lightsabers, Bill 2026-10-15)
+        hx0, hy0, hx1, hy1 = frame_hole(t)
+        win = (min(ax, hx0), min(ay, hy0), max(ax + aw, hx1) - min(ax, hx0), max(ay + ah, hy1) - min(ay, hy0))
+        parts.append(f'<img src="{art_crop(card, win, "-rect" if card["art"].get("rect") else "-hole")}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
     elif art:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     sec(None)

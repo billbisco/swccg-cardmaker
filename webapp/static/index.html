@@ -50,9 +50,16 @@
             <option value="decipher">Decipher (as printed)</option>
             <option value="ovs">Original Virtual (2002–2008 remaster slips)</option>
           </select></label>
-          <label>Set mark (lower icon slot) <select id="setMark"></select></label>
+          <label>Set mark (bottom corner) <select id="setMark"></select></label>
         </div>
         <label>Title <input name="title" placeholder="•Lando Calrissian"></label>
+        <div class="grid2">
+          <label>Expansion symbol (top, beside the lore) <select name="expansion"></select></label>
+          <label>Symbol style <select name="expansion_style">
+            <option value="decipher">Decipher (as printed 1995–2001)</option>
+            <option value="pc">Players Committee redraw (modern Virtual Sets)</option>
+          </select></label>
+        </div>
         <div class="grid2">
           <label class="banner">Banner / subtype <input name="card_type" placeholder="e.g. USED INTERRUPT"></label>
           <label class="aff">Affiliation <select name="affiliation"></select></label>
@@ -121,13 +128,6 @@
 
       <fieldset class="block">
         <legend>Set &amp; caption</legend>
-        <div class="grid2">
-          <label>Expansion symbol (ring) <select name="expansion"></select></label>
-          <label>Symbol style <select name="expansion_style">
-            <option value="decipher">Decipher (as printed 1995–2001)</option>
-            <option value="pc">Players Committee redraw (modern Virtual Sets)</option>
-          </select></label>
-        </div>
         <label class="file">Your own set symbol (lower icon corner) <input type="file" id="symFile" accept="image/png,image/*"></label>
         <label>Copyright line (beside the art) <input name="copyright" placeholder="TM &amp; © 1997 LUCASFILM LTD. …"></label>
         <div class="grid2">

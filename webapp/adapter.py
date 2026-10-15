@@ -338,6 +338,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         vs = None if not spec.get("virtual_set") else vs
     card = build_vs.convert(dict(c, number=c["number"] if c["number"].isdigit() else "0"), vs or 0)
     if not ovs:
+        card["art_cover_hole"] = True
         card["ring_fill"] = True
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
