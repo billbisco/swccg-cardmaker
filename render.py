@@ -1051,6 +1051,9 @@ def build_html(card: dict) -> str:
         wx, wy, ww, wh = t["_artwin"]
         if card.get("no_lore_box") and card["art"].get("rect"):
             parts.append(f'<img src="{art_crop(card, t["_artwin"], "-rect")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
+        elif card.get("no_lore_box") and card.get("text_grow_scan"):
+            # the card's own (no-lore) scan: its art already sits in this raised window — map the window itself
+            parts.append(f'<img src="{art_crop(card, t["_artwin"], "-nolore")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
         else:
             parts.append(f'<div style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px;overflow:hidden">'
                          f'<img src="{art}" style="position:absolute;left:0;top:{(wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')

@@ -132,6 +132,25 @@ def ship_italics(title: str) -> str:
     return f"{bul}_{name}_"
 
 
+SHIP_NAMES: set = set()   # unique starship/vehicle proper names (from the italic titles; filled by the server)
+SHIP_EXTRA = {"Rand Ecliptic", "Ecliptic", "Falcon", "Hound's Tooth", "Tantive IV", "Slave I"}
+SHIP_AMBIGUOUS = {"Victory", "Liberty", "Independence", "Infinity", "Phantom", "Conquest", "Endurance", "Redemption",
+                  "Defiance", "Resolute", "Ghost", "Luminous", "Spiral", "Profundity", "Steadfast", "Supremacy", "Overseer",
+                  "Rogue One", "Blockade Support Ship"}
+_SHIP_RE = None
+
+
+def ship_text(t: str) -> str:
+    """Decipher italicises starship names in lore and game text too (Han Solo: "When piloting _Falcon_")."""
+    global _SHIP_RE
+    if not t or not SHIP_NAMES:
+        return t
+    if _SHIP_RE is None:
+        names = sorted((SHIP_NAMES | SHIP_EXTRA) - SHIP_AMBIGUOUS, key=len, reverse=True)
+        _SHIP_RE = re.compile(r"(?<![\w_•-])(" + "|".join(re.escape(n) for n in names) + r")(?![\w_-])(?! \d| Squadron)")
+    return _SHIP_RE.sub(r"_\1_", t)
+
+
 def maintenance(t: str) -> str:
     """Reflections III maintenance costs, as printed: ✱ Use 2 or [flag] Lose 1 or [skull]."""
     t = re.sub(r"Use (\d+)(?: Force)? to maintain", r"{icon:maintenance-star}Use \1", t)
@@ -195,7 +214,12 @@ def gemp_to_spec(c: dict) -> dict:
     spec["lore"] = quotes(spec["lore"])
     if typ != "Objective" and " / " in (f.get("title") or ""):   # flip card text joined to the other side's: "…unpiloted).May not…"
         spec["game_text"] = re.split(r"(?<=[.)!])(?=[A-Z•])", spec["game_text"], maxsplit=1)[0]
-    spec["game_text"] = maintenance(quotes(spec["game_text"]))
+    spec["game_text"] = ship_text(maintenance(quotes(spec["game_text"])))
+    spec["lore"] = ship_text(spec["lore"])
+    if not spec["lore"].strip() and " & " in title and typ in ("Interrupt", "Effect"):
+        # Reflections II combo cards print no lore box: the art runs from the title bar to a raised banner and the text
+        # box grows by the same amount (Evader & Monnok, Do, Or Do Not & Wise Advice)
+        spec["no_lore_box"] = True; spec["text_grow"] = 290; spec["text_grow_scan"] = True
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
@@ -342,7 +366,7 @@ def objective_text(t: str, front: bool) -> str:
     if front:
         first, sep, rest = t.partition("\n")
         if sep and not first.startswith("*"):
-            t = f"_{first}_\n{rest}"
+            t = f"_{first.replace('_', '')}_\n{rest}"   # ship names inside the italic setup line stay italic
     return t
 
 
