@@ -1302,22 +1302,48 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx + 8}px;top:{by + 8}px;width:73px;height:73px">')
     sec('game_text')
     # game text
+    if card.get("squadron_row") and "game_text" in t:   # the icon row sits above a shorter text box
+        gx_, gy_, gw_, gh_ = t["game_text"]; t = dict(t, game_text=(gx_, gy_ + 72, gw_, gh_ - 72))
     if "game_text" in t:
         parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
+    if card.get("deploy") not in (None, "") and "deploy" not in t and "game_text" in t and not t.get("wide"):
+        # a card type whose frame has no deploy/forfeit boxes but the printing has them (artillery: Ewok Catapult):
+        # the printed white / black boxes at the text box's left, as on the starship frames
+        gx_, gy_, gw_, gh_ = t["game_text"]
+        t = dict(t, deploy=(199, gy_ + gh_ - 196, 45, 82), forfeit=(199, gy_ + gh_ - 92, 46, 84))
+        for k_, bg, fg in (("deploy", "#f2f2f2", "#000"), ("forfeit", "#000", "#fff")):
+            x_, y_, w_, h_ = t[k_]
+            parts.append(f'<div style="position:absolute;left:{x_ - 8}px;top:{y_ - 6}px;width:{w_ + 16}px;height:{h_ + 12}px;background:{bg};border:4px solid #888;box-sizing:border-box"></div>')
+        card = dict(card, _df_ink=True)
     if card.get("deploy") is not None and "deploy" in t:
         for k_ in ("deploy", "forfeit"):   # long values (544) condense into the printed box, then shrink — never overflow it
             sec(k_)
-            parts.append(f'<div class="{k_}" style="position:absolute;{box(k_)}"><span class="fitnum" data-avail="{t[k_][2] + 6}" data-h="{t[k_][3]}">{esc(str(card[k_]))}</span></div>')
+            ink_ = (";color:#000" if k_ == "deploy" else ";color:#fff") if card.get("_df_ink") else ""
+            parts.append(f'<div class="{k_}" style="position:absolute;{box(k_)}{ink_}"><span class="fitnum" data-avail="{t[k_][2] + 6}" data-h="{t[k_][3]}">{esc(str(card[k_]))}</span></div>')
     sec(None)
     sec('scomp')
-    if card.get("scomp") and "scomp" in t:
+    light = card.get("side") == "Light"
+    icons = list(card.get("icons", []))
+    if card.get("squadron_row") and "stats_y" in t:
+        # squadrons print their icons in one row under the stat boxes, a group per kind (X-wing Assault Squadron:
+        # 3 scomp rings, 3 pilots, 3 nav computers)
+        row = ["scomp"] * int(card.get("squadron_scomp") or 0) + icons; icons = []
+        x_, y_, sz_ = 262, t["stats_y"] + 108, 66
+        prev = None
+        for nm in row:
+            if prev is not None and nm != prev: x_ += 22
+            if nm == "scomp":
+                parts.append(f'<img src="{data_uri(ASSETS / "icons/scomp-ship.png")}" style="position:absolute;left:{x_}px;top:{y_}px;width:{sz_}px;height:{sz_}px">')
+            else:
+                key = f"{nm}-light" if light and f"{nm}-light" in ICON_FILES else nm
+                parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x_}px;top:{y_}px;width:{sz_}px;height:{sz_}px">')
+            x_ += sz_ + 8; prev = nm
+    elif card.get("scomp") and "scomp" in t:
         sx, sy = t["scomp"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/scomp-ship.png")}" style="position:absolute;left:{sx}px;top:{sy}px">')
     sec('icons')
     # icon slots
-    light = card.get("side") == "Light"
-    icons = list(card.get("icons", []))
     # two Warrior icons share one tall box on the printed cards (IG-88): "warrior","warrior" → "warrior2" (89×158);
     # Premiere (no expansion symbol) printed them as two separate boxes (Tonnika Sisters)
     packed = []

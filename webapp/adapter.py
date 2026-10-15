@@ -328,6 +328,8 @@ def gemp_to_spec(c: dict) -> dict:
         else: st.append(["LANDSPEED", f.get("landspeed") or "0"])
         spec["stats"] = st[:3]
         spec["icons"] = col
+        if sub.startswith("Squadron") and len(col) > 3:   # X-wing Assault Squadron: the icon row under the stats
+            spec["squadron_row"] = True; spec["squadron_scomp"] = icons.count("Scomp Link"); spec["scomp"] = False
     elif typ == "Location":
         spec["slip_type"] = "System" if sub in ("System", "Sector") else "Site"
         spec["card_type"] = title.upper()
