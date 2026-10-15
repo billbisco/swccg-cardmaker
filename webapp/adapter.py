@@ -63,6 +63,7 @@ INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Independent Starship]": "{ga:independent-starship}", "[First Order]": "{ga:first-order}",
     "[Resistance]": "{ga:resistance}", "[Trade Federation]": "{ga:trade-federation}", "[Skywalker]": "{ga:skywalker-theme}",
     "[Sidious]": "{ga:sidious-theme}", "[Selective Creature]": "{ga:selective-creature}", "[Virtual]": "{ga:virtual}",
+    "[Scoundrel]": "{ga:scoundrel}", "[Setup]": "{ga:setup}", "[Vader]": "{ga:vader}",
 }
 SET_TOKENS = {"A New Hope": "anh", "Hoth": "hoth", "Dagobah": "dagobah", "Cloud City": "cloudcity",
               "Jabba's Palace": "jabbaspalace", "Special Edition": "se", "Endor": "endor", "Death Star II": "ds2",
@@ -72,7 +73,13 @@ SET_TOKENS = {"A New Hope": "anh", "Hoth": "hoth", "Dagobah": "dagobah", "Cloud 
 
 ICON_COL = {"Pilot": "pilot", "Warrior": "warrior", "Nav Computer": "nav", "Permanent Weapon": "permanent-weapon",
             "Permanent weapon": "permanent-weapon", "Independent": "independent", "Presence": "presence",
-            "Astromech": "astromech", "Permanent Pilot": "permanent-pilot", "Episode I": "episode1"}
+            "Astromech": "astromech", "Permanent Pilot": "permanent-pilot", "Episode I": "episode1",
+            "Selective Creature": "selective-creature", "Selective": "selective-creature", "Independent Starship": "independent-starship",
+            "Trade Federation": "trade-federation", "Clone Army": "clone-army", "Separatist": "separatist",
+            "Resistance": "resistance", "First Order": "first-order", "Vader": "vader", "Republic": "republic"}
+FACTION = {"independent", "independent-starship", "trade-federation", "clone-army", "separatist", "resistance",
+           "first-order", "republic", "vader"}
+RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker"}
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
             "Scomp Link": "scomp"}
@@ -96,7 +103,7 @@ def gemp_to_spec(c: dict) -> dict:
     typ = f.get("type") or ""
     sub = f.get("subType") or ""
     icons = f.get("icons") or []
-    title = re.sub(r"\s*\((?:V|AI)\)(?=\s*(?:/|$))", "", f.get("title") or "")   # "(V)" / "(AI)" name the printing; the card prints the bare title
+    title = re.sub(r"\s*\((?:V|AI|[^()]*\bAI)\)(?=\s*(?:/|$))", "", f.get("title") or "")   # "(V)" / "(AI)" name the printing; the card prints the bare title
     exp = SETS.get(str(c.get("set")))
     # the black caption strip is blank by default (Bill 2026-10-15): only some PC virtual cards print text there
     spec = {"side": side, "title": title, "caption": "", "number": "", "destiny": f.get("destiny") or "",
@@ -109,9 +116,19 @@ def gemp_to_spec(c: dict) -> dict:
         spec["caption"] = f.get("title") or ""
         if typ == "Defensive Shield" and side == "Light":
             spec["shield_style"] = "fade"   # Light Virtual Block shields print the red→cyan fade (Affect Mind (V))
-    if "Episode I" in icons and typ != "Character":
-        spec["ring_icons"] = ["episode1"]   # the Episode I disc under the expansion sphere (A Close Race)
-    col = [ICON_COL[i] for i in icons if i in ICON_COL and not (i == "Episode I" and typ != "Character")]
+    rings = [RING[i] for i in icons if i in RING]
+    if rings:
+        spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)
+    if "Setup" in icons:
+        spec["banner_icon"] = "setup"   # in the banner's right end (A Remote Planet (V))
+    if "Scoundrel" in icons:
+        spec["margin_icon"] = "scoundrel"   # left margin at the text box (Scoundrel's Bravado)
+    col = [ICON_COL[i] for i in icons if i in ICON_COL and i != "Episode I"]
+    if typ in ("Starship", "Vehicle"):   # starships print their faction icon at the top of the column (Blockade Support Ship)
+        col = [c_ for c_ in col if c_ in FACTION] + [c_ for c_ in col if c_ not in FACTION]
+    rings = [RING[i] for i in icons if i in RING]
+    if "Republic" in icons and typ == "Character":
+        col = [c_ for c_ in col if c_ != "republic"]   # characters show Republic as the affiliation disc
     if typ == "Character":
         spec["slip_type"] = "Character"
         spec["affiliation"] = sub
@@ -187,6 +204,7 @@ def gemp_to_spec(c: dict) -> dict:
             if ":" in x:
                 k, v = x.split(":", 1); st.append([k.strip().upper(), v.strip()])
         spec["stats"] = st[:2]
+        spec["icons"] = col   # Selective Creature (Porg, Bog-wing)
     elif typ == "Objective":
         spec["slip_type"] = "Objective"
         if " / " in title:   # GEMP keeps both sides on the front: "Front / Back", text "Front: ... Back: ..."
@@ -261,6 +279,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         vs = None if not spec.get("virtual_set") else vs
     card = build_vs.convert(dict(c, number=c["number"] if c["number"].isdigit() else "0"), vs or 0)
     if not ovs:
+        card["ring_fill"] = True
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
         if card["template"] == "creature":

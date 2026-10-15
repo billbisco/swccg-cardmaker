@@ -416,3 +416,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Trade Federation, Independent Starship, Skywalker / Sidious themes, Selective Creature, Virtual; `[Virtual Block N]`
   → `{vb:N}` and `[Set N]` → `{pcset:N}` inline marks; `[Permanent Weapon]`, `[Presence]`, `[Nav Computer]`,
   `[Light Side]` / `[Dark Side]` mapped. Not yet drawn (no icon art): [Scoundrel], [Setup], [Vader].
+- Rev 43 (Bill 2026-10-15, "get these"): PC icons placed as printed — column (framed): Selective Creature,
+  Independent Starship, Trade Federation, Clone Army, Separatist, Resistance, First Order, Vader (starships: faction
+  icon at the top of the column); discs under the expansion sphere (or in its place): Episode I, Episode VII,
+  Sidious, Skywalker (`render.RING_DISCS`); Setup in the banner's right end (`banner_icon: setup`); Scoundrel as a
+  portrait disc in the left margin at the text box (`margin_icon`). Inline: [Scoundrel] [Setup] [Vader]. Art: wiki
+  180 px icons and the PC Game Aid sheet; Scoundrel / Setup / Vader cut from the only faces that carry them (350 px
+  legacy scans: soft — replace when a sharper source turns up). Titles drop "(Holo AI)"-style printing names too.
