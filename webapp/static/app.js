@@ -290,6 +290,11 @@ document.querySelectorAll('a[href="#help"]').forEach(a => a.onclick = e => { e.p
     grp("Original Virtual Sets (2002–2008)", "ovs:", 1, 17, "Original Virtual Set");
     grp("Virtual Blocks (2009–2014)", "vb:", 1, 9, "Virtual Block");
     grp("Virtual Sets (2014–)", "pc:", 0, 27, "Virtual Set");
+    grp("Future Virtual Sets", "pc:", 28, 40, "Virtual Set");
+    { const g = document.createElement("optgroup"); g.label = "Other PC marks";
+      for (const [v, t] of [["pc:D", "Virtual Defensive Shields (gold D)"], ["pc:P", "Virtual Premium (gold P)"], ["vb:D", "Virtual Block Shields (diamond D)"]]) {
+        const o = document.createElement("option"); o.value = v; o.textContent = t; g.appendChild(o); }
+      sel.appendChild(g); }
   }
   fillSelect(form.elements.affiliation, [null, ...opts.affiliations]);
   fillSelect(form.elements.expansion, opts.expansions, v => v ?? "— none —");

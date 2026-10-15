@@ -423,3 +423,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   portrait disc in the left margin at the text box (`margin_icon`). Inline: [Scoundrel] [Setup] [Vader]. Art: wiki
   180 px icons and the PC Game Aid sheet; Scoundrel / Setup / Vader cut from the only faces that carry them (350 px
   legacy scans: soft — replace when a sharper source turns up). Titles drop "(Holo AI)"-style printing names too. PC virtual cards take the base card's expansion sphere from their icon list (Blockade Support Ship: Coruscant); Sidious disc in the right margin at the text box top.
+- Rev 44 (Bill 2026-10-15): set-mark coverage — Decipher spheres for every set (ESB 2-player, Enhanced Premiere,
+  Third Anthology and Virtual Premium print the silver premium sphere, `SET_ICON["Premium"]`; Premiere and the
+  Premiere 2-player print none); Original Virtual 1–17 (Remaster sheets); Virtual Blocks 1–9 + D (diamond); Virtual
+  Sets 0–27 + D + P (ring) and future 28–40 in the editor; exported PNGs in `assets/set-marks/` for the PC. PC Game Aid
+  icons Real-ESRGAN x4 (ONNX, `pc-gameaid-x4/`); Scoundrel / Setup / Vader x4 from 350 px legacy faces — still
+  guesses at detail, replace with PC originals when available.
