@@ -23,7 +23,10 @@ YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1
 
 def copyright_for(set_id) -> str:
     """The vertical Lucasfilm / Decipher line printed beside the art (format as on the scans, cf. VS specs)."""
-    y = YEAR.get(str(set_id))
+    sid = str(set_id or "")
+    if (sid.isdigit() and 200 <= int(sid) <= 299) or sid == "200d":
+        return "ARTWORK NEITHER AFFILIATED WITH NOR ENDORSED BY LUCASFILM LTD."   # the modern PC cards (I Want That Map)
+    y = YEAR.get(sid)
     if not y:
         return ""
     if y >= 2000:
@@ -35,6 +38,10 @@ def set_mark_for(set_id) -> str | None:
     """The Players Committee's set mark in the lower icon slot: modern Virtual Sets 0-27 (ring + number) and the 2009
     Virtual Blocks 1-9 (diamond)."""
     s = str(set_id or "")
+    if s == "200d":     # Virtual Defensive Shields: the gold ring with D (A Close Race (V), Don't Do That Again (V))
+        return "pc:D"
+    if s == "1000d":    # Virtual Block shields: the diamond with D (Affect Mind (V))
+        return "vb:D"
     if s.isdigit() and 200 <= int(s) <= 299:
         return f"pc:{int(s) - 200}"
     if s.isdigit() and 1001 <= int(s) <= 1009:
@@ -48,11 +55,20 @@ INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Episode I]": "{episode1}", "[Light Side Force]": "{light-force}", "[Dark Side Force]": "{dark-force}",
     "[Maintenance]": "{maintenance}", "[Independent]": "{independent}", "[Grabber]": "{grabber}",
     "[Republic]": "{icon:republic}", "[Pilot]": "{icon:pilot}", "[Warrior]": "{icon:warrior}",
+    "[Permanent Weapon]": "{permanent-weapon}", "[Permanent weapon]": "{permanent-weapon}", "[permanent weapon]": "{permanent-weapon}",
+    "[maintenance]": "{maintenance}", "[Presence]": "{presence}", "[Nav Computer]": "{nav}",
+    "[Light Side]": "{light-force}", "[Dark Side]": "{dark-force}",
+    # Players Committee Game Aid icons (assets/icons/pc-gameaid-named, from their Feb 2024 reference sheet)
+    "[Episode VII]": "{ga:episode-vii-sequel-era}", "[Clone Army]": "{ga:clone-army}", "[Separatist]": "{ga:separatist}",
+    "[Independent Starship]": "{ga:independent-starship}", "[First Order]": "{ga:first-order}",
+    "[Resistance]": "{ga:resistance}", "[Trade Federation]": "{ga:trade-federation}", "[Skywalker]": "{ga:skywalker-theme}",
+    "[Sidious]": "{ga:sidious-theme}", "[Selective Creature]": "{ga:selective-creature}", "[Virtual]": "{ga:virtual}",
 }
 SET_TOKENS = {"A New Hope": "anh", "Hoth": "hoth", "Dagobah": "dagobah", "Cloud City": "cloudcity",
               "Jabba's Palace": "jabbaspalace", "Special Edition": "se", "Endor": "endor", "Death Star II": "ds2",
               "Reflections II": "reflections2", "Reflections 2": "reflections2", "Reflections III": "reflections3",
-              "Reflections 3": "reflections3", "Coruscant": "coruscant", "Theed Palace": "theed", "Tatooine": "tatooine"}
+              "Reflections 3": "reflections3", "Coruscant": "coruscant", "Theed Palace": "theed", "Tatooine": "tatooine",
+              "Death Star 2": "ds2", "Endor Icon": "endor", "JP": "jabbaspalace", "Premium": "premium"}
 
 ICON_COL = {"Pilot": "pilot", "Warrior": "warrior", "Nav Computer": "nav", "Permanent Weapon": "permanent-weapon",
             "Permanent weapon": "permanent-weapon", "Independent": "independent", "Presence": "presence",
@@ -69,6 +85,8 @@ def game_text(t: str) -> str:
         t = t.replace(k, v)
     for name, key in SET_TOKENS.items():
         t = t.replace(f"[{name}]", f"{{set:{key}}}")
+    t = re.sub(r"\[Virtual Block (\d)\]", r"{vb:\1}", t)   # the 2009 Virtual Block diamonds
+    t = re.sub(r"\[Set (\d{1,2})\]", r"{pcset:\1}", t)     # the modern Virtual Set marks
     return t
 
 
@@ -78,15 +96,19 @@ def gemp_to_spec(c: dict) -> dict:
     typ = f.get("type") or ""
     sub = f.get("subType") or ""
     icons = f.get("icons") or []
-    title = f.get("title") or ""
+    title = re.sub(r"\s*\((?:V|AI)\)(?=\s*(?:/|$))", "", f.get("title") or "")   # "(V)" / "(AI)" name the printing; the card prints the bare title
     exp = SETS.get(str(c.get("set")))
     # the black caption strip is blank by default (Bill 2026-10-15): only some PC virtual cards print text there
     spec = {"side": side, "title": title, "caption": "", "number": "", "destiny": f.get("destiny") or "",
-            "lore": f.get("lore") or "", "game_text": game_text(f.get("gametext")), "icons": [], "stats": [],
+            "lore": "" if (f.get("lore") or "").strip() == "Blank" else (f.get("lore") or ""), "game_text": game_text(f.get("gametext")), "icons": [], "stats": [],
             "deploy": f.get("deploy"), "forfeit": f.get("forfeit"), "scomp": "Scomp Link" in icons,
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
+    if c.get("legacy"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
+        spec["caption"] = f.get("title") or ""
+        if typ == "Defensive Shield" and side == "Light":
+            spec["shield_style"] = "fade"   # Light Virtual Block shields print the red→cyan fade (Affect Mind (V))
     if "Episode I" in icons and typ != "Character":
         spec["ring_icons"] = ["episode1"]   # the Episode I disc under the expansion sphere (A Close Race)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and not (i == "Episode I" and typ != "Character")]
