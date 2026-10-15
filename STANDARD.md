@@ -449,3 +449,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   layer. Card key `layout: {piece: {dx, dy (print px, ±2000), sx, sy (0.2–4), hidden}}` is applied after all fitting
   (CSS translate / scale about the piece's own centre, never changing the template); the render reports each piece's
   box (`X-Piece-Boxes`) so the editor can select, drag, resize and nudge on the preview. No layout = pixel-identical.
+- Rev 49 (Bill 2026-10-15, Ahsoka Tano With Lightsabers): card maker pictures fill the frame's whole window
+  (`render.frame_hole`, measured from the frame's alpha; `art_cover_hole` set by the adapter, VS remasters
+  unchanged) — some frames' holes run past the template art box and left a black sliver. Editor: expansion symbol
+  moved up into the Card section ("top, beside the lore"); the set mark is the "bottom corner".
