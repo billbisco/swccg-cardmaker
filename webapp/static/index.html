@@ -63,6 +63,7 @@
           <option value="decipher">Decipher (cyan / Dark cyan)</option>
           <option value="fade">Virtual fade (red → cyan)</option>
           <option value="hybrid">Hybrid (Effect top, shield bottom)</option>
+          <option value="vb">Virtual Block Dark (cyan → red)</option>
         </select></label>
         <div class="grid2 wideonly" hidden>
           <label class="inline"><input type="checkbox" name="wide"> <span class="widelbl">Wide (landscape) layout</span></label>
@@ -117,7 +118,13 @@
 
       <fieldset class="block">
         <legend>Set &amp; caption</legend>
-        <label>Expansion symbol (ring) <select name="expansion"></select></label>
+        <div class="grid2">
+          <label>Expansion symbol (ring) <select name="expansion"></select></label>
+          <label>Symbol style <select name="expansion_style">
+            <option value="decipher">Decipher (as printed 1995–2001)</option>
+            <option value="pc">Players Committee redraw (modern Virtual Sets)</option>
+          </select></label>
+        </div>
         <label class="file">Your own set symbol (lower icon corner) <input type="file" id="symFile" accept="image/png,image/*"></label>
         <label>Copyright line (beside the art) <input name="copyright" placeholder="TM &amp; © 1997 LUCASFILM LTD. …"></label>
         <div class="grid2">

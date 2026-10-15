@@ -364,8 +364,13 @@ TEMPLATES["ds-admirals-order"] = dict(TEMPLATES["ls-admirals-order"])   # Deciph
 # Decipher's own Defensive Shield frames (all-cyan Light / its Dark twin, shield icon) for the card maker's printed cards
 TEMPLATES["ls-shield-dc"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield.png", 148, 142))
 TEMPLATES["ds-shield-dc"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield.png", 144, 146))
+# Devices (card maker): the weapon frames with Bardez's Device type icon (DS / LS - Device.xcf) — Deflector Shield Generators
+TEMPLATES["ds-device"] = dict(TEMPLATES["ds-weapon"], frame=("frames/ds-device.png",) + TEMPLATES["ds-weapon"]["frame"][1:])
+TEMPLATES["ls-device"] = dict(TEMPLATES["ls-weapon"], frame=("frames/ls-device.png",) + TEMPLATES["ls-weapon"]["frame"][1:])
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
+# Virtual Block Dark shields (No Escape (V)): Decipher's Dark shield frame, cyan fading to red at the foot
+TEMPLATES["ds-shield-vb"] = dict(TEMPLATES["ds-shield-dc"], frame=("frames/ds-shield-vb.png",) + TEMPLATES["ds-shield-dc"]["frame"][1:])
 
 ICON_FILES = {
     # column icons: the PC's own Game Aid icons, frame included (COL_ prefix = drawn without the Bardez icon box)

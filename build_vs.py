@@ -21,6 +21,23 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Reflections Gold": "icons/set-reflections-gold.png",
     "Premium": "icons/set-premium-decipher.png",   # the silver premium sphere: ESB / Enhanced Premiere / Third Anthology / Virtual Premium (Holotable faces)   # gold sphere cut from Andy Talaga's reconstructions (card maker)
 }
+# PC-redrawn spheres (their Game Aid sheet; what the modern Virtual Sets print — brighter Special Edition, orange-red
+# Cloud City): set-<key>-pc.png. Card key "expansion_style": "decipher" (default) | "pc" (Bill 2026-10-15)
+SET_KEY = {"A New Hope": "anh", "Hoth": "hoth", "Dagobah": "dagobah", "Cloud City": "cloudcity", "Jabba's Palace": "jabbaspalace",
+           "Jabba's Palace Sealed Deck": "jabbaspalace", "Special Edition": "se", "Endor": "endor", "Death Star II": "ds2",
+           "Reflections II": "reflections2", "Tatooine": "tatooine", "Coruscant": "coruscant", "Reflections III": "reflections3",
+           "Theed Palace": "theed", "Jedi Pack": "premium", "Premium": "premium", "Enhanced Cloud City": "premium",
+           "Official Tournament Sealed Deck": "premium"}
+
+
+def expansion_icon(exp, style="decipher"):
+    if not exp:
+        return None
+    if style == "pc" and SET_KEY.get(exp) and (ROOT / f"assets/icons/set-{SET_KEY[exp]}-pc.png").exists():
+        return f"icons/set-{SET_KEY[exp]}-pc.png"
+    return SET_ICON.get(exp, None)
+
+
 TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{control}", "{icon:immune-sense}": "{sense}",
              "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}", "{icon:republic-square}": "{republic-square}"}
 
@@ -78,6 +95,8 @@ def template_for(c: dict) -> str:
         if "alien" in aff:
             return "ds-character-alien"
         return "ds-character-imperial"
+    if "device" in st and c.get("device_frame"):
+        return f"{side}-device"   # card maker: Device type icon
     if "weapon" in st or "device" in st:
         return f"{side}-weapon"
     if "vehicle" in st:
@@ -100,6 +119,8 @@ def convert(c: dict, vs: int) -> dict:
     t = template_for(c)
     if t.endswith("-shield") and c.get("shield_style", "fade") == "fade":
         t += "-fade"      # Original Virtual era: the slips' red→cyan fade; "shield_style": "hybrid" keeps the primary frame
+    elif t == "ds-shield" and c.get("shield_style") == "vb":
+        t = "ds-shield-vb"   # card maker: Virtual Block Dark shield
     elif t.endswith("-shield") and c.get("shield_style") == "decipher":
         t += "-dc"         # card maker: Decipher's printed shield frame
     art = c.get("art") or {}
@@ -108,9 +129,9 @@ def convert(c: dict, vs: int) -> dict:
     card = {
         "id": f"vs{vs}-{int(c['number']):02d}", "template": t, "side": c["side"], "title": c["title"],
         "caption": c.get("caption") or f"{c['title']} (V)", "number": str(int(c["number"])), "virtual_set": vs,
-        "destiny": c.get("destiny") or "", "lore": bold_keywords(c.get("lore") or "") if "character" in template_for(c) else c.get("lore") or "", "game_text": gt,
+        "destiny": c.get("destiny") or "", "lore": bold_keywords(c.get("lore") or "") if "character" in template_for(c) and c.get("bold_lore", True) else c.get("lore") or "", "game_text": gt,
         "icons": c.get("icons") or [], "scomp": bool(c.get("scomp")),
-        "copyright": c.get("copyright") or "", "expansion_icon": (SET_ICON.get(exp, None) if exp and not c.get("no_expansion_ring") else None),
+        "copyright": c.get("copyright") or "", "expansion_icon": (expansion_icon(exp, c.get("expansion_style") or "decipher") if exp and not c.get("no_expansion_ring") else None),
         "expansion_icon_in_hole": False,
     }
     if c.get("alt_image") and c.get("id"):   # AI (alternate image) slip: same card, its own art and file (VS17 Black Leader AI)

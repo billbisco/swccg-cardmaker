@@ -101,13 +101,41 @@ def game_text(t: str) -> str:
     return t
 
 
+PRINTING_TAGS = r"V|AI|[^()]*\bAI|Premium|Light|Dark|Tatooine|Coruscant|Reflections I{1,3}|Death Star II|Cloud City|Endor|Hoth|Dagobah|Special Edition|Jabba's Palace|A New Hope|Theed Palace|Premiere|Errata|ALT"
+
+
+def strip_printing(t: str) -> str:
+    prev = None
+    while prev != t:
+        prev = t
+        t = re.sub(rf"\s*\((?:{PRINTING_TAGS})\)(?=\s*(?:/|&|$))", "", t)
+    return t
+
+
+def pc_shorthand(t: str) -> str:
+    """The Players Committee prints its own shorthand (Game Aid sheet): the card JSON spells it out."""
+    t = re.sub(r"Adds (\d) to power of anything (?:he|she|it) pilots\.", r"{pilot:\1}.", t)
+    t = re.sub(r"(?i)\bdeploy ([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle)?", r"▼ \1", t)
+    t = re.sub(r"(?i)\btake ([^.;()]+?) into hand from (?:your )?Reserve Deck(?:; reshuffle)?", r"▲ \1", t)
+    t = t.replace("(Immune to {alter}.)", "{alter}").replace("(Immune to Alter.)", "{alter}")
+    return t
+
+
+def quotes(t: str) -> str:
+    """The PC JSON writes printed double quotes as single ones: 'Vehicle with armor' -> “Vehicle with armor”."""
+    return re.sub(r"(?<![\w])'(.+?)'(?![\w])", "\u201c\\1\u201d", t)
+
+
+BASE_EXP: dict = {}   # title -> Decipher expansion of the original printing (filled by the server)
+
+
 def gemp_to_spec(c: dict) -> dict:
     f = c["front"]
     side = c["side"]
     typ = f.get("type") or ""
     sub = f.get("subType") or ""
     icons = f.get("icons") or []
-    title = re.sub(r"\s*\((?:V|AI|[^()]*\bAI)\)(?=\s*(?:/|$))", "", f.get("title") or "")   # "(V)" / "(AI)" name the printing; the card prints the bare title
+    title = strip_printing(f.get("title") or "")   # "(V)", "(AI)", "(Premium)", "(Tatooine)" … name the printing, not the card
     exp = SETS.get(str(c.get("set")))
     # the black caption strip is blank by default (Bill 2026-10-15): only some PC virtual cards print text there
     spec = {"side": side, "title": title, "caption": "", "number": "", "destiny": f.get("destiny") or "",
@@ -118,13 +146,28 @@ def gemp_to_spec(c: dict) -> dict:
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
     if c.get("legacy"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = f.get("title") or ""
-        if typ == "Defensive Shield" and side == "Light":
-            spec["shield_style"] = "fade"   # Light Virtual Block shields print the red→cyan fade (Affect Mind (V))
+        if typ == "Defensive Shield":
+            spec["shield_style"] = "fade" if side == "Light" else "vb"   # Virtual Block shields: Light red→cyan (Affect Mind (V)), Dark cyan→red (No Escape (V))
     if not spec.get("expansion"):   # PC virtual cards print the base card's expansion sphere (Blockade Support Ship: Coruscant)
         for i in icons:
             nm = {"Reflections 2": "Reflections II", "Reflections 3": "Reflections III", "Premium": "Premium"}.get(i, i)
             if nm in EXPANSION_NAMES:
                 spec["expansion"] = nm; break
+    sid = str(c.get("set") or "")
+    pc_era = (sid.isdigit() and (200 <= int(sid) <= 399 or int(sid) >= 1000)) or sid in ("200d", "1000d")
+    if not spec.get("expansion") and pc_era:   # (V) cards keep the original card's sphere (Overseeing It Personally (V): DS2)
+        spec["expansion"] = BASE_EXP.get(re.sub(r"[^a-z0-9]", "", title.lower().replace("•", "")))
+    spec["lore"] = quotes(spec["lore"])
+    spec["game_text"] = quotes(spec["game_text"])
+    if pc_era:
+        spec["game_text"] = pc_shorthand(spec["game_text"])
+    spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
+    if c.get("legacy"):
+        spec["bold_lore"] = False   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
+    if typ in ("Device",):
+        spec["device_frame"] = True
+    # modern PC cards print the PC's own redrawn spheres; Decipher, OVS and Virtual Block cards print Decipher's
+    spec["expansion_style"] = "pc" if ((sid.isdigit() and 200 <= int(sid) <= 399) or sid == "200d") else "decipher"
     rings = [RING[i] for i in icons if i in RING]
     if rings:
         spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)
@@ -149,6 +192,8 @@ def gemp_to_spec(c: dict) -> dict:
             spec["stats"] = [["POWER", f.get("power") or "0"], ["ABILITY", ab]]
             if f.get("politics"):
                 spec["stats"].append(["POLITICS", f["politics"]])
+            elif f.get("armor"):   # Mandalorians (Fenn Rau): ARMOR in the third box
+                spec["stats"].append(["ARMOR", f["armor"]])
             elif f.get("extraText"):   # third box label: FORCE-ATTUNED, FORCE-SENSITIVE … (Lando)
                 spec["stats"].append([str(f["extraText"][0]).upper(), ""])
         spec["icons"] = col
