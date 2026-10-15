@@ -112,6 +112,14 @@ def strip_printing(t: str) -> str:
     return t
 
 
+def maintenance(t: str) -> str:
+    """Reflections III maintenance costs, as printed: ✱ Use 2 or [flag] Lose 1 or [skull]."""
+    t = re.sub(r"Use (\d+)(?: Force)? to maintain", r"{icon:maintenance-star}Use \1", t)
+    t = re.sub(r" OR Lose (\d+)(?: Force)? to place in Used Pile", r" or {icon:maintenance-flag} Lose \1", t)
+    t = re.sub(r" OR Place out of play", r" or {icon:maintenance-skull}", t)
+    return t
+
+
 def pc_shorthand(t: str) -> str:
     """The Players Committee prints its own shorthand (Game Aid sheet): the card JSON spells it out."""
     t = re.sub(r"Adds (\d) to power of anything (?:he|she|it) pilots\.", r"{pilot:\1}.", t)
@@ -134,7 +142,10 @@ def gemp_to_spec(c: dict) -> dict:
     side = c["side"]
     typ = f.get("type") or ""
     sub = f.get("subType") or ""
-    icons = f.get("icons") or []
+    icons = []
+    for i in f.get("icons") or []:   # "Warrior x2" = two icons (Tonnika Sisters)
+        mm = re.match(r"(.+?)\s+x(\d)$", i)
+        icons += [mm.group(1)] * int(mm.group(2)) if mm else [i]
     title = strip_printing(f.get("title") or "")   # "(V)", "(AI)", "(Premium)", "(Tatooine)" … name the printing, not the card
     exp = SETS.get(str(c.get("set")))
     # the black caption strip is blank by default (Bill 2026-10-15): only some PC virtual cards print text there
@@ -158,7 +169,7 @@ def gemp_to_spec(c: dict) -> dict:
     if not spec.get("expansion") and pc_era:   # (V) cards keep the original card's sphere (Overseeing It Personally (V): DS2)
         spec["expansion"] = BASE_EXP.get(re.sub(r"[^a-z0-9]", "", title.lower().replace("•", "")))
     spec["lore"] = quotes(spec["lore"])
-    spec["game_text"] = quotes(spec["game_text"])
+    spec["game_text"] = maintenance(quotes(spec["game_text"]))
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
@@ -186,7 +197,9 @@ def gemp_to_spec(c: dict) -> dict:
         spec["affiliation"] = sub
         third = (f.get("extraText") or [""])[0] if sub == "Droid" else ""
         if sub == "Droid":
-            spec["stats"] = [["POWER", f.get("power") or "0"], [third.upper() or "DROID", ""]]
+            spec["stats"] = [["POWER", f.get("power") or "0"]]
+            if f.get("armor"): spec["stats"].append(["ARMOR", f["armor"]])   # armored droids (IG-88: POWER, ARMOR, ASSASSIN DROID)
+            spec["stats"].append([third.upper() or "DROID", ""])
         else:
             ab = f.get("ability") or ""
             spec["stats"] = [["POWER", f.get("power") or "0"], ["ABILITY", ab]]

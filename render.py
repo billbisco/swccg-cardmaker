@@ -5,13 +5,13 @@ the card area is 1343×1931 at (144,144) on a 1632×2220 black bleed. A Holotabl
 card area at half scale with a ~37 px black border, so one render serves both.
 """
 from __future__ import annotations
-import base64, json, re, sys
+import base64, json, os, re, sys
 from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent
 ASSETS = ROOT / "assets"
-OUT = ROOT / "out"
+OUT = Path(os.environ.get("CARDMAKER_OUT") or ROOT / "out")
 W, H = 1632, 2220
 
 # Template geometry (x, y, w, h) in 1632×2220 space.
@@ -495,8 +495,14 @@ def game_text_html(text: str) -> str:
             if not sf.exists():
                 sf = ASSETS / f"icons/set-{arg}-grainy.png"
             out.append(f'<img class="gt-icon" src="{data_uri(sf)}" style="height:56px;border-radius:50%;box-shadow:0 0 0 3px #000">')
-        else:
+        elif name == "icon" and arg in ICON_FILES:   # {icon:pilot}, {icon:warrior} …
+            out.append(icon_img(arg))
+        elif name == "icon" and (ASSETS / f"icons/pc-gameaid-x4/{arg}.png").exists():
+            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/pc-gameaid-x4/{arg}.png")}" style="height:56px">')
+        elif name in ICON_FILES:
             out.append(icon_img(name))
+        else:   # unknown code: print it as typed rather than fail the card
+            out.append(esc(m.group(0)))
         pos = m.end()
     out.append(esc(text[pos:]))
     html = "".join(out)
@@ -1196,10 +1202,11 @@ def build_html(card: dict) -> str:
     # icon slots
     light = card.get("side") == "Light"
     icons = list(card.get("icons", []))
-    # two Warrior icons share one tall box on the printed cards (IG-88): "warrior","warrior" → "warrior2" (89×158)
+    # two Warrior icons share one tall box on the printed cards (IG-88): "warrior","warrior" → "warrior2" (89×158);
+    # Premiere (no expansion symbol) printed them as two separate boxes (Tonnika Sisters)
     packed = []
     for nm in icons:
-        if nm == "warrior" and packed and packed[-1] == "warrior":
+        if nm == "warrior" and packed and packed[-1] == "warrior" and card.get("expansion_icon"):
             packed[-1] = "warrior2"
         else:
             packed.append(nm)
