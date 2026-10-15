@@ -406,3 +406,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Holotable faces (Captain Lando Calrissian VS13, Admiral Raddus VS9, A Good Blaster At Your Side VS0, 2-1B (V)
   Virtual Block 2). The Virtual Block (legacy) cards are in the editor too (ids `<set>_L<id>`, Browse group).
   Editor: one "Set mark" choice — none / Original Virtual Set 1–17 / Virtual Block 1–9 / Virtual Set 0–27.
+- Rev 42 (card maker, modern + legacy PC cards vs Holotable faces, 2026-10-15): titles print without "(V)"/"(AI)"
+  (that names the printing); Virtual Block cards print "•Title (V)" in the strip; "Blank" lore = empty; Virtual
+  Defensive Shields mark = gold ring + D (`pc:D`), Virtual Block shields = diamond + D (`vb:D`); Light Virtual Block
+  shields default to the red→cyan fade (Affect Mind (V)) — every shield's frame is now a choice in the editor
+  (Decipher / fade / hybrid); modern PC cards get "ARTWORK NEITHER AFFILIATED WITH NOR ENDORSED BY LUCASFILM LTD."
+  beside the art; credit fields for both margins. Inline icons from the PC's Feb 2024 Game Aid sheet
+  (`assets/icons/pc-gameaid-named/`, `{ga:<name>}`): Episode VII, Clone Army, Separatist, First Order, Resistance,
+  Trade Federation, Independent Starship, Skywalker / Sidious themes, Selective Creature, Virtual; `[Virtual Block N]`
+  → `{vb:N}` and `[Set N]` → `{pcset:N}` inline marks; `[Permanent Weapon]`, `[Presence]`, `[Nav Computer]`,
+  `[Light Side]` / `[Dark Side]` mapped. Not yet drawn (no icon art): [Scoundrel], [Setup], [Vader].

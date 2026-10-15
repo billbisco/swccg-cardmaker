@@ -471,6 +471,11 @@ def game_text_html(text: str) -> str:
                    '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="miter"/>'
                    f'<text x="50" y="53" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="{40 if len(arg or "") < 2 else 36}" fill="#fff">{esc(arg or "")}</text></svg>')
             out.append(f'<img class="gt-icon" src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}" style="height:60px;vertical-align:-12px">')
+        elif name == "ga":   # a Players Committee Game Aid icon (Feb 2024 reference sheet), e.g. {ga:separatist}
+            gf = ASSETS / f"icons/pc-gameaid-named/{arg}.png"
+            out.append(f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px">' if gf.exists() else esc(f"[{arg}]"))
+        elif name in ("vb", "pcset"):   # inline set marks: [Virtual Block 4] -> {vb:4}, [Set 13] -> {pcset:13}
+            out.append(inline_set_mark(("vb:" if name == "vb" else "pc:") + (arg or "")))
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
             sf = ASSETS / f"icons/set-{arg}-decipher.png"   # Decipher's own sphere (Bill 2026-10-14)
             if not sf.exists():
@@ -930,6 +935,12 @@ def sys_frame(card: dict, t: dict) -> Path:
     return p
 
 
+def inline_set_mark(mark: str) -> str:
+    """A set mark sized for a line of game text (wrapped so it sits on the baseline like the other inline icons)."""
+    html = set_mark_html(mark, 0, 0, 40).replace("position:absolute;", "position:relative;display:inline-block;vertical-align:-14px;")
+    return re.sub(r"left:-?\d+px;top:-?\d+px;", "", html)
+
+
 def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
     """Inline SVG (uses the page's fonts) centred on the template's set-icon slot. mark = "pc:<n>" or "vb:<n>".
     Sizes/placement measured on Holotable faces (Captain Lando Calrissian VS13, Admiral Raddus VS9, A Good Blaster
@@ -942,7 +953,7 @@ def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
                '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="miter"/>'
                f'<text x="50" y="53" text-anchor="middle" font-family="AGMedExt" font-size="{38 if len(num) < 2 else 32}" fill="#fff">{esc(num)}</text></svg>')
         return f'<div style="position:absolute;left:{cx - w / 2 + ss * .25:.0f}px;top:{cy - h / 2 + ss * .85:.0f}px;line-height:0">{svg}</div>'
-    gold = num == "0"
+    gold = num in ("0", "D")   # Set 0 and the Virtual Defensive Shields: gold ring (PC Game Aid sheet)
     ring_a, ring_b = ("#8a6a1c", "#e6c766") if gold else ("#0b3a74", "#5a9bd2")
     edge = "#c97a12" if gold else "#1d4aa0"
     w, h = ss * 2.0, ss * 1.5

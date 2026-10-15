@@ -59,6 +59,11 @@
           <label class="df">Deploy <input name="deploy" maxlength="3"></label>
           <label class="df">Forfeit <input name="forfeit" maxlength="3"></label>
         </div>
+        <label class="shieldonly" hidden>Shield frame <select name="shield_style">
+          <option value="decipher">Decipher (cyan / Dark cyan)</option>
+          <option value="fade">Virtual fade (red → cyan)</option>
+          <option value="hybrid">Hybrid (Effect top, shield bottom)</option>
+        </select></label>
         <div class="grid2 wideonly" hidden>
           <label class="inline"><input type="checkbox" name="wide"> <span class="widelbl">Wide (landscape) layout</span></label>
           <label class="rgonly">Credits (gold coins) <input name="credits" type="number" min="0" max="4"></label>
@@ -115,6 +120,10 @@
         <label>Expansion symbol (ring) <select name="expansion"></select></label>
         <label class="file">Your own set symbol (lower icon corner) <input type="file" id="symFile" accept="image/png,image/*"></label>
         <label>Copyright line (beside the art) <input name="copyright" placeholder="TM &amp; © 1997 LUCASFILM LTD. …"></label>
+        <div class="grid2">
+          <label>Credit, left margin <input name="margin_left" placeholder="Image courtesy of …"></label>
+          <label>Credit, right margin <input name="margin_right"></label>
+        </div>
         <p class="hint">Bottom black strip: blank on Decipher cards; some Players Committee cards print text here.</p>
         <div class="grid3">
           <label>Strip, left <input name="caption"></label>
