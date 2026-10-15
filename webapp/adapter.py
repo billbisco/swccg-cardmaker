@@ -16,6 +16,8 @@ SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring s
     "109": "Enhanced Cloud City", "110": "Enhanced Jabba's Palace", "111": "Premiere", "112": "Jabba's Palace Sealed Deck",
 }
 
+EXPANSION_NAMES = {"A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palace", "Special Edition", "Endor",
+                   "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Jedi Pack"}
 YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1998, "8": 1998, "9": 2000, "10": 2000,
         "11": 2001, "12": 2001, "13": 2001, "14": 2001, "101": 1996, "102": 1996, "103": 1997, "104": 1997, "106": 1998,
         "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999}
@@ -116,6 +118,11 @@ def gemp_to_spec(c: dict) -> dict:
         spec["caption"] = f.get("title") or ""
         if typ == "Defensive Shield" and side == "Light":
             spec["shield_style"] = "fade"   # Light Virtual Block shields print the red→cyan fade (Affect Mind (V))
+    if not spec.get("expansion"):   # PC virtual cards print the base card's expansion sphere (Blockade Support Ship: Coruscant)
+        for i in icons:
+            nm = {"Reflections 2": "Reflections II", "Reflections 3": "Reflections III", "Premium": "Jedi Pack"}.get(i, i)
+            if nm in EXPANSION_NAMES:
+                spec["expansion"] = nm; break
     rings = [RING[i] for i in icons if i in RING]
     if rings:
         spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)

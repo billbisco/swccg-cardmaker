@@ -422,4 +422,4 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Sidious, Skywalker (`render.RING_DISCS`); Setup in the banner's right end (`banner_icon: setup`); Scoundrel as a
   portrait disc in the left margin at the text box (`margin_icon`). Inline: [Scoundrel] [Setup] [Vader]. Art: wiki
   180 px icons and the PC Game Aid sheet; Scoundrel / Setup / Vader cut from the only faces that carry them (350 px
-  legacy scans: soft — replace when a sharper source turns up). Titles drop "(Holo AI)"-style printing names too.
+  legacy scans: soft — replace when a sharper source turns up). Titles drop "(Holo AI)"-style printing names too. PC virtual cards take the base card's expansion sphere from their icon list (Blockade Support Ship: Coruscant); Sidious disc in the right margin at the text box top.
