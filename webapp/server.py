@@ -42,6 +42,11 @@ for side in ("Light", "Dark"):
     for c in json.load(open(ROOT / f"gempdata/{side}.json", encoding="utf-8"))["cards"]:
         if c.get("gempId"):
             CARDS[c["gempId"]] = c
+    lp = ROOT / f"gempdata/{side}Legacy.json"   # the PC's 2009-2014 Virtual Blocks (legacy): no GEMP ids, keyed <set>_L<id>
+    if lp.exists():
+        for c in json.load(open(lp, encoding="utf-8"))["cards"]:
+            c["gempId"] = f"{c['set']}_L{c['id']}"
+            CARDS[c["gempId"]] = c
 _CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if (ROOT / "gempdata/corrections.json").exists() else {}
 for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
     if _g in CARDS:
@@ -114,6 +119,8 @@ def row(g: str) -> dict:
 
 def set_group(sid: str) -> str:
     n = int(re.match(r"\d+", sid).group()) if re.match(r"\d+", sid) else 0
+    if 1000 <= n < 1100:
+        return "Players Committee Virtual Blocks (2009–2014, legacy)"
     return "Decipher" if n < 200 else ("Players Committee virtual" if n < 300 else "Players Committee other")
 
 
@@ -128,7 +135,8 @@ for _n, _nm in OVS_NAMES.items():
     _c = sum(1 for d in OVS.values() if d["virtual_set"] == _n)
     if _c:
         SET_LIST.append({"id": f"{1100 + _n}", "name": f"Virtual Set {_n}: {_nm}", "group": "Players Committee Original Virtual Sets (2002–2008)", "count": _c})
-GROUPS = ["Decipher", "Players Committee Original Virtual Sets (2002–2008)", "Players Committee virtual", "Players Committee other"]
+GROUPS = ["Decipher", "Players Committee Original Virtual Sets (2002–2008)", "Players Committee Virtual Blocks (2009–2014, legacy)",
+          "Players Committee virtual", "Players Committee other"]
 SET_LIST.sort(key=lambda s: GROUPS.index(s["group"]))
 TYPES = sorted({c["front"].get("type") or "" for c in CARDS.values()} - {""})
 

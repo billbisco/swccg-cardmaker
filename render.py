@@ -930,6 +930,31 @@ def sys_frame(card: dict, t: dict) -> Path:
     return p
 
 
+def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
+    """Inline SVG (uses the page's fonts) centred on the template's set-icon slot. mark = "pc:<n>" or "vb:<n>".
+    Sizes/placement measured on Holotable faces (Captain Lando Calrissian VS13, Admiral Raddus VS9, A Good Blaster
+    At Your Side VS0, 2-1B (Too-Onebee) (V) Virtual Block 2)."""
+    kind, _, num = str(mark).partition(":")
+    if kind == "vb":   # Virtual Block diamond: black, white edge, number over a V chevron
+        w = ss * 1.55; h = w * .86
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 86" width="{w:.0f}" height="{h:.0f}">'
+               '<polygon points="50,3 97,43 50,83 3,43" fill="#111" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>'
+               '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="miter"/>'
+               f'<text x="50" y="53" text-anchor="middle" font-family="AGMedExt" font-size="{38 if len(num) < 2 else 32}" fill="#fff">{esc(num)}</text></svg>')
+        return f'<div style="position:absolute;left:{cx - w / 2 + ss * .25:.0f}px;top:{cy - h / 2 + ss * .85:.0f}px;line-height:0">{svg}</div>'
+    gold = num == "0"
+    ring_a, ring_b = ("#8a6a1c", "#e6c766") if gold else ("#0b3a74", "#5a9bd2")
+    edge = "#c97a12" if gold else "#1d4aa0"
+    w, h = ss * 2.0, ss * 1.5
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="{w:.0f}" height="{h:.0f}">'
+           f'<defs><linearGradient id="rg{num}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{ring_b}"/>'
+           f'<stop offset=".55" stop-color="{ring_a}"/><stop offset="1" stop-color="{ring_b}"/></linearGradient></defs>'
+           f'<ellipse cx="100" cy="80" rx="74" ry="30" transform="rotate(-28 100 80)" fill="none" stroke="url(#rg{num})" stroke-width="16"/>'
+           f'<text x="100" y="124" text-anchor="middle" font-family="AGBoldCnA" font-size="142" letter-spacing="-3" '
+           f'fill="#fff" stroke="{edge}" stroke-width="9" paint-order="stroke" stroke-linejoin="round">{esc(num)}</text></svg>')
+    return f'<div style="position:absolute;left:{cx - w / 2 - ss * .1:.0f}px;top:{cy - h / 2 + ss * .2:.0f}px;line-height:0">{svg}</div>'
+
+
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
@@ -1126,7 +1151,12 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + int(6 * k)}px;top:{y + int(7 * k)}px;width:{int(75 * k)}px;height:{int(75 * k)}px">')
     # original-era virtual marker: the slips print the gold virtual-set symbol in the lower icon slot
-    if (card.get("virtual_set") is not None or card.get("set_icon_file")) and "set_icon_abs" in t:
+    if card.get("set_mark") and "set_icon_abs" in t and not card.get("set_icon_file"):
+        # Players Committee set marks, drawn as vector: modern Virtual Sets = the number on a tilted ring (blue; gold
+        # for Set 0), 2009 Virtual Blocks = the black diamond with its chevron (Bill 2026-10-15, from Holotable scans)
+        x, y = t["set_icon_abs"]; ss = t.get("set_icon_size", 76)
+        parts.append(set_mark_html(card["set_mark"], x + ss / 2, y + ss / 2, ss))
+    elif (card.get("virtual_set") is not None or card.get("set_icon_file")) and "set_icon_abs" in t:
         x, y = t["set_icon_abs"]
         sym = Path(card["set_icon_file"]) if card.get("set_icon_file") else ASSETS / f"icons/ovs-set-{card['virtual_set']}.png"   # each original set has its own symbol (from its Remaster PDF); card maker: the user's own
         ss = t.get("set_icon_size", 76)

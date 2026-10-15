@@ -67,9 +67,12 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "virtual_set"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
+  const mk = $("#setMark").value;   // "", "ovs:N", "pc:N", "vb:N"
+  s.virtual_set = mk.startsWith("ovs:") ? +mk.slice(4) : null;
+  s.set_mark = /^(pc|vb):/.test(mk) ? mk : null;
   s.affiliation = fd.get("affiliation") || null;
   s.expansion = fd.get("expansion") || null;
   s.scomp = !!fd.get("scomp");
@@ -106,6 +109,7 @@ function writeForm(s, data) {
     else el.value = s[el.name] ?? "";
   }
   if (!s.style) form.elements.style.value = "decipher";
+  $("#setMark").value = s.set_mark || (s.virtual_set ? "ovs:" + s.virtual_set : "");
   form.elements.light_force_count.value = s.light_force_count ?? (s.light_force ? 1 : 0);
   form.elements.dark_force_count.value = s.dark_force_count ?? (s.dark_force ? 1 : 0);
   statsUI(s.stats);
@@ -121,7 +125,6 @@ function layoutFor(s) {
   document.querySelectorAll(".objonly").forEach(e => e.hidden = !obj);
   $(".loclight").hidden = loc; $(".locdark").hidden = !loc;
   $(".aff").style.visibility = ch ? "visible" : "hidden";
-  $(".ovsonly").style.visibility = s.style === "ovs" ? "visible" : "hidden";
   $(".wideonly").hidden = !WIDE_OK(s);
   $(".rgonly").style.visibility = /Interrupt|Effect/.test(s.slip_type || "") ? "visible" : "hidden";
   $(".widelbl").textContent = /Weapon/.test(s.slip_type || "") ? "Wide layout (as Maul's Double-Bladed Lightsaber)" : "Reflections Gold wide layout";
@@ -277,6 +280,15 @@ document.querySelectorAll('a[href="#help"]').forEach(a => a.onclick = e => { e.p
   opts = await j(API + "options");
   fillSelect(form.elements.side, opts.sides);
   fillSelect(form.elements.slip_type, opts.slip_types);
+  { // set marks: Original Virtual Sets 1-17, modern Virtual Sets 0-27, Virtual Blocks 1-9
+    const sel = $("#setMark"); sel.innerHTML = '<option value="">None</option>';
+    const grp = (label, pre, a, b, name) => { const g = document.createElement("optgroup"); g.label = label;
+      for (let i = a; i <= b; i++) { const o = document.createElement("option"); o.value = pre + i; o.textContent = name + " " + i; g.appendChild(o); }
+      sel.appendChild(g); };
+    grp("Original Virtual Sets (2002–2008)", "ovs:", 1, 17, "Original Virtual Set");
+    grp("Virtual Blocks (2009–2014)", "vb:", 1, 9, "Virtual Block");
+    grp("Virtual Sets (2014–)", "pc:", 0, 27, "Virtual Set");
+  }
   fillSelect(form.elements.affiliation, [null, ...opts.affiliations]);
   fillSelect(form.elements.expansion, opts.expansions, v => v ?? "— none —");
   $("#tokens").innerHTML = Object.entries(opts.tokens).map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${esc(v)}</td></tr>`).join("");

@@ -399,3 +399,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Virtual Sets") with their published art (kind `ovs`) — pixel-identical to the wiki remasters (checked 6 cards).
   Systems from Holotable faces map the card area by fixed coordinates (starfield defeats edge detection); two Dark
   Force icons on systems (Dagobah); systems print the copyright split Lucasfilm left / Decipher right.
+- Rev 41 (Bill 2026-10-15: modern and legacy virtual set symbols): the card maker draws the Players Committee set
+  marks in the lower icon slot as vector (`render.set_mark_html`, card key `set_mark`): modern Virtual Sets 0–27
+  `pc:N` = the number (condensed bold, white, blue edge) on a tilted blue ring — gold ring and orange edge for Set 0;
+  2009–2014 Virtual Blocks `vb:N` = black diamond, white edge, number over the V chevron. Sizes and places measured on
+  Holotable faces (Captain Lando Calrissian VS13, Admiral Raddus VS9, A Good Blaster At Your Side VS0, 2-1B (V)
+  Virtual Block 2). The Virtual Block (legacy) cards are in the editor too (ids `<set>_L<id>`, Browse group).
+  Editor: one "Set mark" choice — none / Original Virtual Set 1–17 / Virtual Block 1–9 / Virtual Set 0–27.
