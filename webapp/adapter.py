@@ -12,12 +12,12 @@ SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring s
     "1": "Premiere", "2": "A New Hope", "3": "Hoth", "4": "Dagobah", "5": "Cloud City", "6": "Jabba's Palace",
     "7": "Special Edition", "8": "Endor", "9": "Death Star II", "10": "Reflections II", "11": "Tatooine",
     "12": "Coruscant", "13": "Reflections III", "14": "Theed Palace", "101": "Premiere", "102": "Jedi Pack",
-    "103": "Jedi Pack", "104": "Hoth", "106": "Official Tournament Sealed Deck", "108": "Premiere",
-    "109": "Enhanced Cloud City", "110": "Enhanced Jabba's Palace", "111": "Premiere", "112": "Jabba's Palace Sealed Deck",
+    "103": "Jedi Pack", "104": "Premium", "106": "Official Tournament Sealed Deck", "108": "Premium",
+    "109": "Enhanced Cloud City", "110": "Enhanced Jabba's Palace", "111": "Premium", "112": "Jabba's Palace Sealed Deck",
 }
 
 EXPANSION_NAMES = {"A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palace", "Special Edition", "Endor",
-                   "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Jedi Pack"}
+                   "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Premium"}
 YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1998, "8": 1998, "9": 2000, "10": 2000,
         "11": 2001, "12": 2001, "13": 2001, "14": 2001, "101": 1996, "102": 1996, "103": 1997, "104": 1997, "106": 1998,
         "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999}
@@ -40,6 +40,8 @@ def set_mark_for(set_id) -> str | None:
     """The Players Committee's set mark in the lower icon slot: modern Virtual Sets 0-27 (ring + number) and the 2009
     Virtual Blocks 1-9 (diamond)."""
     s = str(set_id or "")
+    if s == "301":      # Virtual Premium: gold "P" (Asajj Ventress With Lightsabers)
+        return "pc:P"
     if s == "200d":     # Virtual Defensive Shields: the gold ring with D (A Close Race (V), Don't Do That Again (V))
         return "pc:D"
     if s == "1000d":    # Virtual Block shields: the diamond with D (Affect Mind (V))
@@ -120,7 +122,7 @@ def gemp_to_spec(c: dict) -> dict:
             spec["shield_style"] = "fade"   # Light Virtual Block shields print the red→cyan fade (Affect Mind (V))
     if not spec.get("expansion"):   # PC virtual cards print the base card's expansion sphere (Blockade Support Ship: Coruscant)
         for i in icons:
-            nm = {"Reflections 2": "Reflections II", "Reflections 3": "Reflections III", "Premium": "Jedi Pack"}.get(i, i)
+            nm = {"Reflections 2": "Reflections II", "Reflections 3": "Reflections III", "Premium": "Premium"}.get(i, i)
             if nm in EXPANSION_NAMES:
                 spec["expansion"] = nm; break
     rings = [RING[i] for i in icons if i in RING]

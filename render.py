@@ -390,7 +390,7 @@ ICON_FILES = {
 }
 RING_DISCS = {   # discs printed under the expansion sphere (or in its place when the card has none)
     "episode1": "icons/ep1-disc.png", "episode7": "icons/ep7-disc.png",
-    "sidious": "icons/pc-gameaid-named/sidious-theme.png", "skywalker": "icons/pc-gameaid-named/skywalker-theme.png",
+    "sidious": "icons/disc-sidious.png", "skywalker": "icons/disc-skywalker.png",
 }
 
 
@@ -481,7 +481,7 @@ def game_text_html(text: str) -> str:
                    f'<text x="50" y="53" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="{40 if len(arg or "") < 2 else 36}" fill="#fff">{esc(arg or "")}</text></svg>')
             out.append(f'<img class="gt-icon" src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}" style="height:60px;vertical-align:-12px">')
         elif name == "ga":   # a Players Committee Game Aid icon (Feb 2024 reference sheet), e.g. {ga:separatist}
-            gf = ASSETS / f"icons/pc-gameaid-named/{arg}.png"
+            gf = ASSETS / f"icons/pc-gameaid-x4/{arg}.png"
             out.append(f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px">' if gf.exists() else esc(f"[{arg}]"))
         elif name in ("vb", "pcset"):   # inline set marks: [Virtual Block 4] -> {vb:4}, [Set 13] -> {pcset:13}
             out.append(inline_set_mark(("vb:" if name == "vb" else "pc:") + (arg or "")))
@@ -962,7 +962,7 @@ def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
                '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="miter"/>'
                f'<text x="50" y="53" text-anchor="middle" font-family="AGMedExt" font-size="{38 if len(num) < 2 else 32}" fill="#fff">{esc(num)}</text></svg>')
         return f'<div style="position:absolute;left:{cx - w / 2 + ss * .25:.0f}px;top:{cy - h / 2 + ss * .85:.0f}px;line-height:0">{svg}</div>'
-    gold = num in ("0", "D")   # Set 0 and the Virtual Defensive Shields: gold ring (PC Game Aid sheet)
+    gold = num in ("0", "D", "P")   # Set 0 and the Virtual Defensive Shields: gold ring (PC Game Aid sheet)
     ring_a, ring_b = ("#8a6a1c", "#e6c766") if gold else ("#0b3a74", "#5a9bd2")
     edge = "#c97a12" if gold else "#1d4aa0"
     w, h = ss * 2.0, ss * 1.5
