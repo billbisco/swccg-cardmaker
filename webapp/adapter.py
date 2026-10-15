@@ -16,6 +16,21 @@ SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring s
     "109": "Enhanced Cloud City", "110": "Enhanced Jabba's Palace", "111": "Premiere", "112": "Jabba's Palace Sealed Deck",
 }
 
+YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1998, "8": 1998, "9": 2000, "10": 2000,
+        "11": 2001, "12": 2001, "13": 2001, "14": 2001, "101": 1996, "102": 1996, "103": 1997, "104": 1997, "106": 1998,
+        "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999}
+
+
+def copyright_for(set_id) -> str:
+    """The vertical Lucasfilm / Decipher line printed beside the art (format as on the scans, cf. VS specs)."""
+    y = YEAR.get(str(set_id))
+    if not y:
+        return ""
+    if y >= 2000:
+        return f"© {y} LUCASFILM LTD. & TM. TM, ® & © {y} DECIPHER INC."
+    return f"TM & © {y} LUCASFILM LTD. TM, ® & © {y} DECIPHER INC."
+
+
 INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Immune to Alter.]": "{alter}", "[Immune to Alter]": "{alter}", "[Immune to Sense.]": "{sense}",
     "[Immune to Sense]": "{sense}", "[Immune to Control.]": "{control}", "[Immune to Control]": "{control}",
@@ -59,7 +74,10 @@ def gemp_to_spec(c: dict) -> dict:
             "lore": f.get("lore") or "", "game_text": game_text(f.get("gametext")), "icons": [], "stats": [],
             "deploy": f.get("deploy"), "forfeit": f.get("forfeit"), "scomp": "Scomp Link" in icons,
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
-            "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")}}
+            "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
+            "copyright": copyright_for(c.get("set"))}
+    if "Episode I" in icons and typ != "Character":
+        spec["ring_icons"] = ["episode1"]   # the Episode I disc under the expansion sphere (A Close Race)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and not (i == "Episode I" and typ != "Character")]
     if typ == "Character":
         spec["slip_type"] = "Character"
@@ -72,10 +90,16 @@ def gemp_to_spec(c: dict) -> dict:
             spec["stats"] = [["POWER", f.get("power") or "0"], ["ABILITY", ab]]
             if f.get("politics"):
                 spec["stats"].append(["POLITICS", f["politics"]])
+            elif f.get("extraText"):   # third box label: FORCE-ATTUNED, FORCE-SENSITIVE … (Lando)
+                spec["stats"].append([str(f["extraText"][0]).upper(), ""])
         spec["icons"] = col
     elif typ in ("Starship", "Vehicle"):
         spec["slip_type"] = "Starfighter" if "starfighter" in sub.lower() else ("Vehicle" if typ == "Vehicle" else "Starship")
-        spec["card_type"] = sub.upper().replace(":", ":")
+        if typ == "Vehicle":   # printed "COMBAT VEHICLE: AT-ST", "SHUTTLE VEHICLE" (Chewie's AT-ST)
+            kind, _, model = sub.partition(":")
+            spec["card_type"] = (f"{kind.strip()} VEHICLE: {model.strip()}" if model else f"{kind.strip()} VEHICLE").upper()
+        else:
+            spec["card_type"] = sub.upper()
         st = [["POWER", f.get("power") or "0"]]
         if f.get("maneuver"): st.append(["MANEUVER", f["maneuver"]])
         if f.get("armor"): st.append(["ARMOR", f["armor"]])
@@ -93,7 +117,9 @@ def gemp_to_spec(c: dict) -> dict:
             m2 = re.match(r"\s*(?:Dark|DARK)\s*:?\s*(.*?)\s*(?:Light|LIGHT)\s*:\s*(.*)$", gt, re.S)
             if m2: dark, light = m2.group(1), m2.group(2)
         spec["game_text"], spec["dark_text"] = game_text(light), game_text(dark)
-        li = [LOC_ICON[i] for i in icons if i in LOC_ICON]
+        # icon boxes are drawn right to left from the list: scomp outermost, then planet, then the rest (Docking Bay 94)
+        li = [LOC_ICON[i] for i in reversed(icons) if i in LOC_ICON]
+        li.sort(key=lambda k: {"scomp": 0, "planet": 1}.get(k, 2))
         spec["light_icons"] = spec["dark_icons"] = li
         spec["light_force"] = bool(f.get("lightSideIcons")); spec["dark_force"] = bool(f.get("darkSideIcons"))
         spec["light_force_count"] = int(f.get("lightSideIcons") or 0); spec["dark_force_count"] = int(f.get("darkSideIcons") or 0)
@@ -160,7 +186,20 @@ def gemp_to_spec(c: dict) -> dict:
 WIDE_PRINTED = {"13_75"}   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
 
 
+def objective_text(t: str, front: bool) -> str:
+    """Decipher's Objective layout: the setup sentence(s) in italics, then a paragraph per *For* / *While* / *Flip*."""
+    t = re.sub(r"\s+(\*(?:For|While|Flip)\*)", r"\n\1", t).strip()
+    if front:
+        first, sep, rest = t.partition("\n")
+        if sep and not first.startswith("*"):
+            t = f"_{first}_\n{rest}"
+    return t
+
+
 def finish(spec: dict) -> dict:
+    if spec.get("slip_type") == "Objective":
+        spec["game_text"] = objective_text(spec.get("game_text") or "", True)
+        spec["game_text_back"] = objective_text(spec.get("game_text_back") or "", False)
     if spec.get("gempId") in WIDE_PRINTED:
         spec["wide"] = True
     if spec.get("deploy") is None:
@@ -171,10 +210,17 @@ def finish(spec: dict) -> dict:
 def spec_to_card(spec: dict, build_vs) -> dict:
     """spec (+ resolved art/set-symbol files) -> render.py card dict, through build_vs.convert (the remaster path)."""
     c = dict(spec)
+    for k in ("game_text", "dark_text", "game_text_back", "lore"):   # typed line breaks = paragraphs that still wrap
+        if isinstance(c.get(k), str):
+            c[k] = c[k].replace("\r\n", "\n").replace("\n", "¶")
     c.setdefault("number", "")
+    c.setdefault("shield_style", "decipher")   # Decipher's own shield frames (cyan / red), not the VS-era fade
     c["number"] = str(c.get("number") or "0")
     vs = int(c.get("virtual_set") or 0) or None
     card = build_vs.convert(dict(c, number=c["number"] if c["number"].isdigit() else "0"), vs or 0)
+    card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
+    if card["template"] == "creature":
+        card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")

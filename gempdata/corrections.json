@@ -1,4 +1,15 @@
 {
   "_doc": "Typos fixed against the printed card, applied over the PC card JSON (Light/Dark.json) when the card maker loads. Same fixes go to the wiki page and billbisco/swccg-gemp (Bill 2026-10-15: fix typos everywhere, the systems feed each other). Keys: gempId -> front field -> [wrong, right] (a replace inside that field).",
-  "13_75": {"lore": ["years of training wield properly", "years of training to wield properly"]}
+  "13_75": {
+    "lore": [
+      "years of training wield properly",
+      "years of training to wield properly"
+    ]
+  },
+  "8_81": {
+    "lore": [
+      "Enclosed Chewie's daring",
+      "Enclosed. Chewie's daring"
+    ]
+  }
 }

@@ -99,6 +99,8 @@ def convert(c: dict, vs: int) -> dict:
     t = template_for(c)
     if t.endswith("-shield") and c.get("shield_style", "fade") == "fade":
         t += "-fade"      # Original Virtual era: the slips' red→cyan fade; "shield_style": "hybrid" keeps the primary frame
+    elif t.endswith("-shield") and c.get("shield_style") == "decipher":
+        t += "-dc"         # card maker: Decipher's printed shield frame
     art = c.get("art") or {}
     src = art.get("modern") or art.get("src")
     exp = c.get("expansion")

@@ -66,7 +66,7 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
   s.affiliation = fd.get("affiliation") || null;
