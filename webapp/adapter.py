@@ -119,7 +119,7 @@ def game_text(t: str) -> str:
     return t
 
 
-PRINTING_TAGS = r"V|AI|[^()]*\bAI|Premium|Light|Dark|Tatooine|Coruscant|Reflections I{1,3}|Death Star II|Cloud City|Endor|Hoth|Dagobah|Special Edition|Jabba's Palace|A New Hope|Theed Palace|Premiere|Errata|ALT"
+PRINTING_TAGS = r"V|AI|[^()\[\]]*\bAI\b[^()\[\]]*|Premium|Light|Dark|Tatooine|Coruscant|Reflections I{1,3}|Death Star II|Cloud City|Endor|Hoth|Dagobah|Special Edition|Jabba's Palace|A New Hope|Theed Palace|Premiere|Errata|ALT"
 
 
 def strip_printing(t: str) -> str:
@@ -186,7 +186,8 @@ def pc_shorthand(t: str) -> str:
     t = re.sub(r"Adds (\d|one|two|three) to (?:the )?power of anything (?:he|she|it) pilots\.", lambda m: "{pilot:%s}." % {"one": "1", "two": "2", "three": "3"}.get(m.group(1), m.group(1)), t)
     t = re.sub(r"(?i)\bdeploy ([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle)?", r"▼ \1", t)
     t = re.sub(r"(?i)\btake ([^.;()]+?) into hand from (?:your )?Reserve Deck(?:; reshuffle)?", r"▲ \1", t)
-    t = t.replace("(Immune to {alter}.)", "{alter}").replace("(Immune to Alter.)", "{alter}")
+    t = t.replace("(Immune to {alter}.)", "{alter}")
+    t = re.sub(r"\(Immune to (Sense|Control)\.?\)", lambda m: "{%s}" % m.group(1).lower(), t).replace("(Immune to Alter.)", "{alter}")
     return t
 
 
@@ -253,11 +254,13 @@ def gemp_to_spec(c: dict) -> dict:
         # on the Light character frame with no lore box; the art runs down to a raised stat bar over a tall text box
         spec["side_frame"] = "Light"
         spec["no_lore_box"] = True; spec["text_grow"] = 330; spec["text_grow_scan"] = True; spec["grow_keep_frame"] = True
-    if not spec["lore"].strip() and (" & " in title or c.get("legacy")) and typ in ("Interrupt", "Effect"):
+    if not spec["lore"].strip() and (" & " in title or c.get("legacy")) and typ in ("Interrupt", "Effect", "Defensive Shield"):
         # Reflections II combo cards print no lore box: the art runs from the title bar to a raised banner and the text
         # box grows by the same amount (Evader & Monnok, Do, Or Do Not & Wise Advice)
         spec["no_lore_box"] = True; spec["text_grow_scan"] = True
         spec["text_grow"] = 0 if (side == "Dark" and typ == "Effect") else 290   # the Dark Effect combo frame is already tall
+        if typ == "Defensive Shield":
+            spec["grow_keep_frame"] = True   # shield combos keep the shield frame (A Useless Gesture & Death Star Sentry)
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
@@ -275,6 +278,9 @@ def gemp_to_spec(c: dict) -> dict:
     if "Scoundrel" in icons:
         spec["margin_icon"] = "scoundrel"   # left margin at the text box (Scoundrel's Bravado)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and i != "Episode I"]
+    sid_ = str(c.get("set") or "")
+    if typ == "Character" and sid_.isdigit() and int(sid_) < 200:   # Decipher droids print no Nav Computer column icon (R2-D2)
+        col = [x for x in col if x != "nav"]
     if str(c.get("set")) == "1":   # Premiere printed no astromech icon (R2-X2, R1-G4)
         col = [x for x in col if x != "astromech"]
     if exp in ("Reflections II", "Reflections III") and "Death Star II" in icons and typ == "Character":
@@ -344,6 +350,11 @@ def gemp_to_spec(c: dict) -> dict:
         spec["light_force"] = bool(f.get("lightSideIcons")); spec["dark_force"] = bool(f.get("darkSideIcons"))
         spec["light_force_count"] = int(f.get("lightSideIcons") or 0); spec["dark_force_count"] = int(f.get("darkSideIcons") or 0)
         if f.get("parsec"): spec["parsec"] = f["parsec"]
+        elif re.match(r"\s*(?:Dark:|Light:)?\s*X = parsec", f.get("gametext") or ""): spec["parsec"] = "X"   # Death Star
+        if spec["slip_type"] == "System":   # one-sided systems (Death Star): no opponent icons, Force or text
+            for half, txt, frc in (("light", "game_text", "light_force_count"), ("dark", "dark_text", "dark_force_count")):
+                if half != side.lower() and not (spec.get(txt) or "").strip().strip("-") and not spec.get(frc):
+                    spec[f"{half}_half_absent"] = True
         if sub == "Site" and ("Starship" in icons or "Vehicle" in icons):   # starship/vehicle sites print blue (Blockade Flagship: Bridge)
             spec["frame_style"] = "ls-starship" if side == "Light" else "ds-starship"
         spec["deploy"] = spec["forfeit"] = None
@@ -401,6 +412,8 @@ def gemp_to_spec(c: dict) -> dict:
         spec["destiny_back"] = b.get("destiny") or "7"
     elif typ.startswith("Jedi Test"):
         spec["slip_type"] = "Jedi Test"; spec["card_type"] = typ.upper()
+        # the printed steps start with the Jedi Test icon and a bold verb: "[icon] Deploy … [icon] Target … [icon] Attempt"
+        spec["game_text"] = re.sub(r"(^|(?<=[.)] ))(Deploy|Target|Attempt|Place|Required|Reward)\b", r"{ga:jedi-test}*\2*", spec["game_text"])
     elif typ == "Mission":   # Virtual Block Missions (Rebel Aces) / Critical Missions (Spice Mine Operations)
         spec["slip_type"] = "Critical Mission" if sub == "Critical" else "Mission"
         spec["card_type"] = spec["slip_type"].upper()
@@ -476,6 +489,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         card["ring_fill"] = True
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
+        if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):
+            card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":
             card["disc"] = "podracer"   # Episode I Podracers: the podracer type disc (Game Aid icon)
         if card["template"].endswith("-mission"):
@@ -499,6 +514,6 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if not spec.get("expansion"):
         card["expansion_icon"] = None
     src_exp = SETS.get(str((spec.get("source") or {}).get("set")))
-    if not ovs and spec.get("expansion") and (not spec.get("_art") or spec.get("_art_kind") != "scan" or spec["expansion"] != src_exp):
+    if not ovs and spec.get("expansion"):
         card["draw_system_ring"] = True   # systems: the scan carries its own sphere; draw ours when there's none or it changed
     return card

@@ -156,6 +156,16 @@ def convert(c: dict, vs: int) -> dict:
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
     if "dark jedi" in (c.get("affiliation") or "").lower() and "imperial" in (c.get("affiliation") or "").lower():
         card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
+    _aff = (c.get("affiliation") or "").lower()
+    for _fac in ("resistance", "first order"):   # sequel-era factions (PC Game Aid discs): own disc, or second disc
+        if _fac in _aff:
+            _d = _fac.replace(" ", "-")
+            if _aff == _fac or _aff == "rebel/resistance":
+                card["disc"] = _d
+            elif _aff.startswith("dark jedi master"):
+                card["disc"], card["disc2"] = "dark-jedi", _d
+            else:
+                card["disc2"] = _d
     if (c.get("affiliation") or "").lower() == "dark jedi master" and c["side"] == "Dark":
         card["disc"] = "dark-jedi"   # Lord Sidious, Count Dooku: the red lightsaber disc
     if (c.get("affiliation") or "").lower() == "republic/imperial":
@@ -170,7 +180,7 @@ def convert(c: dict, vs: int) -> dict:
         card["disc"] = "sith"            # VS17 Galen: the Darth Maul face disc printed on the slip (cut from the slip, 300 dpi)
     if "jedi" in (c.get("affiliation") or "").lower() and c["side"] == "Light":
         card["disc"] = "jedi-light"      # Yoda: Rebel frame with the Jedi Master blade disc (Bardez has no Light Jedi disc)
-    for k in ("credit_strip", "text_grow", "ring_icons", "frame_tint", "frame_style", "text_lines", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "text_grow_scan", "grow_keep_frame", "side_frame", "captive_noart", "stat_icon", "credit_bottom", "margin_left", "margin_right", "credits", "set_mark", "margin_icon", "banner_icon", "layout", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
+    for k in ("credit_strip", "text_grow", "ring_icons", "frame_tint", "frame_style", "text_lines", "light_force_count", "dark_force_count", "invert_text", "margin_right_top", "margin_right_at", "no_lore_box", "text_grow_scan", "grow_keep_frame", "side_frame", "captive_noart", "light_half_absent", "dark_half_absent", "stat_icon", "credit_bottom", "margin_left", "margin_right", "credits", "set_mark", "margin_icon", "banner_icon", "layout", "lore_align", "lore_indent", "dark_text", "light_icons", "dark_icons", "light_force", "dark_force"):
         if c.get(k) is not None and c.get(k) != "":
             card[k] = c[k]
     if t in ("loc-site", "loc-system"):

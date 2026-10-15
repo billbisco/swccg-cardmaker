@@ -783,5 +783,319 @@
  },
  "1006_L6743": {
   "lore": "When efficiently deployed, a squadron of AT-ATs can quickly take control of a wide area, making it easy for Imperial forces to dominate a planet."
+ },
+ "12_182": {
+  "maneuver": "5",
+  "armor": null,
+  "_note": "printed MANEUVER 5 (PC data: armor)"
+ },
+ "12_183": {
+  "maneuver": "5",
+  "armor": null,
+  "_note": "printed MANEUVER 5 (PC data: armor)"
+ },
+ "207_1": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "ARMOR",
+    "5"
+   ]
+  ]
+ },
+ "207_2": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "209_4": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "208_7": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "204_7": {
+  "printedStats": [
+   [
+    "POWER",
+    "1"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "207_7": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "204_9": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "209_10": {
+  "printedStats": [
+   [
+    "POWER",
+    "5"
+   ],
+   [
+    "ABILITY",
+    "5"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "204_11": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "207_20": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "209_35": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "205_13": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "209_36": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "207_23": {
+  "printedStats": [
+   [
+    "POWER",
+    "8"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "207_24": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "213_5": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "5"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "214_7": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "214_8": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "7"
+   ],
+   [
+    "DARK JEDI MASTER",
+    ""
+   ]
+  ]
+ },
+ "214_10": {
+  "printedStats": [
+   [
+    "POWER",
+    "1"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
  }
 }
