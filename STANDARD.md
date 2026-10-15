@@ -439,3 +439,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   printed “double” quotes; USED: / LOST: / STARTING: on their own lines; (V) cards take the original printing's
   expansion sphere; Mandalorian ARMOR stat; Virtual Block shields fade on both sides; Virtual Block lore without the
   remaster's bold characteristics; Virtual Block Dark shields `ds-shield-vb` (Decipher Dark shield frame, cyan → red foot, No Escape (V)); Devices on their own frames (`ds-/ls-device`, Bardez Device type icon).
+- Rev 47 (Bill 2026-10-15: "544 deploy, 398 forfeit … not infinitely"): bounded fit for numbers — destiny up to 8
+  characters (the pill widens left as R2-D2's "2 or 5", max +190 px, then condenses), deploy / forfeit up to 4 and
+  stat values up to 5 characters (condense to ≥55 % width, then shrink, never leave their box). Limits enforced in the
+  editor and in `adapter.spec_to_card` for API callers. 1–2 character values render exactly as before (VS1–17 regression identical).

@@ -318,6 +318,11 @@ def finish(spec: dict) -> dict:
 def spec_to_card(spec: dict, build_vs) -> dict:
     """spec (+ resolved art/set-symbol files) -> render.py card dict, through build_vs.convert (the remaster path)."""
     c = dict(spec)
+    # bounded inputs (the boxes condense, then shrink, but only so far): API callers get the same limits as the editor
+    for k, n in (("destiny", 8), ("deploy", 4), ("forfeit", 4), ("destiny_back", 8)):
+        if c.get(k) is not None:
+            c[k] = str(c[k])[:n]
+    c["stats"] = [[str(a)[:24], str(b)[:5]] for a, b in (c.get("stats") or [])][:4]
     for k in ("game_text", "dark_text", "game_text_back", "lore"):   # typed line breaks = paragraphs that still wrap
         if isinstance(c.get(k), str):
             c[k] = c[k].replace("\r\n", "\n").replace("\n", "¶")
