@@ -41,6 +41,13 @@ for side in ("Light", "Dark"):
     for c in json.load(open(ROOT / f"gempdata/{side}.json", encoding="utf-8"))["cards"]:
         if c.get("gempId"):
             CARDS[c["gempId"]] = c
+_CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if (ROOT / "gempdata/corrections.json").exists() else {}
+for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
+    if _g in CARDS:
+        for _k, (_wrong, _right) in _fix.items():
+            _f = CARDS[_g]["front"]
+            if isinstance(_f.get(_k), str):
+                _f[_k] = _f[_k].replace(_wrong, _right)
 ART_MANIFEST = {}
 mp = ROOT / "webapp/art-manifest.json"
 if mp.exists():
