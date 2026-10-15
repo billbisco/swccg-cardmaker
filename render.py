@@ -382,6 +382,15 @@ ICON_FILES = {
     "light-force": "icons/inline-force-light.png", "dark-force": "icons/inline-force-dark.png",   # Game Aid g036 / g050 (Imperial Decree (V))
     "episode1": "icons/inline-episode1.png",   # Game Aid g033 (Hopping Mad (V): "non-[Episode I] C-3PO")   # the Republic affiliation icon itself (The Emperor (V): "Gains [Republic] at opponent's Senate")   # Presence = Game Aid g013 (droid on red), as on IG-88
     "permanent-pilot": "icons/col-pilot-dark.png", "permanent-pilot-light": "icons/col-pilot-light.png",   # same helmet icon as Pilot on the printed cards
+    # Players Committee column icons (framed): wiki 180 px / PC Game Aid sheet (Feb 2024) / cut from PC scans (Bill 2026-10-15)
+    "selective-creature": "icons/col-selective-creature.png", "independent-starship": "icons/col-independent-starship.png",
+    "trade-federation": "icons/col-trade-federation.png", "clone-army": "icons/col-clone-army.png",
+    "separatist": "icons/col-separatist.png", "resistance": "icons/col-resistance.png", "first-order": "icons/col-first-order.png",
+    "vader": "icons/col-vader.png", "setup": "icons/col-setup.png",
+}
+RING_DISCS = {   # discs printed under the expansion sphere (or in its place when the card has none)
+    "episode1": "icons/ep1-disc.png", "episode7": "icons/ep7-disc.png",
+    "sidious": "icons/pc-gameaid-named/sidious-theme.png", "skywalker": "icons/pc-gameaid-named/skywalker-theme.png",
 }
 
 
@@ -1113,8 +1122,11 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}"><span class="ct">{esc_i(card["card_type"])}</span></div>')
     if card.get("banner_icon") and "banner_icon" in t:
         bx, by = t["banner_icon"]
-        parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box-effect.png")}" style="position:absolute;left:{bx}px;top:{by}px">')
-        parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx + 8}px;top:{by + 8}px;width:73px;height:73px">')
+        if ICON_FILES[card["banner_icon"]].startswith("icons/col-"):   # framed icon (Setup): drawn at box size
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx}px;top:{by}px;width:89px;height:90px">')
+        else:
+            parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box-effect.png")}" style="position:absolute;left:{bx}px;top:{by}px">')
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx + 8}px;top:{by + 8}px;width:73px;height:73px">')
     # game text
     if "game_text" in t:
         parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
@@ -1194,10 +1206,17 @@ def build_html(card: dict) -> str:
         x, y, sz = t["system_ring"]
         parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
     # Episode I icon below the ring, as the Episode I-era printed cards carry it (Radiant VII, Wesa Ready To Do Our-sa Part)
-    if "episode1" in (card.get("ring_icons") or []) and "expansion_ring" in t:
+    if card.get("ring_icons") and "expansion_ring" in t:
         x, y = t["expansion_ring"]
         sz = t.get("expansion_size", 62)
-        parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc.png")}" style="position:absolute;left:{x + 3}px;top:{y + sz + 30}px;width:{sz - 6}px;height:{sz - 6}px">')
+        k = 0 if (card.get("ring_fill") and not card.get("expansion_icon")) else 1   # card maker: no sphere -> the first disc takes its place (Aayla Secura)
+        for nm in card["ring_icons"]:
+            if nm in RING_DISCS:
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+                k += 1
+    if card.get("margin_icon") and "game_text" in t:   # Scoundrel: a portrait disc in the left margin at the text box top
+        gx, gy, gw, gh = t["game_text"]
+        parts.append(f'<img src="{data_uri(ASSETS / "icons/pc-gameaid-named" / (card["margin_icon"] + ".png"))}" style="position:absolute;left:{t.get("margin_icon_x", 190)}px;top:{gy + 8}px;width:84px;height:84px;border-radius:50%">')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
     if card.get("copyright") and t.get("copyright_split") and card.get("copyright_split"):   # systems (card maker): split over the two bottom margins
         txt = card["copyright"]
