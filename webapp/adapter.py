@@ -521,6 +521,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         card.pop("art_trim", None)
         if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100"):
             card["art_trim"] = True; card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
+    if spec.get("slip_type") == "Game Aid" and spec.get("_art_kind") != "upload":
+        card.pop("art", None)   # the chart's own starfield is drawn (the scan carries the printed chart)
     if not spec.get("expansion"):
         card["expansion_icon"] = None
     src_exp = SETS.get(str((spec.get("source") or {}).get("set")))

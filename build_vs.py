@@ -79,6 +79,8 @@ def template_for(c: dict) -> str:
         return f"rg-{side}-{'interrupt' if 'interrupt' in st else 'effect'}"
     if st.startswith("jedi test"):   # card maker: Dagobah Jedi Tests (no lore box) use the tall slip
         return "ls-jeditest-tall"
+    if st == "game aid":
+        return "game-aid-chart"
     if st in ("mission", "critical mission"):
         return f"{side}-mission"
     if st == "epic event":
