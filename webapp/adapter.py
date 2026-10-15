@@ -151,6 +151,7 @@ def ship_italics(title: str) -> str:
 
 
 LEGACY_SHIELD_FADE = {'1000d_L6077', '1000d_L6595', '1000d_L6369', '1000d_L5981', '1000d_L6008', '1000d_L5319', '1000d_L6047', '1000d_L6299'}
+UNDERCOVER_FRAME = {"7_48", "215_20", "110_1", "1009_L5394", "223_32", "206_4", "2_107"}   # printed on the opponent's frame
 CAPTIVE_ART = {"200_16", "205_14"}
 CAPTIVE_NOART = {"10_42", "1006_L5620"}   # Jabba's Prize: no art window
 SHIP_NAMES: set = set()   # unique starship/vehicle proper names (from the italic titles; filled by the server)
@@ -248,6 +249,8 @@ def gemp_to_spec(c: dict) -> dict:
         spec["game_text"] = re.split(r"(?<=[.)!])(?=[A-Z•])", spec["game_text"], maxsplit=1)[0]
     spec["game_text"] = ship_text(maintenance(quotes(spec["game_text"])))
     spec["lore"] = ship_text(re.sub(r"\{([A-Za-z][A-Za-z' ]*)\}", r"*\1*", spec["lore"]))   # {leader} = bold in lore
+    if c.get("gempId") in UNDERCOVER_FRAME:   # undercover spies print on the other side's frame (TK-422, Boushh, U-3PO)
+        spec["side_frame"] = "Dark" if side == "Light" else "Light"
     if c.get("gempId") in CAPTIVE_NOART:
         spec["side_frame"] = "Light"; spec["captive_noart"] = True
     if c.get("gempId") in CAPTIVE_ART:   # carbonite captives (The Mythrol, Luke Skywalker, The Emperor's Prize): printed
@@ -422,8 +425,10 @@ def gemp_to_spec(c: dict) -> dict:
         spec["card_type"] = spec["slip_type"].upper()
     elif typ == "Epic Event":
         spec["slip_type"] = "Epic Event"
-        if side == "Light" and len(spec["game_text"]) > 600:
-            spec["text_grow"] = 230   # long Light Epic Events print a shorter art window over a taller text box (Attack Run)
+        if side == "Light":
+            spec["text_grow"] = 230 if len(spec["game_text"]) > 600 else (110 if len(spec["game_text"]) > 480 else 0)   # Light Epic Events print a shorter art window over a tall text box (Attack Run, Communing)
+        # the printed Epic Events set each step on its own line with a bold run-in label (Communing: "The Living Force:")
+        spec["game_text"] = re.sub(r"(?<=[.):'”\"]) ((?:[A-Z][\w'’!-]*,? ){0,6}[A-Z][\w'’!-]*!?):(?= )", r"\n*\1:*", spec["game_text"])
     elif "Admiral" in typ:
         spec["slip_type"] = "Admiral's Order"
     else:
@@ -496,6 +501,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":
             card["disc"] = "podracer"   # Episode I Podracers: the podracer type disc (Game Aid icon)
+        if spec.get("gempId") in UNDERCOVER_FRAME and spec.get("side") == "Light" and "rebel" in (spec.get("affiliation") or "").lower():
+            card["disc"] = "rebel"   # the Rebel disc on the Dark frame (TK-422, Boushh)
         if card["template"].endswith("-mission"):
             card["disc"] = "mission"   # the teal hologram type disc
         if card["template"] in ("ls-character-droid", "ds-character-droid"):

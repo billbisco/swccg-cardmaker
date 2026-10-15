@@ -1207,11 +1207,21 @@ def build_html(card: dict) -> str:
         nbox = len(card.get("light_icons", []))
         x0, y, h = t["ls_bar"]; y -= DL
         x1 = fx + 1790 - 15 + t["frame_off"][0] - fx if nbox == 0 else fx + t["ls_slot0"] - (nbox - 1) * t["slot_pitch"] - 55 + t["frame_off"][0]
+        mk = re.search(r"\s*\((\d+)(st|nd|rd|th) Marker\)\s*$", card.get("card_type") or card["title"], re.I)
+        if mk:   # Hoth marker sites print "1st MARKER" in its own black box between the title and the icons
+            card = dict(card, card_type=(card.get("card_type") or card["title"])[:mk.start()])
+            mtxt = f'{mk.group(1)}<span style="font-size:0.62em;vertical-align:0.45em">{mk.group(2).upper()}</span> MARKER'
+            mw = 250
+            x1 -= mw + 14
+            parts.append(f'<div class="mkbox" style="position:absolute;left:{x1 + 6}px;top:{y + 4}px;width:{mw}px;height:{h - 8}px;background:#000;color:#fff;font-family:AGBoldCnA;font-size:54px;letter-spacing:2px;white-space:pre;display:flex;align-items:center;justify-content:center">{mtxt}</div>')
         if not LA:
             parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{loc_title(card, "Light")}</div>')
         nbox = len(card.get("dark_icons", []))
         dx, dy_, dw, dh = t["ds_bar"]; dy_ += DD
         dx0 = dx if nbox == 0 else t["frame_off"][0] + t["ds_slot0"] + (nbox - 1) * t["slot_pitch"] + 55
+        if mk:
+            parts.append(f'<div class="mkbox" style="position:absolute;left:{dx0 + 8}px;top:{dy_ + 4}px;width:{mw}px;height:{dh - 8}px;background:#000;color:#fff;font-family:AGBoldCnA;font-size:54px;letter-spacing:2px;white-space:pre;display:flex;align-items:center;justify-content:center;transform:rotate(180deg)">{mtxt}</div>')
+            dx0 += mw + 14
         if not DA:
             parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
         sec('location_text')
