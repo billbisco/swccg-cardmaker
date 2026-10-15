@@ -145,11 +145,36 @@ SET_LIST.sort(key=lambda s: GROUPS.index(s["group"]))
 TYPES = sorted({c["front"].get("type") or "" for c in CARDS.values()} - {""})
 
 
-def browse(sid: str, side: str, typ: str) -> list[dict]:
+# expansion symbol (the ring right of the lore box) per card, as the card maker draws it: Decipher cards by their set,
+# PC (V) cards by the original printing's sphere; no sphere (Premiere and its reprints) = "none"
+EXP_OF: dict[str, str] = {}
+for _g, _c in CARDS.items():
+    try:
+        _e = adapter.gemp_to_spec(_c).get("expansion")
+    except Exception:   # noqa: BLE001
+        _e = None
+    EXP_OF[_g] = _e if (_e and build_vs.SET_ICON.get(_e)) else "none"
+for _g, _d in OVS.items():
+    _e = _d.get("expansion")
+    EXP_OF[_g] = _e if (_e and build_vs.SET_ICON.get(_e)) else "none"
+EXP_ORDER = ["none", "A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palace", "Special Edition", "Endor",
+             "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Premium",
+             "Jedi Pack", "Enhanced Cloud City", "Enhanced Jabba's Palace", "Official Tournament Sealed Deck",
+             "Jabba's Palace Sealed Deck", "Reflections Gold"]
+_ec: dict[str, int] = {}
+for _e in EXP_OF.values():
+    _ec[_e] = _ec.get(_e, 0) + 1
+EXP_LIST = [{"id": e, "name": "None (Premiere, new virtual cards)" if e == "none" else e, "count": _ec[e]}
+            for e in sorted(_ec, key=lambda e: (EXP_ORDER.index(e) if e in EXP_ORDER else 99, e))]
+
+
+def browse(sid: str, side: str, typ: str, exp: str = "") -> list[dict]:
     gs = [g for g, c in CARDS.items() if (not sid or str(c.get("set")) == sid) and (not side or c["side"] == side)
           and (not typ or (c["front"].get("type") or "") == typ)]
     gs += [g for g, d in OVS.items() if (not sid or g.split("_")[0] == sid) and (not side or d["side"] == side)
            and (not typ or ovs_type(d.get("slip_type")) == typ)]
+    if exp:
+        gs = [g for g in gs if EXP_OF.get(g) == exp]
     gs.sort(key=lambda g: (norm(OVS[g].get("title") if g in OVS else CARDS[g]["front"].get("title")), g))
     return [row(g) for g in gs[:2000]]
 
@@ -347,10 +372,10 @@ class H(BaseHTTPRequestHandler):
             if path == "/api/search":
                 return self._json(search(q.get("q", [""])[0], int(q.get("limit", ["30"])[0])))
             if path == "/api/sets":
-                return self._json({"sets": SET_LIST, "types": TYPES})
+                return self._json({"sets": SET_LIST, "types": TYPES, "expansions": EXP_LIST})
             if path == "/api/browse":
                 g1 = lambda k: q.get(k, [""])[0]
-                return self._json(browse(g1("set"), g1("side"), g1("type")))
+                return self._json(browse(g1("set"), g1("side"), g1("type"), g1("exp")))
             if path.startswith("/api/card/") and path.rsplit("/", 1)[1] in OVS:
                 gid = path.rsplit("/", 1)[1]
                 spec = {k: v for k, v in OVS[gid].items() if k not in ("art", "art_back", "notes", "id")}
