@@ -60,7 +60,34 @@ def norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (s or "").lower().replace("•", ""))
 
 
-INDEX = [(norm(c["front"].get("title")), g) for g, c in CARDS.items()]
+# ---------- Original Virtual Sets 1-17 (2002-2008): the remaster transcriptions, GEMP ids 11NN_<slip> ----------
+OVS_NAMES = {1: "Legacy", 2: "Our Most Desperate Hour", 3: "Revolution", 4: "Battle Of Hoth", 5: "A Dark Time",
+             6: "City In The Clouds", 7: "Shadows Of The Empire", 8: "Jabba's Court", 9: "Sanctuary Moon",
+             10: "Fourth Anthology", 11: "Gathering Storm", 12: "Martyrs & Magistrates", 13: "Remote Outpost",
+             14: "Armed & Operational", 15: "Galactic Frontier", 16: "Revenge Of The Sith", 17: "The Force Unleashed"}
+OVS: dict[str, dict] = {}
+for _n in OVS_NAMES:
+    for _f in sorted((ROOT / f"cards/vs{_n}").glob("*.json")) if (ROOT / f"cards/vs{_n}").exists() else []:
+        if not re.fullmatch(r"\d\d[a-z]?", _f.stem):
+            continue
+        _d = json.load(open(_f, encoding="utf-8"))
+        _g = f"{1100 + _n}_{_f.stem.lstrip('0') or '0'}"
+        _d.update(gempId=_g, virtual_set=_n, style="ovs", number=str(_d.get("number") or _f.stem))
+        OVS[_g] = _d
+
+
+def ovs_type(st: str) -> str:
+    st = st or ""
+    for k, v in (("Interrupt", "Interrupt"), ("Effect", "Effect"), ("Weapon", "Weapon"), ("Device", "Device"),
+                 ("Starfighter", "Starship"), ("Starship", "Starship"), ("Vehicle", "Vehicle"), ("Creature", "Creature"),
+                 ("Shield", "Defensive Shield"), ("Site", "Location"), ("System", "Location"), ("Objective", "Objective"),
+                 ("Epic", "Epic Event"), ("Admiral", "Admiral's Order"), ("Character", "Character")):
+        if k in st:
+            return v
+    return st
+
+
+INDEX = [(norm(c["front"].get("title")), g) for g, c in CARDS.items()] + [(norm(d.get("title")), g) for g, d in OVS.items()]
 
 
 def search(q: str, limit: int = 30) -> list[dict]:
@@ -68,11 +95,17 @@ def search(q: str, limit: int = 30) -> list[dict]:
     if not nq:
         return []
     hits = [g for t, g in INDEX if nq in t]
-    hits.sort(key=lambda g: (not norm(CARDS[g]["front"].get("title")).startswith(nq), len(CARDS[g]["front"].get("title") or ""), g))
+    ttl = lambda g: OVS[g].get("title") if g in OVS else CARDS[g]["front"].get("title")
+    hits.sort(key=lambda g: (not norm(ttl(g)).startswith(nq), len(ttl(g) or ""), g))
     return [row(g) for g in hits[:limit]]
 
 
 def row(g: str) -> dict:
+    if g in OVS:
+        d = OVS[g]; n = d["virtual_set"]
+        return {"gempId": g, "title": (d.get("title") or "") + " (V)" + (" AI" if g.endswith("b") else ""), "side": d["side"],
+                "type": ovs_type(d.get("slip_type")), "subType": d.get("slip_type"),
+                "set": f"Virtual Set {n}: {OVS_NAMES[n]} (Original)", "art": "ovs"}
     c = CARDS[g]; f = c["front"]
     return {"gempId": g, "title": f.get("title"), "side": c["side"], "type": f.get("type"),
             "subType": f.get("subType"), "set": SETS.get(c.get("set"), c.get("set")),
@@ -91,14 +124,21 @@ for _c in CARDS.values():
 for _s in json.load(open(ROOT / "gempdata/sets.json", encoding="utf-8")):
     if _counts.get(_s["id"]):
         SET_LIST.append({"id": _s["id"], "name": _s["name"], "group": set_group(_s["id"]), "count": _counts[_s["id"]]})
-SET_LIST.sort(key=lambda s: (["Decipher", "Players Committee virtual", "Players Committee other"].index(s["group"]), s.get("_pos", 0)))
+for _n, _nm in OVS_NAMES.items():
+    _c = sum(1 for d in OVS.values() if d["virtual_set"] == _n)
+    if _c:
+        SET_LIST.append({"id": f"{1100 + _n}", "name": f"Virtual Set {_n}: {_nm}", "group": "Players Committee Original Virtual Sets (2002–2008)", "count": _c})
+GROUPS = ["Decipher", "Players Committee Original Virtual Sets (2002–2008)", "Players Committee virtual", "Players Committee other"]
+SET_LIST.sort(key=lambda s: GROUPS.index(s["group"]))
 TYPES = sorted({c["front"].get("type") or "" for c in CARDS.values()} - {""})
 
 
 def browse(sid: str, side: str, typ: str) -> list[dict]:
     gs = [g for g, c in CARDS.items() if (not sid or str(c.get("set")) == sid) and (not side or c["side"] == side)
           and (not typ or (c["front"].get("type") or "") == typ)]
-    gs.sort(key=lambda g: (norm(CARDS[g]["front"].get("title")), g))
+    gs += [g for g, d in OVS.items() if (not sid or g.split("_")[0] == sid) and (not side or d["side"] == side)
+           and (not typ or ovs_type(d.get("slip_type")) == typ)]
+    gs.sort(key=lambda g: (norm(OVS[g].get("title") if g in OVS else CARDS[g]["front"].get("title")), g))
     return [row(g) for g in gs[:2000]]
 
 
@@ -160,6 +200,12 @@ def resolve_art(spec: dict) -> dict | None:
                 # landscape printed card (Maul's Double-Bladed Lightsaber): the whole card area of the 1039x745 face
                 w, h = Image.open(p).size; k = w / 1039
                 return {"src": str(p), "rect": [31 * k, 34 * k, 1007 * k, 712 * k]}
+            if spec.get("slip_type") == "System":
+                w, h = Image.open(p).size
+                if abs(h / w - 1039 / 745) < 0.01 and w >= 700:
+                    # Holotable face: the card area sits at a fixed place (dark starfield defeats edge detection)
+                    k = w / 745
+                    return {"src": str(p), "bbox": [37 * k, 36 * k, 708.5 * k, 1001.5 * k]}
             if "admiral" in (spec.get("slip_type") or "").lower():
                 # full-art slip: no silver frame to find, so map the frame box of a Holotable-size face directly
                 # (master frame 144..1487 x 144..2075 -> 745x1039 face: x*0.5-35, y*0.5-36), scaled to this scan
@@ -215,13 +261,20 @@ def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
         return cp.read_bytes(), fmt
     s = dict(spec)
     art_ok = True
-    try:
+    keep_art = False
+    if (spec.get("art") or {}).get("kind") == "ovs" and spec.get("gempId") in OVS:
+        # the remaster's own picture (slip / scan mapping exactly as published)
+        base = OVS[spec["gempId"]]
+        s["art"], s["art_back"] = base.get("art"), base.get("art_back")
+        s["_art"], s["_art_kind"], keep_art = None, "ovs", True
+    else:
+      try:
         s["_art"] = resolve_art(spec); s["_art_kind"] = (spec.get("art") or {}).get("kind")
-    except Exception as e:   # art source unreachable: still draw the card (blank window), don't cache it
+      except Exception as e:   # art source unreachable: still draw the card (blank window), don't cache it
         print("art failed:", spec.get("gempId"), e, file=sys.stderr); s["_art"] = None; art_ok = False
     s["_set_icon_file"] = resolve_set_symbol(spec)
     card = adapter.spec_to_card(s, build_vs)
-    if s["_art"] is None:
+    if s["_art"] is None and not keep_art:
         card.pop("art", None)
     done = {"ev": threading.Event()}
     JOBS.put((card, done))
@@ -286,13 +339,19 @@ class H(BaseHTTPRequestHandler):
             if path == "/api/browse":
                 g1 = lambda k: q.get(k, [""])[0]
                 return self._json(browse(g1("set"), g1("side"), g1("type")))
+            if path.startswith("/api/card/") and path.rsplit("/", 1)[1] in OVS:
+                gid = path.rsplit("/", 1)[1]
+                spec = {k: v for k, v in OVS[gid].items() if k not in ("art", "art_back", "notes", "id")}
+                spec["art"] = {"kind": "ovs", "gempId": gid}
+                return self._json({"spec": spec, "art_sources": ["ovs", "upload", "none"], "art_urls": {}})
             if path.startswith("/api/card/"):
                 gid = path.rsplit("/", 1)[1]
                 if gid not in CARDS:
                     return self._json({"error": "unknown card"}, 404)
                 spec = adapter.gemp_to_spec(CARDS[gid])
                 lib = ART_MANIFEST.get(gid, {}).get("status") == "ok"
-                spec["art"] = {"kind": "library" if lib else "scan", "gempId": gid, "version": "orig"}
+                sys_card = spec.get("slip_type") == "System"   # a system's picture is the whole card: its own scan fits, a crop zooms
+                spec["art"] = {"kind": "library" if lib and not sys_card else "scan", "gempId": gid, "version": "orig"}
                 return self._json({"spec": spec, "art_sources": (["library"] if lib else []) + ["scan", "upload", "none"],
                                    "art_urls": {"orig": f"{ART_CDN}/orig/{gid}.png", "x4": f"{ART_CDN}/x4/{gid}.webp"} if lib else {}})
             if path == "/api/options":

@@ -42,6 +42,13 @@
           <label>Side <select name="side"></select></label>
           <label>Card type <select name="slip_type"></select></label>
         </div>
+        <div class="grid2">
+          <label>Frame style <select name="style">
+            <option value="decipher">Decipher (as printed)</option>
+            <option value="ovs">Original Virtual (2002–2008 remaster slips)</option>
+          </select></label>
+          <label class="ovsonly">Virtual set # (set symbol) <input name="virtual_set" type="number" min="1" max="17"></label>
+        </div>
         <label>Title <input name="title" placeholder="•Lando Calrissian"></label>
         <div class="grid2">
           <label class="banner">Banner / subtype <input name="card_type" placeholder="e.g. USED INTERRUPT"></label>

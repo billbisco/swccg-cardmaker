@@ -392,3 +392,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   as GUARD CREATURE); Objectives: setup sentence italic, a paragraph per *For* / *While* / *Flip*; `¶` (= a typed
   line break in the editor) is a paragraph break that keeps normal wrapping. Library art is fetched from GitHub raw
   first, jsDelivr second, then the card's own scan.
+- Rev 40 (Bill 2026-10-15: "re-create any card ever published by Decipher and the PC"): the card maker keeps every
+  variant. **Frame style** per card: `decipher` (as printed) or `ovs` (Original Virtual remaster slips: shield fade,
+  creature as remastered, virtual-set symbol, caption strip as the slip). The Original Virtual Sets 1–17 open in the
+  editor straight from their transcriptions (`cards/vsN/NN.json`, GEMP ids `11NN_<slip>`, Browse group "Original
+  Virtual Sets") with their published art (kind `ovs`) — pixel-identical to the wiki remasters (checked 6 cards).
+  Systems from Holotable faces map the card area by fixed coordinates (starfield defeats edge detection); two Dark
+  Force icons on systems (Dagobah); systems print the copyright split Lucasfilm left / Decipher right.

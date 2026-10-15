@@ -317,7 +317,8 @@ TEMPLATES = {
         "ls_parsec": (1298, 1752, 89, 86), "ds_parsec": (250, 380, 88, 86),
         "ls_force": (230, 1700), "ds_force": (1110, 330),
         "set_icon_abs": (1410, 1923), "set_icon_size": 72,
-        "system_ring": (138, 186, 52),   # the printed systems' expansion sphere, top-left margin (Hoth, Bespin scans)
+        "system_ring": (138, 186, 52),
+        "copyright_split": ((176, 1686, 36, 420), (1424, 1686, 36, 420)),   # Lucasfilm left / Decipher right margin (Dagobah)   # the printed systems' expansion sphere, top-left margin (Hoth, Bespin scans)
         "caption_y": 2082,
     },
 }
@@ -901,7 +902,16 @@ def sys_frame(card: dict, t: dict) -> Path:
             for k in range(1, n):
                 canvas.alpha_composite(sab, (t["ls_force"][0] + 82 * k, t["ls_force"][1]))
     if card.get("dark_force", False):
-        canvas.alpha_composite(Image.open(LOC / "sysforce-dark.png").convert("RGBA"), t["ds_force"])
+        g = Image.open(LOC / "sysforce-dark.png").convert("RGBA")
+        canvas.alpha_composite(g, t["ds_force"])
+        n = int(card.get("dark_force_count") or 1)
+        if n > 1:   # two Dark Force icons (Dagobah): the Light rule mirrored — second saber left of the first
+            import numpy as np
+            ga = np.array(g).astype(float); lum = ga[:, :, :3].max(axis=2)
+            ga[:, :, 3] = np.clip(lum * 1.4, 0, 255) * (ga[:, :, 3] > 250); ga[-48:] = 0
+            sab = Image.fromarray(ga.astype(np.uint8), "RGBA")
+            for k in range(1, n):
+                canvas.alpha_composite(sab, (t["ds_force"][0] - 82 * k, t["ds_force"][1]))
     fx, fy = t["frame_off"]
     canvas.alpha_composite(Image.open(ASSETS / t["frame_png"]).convert("RGBA"), (fx, fy))
     for key, light in (("light_icons", True), ("dark_icons", False)):
@@ -1148,7 +1158,15 @@ def build_html(card: dict) -> str:
         sz = t.get("expansion_size", 62)
         parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc.png")}" style="position:absolute;left:{x + 3}px;top:{y + sz + 30}px;width:{sz - 6}px;height:{sz - 6}px">')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
-    if card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
+    if card.get("copyright") and t.get("copyright_split") and card.get("copyright_split"):   # systems (card maker): split over the two bottom margins
+        txt = card["copyright"]
+        cut = txt.find("TM, ®")
+        halves = (txt[:cut].strip(), txt[cut:].strip()) if cut > 0 else (txt, "")
+        for (cx, cy, cw, ch), part in zip(t["copyright_split"], halves):
+            if part:
+                parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
+                             f'<div class="copyin" style="color:#fff">{esc(part)}</div></div>')
+    elif card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
                      f'<div class="copyin">{esc(card["copyright"])}</div></div>')
