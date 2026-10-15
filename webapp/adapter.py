@@ -112,6 +112,26 @@ def strip_printing(t: str) -> str:
     return t
 
 
+def ship_italics(title: str) -> str:
+    """Decipher italicises a starship's proper name in its title (•_Mist Hunter_, •_Home One_, Han, Chewie, And The
+    _Falcon_, Boba Fett In _Slave I_) but not call signs, squadrons or possessives (•Gold 4, •Luke's T-16 Skyhopper)."""
+    m = re.match(r"^(•*)(.*)$", title); bul, name = m.group(1), m.group(2)
+    if "_" in name or len(bul) > 1:
+        return title
+    plain = lambda s: not re.search(r"\d|'s\b|\b(Garrison|Squadron|Shuttle|Escort|Fighter|Leader|Flagship)\b", s)
+    if " In " in name:
+        a, b = name.rsplit(" In ", 1)
+        return f"{bul}{a} In _{b}_" if plain(b) else title
+    if " And The " in name:
+        a, b = name.rsplit(" And The ", 1)
+        return f"{bul}{a} And The _{b}_" if plain(b) else title
+    if name.startswith("Flagship ") and plain(name[9:]):   # •Flagship _Executor_
+        return f"{bul}Flagship _{name[9:]}_"
+    if not bul or "," in name or " & " in name or not plain(name):
+        return title
+    return f"{bul}_{name}_"
+
+
 def maintenance(t: str) -> str:
     """Reflections III maintenance costs, as printed: ✱ Use 2 or [flag] Lose 1 or [skull]."""
     t = re.sub(r"Use (\d+)(?: Force)? to maintain", r"{icon:maintenance-star}Use \1", t)
@@ -147,6 +167,10 @@ def gemp_to_spec(c: dict) -> dict:
         mm = re.match(r"(.+?)\s+x(\d)$", i)
         icons += [mm.group(1)] * int(mm.group(2)) if mm else [i]
     title = strip_printing(f.get("title") or "")   # "(V)", "(AI)", "(Premium)", "(Tatooine)" … name the printing, not the card
+    if " / " in title and typ != "Objective":   # flip cards (Jabba's Prize, The Falcon, Junkyard Garbage): this side's title
+        title = title.split(" / ", 1)[0].strip()
+    if typ in ("Starship", "Vehicle"):
+        title = ship_italics(title)
     exp = SETS.get(str(c.get("set")))
     # the black caption strip is blank by default (Bill 2026-10-15): only some PC virtual cards print text there
     spec = {"side": side, "title": title, "caption": "", "number": "", "destiny": f.get("destiny") or "",
@@ -169,6 +193,8 @@ def gemp_to_spec(c: dict) -> dict:
     if not spec.get("expansion") and pc_era:   # (V) cards keep the original card's sphere (Overseeing It Personally (V): DS2)
         spec["expansion"] = BASE_EXP.get(re.sub(r"[^a-z0-9]", "", title.lower().replace("•", "")))
     spec["lore"] = quotes(spec["lore"])
+    if typ != "Objective" and " / " in (f.get("title") or ""):   # flip card text joined to the other side's: "…unpiloted).May not…"
+        spec["game_text"] = re.split(r"(?<=[.)!])(?=[A-Z•])", spec["game_text"], maxsplit=1)[0]
     spec["game_text"] = maintenance(quotes(spec["game_text"]))
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
@@ -198,13 +224,16 @@ def gemp_to_spec(c: dict) -> dict:
         third = (f.get("extraText") or [""])[0] if sub == "Droid" else ""
         if sub == "Droid":
             spec["stats"] = [["POWER", f.get("power") or "0"]]
-            if f.get("armor"): spec["stats"].append(["ARMOR", f["armor"]])   # armored droids (IG-88: POWER, ARMOR, ASSASSIN DROID)
+            if f.get("armor"): spec["stats"].append(["ARMOR", f["armor"]])   # armored droids
+            elif f.get("maneuver"): spec["stats"].append(["MANEUVER", f["maneuver"]])   # Sith Probe Droid (IG-88: POWER, ARMOR, ASSASSIN DROID)
             spec["stats"].append([third.upper() or "DROID", ""])
         else:
             ab = f.get("ability") or ""
             spec["stats"] = [["POWER", f.get("power") or "0"], ["ABILITY", ab]]
             if f.get("politics"):
                 spec["stats"].append(["POLITICS", f["politics"]])
+            elif f.get("maneuver"):   # pilot-droids / Gungan riders (Dams Denna): MANEUVER in the third box
+                spec["stats"].append(["MANEUVER", f["maneuver"]])
             elif f.get("armor"):   # Mandalorians (Fenn Rau): ARMOR in the third box
                 spec["stats"].append(["ARMOR", f["armor"]])
             elif f.get("extraText"):   # third box label: FORCE-ATTUNED, FORCE-SENSITIVE … (Lando)
