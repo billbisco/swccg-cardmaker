@@ -59,6 +59,10 @@ for _g, _c in CARDS.items():   # title -> Decipher expansion (sets 1-14, 101-112
     _sid = str(_c.get("set"))
     if _sid.isdigit() and int(_sid) < 200 and adapter.SETS.get(_sid):
         adapter.BASE_EXP.setdefault(re.sub(r"[^a-z0-9]", "", adapter.strip_printing(_c["front"].get("title") or "").lower().replace("•", "")), adapter.SETS[_sid])
+for _c in CARDS.values():   # Force icons per location title, for Virtual Block printings that lack them
+    _f = _c["front"]
+    if _f.get("type") == "Location" and not _c.get("legacy") and (_f.get("lightSideIcons") is not None or _f.get("darkSideIcons") is not None):
+        adapter.BASE_LOC.setdefault(re.sub(r"[^a-z0-9]", "", adapter.strip_printing(_f.get("title") or "").lower()), (_f.get("lightSideIcons") or 0, _f.get("darkSideIcons") or 0))
 for _c in CARDS.values():   # starship names Decipher prints in italics (titles, lore, game text)
     if (_c["front"].get("type") in ("Starship", "Vehicle")):
         _t = adapter.ship_italics(adapter.strip_printing(_c["front"].get("title") or "").split(" / ")[0])

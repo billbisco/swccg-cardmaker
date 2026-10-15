@@ -370,6 +370,8 @@ TEMPLATES["ls-device"] = dict(TEMPLATES["ls-weapon"], frame=("frames/ls-device.p
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 # Virtual Block Dark shields (No Escape (V)): Decipher's Dark shield frame, cyan fading to red at the foot
+# Decipher's printed Light droid disc is brass-gold (2X-3KPR, C-3PO); Bardez's frame has it copper
+TEMPLATES["ls-character-droid-dc"] = dict(TEMPLATES["ls-character-droid"], frame=("frames/ls-character-droid-dc.png",) + TEMPLATES["ls-character-droid"]["frame"][1:])
 TEMPLATES["ds-shield-vb"] = dict(TEMPLATES["ds-shield-dc"], frame=("frames/ds-shield-vb.png",) + TEMPLATES["ds-shield-dc"]["frame"][1:])
 
 ICON_FILES = {
@@ -647,13 +649,19 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
             mb = crop.crop((x0, 700, x1, 1100))
             for y in range(1560, 1931, mb.height):
                 crop.paste(mb.crop((0, 0, mb.width, min(mb.height, 1931 - y))), (x0, y))
-        band = crop.crop((80, 365, 1265, 560))
-        for y0, y1 in ((40, 360), (1420, 1931)):
-            y = y0
-            while y < y1:
-                h = min(band.height, y1 - y)
-                crop.paste(band.crop((0, 0, band.width, h)), (80, y))
-                y += h
+        # mirror the picture just inside the bars outward over them (continuous planets/starfield, no cloned
+        # band from elsewhere: Yavin 4's gas giant showed twice, Bill 2026-10-15 QA)
+        def mirror_fill(y0, y1, up, xa=80, xb=1265):
+            y = y0 if not up else y1
+            src_edge = y0 if not up else y1
+            while (y < y1) if not up else (y > y0):
+                h = min(195, (y1 - y) if not up else (y - y0))
+                if not up:   # fill downward from y0 with the rows above y0, flipped
+                    piece = crop.crop((xa, src_edge - h, xb, src_edge)).transpose(Image.FLIP_TOP_BOTTOM); crop.paste(piece, (xa, y)); y += h
+                else:        # fill upward from y1 with the rows below y1, flipped
+                    piece = crop.crop((xa, src_edge, xb, src_edge + h)).transpose(Image.FLIP_TOP_BOTTOM); crop.paste(piece, (xa, y - h)); y -= h
+        mirror_fill(40, 390, True, 0, 1343)
+        mirror_fill(1540, 1931, False, 0, 1343)
     p = OUT / f"_art_{card['id']}{tag}.png"
     crop.save(p)
     return data_uri(p)
@@ -707,6 +715,28 @@ def nolore_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     return p, t, 0, 0
 
 
+def captive_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
+    """Carbonite captives printed without art (Jabba's Prize): lore box, then the stat bar right under it, then a text
+    box running to the foot of the card. The frame below the art window is lifted to the lore box; the text box is
+    filled with mirrored tiles of its own clean band."""
+    import numpy as np
+    ax, ay, aw, ah = t["art"]; gx, gy, gw, gh = t["game_text"]
+    lx, ly, lw, lh = t["lore"]
+    c = Image.new("RGBA", (1632, 2220), (0, 0, 0, 0)); c.alpha_composite(Image.open(fr).convert("RGBA"), (fx, fy))
+    F = np.array(c); G = np.zeros_like(F)
+    cut = ly + lh + 25; src0 = ay + ah + 12; D = src0 - cut
+    G[:cut] = F[:cut]
+    G[cut:gy + 30 - D] = F[src0:gy + 30]
+    band = F[gy + 40:gy + 120]; rows = []
+    while sum(len(r) for r in rows) < D:
+        rows.append(band if len(rows) % 2 == 0 else band[::-1])
+    G[gy + 30 - D:gy + 30] = np.concatenate(rows)[:D]
+    G[gy + 30:] = F[gy + 30:]
+    p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
+    t = dict(t, game_text=(gx, gy - D, gw, gh + D), stats_y=t["stats_y"] - D, _noart=True)
+    return p, t, 0, 0
+
+
 def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     """A tall slip (VS15 Anger, Fear, Aggression (V), Knowledge And Defense (V)): the slip's banner sits higher and its
     text box is taller, as the PC's own reissues print it (V0 Knowledge And Defense): the art window gets shorter with
@@ -730,7 +760,14 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     G[m0:m1] = np.array(Image.fromarray(F[T1:B0]).resize((F.shape[1], m1 - m0), Image.LANCZOS))
     G[m1:m1 + (B1 - B0)] = F[B0:B1]
     e = m1 + (B1 - B0)                         # = gy + 30 - D
-    if D:
+    if D and "stats_y" in t:
+        # characters: the deploy/forfeit slots sit low in the left column — fill with the clean band above them,
+        # mirrored tiles (no stretched slot, no seam)
+        band = F[gy + 40:gy + 120]; rows = []
+        while sum(len(r) for r in rows) < gy + 30 - e:
+            rows.append(band if len(rows) % 2 == 0 else band[::-1])
+        G[e:gy + 30] = np.concatenate(rows)[:gy + 30 - e]
+    elif D:
         G[e:gy + 30] = np.array(Image.fromarray(F[gy + 40:gy + gh - 40]).resize((F.shape[1], gy + 30 - e), Image.LANCZOS))
     G[gy + 30:] = F[gy + 30:]
     if card.get("no_lore_box") and t.get("lore"):
@@ -754,8 +791,11 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
             src = np.interp(X, [0, E0, A0 + sh, cx, A1 - sh, E1, X[-1]], [0, E0, A0, cx, A1, E1, X[-1]]).round().astype(int)
             G[y] = G[y][src]
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
-    t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
-             game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
+    t = dict(t, game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
+    if "card_type" in t:
+        t["card_type"] = (t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3])
+    if "stats_y" in t:   # characters: the stat bar rides up with the text box (carbonite captives: The Mythrol)
+        t["stats_y"] = t["stats_y"] - D
     if "banner_icon" in t:
         t["banner_icon"] = (t["banner_icon"][0], t["banner_icon"][1] - D)
     return p, t, 0, 0
@@ -828,7 +868,15 @@ def loc_frame(card: dict, t: dict) -> Path:
     gx, gy = t["ls_force"]
     DL, DD = loc_grow(card)
     if card.get("light_force", True):
-        canvas.alpha_composite(glow, (fx + gx, fy + gy - DL))
+        nl = int(card.get("light_force_count") or 1)
+        for k in range(nl):   # two Light Force icons = two sabers in the slot (Tatooine: Cantina), the Dark rule mirrored
+            pos = (fx + gx + ((40 + k * 64) if nl > 1 else 0), fy + gy - DL)
+            if k == 0:
+                canvas.alpha_composite(glow, pos)
+            else:
+                from PIL import ImageChops
+                reg = canvas.crop((pos[0], pos[1], pos[0] + glow.width, pos[1] + glow.height))
+                canvas.paste(ImageChops.lighter(reg.convert("RGB"), glow.convert("RGB")).convert("RGBA"), pos)
     if card.get("dark_force", False):
         g = Image.open(LOC / "force-dark.png").convert("RGBA").rotate(180)   # the Dark Force icon is the red saber
         # mirror of the light glow box about the card centre (frame coords: x' = 2071-x-w, y' = 1479-y-h)
@@ -1030,12 +1078,14 @@ def build_html(card: dict) -> str:
     else:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
-        if card.get("text_grow") and card.get("no_lore_box"):
+        if card.get("captive_noart") and "stats_y" in t:
+            fr, t, fx, fy = captive_frame(card, t, fr, fx, fy)
+        elif card.get("text_grow") and card.get("no_lore_box") and not card.get("grow_keep_frame"):
             fr, t, fx, fy = nolore_frame(card, t, fr, fx, fy)
         elif card.get("text_grow"):
             fr, t, fx, fy = grown_frame(card, t, fr, fx, fy)
     ax, ay, aw, ah = t["art"]
-    art = art_crop(card) if card.get("art") else ""
+    art = art_crop(card) if card.get("art") and not t.get("_noart") else ""
 
     def box(key, style=""):
         x, y, w, h = t[key]
@@ -1378,9 +1428,15 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
     # wrap each piece's elements in a full-card layer (children keep their coordinates)
     ends = [i for _, i in marks[1:]] + [len(parts)]
+    # Dark systems are printed from the Dark Side's seat (Alderaan, Premiere): every layer but the picture and the
+    # bottom caption strip turned 180° about the card centre
+    dsys = card.get("side") == "Dark" and card["template"] == "loc-system"
     for (name, i), j in reversed(list(zip(marks, ends))):
+        turn = ";rotate:180deg" if dsys and name not in ("art", "caption", "number") else ""
         if name and j > i:
-            parts[i:j] = [f'<div class="piece" data-piece="{name}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px">'] + parts[i:j] + ["</div>"]
+            parts[i:j] = [f'<div class="piece" data-piece="{name}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px{turn}">'] + parts[i:j] + ["</div>"]
+        elif j > i and turn:
+            parts[i:j] = [f'<div style="position:absolute;left:0;top:0;width:{W}px;height:{H}px{turn}">'] + parts[i:j] + ["</div>"]
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
     LP = dict(LORE_CSS, **card.get("_lore_css", {}))
@@ -1573,7 +1629,7 @@ def screenshot_card(card: dict, page) -> Image.Image:
         card["_boxes"] = json.loads(page.evaluate("document.body.dataset.boxes || '{}'"))
     except Exception:   # noqa: BLE001
         card["_boxes"] = {}
-    if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
+    if card.get("side") == "Dark" and card["template"] == "loc-site":   # portrait systems are already built Dark-half-down
         # Dark locations are shown from the Dark Side's seat, as Decipher prints them (Executor: Comm Station): the
         # whole card turned 180° (Dark half, its icons and credits at the bottom); the caption strip stays upright
         # in the bottom margin (Bill 2026-10-14).
