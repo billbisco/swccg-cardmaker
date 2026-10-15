@@ -86,12 +86,13 @@ FACTION = {"independent", "independent-starship", "trade-federation", "clone-arm
 RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker"}
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
-            "Scomp Link": "scomp"}
+            "Scomp Link": "scomp", "Space": "space"}
 
 
 def game_text(t: str) -> str:
     t = t or ""
     t = re.sub(r"\{([A-Za-z][A-Za-z' ]*)\}", r"*\1*", t)   # GEMP marks bold words {Flip}; the renderer bolds *...*
+    t = re.sub(r"\{([^{}]*\s[^{}]*)\}", lambda m: "_" + m.group(1).strip() + "_", t)   # long {…} runs = italic (Jabba's Prize)
     for k, v in INLINE.items():
         t = t.replace(k, v)
     for name, key in SET_TOKENS.items():
@@ -132,6 +133,9 @@ def ship_italics(title: str) -> str:
     return f"{bul}_{name}_"
 
 
+LEGACY_SHIELD_FADE = {'1000d_L6077', '1000d_L6595', '1000d_L6369', '1000d_L5981', '1000d_L6008', '1000d_L5319', '1000d_L6047', '1000d_L6299'}
+CAPTIVE_ART = {"200_16", "205_14"}
+CAPTIVE_NOART = {"10_42", "1006_L5620"}   # Jabba's Prize: no art window
 SHIP_NAMES: set = set()   # unique starship/vehicle proper names (from the italic titles; filled by the server)
 SHIP_EXTRA = {"Rand Ecliptic", "Ecliptic", "Falcon", "Hound's Tooth", "Tantive IV", "Slave I"}
 SHIP_AMBIGUOUS = {"Victory", "Liberty", "Independence", "Infinity", "Phantom", "Conquest", "Endurance", "Redemption",
@@ -148,7 +152,8 @@ def ship_text(t: str) -> str:
     if _SHIP_RE is None:
         names = sorted((SHIP_NAMES | SHIP_EXTRA) - SHIP_AMBIGUOUS, key=len, reverse=True)
         _SHIP_RE = re.compile(r"(?<![\w_•-])(" + "|".join(re.escape(n) for n in names) + r")(?![\w_-])(?! \d| Squadron)")
-    return _SHIP_RE.sub(r"_\1_", t)
+    parts = re.split(r"((?<![A-Za-z0-9])_.+?_(?![A-Za-z0-9]))", t)   # leave already-italic runs alone
+    return "".join(p if i % 2 else _SHIP_RE.sub(r"_\1_", p) for i, p in enumerate(parts))
 
 
 def maintenance(t: str) -> str:
@@ -173,6 +178,7 @@ def quotes(t: str) -> str:
     return re.sub(r"(?<![\w])'(.+?)'(?![\w])", "\u201c\\1\u201d", t)
 
 
+BASE_LOC: dict = {}   # location title -> (Light, Dark) Force icons of the PC data's printing (filled by the server)
 BASE_EXP: dict = {}   # title -> Decipher expansion of the original printing (filled by the server)
 
 
@@ -186,8 +192,10 @@ def gemp_to_spec(c: dict) -> dict:
         mm = re.match(r"(.+?)\s+x(\d)$", i)
         icons += [mm.group(1)] * int(mm.group(2)) if mm else [i]
     title = strip_printing(f.get("title") or "")   # "(V)", "(AI)", "(Premium)", "(Tatooine)" … name the printing, not the card
-    if " / " in title and typ != "Objective":   # flip cards (Jabba's Prize, The Falcon, Junkyard Garbage): this side's title
-        title = title.split(" / ", 1)[0].strip()
+    if typ != "Objective" and "/" in title:   # flip cards (Jabba's Prize, The Falcon, Junkyard Garbage): this side's title
+        a, _, b = title.partition(" / ") if " / " in title else title.partition("/")
+        if " / " in title or a.replace("•", "").strip().lower() == b.replace("•", "").strip().lower():
+            title = a.strip()
     if typ in ("Starship", "Vehicle"):
         title = ship_italics(title)
     exp = SETS.get(str(c.get("set")))
@@ -201,7 +209,9 @@ def gemp_to_spec(c: dict) -> dict:
     if c.get("legacy"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = f.get("title") or ""
         if typ == "Defensive Shield":
-            spec["shield_style"] = "fade" if side == "Light" else "vb"   # Virtual Block shields: Light red→cyan (Affect Mind (V)), Dark cyan→red (No Escape (V))
+            # the Virtual Defensive Shields reuse their original card's frame (QA vs the Holotable scans, 2026-10-15):
+            # Episode I-style red→cyan with the green swirl (Affect Mind (V), After Her! (V)), else Decipher's cyan
+            spec["shield_style"] = "fade" if c.get("gempId") in LEGACY_SHIELD_FADE else "decipher"
     if not spec.get("expansion"):   # PC virtual cards print the base card's expansion sphere (Blockade Support Ship: Coruscant)
         for i in icons:
             nm = {"Reflections 2": "Reflections II", "Reflections 3": "Reflections III", "Premium": "Premium"}.get(i, i)
@@ -212,10 +222,16 @@ def gemp_to_spec(c: dict) -> dict:
     if not spec.get("expansion") and pc_era:   # (V) cards keep the original card's sphere (Overseeing It Personally (V): DS2)
         spec["expansion"] = BASE_EXP.get(re.sub(r"[^a-z0-9]", "", title.lower().replace("•", "")))
     spec["lore"] = quotes(spec["lore"])
-    if typ != "Objective" and " / " in (f.get("title") or ""):   # flip card text joined to the other side's: "…unpiloted).May not…"
+    if typ != "Objective" and "/" in (f.get("title") or "") and title != strip_printing(f.get("title") or ""):   # flip card text joined to the other side's: "…unpiloted).May not…"
         spec["game_text"] = re.split(r"(?<=[.)!])(?=[A-Z•])", spec["game_text"], maxsplit=1)[0]
     spec["game_text"] = ship_text(maintenance(quotes(spec["game_text"])))
     spec["lore"] = ship_text(spec["lore"])
+    if c.get("gempId") in CAPTIVE_NOART:
+        spec["side_frame"] = "Light"; spec["captive_noart"] = True
+    if c.get("gempId") in CAPTIVE_ART:   # carbonite captives (The Mythrol, Luke Skywalker, The Emperor's Prize): printed
+        # on the Light character frame with no lore box; the art runs down to a raised stat bar over a tall text box
+        spec["side_frame"] = "Light"
+        spec["no_lore_box"] = True; spec["text_grow"] = 330; spec["text_grow_scan"] = True; spec["grow_keep_frame"] = True
     if not spec["lore"].strip() and " & " in title and typ in ("Interrupt", "Effect"):
         # Reflections II combo cards print no lore box: the art runs from the title bar to a raised banner and the text
         # box grows by the same amount (Evader & Monnok, Do, Or Do Not & Wise Advice)
@@ -237,6 +253,10 @@ def gemp_to_spec(c: dict) -> dict:
     if "Scoundrel" in icons:
         spec["margin_icon"] = "scoundrel"   # left margin at the text box (Scoundrel's Bravado)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and i != "Episode I"]
+    if str(c.get("set")) == "1":   # Premiere printed no astromech icon (R2-X2, R1-G4)
+        col = [x for x in col if x != "astromech"]
+    if exp in ("Reflections II", "Reflections III") and "Death Star II" in icons and typ == "Character":
+        col.append("ds2")   # Reflections reprints print the original set's DS2 icon in the column (Luke, Rebel Scout; The Emperor)
     if typ in ("Starship", "Vehicle"):   # starships print their faction icon at the top of the column (Blockade Support Ship)
         col = [c_ for c_ in col if c_ in FACTION] + [c_ for c_ in col if c_ not in FACTION]
     rings = [RING[i] for i in icons if i in RING]
@@ -273,7 +293,9 @@ def gemp_to_spec(c: dict) -> dict:
         st = [["POWER", f.get("power") or "0"]]
         if f.get("maneuver"): st.append(["MANEUVER", f["maneuver"]])
         if f.get("armor"): st.append(["ARMOR", f["armor"]])
-        if typ == "Starship": st.append(["HYPERSPEED", f.get("hyperspeed") or "0"])
+        if typ == "Starship" and not f.get("hyperspeed") and "No Hyperdrive" in (f.get("extraText") or []):
+            st.append(["NO HYPERDRIVE", ""])   # TIEs
+        elif typ == "Starship": st.append(["HYPERSPEED", f.get("hyperspeed") or "0"])
         else: st.append(["LANDSPEED", f.get("landspeed") or "0"])
         spec["stats"] = st[:3]
         spec["icons"] = col
@@ -286,11 +308,16 @@ def gemp_to_spec(c: dict) -> dict:
         if not m:
             m2 = re.match(r"\s*(?:Dark|DARK)\s*:?\s*(.*?)\s*(?:Light|LIGHT)\s*:\s*(.*)$", gt, re.S)
             if m2: dark, light = m2.group(1), m2.group(2)
-        spec["game_text"], spec["dark_text"] = game_text(light), game_text(dark)
+        polish = lambda x: (pc_shorthand if pc_era else str)(ship_text(maintenance(quotes(game_text(x)))))
+        spec["game_text"], spec["dark_text"] = polish(light), polish(dark)
         # icon boxes are drawn right to left from the list: scomp outermost, then planet, then the rest (Docking Bay 94)
         li = [LOC_ICON[i] for i in reversed(icons) if i in LOC_ICON]
         li.sort(key=lambda k: {"scomp": 0, "planet": 1}.get(k, 2))
         spec["light_icons"] = spec["dark_icons"] = li
+        if c.get("legacy") and f.get("lightSideIcons") is None and f.get("darkSideIcons") is None:
+            # the Virtual Block data carries no Force icons: take the original printing's (Lars' Moisture Farm (V))
+            b = BASE_LOC.get(re.sub(r"[^a-z0-9]", "", strip_printing(f.get("title") or "").lower()))
+            if b: f = dict(f, lightSideIcons=b[0], darkSideIcons=b[1])
         spec["light_force"] = bool(f.get("lightSideIcons")); spec["dark_force"] = bool(f.get("darkSideIcons"))
         spec["light_force_count"] = int(f.get("lightSideIcons") or 0); spec["dark_force_count"] = int(f.get("darkSideIcons") or 0)
         if f.get("parsec"): spec["parsec"] = f["parsec"]
@@ -371,6 +398,9 @@ def objective_text(t: str, front: bool) -> str:
 
 
 def finish(spec: dict) -> dict:
+    for k in ("game_text", "dark_text"):   # PC placeholders for an empty text half: "(none).", "Blank.", "-"
+        if re.fullmatch(r"\s*(\(none\)\.?|Blank\.?|-|\.|none\.?)\s*", spec.get(k) or "", re.I):
+            spec[k] = ""
     if spec.get("slip_type") == "Objective":
         spec["game_text"] = objective_text(spec.get("game_text") or "", True)
         spec["game_text_back"] = objective_text(spec.get("game_text_back") or "", False)
@@ -408,6 +438,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         card["ring_fill"] = True
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
+        if card["template"] == "ls-character-droid":
+            card["template"] = "ls-character-droid-dc"   # brass droid disc as printed
         if card["template"] == "creature":
             card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
