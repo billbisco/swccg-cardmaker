@@ -353,7 +353,8 @@ def gemp_to_spec(c: dict) -> dict:
         spec["light_force_count"] = int(f.get("lightSideIcons") or 0); spec["dark_force_count"] = int(f.get("darkSideIcons") or 0)
         if f.get("parsec"): spec["parsec"] = f["parsec"]
         elif re.match(r"\s*(?:Dark:|Light:)?\s*X = parsec", f.get("gametext") or ""): spec["parsec"] = "X"   # Death Star
-        if spec["slip_type"] == "System":   # one-sided systems (Death Star): no opponent icons, Force or text
+        if spec["slip_type"] == "System" or re.search(r"\((AI|ALT)\)", f.get("title") or ""):
+            # one-sided systems (Death Star) and full-art AI / ALT sites: no opponent icons, Force or text
             for half, txt, frc in (("light", "game_text", "light_force_count"), ("dark", "dark_text", "dark_force_count")):
                 if half != side.lower() and not (spec.get(txt) or "").strip().strip("-") and not spec.get(frc):
                     spec[f"{half}_half_absent"] = True

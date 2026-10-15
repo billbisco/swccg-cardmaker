@@ -994,8 +994,14 @@ def loc_frame(card: dict, t: dict) -> Path:
                 ic = ic.rotate(180)
             canvas.alpha_composite(ic, (fx + cx - ic.width // 2, fy + y + 55 - ic.height // 2))
 
-    place(card.get("light_icons", []), True)
-    place(card.get("dark_icons", []), False)
+    place(card.get("light_icons", []) if not card.get("light_half_absent") else [], True)
+    place(card.get("dark_icons", []) if not card.get("dark_half_absent") else [], False)
+    if card.get("light_half_absent") or card.get("dark_half_absent"):   # full-art AI / ALT site: open that half to the art
+        import numpy as np
+        ca = np.array(canvas)
+        if card.get("dark_half_absent"): ca[:fy + 380, :, 3] = 0
+        if card.get("light_half_absent"): ca[fy + 1010:, :, 3] = 0
+        canvas = Image.fromarray(ca)
     p = OUT / f"_frame_{card['id']}.png"
     canvas.save(p)
     return p
@@ -1129,6 +1135,10 @@ def build_html(card: dict) -> str:
     W, H = (2220, 1632) if is_wide(t) else (1632, 2220)
     if t.get("landscape"):
         fr, fx, fy = loc_frame(card, t), 0, 0
+        ax_, ay_, aw_, ah_ = t["art"]
+        if card.get("dark_half_absent"): t = dict(t, art=(134, 138, 1952, ay_ + ah_ - 138))
+        if card.get("light_half_absent"): t = dict(t, art=(134, t["art"][1], 1952, 1494 - t["art"][1]))
+        card["_art_box"] = t["art"]
     elif t.get("system"):
         fr, fx, fy = sys_frame(card, t), 0, 0
     else:
@@ -1193,19 +1203,24 @@ def build_html(card: dict) -> str:
     if t.get("landscape"):
         # Light title centred in the grey bar between the force slot and the first icon box; Dark mirrored, rotated.
         DL, DD = loc_grow(card)
+        LA, DA = card.get("light_half_absent"), card.get("dark_half_absent")   # full-art AI / ALT sites
         nbox = len(card.get("light_icons", []))
         x0, y, h = t["ls_bar"]; y -= DL
         x1 = fx + 1790 - 15 + t["frame_off"][0] - fx if nbox == 0 else fx + t["ls_slot0"] - (nbox - 1) * t["slot_pitch"] - 55 + t["frame_off"][0]
-        parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{loc_title(card, "Light")}</div>')
+        if not LA:
+            parts.append(f'<div class="title ltitle" style="position:absolute;left:{x0}px;top:{y}px;width:{x1 - x0}px;height:{h}px">{loc_title(card, "Light")}</div>')
         nbox = len(card.get("dark_icons", []))
         dx, dy_, dw, dh = t["ds_bar"]; dy_ += DD
         dx0 = dx if nbox == 0 else t["frame_off"][0] + t["ds_slot0"] + (nbox - 1) * t["slot_pitch"] + 55
-        parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
+        if not DA:
+            parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
         sec('location_text')
         lx, ly_, lw, lh = t["ls_text"]; ly_ -= DL; lh += DL
-        parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
+        if not LA:
+            parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
         tx, ty, tw, th = t["ds_text"]; th += DD
-        parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+        if not DA:
+            parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
     elif t.get("system"):
         LA, DA = card.get("light_half_absent"), card.get("dark_half_absent")   # one-sided systems (Death Star)
         if not LA:
@@ -1726,7 +1741,7 @@ def screenshot_card(card: dict, page) -> Image.Image:
         rot = im.rotate(180)
         rot.paste(im.crop((0, 0, im.width, 144)), (0, 0))
         rot.paste(im.crop((0, im.height - 145, im.width, im.height)), (0, im.height - 145))
-        ax, ay, aw, ah = TEMPLATES[card["template"]]["art"]   # the picture itself stays upright
+        ax, ay, aw, ah = card.get("_art_box") or TEMPLATES[card["template"]]["art"]   # the picture itself stays upright
         DL, DD = loc_grow(card) if card["template"] == "loc-site" else (0, 0)
         y0, y1 = ay + DD, ay + ah - DL
         box = (im.width - 1 - (ax + aw - 1), im.height - 1 - (y1 - 1), im.width - (ax), im.height - y0)
