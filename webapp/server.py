@@ -240,6 +240,8 @@ def resolve_art(spec: dict) -> dict | None:
         x0 = fx * (w - cw); y0 = fy * (hgt - ch)
         return {"src": str(p), "rect": [x0, y0, x0 + cw, y0 + ch]}
     gid = a.get("gempId") or spec.get("gempId")
+    if kind == "library" and gid and spec.get("wide") and scan_path(gid):
+        kind = "scan"   # landscape printings: the library art is the portrait reprint's window; use the card's own face
     if kind == "library" and gid:
         ver = a.get("version", "orig"); ext = "png" if ver == "orig" else "webp"
         for base in (ART_RAW, ART_CDN):   # GitHub raw first (fast from the VPS), jsDelivr second (flaky from there)
@@ -253,7 +255,7 @@ def resolve_art(spec: dict) -> dict | None:
     if gid:
         p = scan_path(gid)
         if p:
-            if spec.get("wide") and "weapon" in (spec.get("slip_type") or "").lower():
+            if spec.get("wide"):
                 # landscape printed card (Maul's Double-Bladed Lightsaber): the whole card area of the 1039x745 face
                 w, h = Image.open(p).size; k = w / 1039
                 return {"src": str(p), "rect": [31 * k, 34 * k, 1007 * k, 712 * k]}
