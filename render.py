@@ -335,6 +335,16 @@ for _side, _ink in (("ls", True), ("ds", False)):
         TEMPLATES[f"rg-{_side}-{_kind}"] = dict(_RG, frame=(f"frames/rg-{_side}-{_kind}.png", 0, 0), dark_text=_ink)
 
 
+# Dark Side wide weapon (Bill 2026-10-15: precedent = Maul's Double-Bladed Lightsaber, Reflections III, printed landscape)
+TEMPLATES["ds-weapon-wide"] = {
+    "wide": True, "frame": ("frames/ds-weapon-wide.png", 0, 0), "art": (134, 138, 1952, 1356),
+    "title": (430, 222, 820, 110), "card_type": (1230, 244, 560, 64), "ctype_size": 52, "ctype_spacing": 4,
+    "destiny": (1859, 225, 110, 110), "lore": (360, 404, 1480, 140), "lore_x": (360, 1840, 60, 0, 0.0),
+    "game_text": (350, 1172, 1550, 196), "gt_size": 58, "expansion_ring": (1932, 418), "expansion_size": 66,
+    "no_copyright": True, "caption_y": 1532, "dark_text": False,
+}
+
+
 def is_wide(t: dict) -> bool:
     """Landscape canvas (2220x1632): locations (site) and the Reflections Gold wide cards."""
     return bool(t.get("landscape") or t.get("wide"))
@@ -1005,7 +1015,7 @@ def build_html(card: dict) -> str:
     # lore
     if card.get("lore"):
         lx_, ly_, lw_, lh_ = t["lore"]
-        tx0, rgt, ind, cut, lsp = LORE_X["Light" if t.get("dark_text") else "Dark"]
+        tx0, rgt, ind, cut, lsp = t.get("lore_x") or LORE_X["Light" if t.get("dark_text") else "Dark"]
         parts.append(f'<div class="lore fit" style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
                      f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
                      f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(card["lore"])}</div>')

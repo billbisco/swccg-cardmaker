@@ -143,6 +143,10 @@ def resolve_art(spec: dict) -> dict | None:
     if gid:
         p = scan_path(gid)
         if p:
+            if spec.get("wide") and "weapon" in (spec.get("slip_type") or "").lower():
+                # landscape printed card (Maul's Double-Bladed Lightsaber): the whole card area of the 1039x745 face
+                w, h = Image.open(p).size; k = w / 1039
+                return {"src": str(p), "rect": [31 * k, 34 * k, 1007 * k, 712 * k]}
             if "admiral" in (spec.get("slip_type") or "").lower():
                 # full-art slip: no silver frame to find, so map the frame box of a Holotable-size face directly
                 # (master frame 144..1487 x 144..2075 -> 745x1039 face: x*0.5-35, y*0.5-36), scaled to this scan

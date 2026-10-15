@@ -72,7 +72,7 @@ function readForm() {
   s.affiliation = fd.get("affiliation") || null;
   s.expansion = fd.get("expansion") || null;
   s.scomp = !!fd.get("scomp");
-  s.wide = !!fd.get("wide") && /Interrupt|Effect/.test(s.slip_type || "");
+  s.wide = !!fd.get("wide") && WIDE_OK(s);
   s.stats = [...$("#stats").querySelectorAll(".row")].map(r => [...r.querySelectorAll("input")].map(i => i.value)).filter(([k]) => k.trim());
   s.icons = [...$("#icons").querySelectorAll("input:checked")].map(i => i.value);
   if (isLoc(s)) {
@@ -93,6 +93,8 @@ function readForm() {
   if (s.deploy === "" && s.forfeit === "") { delete s.deploy; delete s.forfeit; }
   return s;
 }
+// wide (landscape) layouts: Reflections Gold Interrupts / Effects (both sides); Dark Side weapons (Bardez has only DS)
+const WIDE_OK = s => /Interrupt|Effect/.test(s.slip_type || "") || (/Weapon/.test(s.slip_type || "") && s.side === "Dark");
 const isLoc = s => s.slip_type === "Site" || s.slip_type === "System";
 
 function writeForm(s, data) {
@@ -117,7 +119,9 @@ function layoutFor(s) {
   document.querySelectorAll(".objonly").forEach(e => e.hidden = !obj);
   $(".loclight").hidden = loc; $(".locdark").hidden = !loc;
   $(".aff").style.visibility = ch ? "visible" : "hidden";
-  $(".wideonly").hidden = !/Interrupt|Effect/.test(s.slip_type || "");
+  $(".wideonly").hidden = !WIDE_OK(s);
+  $(".rgonly").style.visibility = /Interrupt|Effect/.test(s.slip_type || "") ? "visible" : "hidden";
+  $(".widelbl").textContent = /Weapon/.test(s.slip_type || "") ? "Wide layout (as Maul's Double-Bladed Lightsaber)" : "Reflections Gold wide layout";
   $("#frameBox").hidden = !(s.art && s.art.kind === "upload");
   $(".lorebox").hidden = /Jedi Test|Admiral|Epic/.test(s.slip_type);
   $(".banner").style.visibility = (ch || loc) ? "hidden" : "visible";
@@ -202,7 +206,7 @@ form.addEventListener("change", e => {
     if (st === "Site" || st === "System") $("#icons").querySelectorAll("input:checked").forEach(i => i.checked = false);   // pilot/warrior… don't belong on a location
     if (!spec.card_type || spec.card_type === spec.card_type.toUpperCase()) form.elements.card_type.value = BANNER(st);
   }
-  if (e.target.name === "wide" && e.target.checked && !form.elements.expansion.value) form.elements.expansion.value = "Reflections Gold";
+  if (e.target.name === "wide" && e.target.checked && !form.elements.expansion.value && /Interrupt|Effect/.test(form.elements.slip_type.value)) form.elements.expansion.value = "Reflections Gold";
   if (e.target.type !== "file") changed();
 });
 $("#addStat").onclick = () => { const s = readForm(); s.stats.push(["STAT", ""]); statsUI(s.stats); changed(); };
