@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SWCCG Card Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark">◆</span> SWCCG Card Maker <span class="badge">prototype</span></div>
+  <nav>
+    <a href="https://wiki.swccg.com" target="_blank" rel="noopener">Wiki</a>
+    <a href="#help" id="helpLink">How to</a>
+  </nav>
+</header>
+
+<main class="layout">
+  <section class="editor" aria-label="Card editor">
+    <div class="block">
+      <label class="lbl" for="q">Start from an existing card</label>
+      <div class="searchrow">
+        <input id="q" type="search" placeholder="Search a title, e.g. Lando, Tarkin, Hoth…" autocomplete="off">
+        <button id="browseBtn" class="ghost" title="Pick a card from a set list" aria-expanded="false">Browse</button>
+        <button id="newBtn" class="ghost" title="Start from a blank card">New blank</button>
+      </div>
+      <div id="browse" class="browse" hidden>
+        <label>Set <select id="bSet"></select></label>
+        <div class="grid2">
+          <label>Side <select id="bSide"><option value="">Both sides</option><option>Light</option><option>Dark</option></select></label>
+          <label>Card type <select id="bType"><option value="">All types</option></select></label>
+        </div>
+        <p id="bCount" class="hint"></p>
+      </div>
+      <ul id="results" class="results" hidden></ul>
+    </div>
+
+    <form id="form" autocomplete="off">
+      <fieldset class="block">
+        <legend>Card</legend>
+        <div class="grid2">
+          <label>Side <select name="side"></select></label>
+          <label>Card type <select name="slip_type"></select></label>
+        </div>
+        <label>Title <input name="title" placeholder="•Lando Calrissian"></label>
+        <div class="grid2">
+          <label class="banner">Banner / subtype <input name="card_type" placeholder="e.g. USED INTERRUPT"></label>
+          <label class="aff">Affiliation <select name="affiliation"></select></label>
+        </div>
+        <div class="grid3">
+          <label>Destiny <input name="destiny" maxlength="4"></label>
+          <label class="df">Deploy <input name="deploy" maxlength="3"></label>
+          <label class="df">Forfeit <input name="forfeit" maxlength="3"></label>
+        </div>
+        <div class="grid2 wideonly" hidden>
+          <label class="inline"><input type="checkbox" name="wide"> Reflections Gold wide layout</label>
+          <label>Credits (gold coins) <input name="credits" type="number" min="0" max="4"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="block">
+        <legend>Text</legend>
+        <label class="lorebox">Lore <textarea name="lore" rows="3"></textarea></label>
+        <label><span class="loclight">Game text</span><span class="locdark" hidden>Light Side text</span>
+          <textarea name="game_text" rows="5"></textarea></label>
+        <label class="loconly" hidden>Dark Side text <textarea name="dark_text" rows="3"></textarea></label>
+        <div class="objonly" hidden>
+          <label>Back side title <input name="title_back"></label>
+          <label>Back side game text <textarea name="game_text_back" rows="4"></textarea></label>
+        </div>
+        <p class="hint">Icons in text: <code>{alter}</code> <code>{episode1}</code> <code>{pilot:2}</code> <code>▼</code> <code>▲</code> · <code>*bold*</code> <code>_italic_</code> · <a href="#help">all codes</a></p>
+      </fieldset>
+
+      <fieldset class="block statsblock">
+        <legend>Stats</legend>
+        <div id="stats" class="stats"></div>
+        <button type="button" id="addStat" class="ghost small">+ stat</button>
+      </fieldset>
+
+      <fieldset class="block">
+        <legend>Icons</legend>
+        <div id="icons" class="checks"></div>
+        <label class="inline"><input type="checkbox" name="scomp"> Scomp link ring</label>
+        <div class="loconly" hidden>
+          <div class="grid2">
+            <label>Light Force icons <input name="light_force_count" type="number" min="0" max="3"></label>
+            <label>Dark Force icons <input name="dark_force_count" type="number" min="0" max="3"></label>
+          </div>
+          <div id="locicons" class="checks"></div>
+          <label>Parsec <input name="parsec" maxlength="2"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="block">
+        <legend>Art</legend>
+        <div id="artChoices" class="artchoices"></div>
+        <label class="file">Upload your own picture <input type="file" id="artFile" accept="image/*"></label>
+        <div id="frameBox" class="grid3" hidden>
+          <label>Zoom <input type="range" id="fZoom" min="1" max="4" step="0.05" value="1"></label>
+          <label>Left ↔ right <input type="range" id="fX" min="0" max="1" step="0.01" value="0.5"></label>
+          <label>Up ↕ down <input type="range" id="fY" min="0" max="1" step="0.01" value="0.5"></label>
+        </div>
+        <p class="hint">Your picture fills the card's art window; use zoom and the sliders to frame it.</p>
+      </fieldset>
+
+      <fieldset class="block">
+        <legend>Set &amp; caption</legend>
+        <label>Expansion symbol (ring) <select name="expansion"></select></label>
+        <label class="file">Your own set symbol (lower icon corner) <input type="file" id="symFile" accept="image/png,image/*"></label>
+        <p class="hint">Bottom black strip: blank on Decipher cards; some Players Committee cards print text here.</p>
+        <div class="grid3">
+          <label>Strip, left <input name="caption"></label>
+          <label>Strip, right <input name="credit_strip"></label>
+          <label>Card number <input name="number" maxlength="6"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="block">
+        <legend>Save &amp; share</legend>
+        <div class="btnrow">
+          <button type="button" id="dlHolo" class="primary">Download PNG (745 × 1039)</button>
+          <button type="button" id="dlMaster">Print size PNG (600 dpi)</button>
+        </div>
+        <div class="btnrow">
+          <button type="button" id="exportJson" class="ghost">Export card JSON</button>
+          <label class="ghost btnlike">Import JSON <input type="file" id="importJson" accept="application/json,.json" hidden></label>
+        </div>
+        <p class="hint">Card JSON is the same format the batch tools and AI assistants use (<a href="#help">details</a>).</p>
+      </fieldset>
+    </form>
+  </section>
+
+  <section class="preview" aria-label="Preview">
+    <div class="stage">
+      <img id="card" alt="Card preview">
+      <div id="spinner" class="spinner" hidden>Rendering…</div>
+      <div id="err" class="err" hidden></div>
+    </div>
+    <p class="note">Rendered with the same engine as the wiki's Virtual Set remasters. Card art © Lucasfilm Ltd.; card designs © Decipher Inc. Fan project.</p>
+  </section>
+</main>
+
+<dialog id="help">
+  <h2>How to use the Card Maker</h2>
+  <ol>
+    <li><b>Pick a starting card</b> with the search box (any Decipher or Players Committee card), or press <i>New blank</i>.</li>
+    <li><b>Edit</b> any field. The preview re-renders a moment after you stop typing.</li>
+    <li><b>Art:</b> the printed art (original or 4× upscale), the card's own scan, or upload your own picture.</li>
+    <li><b>Download</b> the PNG: 745 × 1039 is the Holotable / GEMP size; print size is 600 dpi.</li>
+  </ol>
+  <h3>Codes in game text</h3>
+  <table id="tokens"></table>
+  <h3>For AI assistants and batch work</h3>
+  <p>Export a card as JSON to see the format. <code>POST /cardmaker/api/render</code> with <code>{"spec": …, "size": "holotable"|"master"|"preview", "format": "png"|"webp"}</code> returns the image. <code>GET /cardmaker/api/card/&lt;gempId&gt;</code> returns any existing card as JSON; <code>GET /cardmaker/api/search?q=</code> finds cards.</p>
+  <form method="dialog"><button class="primary">Close</button></form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

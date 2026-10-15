@@ -371,3 +371,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   disc (Darth Maul face) cut from the slip (`disc-sith.png`). Female characters (lore "Female.") get "she" in the
   wiki's pilot-icon expansion. Hub leads for VS12+ no longer claim a December 2006 Remaster reissue (that covered
   VS1–11 only); VS13+ leads say some slips cover the whole card.
+- Rev 37 (card maker, Bill 2026-10-15): the bottom black caption strip is **blank by default** for every card
+  (Decipher cards never print it; only some PC virtual cards do, sometimes with more than one item) — the editor
+  offers strip-left (`caption`), strip-right (`credit_strip`) and number. An empty `caption` now means no strip text
+  (it no longer falls back to the title). Systems: the expansion sphere sits in the top-left margin
+  (`loc-system.system_ring`, measured on the Hoth / Bespin scans); drawn only when `draw_system_ring` (no scan art, or
+  a different set than the scan's). Reflections Gold "wide vision" templates (`rg-{ls,ds}-{interrupt,effect}`,
+  `wide: true` on a 2220×1632 canvas): Bardez's [Horizontal] XCFs (`make_rg_frames.py`), full-art window, banner
+  type in the header, gold Reflections Gold sphere under the destiny lobe (`set-reflections-gold.png`, cut from Andy
+  Talaga's reconstructions), 0–4 gold credit coins (`credits`) right of the text box.

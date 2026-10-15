@@ -34,7 +34,7 @@ def pdf_words(vs: int):
 DARK_THR = {10: 100}   # VS10's white-framed slips have a grey (not black) outline
 
 
-MAX_H = {12: 530, 13: 1100, 14: 1100, 15: 1100, 16: 1100}     # VS12's Epic Event and two-title Effect slips are taller
+MAX_H = {12: 530, 13: 1100, 14: 1100, 15: 1100, 16: 1100, 17: 1100}     # VS12's Epic Event and two-title Effect slips are taller
 
 
 def raw_boxes(png: Path, thr: int = 60, max_h: int = 460):

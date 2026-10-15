@@ -317,9 +317,27 @@ TEMPLATES = {
         "ls_parsec": (1298, 1752, 89, 86), "ds_parsec": (250, 380, 88, 86),
         "ls_force": (230, 1700), "ds_force": (1110, 330),
         "set_icon_abs": (1410, 1923), "set_icon_size": 72,
+        "system_ring": (138, 186, 52),   # the printed systems' expansion sphere, top-left margin (Hoth, Bespin scans)
         "caption_y": 2082,
     },
 }
+
+
+# Reflections Gold "wide vision" (Decipher's cancelled last set; Bill 2026-10-15): Effects / Interrupts printed landscape,
+# full art, gold credit coins right of the text box, the set's gold sphere under the destiny lobe. Frames from Bardez's
+# [Horizontal] XCFs (make_rg_frames.py); text positions from Andy Talaga's reconstructions (wiki "Reflections Gold").
+_RG = {"wide": True, "art": (134, 138, 1952, 1356), "title": (500, 222, 860, 100), "destiny": (1850, 216, 108, 108),
+       "card_type": (1180, 246, 580, 56), "ctype_size": 44, "ctype_spacing": 5, "game_text": (330, 1162, 1585, 214),
+       "gt_size": 56, "expansion_ring": (1902, 403), "expansion_size": 68, "no_copyright": True,
+       "coins": (1952, 1370, 39), "caption_y": 1532}
+for _side, _ink in (("ls", True), ("ds", False)):
+    for _kind in ("interrupt", "effect"):
+        TEMPLATES[f"rg-{_side}-{_kind}"] = dict(_RG, frame=(f"frames/rg-{_side}-{_kind}.png", 0, 0), dark_text=_ink)
+
+
+def is_wide(t: dict) -> bool:
+    """Landscape canvas (2220x1632): locations (site) and the Reflections Gold wide cards."""
+    return bool(t.get("landscape") or t.get("wide"))
 
 
 # Optional era templates (Bill 2026-10-13): the red→cyan fade the Original Virtual Remaster slips used for Defensive
@@ -898,7 +916,7 @@ def build_html(card: dict) -> str:
     }
     font_css = "\n".join(f'@font-face{{font-family:"{k}";src:url("{data_uri(ASSETS / v)}");}}' for k, v in fonts.items())
     global W, H
-    W, H = (2220, 1632) if t.get("landscape") else (1632, 2220)
+    W, H = (2220, 1632) if is_wide(t) else (1632, 2220)
     if t.get("landscape"):
         fr, fx, fy = loc_frame(card, t), 0, 0
     elif t.get("system"):
@@ -1080,9 +1098,9 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + int(6 * k)}px;top:{y + int(7 * k)}px;width:{int(75 * k)}px;height:{int(75 * k)}px">')
     # original-era virtual marker: the slips print the gold virtual-set symbol in the lower icon slot
-    if card.get("virtual_set") is not None and "set_icon_abs" in t:
+    if (card.get("virtual_set") is not None or card.get("set_icon_file")) and "set_icon_abs" in t:
         x, y = t["set_icon_abs"]
-        sym = ASSETS / f"icons/ovs-set-{card['virtual_set']}.png"   # each original set has its own symbol (from its Remaster PDF)
+        sym = Path(card["set_icon_file"]) if card.get("set_icon_file") else ASSETS / f"icons/ovs-set-{card['virtual_set']}.png"   # each original set has its own symbol (from its Remaster PDF); card maker: the user's own
         ss = t.get("set_icon_size", 76)
         if card.get("_set_icon_override"):
             x, y, ss = card["_set_icon_override"]
@@ -1098,6 +1116,14 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
+    if t.get("coins") and card.get("credits"):   # Reflections Gold credit value: gold coins stacked up from the box foot
+        cx_, cy_, step_ = t["coins"]
+        for k in range(min(int(card["credits"]), 4)):
+            parts.append(f'<img src="{data_uri(ASSETS / "icons/rg-coin.png")}" style="position:absolute;left:{cx_}px;top:{cy_ - k * step_}px">')
+    if card.get("expansion_icon") and t.get("system_ring") and card.get("draw_system_ring"):
+        # systems keep the scan whole (its own sphere included): drawn only when asked (card maker: no scan, or a new set)
+        x, y, sz = t["system_ring"]
+        parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
     # Episode I icon below the ring, as the Episode I-era printed cards carry it (Radiant VII, Wesa Ready To Do Our-sa Part)
     if "episode1" in (card.get("ring_icons") or []) and "expansion_ring" in t:
         x, y = t["expansion_ring"]
@@ -1157,9 +1183,9 @@ def build_html(card: dict) -> str:
             if f_:
                 parts.append(f'<img src="{data_uri(ASSETS / f_)}" style="position:absolute;left:{sx_}px;top:{sy_ - (k + 1) * (sz_ + 14)}px;width:{sz_}px;height:{sz_}px">')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
-    cap = card.get("caption") or card["title"]
+    cap = card["caption"] if card.get("caption") is not None else card["title"]   # "" = no strip text (Decipher cards)
     cy = t.get("caption_y", 2082)
-    parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
+    if cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
     if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")) and t.get("landscape"):
         # locations: the slips print the credits up the left margin between the two bars (Carida (V)), reading top-down
         a_, b_ = (card.get("margin_left") or "").replace("\n", " "), (card.get("margin_right") or "").replace("\n", " ")
@@ -1194,7 +1220,7 @@ def build_html(card: dict) -> str:
     .stat .lab{{font-family:AGBoldCnA;font-size:55px;color:{t.get("stats_ink", ink)};letter-spacing:1.4px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
     .stat .val{{white-space:nowrap;font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
     .stat .val.r{{margin-left:auto;padding-left:30px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
-    .ctype{{font-family:AGBoldCnA;font-size:60px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:61px;white-space:nowrap}}
+    .ctype{{font-family:AGBoldCnA;font-size:{t.get("ctype_size", 60)}px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:{t.get("ctype_size", 60) + 1}px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
@@ -1296,26 +1322,28 @@ def build_html(card: dict) -> str:
     return f"<!doctype html><html><head><meta charset='utf-8'><style>{css}</style></head><body>{''.join(parts)}<script>{fit_js}</script></body></html>"
 
 
-def render(card: dict) -> tuple[Path, Path]:
-    from playwright.sync_api import sync_playwright
-    OUT.mkdir(exist_ok=True)
+def rounded(img: Image.Image, radius: int) -> Image.Image:
+    """Rounded corners (real cards and GEMP's images): transparent outside a rounded rectangle."""
+    from PIL import ImageDraw
+    m = Image.new("L", img.size, 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, img.width - 1, img.height - 1), radius=radius, fill=255)
+    out = img.convert("RGBA")
+    out.putalpha(m)
+    return out
+
+
+def screenshot_card(card: dict, page) -> Image.Image:
+    """Render one card with an open Playwright page: the 600 DPI master (1632x2220 / 2220x1632), Dark locations turned
+    to the Dark Side's seat, rounded corners. Shared by render() and the card maker web service."""
+    import io
     html = build_html(card)
-    land = TEMPLATES[card["template"]].get("landscape", False)
-    hp = OUT / f"{card['id']}.html"
-    hp.write_text(html, encoding="utf-8")
-    master = OUT / f"{card['id']}_{'2220' if land else '1632'}.png"
-    with sync_playwright() as p:
-        b = p.chromium.launch()
-        pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
-        pg.goto(hp.as_uri())
-        pg.wait_for_function("document.body.dataset.ready==='1'")
-        pg.locator("#card").screenshot(path=str(master))
-        b.close()
+    page.set_content(html, wait_until="load")
+    page.wait_for_function("document.body.dataset.ready==='1'")
+    im = Image.open(io.BytesIO(page.locator("#card").screenshot())).convert("RGBA")
     if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
         # Dark locations are shown from the Dark Side's seat, as Decipher prints them (Executor: Comm Station): the
         # whole card turned 180° (Dark half, its icons and credits at the bottom); the caption strip stays upright
         # in the bottom margin (Bill 2026-10-14).
-        im = Image.open(master).convert("RGBA")
         rot = im.rotate(180)
         rot.paste(im.crop((0, 0, im.width, 144)), (0, 0))
         rot.paste(im.crop((0, im.height - 145, im.width, im.height)), (0, im.height - 145))
@@ -1324,27 +1352,34 @@ def render(card: dict) -> tuple[Path, Path]:
         y0, y1 = ay + DD, ay + ah - DL
         box = (im.width - 1 - (ax + aw - 1), im.height - 1 - (y1 - 1), im.width - (ax), im.height - y0)
         rot.paste(rot.crop(box).rotate(180), box[:2])
-        rot.save(master)
-    # Rounded corners (real cards and GEMP's images): transparent outside a rounded rectangle.
-    def rounded(img: Image.Image, radius: int) -> Image.Image:
-        from PIL import ImageDraw
-        m = Image.new("L", img.size, 0)
-        ImageDraw.Draw(m).rounded_rectangle((0, 0, img.width - 1, img.height - 1), radius=radius, fill=255)
-        out = img.convert("RGBA")
-        out.putalpha(m)
-        return out
-    rounded(Image.open(master), 80).save(master)
-    # Holotable size: the whole master at half scale (816×1110), cropped to 745×1039 so the card area
-    # lands at (37,36) like the PC's images, keeping the bottom caption strip in the border.
+        im = rot
+    return rounded(im, 80)
+
+
+def holotable_size(master: Image.Image, land: bool) -> Image.Image:
+    """Holotable size: the whole master at half scale (816×1110), cropped to 745×1039 so the card area lands at
+    (37,36) like the PC's images, keeping the bottom caption strip in the border."""
     if land:
-        im = Image.open(master).convert("RGB").resize((1110, 816), Image.LANCZOS)
-        ht = rounded(im.crop((36, 35, 1075, 780)), 34)
-        htp = OUT / f"{card['id']}_1039.png"
-    else:
-        im = Image.open(master).convert("RGB").resize((816, 1110), Image.LANCZOS)
-        ht = rounded(im.crop((35, 36, 780, 1075)), 34)
-        htp = OUT / f"{card['id']}_745.png"
-    ht.save(htp, optimize=True)
+        im = master.convert("RGB").resize((1110, 816), Image.LANCZOS)
+        return rounded(im.crop((36, 35, 1075, 780)), 34)
+    im = master.convert("RGB").resize((816, 1110), Image.LANCZOS)
+    return rounded(im.crop((35, 36, 780, 1075)), 34)
+
+
+def render(card: dict) -> tuple[Path, Path]:
+    from playwright.sync_api import sync_playwright
+    OUT.mkdir(exist_ok=True)
+    land = is_wide(TEMPLATES[card["template"]])
+    (OUT / f"{card['id']}.html").write_text(build_html(card), encoding="utf-8")
+    master = OUT / f"{card['id']}_{'2220' if land else '1632'}.png"
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
+        im = screenshot_card(card, pg)
+        b.close()
+    im.save(master)
+    htp = OUT / f"{card['id']}_{'1039' if land else '745'}.png"
+    holotable_size(im, land).save(htp, optimize=True)
     return master, htp
 
 
