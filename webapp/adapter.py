@@ -157,7 +157,12 @@ def gemp_to_spec(c: dict) -> dict:
     return finish(spec)
 
 
+WIDE_PRINTED = {"13_75"}   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
+
+
 def finish(spec: dict) -> dict:
+    if spec.get("gempId") in WIDE_PRINTED:
+        spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)
     return spec

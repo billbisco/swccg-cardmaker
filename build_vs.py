@@ -53,6 +53,8 @@ def template_for(c: dict) -> str:
         return "loc-system"
     if c.get("no_lore_box") and st in ("effect",) and side == "ds":
         return "ds-effect-tall"
+    if c.get("wide") and "weapon" in st:   # card maker: landscape weapon (Maul's Double-Bladed Lightsaber)
+        return "ds-weapon-wide"
     if c.get("wide") and ("interrupt" in st or "effect" in st):   # card maker: Reflections Gold wide vision
         return f"rg-{side}-{'interrupt' if 'interrupt' in st else 'effect'}"
     if st.startswith("jedi test"):   # card maker: Dagobah Jedi Tests (no lore box) use the tall slip

@@ -380,3 +380,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   `wide: true` on a 2220×1632 canvas): Bardez's [Horizontal] XCFs (`make_rg_frames.py`), full-art window, banner
   type in the header, gold Reflections Gold sphere under the destiny lobe (`set-reflections-gold.png`, cut from Andy
   Talaga's reconstructions), 0–4 gold credit coins (`credits`) right of the text box.
+- Rev 38 (card maker, Bill 2026-10-15): no Reflections Gold Weapon / Starship layouts; the wide **weapon** layout
+  exists because Decipher printed one (Maul's Double-Bladed Lightsaber, Reflections III, 13_75): `ds-weapon-wide`
+  from Bardez "DS - Weapon [Horizontal]" (Template layer, lore / text / destiny windows filled black), Dark Side only.
+  13_75 opens wide automatically (`adapter.WIDE_PRINTED`).
