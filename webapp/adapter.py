@@ -100,7 +100,7 @@ def gemp_to_spec(c: dict) -> dict:
     exp = SETS.get(str(c.get("set")))
     # the black caption strip is blank by default (Bill 2026-10-15): only some PC virtual cards print text there
     spec = {"side": side, "title": title, "caption": "", "number": "", "destiny": f.get("destiny") or "",
-            "lore": "" if (f.get("lore") or "").strip() == "Blank" else (f.get("lore") or ""), "game_text": game_text(f.get("gametext")), "icons": [], "stats": [],
+            "lore": "" if (f.get("lore") or "").strip().rstrip(".") == "Blank" else (f.get("lore") or ""), "game_text": game_text(f.get("gametext")), "icons": [], "stats": [],
             "deploy": f.get("deploy"), "forfeit": f.get("forfeit"), "scomp": "Scomp Link" in icons,
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
@@ -221,6 +221,9 @@ WIDE_PRINTED = {"13_75"}   # Decipher cards printed landscape: Maul's Double-Bla
 
 def objective_text(t: str, front: bool) -> str:
     """Decipher's Objective layout: the setup sentence(s) in italics, then a paragraph per *For* / *While* / *Flip*."""
+    # the PC JSON marks the keywords {For} (-> *For*) or not at all: "For remainder of game", "While this side up",
+    # "Flip this card" always open a paragraph on the printed Objectives
+    t = re.sub(r"(?<![*\w])(For remainder of game|While this side up|Flip this card)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
     t = re.sub(r"\s+(\*(?:For|While|Flip)\*)", r"\n\1", t).strip()
     if front:
         first, sep, rest = t.partition("\n")
