@@ -231,7 +231,7 @@ TEMPLATES = {
         "stats_y": 1583, "stats": [(305, 350), (706, 622)],
         "game_text": (352, 1727, 925, 270), "deploy": (208, 1827, 45, 79), "forfeit": (206, 1930, 46, 85),
         "icon_slots": [(1353, 1651), (1353, 1756)], "set_icon_abs": (1363, 1926), "expansion_ring": (1375, 400),
-        "copyright_x": 1416,
+        "copyright_x": 1416
     },
     "objective": {   # Bardez "DS - Objective.xcf" template, recoloured to the PC two-tone purple (make_objective_frames.py); black text box, white text
         "frame": ("frames/objective.png", 67, 73),
@@ -345,6 +345,11 @@ TEMPLATES["ds-weapon-wide"] = {
 }
 
 
+# Decipher's printed creatures (Worrt, Bog-wing): black title and the banner (GUARD CREATURE) — card maker; the VS
+# remasters keep "creature" as approved (white title, empty banner)
+TEMPLATES["creature-dc"] = dict(TEMPLATES["creature"], card_type=(271, 1466, 1109, 61), title_ink="#000", ctype_ink="#000")
+
+
 def is_wide(t: dict) -> bool:
     """Landscape canvas (2220x1632): locations (site) and the Reflections Gold wide cards."""
     return bool(t.get("landscape") or t.get("wide"))
@@ -355,6 +360,9 @@ def is_wide(t: dict) -> bool:
 # "shield_style": "fade" (build_vs.py sets it for the Original Virtual sets).
 TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
 TEMPLATES["ds-admirals-order"] = dict(TEMPLATES["ls-admirals-order"])   # Decipher printed both sides' Admiral's Orders in one frame
+# Decipher's own Defensive Shield frames (all-cyan Light / its Dark twin, shield icon) for the card maker's printed cards
+TEMPLATES["ls-shield-dc"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield.png", 148, 142))
+TEMPLATES["ds-shield-dc"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield.png", 144, 146))
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 
@@ -476,7 +484,7 @@ def game_text_html(text: str) -> str:
     html = re.sub(r"\*(.+?)\*", r"<b>\1</b>", html, flags=re.S)
     html = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", html, flags=re.S)   # italics may span the slip's line breaks
     html = html.replace("▲", "<span class=tri>▲</span>").replace("▼", "<span class=tri>▼</span>")
-    return html.replace("\n", "<br>")
+    return html.replace("\n", "<br>").replace("¶", "<br>")   # ¶ = a paragraph break that keeps normal wrapping (card maker)
 
 
 def esc(s: str) -> str:
@@ -1214,7 +1222,7 @@ def build_html(card: dict) -> str:
     {font_css}
     body{{margin:0;background:#000}}
     .inv .title, .inv .lore, .inv .ctype, .inv .gt, .inv .destiny {{rotate:180deg}}   /* Dagobah's upside-down cards (Through The Force Things You Will See) */
-    .title{{font-family:Fiorello;font-size:80px;color:{ink};letter-spacing:1px;line-height:90px;white-space:nowrap}}
+    .title{{font-family:Fiorello;font-size:80px;color:{t.get("title_ink", ink)};letter-spacing:1px;line-height:90px;white-space:nowrap}}
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
@@ -1230,7 +1238,7 @@ def build_html(card: dict) -> str:
     .stat .lab{{font-family:AGBoldCnA;font-size:55px;color:{t.get("stats_ink", ink)};letter-spacing:1.4px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
     .stat .val{{white-space:nowrap;font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
     .stat .val.r{{margin-left:auto;padding-left:30px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
-    .ctype{{font-family:AGBoldCnA;font-size:{t.get("ctype_size", 60)}px;color:{ink};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:{t.get("ctype_size", 60) + 1}px;white-space:nowrap}}
+    .ctype{{font-family:AGBoldCnA;font-size:{t.get("ctype_size", 60)}px;color:{t.get("ctype_ink", ink)};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:{t.get("ctype_size", 60) + 1}px;white-space:nowrap}}
     .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}

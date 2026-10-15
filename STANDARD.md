@@ -384,3 +384,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   exists because Decipher printed one (Maul's Double-Bladed Lightsaber, Reflections III, 13_75): `ds-weapon-wide`
   from Bardez "DS - Weapon [Horizontal]" (Template layer, lore / text / destiny windows filled black), Dark Side only.
   13_75 opens wide automatically (`adapter.WIDE_PRINTED`).
+- Rev 39 (card maker troubleshooting vs Holotable scans, 2026-10-15): printed-Decipher defaults in the card maker only
+  (VS remasters unchanged, regression-checked): expansion sphere in its black hole; the vertical copyright line by set
+  year (`adapter.copyright_for`, editable); character `extraText` (FORCE-ATTUNED …) in the third stat box; vehicles
+  "COMBAT VEHICLE: AT-ST"; location icon boxes scomp outermost, then planet, then the rest (Docking Bay 94);
+  Defensive Shields on Decipher's own frames (`ls-/ds-shield-dc`); creatures `creature-dc` (black title, banner such
+  as GUARD CREATURE); Objectives: setup sentence italic, a paragraph per *For* / *While* / *Flip*; `¶` (= a typed
+  line break in the editor) is a paragraph break that keeps normal wrapping. Library art is fetched from GitHub raw
+  first, jsDelivr second, then the card's own scan.

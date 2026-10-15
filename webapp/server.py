@@ -31,6 +31,7 @@ from PIL import Image   # noqa: E402
 
 DATA = Path(os.environ.get("CARDMAKER_DATA", "/tmp/cardmaker-data")); DATA.mkdir(parents=True, exist_ok=True)
 CACHE = DATA / "cache"; CACHE.mkdir(exist_ok=True)
+ART_RAW = os.environ.get("ART_RAW", "https://raw.githubusercontent.com/billbisco/swccg-card-art/main/decipher")
 ART_CDN = os.environ.get("ART_CDN", "https://cdn.jsdelivr.net/gh/billbisco/swccg-card-art@main/decipher")
 HOLOTABLE = Path(os.environ.get("HOLOTABLE", "/holotable/Images-HT/starwars"))   # swccg.com's mirror of the card faces
 UA = {"User-Agent": "swccg-cardmaker/0.1"}
@@ -144,9 +145,14 @@ def resolve_art(spec: dict) -> dict | None:
     gid = a.get("gempId") or spec.get("gempId")
     if kind == "library" and gid:
         ver = a.get("version", "orig"); ext = "png" if ver == "orig" else "webp"
-        p = fetch(f"{ART_CDN}/{ver}/{gid}.{ext}", CACHE / f"art-{ver}-{gid}.{ext}")
-        w, h = Image.open(p).size
-        return {"src": str(p), "rect": [0, 0, w, h]}
+        for base in (ART_RAW, ART_CDN):   # GitHub raw first (fast from the VPS), jsDelivr second (flaky from there)
+            try:
+                p = fetch(f"{base}/{ver}/{gid}.{ext}", CACHE / f"art-{ver}-{gid}.{ext}")
+                w, h = Image.open(p).size
+                return {"src": str(p), "rect": [0, 0, w, h]}
+            except Exception as e:   # noqa: BLE001
+                print("art source failed:", base, gid, e, file=sys.stderr)
+        # neither reachable: the card's own scan, so the card still has its picture
     if gid:
         p = scan_path(gid)
         if p:
