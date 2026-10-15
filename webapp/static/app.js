@@ -141,8 +141,7 @@ function changed() {
   const s = readForm();
   layoutFor(s);
   spec = s;
-  clearTimeout(timer); timer = setTimeout(preview, 600);
-  $("#card").classList.add("stale");
+  schedule();
 }
 
 async function renderBlob(s, size, format) {
@@ -152,16 +151,39 @@ async function renderBlob(s, size, format) {
   return r.blob();
 }
 
+// ---------- preview updates: auto (default) or on demand; one render at a time, always of the latest edit ----------
+const auto = true;   // always live (Bill 2026-10-15): no manual-rebuild mode
+let busy = false, again = false, dirty = false, failed = false;
+function status() {
+  const st = $("#status"), btn = $("#updateBtn");
+  st.dataset.state = failed ? "err" : busy ? "busy" : dirty ? "pending" : "ok";
+  st.querySelector(".txt").textContent = failed ? "Couldn't update the preview" : busy || dirty ? "Updating preview…" : "Preview up to date";
+  btn.hidden = !failed;
+  $("#card").classList.toggle("stale", dirty || busy);
+}
+function schedule() {   // something changed
+  dirty = true; record(); status();
+  clearTimeout(timer);
+  if (auto) timer = setTimeout(preview, 350);
+}
 async function preview() {
-  const seq = ++renderSeq; $("#spinner").hidden = false; $("#err").hidden = true;
+  clearTimeout(timer);
+  if (busy) { again = true; return; }        // a render is running: do the latest edit right after it
+  busy = true; dirty = false; again = false; failed = false; status(); $("#err").hidden = true;
+  const seq = ++renderSeq;
   try {
     const b = await renderBlob(spec, "preview", "webp");
-    if (seq !== renderSeq) return;
-    const img = $("#card"); const old = img.src; img.src = URL.createObjectURL(b); if (old.startsWith("blob:")) URL.revokeObjectURL(old);
-    img.classList.remove("stale");
-    piecesUI(); drawSel();
-  } catch (e) { if (seq === renderSeq) { $("#err").textContent = "Could not render: " + e.message; $("#err").hidden = false; } }
-  finally { if (seq === renderSeq) $("#spinner").hidden = true; }
+    if (seq === renderSeq) {
+      const img = $("#card"); const old = img.src; img.src = URL.createObjectURL(b); if (old.startsWith("blob:")) URL.revokeObjectURL(old);
+      await img.decode().catch(() => {});
+      piecesUI(); drawSel();
+    }
+  } catch (e) { failed = true; $("#err").textContent = "Could not render: " + e.message; $("#err").hidden = false; }
+  finally {
+    busy = false; status();
+    if (again || (dirty && auto)) { again = false; dirty = true; preview(); }
+    else { $("#ghost").hidden = true; $("#dragfrom").hidden = true; }   // the render now shows the latest edit
+  }
 }
 
 async function download(size) {
@@ -178,14 +200,14 @@ async function download(size) {
 async function loadCard(gid) {
   if ($("#browse").hidden) $("#results").hidden = true;   // browsing: keep the set list open to click through
   const data = await j(API + "card/" + encodeURIComponent(gid));
-  writeForm(data.spec, data); history.replaceState(null, "", "#card=" + gid); preview();
+  lastData = data; writeForm(data.spec, data); history.replaceState(null, "", "#card=" + gid); resetHistory(); preview();
 }
 
 function blank() {
   writeForm({ side: "Light", slip_type: "Character", title: "•New Character", caption: "", destiny: "1",
     lore: "", game_text: "", stats: STAT_DEFAULTS.Character, deploy: "3", forfeit: "3", icons: ["warrior"], affiliation: "Rebel",
     expansion: null, card_type: "", art: { kind: "none" } }, null);
-  history.replaceState(null, "", "#"); preview();
+  lastData = null; history.replaceState(null, "", "#"); resetHistory(); preview();
 }
 
 let qTimer = null;
@@ -279,7 +301,7 @@ $("#exportJson").onclick = () => {
   a.download = (s.title || "card").replace(/[•<>:"/\\|?*]+/g, "").trim().replace(/\s+/g, "_") + ".json"; a.click();
 };
 $("#importJson").onchange = e => readFile(e.target, d => {
-  try { const s = JSON.parse(atob(d.split(",")[1])); writeForm(s, null); preview(); } catch (err) { alert("Not a card JSON file: " + err.message); }
+  try { const s = JSON.parse(atob(d.split(",")[1])); lastData = null; writeForm(s, null); resetHistory(); preview(); } catch (err) { alert("Not a card JSON file: " + err.message); }
 });
 $("#helpLink").onclick = e => { e.preventDefault(); $("#help").showModal(); };
 document.querySelectorAll('a[href="#help"]').forEach(a => a.onclick = e => { e.preventDefault(); $("#help").showModal(); });
@@ -324,7 +346,7 @@ function setL(n, patch) {
   for (const k of Object.keys(v)) if (v[k] === null || v[k] === undefined || (k === "dx" || k === "dy") && !v[k] || (k === "sx" || k === "sy") && v[k] === 1 || k === "hidden" && !v[k]) delete v[k];
   if (Object.keys(v).length) spec.layout[n] = v; else delete spec.layout[n];
   if (!Object.keys(spec.layout).length) delete spec.layout;
-  layoutFields(); clearTimeout(timer); timer = setTimeout(preview, 350); $("#card").classList.add("stale");
+  layoutFields(); schedule();
 }
 function piecesUI() {
   const p = (boxes && boxes.pieces) || {}, s_ = $("#lPiece"), cur = s_.value;
@@ -359,7 +381,7 @@ function pieceAt(x, y) {   // the smallest piece box under the point (preview px
 $("#lPiece").onchange = e => select(e.target.value);
 $("#lHide").onchange = e => setL(sel, { hidden: e.target.checked });
 $("#lReset").onclick = () => { if (sel) { spec.layout = { ...(spec.layout || {}) }; delete spec.layout[sel]; setL(sel, {}); } };
-$("#lResetAll").onclick = () => { delete spec.layout; layoutFields(); preview(); };
+$("#lResetAll").onclick = () => { delete spec.layout; layoutFields(); piecesUI(); schedule(); };
 for (const [id, k] of [["#lSx", "sx"], ["#lSy", "sy"]]) $(id).onchange = e => {
   const v = Math.max(20, Math.min(400, +e.target.value || 100)) / 100, patch = { [k]: v };
   if ($("#lLock").checked) patch[k === "sx" ? "sy" : "sx"] = v; setL(sel, patch);
@@ -382,6 +404,13 @@ $("#cardwrap").addEventListener("keydown", e => {
     const b = boxes.pieces[sel]; if (!b) return;
     wrap.focus(); wrap.setPointerCapture(e.pointerId);
     drag = { resize, x0: e.clientX, y0: e.clientY, b: [...b], v: { ...L(sel) } };
+    if (!resize) {   // ghost: the piece's pixels, lifted off the current preview
+      const img = $("#card"), g = $("#ghost"), k = scale();
+      g.width = Math.max(1, Math.round(b[2])); g.height = Math.max(1, Math.round(b[3]));
+      try { g.getContext("2d").drawImage(img, b[0], b[1], b[2], b[3], 0, 0, g.width, g.height); } catch (_) {}
+      Object.assign(g.style, { left: b[0] * k + "px", top: b[1] * k + "px", width: b[2] * k + "px", height: b[3] * k + "px" }); g.hidden = false;
+      Object.assign($("#dragfrom").style, { left: b[0] * k + "px", top: b[1] * k + "px", width: b[2] * k + "px", height: b[3] * k + "px" }); $("#dragfrom").hidden = false;
+    }
     e.preventDefault();
   });
   wrap.addEventListener("pointermove", e => {
@@ -390,10 +419,14 @@ $("#cardwrap").addEventListener("keydown", e => {
       let w = Math.max(10, b[2] + ddx), h = Math.max(10, b[3] + ddy);
       if ($("#lLock").checked) { const f = Math.max(w / b[2], h / b[3]); w = b[2] * f; h = b[3] * f; }
       Object.assign(box.style, { width: w * k + "px", height: h * k + "px" }); drag.w = w; drag.h = h;
-    } else { Object.assign(box.style, { left: (b[0] + ddx) * k + "px", top: (b[1] + ddy) * k + "px" }); drag.dx = ddx; drag.dy = ddy; }
+    } else {
+      Object.assign(box.style, { left: (b[0] + ddx) * k + "px", top: (b[1] + ddy) * k + "px" }); drag.dx = ddx; drag.dy = ddy;
+      Object.assign($("#ghost").style, { left: (b[0] + ddx) * k + "px", top: (b[1] + ddy) * k + "px" });
+    }
   });
   const end = () => {
     if (!drag) return; const d = drag; drag = null; const f = darkLoc() ? -1 : 1;
+    if (d.resize || !(Math.abs(d.dx || 0) > 0.5 || Math.abs(d.dy || 0) > 0.5)) { $("#ghost").hidden = true; $("#dragfrom").hidden = true; }   // a real move: the ghost stays put until the new render lands
     if (d.resize && d.w) setL(sel, { sx: +((d.v.sx || 1) * d.w / d.b[2]).toFixed(3), sy: +((d.v.sy || 1) * d.h / d.b[3]).toFixed(3) });
     else if (!d.resize && (Math.abs(d.dx || 0) > 0.5 || Math.abs(d.dy || 0) > 0.5))
       setL(sel, { dx: Math.round((d.v.dx || 0) + d.dx * 2 * f), dy: Math.round((d.v.dy || 0) + d.dy * 2 * f) });   // preview px -> print px (x2)
@@ -402,3 +435,35 @@ $("#cardwrap").addEventListener("keydown", e => {
   window.addEventListener("resize", drawSel);
 }
 layoutFields();
+
+
+// ---------- undo / redo (whole card: fields and layout) ----------
+let lastData = null, past = [], future = [], lastRec = 0, restoring = false;
+const snap = () => JSON.stringify(spec);
+function resetHistory() { past = [snap()]; future = []; histUI(); }
+function record() {   // called on every change; typing within ~0.8 s counts as one step
+  if (restoring || !spec) return;
+  const now = Date.now(), cur = snap();
+  if (past.length && past[past.length - 1] === cur) return;
+  if (now - lastRec < 800 && past.length > 1) past[past.length - 1] = cur; else past.push(cur);
+  if (past.length > 200) past.shift();
+  lastRec = now; future = []; histUI();
+}
+function restore(js) {
+  restoring = true; const keepSel = sel;
+  writeForm(JSON.parse(js), lastData); layoutFor(spec); piecesUI(); select(keepSel);
+  restoring = false; dirty = true; status(); clearTimeout(timer); if (auto) timer = setTimeout(preview, 150);
+}
+function undo() { if (past.length < 2) return; future.push(past.pop()); lastRec = 0; restore(past[past.length - 1]); histUI(); }
+function redo() { if (!future.length) return; const js = future.pop(); past.push(js); lastRec = 0; restore(js); histUI(); }
+function histUI() { $("#undoBtn").disabled = past.length < 2; $("#redoBtn").disabled = !future.length; }
+$("#undoBtn").onclick = undo; $("#redoBtn").onclick = redo;
+$("#updateBtn").onclick = () => preview();
+document.addEventListener("keydown", e => {
+  const mod = e.ctrlKey || e.metaKey, typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && document.activeElement.type !== "checkbox";
+  if (mod && e.key === "Enter") { e.preventDefault(); preview(); return; }
+  if (!mod || typing) return;   // inside a text field the browser's own undo applies
+  if (e.key.toLowerCase() === "z" && !e.shiftKey) { e.preventDefault(); undo(); }
+  else if (e.key.toLowerCase() === "y" || (e.key.toLowerCase() === "z" && e.shiftKey)) { e.preventDefault(); redo(); }
+});
+status(); histUI();

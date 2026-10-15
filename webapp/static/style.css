@@ -73,7 +73,7 @@ button.small { padding: 4px 9px; font-size: 12px; }
 .nudges { align-self: end; }
 .nudges button { min-width: 38px; }
 #card { max-width: 100%; max-height: calc(100vh - 140px); width: auto; display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,.6)); transition: opacity .15s; }
-#card.stale { opacity: .55; }
+#card.stale { opacity: .8; }
 .spinner { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,.7); color: var(--accent); padding: 4px 10px; border-radius: 99px; font-size: 12px; }
 .err { position: absolute; left: 12px; right: 12px; bottom: 12px; background: #3a1414; color: var(--danger); border: 1px solid #6b2222; border-radius: 6px; padding: 8px 10px; font-size: 13px; }
 .note { color: var(--mute); font-size: 12px; margin: 8px 2px; }
@@ -85,3 +85,21 @@ dialog td { border-bottom: 1px solid var(--line); padding: 4px 6px; }
 [hidden] { display: none !important; }
 .browse { margin-top: 8px; }
 .browse select optgroup { color: var(--mute); }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.toolbar .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.toolbar .tgl { margin: 0 4px; font-size: 12px; color: var(--mute); }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--mute); }
+.status .dot { width: 10px; height: 10px; border-radius: 50%; background: #3fb950; }
+.status[data-state="pending"] .dot { background: var(--accent); }
+.status[data-state="err"] .dot { background: var(--danger); }
+.status[data-state="err"] .txt { color: var(--danger); }
+.status[data-state="busy"] .dot { background: var(--accent); animation: pulse 1s ease-in-out infinite; }
+.status[data-state="busy"] .txt, .status[data-state="pending"] .txt { color: var(--ink); }
+@keyframes pulse { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .status[data-state="err"] .dot { background: var(--danger); }
+.status[data-state="err"] .txt { color: var(--danger); }
+.status[data-state="busy"] .dot { animation: none; } }
+button:disabled { opacity: .45; cursor: default; }
+.dragghost { position: absolute; pointer-events: none; opacity: .9; outline: 1px solid var(--accent); }
+.dragfrom { position: absolute; pointer-events: none; background: rgba(14, 17, 22, .55); outline: 1px dashed rgba(255,255,255,.5); }
