@@ -31,6 +31,17 @@ def copyright_for(set_id) -> str:
     return f"TM & © {y} LUCASFILM LTD. TM, ® & © {y} DECIPHER INC."
 
 
+def set_mark_for(set_id) -> str | None:
+    """The Players Committee's set mark in the lower icon slot: modern Virtual Sets 0-27 (ring + number) and the 2009
+    Virtual Blocks 1-9 (diamond)."""
+    s = str(set_id or "")
+    if s.isdigit() and 200 <= int(s) <= 299:
+        return f"pc:{int(s) - 200}"
+    if s.isdigit() and 1001 <= int(s) <= 1009:
+        return f"vb:{int(s) - 1000}"
+    return None
+
+
 INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Immune to Alter.]": "{alter}", "[Immune to Alter]": "{alter}", "[Immune to Sense.]": "{sense}",
     "[Immune to Sense]": "{sense}", "[Immune to Control.]": "{control}", "[Immune to Control]": "{control}",
@@ -75,7 +86,7 @@ def gemp_to_spec(c: dict) -> dict:
             "deploy": f.get("deploy"), "forfeit": f.get("forfeit"), "scomp": "Scomp Link" in icons,
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
-            "copyright": copyright_for(c.get("set"))}
+            "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
     if "Episode I" in icons and typ != "Character":
         spec["ring_icons"] = ["episode1"]   # the Episode I disc under the expansion sphere (A Close Race)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and not (i == "Episode I" and typ != "Character")]
