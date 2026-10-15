@@ -77,6 +77,8 @@ def template_for(c: dict) -> str:
         return f"rg-{side}-{'interrupt' if 'interrupt' in st else 'effect'}"
     if st.startswith("jedi test"):   # card maker: Dagobah Jedi Tests (no lore box) use the tall slip
         return "ls-jeditest-tall"
+    if st in ("mission", "critical mission"):
+        return f"{side}-mission"
     if st == "epic event":
         return "ls-epic-event" if side == "ls" else "epic-event"
     if "admiral" in st:
@@ -154,11 +156,15 @@ def convert(c: dict, vs: int) -> dict:
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include
     if "dark jedi" in (c.get("affiliation") or "").lower() and "imperial" in (c.get("affiliation") or "").lower():
         card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
+    if (c.get("affiliation") or "").lower() == "dark jedi master" and c["side"] == "Dark":
+        card["disc"] = "dark-jedi"   # Lord Sidious, Count Dooku: the red lightsaber disc
+    if (c.get("affiliation") or "").lower() == "republic/imperial":
+        card["disc"], card["disc2"] = "republic", "ds-imperial-ring"   # Sate Pestage: Republic + Imperial discs
     if (c.get("affiliation") or "").lower() in ("alien/imperial", "imperial/alien"):
         card["disc2"] = "ds-imperial-ring"   # Arica: Alien frame + the Imperial ring
-    if "republic" in (c.get("affiliation") or "").lower() and re.search(r"[+/]", c.get("affiliation") or ""):
+    if "republic" in (c.get("affiliation") or "").lower() and re.search(r"[+/]", c.get("affiliation") or "") and "imperial" not in (c.get("affiliation") or "").lower():
         card["disc2"] = "republic"       # two affiliations (VS16 Senators: Rebel + Republic, Alien + Republic): frame disc + crest
-    elif "republic" in (c.get("affiliation") or "").lower():
+    elif "republic" in (c.get("affiliation") or "").lower() and not card.get("disc2"):
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
     if (c.get("affiliation") or "").lower() == "sith":
         card["disc"] = "sith"            # VS17 Galen: the Darth Maul face disc printed on the slip (cut from the slip, 300 dpi)

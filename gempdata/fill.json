@@ -1,0 +1,787 @@
+{
+ "_doc": "Values the Players Committee JSON lacks, transcribed from the printed cards (Holotable scans) by the card maker QA (2026-10-15). gempId -> front fields set as-is (lightSideIcons, darkSideIcons, gametext …); printedStats = the stat boxes as printed.",
+ "1005_L5385": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1005_L5455": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 0
+ },
+ "1007_L5457": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1007_L5458": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1005_L5460": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1004_L5470": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L5471": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1009_L5547": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1009_L5548": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 0
+ },
+ "1009_L5549": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1009_L5550": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1008_L5584": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 0
+ },
+ "1005_L5645": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1005_L5646": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1009_L5747": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1009_L5748": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1009_L5749": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1009_L5750": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1008_L5752": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1008_L5753": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 0
+ },
+ "1008_L5754": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1004_L5784": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L5826": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1004_L5827": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L5828": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1008_L5829": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L5830": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1002_L5853": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 0
+ },
+ "1006_L5920": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1006_L5950": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 0
+ },
+ "1004_L6034": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1002_L6101": {
+  "lightSideIcons": 0,
+  "darkSideIcons": 1
+ },
+ "1004_L6164": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1007_L6195": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1008_L6198": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1005_L6199": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1004_L6200": {
+  "lightSideIcons": 0,
+  "darkSideIcons": 1
+ },
+ "1007_L6201": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1008_L6204": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1003_L6272": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L6288": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1009_L6327": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1009_L6328": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1009_L6329": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1009_L6330": {
+  "lightSideIcons": 0,
+  "darkSideIcons": 2
+ },
+ "1004_L6428": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1007_L6453": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1007_L6455": {
+  "lightSideIcons": 0,
+  "darkSideIcons": 2
+ },
+ "1006_L6456": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1007_L6460": {
+  "lightSideIcons": 0,
+  "darkSideIcons": 2
+ },
+ "1004_L6461": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L6462": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1004_L6463": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1009_L6530": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1009_L6531": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1009_L6532": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1009_L6533": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1006_L6591": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1004_L6592": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1006_L6599": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1006_L6660": {
+  "lightSideIcons": 0,
+  "darkSideIcons": 1
+ },
+ "1009_L6678": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 1
+ },
+ "1008_L6679": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1001_L5328": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 0
+ },
+ "1006_L5499": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 1
+ },
+ "1009_L6529": {
+  "lightSideIcons": 2,
+  "darkSideIcons": 2
+ },
+ "1006_L6663": {
+  "lightSideIcons": 1,
+  "darkSideIcons": 2
+ },
+ "1005_L5902": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "POLITICS",
+    "2"
+   ]
+  ]
+ },
+ "1005_L5903": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "POLITICS",
+    "2"
+   ]
+  ]
+ },
+ "1004_L5904": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "POLITICS",
+    "1"
+   ]
+  ]
+ },
+ "1005_L5905": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "POLITICS",
+    "3"
+   ]
+  ]
+ },
+ "1005_L5906": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "POLITICS",
+    "4"
+   ]
+  ]
+ },
+ "1005_L5929": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "POLITICS",
+    "5"
+   ]
+  ]
+ },
+ "1008_L5931": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "POLITICS",
+    "3"
+   ]
+  ]
+ },
+ "1008_L5932": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "POLITICS",
+    "3"
+   ]
+  ]
+ },
+ "1004_L6175": {
+  "printedStats": [
+   [
+    "POWER",
+    "1"
+   ],
+   [
+    "ABILITY",
+    "2"
+   ],
+   [
+    "INFLUENCE",
+    "2"
+   ]
+  ]
+ },
+ "1004_L6442": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "INFLUENCE",
+    "2"
+   ]
+  ]
+ },
+ "1003_L6643": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "4"
+   ],
+   [
+    "INFLUENCE",
+    "3"
+   ]
+  ]
+ },
+ "1006_L5558": {
+  "printedStats": [
+   [
+    "FEROCITY",
+    "✶"
+   ],
+   [
+    "CLAWS",
+    "4"
+   ]
+  ]
+ },
+ "1006_L6254": {
+  "printedStats": [
+   [
+    "FEROCITY",
+    "✶"
+   ],
+   [
+    "TENTACLES",
+    "4"
+   ]
+  ]
+ },
+ "1002_L6557": {
+  "printedStats": [
+   [
+    "FEROCITY",
+    "3"
+   ],
+   [
+    "VICIOUS HOWL",
+    "4"
+   ]
+  ]
+ },
+ "1008_L6615": {
+  "printedStats": [
+   [
+    "FEROCITY",
+    "✶"
+   ],
+   [
+    "TENTACLES",
+    "12"
+   ]
+  ]
+ },
+ "1004_L6702": {
+  "printedStats": [
+   [
+    "FEROCITY",
+    "3"
+   ],
+   [
+    "FANGS",
+    "4"
+   ]
+  ]
+ },
+ "1002_L6744": {
+  "printedStats": [
+   [
+    "FEROCITY",
+    "✶"
+   ],
+   [
+    "VICIOUS HOWL",
+    "4"
+   ]
+  ]
+ },
+ "1002_L5613": {
+  "gametext": "If you deployed only 1 location (unless it is [Coruscant], [Reflections 3], or [Special Edition]), play instead of a Starting Interrupt. ▼ Battle Plan, Do, Or Do Not, and a [Immune to Alter] Effect. Revolution, insert cards, and your [Maintenance] and [Permanent Weapon] cards are lost. You go first. Choose one: {Jedi}: Deploy on table. At start of your turn, turn all cards here face up. During your turn, may use 1 Force for each card stacked here to stack a card from hand face up here. Instead of using X Force, may turn X cards here face down. {Agent of Evil}: ▲ Luke and a site. Deploy on opponent's side of table; their total battle and duel destiny is +2."
+ },
+ "1009_L5356": {
+  "gametext": "Deploy on Begun, The Clone War Has. Unless a card stacked here, if you control three Muunilinst locations (and opponent controls no Muunilinst locations), opponent loses 1 Force (cannot be reduced) and stacks lost card here face down (Mission complete).\n{Reward}: Your Force drains at Muunilinst locations are +1 and, once per turn, may raise your converted Muunilinst site to the top.\n{Turn The Tide}: If opponent controls two Muunilinst locations, place this Mission in Used Pile."
+ },
+ "1009_L5592": {
+  "gametext": "Deploy on Begun, The Clone War Has. Opponent's characters of ability > 4 are 'acolytes.' Once during your move phase, if no card here, may target Anakin (or Obi-Wan) and initiate a duel with an 'acolyte' present. Each player draws two destiny (those destinies may not be canceled). Add ability. If your total higher, stack 'acolyte' here face down (Mission complete). Otherwise, place target in your Used Pile.\n{Reward}: May immediately ▲ a non-character card.\n{Turn the Tide}: If a card with the same persona as card here is deployed, place this Mission in Used Pile."
+ },
+ "1008_L5650": {
+  "gametext": "Deploy on Infiltration or non-[Virtual Block 4] Watch Your Step. May ▼ Kessel. May target a scoundrel or smuggler at a non-Kessel system (target is immune to Set For Stun). If target is lost, place cards here in Used Pile. When target reaches Kessel, draw five 'parsec' destinies and stack them here (or this Mission is lost). Whenever you win a battle (or at start of your turn), take a card here into hand. When target returns to original system: Mission completed (counts as two Kessel Runs), Infiltration flips, and may ▲ a card. If total 'parsec' destiny < 12 when completed, may subtract 1 from each of opponent's destiny draws. May not be canceled."
+ },
+ "1007_L5825": {
+  "gametext": "Deploy on table. Your Sandwhirl is canceled. At battleground systems where you have a Rebel of ability = 2 piloting a starfighter, and you have no Force drain bonus (except from the system card itself), your Force drains are +1. Your starfighters with a pilot character aboard are immune to attrition < 4. Once per turn, may ▼ Close Air Support. Your Rebel starfighters without astromech capacity (except Falcon or Artoo-Detoo In Red 5) gain \"May add 1 astromech.\""
+ },
+ "1009_L5865": {
+  "gametext": "Deploy on Begun, The Clone War Has. Once per turn, may ▲ Amidala. Petranaki Arena is a prison. May deploy Amidala imprisoned there (for free) from hand or Lost Pile and, unless this Mission complete, Amidala lost if not imprisoned there and she may not be transferred while imprisoned. If you just initiated a Force drain at Petranaki Arena, release a captive there (Mission complete).\n{Reward}: If Obi-Wan is present with Anakin or Amidala, attrition against opponent is +2.\n{Turn the Tide}: If opponent controls Petranaki Arena (or if Amidala not on table), place this Mission in Used Pile."
+ },
+ "1007_L5867": {
+  "gametext": "Deploy on Yavin 4. Once per turn, may ▼ a battleground system or an interior Yavin 4 site. Whenever you Force drain at another battleground system, may draw destiny. Add 1 for each Yavin 4 site on table (2 if you occupy). If total destiny > 6, stack top card from either player's Reserve Deck face up there (limit one per system) to 'liberate' the system. At 'liberated' systems: Force drains are +1, and at same and related locations your total power is +3 and you draw one battle destiny if not able to otherwise. If opponent Force drains at a 'liberated' system, place stacked card in owner's Used Pile."
+ },
+ "1009_L6092": {
+  "gametext": "Deploy on War Has Begun. [Virtual Block 2] Special Delivery is canceled. May ▼ Arena Pillars. Petranaki Arena is a prison. If there are no captives at Petranaki Arena and opponent about to lose a non-droid character, may imprison it there. If opponent controls Petranaki Arena during their control phase, they may release any number of captives there. If an opponent's imprisoned character was just 'executed,' stack it here face down (Mission complete).\n{Reward}: Attrition against opponent is +1.\n{Turn the Tide}: If opponent controls Petranaki Arena during their control phase, place this Mission in Used Pile."
+ },
+ "1009_L6241": {
+  "gametext": "Deploy on War Has Begun. Unless a card stacked here, if you control three Muunilinst locations (and opponent controls no Muunilinst locations), opponent loses 1 Force (cannot be reduced) and stacks lost card here face down (Mission complete).\n{Reward}: Your Force drains at Muunilinst locations are +1 and, once per turn, may raise your converted Muunilinst site to the top.\n{Turn The Tide}: If opponent controls two Muunilinst locations, place this Mission in Used Pile."
+ },
+ "1007_L6313": {
+  "gametext": "Deploy on table. Flagship and Endor Shield are canceled. You may not deploy [Independent] or [Trade Federation] starships. Once per turn, may use 1 Force to ▼ an Executor site or a battleground system. While Flagship Operations on Executor: its power may not be reduced, your Force drains at battleground systems = 3, your TIE Assault Squadron may deploy without replacement (deploy = 3), and, wherever you have a TIE with a capital starship, draw one battle destiny if not able to otherwise. Your cards add no more than 2 to the destiny, power, and forfeit of your squadrons."
+ },
+ "1007_L6389": {
+  "gametext": "Deploy on table. Tallon Roll is canceled. At battleground systems where you have an Imperial of ability = 2 piloting a starfighter, and you have no Force drain bonus (except from the system card itself), your Force drains are +1. Your starfighters with a pilot character aboard are immune to attrition < 4. Once per turn, may ▼ TIE Fighter Construction Facility. Your starfighters without astromech capacity gain \"May add 1 astromech.\""
+ },
+ "1007_L6411": {
+  "gametext": "Deploy on ISB Central Office. This site is a prison (if opponent controls, all captives here are released). Total ability of 6 or more required for opponent to draw battle destiny here. Whenever an ISB agent delivers a captive here, opponent loses 4 Force (once per captive per captivity). ISB agents may escort captives and, if escorting a captive during your move phase, may use 1 Force to relocate escort and captive to a related docking bay (as a regular move). Once during your move phase, may use 2 Force to relocate (as a regular move) an ISB agent present with Ysanne Isard here to a site you control."
+ },
+ "1007_L6433": {
+  "gametext": "Deploy on table. May ▼ Nal Hutta. Once per game, may retrieve an alien or [Independent] starship into hand. While Fearless And Inventive on table, once per battle, may lose 1 Force; your battle destiny modifiers affect your total battle destiny instead. [Immune to Alter]"
+ },
+ "1009_L6593": {
+  "gametext": "Deploy on War Has Begun. During your control phase, for each system where you occupy a related site, may draw one destiny; if destiny + X + Y > 7, stack top card of Lost Pile under that system (limit one per system); it is 'aligned' (Mission complete).\nX = number of 'aligned' systems on table.\nY = number of unique (•) [Separatist] characters on table.\n{Reward}: Your battle destiny draws are +X (limit +2).\n{Turn the Tide}: If opponent just initiated a Force drain at an 'aligned' system, place stacked cards there in Used Pile (system no longer 'aligned'). If there are no 'aligned' systems on table, place this Mission in Used Pile."
+ },
+ "1007_L6657": {
+  "gametext": "If your [Virtual Block 7] Kessel office on table, deploy on table. Program Trap is canceled. Cards stacked here are 'spice' cards. Once per turn, if you control Extraction Facility, may place a 'spice' card in owner's Lost Pile to draw up to 2 cards from Reserve Deck. Once during your turn, may: use 2 Force to stack a card from Lost Pile here, ▼ a non-character card with \"Kessel\" in title, and/or 'mine' (opponent draws destiny; draw up to X destiny, where X = 1 plus number of Kessel locations you occupy; if any of the printed destiny numbers match, stack opponent's destiny or top card of your Lost Pile here)."
+ },
+ "1008_L5562": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "LUCK",
+    "5"
+   ]
+  ]
+ },
+ "1008_L5656": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "5"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "1008_L5657": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "5"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "1007_L5727": {
+  "printedStats": [
+   [
+    "POWER",
+    "5"
+   ],
+   [
+    "ABILITY",
+    "6"
+   ],
+   [
+    "JEDI KNIGHT",
+    ""
+   ]
+  ]
+ },
+ "1007_L5822": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "6"
+   ],
+   [
+    "JEDI KNIGHT",
+    ""
+   ]
+  ]
+ },
+ "1002_L6155": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "2"
+   ],
+   [
+    "INFLUENCE",
+    "1"
+   ]
+  ]
+ },
+ "1007_L6339": {
+  "printedStats": [
+   [
+    "POWER",
+    "7"
+   ],
+   [
+    "ABILITY",
+    "5"
+   ],
+   [
+    "FORCE-SENSITIVE",
+    ""
+   ]
+  ]
+ },
+ "1007_L6425": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "INFLUENCE",
+    "1"
+   ]
+  ]
+ },
+ "1008_L6465": {
+  "printedStats": [
+   [
+    "POWER",
+    "4"
+   ],
+   [
+    "ABILITY",
+    "2"
+   ],
+   [
+    "SHADOW",
+    "3"
+   ]
+  ]
+ },
+ "1008_L6476": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "1004_L6552": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "2"
+   ],
+   [
+    "INFLUENCE",
+    "1"
+   ]
+  ]
+ },
+ "1009_L6616": {
+  "printedStats": [
+   [
+    "POWER",
+    "2"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "1006_L5620": {
+  "printedStats": [
+   [
+    "POWER",
+    "0"
+   ],
+   [
+    "ABILITY",
+    "0"
+   ],
+   [
+    "CARBON-FROZEN",
+    ""
+   ]
+  ]
+ },
+ "1004_L5505": {
+  "lore": "The Guidenhouser ejection seat has saved many pilots from their exploding starships. However, system malfunctions have sometimes caused spontaneous ejection."
+ },
+ "1006_L5615": {
+  "lore": "\"It's not fair! The transfer circuits are working!\""
+ },
+ "1004_L6345": {
+  "lore": "\"All his life has he looked away. To the future; to the horizon. Never his mind on where he was! Hmm? What he was doing! Hm.\""
+ },
+ "1009_L6546": {
+  "lore": "Commanding Viceroy of the Trade Federation forces assigned to the blockade of Naboo. Takes responsibility for his own actions. Neimoidian {leader}."
+ },
+ "1006_L6743": {
+  "lore": "When efficiently deployed, a squadron of AT-ATs can quickly take control of a wide area, making it easy for Imperial forces to dominate a planet."
+ }
+}
