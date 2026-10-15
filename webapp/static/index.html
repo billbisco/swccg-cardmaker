@@ -142,6 +142,29 @@
         </div>
       </fieldset>
 
+      <fieldset class="block" id="layoutBlock">
+        <legend>Layout (move pieces)</legend>
+        <p class="hint">Click a piece on the preview to select it, drag to move it, drag its corner to resize. Arrow keys nudge (Shift = bigger steps).</p>
+        <div class="grid2">
+          <label>Piece <select id="lPiece"><option value="">— click the preview —</option></select></label>
+          <div class="btnrow nudges">
+            <button type="button" data-n="-1,0" title="Left">←</button><button type="button" data-n="0,-1" title="Up">↑</button>
+            <button type="button" data-n="0,1" title="Down">↓</button><button type="button" data-n="1,0" title="Right">→</button>
+          </div>
+        </div>
+        <div class="grid3">
+          <label>Width % <input id="lSx" type="number" min="20" max="400" step="1"></label>
+          <label>Height % <input id="lSy" type="number" min="20" max="400" step="1"></label>
+          <label class="inline"><input type="checkbox" id="lLock" checked> keep shape</label>
+        </div>
+        <div class="btnrow">
+          <label class="inline"><input type="checkbox" id="lHide"> Hide piece</label>
+          <button type="button" id="lReset" class="ghost small">Reset piece</button>
+          <button type="button" id="lResetAll" class="ghost small">Reset all</button>
+        </div>
+        <p id="lInfo" class="hint"></p>
+      </fieldset>
+
       <fieldset class="block">
         <legend>Save &amp; share</legend>
         <div class="btnrow">
@@ -159,7 +182,10 @@
 
   <section class="preview" aria-label="Preview">
     <div class="stage">
-      <img id="card" alt="Card preview">
+      <div id="cardwrap" class="cardwrap" tabindex="0" aria-label="Card preview — click a piece to select it, drag to move, arrow keys to nudge">
+        <img id="card" alt="Card preview" draggable="false">
+        <div id="selbox" class="selbox" hidden><span class="selname"></span><div class="handle" title="Drag to resize"></div></div>
+      </div>
       <div id="spinner" class="spinner" hidden>Rendering…</div>
       <div id="err" class="err" hidden></div>
     </div>

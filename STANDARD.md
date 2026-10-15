@@ -443,3 +443,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   characters (the pill widens left as R2-D2's "2 or 5", max +190 px, then condenses), deploy / forfeit up to 4 and
   stat values up to 5 characters (condense to ≥55 % width, then shrink, never leave their box). Limits enforced in the
   editor and in `adapter.spec_to_card` for API callers. 1–2 character values render exactly as before (VS1–17 regression identical).
+- Rev 48 (Bill 2026-10-15: move / resize / hide / reset pieces): every drawn element belongs to a named piece (art,
+  affiliation, title, destiny, lore, stats, banner, game_text, deploy, forfeit, scomp, icons, set_mark, expansion,
+  coins, ring_icons, margin_icon, location_text, parsec, copyright, credits, caption, number), wrapped in a full-card
+  layer. Card key `layout: {piece: {dx, dy (print px, ±2000), sx, sy (0.2–4), hidden}}` is applied after all fitting
+  (CSS translate / scale about the piece's own centre, never changing the template); the render reports each piece's
+  box (`X-Piece-Boxes`) so the editor can select, drag, resize and nudge on the preview. No layout = pixel-identical.

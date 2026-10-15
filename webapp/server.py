@@ -291,10 +291,14 @@ threading.Thread(target=worker, daemon=True).start()
 CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "webapp/adapter.py", "webapp/server.py"))).hexdigest()[:12]
 
 
+LAST_BOXES: dict = {}
+
+
 def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
     key = hashlib.sha1(json.dumps([CODE_VERSION, spec, size, fmt], sort_keys=True).encode()).hexdigest()
-    cp = CACHE / f"r-{key}.{fmt}"
+    cp = CACHE / f"r-{key}.{fmt}"; bp = CACHE / f"r-{key}.boxes.json"
     if cp.exists():
+        LAST_BOXES[threading.get_ident()] = json.loads(bp.read_text()) if bp.exists() else {}
         return cp.read_bytes(), fmt
     s = dict(spec)
     art_ok = True
@@ -320,8 +324,13 @@ def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
     if "err" in done:
         raise RuntimeError(done["err"])
     im, land = done["img"], done["land"]
+    boxes = card.get("_boxes") or {}
     if size in ("holotable", "preview"):
         im = render.holotable_size(im, land)   # the card itself at Holotable / GEMP size (745 x 1039)
+        ox, oy = (36, 35) if land else (35, 36)   # master -> half size, then the Holotable crop
+        boxes = {k: [round(b[0] / 2 - ox, 1), round(b[1] / 2 - oy, 1), round(b[2] / 2, 1), round(b[3] / 2, 1)] for k, b in boxes.items()}
+    boxes = {"w": im.width, "h": im.height, "pieces": boxes}
+    LAST_BOXES[threading.get_ident()] = boxes
     buf = io.BytesIO()
     if fmt == "png":
         im.save(buf, "PNG", optimize=size != "master")
@@ -329,7 +338,7 @@ def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
         im.save(buf, "WEBP", quality=88 if size == "preview" else 95)
     data = buf.getvalue()
     if art_ok:
-        cp.write_bytes(data)
+        cp.write_bytes(data); bp.write_text(json.dumps(boxes))
     return data, fmt
 
 
@@ -414,7 +423,9 @@ class H(BaseHTTPRequestHandler):
                 if size not in ("preview", "holotable", "master") or fmt not in ("webp", "png"):
                     return self._json({"error": "bad size/format"}, 400)
                 data, fmt = render_spec(body["spec"], size, fmt)
-                return self._send(200, data, f"image/{fmt}", {"Cache-Control": "no-store"})
+                bx = json.dumps(LAST_BOXES.pop(threading.get_ident(), {}))
+                return self._send(200, data, f"image/{fmt}", {"Cache-Control": "no-store", "X-Piece-Boxes": bx,
+                                                              "Access-Control-Expose-Headers": "X-Piece-Boxes"})
             return self._json({"error": "not found"}, 404)
         except Exception as e:   # noqa: BLE001
             traceback.print_exc(); return self._json({"error": str(e)}, 500)

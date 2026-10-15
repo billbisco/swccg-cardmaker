@@ -1014,6 +1014,11 @@ def build_html(card: dict) -> str:
         return f"left:{x}px;top:{y}px;width:{w}px;height:{h}px;{style}"
 
     parts = [f'<div id="card"{' class="inv"' if card.get("invert_text") else ''} style="position:relative;width:{W}px;height:{H}px;background:#000;overflow:hidden">']
+    marks = []   # (piece, index into parts): card maker layers — each piece is wrapped so it can be moved / resized / hidden
+
+    def sec(name):
+        marks.append((name, len(parts)))
+    sec('art')
     if art and t.get("_artwin"):   # reshaped window (tall slips): the art fills it, under the frame
         wx, wy, ww, wh = t["_artwin"]
         if card.get("no_lore_box") and card["art"].get("rect"):
@@ -1023,19 +1028,23 @@ def build_html(card: dict) -> str:
                          f'<img src="{art}" style="position:absolute;left:0;top:{(wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
     elif art:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
+    sec(None)
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
+    sec('art')
     if card.get("no_lore_box") and card.get("art") and t.get("lore") and not t.get("_artwin"):
         # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
         # banner — lay the mapped scan over the frame's lore window too
         lx, ly, lw, lh = t["lore"]
         win = (ax, ly - 34, aw, ay + ah - (ly - 34) - int(card.get("text_grow") or 0))
         parts.append(f'<img src="{art_crop(card, win, "-rect" if card["art"].get("rect") else "-full")}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
+    sec('affiliation')
     if card.get("disc"):   # affiliation disc swapped over the frame's own (Yoda: the Light Jedi Master blade on the Rebel frame)
         dx_, dy__ = t.get("disc_at", (193, 176))
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc"]}.png")}" style="position:absolute;left:{dx_}px;top:{dy__}px">')
     if card.get("disc2"):   # second affiliation disc right of the first, title bar shortened (The Emperor: Dark Jedi Master + Imperial)
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{359}px;top:{174}px">')
         t = dict(t, title=(t["title"][0] + 170, t["title"][1], t["title"][2] - 170, t["title"][3]))
+    sec('title')
     # title + destiny
     pre = " pre" if card.get("text_lines") else ""
     if t.get("landscape"):
@@ -1049,6 +1058,7 @@ def build_html(card: dict) -> str:
         dx, dy_, dw, dh = t["ds_bar"]; dy_ += DD
         dx0 = dx if nbox == 0 else t["frame_off"][0] + t["ds_slot0"] + (nbox - 1) * t["slot_pitch"] + 55
         parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
+        sec('location_text')
         lx, ly_, lw, lh = t["ls_text"]; ly_ -= DL; lh += DL
         parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
         tx, ty, tw, th = t["ds_text"]; th += DD
@@ -1058,10 +1068,12 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="title ltitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Light")}</div>')
         x, y, w, h = t["ds_bar"]
         parts.append(f'<div class="title dtitle" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{loc_title(card, "Dark")}</div>')
+        sec('location_text')
         x, y, w, h = t["ls_text"]
         parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
         x, y, w, h = t["ds_text"]
         parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+        sec('parsec')
         if card.get("parsec") is not None:
             x, y, w, h = t["ls_parsec"]
             parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{esc(str(card["parsec"]))}</div>')
@@ -1069,6 +1081,7 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
     else:
         parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
+    sec('destiny')
     if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
         plain = re.sub(r"<[^>]+>", "", dv)
@@ -1079,8 +1092,10 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="destiny" style="position:absolute;left:{x - ext}px;top:{y}px;width:{w + ext}px;height:{h}px;font-size:80px;white-space:nowrap;padding-top:4px"><span class="fitnum" data-avail="{w + ext - 20}">{dv.replace(" or ", "<span style=\"font-size:46px\">&nbsp;or&nbsp;</span>")}</span></div>')
         else:
             parts.append(f'<div class="destiny" style="position:absolute;{box("destiny")}"><span class="fitnum" data-avail="{t["destiny"][2] - 8}">{dv}</span></div>')
+    sec(None)
     for fx, fy, fw, fh, col in t.get("fill_boxes", []):
         parts.append(f'<div style="position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;background:{col}"></div>')
+    sec('lore')
     # lore
     if card.get("lore"):
         lx_, ly_, lw_, lh_ = t["lore"]
@@ -1088,6 +1103,7 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="lore fit" style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
                      f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
                      f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(card["lore"])}</div>')
+    sec('stats')
     # stats (character)
     if "stats" in t and card.get("stats"):
         y = t["stats_y"]
@@ -1124,6 +1140,7 @@ def build_html(card: dict) -> str:
     if card.get("stat_icon") and t.get("stats_y"):   # a round icon left of the stat row (Mon Mothma (V): the Republic crest)
         sx0 = (stat_boxes(t, 3) or t["stats"])[0][0]
         parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["stat_icon"]])}" style="position:absolute;left:{sx0 - 100}px;top:{t["stats_y"] - 14}px;width:96px;height:96px">')
+    sec('banner')
     if "card_type" in t and card.get("card_type"):
         parts.append(f'<div class="ctype" style="position:absolute;{box("card_type")}"><span class="ct">{esc_i(card["card_type"])}</span></div>')
     if card.get("banner_icon") and "banner_icon" in t:
@@ -1133,16 +1150,21 @@ def build_html(card: dict) -> str:
         else:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box-effect.png")}" style="position:absolute;left:{bx}px;top:{by}px">')
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx + 8}px;top:{by + 8}px;width:73px;height:73px">')
+    sec('game_text')
     # game text
     if "game_text" in t:
         parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
     if card.get("deploy") is not None and "deploy" in t:
         for k_ in ("deploy", "forfeit"):   # long values (544) condense into the printed box, then shrink — never overflow it
+            sec(k_)
             parts.append(f'<div class="{k_}" style="position:absolute;{box(k_)}"><span class="fitnum" data-avail="{t[k_][2] + 6}" data-h="{t[k_][3]}">{esc(str(card[k_]))}</span></div>')
+    sec(None)
+    sec('scomp')
     if card.get("scomp") and "scomp" in t:
         sx, sy = t["scomp"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/scomp-ship.png")}" style="position:absolute;left:{sx}px;top:{sy}px">')
+    sec('icons')
     # icon slots
     light = card.get("side") == "Light"
     icons = list(card.get("icons", []))
@@ -1179,6 +1201,7 @@ def build_html(card: dict) -> str:
         else:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + int(6 * k)}px;top:{y + int(7 * k)}px;width:{int(75 * k)}px;height:{int(75 * k)}px">')
+    sec('set_mark')
     # original-era virtual marker: the slips print the gold virtual-set symbol in the lower icon slot
     if card.get("set_mark") and "set_icon_abs" in t and not card.get("set_icon_file"):
         # Players Committee set marks, drawn as vector: modern Virtual Sets = the number on a tilted ring (blue; gold
@@ -1192,6 +1215,7 @@ def build_html(card: dict) -> str:
         if card.get("_set_icon_override"):
             x, y, ss = card["_set_icon_override"]
         parts.append(f'<img src="{data_uri(sym)}" style="position:absolute;left:{x}px;top:{y}px;width:{ss}px;height:{ss}px">')
+    sec('expansion')
     # expansion-set icon of the base Decipher card, in the ring right of the lore box (a slip never changes the top half)
     if card.get("expansion_icon") and "expansion_ring" in t:
         x, y = t["expansion_ring"]
@@ -1203,14 +1227,17 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
+    sec('coins')
     if t.get("coins") and card.get("credits"):   # Reflections Gold credit value: gold coins stacked up from the box foot
         cx_, cy_, step_ = t["coins"]
         for k in range(min(int(card["credits"]), 4)):
             parts.append(f'<img src="{data_uri(ASSETS / "icons/rg-coin.png")}" style="position:absolute;left:{cx_}px;top:{cy_ - k * step_}px">')
+    sec('expansion')
     if card.get("expansion_icon") and t.get("system_ring") and card.get("draw_system_ring"):
         # systems keep the scan whole (its own sphere included): drawn only when asked (card maker: no scan, or a new set)
         x, y, sz = t["system_ring"]
         parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
+    sec('ring_icons')
     # Episode I icon below the ring, as the Episode I-era printed cards carry it (Radiant VII, Wesa Ready To Do Our-sa Part)
     if card.get("ring_icons") and "expansion_ring" in t:
         x, y = t["expansion_ring"]
@@ -1223,9 +1250,11 @@ def build_html(card: dict) -> str:
             if nm in RING_DISCS:
                 parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
                 k += 1
+    sec('margin_icon')
     if card.get("margin_icon") and "game_text" in t:   # Scoundrel: a portrait disc in the left margin at the text box top
         gx, gy, gw, gh = t["game_text"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/pc-gameaid-named" / (card["margin_icon"] + ".png"))}" style="position:absolute;left:{t.get("margin_icon_x", 190)}px;top:{gy + 8}px;width:84px;height:84px;border-radius:50%">')
+    sec('copyright')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
     if card.get("copyright") and t.get("copyright_split") and card.get("copyright_split"):   # systems (card maker): split over the two bottom margins
         txt = card["copyright"]
@@ -1239,6 +1268,7 @@ def build_html(card: dict) -> str:
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
                      f'<div class="copyin">{esc(card["copyright"])}</div></div>')
+    sec('credits')
     # slip credit lines in the side margins (Wokling (V): "Original concept by …" left, "GenCon 2002 Winner" right),
     # italic, reading bottom-to-top, spanning the banner + text box
     # centred in the coloured margin between frame edge and text box, as the slips print them (Bill 2026-10-13);
@@ -1270,6 +1300,7 @@ def build_html(card: dict) -> str:
             # the slips run the credit nearly the whole span at ~46 px; the fitcredit JS shrinks it only if it would overflow
             parts.append(f'<div class="copy" style="position:absolute;left:{x}px;top:{top}px;width:40px;height:{bot - top}px">'
                          f'<div class="credit fitcredit" data-avail="{bot - top - 10}"{(' data-lines="2" data-fs="' + ('48' if ink == '#fff' and not t.get('dark_text') else '42') + '"') if chr(10) in card[key] else ''} style="color:{ink};font-size:46px">{esc(card[key]).replace(chr(10), "<br>")}</div></div>')
+    sec('credits')
     if card.get("credit_bottom") and "game_text" in t:   # a credit set under the text box (Lord Vader (V))
         gx, gy, gw, gh = t["game_text"]
         cink = "#000" if t.get("dark_text") else "#ddd"
@@ -1281,27 +1312,37 @@ def build_html(card: dict) -> str:
         else:
             parts.append(f'<div style="position:absolute;left:{gx - 60}px;top:{t.get("credit_bottom_y", 2024)}px;width:{gw + 120}px;height:44px;text-align:center;'
                          f'font-family:AGCn;font-style:italic;font-size:36px;line-height:44px;color:{cink};white-space:nowrap">{esc(cb)}</div>')
+    sec('icons')
     if (t.get("landscape") or t.get("system")) and card.get("icons") and t.get("set_icon_abs"):
         sx_, sy_ = t["set_icon_abs"]; sz_ = t.get("set_icon_size", 60)
         for k, ic in enumerate(card["icons"]):   # margin discs the slip prints beside the set sphere (Episode I)
             f_ = ICON_FILES.get(ic) or ((f"icons/set-{ic[4:]}-decipher.png" if (ASSETS / f"icons/set-{ic[4:]}-decipher.png").exists() else f"icons/set-{ic[4:]}-grainy.png") if ic.startswith("set:") else None)
             if f_:
                 parts.append(f'<img src="{data_uri(ASSETS / f_)}" style="position:absolute;left:{sx_}px;top:{sy_ - (k + 1) * (sz_ + 14)}px;width:{sz_}px;height:{sz_}px">')
+    sec('caption')
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card["caption"] if card.get("caption") is not None else card["title"]   # "" = no strip text (Decipher cards)
     cy = t.get("caption_y", 2082)
     if cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
+    sec('credits')
     if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")) and t.get("landscape"):
         # locations: the slips print the credits up the left margin between the two bars (Carida (V)), reading top-down
         a_, b_ = (card.get("margin_left") or "").replace("\n", " "), (card.get("margin_right") or "").replace("\n", " ")
         parts.append(f'<div style="position:absolute;left:{t.get("credit_x", 186)}px;top:430px;width:44px;height:760px;display:flex;align-items:center;justify-content:center">'
                      f'<div style="flex-shrink:0;width:760px;transform:rotate(90deg);display:flex;justify-content:space-between;font-family:AGCn;font-style:italic;font-size:36px;color:#000;white-space:nowrap">'
                      f'<span>{esc(a_)}</span><span>{esc(b_)}</span></div></div>')
+    sec('caption')
     if card.get("credit_strip"):   # a credit printed in the black caption strip, right, before the number (Watto (V), VS16)
         parts.append(f'<div style="position:absolute;right:{1632 - 1240}px;top:{cy + 4}px;height:48px;line-height:48px;font-family:AGCn;font-style:italic;'
                      f'font-size:38px;color:#fff;white-space:nowrap">{esc(card["credit_strip"])}</div>')
+    sec('number')
     if card.get("number"):
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
+    # wrap each piece's elements in a full-card layer (children keep their coordinates)
+    ends = [i for _, i in marks[1:]] + [len(parts)]
+    for (name, i), j in reversed(list(zip(marks, ends))):
+        if name and j > i:
+            parts[i:j] = [f'<div class="piece" data-piece="{name}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px">'] + parts[i:j] + ["</div>"]
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
     LP = dict(LORE_CSS, **card.get("_lore_css", {}))
@@ -1440,9 +1481,35 @@ def build_html(card: dict) -> str:
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
         if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';
       }
+      { // card maker layers: per-piece offset / scale / hide (applied after all fitting), then report each piece's box
+        const LAYOUT = __LAYOUT__, boxes = {};
+        const union = (el) => { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+          for (const c of el.querySelectorAll('*')) { const r = c.getBoundingClientRect(); if (r.width < 1 || r.height < 1) continue;
+            x0 = Math.min(x0, r.left); y0 = Math.min(y0, r.top); x1 = Math.max(x1, r.right); y1 = Math.max(y1, r.bottom); }
+          return x1 > x0 ? [x0, y0, x1 - x0, y1 - y0] : null; };
+        const card = document.getElementById('card').getBoundingClientRect();
+        for (const el of document.querySelectorAll('.piece')) {
+          const L = LAYOUT[el.dataset.piece]; if (!L) continue;
+          const u = union(el); if (u) el.style.transformOrigin = (u[0] - card.left + u[2] / 2) + 'px ' + (u[1] - card.top + u[3] / 2) + 'px';
+          el.style.translate = (L.dx || 0) + 'px ' + (L.dy || 0) + 'px';
+          el.style.scale = (L.sx || 1) + ' ' + (L.sy || 1);
+          if (L.hidden) el.style.visibility = 'hidden';
+        }
+        for (const el of document.querySelectorAll('.piece')) {
+          const u = union(el); if (!u) continue; const n = el.dataset.piece, b = [u[0] - card.left, u[1] - card.top, u[2], u[3]];
+          if (boxes[n]) { const a = boxes[n]; const x0 = Math.min(a[0], b[0]), y0 = Math.min(a[1], b[1]);
+            boxes[n] = [x0, y0, Math.max(a[0] + a[2], b[0] + b[2]) - x0, Math.max(a[1] + a[3], b[1] + b[3]) - y0]; } else boxes[n] = b;
+        }
+        document.body.dataset.boxes = JSON.stringify(boxes);
+      }
       document.body.dataset.ready = '1';
     });
     """
+    lay = {re.sub(r"[^a-z_]", "", str(k)): {kk: (bool(v.get(kk)) if kk == "hidden" else max(-2000.0, min(2000.0, float(v.get(kk))))
+                                               if kk in ("dx", "dy") else max(0.2, min(4.0, float(v.get(kk)))))
+                                          for kk in ("dx", "dy", "sx", "sy", "hidden") if v.get(kk) is not None}
+           for k, v in (card.get("layout") or {}).items() if isinstance(v, dict)}
+    fit_js = fit_js.replace("__LAYOUT__", json.dumps(lay))
     return f"<!doctype html><html><head><meta charset='utf-8'><style>{css}</style></head><body>{''.join(parts)}<script>{fit_js}</script></body></html>"
 
 
@@ -1464,10 +1531,15 @@ def screenshot_card(card: dict, page) -> Image.Image:
     page.set_content(html, wait_until="load")
     page.wait_for_function("document.body.dataset.ready==='1'")
     im = Image.open(io.BytesIO(page.locator("#card").screenshot())).convert("RGBA")
+    try:
+        card["_boxes"] = json.loads(page.evaluate("document.body.dataset.boxes || '{}'"))
+    except Exception:   # noqa: BLE001
+        card["_boxes"] = {}
     if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
         # Dark locations are shown from the Dark Side's seat, as Decipher prints them (Executor: Comm Station): the
         # whole card turned 180° (Dark half, its icons and credits at the bottom); the caption strip stays upright
         # in the bottom margin (Bill 2026-10-14).
+        card["_boxes"] = {k: [im.width - b[0] - b[2], im.height - b[1] - b[3], b[2], b[3]] for k, b in card.get("_boxes", {}).items()}
         rot = im.rotate(180)
         rot.paste(im.crop((0, 0, im.width, 144)), (0, 0))
         rot.paste(im.crop((0, im.height - 145, im.width, im.height)), (0, im.height - 145))
