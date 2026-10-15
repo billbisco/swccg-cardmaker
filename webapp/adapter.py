@@ -214,13 +214,21 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         if isinstance(c.get(k), str):
             c[k] = c[k].replace("\r\n", "\n").replace("\n", "¶")
     c.setdefault("number", "")
-    c.setdefault("shield_style", "decipher")   # Decipher's own shield frames (cyan / red), not the VS-era fade
+    ovs = spec.get("style") == "ovs"   # Original Virtual Set remaster look (2002-08 slips) instead of Decipher's printing
+    if not ovs:
+        c.setdefault("shield_style", "decipher")   # Decipher's own shield frames (cyan / red), not the VS-era fade
+    else:
+        c.pop("shield_style", None) if c.get("shield_style") == "decipher" else None
     c["number"] = str(c.get("number") or "0")
     vs = int(c.get("virtual_set") or 0) or None
+    if not ovs:
+        vs = None if not spec.get("virtual_set") else vs
     card = build_vs.convert(dict(c, number=c["number"] if c["number"].isdigit() else "0"), vs or 0)
-    card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
-    if card["template"] == "creature":
-        card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
+    if not ovs:
+        card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
+        card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
+        if card["template"] == "creature":
+            card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
@@ -234,6 +242,6 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if not spec.get("expansion"):
         card["expansion_icon"] = None
     src_exp = SETS.get(str((spec.get("source") or {}).get("set")))
-    if spec.get("expansion") and (not spec.get("_art") or spec.get("_art_kind") in ("upload", "none") or spec["expansion"] != src_exp):
+    if not ovs and spec.get("expansion") and (not spec.get("_art") or spec.get("_art_kind") != "scan" or spec["expansion"] != src_exp):
         card["draw_system_ring"] = True   # systems: the scan carries its own sphere; draw ours when there's none or it changed
     return card

@@ -57,6 +57,7 @@ function artUI(data) {
   if (u.orig) add("orig", "Printed art", u.orig);
   if (u.x4) add("x4", "AI 4× upscale", u.x4);
   if (spec.gempId) add("scan", "Card's own scan");
+  if (a.kind === "ovs" || ((data && data.art_sources) || []).includes("ovs")) add("ovs", "Remaster art (as published)");
   if (a.kind === "upload") add("upload", "Your picture", a.data);
   $("#fZoom").value = a.zoom ?? 1; $("#fX").value = a.fx ?? 0.5; $("#fY").value = a.fy ?? 0.5;
   add("none", "No art");
@@ -66,7 +67,7 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "virtual_set"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
   s.affiliation = fd.get("affiliation") || null;
@@ -104,6 +105,7 @@ function writeForm(s, data) {
     if (el.type === "checkbox") el.checked = !!s[el.name];
     else el.value = s[el.name] ?? "";
   }
+  if (!s.style) form.elements.style.value = "decipher";
   form.elements.light_force_count.value = s.light_force_count ?? (s.light_force ? 1 : 0);
   form.elements.dark_force_count.value = s.dark_force_count ?? (s.dark_force ? 1 : 0);
   statsUI(s.stats);
@@ -119,6 +121,7 @@ function layoutFor(s) {
   document.querySelectorAll(".objonly").forEach(e => e.hidden = !obj);
   $(".loclight").hidden = loc; $(".locdark").hidden = !loc;
   $(".aff").style.visibility = ch ? "visible" : "hidden";
+  $(".ovsonly").style.visibility = s.style === "ovs" ? "visible" : "hidden";
   $(".wideonly").hidden = !WIDE_OK(s);
   $(".rgonly").style.visibility = /Interrupt|Effect/.test(s.slip_type || "") ? "visible" : "hidden";
   $(".widelbl").textContent = /Weapon/.test(s.slip_type || "") ? "Wide layout (as Maul's Double-Bladed Lightsaber)" : "Reflections Gold wide layout";
@@ -196,6 +199,9 @@ $("#q").addEventListener("input", e => {
 });
 
 form.addEventListener("input", e => {
+  // a remaster's recorded slip line breaks only hold for the text as transcribed: editing the text drops them
+  const LINES = { game_text: "game_text_lines", dark_text: "dark_text_lines", game_text_back: "game_text_back_lines" };
+  if (LINES[e.target.name]) delete spec[LINES[e.target.name]];
   if (e.target.type !== "file") changed();
 });
 form.addEventListener("change", e => {
