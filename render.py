@@ -386,6 +386,9 @@ for _sd, _D in (("ls", 324), ("ds", 336)):
     TEMPLATES[f"{_sd}-mission"].pop("gt_ink", None)
     if _sd == "ds":
         TEMPLATES["ds-mission"].pop("dark_text", None); TEMPLATES["ds-mission"]["ctype_ink"] = TEMPLATES["ds-mission"]["title_ink"] = "#000"
+TEMPLATES["game-aid-chart"] = {"chart": True, "frame": ("frames/game-aid.png", 0, 0), "art": (144, 144, 1343, 1931),
+    "title": (300, 230, 1030, 190), "game_text": (250, 480, 1200, 1430), "set_icon_abs": (1340, 1950), "set_icon_size": 70,
+    "dark_text": False, "no_type": True, "no_copyright": True}
 TEMPLATES["ds-admirals-order"] = dict(TEMPLATES["ls-admirals-order"])   # Decipher printed both sides' Admiral's Orders in one frame
 # Decipher's own Defensive Shield frames (all-cyan Light / its Dark twin, shield icon) for the card maker's printed cards
 TEMPLATES["ls-shield-dc"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield.png", 148, 142))
@@ -1152,6 +1155,18 @@ def build_html(card: dict) -> str:
             fr, t, fx, fy = grown_frame(card, t, fr, fx, fy)
     ax, ay, aw, ah = t["art"]
     art = art_crop(card) if card.get("art") and not t.get("_noart") else ""
+    if t.get("chart") and not art:   # starfield with a spiral galaxy glow (Hyperoute Navigation Chart)
+        import numpy as np
+        rng = np.random.default_rng(9); ax_, ay_, aw_, ah_ = t["art"]
+        sf = np.zeros((ah_, aw_, 3), float)
+        yy, xx = np.mgrid[0:ah_, 0:aw_]
+        cx_, cy_ = aw_ * 0.62, ah_ * 0.5
+        r = np.hypot((xx - cx_) / 1.6, yy - cy_)
+        sf += (np.exp(-r / 120) * 200)[..., None] * np.array([1.0, 0.85, 0.7]) + (np.exp(-r / 420) * 60)[..., None] * np.array([0.5, 0.6, 1.0])
+        for _ in range(5200):
+            x_, y_ = rng.integers(0, aw_), rng.integers(0, ah_); b = rng.random() ** 3 * 255
+            sf[max(y_ - 1, 0):y_ + 2, max(x_ - 1, 0):x_ + 2] += b * (0.35 if rng.random() < 0.8 else 1)
+        p_ = OUT / f"_art_{card['id']}-stars.png"; Image.fromarray(np.clip(sf, 0, 255).astype(np.uint8)).save(p_); art = data_uri(p_)
 
     def box(key, style=""):
         x, y, w, h = t[key]
@@ -1173,7 +1188,7 @@ def build_html(card: dict) -> str:
         else:
             parts.append(f'<div style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px;overflow:hidden">'
                          f'<img src="{art}" style="position:absolute;left:0;top:{(wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
-    elif art and card.get("art_cover_hole") and not t.get("landscape") and not t.get("system") and not t.get("wide"):
+    elif art and card.get("art") and card.get("art_cover_hole") and not t.get("landscape") and not t.get("system") and not t.get("wide"):
         # card maker: the picture fills the frame's whole window (some frames' holes run a few px past the template's
         # art box — a black sliver showed on Ahsoka Tano With Lightsabers, Bill 2026-10-15)
         hx0, hy0, hx1, hy1 = frame_hole(t)
@@ -1254,6 +1269,10 @@ def build_html(card: dict) -> str:
             if not DA:
                 x, y, w, h = t["ds_parsec"]
                 parts.append(f'<div class="parsec" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotate(180deg)">{esc(str(card["parsec"]))}</div>')
+    elif t.get("chart"):   # Hyperoute Navigation Chart: title in a white-ruled black box over the starfield
+        x, y, w, h = t["title"]
+        parts.append(f'<div style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:#000;border:7px solid #e8e8e8;box-sizing:border-box;'
+                     f'display:flex;align-items:center;justify-content:center;font-family:Fiorello;font-size:124px;color:#fff;white-space:nowrap">{title_html(card["title"])}</div>')
     else:
         parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
     sec('destiny')
@@ -1329,7 +1348,28 @@ def build_html(card: dict) -> str:
     # game text
     if card.get("squadron_row") and "game_text" in t:   # the icon row sits above a shorter text box
         gx_, gy_, gw_, gh_ = t["game_text"]; t = dict(t, game_text=(gx_, gy_ + 72, gw_, gh_ - 72))
-    if "game_text" in t:
+    if t.get("chart"):   # rows "[N] Planet, Planet" -> a number box and the systems at that parsec; "* note" footnotes
+        gx, gy, gw, gh = t["game_text"]
+        txt = card.get("game_text") or ""
+        rows = re.findall(r"\[(\d+)\]\s*([^\[]*)", txt)
+        notes = []
+        if rows:
+            last_n, last = rows[-1]
+            m_ = re.search(r"\s((?:[*†✶]\s*[A-Z][^*†✶]*)+)$", last)
+            if m_:
+                notes = [x.strip() for x in re.findall(r"[*†✶]\s*[^*†✶]+", m_.group(1))]
+                rows[-1] = (last_n, last[:m_.start()])
+        rh = min(150, gh / max(len(rows), 1))
+        fs = int(rh * 0.42) if any(len(r[1]) > 34 for r in rows) else int(rh * 0.5)
+        for k, (n, names) in enumerate(rows):
+            yy = gy + k * rh
+            parts.append(f'<div style="position:absolute;left:{gx}px;top:{yy + rh * 0.08:.0f}px;width:{rh * 0.84:.0f}px;height:{rh * 0.84:.0f}px;background:#000;border:6px solid #e8e8e8;'
+                         f'box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-family:AGMedExt;font-size:{rh * 0.5:.0f}px;color:#fff">{esc(n)}</div>')
+            parts.append(f'<div style="position:absolute;left:{gx + rh * 0.84 + 30:.0f}px;top:{yy:.0f}px;width:{gw - rh * 0.84 - 30:.0f}px;height:{rh:.0f}px;display:flex;align-items:center;'
+                         f'font-family:AGBoldCnA;font-size:{fs}px;line-height:1.05;letter-spacing:2px;color:#fff;text-transform:uppercase">{esc(names.strip().rstrip(",").replace("✶", "*").replace(" *", "*"))}</div>')
+        for k, nt in enumerate(notes):
+            parts.append(f'<div style="position:absolute;right:{1632 - 1320}px;top:{gy + gh + 10 + k * 56}px;font-family:AGCn;font-size:52px;color:#fff;white-space:nowrap">{esc(nt.replace("✶", "*"))}</div>')
+    elif "game_text" in t:
         parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
     if card.get("deploy") not in (None, "") and "deploy" not in t and "game_text" in t and not t.get("wide"):
