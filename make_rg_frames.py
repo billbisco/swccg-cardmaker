@@ -64,3 +64,21 @@ def weapon_wide():
 
 if __name__ == "__main__" and "weapon" in __import__("sys").argv:
     weapon_wide()
+
+
+def starship_wide():
+    """Dark Side wide (landscape) capital starship, as Decipher printed Executor (Dagobah) and Flagship Executor (Death
+    Star II): Bardez "DS - Sharship [Horizontal]" Blackground + Template + Type Icon (doc 2073x1497 at 73,68), the black
+    card border from the Reflections Gold XCF on top."""
+    d = GimpDocument(str(B / "DS - Sharship [Horizontal].xcf"))
+    fr = comp(d, [17, 15, 16], size=(d.width, d.height))
+    c = Image.new("RGBA", (2220, 1632), (0, 0, 0, 0))
+    c.alpha_composite(fr, (73, 68))
+    border = GimpDocument(str(B / "LS - Interrupt [Horizontal].xcf"))
+    c.alpha_composite(comp(border, [27]))
+    c.save(OUT / "ds-starship-wide.png", optimize=True)
+    print("ds-starship-wide")
+
+
+if __name__ == "__main__" and "starship" in __import__("sys").argv:
+    starship_wide()

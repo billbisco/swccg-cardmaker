@@ -346,6 +346,17 @@ TEMPLATES["ds-weapon-wide"] = {
 }
 
 
+# Dark Side wide capital starship (Executor, Flagship Executor, Finalizer (AI) print landscape): make_rg_frames.py starship
+TEMPLATES["ds-starship-wide"] = {
+    "wide": True, "frame": ("frames/ds-starship-wide.png", 0, 0), "art": (134, 138, 1952, 1356),
+    "title": (442, 233, 800, 112), "card_type": (921, 239, 869, 65), "ctype_size": 50, "ctype_spacing": 3,
+    "destiny": (1885, 239, 121, 118), "lore": (354, 414, 1492, 160), "lore_x": (354, 1846, 60, 0, 0.0),
+    "stats_y": 1120, "stats": [(394, 316), (781, 328), (1161, 404)],
+    "game_text": (382, 1238, 1648, 144), "gt_size": 56, "deploy": (257, 1238, 55, 83), "forfeit": (256, 1345, 59, 73),
+    "icon_slots": [(1600, 1100), (1700, 1100), (1800, 1100), (1900, 1100)], "scomp": (196, 1100),
+    "expansion_ring": (1945, 414), "expansion_size": 66, "no_copyright": True, "caption_y": 1532, "dark_text": False,
+}
+
 # Decipher's printed creatures (Worrt, Bog-wing): black title and the banner (GUARD CREATURE) — card maker; the VS
 # remasters keep "creature" as approved (white title, empty banner)
 TEMPLATES["creature-dc"] = dict(TEMPLATES["creature"], card_type=(271, 1466, 1109, 61), title_ink="#000", ctype_ink="#000")
@@ -1236,7 +1247,7 @@ def build_html(card: dict) -> str:
         parts.append(f'<div style="position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;background:{col}"></div>')
     sec('lore')
     # lore
-    if card.get("lore"):
+    if card.get("lore") and "lore" in t:   # wide full-art Effects print no lore (I Must Be Allowed To Speak (ALT))
         lx_, ly_, lw_, lh_ = t["lore"]
         tx0, rgt, ind, cut, lsp = t.get("lore_x") or LORE_X["Light" if t.get("dark_text") else "Dark"]
         parts.append(f'<div class="lore fit" style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'

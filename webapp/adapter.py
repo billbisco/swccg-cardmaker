@@ -428,7 +428,7 @@ def gemp_to_spec(c: dict) -> dict:
     return finish(spec)
 
 
-WIDE_PRINTED = {"13_75"}   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
+WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "200_41", "204_47"}   # QA 2026-10-15: every non-location scan printed landscape   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
 
 
 def objective_text(t: str, front: bool) -> str:
