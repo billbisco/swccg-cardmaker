@@ -67,7 +67,7 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
   const mk = $("#setMark").value;   // "", "ovs:N", "pc:N", "vb:N"
@@ -109,6 +109,7 @@ function writeForm(s, data) {
     else el.value = s[el.name] ?? "";
   }
   if (!s.style) form.elements.style.value = "decipher";
+  if (!s.expansion_style) form.elements.expansion_style.value = "decipher";
   if (!s.shield_style) form.elements.shield_style.value = s.style === "ovs" ? "fade" : "decipher";
   $("#setMark").value = s.set_mark || (s.virtual_set ? "ovs:" + s.virtual_set : "");
   form.elements.light_force_count.value = s.light_force_count ?? (s.light_force ? 1 : 0);

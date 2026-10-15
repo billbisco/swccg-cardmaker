@@ -54,6 +54,10 @@ for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
             _f = CARDS[_g]["front"]
             if isinstance(_f.get(_k), str):
                 _f[_k] = _f[_k].replace(_wrong, _right)
+for _g, _c in CARDS.items():   # title -> Decipher expansion (sets 1-14, 101-112), for the PC (V) cards' spheres
+    _sid = str(_c.get("set"))
+    if _sid.isdigit() and int(_sid) < 200 and adapter.SETS.get(_sid):
+        adapter.BASE_EXP.setdefault(re.sub(r"[^a-z0-9]", "", adapter.strip_printing(_c["front"].get("title") or "").lower().replace("•", "")), adapter.SETS[_sid])
 ART_MANIFEST = {}
 mp = ROOT / "webapp/art-manifest.json"
 if mp.exists():

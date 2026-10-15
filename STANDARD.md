@@ -429,3 +429,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Sets 0–27 + D + P (ring) and future 28–40 in the editor; exported PNGs in `assets/set-marks/` for the PC. PC Game Aid
   icons Real-ESRGAN x4 (ONNX, `pc-gameaid-x4/`); Scoundrel / Setup / Vader x4 from 350 px legacy faces — still
   guesses at detail, replace with PC originals when available.
+- Rev 45 (Bill 2026-10-15: "both standards"): expansion spheres come in two styles — `decipher` (as printed, also on
+  the Original Virtual and Virtual Block slips) and `pc` (the Players Committee's redraws from their Game Aid sheet,
+  Real-ESRGAN x4, as printed on the modern Virtual Sets: brighter Special Edition, orange-red Cloud City …):
+  `assets/icons/set-<key>-pc.png`, card key `expansion_style`, picker in the editor; modern PC cards default to `pc`.
+- Rev 46 (card maker, modern + legacy PC cards vs Holotable, 2026-10-15): printing tags stripped from titles ((V),
+  (AI), (Premium), set names); PC-era game text in the PC's printed shorthand (pilot icon + N, ▼ / ▲ for
+  deploy / take into hand from Reserve Deck, {alter} for "(Immune to Alter.)"); the PC JSON's single quotes back to
+  printed “double” quotes; USED: / LOST: / STARTING: on their own lines; (V) cards take the original printing's
+  expansion sphere; Mandalorian ARMOR stat; Virtual Block shields fade on both sides; Virtual Block lore without the
+  remaster's bold characteristics; Virtual Block Dark shields `ds-shield-vb` (Decipher Dark shield frame, cyan → red foot, No Escape (V)); Devices on their own frames (`ds-/ls-device`, Bardez Device type icon).
