@@ -47,6 +47,9 @@ for side in ("Light", "Dark"):
         for c in json.load(open(lp, encoding="utf-8"))["cards"]:
             c["gempId"] = f"{c['set']}_L{c['id']}"
             CARDS[c["gempId"]] = c
+for _c in CARDS.values():   # one card spells the Force icon keys in lower case
+    for _a, _b in (("lightsideIcons", "lightSideIcons"), ("darksideIcons", "darkSideIcons")):
+        if _a in _c["front"]: _c["front"].setdefault(_b, _c["front"].pop(_a))
 _CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if (ROOT / "gempdata/corrections.json").exists() else {}
 for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
     if _g in CARDS:

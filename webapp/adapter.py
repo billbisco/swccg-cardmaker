@@ -68,6 +68,14 @@ INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Resistance]": "{ga:resistance}", "[Trade Federation]": "{ga:trade-federation}", "[Skywalker]": "{ga:skywalker-theme}",
     "[Sidious]": "{ga:sidious-theme}", "[Selective Creature]": "{ga:selective-creature}", "[Virtual]": "{ga:virtual}",
     "[Scoundrel]": "{ga:scoundrel}", "[Setup]": "{ga:setup}", "[Vader]": "{ga:vader}",
+    # spellings (and typos) found in the PC data by the QA sweep (2026-10-15)
+    "[Presence Droid]": "{presence}", "[Droid with Presence]": "{presence}", "[Light side]": "{light-force}",
+    "[Light Side Icon]": "{light-force}", "[Dark Side Force icon]": "{dark-force}", "[Dark Side Icon]": "{dark-force}",
+    "[Restistance]": "{ga:resistance}", "[Clone Army Icon]": "{ga:clone-army}", "[Permenant Weapon]": "{permanent-weapon}",
+    "[Pemanent Weapon]": "{permanent-weapon}", "[Seperatists icon]": "{ga:separatist}", "[Seperatist]": "{ga:separatist}",
+    "[Selective]": "{ga:selective-creature}", "[Defensive Shield]": "{ga:defensive-shield}",
+    "[Endor icon]": "{set:endor}", "[Coruscant Icon]": "{set:coruscant}", "[Jabba's Place]": "{set:jabbaspalace}",
+    "[Ref 3]": "{set:reflections3}", "[Reflection 3]": "{set:reflections3}", "[Virtural Block 7]": "{vb:7}",
 }
 SET_TOKENS = {"A New Hope": "anh", "Hoth": "hoth", "Dagobah": "dagobah", "Cloud City": "cloudcity",
               "Jabba's Palace": "jabbaspalace", "Special Edition": "se", "Endor": "endor", "Death Star II": "ds2",
@@ -89,8 +97,16 @@ LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", 
             "Scomp Link": "scomp", "Space": "space"}
 
 
+def dedupe(label: str) -> str:
+    """PC data typos repeat the class word: "Jedi Knight Knight", "Assassin Droid Droid"."""
+    return re.sub(r"\b(\w+)(\s+\1)+$", r"\1", str(label or ""), flags=re.I)
+
+
 def game_text(t: str) -> str:
     t = t or ""
+    t = t.replace("/\\", "▲").replace("\\/", "▼")
+    t = t.replace("<>", "◊")
+    t = t.replace("(*)", "(•)").replace("*", "✶")   # the PC data marks bold with {…}: a raw asterisk is the printed star (Attack Run's footnote)   # the PC data's ASCII diamond (<>Spaceport City)   # ASCII arrows in a few PC texts (Don't Do That Again (V))
     t = re.sub(r"\{([A-Za-z][A-Za-z' ]*)\}", r"*\1*", t)   # GEMP marks bold words {Flip}; the renderer bolds *...*
     t = re.sub(r"\{([^{}]*\s[^{}]*)\}", lambda m: "_" + m.group(1).strip() + "_", t)   # long {…} runs = italic (Jabba's Prize)
     for k, v in INLINE.items():
@@ -191,7 +207,7 @@ def gemp_to_spec(c: dict) -> dict:
     for i in f.get("icons") or []:   # "Warrior x2" = two icons (Tonnika Sisters)
         mm = re.match(r"(.+?)\s+x(\d)$", i)
         icons += [mm.group(1)] * int(mm.group(2)) if mm else [i]
-    title = strip_printing(f.get("title") or "")   # "(V)", "(AI)", "(Premium)", "(Tatooine)" … name the printing, not the card
+    title = strip_printing(f.get("title") or "").replace("<>", "◊")   # "(V)", "(AI)", "(Premium)", "(Tatooine)" … name the printing, not the card
     if typ != "Objective" and "/" in title:   # flip cards (Jabba's Prize, The Falcon, Junkyard Garbage): this side's title
         a, _, b = title.partition(" / ") if " / " in title else title.partition("/")
         if " / " in title or a.replace("•", "").strip().lower() == b.replace("•", "").strip().lower():
@@ -207,7 +223,7 @@ def gemp_to_spec(c: dict) -> dict:
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
     if c.get("legacy"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
-        spec["caption"] = f.get("title") or ""
+        spec["caption"] = (f.get("title") or "").replace("<>", "◊")
         if typ == "Defensive Shield":
             # the Virtual Defensive Shields reuse their original card's frame (QA vs the Holotable scans, 2026-10-15):
             # Episode I-style red→cyan with the green swirl (Affect Mind (V), After Her! (V)), else Decipher's cyan
@@ -232,10 +248,11 @@ def gemp_to_spec(c: dict) -> dict:
         # on the Light character frame with no lore box; the art runs down to a raised stat bar over a tall text box
         spec["side_frame"] = "Light"
         spec["no_lore_box"] = True; spec["text_grow"] = 330; spec["text_grow_scan"] = True; spec["grow_keep_frame"] = True
-    if not spec["lore"].strip() and " & " in title and typ in ("Interrupt", "Effect"):
+    if not spec["lore"].strip() and (" & " in title or c.get("legacy")) and typ in ("Interrupt", "Effect"):
         # Reflections II combo cards print no lore box: the art runs from the title bar to a raised banner and the text
         # box grows by the same amount (Evader & Monnok, Do, Or Do Not & Wise Advice)
-        spec["no_lore_box"] = True; spec["text_grow"] = 290; spec["text_grow_scan"] = True
+        spec["no_lore_box"] = True; spec["text_grow_scan"] = True
+        spec["text_grow"] = 0 if (side == "Dark" and typ == "Effect") else 290   # the Dark Effect combo frame is already tall
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
@@ -265,7 +282,7 @@ def gemp_to_spec(c: dict) -> dict:
     if typ == "Character":
         spec["slip_type"] = "Character"
         spec["affiliation"] = sub
-        third = (f.get("extraText") or [""])[0] if sub == "Droid" else ""
+        third = dedupe((f.get("extraText") or [""])[0]) if sub == "Droid" else ""
         if sub == "Droid":
             spec["stats"] = [["POWER", f.get("power") or "0"]]
             if f.get("armor"): spec["stats"].append(["ARMOR", f["armor"]])   # armored droids
@@ -281,7 +298,7 @@ def gemp_to_spec(c: dict) -> dict:
             elif f.get("armor"):   # Mandalorians (Fenn Rau): ARMOR in the third box
                 spec["stats"].append(["ARMOR", f["armor"]])
             elif f.get("extraText"):   # third box label: FORCE-ATTUNED, FORCE-SENSITIVE … (Lando)
-                spec["stats"].append([str(f["extraText"][0]).upper(), ""])
+                spec["stats"].append([dedupe(f["extraText"][0]).upper(), ""])
         spec["icons"] = col
     elif typ in ("Starship", "Vehicle"):
         spec["slip_type"] = "Starfighter" if "starfighter" in sub.lower() else ("Vehicle" if typ == "Vehicle" else "Starship")
@@ -335,18 +352,21 @@ def gemp_to_spec(c: dict) -> dict:
         spec["slip_type"] = f"{sub} {typ}".strip()
         spec["card_type"] = f"{sub} {typ}".upper().strip()
     elif typ == "Creature":
-        spec["slip_type"] = "Creature"; spec["card_type"] = f"{sub.upper()} CREATURE" if sub else "CREATURE"
+        spec["slip_type"] = "Creature"
+        spec["card_type"] = (f"CREATURE - {sub.upper()}" if sub.lower() == "force eater" else f"{sub.upper()} CREATURE") if sub else "CREATURE"
         fer = str(f.get("ferocity") or "").strip()
+        if not fer and f.get("power"):   # the Virtual Block data keeps ferocity in "power" (One-Arm (V), Gundark)
+            fer = "✶" if str(f["power"]).strip() == "*" else str(f["power"]).strip()
         st = []
         if fer:
-            if re.fullmatch(r"[0-9.½]+", fer):
+            if re.fullmatch(r"[0-9.½✶]+", fer):
                 st.append(["FEROCITY", fer])
             else:   # "destiny -1", "two destiny": the printed cards show ✶ and explain it in the game text (VS4 Wampa)
                 st.append(["FEROCITY", "✶"])
                 if "ferocity" not in spec["game_text"].lower()[:60]:
                     spec["game_text"] = f"✶ Ferocity = {fer}. " + spec["game_text"]
                 else:
-                    spec["game_text"] = re.sub(r"^\s*\*\s*Ferocity", "✶ Ferocity", spec["game_text"])
+                    spec["game_text"] = re.sub(r"^\s*[*✶]\s*Ferocity", "✶ Ferocity", spec["game_text"])
         for x in f.get("extraText") or []:
             if ":" in x:
                 k, v = x.split(":", 1); st.append([k.strip().upper(), v.strip()])
@@ -374,6 +394,8 @@ def gemp_to_spec(c: dict) -> dict:
         spec["slip_type"] = "Jedi Test"; spec["card_type"] = typ.upper()
     elif typ == "Epic Event":
         spec["slip_type"] = "Epic Event"
+        if side == "Light" and len(spec["game_text"]) > 600:
+            spec["text_grow"] = 230   # long Light Epic Events print a shorter art window over a taller text box (Attack Run)
     elif "Admiral" in typ:
         spec["slip_type"] = "Admiral's Order"
     else:
@@ -452,6 +474,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if spec.get("_art"):
         card["art"] = spec["_art"]
         card.pop("art_trim", None)
+        if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100"):
+            card["art_trim"] = True; card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
     if not spec.get("expansion"):
         card["expansion_icon"] = None
     src_exp = SETS.get(str((spec.get("source") or {}).get("set")))

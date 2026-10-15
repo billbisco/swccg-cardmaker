@@ -360,6 +360,10 @@ def is_wide(t: dict) -> bool:
 # Shields (make_shield_fade.py). The hybrid (hard cut) above stays the primary shield template; a card opts in with
 # "shield_style": "fade" (build_vs.py sets it for the Original Virtual sets).
 TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
+# Light Epic Events (Attack Run, Boonta Eve Podrace) print on the Light Objective frame with the Epic Event disc
+for _k in ("objective-ls", "objective"):   # printed Objectives carry the expansion sphere right of the art, under the destiny
+    TEMPLATES[_k].setdefault("expansion_ring", (1412, 295)); TEMPLATES[_k].setdefault("expansion_size", 70)
+TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
 TEMPLATES["ds-admirals-order"] = dict(TEMPLATES["ls-admirals-order"])   # Decipher printed both sides' Admiral's Orders in one frame
 # Decipher's own Defensive Shield frames (all-cyan Light / its Dark twin, shield icon) for the card maker's printed cards
 TEMPLATES["ls-shield-dc"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield.png", 148, 142))
@@ -631,6 +635,11 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
         l = innermost(lambda i: sub[:, i], int(w * 0.15))
         r = innermost(lambda i: sub[:, w - 1 - i], int(w * 0.15))
         box = [x0 + l, y0 + t, x1 - r, y1 - b]
+        if card.get("legacy_scan") and b == 0:
+            # Virtual Block slips sit a coloured banner where the classic window ends (Vader's Anger (V)): drop the
+            # foot of the mapped window, and the same share of the width so the picture keeps its shape
+            hh, ww = box[3] - box[1], box[2] - box[0]
+            box = [box[0] + int(ww * 0.03), box[1], box[2] - int(ww * 0.03), box[3] - int(hh * 0.06)]
     crop = im.crop(tuple(box))
     crop = crop.resize((aw, ah), Image.LANCZOS)
     if TEMPLATES[card["template"]].get("system"):
