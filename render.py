@@ -1071,13 +1071,14 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
     if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
-        if " or " in dv:   # multi-value destiny (R2-D2 "2 or 5"): the printed pill is widened to the left
+        plain = re.sub(r"<[^>]+>", "", dv)
+        if " or " in dv or len(plain) > 2:   # multi-value destiny (R2-D2 "2 or 5"), or a long value: the pill widens left (card maker: capped, then condensed)
             x, y, w, h = t["destiny"]
-            ext = 150
+            ext = 150 if " or " in dv else min(190, 52 * (len(plain) - 2))
             parts.append(f'<div style="position:absolute;left:{x - ext - 6}px;top:{y - 6}px;width:{w + ext + 12}px;height:{h + 12}px;background:#000;border:6px solid #d0d0d2;border-radius:{h // 2 + 6}px;box-sizing:border-box"></div>')
-            parts.append(f'<div class="destiny" style="position:absolute;left:{x - ext}px;top:{y}px;width:{w + ext}px;height:{h}px;font-size:80px;white-space:nowrap;padding-top:4px">{dv.replace(" or ", "<span style=\"font-size:46px\">&nbsp;or&nbsp;</span>")}</div>')
+            parts.append(f'<div class="destiny" style="position:absolute;left:{x - ext}px;top:{y}px;width:{w + ext}px;height:{h}px;font-size:80px;white-space:nowrap;padding-top:4px"><span class="fitnum" data-avail="{w + ext - 20}">{dv.replace(" or ", "<span style=\"font-size:46px\">&nbsp;or&nbsp;</span>")}</span></div>')
         else:
-            parts.append(f'<div class="destiny" style="position:absolute;{box("destiny")}">{dv}</div>')
+            parts.append(f'<div class="destiny" style="position:absolute;{box("destiny")}"><span class="fitnum" data-avail="{t["destiny"][2] - 8}">{dv}</span></div>')
     for fx, fy, fw, fh, col in t.get("fill_boxes", []):
         parts.append(f'<div style="position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;background:{col}"></div>')
     # lore
@@ -1137,8 +1138,8 @@ def build_html(card: dict) -> str:
         parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
     if card.get("deploy") is not None and "deploy" in t:
-        parts.append(f'<div class="deploy" style="position:absolute;{box("deploy")}">{esc(str(card["deploy"]))}</div>')
-        parts.append(f'<div class="forfeit" style="position:absolute;{box("forfeit")}">{esc(str(card["forfeit"]))}</div>')
+        for k_ in ("deploy", "forfeit"):   # long values (544) condense into the printed box, then shrink — never overflow it
+            parts.append(f'<div class="{k_}" style="position:absolute;{box(k_)}"><span class="fitnum" data-avail="{t[k_][2] + 6}" data-h="{t[k_][3]}">{esc(str(card[k_]))}</span></div>')
     if card.get("scomp") and "scomp" in t:
         sx, sy = t["scomp"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/scomp-ship.png")}" style="position:absolute;left:{sx}px;top:{sy}px">')
@@ -1415,6 +1416,25 @@ def build_html(card: dict) -> str:
         // Decipher's stat caps are wider than AG Bold Condensed: widen the label ×1.1 (Bill: Lord Vader (V)), less if the box is tight
         const k = Math.max(0.8, Math.min(1.1, (inner - (need - lab.offsetWidth)) / lab.offsetWidth));
         { lab.style.display = 'inline-block'; lab.style.transformOrigin = 'left center'; lab.style.transform = 'scaleX(' + k.toFixed(3) + ')'; lab.style.marginRight = (-(1 - k) * lab.offsetWidth) + 'px'; }
+      }
+      for (const st of document.querySelectorAll('.stat')) {   // a value still too wide for its box (3333): condense it, then shrink it
+        const val = st.querySelector('.val'); if (!val) continue;
+        const sr = st.getBoundingClientRect(), vr = val.getBoundingClientRect();
+        const over = vr.right - (sr.right - 8);
+        if (over > 0) {
+          const k = Math.max(0.5, (vr.width - over) / vr.width) * 1.15;
+          val.style.transform = 'scaleX(' + k.toFixed(3) + ')';
+          const vr2 = val.getBoundingClientRect(); const over2 = vr2.right - (sr.right - 8);
+          if (over2 > 0) val.style.fontSize = Math.max(28, 63 * (vr2.width - over2) / vr2.width).toFixed(1) + 'px';
+        }
+      }
+      for (const el of document.querySelectorAll('.fitnum')) {   // destiny / deploy / forfeit: condense to the box (≥55 %), then shrink
+        el.style.display = 'inline-block'; el.style.whiteSpace = 'nowrap'; el.style.transformOrigin = 'center center';
+        const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
+        if (w > avail) {
+          const k = Math.max(0.55, avail / w); el.style.transform = 'scaleX(' + k.toFixed(3) + ')';
+          if (w * k > avail) { const fs = parseFloat(getComputedStyle(el).fontSize); el.style.fontSize = (fs * avail / (w * k)).toFixed(1) + 'px'; }
+        }
       }
       for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;

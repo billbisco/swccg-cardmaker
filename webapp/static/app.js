@@ -37,7 +37,7 @@ function statsUI(stats) {
   const box = $("#stats"); box.innerHTML = "";
   (stats || []).forEach(([k, v], i) => {
     const r = document.createElement("div"); r.className = "row";
-    r.innerHTML = `<input aria-label="stat label" value="${esc(k)}"><input aria-label="stat value" value="${esc(v)}"><button type="button" title="remove" aria-label="remove stat">×</button>`;
+    r.innerHTML = `<input aria-label="stat label" value="${esc(k)}"><input aria-label="stat value" maxlength="5" value="${esc(v)}"><button type="button" title="remove" aria-label="remove stat">×</button>`;
     r.querySelector("button").onclick = () => { r.remove(); changed(); };
     box.appendChild(r);
   });
