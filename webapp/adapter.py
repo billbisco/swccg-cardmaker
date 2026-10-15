@@ -155,6 +155,7 @@ def ship_italics(title: str) -> str:
 
 LEGACY_SHIELD_FADE = {'1000d_L6077', '1000d_L6595', '1000d_L6369', '1000d_L5981', '1000d_L6008', '1000d_L5319', '1000d_L6047', '1000d_L6299'}
 UNDERCOVER_FRAME = {"7_48", "215_20", "110_1", "1009_L5394", "223_32", "206_4", "2_107"}   # printed on the opponent's frame
+LEGACY_NOLORE = {"1004_L5987"}   # Virtual Block cards printed without a lore box (Uncharted Settlements)
 CAPTIVE_ART = {"200_16", "205_14"}
 CAPTIVE_NOART = {"10_42", "1006_L5620"}   # Jabba's Prize: no art window
 SHIP_NAMES: set = set()   # unique starship/vehicle proper names (from the italic titles; filled by the server)
@@ -260,7 +261,7 @@ def gemp_to_spec(c: dict) -> dict:
         # on the Light character frame with no lore box; the art runs down to a raised stat bar over a tall text box
         spec["side_frame"] = "Light"
         spec["no_lore_box"] = True; spec["text_grow"] = 330; spec["text_grow_scan"] = True; spec["grow_keep_frame"] = True
-    if not spec["lore"].strip() and (" & " in title or c.get("legacy")) and typ in ("Interrupt", "Effect", "Defensive Shield"):
+    if not spec["lore"].strip() and (" & " in title or c.get("gempId") in LEGACY_NOLORE) and typ in ("Interrupt", "Effect", "Defensive Shield"):
         # Reflections II combo cards print no lore box: the art runs from the title bar to a raised banner and the text
         # box grows by the same amount (Evader & Monnok, Do, Or Do Not & Wise Advice)
         spec["no_lore_box"] = True; spec["text_grow_scan"] = True
@@ -523,7 +524,9 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         card["art"] = spec["_art"]
         card.pop("art_trim", None)
         if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100"):
-            card["art_trim"] = True; card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
+            card["art_trim"] = True
+            if any(k in (spec.get("slip_type") or "") for k in ("Interrupt", "Effect")):
+                card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
     if spec.get("slip_type") == "Game Aid" and spec.get("_art_kind") != "upload":
         card.pop("art", None)   # the chart's own starfield is drawn (the scan carries the printed chart)
     if not spec.get("expansion"):
