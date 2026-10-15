@@ -115,7 +115,10 @@ def game_text(t: str) -> str:
         t = t.replace(f"[{name}]", f"{{set:{key}}}")
     t = re.sub(r"[\[(]Virtual Block (\d)[\])]", r"{vb:\1}", t)   # also "(Virtual Block 8)" in a few legacy texts
     t = re.sub(r"\(Reflections? (3|III)\)", "{set:reflections3}", t)   # the 2009 Virtual Block diamonds
-    t = re.sub(r"\[Set (\d{1,2})\]", r"{pcset:\1}", t)     # the modern Virtual Set marks
+    t = re.sub(r"\[Set (\d{1,2})\]", r"{pcset:\1}", t)
+    t = re.sub(r"\[V(\d{1,2})\]", r"{pcset:\1}", t)   # [V17] = Virtual Set 17
+    t = t.replace("[Set D]", "{pcset:D}").replace("[S]", "{sense}").replace("[Sith]", "{ga:character-sith}")
+    t = re.sub(r"(?i)\[download\]", "▼", t); t = re.sub(r"(?i)\[upload\]", "▲", t)     # the modern Virtual Set marks
     return t
 
 
