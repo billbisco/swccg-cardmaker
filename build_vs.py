@@ -78,7 +78,7 @@ def template_for(c: dict) -> str:
     if st.startswith("jedi test"):   # card maker: Dagobah Jedi Tests (no lore box) use the tall slip
         return "ls-jeditest-tall"
     if st == "epic event":
-        return "ls-jeditest-tall" if side == "ls" else "epic-event"
+        return "ls-epic-event" if side == "ls" else "epic-event"
     if "admiral" in st:
         return f"{side}-admirals-order"
     if st == "character" or c.get("stats") and not c.get("card_type"):
@@ -156,7 +156,7 @@ def convert(c: dict, vs: int) -> dict:
         card["disc"], card["disc2"] = "dark-jedi", "ds-imperial-ring"   # Reflections II Emperor: two discs on the Imperial frame
     if (c.get("affiliation") or "").lower() in ("alien/imperial", "imperial/alien"):
         card["disc2"] = "ds-imperial-ring"   # Arica: Alien frame + the Imperial ring
-    if "republic" in (c.get("affiliation") or "").lower() and "+" in (c.get("affiliation") or ""):
+    if "republic" in (c.get("affiliation") or "").lower() and re.search(r"[+/]", c.get("affiliation") or ""):
         card["disc2"] = "republic"       # two affiliations (VS16 Senators: Rebel + Republic, Alien + Republic): frame disc + crest
     elif "republic" in (c.get("affiliation") or "").lower():
         card["disc"] = "republic"        # Bardez "LS - Character - Rebel" Republic affiliation disc (Obi-Wan, Padmé (V))
