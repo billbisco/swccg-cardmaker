@@ -317,7 +317,7 @@ TEMPLATES = {
         "ls_parsec": (1298, 1752, 89, 86), "ds_parsec": (250, 380, 88, 86),
         "ls_force": (230, 1700), "ds_force": (1110, 330),
         "set_icon_abs": (1410, 225), "set_icon_size": 72,   # PC set mark: top-right margin (mirrored half of the scans)
-        "system_ring": (138, 186, 52),
+        "system_ring": (166, 196, 56),
         "copyright_split": ((176, 1686, 36, 420), (1424, 1686, 36, 420)),   # Lucasfilm left / Decipher right margin (Dagobah)   # the printed systems' expansion sphere, top-left margin (Hoth, Bespin scans)
         "caption_y": 2082,
     },
@@ -1449,7 +1449,11 @@ def build_html(card: dict) -> str:
         # Players Committee set marks, drawn as vector: modern Virtual Sets = the number on a tilted ring (blue; gold
         # for Set 0), 2009 Virtual Blocks = the black diamond with its chevron (Bill 2026-10-15, from Holotable scans)
         x, y = t["set_icon_abs"]; ss = t.get("set_icon_size", 76)
-        parts.append(set_mark_html(card["set_mark"], x + ss / 2, y + ss / 2, ss))
+        _sm = set_mark_html(card["set_mark"], x + ss / 2, y + ss / 2, ss)
+        if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
+            # the whole card (or its frame layers) is turned for the Dark seat: keep the set number upright
+            _sm = f'<div style="position:absolute;left:0;top:0;width:{W}px;height:{H}px;transform-origin:{x + ss / 2:.0f}px {y + ss / 2:.0f}px;rotate:180deg">{_sm}</div>'
+        parts.append(_sm)
     elif (card.get("virtual_set") is not None or card.get("set_icon_file")) and "set_icon_abs" in t:
         x, y = t["set_icon_abs"]
         sym = Path(card["set_icon_file"]) if card.get("set_icon_file") else ASSETS / f"icons/ovs-set-{card['virtual_set']}.png"   # each original set has its own symbol (from its Remaster PDF); card maker: the user's own
@@ -1478,7 +1482,10 @@ def build_html(card: dict) -> str:
     if card.get("expansion_icon") and t.get("system_ring") and card.get("draw_system_ring"):
         # systems keep the scan whole (its own sphere included): drawn only when asked (card maker: no scan, or a new set)
         x, y, sz = t["system_ring"]
-        parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
+        ic_ = card["expansion_icon"]
+        if "episode1" in (card.get("ring_icons") or []) and card.get("set_mark"):
+            ic_ = "icons/inline-episode1.png"   # PC Episode I systems print the circled Episode I icon there (Naboo (V))
+        parts.append(f'<img src="{data_uri(ASSETS / ic_)}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
     sec('ring_icons')
     # Episode I icon below the ring, as the Episode I-era printed cards carry it (Radiant VII, Wesa Ready To Do Our-sa Part)
     if card.get("ring_icons") and "expansion_ring" in t:
