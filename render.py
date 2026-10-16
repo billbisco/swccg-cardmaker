@@ -254,7 +254,7 @@ TEMPLATES = {
     "ls-admirals-order": {   # Bardez "LS - Admiral's Order.xcf" Template layer: title bar + black text box over full-bleed art
         "frame": ("frames/ls-admirals-order.png", 0, 0),
         "art": (146, 146, 1344, 1929), "title": (400, 206, 900, 100), "destiny": (1330, 204, 111, 110),
-        "game_text": (292, 1528, 1064, 464), "gt_ink": "#fff", "gt_grow": True,
+        "game_text": (292, 1528, 1064, 420), "gt_ink": "#fff", "fill_boxes": [(146, 2024, 1344, 56, "#000")],
         "set_icon_abs": (1430, 1972), "set_icon_size": 60, "expansion_ring": (1379, 400), "expansion_size": 70,
         "dark_text": True, "no_type": True, "no_copyright": True,
     },
@@ -357,6 +357,7 @@ TEMPLATES["ds-starship-wide"] = {
     "expansion_ring": (1945, 414), "expansion_size": 66, "no_copyright": True, "caption_y": 1532, "dark_text": False,
 }
 
+TEMPLATES["ds-starship-wide-nolore"] = dict(TEMPLATES["ds-starship-wide"], frame=("frames/ds-starship-wide-nolore.png", 0, 0))   # Finalizer (AI): no lore box
 # Decipher's printed creatures (Worrt, Bog-wing): black title and the banner (GUARD CREATURE) — card maker; the VS
 # remasters keep "creature" as approved (white title, empty banner)
 TEMPLATES["creature-dc"] = dict(TEMPLATES["creature"], card_type=(271, 1466, 1109, 61), title_ink="#000", ctype_ink="#000")
@@ -1322,7 +1323,7 @@ def build_html(card: dict) -> str:
             # Decipher sets the value at the right end of its box (ARMOR      5, LANDSPEED    2 on starships and
             # vehicles; POWER 5 / ABILITY 6 fill theirs) — except a character's wide third box (ARMOR 5 follows the
             # label, Boba Fett). Bill 2026-10-13 (Jabba's Space Cruiser (V)).
-            vcls = "val" if (is_char and i >= 2) else "val r"
+            vcls = "val" if ((is_char and i >= 2) or ("creature" in card["template"] and i >= 1)) else "val r"   # creatures: FLIGHT 2 (Bog-wing)
             # a label-only box (FORCE-SENSITIVE, MAINTENANCE DROID) stays on one line: shrink it to the box as the
             # slips do (LE-BO2D9 (V), 2026-10-13); AGBoldCnA caps ≈ 0.50 em + 1.8 px tracking per character
             lab_style = ""

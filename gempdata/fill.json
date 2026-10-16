@@ -1105,5 +1105,14 @@
  "7_181": {
   "maneuver": "4",
   "_note": "printed MANEUVER 4"
+ },
+ "6_166": {
+  "icons": [
+   "Underground",
+   "Interior",
+   "Planet",
+   "Jabba's Palace"
+  ],
+  "_note": "icon order as printed"
  }
 }

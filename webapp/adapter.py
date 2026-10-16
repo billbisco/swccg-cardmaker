@@ -509,6 +509,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["disc"] = "rebel"   # the Rebel disc on the Dark frame (TK-422, Boushh)
         if card["template"].endswith("-mission"):
             card["disc"] = "mission"   # the teal hologram type disc
+        if card["template"] == "ds-starship-wide" and not (spec.get("lore") or "").strip():
+            card["template"] = "ds-starship-wide-nolore"
         if card["template"] in ("ls-character-droid", "ds-character-droid"):
             card["template"] += "-dc"   # brass droid disc as printed
         if card["template"] == "creature":
