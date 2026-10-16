@@ -460,6 +460,9 @@ def finish(spec: dict) -> dict:
     ps = spec.pop("_printed_stats", None)
     if ps:   # stat boxes transcribed from the printed card (gempdata/fill.json "printedStats")
         spec["stats"] = [list(x) for x in ps]
+    for st in spec.get("stats") or []:   # printed cards show halves as ½ (Hunchback: ABILITY 1½)
+        if len(st) > 1 and re.fullmatch(r"\d*\.5", str(st[1] or "")):
+            st[1] = str(st[1]).split(".")[0].lstrip("0") + "½"
     for k in ("game_text", "dark_text"):   # PC placeholders for an empty text half: "(none).", "Blank.", "-"
         spec[k] = re.sub(r"^\s*Text:\s*", "", spec.get(k) or "")   # a stray "Text:" label (Boba Fett, Bounty Hunter)
         if re.fullmatch(r"\s*([(<]none[)>]\.?|Blank\.?|-|\.|none\.?)\s*", spec.get(k) or "", re.I):

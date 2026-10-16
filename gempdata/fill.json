@@ -1114,5 +1114,37 @@
    "Jabba's Palace"
   ],
   "_note": "icon order as printed"
+ },
+ "11_4": {
+  "printedStats": [
+   [
+    "POWER",
+    "3"
+   ],
+   [
+    "ABILITY",
+    "3"
+   ],
+   [
+    "FORCE-ATTUNED",
+    ""
+   ]
+  ]
+ },
+ "6_19": {
+  "printedStats": [
+   [
+    "POWER",
+    "1"
+   ],
+   [
+    "ABILITY",
+    "1"
+   ],
+   [
+    "ARMOR",
+    "3"
+   ]
+  ]
  }
 }
