@@ -144,7 +144,7 @@
 
       <fieldset class="block" id="layoutBlock">
         <legend>Layout (move pieces)</legend>
-        <p class="hint">Click a piece on the preview to select it, drag to move it, drag its corner to resize. Arrow keys nudge (Shift = bigger steps).</p>
+        <p class="hint">Click a piece on the preview to select it, drag to move it, drag its corner to resize. Arrow keys nudge (Shift = bigger steps). Add your own text boxes and pictures as extra layers below.</p>
         <div class="grid2">
           <label>Piece <select id="lPiece"><option value="">— click the preview —</option></select></label>
           <div class="btnrow nudges">
@@ -163,6 +163,27 @@
           <button type="button" id="lResetAll" class="ghost small">Reset all</button>
         </div>
         <p id="lInfo" class="hint"></p>
+        <div class="btnrow">
+          <button type="button" id="xAddText" class="ghost small">+ Text box</button>
+          <label class="ghost small btnlike">+ Picture <input type="file" id="xAddImg" accept="image/*" hidden></label>
+        </div>
+        <div id="xEdit" class="xedit" hidden>
+          <label class="xtext">Text <textarea id="xText" rows="3" placeholder="Your text — the game-text codes work here too: {alter} *bold* _italic_"></textarea></label>
+          <div class="grid3 xtext">
+            <label>Font <select id="xFont">
+              <option value="text">Game text</option><option value="bold">Bold caps</option><option value="title">Title</option>
+              <option value="lore">Lore (light)</option><option value="number">Numbers</option></select></label>
+            <label>Size <input id="xSize" type="number" min="12" max="400" step="2"></label>
+            <label>Align <select id="xAlign"><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select></label>
+          </div>
+          <div class="grid3 xtext">
+            <label>Colour <input id="xColor" type="color"></label>
+            <label class="inline"><input type="checkbox" id="xBgOn"> Background</label>
+            <label>Background <input id="xBg" type="color"></label>
+          </div>
+          <div class="grid2 ximg"><label>Fit <select id="xFit"><option value="contain">Whole picture</option><option value="cover">Fill the box</option></select></label></div>
+          <div class="btnrow"><button type="button" id="xDel" class="ghost small">Delete this layer</button></div>
+        </div>
       </fieldset>
 
       <fieldset class="block">
