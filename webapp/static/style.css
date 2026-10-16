@@ -103,3 +103,6 @@ dialog td { border-bottom: 1px solid var(--line); padding: 4px 6px; }
 button:disabled { opacity: .45; cursor: default; }
 .dragghost { position: absolute; pointer-events: none; opacity: .9; outline: 1px solid var(--accent); }
 .dragfrom { position: absolute; pointer-events: none; background: rgba(14, 17, 22, .55); outline: 1px dashed rgba(255,255,255,.5); }
+
+.xedit{border-top:1px solid var(--line, #3334);margin-top:8px;padding-top:8px}
+.xedit textarea{width:100%}

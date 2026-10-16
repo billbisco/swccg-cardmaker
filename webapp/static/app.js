@@ -351,7 +351,7 @@ function setL(n, patch) {
 function piecesUI() {
   const p = (boxes && boxes.pieces) || {}, s_ = $("#lPiece"), cur = s_.value;
   const names = Object.keys(p).concat(Object.keys(spec.layout || {}).filter(n => !(n in p)));
-  s_.innerHTML = '<option value="">— click the preview —</option>' + [...new Set(names)].map(n => `<option value="${n}">${esc(PIECE_NAMES[n] || n)}${spec.layout && spec.layout[n] ? " •" : ""}</option>`).join("");
+  s_.innerHTML = '<option value="">— click the preview —</option>' + [...new Set(names)].map(n => `<option value="${n}">${esc(pieceName(n))}${spec.layout && spec.layout[n] ? " •" : ""}</option>`).join("");
   s_.value = names.includes(cur) ? cur : sel; layoutFields();
 }
 function layoutFields() {
@@ -368,9 +368,10 @@ function drawSel() {
   if (!b) { box.hidden = true; return; }
   const k = scale(); box.hidden = false;
   Object.assign(box.style, { left: b[0] * k + "px", top: b[1] * k + "px", width: b[2] * k + "px", height: b[3] * k + "px" });
-  box.querySelector(".selname").textContent = PIECE_NAMES[sel] || sel;
+  box.querySelector(".selname").textContent = pieceName(sel);
 }
-function select(n) { sel = n || ""; $("#lPiece").value = sel; layoutFields(); drawSel(); }
+function select(n) { sel = n || ""; $("#lPiece").value = sel; layoutFields(); drawSel(); if (typeof xFields === "function") xFields(); }
+const pieceName = n => PIECE_NAMES[n] || (n.startsWith("x:") ? ((((spec && spec.extras) || []).find(e => "x:" + e.id === n) || {}).kind === "image" ? "Your picture " : "Your text ") + n.slice(3) : n);
 function pieceAt(x, y) {   // the smallest piece box under the point (preview px)
   let best = "", area = 1e12;
   for (const [n, b] of Object.entries((boxes && boxes.pieces) || {})) {
@@ -435,6 +436,48 @@ $("#cardwrap").addEventListener("keydown", e => {
   window.addEventListener("resize", drawSel);
 }
 layoutFields();
+
+// ---------- your own layers: text boxes and pictures (spec.extras), each a piece "x:<id>" ----------
+const X = id => ((spec && spec.extras) || []).find(e => "x:" + e.id === id);
+function newId() { let n = 1; const ids = new Set(((spec && spec.extras) || []).map(e => e.id)); while (ids.has("e" + n)) n++; return "e" + n; }
+function addExtra(e) {
+  spec = readForm(); spec.extras = [...(spec.extras || []), e];
+  boxes = boxes || {}; boxes.pieces = { ...(boxes.pieces || {}) };
+  sel = "x:" + e.id; schedule(); xFields();   // selected now; its box appears with the next render
+}
+function setX(patch) {
+  const e = X(sel); if (!e) return;
+  spec.extras = spec.extras.map(x => x === e ? { ...x, ...patch } : x); schedule();
+}
+function xFields() {
+  const e = X(sel); $("#xEdit").hidden = !e; if (!e) return;
+  const img = e.kind === "image";
+  document.querySelectorAll(".xtext").forEach(n => n.hidden = img); document.querySelectorAll(".ximg").forEach(n => n.hidden = !img);
+  $("#xText").value = e.text || ""; $("#xFont").value = e.font || "text"; $("#xSize").value = e.size || 56; $("#xAlign").value = e.align || "left";
+  $("#xColor").value = e.color || "#ffffff"; $("#xBgOn").checked = !!e.bg; $("#xBg").value = e.bg || "#000000"; $("#xFit").value = e.fit || "contain";
+}
+$("#xAddText").onclick = () => {
+  const land = spec && spec.wide;
+  addExtra({ id: newId(), kind: "text", text: "Your text", x: land ? 700 : 400, y: land ? 600 : 900, w: 820, h: 160, size: 72, font: "bold", align: "center", color: "#ffffff", bg: "#000000" });
+};
+$("#xAddImg").onchange = e => readFile(e.target, d => {
+  const im = new Image(); im.onload = () => { const w = 500, h = Math.round(500 * im.height / im.width);
+    addExtra({ id: newId(), kind: "image", data: d, x: 566, y: 800, w, h, fit: "contain" }); e.target.value = ""; }; im.src = d;
+});
+$("#xText").oninput = e => setX({ text: e.target.value });
+$("#xFont").onchange = e => setX({ font: e.target.value });
+$("#xSize").onchange = e => setX({ size: Math.max(12, Math.min(400, +e.target.value || 56)) });
+$("#xAlign").onchange = e => setX({ align: e.target.value });
+$("#xColor").oninput = e => setX({ color: e.target.value });
+$("#xBgOn").onchange = e => setX({ bg: e.target.checked ? $("#xBg").value : "" });
+$("#xBg").oninput = e => { if ($("#xBgOn").checked) setX({ bg: e.target.value }); };
+$("#xFit").onchange = e => setX({ fit: e.target.value });
+$("#xDel").onclick = () => {
+  const e = X(sel); if (!e) return; const n = sel;
+  spec.extras = spec.extras.filter(x => x !== e); if (!spec.extras.length) delete spec.extras;
+  if (spec.layout) { delete spec.layout[n]; if (!Object.keys(spec.layout).length) delete spec.layout; }
+  select(""); schedule();
+};
 
 
 // ---------- undo / redo (whole card: fields and layout) ----------

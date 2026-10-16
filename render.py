@@ -1588,13 +1588,40 @@ def build_html(card: dict) -> str:
     sec('number')
     if card.get("number"):
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
+    # user layers (card maker): free text boxes and pictures, each its own piece "x:<id>" (move / resize / hide / reset)
+    for ex in (card.get("extras") or [])[:30]:
+        if not isinstance(ex, dict):
+            continue
+        xid = re.sub(r"[^\w-]", "", str(ex.get("id") or ""))[:20] or "x"
+        num = lambda k, d, lo, hi: max(lo, min(hi, float(ex.get(k) if isinstance(ex.get(k), (int, float)) else d)))
+        x_, y_ = num("x", 300, -500, W + 500), num("y", 300, -500, H + 500)
+        w_, h_ = num("w", 600, 20, W * 2), num("h", 200, 20, H * 2)
+        sec(f"x:{xid}")
+        flip_ = ""
+        if card.get("side") == "Dark" and card["template"] == "loc-site":   # the whole card is turned afterwards: pre-turn
+            x_, y_ = W - x_ - w_, H - y_ - h_; flip_ = "rotate:180deg;"
+        if ex.get("kind") == "image":
+            d_ = str(ex.get("data") or "")
+            if re.match(r"^data:image/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$", d_) and len(d_) < 12_000_000:
+                fit_ = "cover" if ex.get("fit") == "cover" else "contain"
+                parts.append(f'<img src="{d_}" style="position:absolute;left:{x_:.0f}px;top:{y_:.0f}px;width:{w_:.0f}px;height:{h_:.0f}px;object-fit:{fit_};{flip_}">')
+        else:
+            font_ = {"text": "AGCn", "bold": "AGBoldCnA", "title": "Fiorello", "number": "AGMedExt", "lore": "AGLightCn"}.get(str(ex.get("font")), "AGCn")
+            col_ = str(ex.get("color") or "#ffffff"); col_ = col_ if re.fullmatch(r"#[0-9a-fA-F]{3,8}", col_) else "#ffffff"
+            bg_ = str(ex.get("bg") or ""); bg_ = bg_ if re.fullmatch(r"#[0-9a-fA-F]{3,8}", bg_) else "transparent"
+            al_ = ex.get("align") if ex.get("align") in ("left", "center", "right") else "left"
+            fs_ = num("size", 56, 12, 400)
+            txt_ = game_text_html(str(ex.get("text") or "")[:2000]).replace("\n", "<br>")
+            parts.append(f'<div style="position:absolute;left:{x_:.0f}px;top:{y_:.0f}px;width:{w_:.0f}px;height:{h_:.0f}px;background:{bg_};color:{col_};'
+                         f'font-family:{font_};font-size:{fs_:.0f}px;line-height:1.12;text-align:{al_};overflow:hidden;box-sizing:border-box;padding:8px 12px;'
+                         f'{"font-style:italic;" if ex.get("italic") else ""}{flip_}">{txt_}</div>')
     # wrap each piece's elements in a full-card layer (children keep their coordinates)
     ends = [i for _, i in marks[1:]] + [len(parts)]
     # Dark systems are printed from the Dark Side's seat (Alderaan, Premiere): every layer but the picture and the
     # bottom caption strip turned 180° about the card centre
     dsys = card.get("side") == "Dark" and card["template"] == "loc-system"
     for (name, i), j in reversed(list(zip(marks, ends))):
-        turn = ";rotate:180deg" if dsys and name not in ("art", "caption", "number") else ""
+        turn = ";rotate:180deg" if dsys and name not in ("art", "caption", "number") and not str(name).startswith("x:") else ""
         if name and j > i:
             parts[i:j] = [f'<div class="piece" data-piece="{name}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px{turn}">'] + parts[i:j] + ["</div>"]
         elif j > i and turn:
