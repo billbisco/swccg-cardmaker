@@ -25,7 +25,7 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
 ## Type sizes (match the PC's Holotable cards; shrink only when a text won't fit)
 Title Fiorello 80 · destiny Akzidenz Medium Extended 80 · lore Light Condensed 58 (first line indented 60) ·
 stat labels Bold Condensed 56 + value Medium Extended bold 60 right after the label (gap 26) · **game text Akzidenz-Grotesk BQ Condensed (regular weight) 62 / line 65** — the face and size of the PC's Holotable cards, verified against the modern Chewbacca (V) at equal scale (Bardez's spec named BE Medium Condensed, which is narrower and heavier than what the PC prints) · deploy & forfeit Fiorello 70 centered in their boxes · card-type banner Bold Condensed
-60, letter-spacing 11 · bottom strip Bold Condensed 48 (number skewed −14°) · copyright line Bold Condensed 24.
+60, letter-spacing 11 · bottom strip Bold Condensed, auto-sized up to 74 to fill the margin like the PC slip (number Medium Extended, skewed −14°; rev 51) · copyright line Bold Condensed 24.
 
 ## Geometry, Dark Character frame (1632×2220 space)
 title (374,200,884×90) · destiny hole (1312,213,100×84) · lore (321,377,989×193) · art (256,666,1121×770) ·
@@ -466,3 +466,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   No Escape: "opponent’s ◇ site") is typed as U+25C7 and drawn in DejaVu Sans (`.dia`), like ▲ / ▼. Where a base
   has only a Virtual Shields (VSh-) remake as its "modern" scan, art comes from the Decipher scan: the shield face's
   narrower art window left a cyan strip at the art box's right edge.
+- Rev 51 (Bill 2026-11-01: "automatically … increase the size of the font of text fields to fill the space … the label
+  on the card margin matches better"): on portrait cards the bottom-margin caption and collector number are sized to
+  fill the strip, like the PC slips, instead of a fixed 48 / 44 px. Each sits in its own 96 px box (caption from x 110,
+  number right-aligned 125 px from the edge) and `fit_js` picks the largest size up to `caption_max` (default 74) that
+  fits; the caption also stays 40 px clear of the number. Measured against Aim High (V), Do They Have A Code
+  Clearance? (V) and Come Here You Big Coward (V): caption height, start and number edge within a few px of the slip
+  at 745 wide. The uniqueness dot in the caption is a full bullet (DejaVu Sans, 0.9 em) instead of the 40 px Fiorello
+  dot. Cards that set `caption_y` (landscape) or `caption_fixed` keep the old fixed caption. Do, Or Do Not (V) is
+  unique (the dot was missing from our caption: a PC slip error Bill confirmed).

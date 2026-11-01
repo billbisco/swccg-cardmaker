@@ -1737,7 +1737,13 @@ def build_html(card: dict) -> str:
     # bottom strip in the black border: title (as the slip prints it) left, card number right
     cap = card["caption"] if card.get("caption") is not None else card["title"]   # "" = no strip text (Decipher cards)
     cy = t.get("caption_y", 2082)
-    if cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
+    # Bill 2026-11-01 (Aim High (V)): the slips print the margin caption and number about 1.6x our old 48 px and nearer the
+    # card edges. Portrait cards (the default strip) now start at the slip's size and the fitter grows / shrinks each one
+    # to fill the strip: the caption up to the number, the number in its own box (data-capmax, `.capgrow` in fit_js).
+    capgrow = "caption_y" not in t and not card.get("caption_fixed")
+    if cap and capgrow:
+        parts.append(f'<div class="cap capgrow" data-capmax="{card.get("caption_max", 74)}" style="position:absolute;left:{card.get("caption_x", 110)}px;top:{cy - 2}px;width:1080px;height:96px;display:flex;align-items:center"><span class="capt">{game_text_html(cap)}</span></div>')
+    elif cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
     sec('credits')
     if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")) and t.get("landscape"):
         # locations: the slips print the credits up the left margin between the two bars (Carida (V)), reading top-down
@@ -1751,7 +1757,11 @@ def build_html(card: dict) -> str:
                      f'font-size:38px;color:#fff;white-space:nowrap">{esc(card["credit_strip"])}</div>')
     sec('number')
     if card.get("number"):
-        parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
+        _num = esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))
+        if "caption_y" not in t and not card.get("caption_fixed"):
+            parts.append(f'<div class="num capgrow" data-capmax="{card.get("caption_max", 74)}" style="position:absolute;right:{card.get("number_right", 125)}px;top:{cy - 2}px;width:330px;height:96px;display:flex;align-items:center;justify-content:flex-end"><span class="capt">{_num}</span></div>')
+        else:
+            parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{_num}</div>')
     # PC labels (Bill 2026-11-01): small printed marks the Players Committee adds — the errata mark in the bottom-right
     # border (D-E1, E2 …), the original card's title bottom-left, "Original concept by …" in the frame's bottom bar.
     # card "errata_mark": "D-E1" is a shortcut for {"preset": "errata", "text": "D-E1"}; "labels": [{preset|x/y, text, …}]
@@ -1825,6 +1835,7 @@ def build_html(card: dict) -> str:
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
     .cap .dot{{font-size:40px}}
+    .cap.capgrow .dot{{font-family:"DejaVu Sans",sans-serif;font-size:0.9em;margin-right:2px}}
     .dot{{font-family:Fiorello}}
     .num{{font-family:AGMedExt;font-weight:bold;font-size:44px;color:#fff;line-height:52px;text-align:right;transform:skewX(-14deg)}}
     .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:57px;letter-spacing:2px;text-transform:uppercase}}
@@ -1907,6 +1918,19 @@ def build_html(card: dict) -> str:
       for (const el of document.querySelectorAll('.ltitle .lt, .dtitle .lt')) {   // location bar titles: condense to the bar
         const avail = el.parentElement.clientWidth - 30, w = el.offsetWidth;
         if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';
+      }
+      {   // margin caption + number (Bill 2026-11-01): largest size up to data-capmax that keeps the caption clear of the number
+        const num = document.querySelector('.num.capgrow'), cap = document.querySelector('.cap.capgrow');
+        for (const el of [num, cap]) {
+          if (!el) continue;
+          const sp = el.querySelector('.capt'); sp.style.whiteSpace = 'nowrap'; sp.style.lineHeight = '1';
+          const max = parseFloat(el.dataset.capmax || 80);
+          let room = el.clientWidth;
+          if (el === cap && num) { const ns = num.querySelector('.capt').getBoundingClientRect(); room = Math.min(room, ns.left - el.getBoundingClientRect().left - 40); }
+          let fs = max; sp.style.fontSize = fs + 'px';
+          while (fs > 30 && (sp.getBoundingClientRect().width > room || sp.getBoundingClientRect().height > el.clientHeight)) { fs -= 1; sp.style.fontSize = fs + 'px'; }
+          el.dataset.fit = fs + 'px';
+        }
       }
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
         const w = el.scrollWidth, avail = el.clientWidth;
