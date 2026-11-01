@@ -9,7 +9,8 @@ from sheet import slip_boxes, pdf_words
 from slip_lines import norm, visible
 
 ROOT = Path(__file__).resolve().parent
-vs = int(sys.argv[1])
+from ovs_sets import parse
+vs = parse(sys.argv[1])
 keyed = slip_boxes(vs); words = pdf_words(vs)
 bad = 0
 for n in sorted(k for k in keyed if k[2:] == ""):

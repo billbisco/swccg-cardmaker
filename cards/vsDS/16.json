@@ -1,0 +1,29 @@
+{
+ "number": "16",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Secret Plans",
+ "caption": "•Secret Plans (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. If opponent is about to retrieve X Force, opponent must first use X Force or that retrieval is canceled. _(X is equal to the full amount of Force allowed to be retrieved, regardless of the number of cards in opponent’s Lost Pile.)_",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial computer systems are equipped with complex algorithms designed to prevent access by unauthorized users.",
+ "destiny": "4",
+ "base_page": "Secret Plans",
+ "art": {
+  "src": "src/vsDS/16-SE-D-secretplans.gif",
+  "modern": null
+ },
+ "id": "vsDS-16",
+ "virtual_set": "DS",
+ "expansion": "Special Edition",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Special Edition Effect. No grabber box. Slip heading and caption both •; match the base. The closing parenthetical '(X is equal to … Lost Pile.)' is printed in ITALICS on the slip → _…_ (spans the slip's line breaks; the wiki stub and the PDF text layer have it plain). Wording otherwise matches the stub. Lore matches the wiki and the 350 px scan (no correction). Copyright read off the 350 px scan: Special Edition line, 1998. Modern: none.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. If opponent is about to retrieve X Force,\nopponent must first use X Force or that retrieval is\ncanceled. _(X is equal to the full amount of Force\nallowed to be retrieved, regardless of the number of\ncards in opponent’s Lost Pile.)_"
+}

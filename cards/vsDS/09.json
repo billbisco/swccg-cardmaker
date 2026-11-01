@@ -1,0 +1,29 @@
+{
+ "number": "09",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Allegations Of Corruption",
+ "caption": "•Allegations Of Corruption (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Once per game, may use 1 Force to stack one Interrupt just played here. To play any new Interrupt of the same name, player must first stack it here and use +1 Force for each Interrupt in stack, even if Interrupt is normally free.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "With the Republic groaning under the weight of its own bureaucracy, senators accuse, bicker, and fight to further their own agendas.",
+ "destiny": "5",
+ "base_page": "Allegations Of Corruption",
+ "art": {
+  "src": "src/vsDS/09-Cor-D-allegationsofcorruption.gif",
+  "modern": null
+ },
+ "id": "vsDS-09",
+ "virtual_set": "DS",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Coruscant Effect. Banner carries the GRABBER icon box at its right end (lavender box, black hand — as on the printed Coruscant Effect) → grabber true. Slip heading and caption both •; match the base. No inline icons; slip text matches the stub. Lore corrected from the 745 px scan: serial comma 'bicker, and fight' (wiki 'bicker and fight'). Copyright read off the 745 px scan: 2001 SE-style line with year after the first ©. Base also prints an Episode I icon (printed-card feature, not a slip icon). Modern: none in src/vsDS/modern.",
+ "grabber": true,
+ "game_text_lines": "Plays on table. Once per game, may use 1 Force to\nstack one Interrupt just played here. To play any new\nInterrupt of the same name, player must first stack it\nhere and use +1 Force for each Interrupt in stack,\neven if Interrupt is normally free."
+}

@@ -56,8 +56,8 @@
         <div class="grid2">
           <label>Expansion symbol (top, beside the lore) <select name="expansion"></select></label>
           <label>Symbol style <select name="expansion_style">
-            <option value="decipher">Decipher (as printed 1995–2001)</option>
-            <option value="pc">Players Committee redraw (modern Virtual Sets)</option>
+            <option value="pc">Players Committee (brighter redraws, as on their cards — default)</option>
+            <option value="decipher">Decipher original (as printed 1995–2001)</option>
           </select></label>
         </div>
         <div class="grid2">
@@ -139,6 +139,23 @@
           <label>Strip, left <input name="caption"></label>
           <label>Strip, right <input name="credit_strip"></label>
           <label>Card number <input name="number" maxlength="6"></label>
+        </div>
+        <p class="hint">Text size: the card maker picks the largest size that fits (62 px, as printed). Nudge it here in px if a card needs it.</p>
+        <div class="grid2">
+          <label>Game text size ± <input name="text_adjust" type="number" min="-20" max="20" step="1" value="0"></label>
+          <label>Lore size ± <input name="lore_adjust" type="number" min="-20" max="20" step="1" value="0"></label>
+        </div>
+        <p class="hint">Players Committee labels: the errata mark in the bottom-right border (D-E1, E1, E2 …) and one more label with a position preset.</p>
+        <div class="grid3">
+          <label>Errata mark <input name="errata_mark" maxlength="12" placeholder="D-E1"></label>
+          <label>Label text <input name="label_text" maxlength="80" placeholder="Original concept by …"></label>
+          <label>Label position <select name="label_preset">
+            <option value="concept">Frame bottom bar, centred (concept credit)</option>
+            <option value="bottom-left">Bottom border, left (original title)</option>
+            <option value="bottom-right">Bottom border, right</option>
+            <option value="errata">Bottom border, right, oblique (errata style)</option>
+            <option value="top-right">Top border, right</option>
+          </select></label>
         </div>
       </fieldset>
 

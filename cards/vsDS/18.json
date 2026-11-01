@@ -1,0 +1,29 @@
+{
+ "number": "18",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•You Cannot Hide Forever",
+ "caption": "•You Cannot Hide Forever (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. If an ‘insert’ card was just inserted or revealed, it is canceled.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Give yourself to the dark side. It is the only way you can save your friends.”",
+ "destiny": "5",
+ "base_page": "You Cannot Hide Forever",
+ "art": {
+  "src": "src/vsDS/18-DS2-D-youcannothideforever.gif",
+  "modern": null
+ },
+ "id": "vsDS-18",
+ "virtual_set": "DS",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Death Star II Effect. No grabber box. Slip heading and caption both •; match the base. Curly single quotes ‘insert’ as printed (wiki straight). No inline icons; slip text matches the stub. Lore matches the wiki (already curly double quotes) and the 350 px scan (no correction). Copyright read off the 350 px scan: Death Star II form, no year after the first ©, 2000. Modern: VSh-D-youcannothideforeverv-pre.gif (350 px). Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. If an ‘insert’ card was just inserted or\nrevealed, it is canceled."
+}

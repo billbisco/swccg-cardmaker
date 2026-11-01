@@ -1,0 +1,29 @@
+{
+ "number": "02",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Aim High",
+ "caption": "•Aim High (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Whenever opponent retrieves X cards, opponent must first use X Force or that retrieval is canceled. _(X is equal to the full amount of Force allowed to be retrieved, regardless of the number of cards in opponent’s Lost Pile.)_",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The destruction of a command vehicle negatively impacts Imperial battle efficiency.",
+ "destiny": "3",
+ "base_page": "Aim High",
+ "art": {
+  "src": "src/vsDS/02-Endor-L-aimhigh.gif",
+  "modern": null
+ },
+ "id": "vsDS-02",
+ "virtual_set": "DS",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "The parenthetical \"(X is equal to … Lost Pile.)\" is printed in ITALICS on the slip (parentheses included) → _…_; the wiki stub and the PDF text layer lose the italics. Curly apostrophe in opponent’s (wiki straight). Otherwise slip text matches the stub. Heading and caption •Aim High (V), dots match the base. Lore read off the 350 px scan: matches the wiki, no corrections. Copyright: vertical line only partly legible on the 350 px scan (SE-style form, \"© LUCASFILM LTD. & TM. …\"); year by set (Endor 1999). No modern remake file.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. Whenever opponent retrieves X cards,\nopponent must first use X Force or that retrieval is\ncanceled. _(X is equal to the full amount of Force\nallowed to be retrieved, regardless of the number of\ncards in opponent’s Lost Pile.)_"
+}

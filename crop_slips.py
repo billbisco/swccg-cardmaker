@@ -61,10 +61,14 @@ def clean(crop: Image.Image, w: int) -> Image.Image:
 
 
 def main():
-    vs = int(sys.argv[1])
+    from ovs_sets import parse, SPECIAL
+    vs = parse(sys.argv[1])
     from sheet import slip_boxes as keyed_boxes
-    stubs = json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8"))
-    names = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): v["image"].split("-", 2)[2][:-4] for v in stubs.values() if v["set"] == f"Virtual Set {vs} (Original)"}
+    if isinstance(vs, str):   # Defensive Shields etc.: titles from the set table
+        names = SPECIAL[vs]["titles"]
+    else:
+        stubs = json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8"))
+        names = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): v["image"].split("-", 2)[2][:-4] for v in stubs.values() if v["set"] == f"Virtual Set {vs} (Original)"}
     pages = {}
     n = 0
     for key, (pg, x, y, w, h) in sorted(keyed_boxes(vs).items()):

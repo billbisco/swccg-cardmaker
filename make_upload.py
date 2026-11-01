@@ -14,15 +14,18 @@ ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / "out"
 
 
-def remaster_name(vs: int, n: str, c: dict) -> str:
+def remaster_name(vs, n: str, c: dict) -> str:
     safe = re.sub(r"[^A-Za-z0-9]+", "_", c["title"].replace("•", "")).strip("_")
+    if isinstance(vs, str):   # Defensive Shields: PS1-NN-<Title>-remaster.webp, beside the wiki's PS1-NN-<Title>.png slips
+        from ovs_sets import SPECIAL
+        return f"{SPECIAL[vs]['remaster_prefix']}-{int(n):02d}-{safe}-remaster.webp"
     return f"OVS{vs}-{int(n):02d}-{safe}-remaster.webp"
 
 
 def last_uploaded() -> dict[str, Path]:
     """Newest copy of every OVS*-remaster.webp under out/ (what the wiki holds now)."""
     best: dict[str, Path] = {}
-    for p in OUT_DIR.rglob("OVS*-remaster.webp"):
+    for p in list(OUT_DIR.rglob("OVS*-remaster.webp")) + list(OUT_DIR.rglob("PS1-*-remaster.webp")):
         if "rr-upload" in p.parts[-2]:
             continue
         if p.name not in best or p.stat().st_mtime > best[p.name].stat().st_mtime:
@@ -45,7 +48,8 @@ def differs(new: bytes, old: Path) -> float:
 
 
 def main():
-    vs, dest = int(sys.argv[1]), Path(sys.argv[2])
+    from ovs_sets import parse, SPECIAL
+    vs, dest = parse(sys.argv[1]), Path(sys.argv[2])
     changed_only = "--changed" in sys.argv
     dest.mkdir(parents=True, exist_ok=True)
     prev = last_uploaded() if changed_only else {}
@@ -70,7 +74,10 @@ def main():
             if back.exists():
                 safe_b = re.sub(r"[^A-Za-z0-9]+", "_", (c.get("title_back") or "").replace("•", "")).strip("_")
                 (dest / f"OVS{vs}-{int(n):02d}b-{safe_b}-remaster.webp").write_bytes(webp_bytes(back))
-    if not changed_only:
+    if not changed_only and isinstance(vs, str):   # Defensive Shields: re-cropped slips under the wiki's PS1-NN-<Title>.png names
+        for p in sorted((ROOT / f"src/slips/vs{vs}").glob("[0-9][0-9]-*.png")):
+            shutil.copy(p, dest / f"{SPECIAL[vs]['slip_prefix']}-{p.name}")
+    elif not changed_only:
         stubs = {int(re.match(r"VS\d+O-(\d+)-", v["image"]).group(1)): v["image"] for v in json.load(open(ROOT / "gempdata/original-vs-stubs.json", encoding="utf-8")).values()
                  if v["set"] == f"Virtual Set {vs} (Original)" and not v["image"].endswith("_AI.png")}   # AI slips: below
         for p in sorted((ROOT / f"src/slips/vs{vs}").glob("[0-9][0-9]-*.png")):

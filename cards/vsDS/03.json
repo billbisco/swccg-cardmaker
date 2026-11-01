@@ -1,0 +1,29 @@
+{
+ "number": "03",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Battle Plan",
+ "caption": "•Battle Plan (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Unless a player occupies a battleground site and a battleground system, that player must first use 3 Force to initiate a Force drain.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Even though the landing of the stolen shuttle was successful, the Rebel strike team on Endor was forced to rethink their plans when Leia disappeared.",
+ "destiny": "5",
+ "base_page": "Battle Plan",
+ "art": {
+  "src": "src/vsDS/03-Endor-L-battleplan.gif",
+  "modern": null
+ },
+ "id": "vsDS-03",
+ "virtual_set": "DS",
+ "expansion": "Endor",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
+ "notes": "Slip text matches the wiki stub exactly. Heading and caption •Battle Plan (V), dots match the base. Lore read off the 350 px scan: matches the wiki, no corrections. Copyright: vertical line only partly legible on the 350 px scan (SE-style form); year by set (Endor 1999). No modern remake file.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. Unless a player occupies a battleground\nsite and a battleground system, that player must first\nuse 3 Force to initiate a Force drain."
+}

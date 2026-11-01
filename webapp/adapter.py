@@ -276,7 +276,9 @@ def gemp_to_spec(c: dict) -> dict:
     if typ in ("Device",):
         spec["device_frame"] = True
     # modern PC cards print the PC's own redrawn spheres; Decipher, OVS and Virtual Block cards print Decipher's
-    spec["expansion_style"] = "pc" if ((sid.isdigit() and 200 <= int(sid) <= 399) or sid == "200d") else "decipher"
+    # expansion sphere style: the PC's redraws by default (Bill 2026-11-01: the target look is the PC's); Decipher's own
+    # as printed is the editor's / API's "decipher". The 2009-14 Virtual Blocks (sets 1000+) printed Decipher's spheres.
+    spec["expansion_style"] = "decipher" if (sid.isdigit() and int(sid) >= 1000) or sid == "1000d" else "pc"
     rings = [RING[i] for i in icons if i in RING]
     if rings:
         spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)
@@ -521,6 +523,9 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+        if spec.get(k):
+            card[k] = spec[k]
     if vs is None:
         card.pop("virtual_set", None)
     if spec.get("_set_icon_file"):

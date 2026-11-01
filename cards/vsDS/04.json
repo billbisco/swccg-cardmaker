@@ -1,0 +1,29 @@
+{
+ "number": "04",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Do, Or Do Not",
+ "caption": "Do, Or Do Not (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Sense and Alter are Lost Interrupts. When any player makes a successful destiny draw for Sense or Alter, that player loses 2 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "A Jedi may choose to intervene in the natural course of events, but must accept responsibility for the consequences.",
+ "destiny": "4",
+ "base_page": "Do, Or Do Not",
+ "art": {
+  "src": "src/vsDS/04-Dagobah-L-doordonot.gif",
+  "modern": null
+ },
+ "id": "vsDS-04",
+ "virtual_set": "DS",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "DOTS: both the slip heading and the bottom-left caption print \"Do, Or Do Not (V)\" WITHOUT the uniqueness dot, while the printed base card is •Do, Or Do Not (Unique, dot visible on the scan). title keeps the base dot; caption as printed (no dot). Shields are unique per STANDARD rev 8 regardless. Slip text matches the wiki stub exactly. Lore checked on the 745 px scan: matches the wiki, no corrections. The 745 px scan Dagobah-L-doordonot.gif is tagged \"D-E1\" (errata face); its text reads \"when any player makes a destiny draw\" (the wiki base gt’s \"when and player\" is a wiki typo, not on the card); used as art.src. Copyright read off the scan: \"TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.\" No modern remake file.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. Sense and Alter are Lost Interrupts.\nWhen any player makes a successful destiny draw for\nSense or Alter, that player loses 2 Force."
+}

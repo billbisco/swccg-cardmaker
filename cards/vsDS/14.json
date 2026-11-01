@@ -1,0 +1,29 @@
+{
+ "number": "14",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•No Escape",
+ "caption": "•No Escape (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. At opponent’s ◇ site where opponent’s creature present, you may deploy without presence or Force icons, and your Force generation there is +1.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Jabba’s influence is not easily ignored. Neither are his voracious and vile appetites. Even Jedi soon learn this lesson.",
+ "destiny": "4",
+ "base_page": "No Escape",
+ "art": {
+  "src": "src/vsDS/14-JPSD-D-noescape.gif",
+  "modern": null
+ },
+ "id": "vsDS-14",
+ "virtual_set": "DS",
+ "expansion": "Jabba's Palace Sealed Deck",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Jabba's Palace Sealed Deck Effect. No grabber box. Slip heading and caption both •; match the base. White diamond (non-unique-location mark) before 'site' typed as ◇ (U+25C7); the wiki stub reads it as 'system site' and the PDF text layer drops it — otherwise identical to the stub. Lore wording matches the wiki; curly apostrophe in Jabba’s (wiki straight; 350 px scan, also on the VSh remake). COPYRIGHT: the 350 px scan reads '© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.' (Jabba's Palace Sealed Deck was released 2000), NOT the 1998 Hoth-style line the brief suggested — used what the scan prints (same as the earlier JPSD card in this repo). Modern: VSh-D-noescape-pre.gif (350 px). Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. At opponent’s ◇ site where\nopponent’s creature present, you may deploy without\npresence or Force icons, and your Force generation\nthere is +1."
+}

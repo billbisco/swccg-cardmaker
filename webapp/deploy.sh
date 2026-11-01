@@ -12,4 +12,8 @@ mkdir -p /opt/swccg-cardmaker-data && chown 10010:10010 /opt/swccg-cardmaker-dat
 docker run -d --name swccg_cardmaker --restart unless-stopped --memory 1500m --cpus 2 --shm-size 256m \
   -p 127.0.0.1:17010:8790 -v /opt/swccg-cardmaker-data:/data -v /opt/swccg-holotable:/holotable:ro -v /opt/swccg-cardmaker-src/src:/app/src:ro swccg-cardmaker:latest >/dev/null
 mkdir -p /var/www/swccg.com/cardmaker && cp -r webapp/static/. /var/www/swccg.com/cardmaker/
+# drop the previous builds of this image (each deploy leaves a 4 GB dangling image; base layers are shared)
+for i in $(docker images -f dangling=true -q); do
+  [ "$(docker image inspect "$i" --format '{{json .Config.Cmd}}')" = '["python3","webapp/server.py","--port","8790"]' ] && docker rmi -f "$i" >/dev/null || true
+done
 echo "deployed $(date -u +%FT%TZ)"

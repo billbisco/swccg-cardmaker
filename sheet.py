@@ -18,7 +18,10 @@ SHEET_PDF = {3: "VirtualCards3-legacy.pdf"}   # the Dec 2006 Remaster sheet of V
 DPI = 300
 
 
-def sheet_pdf(vs: int) -> Path:
+def sheet_pdf(vs) -> Path:
+    from ovs_sets import SPECIAL
+    if isinstance(vs, str):   # Defensive Shields etc.: the sheet sits in its own folder
+        return ROOT / f"src/slips/vs{vs}" / SPECIAL[vs]["pdf"]
     return ROOT / "src/slips" / SHEET_PDF.get(vs, f"VirtualCards{vs}.pdf")
 
 
@@ -77,5 +80,6 @@ def slip_boxes(vs: int) -> dict[str, tuple[int, int, int, int, int]]:
 
 if __name__ == "__main__":
     import sys
-    b = slip_boxes(int(sys.argv[1]))
+    from ovs_sets import parse
+    b = slip_boxes(parse(sys.argv[1]))
     print(len(b), sorted(b))

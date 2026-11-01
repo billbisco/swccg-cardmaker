@@ -1,0 +1,29 @@
+{
+ "number": "17",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•There Is No Try",
+ "caption": "•There Is No Try (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Sense and Alter are Lost Interrupts. When any player makes a successful destiny draw for Sense or Alter, that player loses 2 Force.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "“Always with you what cannot be done.”",
+ "destiny": "4",
+ "base_page": "There Is No Try",
+ "art": {
+  "src": "src/vsDS/17-Dagobah-D-thereisnotry.gif",
+  "modern": null
+ },
+ "id": "vsDS-17",
+ "virtual_set": "DS",
+ "expansion": "Dagobah",
+ "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Dagobah Effect. No grabber box. Slip heading and caption both •; match the base (its Light counterpart Do, Or Do Not (V) drops the dot; this one does not). No inline icons; slip text matches the stub. Lore corrected from the 350 px scan: curly double quotes “…” (wiki straight single quotes). Copyright read off the 350 px scan: Dagobah line, 1997. Modern: none.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. Sense and Alter are Lost Interrupts.\nWhen any player makes a successful destiny draw for\nSense or Alter, that player loses 2 Force."
+}

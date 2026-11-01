@@ -1,0 +1,29 @@
+{
+ "number": "08",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Your Insight Serves You Well",
+ "caption": "•Your Insight Serves You Well (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. If an ‘insert’ card was just inserted or revealed, it is canceled. Scanning Crew is canceled.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Luke knew that while the dark side was quicker and more seductive, eventually evil would turn on itself.",
+ "destiny": "5",
+ "base_page": "Your Insight Serves You Well",
+ "art": {
+  "src": "src/vsDS/08-DS2-L-yourinsightservesyouwell.gif",
+  "modern": null
+ },
+ "id": "vsDS-08",
+ "virtual_set": "DS",
+ "expansion": "Death Star II",
+ "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
+ "notes": "Curly single quotes around ‘insert’ (wiki stub straight); otherwise slip text matches the stub. Heading and caption •Your Insight Serves You Well (V), dots match the base. Lore read off the 350 px scan: matches the wiki, no corrections. Copyright: Death Star II SE-style line, barely legible on the 350 px scan; set default 2000. Modern file VSh-L-yourinsightservesyouwellv-pre.gif is the PC’s later remake (caption \"(Death Star II) (V)\", D58) with DIFFERENT text (Boonta Eve Podrace, Watto’s Box) — art reference only. Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. If an ‘insert’ card was just inserted or\nrevealed, it is canceled. Scanning Crew is canceled."
+}

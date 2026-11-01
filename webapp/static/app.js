@@ -67,9 +67,15 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
+  // PC label (Bill 2026-11-01): one free label with a position preset; the errata mark has its own field (errata_mark)
+  const lt = (fd.get("label_text") || "").trim();
+  s.labels = lt ? [{ preset: fd.get("label_preset") || "concept", text: lt }] : [];
+  delete s.label_text; delete s.label_preset;
+  // manual text size adjust (+/- px from the largest size that fits; Bill 2026-11-01)
+  for (const k of ["text_adjust", "lore_adjust"]) { const n = parseFloat(fd.get(k)); if (n) s[k] = Math.max(-20, Math.min(20, n)); else delete s[k]; }
   const mk = $("#setMark").value;   // "", "ovs:N", "pc:N", "vb:N"
   s.virtual_set = mk.startsWith("ovs:") ? +mk.slice(4) : null;
   s.set_mark = /^(pc|vb):/.test(mk) ? mk : null;
@@ -109,7 +115,10 @@ function writeForm(s, data) {
     else el.value = s[el.name] ?? "";
   }
   if (!s.style) form.elements.style.value = "decipher";
-  if (!s.expansion_style) form.elements.expansion_style.value = "decipher";
+  if (!s.expansion_style) form.elements.expansion_style.value = "pc";   // the PC's spheres by default (Bill 2026-11-01)
+  const lb = (s.labels || [])[0] || {};
+  form.elements.label_text.value = lb.text || ""; form.elements.label_preset.value = lb.preset || "concept";
+  form.elements.text_adjust.value = s.text_adjust || 0; form.elements.lore_adjust.value = s.lore_adjust || 0;
   if (!s.shield_style) form.elements.shield_style.value = s.style === "ovs" ? "fade" : "decipher";
   $("#setMark").value = s.set_mark || (s.virtual_set ? "ovs:" + s.virtual_set : "");
   form.elements.light_force_count.value = s.light_force_count ?? (s.light_force ? 1 : 0);
@@ -337,7 +346,7 @@ let boxes = {}, sel = "";
 const PIECE_NAMES = { art: "Picture", affiliation: "Affiliation disc", title: "Title(s)", destiny: "Destiny", lore: "Lore",
   stats: "Stats row", banner: "Banner / type", game_text: "Game text", deploy: "Deploy", forfeit: "Forfeit", scomp: "Scomp ring",
   icons: "Side icons", set_mark: "Set mark", expansion: "Expansion symbol", coins: "Credit coins", ring_icons: "Episode / theme discs",
-  margin_icon: "Margin icon", location_text: "Location text", parsec: "Parsec", copyright: "Copyright line", credits: "Credits", caption: "Caption strip", number: "Card number" };
+  margin_icon: "Margin icon", location_text: "Location text", parsec: "Parsec", copyright: "Copyright line", credits: "Credits", caption: "Caption strip", number: "Card number", label0: "Errata mark / label", label1: "Label 2" };
 const darkLoc = () => spec && spec.side === "Dark" && (spec.slip_type === "Site" || spec.slip_type === "System");
 const L = n => (((spec && spec.layout) || {})[n] || {});
 function setL(n, patch) {

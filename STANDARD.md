@@ -453,3 +453,16 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (`render.frame_hole`, measured from the frame's alpha; `art_cover_hole` set by the adapter, VS remasters
   unchanged) — some frames' holes run past the template art box and left a black sliver. Editor: expansion symbol
   moved up into the Card section ("top, beside the lore"); the set mark is the "bottom corner".
+- Rev 50 (Bill 2026-11-01: "create all of the Defensive Shields … so these Original Virtual Defensive Shields can
+  continue to be easily created"): the Players Committee's 4 December 2006 sheet **Virtual Set: Defensive Shields**
+  (18 slips, GEMP 1100) runs through the same pipeline as Virtual Sets 1–17 under the set key `DS`
+  (`ovs_sets.py`: name, sheet PDF, GEMP set, file prefixes, slip titles). Folders `src/slips/vsDS/` (DefensiveShields.pdf
+  from the Internet Archive + p300 pages + crops), `src/vsDS/` (base scans), `cards/vsDS/NN.json`, renders
+  `out/vsDS-NN_*.png`; set sphere `assets/icons/ovs-set-DS.png` (the cover's red orb, 74 px → 312 px, round mask).
+  `python3 crop_slips.py DS`, `slip_lines.py DS`, `qa_text.py DS`, `build_vs.py DS`, `make_upload.py DS <dir>`
+  (remasters `PS1-NN-<Title>-remaster.webp`, slips under the wiki's `PS1-NN-<Title>.png`). All 18 bases are Decipher
+  Effects, so every slip uses the shield-fade frame like VS6 #24 / #34. Light shields now carry the banner grabber box
+  position (`ls-shield` `banner_icon`, A Tragedy Has Occurred (V)). Decipher's non-unique-location mark ◇ (Ounee Ta,
+  No Escape: "opponent’s ◇ site") is typed as U+25C7 and drawn in DejaVu Sans (`.dia`), like ▲ / ▼. Where a base
+  has only a Virtual Shields (VSh-) remake as its "modern" scan, art comes from the Decipher scan: the shield face's
+  narrower art window left a cyan strip at the art box's right edge.

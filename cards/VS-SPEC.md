@@ -89,3 +89,12 @@ Write each JSON with ensure_ascii=False, indent 1. Don't touch render.py or othe
   **Automated Weapon**: `slip_type` = the banner as printed, `card_type` = the banner text.
 - Character third box may read ASTROMECH DROID, MEDICAL DROID, FORCE-SENSITIVE … → `["MEDICAL DROID",""]`.
 - Hoth base cards: expansion "Hoth", copyright 1996; Dagobah 1997; Special Edition 1998; Premiere 1995; A New Hope 1996.
+
+## Additions (Defensive Shields run, 2026-11-01)
+- The set key can be a word: `DS` = Virtual Set: Defensive Shields (4 Dec 2006 sheet, 18 slips, GEMP 1100). Everything
+  uses `vs{key}`: `cards/vsDS/NN.json` with `"id": "vsDS-NN"`, `"virtual_set": "DS"`, crops `src/slips/vsDS/NN-Title.png`,
+  base scans `src/vsDS/NN-<file>`. Add another non-numbered sheet in `ovs_sets.py` (name, pdf, gemp, prefixes, titles).
+- A slip that turns a Decipher Effect into a shield: `slip_type` "Defensive Shield", `card_type` "DEFENSIVE SHIELD",
+  `grabber` true when the banner keeps the printed grabber box. The white diamond in text (◇, non-unique location) is
+  typed as U+25C7, never "system" or an {icon:…} token. Italic parentheticals (Aim High, Secret Plans) as _…_.
+- Do not take art from a Virtual Shields (VSh-…) face: its art window is narrower. Use the Decipher scan.

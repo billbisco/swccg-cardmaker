@@ -101,8 +101,8 @@ def template_for(c: dict) -> str:
         if "alien" in aff:
             return "ds-character-alien"
         return "ds-character-imperial"
-    if "device" in st and c.get("device_frame"):
-        return f"{side}-device"   # card maker: Device type icon
+    if "device" in st:
+        return f"{side}-device"   # Devices always get the Device frame + icon (Bill 2026-11-01: Han's Toolkit is a Device, not a Weapon)
     if "weapon" in st or "device" in st:
         return f"{side}-weapon"
     if "vehicle" in st:
@@ -118,7 +118,7 @@ def template_for(c: dict) -> str:
     return f"{side}-effect"
 
 
-def convert(c: dict, vs: int) -> dict:
+def convert(c: dict, vs) -> dict:
     gt = c.get("game_text_lines") or c["game_text"]   # the slip's own line breaks when slip_lines.py has recorded them
     for k, v in TOKEN_FIX.items():
         gt = gt.replace(k, v)
@@ -204,7 +204,8 @@ def convert(c: dict, vs: int) -> dict:
 
 
 if __name__ == "__main__":
-    vs = int(sys.argv[1])
+    from ovs_sets import parse
+    vs = parse(sys.argv[1])
     nums = [f"{int(n):02d}" if n.isdigit() else n for n in sys.argv[2:]] or sorted(p.stem for p in (ROOT / f"cards/vs{vs}").glob("[0-9][0-9]*.json") if re.fullmatch(r"\d\d[a-z]?", p.stem))
     for n in nums:
         c = json.loads((ROOT / f"cards/vs{vs}/{n}.json").read_text(encoding="utf-8"))

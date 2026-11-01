@@ -1,0 +1,29 @@
+{
+ "number": "13",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Fanfare",
+ "caption": "•Fanfare (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Once per game, may ▲ an Immediate Effect. Unless opponent occupies a battleground system, Staging Areas is suspended. Order To Engage and Scramble are canceled.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "The Boonta Eve crowds are always looking for new and exciting developments at every Podrace.",
+ "destiny": "4",
+ "base_page": "Fanfare",
+ "art": {
+  "src": "src/vsDS/13-Tat-D-fanfare.gif",
+  "modern": null
+ },
+ "id": "vsDS-13",
+ "virtual_set": "DS",
+ "expansion": "Tatooine",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Tatooine Effect. No grabber box. Slip heading and caption both •; match the base. Slip prints ▲ ('may ▲ an Immediate Effect') where the wiki stub expands it ('may take an Immediate Effect into hand from Reserve Deck; reshuffle'); otherwise identical. Lore matches the wiki and the 350 px scan (no correction). Copyright read off the 350 px scan: Tatooine 2001 SE-style line with year after the first ©. Base also prints an Episode I icon (printed-card feature). Modern: VSh-D-fanfare-pre.gif (350 px). Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
+ "grabber": false,
+ "game_text_lines": "Plays on table. Once per game, may ▲ an Immediate\nEffect. Unless opponent occupies a battleground\nsystem, Staging Areas is suspended. Order To Engage\nand Scramble are canceled."
+}

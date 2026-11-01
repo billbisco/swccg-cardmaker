@@ -1,0 +1,29 @@
+{
+ "number": "12",
+ "side": "Dark",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•Do They Have A Code Clearance?",
+ "caption": "•Do They Have A Code Clearance? (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. If opponent just retrieved Force using an Interrupt or Utinni Effect, you may place that card here. Opponent’s Force retrieval is reduced by X, where X = number of cards here.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Imperial officers are always on the lookout for Rebel espionage.",
+ "destiny": "5",
+ "base_page": "Do They Have A Code Clearance?",
+ "art": {
+  "src": "src/vsDS/12-Cor-D-dotheyhaveacodeclearance.gif",
+  "modern": null
+ },
+ "id": "vsDS-12",
+ "virtual_set": "DS",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Coruscant Effect. Banner carries the GRABBER icon box at its right end (lavender box, black hand — as on the printed Coruscant Effect) → grabber true. Slip heading and caption both •; match the base. No inline icons; slip text matches the stub. Lore matches the wiki and the 745 px scan (no correction). Copyright read off the 745 px scan: 2001 SE-style line with year after the first ©. Modern: the PC's Virtual Shields remake VSh-D-dotheyhaveacodeclearancev-pre.gif (350 px). Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
+ "grabber": true,
+ "game_text_lines": "Plays on table. If opponent just retrieved Force using\nan Interrupt or Utinni Effect, you may place that card\nhere. Opponent’s Force retrieval is reduced by X,\nwhere X = number of cards here."
+}

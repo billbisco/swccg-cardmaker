@@ -154,7 +154,7 @@ TEMPLATES = {
         "frame": ("frames/ls-shield-hybrid.png", 146, 141),
         "art": (244, 661, 1143, 755), "title": (401, 206, 779, 100), "destiny": (1313, 202, 104, 104),
         "lore": (320, 376, 1019, 193), "card_type": (268, 1505, 1109, 61), "game_text": (317, 1658, 997, 328),
-        "set_icon_abs": (1397, 1942), "set_icon_size": 60, "expansion_ring": (1381, 405), "copyright_x": 1416, "dark_text": True, "lore_indent": 0,
+        "banner_icon": (1292, 1492), "set_icon_abs": (1397, 1942), "set_icon_size": 60, "expansion_ring": (1381, 405), "copyright_x": 1416, "dark_text": True, "lore_indent": 0,
     },
     "ls-effect": {
         "frame": ("frames/ls-effect.png", 146, 141),
@@ -396,7 +396,13 @@ TEMPLATES["ls-shield-dc"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shiel
 TEMPLATES["ds-shield-dc"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield.png", 144, 146))
 # Devices (card maker): the weapon frames with Bardez's Device type icon (DS / LS - Device.xcf) — Deflector Shield Generators
 TEMPLATES["ds-device"] = dict(TEMPLATES["ds-weapon"], frame=("frames/ds-device.png",) + TEMPLATES["ds-weapon"]["frame"][1:])
-TEMPLATES["ls-device"] = dict(TEMPLATES["ls-weapon"], frame=("frames/ls-device.png",) + TEMPLATES["ls-weapon"]["frame"][1:])
+# LS Device (Bill 2026-11-01): its own frame, Bardez "LS - Device.xcf" layer 11 (the Gigapixel frame with the Device icon), cropped
+# to its bbox at (145,145). It used to be the LS Weapon frame with the icon swapped, which carried the Weapon-only bolts under the
+# icon and the burn mark left of the lore box (Decipher prints those on LS Weapons, never on Devices). Art box = the frame's window.
+TEMPLATES["ls-device"] = dict(TEMPLATES["ls-weapon"], frame=("frames/ls-device.png", 145, 145), art=(248, 665, 1136, 752),
+                              # game text box as wide as the PC sets it: their LS Device lines run to x≈1341 (Obi-Wan's Journal
+                              # Errata; Han's Medal, Jedi Holocron, Cyborg Construct to 1325-1331), 47 px inside the plate's edge
+                              game_text=(320, 1658, 1020, 328))
 TEMPLATES["ds-shield-fade"] = dict(TEMPLATES["ds-shield"], frame=("frames/ds-shield-fade.png", 0, 0))
 TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shield-fade.png", 0, 0))
 # Virtual Block Dark shields (No Escape (V)): Decipher's Dark shield frame, cyan fading to red at the foot
@@ -404,6 +410,50 @@ TEMPLATES["ls-shield-fade"] = dict(TEMPLATES["ls-shield"], frame=("frames/ls-shi
 TEMPLATES["ls-character-droid-dc"] = dict(TEMPLATES["ls-character-droid"], frame=("frames/ls-character-droid-dc.png",) + TEMPLATES["ls-character-droid"]["frame"][1:])
 TEMPLATES["ds-character-droid-dc"] = dict(TEMPLATES["ds-character-droid"], frame=("frames/ds-character-droid-dc.png",) + TEMPLATES["ds-character-droid"]["frame"][1:])
 TEMPLATES["ds-shield-vb"] = dict(TEMPLATES["ds-shield-dc"], frame=("frames/ds-shield-vb.png",) + TEMPLATES["ds-shield-dc"]["frame"][1:])
+
+# Game text boxes measured from the PC's own faces (Bill 2026-11-01): text extents of 4-14 Holotable gifs per template from
+# Virtual Sets 0-27 (the leftmost glyph, the longest line + 2 px, the first line's cap top), converted to the 1632 px master.
+# The PC sets every one of them at 62 px on 64 px lines (32 px pitch at 745) and makes long text fit by rewording, not by
+# shrinking; Decipher's printed cards use the same boxes. Variants on the same plate (shields, -dc, -fade, -vb) share the box.
+# Measurement script and table: cm-lsdevice/ts (many.py, measure.py). ds-effect-tall, Jedi Tests, Epic Events and Objectives
+# had too few PC samples and keep their boxes (Epic Event: shifted to the PC's left edge).
+GT_BOX_PC = {
+    "creature": (338, 1727, 952, 270),
+    "creature-dc": (338, 1727, 952, 270),
+    "ds-character-alien": (353, 1663, 951, 336),
+    "ds-character-droid": (353, 1663, 945, 336),
+    "ds-character-droid-dc": (353, 1663, 945, 336),
+    "ds-character-imperial": (354, 1662, 942, 334),
+    "ds-device": (313, 1663, 1015, 334),
+    "ds-effect": (314, 1660, 1020, 335),
+    "ds-interrupt": (315, 1665, 1011, 329),
+    "ds-shield": (314, 1660, 1020, 335),
+    "ds-shield-dc": (314, 1660, 1020, 335),
+    "ds-shield-fade": (314, 1660, 1020, 335),
+    "ds-shield-vb": (314, 1660, 1020, 335),
+    "ds-starship-starfighter": (354, 1726, 928, 271),
+    "ds-vehicle": (354, 1726, 932, 270),
+    "ds-weapon": (314, 1663, 1014, 334),
+    "epic-event": (304, 1332, 1060, 676),   # PC Epic Events print 10-11 lines down to y 1998
+    "ls-character-alien": (354, 1659, 956, 335),
+    "ls-character-alien-rebel": (351, 1660, 957, 334),
+    "ls-character-droid": (354, 1661, 946, 326),
+    "ls-character-droid-dc": (354, 1661, 946, 326),
+    "ls-character-rebel": (353, 1658, 953, 336),
+    "ls-device": (312, 1655, 1018, 331),
+    "ls-effect": (311, 1656, 1019, 330),
+    "ls-interrupt": (312, 1661, 1022, 333),
+    "ls-jeditest-epic": (311, 1656, 1019, 330),
+    "ls-shield": (311, 1656, 1019, 330),
+    "ls-shield-dc": (311, 1656, 1019, 330),
+    "ls-shield-fade": (311, 1656, 1019, 330),
+    "ls-starship-starfighter": (346, 1720, 998, 288),
+    "ls-vehicle": (345, 1719, 999, 289),
+    "ls-weapon": (312, 1655, 1018, 331),
+}
+for _k, _b in GT_BOX_PC.items():
+    if _k in TEMPLATES:
+        TEMPLATES[_k] = dict(TEMPLATES[_k], game_text=_b)
 
 ICON_FILES = {
     # column icons: the PC's own Game Aid icons, frame included (COL_ prefix = drawn without the Bardez icon box)
@@ -543,6 +593,7 @@ def game_text_html(text: str) -> str:
     html = re.sub(r"\*(.+?)\*", r"<b>\1</b>", html, flags=re.S)
     html = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", html, flags=re.S)   # italics may span the slip's line breaks
     html = html.replace("▲", "<span class=tri>▲</span>").replace("▼", "<span class=tri>▼</span>")
+    html = html.replace("◇", "<span class=dia>◇</span>")   # Decipher's non-unique-location mark (Defensive Shields: "opponent’s ◇ site")
     return html.replace("\n", "<br>").replace("¶", "<br>")   # ¶ = a paragraph break that keeps normal wrapping (card maker)
 
 
@@ -1122,6 +1173,119 @@ def frame_hole(t: dict) -> tuple:
     return _HOLE[key]
 
 
+# PC label presets, measured on the PC's 745 px Holotable faces (×2 + Holotable offset = master px): errata marks on
+# Obi-Wan's Journal, Grappling Hook, Luke's Blaster Pistol (D-E1/D-E2), Fall Of A Jedi (E1), Ominous Rumors (E2),
+# Surprise Assault (E3): right edge x≈1482, cap top ≈2090, baseline ≈2130 (cap 40–42 px), white heavy oblique.
+# Titles bottom-left (V21–27): x≈148, same baseline. "Original concept by …" (General Poe Dameron, Baron Soontir Fel
+# (V)): centred, baseline ≈2062, white condensed italic with a dark edge. Offsets are from the card's edges, so the
+# presets also work on landscape cards.
+LABEL_PRESETS = {
+    "errata":      dict(anchor="right",  x=-150, y=-91, size=57, font="AGBoldCnA", italic=True,  stroke=2.8, color="#ffffff", sx=1.38,
+                         skew=8.5, mark=True),
+    "bottom-left": dict(anchor="left",   x=148,  y=-90, size=55, font="AGBoldCnA", italic=False, stroke=0.6, color="#ffffff", sx=1.30),
+    "bottom-right": dict(anchor="right", x=-150, y=-90, size=55, font="AGBoldCnA", italic=False, stroke=0.6, color="#ffffff", sx=1.30),
+    "concept":     dict(anchor="center", x=2,    y=-158, size=54, font="AGCn",     italic=True,  stroke=1.0, color="#ffffff", edge="#000000"),
+    "top-right":   dict(anchor="right",  x=-150, y=128, size=50, font="AGBoldCnA", italic=False, stroke=1.0, color="#ffffff", sx=1.33),
+}
+LABEL_FONTS = {"bold": "AGBoldCnA", "text": "AGCn", "medium": "AGMedCn", "number": "AGMedExt", "title": "Fiorello"}
+
+
+def card_labels(card: dict) -> list:
+    out = []
+    if card.get("errata_mark"):
+        out.append({"preset": "errata", "text": str(card["errata_mark"])})
+    for lb in (card.get("labels") or [])[:12]:
+        if isinstance(lb, dict) and str(lb.get("text") or "").strip():
+            out.append(lb)
+    return out
+
+
+def _mark_html(text: str, size: float, col: str, stroke: float) -> str:
+    """PC errata mark glyphs (Bill 2026-11-01). AGBoldCnA's figures are 665/1000 high against 706 for the capitals, so a
+    plain "1" stands about 6% short of the "E" and reads as dropped below it; the PC's mark sets its figures at cap height.
+    Figures are stretched to cap height (and a little wider, as the PC's "1" is), and the hyphen is the PC's short, heavy
+    bar (8 x 4-5 px on a 745 px card) instead of the font's long thin one. Measured on Obi-Wan's Journal, Frustration,
+    Luke's Blaster Pistol, Tentacle, Grappling Hook, Fallen Order and Ominous Rumors (V) (Holotable gifs)."""
+    out = []
+    for ch in text:
+        if ch.isdigit():
+            out.append(f'<span style="display:inline-block;transform:scale({1.10 if ch == "1" else 1.0},1.045);transform-origin:left bottom;'
+                       f'margin:0 {0.06 * size:.1f}px 0 {0.05 * size:.1f}px">{esc(ch)}</span>')
+        elif ch in "-\u2010\u2011\u2012\u2013":
+            w, h = 0.155 * size, 0.12 * size
+            out.append(f'<span style="display:inline-block;width:{w:.1f}px;height:{h:.1f}px;background:{col};'
+                       f'vertical-align:{0.20 * size:.1f}px;margin:0 {0.035 * size:.1f}px 0 {0.07 * size:.1f}px;'
+                       f'box-shadow:0 0 0 {stroke / 2:.1f}px {col}"></span>')
+        else:
+            out.append(esc(ch))
+    return "".join(out)
+
+
+def label_html(lb: dict, W: int, H: int) -> str:
+    p = dict(LABEL_PRESETS.get(lb.get("preset") or "", LABEL_PRESETS["bottom-right"] if lb.get("preset") else
+                               dict(anchor="left", x=300, y=300, size=48, font="AGBoldCnA", italic=False, stroke=0, color="#ffffff")))
+    for k in ("anchor", "x", "y", "size", "italic", "stroke", "color", "edge", "sx", "skew"):
+        if lb.get(k) is not None:
+            p[k] = lb[k]
+    if lb.get("font"):
+        p["font"] = LABEL_FONTS.get(str(lb["font"]), p["font"])
+    num = lambda v, d, lo, hi: max(lo, min(hi, float(v))) if isinstance(v, (int, float)) else d
+    size = num(p["size"], 52, 10, 200)
+    x = num(p["x"], 0, -W, W); y = num(p["y"], 0, -H, H)
+    x = (W / 2 + x) if p["anchor"] == "center" else (W + x if x < 0 else x)
+    base = H + y if y < 0 else y                                  # the label's baseline
+    col = p["color"] if re.fullmatch(r"#[0-9a-fA-F]{3,8}", str(p["color"])) else "#ffffff"
+    edge = p.get("edge") if re.fullmatch(r"#[0-9a-fA-F]{3,8}", str(p.get("edge") or "")) else None
+    stroke = num(p.get("stroke"), 0, 0, 6)
+    tr = {"left": "0", "right": "-100%", "center": "-50%"}.get(p["anchor"], "0")
+    skew = (f"skewX(-{num(p.get('skew'), 12, 0, 30):g}deg) " if p.get("italic") else "") + \
+        (f"scaleX({num(p.get('sx'), 1, 0.5, 2):.3f})" if p.get("sx") else "")
+    sh = f"text-shadow:2px 3px 3px {edge},0 0 2px {edge};" if edge else ""
+    text = str(lb.get("text"))[:80]
+    common = (f'font-family:{p["font"]};font-size:{size:.0f}px;line-height:1;color:{col};white-space:nowrap;'
+              f'-webkit-text-stroke:{stroke}px {col};{sh}')
+    # the box's top = baseline - 0.80 x size (the Akzidenz faces' ascent at line-height 1)
+    top = base - 0.80 * size
+    m = re.fullmatch(r"(.*?)(E\d{0,2})", text) if p.get("mark") else None
+    if m:
+        # The PC stamps the "E1"/"E2" part at a fixed spot and sets any prefix ("D-") to its left: the E's left edge is
+        # at x 673 on every 745 px Holotable errata face measured (D-E1, D-E2, E1, E2).
+        ex = num(p.get("e_x"), W - 220, -W, W); ex = W + ex if ex < 0 else ex
+        org = "left bottom"
+        html = (f'<div class="label" style="position:absolute;left:{ex:.0f}px;top:{top:.0f}px;transform:{skew};'
+                f'transform-origin:{org};{common}">{_mark_html(m.group(2), size, col, stroke)}</div>')
+        if m.group(1):
+            html += (f'<div class="label" style="position:absolute;left:{ex:.0f}px;top:{top:.0f}px;transform:translateX(-100%) {skew};'
+                     f'transform-origin:right bottom;{common}">{_mark_html(m.group(1), size, col, stroke)}</div>')
+        return html
+    body = _mark_html(text, size, col, stroke) if p.get("mark") else esc(text)
+    return (f'<div class="label" style="position:absolute;left:{x:.0f}px;top:{top:.0f}px;transform:translateX({tr}) {skew};'
+            f'transform-origin:{"right" if p["anchor"] == "right" else "left"} bottom;{common}">{body}</div>')
+
+
+def fit_attrs(card: dict, box: str) -> str:
+    """Optional text-fit limits (card maker / API "text_fit"): {"max", "min", "ls_min", "lh_min"} for every text box, or
+    keyed by box ("game_text", "lore") — the largest size that fits is searched between them (see fit_js)."""
+    adj = card.get("text_adjust" if box == "game_text" else "lore_adjust")
+    try:
+        adj = max(-20.0, min(20.0, float(adj or 0)))
+    except (TypeError, ValueError):
+        adj = 0.0
+    adj_attr = f' data-fit-adj="{adj:g}"' if adj else ""
+    tf = card.get("text_fit")
+    if not isinstance(tf, dict):
+        return adj_attr
+    tf = dict({k: v for k, v in tf.items() if not isinstance(v, dict)}, **(tf.get(box) if isinstance(tf.get(box), dict) else {}))
+    out = []
+    for k, attr, lo, hi in (("max", "fit-max", 20, 120), ("min", "fit-min", 12, 120), ("ls_min", "ls-min", -4, 2), ("lh_min", "lh-min", 0.8, 1.2)):
+        try:
+            if tf.get(k) is not None:
+                out.append(f' data-{attr}="{max(lo, min(hi, float(tf[k]))):g}"')
+        except (TypeError, ValueError):
+            pass
+    return "".join(out) + adj_attr
+
+
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
@@ -1243,10 +1407,10 @@ def build_html(card: dict) -> str:
         sec('location_text')
         lx, ly_, lw, lh = t["ls_text"]; ly_ -= DL; lh += DL
         if not LA:
-            parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
+            parts.append(f'<div class="ltext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
         tx, ty, tw, th = t["ds_text"]; th += DD
         if not DA:
-            parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+            parts.append(f'<div class="dtext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
     elif t.get("system"):
         LA, DA = card.get("light_half_absent"), card.get("dark_half_absent")   # one-sided systems (Death Star)
         if not LA:
@@ -1258,10 +1422,10 @@ def build_html(card: dict) -> str:
         sec('location_text')
         if not LA:
             x, y, w, h = t["ls_text"]
-            parts.append(f'<div class="ltext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
+            parts.append(f'<div class="ltext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
         if not DA:
             x, y, w, h = t["ds_text"]
-            parts.append(f'<div class="dtext fit{pre}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+            parts.append(f'<div class="dtext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
         sec('parsec')
         if card.get("parsec") is not None:
             if not LA:
@@ -1295,7 +1459,7 @@ def build_html(card: dict) -> str:
     if card.get("lore") and "lore" in t:   # wide full-art Effects print no lore (I Must Be Allowed To Speak (ALT))
         lx_, ly_, lw_, lh_ = t["lore"]
         tx0, rgt, ind, cut, lsp = t.get("lore_x") or LORE_X["Light" if t.get("dark_text") else "Dark"]
-        parts.append(f'<div class="lore fit" style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
+        parts.append(f'<div class="lore fit"{fit_attrs(card, "lore")} style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
                      f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
                      f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(card["lore"])}</div>')
     sec('stats')
@@ -1371,7 +1535,7 @@ def build_html(card: dict) -> str:
         for k, nt in enumerate(notes):
             parts.append(f'<div style="position:absolute;right:{1632 - 1320}px;top:{gy + gh + 10 + k * 56}px;font-family:AGCn;font-size:52px;color:#fff;white-space:nowrap">{esc(nt.replace("✶", "*"))}</div>')
     elif "game_text" in t:
-        parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}" style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
+        parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
     if card.get("deploy") not in (None, "") and "deploy" not in t and "game_text" in t and not t.get("wide"):
         # a card type whose frame has no deploy/forfeit boxes but the printing has them (artillery: Ewok Catapult):
@@ -1588,6 +1752,12 @@ def build_html(card: dict) -> str:
     sec('number')
     if card.get("number"):
         parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))}</div>')
+    # PC labels (Bill 2026-11-01): small printed marks the Players Committee adds — the errata mark in the bottom-right
+    # border (D-E1, E2 …), the original card's title bottom-left, "Original concept by …" in the frame's bottom bar.
+    # card "errata_mark": "D-E1" is a shortcut for {"preset": "errata", "text": "D-E1"}; "labels": [{preset|x/y, text, …}]
+    for i_, lb in enumerate(card_labels(card)):
+        sec(f"label{i_}")
+        parts.append(label_html(lb, W, H))
     # user layers (card maker): free text boxes and pictures, each its own piece "x:<id>" (move / resize / hide / reset)
     for ex in (card.get("extras") or [])[:30]:
         if not isinstance(ex, dict):
@@ -1637,9 +1807,10 @@ def build_html(card: dict) -> str:
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};overflow-wrap:anywhere;text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
-    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{t.get("gt_ink", ink)};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 3)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:0px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
+    .gt{{font-family:AGCn;font-size:{t.get("gt_size", 62)}px;color:{t.get("gt_ink", ink)};letter-spacing:0.5px;line-height:{t.get("gt_size", 62) + t.get("gt_lh_add", 2)}px;box-sizing:border-box;padding:6px 0 0 0;letter-spacing:{t.get("gt_ls", -0.4)}px;white-space:{"pre" if "\n" in card.get("game_text", "") else "normal"}}}
     .glyph{{font-family:"DejaVu Sans",sans-serif;font-size:1.0em;line-height:0;vertical-align:0.02em}}
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
+    .dia{{font-family:"DejaVu Sans",sans-serif;font-size:0.9em;vertical-align:0.06em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
     .gt-icon{{vertical-align:-9px;margin:0 3px}}
     .noicon{{display:inline-block;position:relative;width:62px;height:62px;border:6px solid #e3000f;border-radius:50%;box-sizing:border-box;vertical-align:-16px;margin:0 0 0 4px;overflow:hidden}}
@@ -1679,24 +1850,41 @@ def build_html(card: dict) -> str:
         while (sp.offsetWidth > el.clientWidth - 24 && ls > 0) { ls -= 0.5; el.style.letterSpacing = ls + 'px'; }
         if (sp.offsetWidth > el.clientWidth - 24) { sp.style.transform = 'scaleX(' + ((el.clientWidth - 24) / sp.offsetWidth) + ')'; }
       }
+      // Text fit (Bill 2026-11-01): the largest size that fits, the way Decipher and the PC squeeze long text in.
+      // Start at the box's standard size (the printed one: Obi-Wan's Journal's 62 px / 64 px lines); at each size
+      // first tighten the tracking (to ls_min), then the leading (to lh_min x size), and only then try a smaller size.
+      // Once a size fits, give back as much tracking as it can spare. Limits per box: data-fit-* (card "text_fit").
+      const overflows = (el) => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
       for (const el of document.querySelectorAll('.fit')) {
-        let size = parseFloat(getComputedStyle(el).fontSize);
-        let lh = parseFloat(getComputedStyle(el).lineHeight);
+        const cs = getComputedStyle(el);
+        let size = parseFloat(cs.fontSize), lh = parseFloat(cs.lineHeight);
         if (el.classList.contains('grow')) {   // Objectives: the slip's lines fill the box width — grow until a line would overflow
           while (el.scrollWidth <= el.clientWidth + 1 && el.scrollHeight <= el.clientHeight + 1 && size < 63) {   // the slips set Objectives in 62 px
             size += 1; lh += 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
           }
         }
-        // too wide: tighten the tracking a little first (to -1.2 px), as the slips set a long line
-        let ls = parseFloat(getComputedStyle(el).letterSpacing) || 0;
-        while (el.scrollWidth > el.clientWidth + 1 && ls > -1.2) { ls -= 0.2; el.style.letterSpacing = ls + 'px'; }
-        // too tall: tighten the line spacing first (to 0.94 em, as the slips do with a sixth line), then the size
-        while (el.scrollHeight > el.clientHeight + 1 && lh > size * 0.94 && el.scrollWidth <= el.clientWidth + 1) {
-          lh -= 1; el.style.lineHeight = lh + 'px';
+        const d = el.dataset, lhRatio = lh / size;
+        const ls0 = parseFloat(cs.letterSpacing) || 0;
+        const adj = parseFloat(d.fitAdj || 0);   // manual size adjust (+/- px, card maker "text_adjust" / "lore_adjust")
+        const maxS = Math.max(size, parseFloat(d.fitMax || size)) + adj, minS = Math.min(parseFloat(d.fitMin || 20), maxS);
+        const lsMin = parseFloat(d.lsMin ?? -1.2), lhMin = parseFloat(d.lhMin ?? 0.91), step = 0.1;
+        const set = (s, l, t) => { el.style.fontSize = s + 'px'; el.style.lineHeight = l + 'px'; el.style.letterSpacing = t.toFixed(2) + 'px'; };
+        let done = false;
+        for (let s = maxS; s >= minS && !done; s -= 1) {
+          let l = Math.round(s * lhRatio), t = ls0;
+          set(s, l, t);
+          if (!overflows(el)) { done = true; break; }
+          while (overflows(el) && t > lsMin + 1e-6) { t = Math.max(lsMin, t - step); set(s, l, t); }
+          while (overflows(el) && l - 1 >= s * lhRatio * lhMin) { l -= 1; set(s, l, t); }   // lh_min: share of the box's own line pitch
+          if (!overflows(el)) {
+            const l0 = Math.round(s * lhRatio);   // give back leading first (the printed cards keep their line pitch), then tracking
+            while (l < l0) { set(s, l + 1, t); if (overflows(el)) { set(s, l, t); break; } l += 1; }
+            while (t < ls0 - 1e-6) { set(s, l, t + step); if (overflows(el)) { set(s, l, t); break; } t += step; }
+            done = true;
+          }
         }
-        while ((el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) && size > 20) {
-          size -= 1; lh -= 1; el.style.fontSize = size + 'px'; el.style.lineHeight = lh + 'px';
-        }
+        if (!done) set(minS, Math.round(minS * lhRatio * lhMin), lsMin);
+        const fc = getComputedStyle(el); el.dataset.fit = [fc.fontSize, fc.lineHeight, fc.letterSpacing].join(' ');
       }
       let creditFs = 46;   // rotated credits: unrotated width = run length; both share one size, as the slips print them
       for (const el of document.querySelectorAll('.fitcredit')) {

@@ -1,0 +1,318 @@
+{
+ "anh": {
+  "set": "A New Hope",
+  "decipher": {
+   "file": "icons/set-anh-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-A-New-Hope.png (https://wiki.swccg.com/images/7/73/Icon-set-A-New-Hope.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-anh-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "cloudcity": {
+  "set": "Cloud City",
+  "decipher": {
+   "file": "icons/set-cloudcity-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Cloud-City.png (https://wiki.swccg.com/images/7/73/Icon-set-Cloud-City.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-cloudcity-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "dagobah": {
+  "set": "Dagobah",
+  "decipher": {
+   "file": "icons/set-dagobah-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Dagobah.png (https://wiki.swccg.com/images/f/f6/Icon-set-Dagobah.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-dagobah-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "ds2": {
+  "set": "Death Star II",
+  "decipher": {
+   "file": "icons/set-ds2-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Death-Star-II.png (https://wiki.swccg.com/images/a/af/Icon-set-Death-Star-II.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-ds2-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "endor": {
+  "set": "Endor",
+  "decipher": {
+   "file": "icons/set-endor-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Endor.png (https://wiki.swccg.com/images/d/d1/Icon-set-Endor.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-endor-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "hoth": {
+  "set": "Hoth",
+  "decipher": {
+   "file": "icons/set-hoth-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Hoth.png (https://wiki.swccg.com/images/1/18/Icon-set-Hoth.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-hoth-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "jabbaspalace": {
+  "set": "Jabba's Palace",
+  "decipher": {
+   "file": "icons/set-jabbaspalace-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Jabbas-Palace.png (https://wiki.swccg.com/images/8/8e/Icon-set-Jabbas-Palace.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-jabbaspalace-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "se": {
+  "set": "Special Edition",
+  "decipher": {
+   "file": "icons/set-se-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-Special-Edition.png (https://wiki.swccg.com/images/1/12/Icon-set-Special-Edition.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-se-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "premium": {
+  "set": "Premium (silver sphere: Jedi Pack, ESB, Enhanced Premiere/Cloud City, OTSD, Third Anthology)",
+  "decipher": {
+   "file": "icons/set-premium-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "inner disc of the wiki's Icon-set-premium.png (https://wiki.swccg.com/images/b/bf/Icon-set-premium.png)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-premium-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "reflections2": {
+  "set": "Reflections II",
+  "decipher": {
+   "file": "icons/set-reflections2-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-reflections2-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "reflections3": {
+  "set": "Reflections III",
+  "decipher": {
+   "file": "icons/set-reflections3-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-reflections3-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "coruscant": {
+  "set": "Coruscant",
+  "decipher": {
+   "file": "icons/set-coruscant-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-coruscant-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "tatooine": {
+  "set": "Tatooine",
+  "decipher": {
+   "file": "icons/set-tatooine-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-tatooine-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "theed": {
+  "set": "Theed Palace",
+  "decipher": {
+   "file": "icons/set-theed-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": {
+   "file": "icons/set-theed-pc.png",
+   "size": [
+    240,
+    240
+   ],
+   "source": "Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45)",
+   "note": "the PC redraw printed on modern Virtual Sets and the PC Errata faces"
+  }
+ },
+ "ejp": {
+  "set": "Enhanced Jabba's Palace",
+  "decipher": {
+   "file": "icons/set-ejp-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32)",
+   "note": "Decipher as printed 1995-2001 (STANDARD.md rev 32, Bill 2026-10-14)"
+  },
+  "pc": null
+ },
+ "reflections-gold": {
+  "set": "Reflections Gold",
+  "decipher": {
+   "file": "icons/set-reflections-gold.png",
+   "source": "gold sphere cut from Andy Talaga's Reflections Gold reconstructions (build_vs.py)",
+   "note": "one version only; expansion_style does not change it"
+  },
+  "pc": null
+ }
+}

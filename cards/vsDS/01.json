@@ -1,0 +1,29 @@
+{
+ "number": "01",
+ "side": "Light",
+ "slip_type": "Defensive Shield",
+ "card_type": "DEFENSIVE SHIELD",
+ "title": "•A Tragedy Has Occurred",
+ "caption": "•A Tragedy Has Occurred (V)",
+ "stats": [],
+ "deploy": null,
+ "forfeit": null,
+ "game_text": "Plays on table. Once per game, may use 1 Force to stack one Interrupt just played here. To play any new Interrupt of the same name, player must first stack it here and use +1 Force for each Interrupt in stack, even if Interrupt is normally free.",
+ "icons": [],
+ "scomp": false,
+ "affiliation": null,
+ "lore": "Senator Palpatine was quick to point out the aggressions of the Trade Federation in front of the Galactic Senate.",
+ "destiny": "5",
+ "base_page": "A Tragedy Has Occurred",
+ "art": {
+  "src": "src/vsDS/01-Cor-L-atragedyhasoccurred.gif",
+  "modern": null
+ },
+ "id": "vsDS-01",
+ "virtual_set": "DS",
+ "expansion": "Coruscant",
+ "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
+ "notes": "GRABBER: the slip keeps the printed card’s grabber box at the right end of the DEFENSIVE SHIELD banner (black grabbing hand on a lavender-blue square, as on the printed Coruscant Effect’s EFFECT banner) → \"grabber\": true. Heading and caption both •A Tragedy Has Occurred (V), dots match the base. Slip text matches the wiki stub wording exactly (the printed card’s \"(Immune to Alter.)\" is dropped). Lore checked on the 745 px scan: matches the wiki, no corrections. The 745 px base scan Cor-L-atragedyhasoccurred.gif is tagged \"D-E1\" below the card (an errata face per the VS11 note) — its text and lore read as the printed card; used as art.src. Base top half also prints the Republic and Episode I icons under the destiny (kept from the printed card, not slip icons). Copyright read off the scan: \"© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.\" No modern remake file.",
+ "grabber": true,
+ "game_text_lines": "Plays on table. Once per game, may use 1 Force to\nstack one Interrupt just played here. To play any new\nInterrupt of the same name, player must first stack it\nhere and use +1 Force for each Interrupt in stack,\neven if Interrupt is normally free."
+}

@@ -111,7 +111,8 @@ def align(units: list[str], lines: list[list[str]]):
 
 
 def main():
-    vs = int(sys.argv[1])
+    from ovs_sets import parse
+    vs = parse(sys.argv[1])
     nums = [f"{int(n):02d}" for n in sys.argv[2:]] or sorted(p.stem for p in (ROOT / f"cards/vs{vs}").glob("[0-9][0-9].json"))
     from sheet import slip_boxes as keyed_boxes, sheet_pdf
     all_lines = pdf_lines(sheet_pdf(vs))
