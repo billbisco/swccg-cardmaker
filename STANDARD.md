@@ -503,3 +503,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Checked on Aim High (V) against the PDF rendered at master scale: bullet, caption and number ink boxes within 1 px.
   On all 18 Defensive Shields and the VS3 interrupt, character, weapon, starship and Imperial frames, the ink stays at
   least 2 px under the frame and 5 px above the card edge.
+- Rev 54 (2026-11-02, re-rendering VS1–17 with rev 53): frames end at different rows (master 2071 for the LS
+  Interrupt up to 2081 for the LS droid character), so a fixed `strip_top` left C-3PO (V) VS2 #3 and Imperial-Class
+  Star Destroyer (V) touching their frames. `frame_bottom()` now reads each card's final frame image (after
+  grown / no-lore / captive variants), taking the last row opaque across the bottom bar's middle third. The strip starts
+  one row below it, and the baseline sits 52 px under that row. Frames that fill the card (Admiral's Orders, game aids)
+  keep the template `strip_top`. When a low frame would bring the descenders within 3 px (745 scale) of the card edge,
+  `fit_js` raises the baseline instead of shrinking the type. Checked on every VS3 card: ink at least 3 px under the
+  frame and 4 px above the edge.

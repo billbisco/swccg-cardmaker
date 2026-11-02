@@ -1154,6 +1154,25 @@ def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
 _HOLE: dict = {}
 
 
+_FRAME_BOTTOM: dict = {}
+
+
+def frame_bottom(fr, fy: int) -> int | None:
+    """Master row of the frame's bottom edge: the last row where the frame image is opaque across its middle third
+    (the bottom bar). Frames that fill the whole card (Admiral's Orders, game aids) give None. Bill 2026-11-02: the
+    margin strip starts under each card's own frame (character frames end up to 6 px lower than Effects)."""
+    key = (str(fr), fy)
+    if key not in _FRAME_BOTTOM:
+        import numpy as np
+        im = fr if isinstance(fr, Image.Image) else Image.open(fr)
+        a = np.asarray(im.convert("RGBA"))[:, :, 3] > 128
+        w = a.shape[1]
+        rows = np.where(a[:, w // 3: 2 * w // 3].mean(axis=1) > 0.9)[0]
+        y = int(rows.max()) + fy if len(rows) else None
+        _FRAME_BOTTOM[key] = y if y is not None and 2040 < y < 2095 else None
+    return _FRAME_BOTTOM[key]
+
+
 def frame_hole(t: dict) -> tuple:
     """The transparent window of the template's frame around its art box (card px), measured once per frame."""
     fr, fx, fy = t["frame"]
@@ -1365,6 +1384,11 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     sec(None)
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
+    try:
+        _fb = frame_bottom(fr, fy)
+    except Exception:
+        _fb = None
+    card_ctx["_strip_top"] = (_fb + 1) if _fb else t.get("strip_top", 2076)
     sec('art')
     if card.get("no_lore_box") and card.get("art") and t.get("lore") and not t.get("_artwin"):
         # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
@@ -1750,8 +1774,9 @@ def build_html(card: dict) -> str:
     # condensed to 90.6 % (glyph advances give a 6.83 pt em, the capitals stand 5.4 pt), bullet Fiorello Condensed 7.56 pt,
     # number Akzidenz-Grotesk BE Bold Italic 7.08 pt, one baseline 6.4 pt under the frame. Scaled by the frame width
     # (163.2 pt = 1336 master px, 8.19 px/pt): 61.7 px ×0.906 / 61.9 px / 58.0 px, baseline 52 px under the frame.
-    strip = (f'data-top="{t.get("strip_top", 2076)}" data-bottom="{t.get("strip_bottom", 2150)}" '
-             f'data-base="{t.get("strip_top", 2076) - 1 + card.get("caption_drop", 52)}" '
+    _st = card_ctx.get("_strip_top") or t.get("strip_top", 2076)   # first black row under this card's own frame
+    strip = (f'data-top="{_st}" data-bottom="{t.get("strip_bottom", 2150)}" '
+             f'data-base="{_st - 1 + card.get("caption_drop", 52)}" '
              f'data-capfs="{card.get("caption_size", 61.7)}" data-capsx="{card.get("caption_scale_x", 0.906)}" data-numfs="{card.get("number_size", 58.0)}"')
     if cap and capgrow:
         parts.append(f'<div class="cap capgrow" {strip} style="position:absolute;left:{card.get("caption_x", 153)}px;top:0;width:1080px;height:0"><span class="capt" style="position:absolute;left:0">{game_text_html(cap)}</span></div>')
@@ -1941,7 +1966,13 @@ def build_html(card: dict) -> str:
         if (ref) {
           const ctx = document.createElement('canvas').getContext('2d');
           const met = (sp, txt) => { const cs = getComputedStyle(sp); ctx.font = `${cs.fontStyle} ${cs.fontWeight} 100px ${cs.fontFamily}`; return ctx.measureText(txt); };
-          const top = +ref.dataset.top, bottom = +ref.dataset.bottom, base = +ref.dataset.base;
+          const top = +ref.dataset.top, bottom = +ref.dataset.bottom;
+          let base = +ref.dataset.base;
+          if (cap) {   // a frame that ends low: lift the baseline (not shrink the type) to keep 3 px above the card edge
+            const csp = cap.querySelector('.capt'); csp.style.fontSize = cap.dataset.capfs + 'px';
+            const dd = met(csp, 'gjpqy(),').actualBoundingBoxDescent / 100 * +cap.dataset.capfs;
+            base = Math.min(base, bottom - 6 - dd);
+          }
           const place = (el, fs) => {
             const sp = el.querySelector('.capt'); sp.style.whiteSpace = 'nowrap'; sp.style.lineHeight = 'normal'; sp.style.fontSize = fs + 'px';
             sp.style.top = (base - met(sp, 'H').fontBoundingBoxAscent / 100 * fs) + 'px'; el.dataset.fit = fs.toFixed(1) + 'px';
