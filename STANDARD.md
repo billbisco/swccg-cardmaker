@@ -25,7 +25,7 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
 ## Type sizes (match the PC's Holotable cards; shrink only when a text won't fit)
 Title Fiorello 80 · destiny Akzidenz Medium Extended 80 · lore Light Condensed 58 (first line indented 60) ·
 stat labels Bold Condensed 56 + value Medium Extended bold 60 right after the label (gap 26) · **game text Akzidenz-Grotesk BQ Condensed (regular weight) 62 / line 65** — the face and size of the PC's Holotable cards, verified against the modern Chewbacca (V) at equal scale (Bardez's spec named BE Medium Condensed, which is narrower and heavier than what the PC prints) · deploy & forfeit Fiorello 70 centered in their boxes · card-type banner Bold Condensed
-60, letter-spacing 11 · bottom strip Bold Condensed, sized to the visible strip like the PC slip (number Medium Extended, digits 0.86 of the caption's cap height, skewed −14°; rev 52) · copyright line Bold Condensed 24.
+60, letter-spacing 11 · bottom strip in the PC slip's faces and geometry: caption Arial Narrow Bold (Liberation Sans Narrow Bold) 61.7 px condensed to 90.6 %, bullet Fiorello 61.9 px, number Akzidenz-Grotesk BE Bold Italic 58 px, one baseline 52 px under the frame (rev 53) · copyright line Bold Condensed 24.
 
 ## Geometry, Dark Character frame (1632×2220 space)
 title (374,200,884×90) · destiny hole (1312,213,100×84) · lore (321,377,989×193) · art (256,666,1121×770) ·
@@ -488,3 +488,18 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   the slip: caption ink starts just inside the frame's left edge (`caption_x` 140), the number ends ~20 px inside its
   right edge (`number_right` 185). Checked on all 18 Defensive Shields and VS3 interrupt, character, weapon, starship and Imperial frames at 745:
   ink at least 3 px under every frame and 3 px above the card edge, size within 1 px of the slip. Multiple uniqueness dots close up (each dot after the first −0.12 em).
+- Rev 53 (Bill 2026-11-02, Aim High (V): "the V is a little thinner and the parenthesis are a different shape and the 02
+  … is wider … much more closely emulate the margin text boxes to the original slips"): the faces now come from the
+  PC's own PDF. `pdffonts` / PyMuPDF on DefensiveShields.pdf: the margin caption is **Arial Narrow Bold**, the bullet
+  **ATFiorello-Condensed**, the number **AkzidenzGroteskBE-BoldIt**. The caption is drawn 7.54 pt tall and condensed
+  to 90.6 % (glyph advances give a 6.83 pt em; the capitals stand 5.4 pt), the bullet 7.56 pt, the number 7.08 pt, all
+  on one baseline 6.4 pt below the frame's bottom edge. The bullet starts 0.57 pt inside the frame's left edge, and the
+  number ends 4.5 pt inside its right edge. Scaled by the frame width (163.2 pt = 1336 master px, 8.19 px/pt): caption
+  `PCCap` (Liberation Sans Narrow Bold, Arial Narrow's metric twin) 61.7 px with scaleX 0.906, bullet Fiorello 1.003 em
+  (counter-scaled so it stays round), number `PCNum` (the digit subset embedded in the PDF, no skew: it is a true italic)
+  58 px, baseline 52 px below `strip_top` − 1, `caption_x` 153, `number_right` 185. Card keys `caption_size`,
+  `caption_scale_x`, `number_size` and `caption_drop` override these. `fit_js` only shrinks a size that would bring the
+  ink within 3 px (745 scale) of the frame or the card edge, or a caption that would run within 40 px of the number.
+  Checked on Aim High (V) against the PDF rendered at master scale: bullet, caption and number ink boxes within 1 px.
+  On all 18 Defensive Shields and the VS3 interrupt, character, weapon, starship and Imperial frames, the ink stays at
+  least 2 px under the frame and 5 px above the card edge.
