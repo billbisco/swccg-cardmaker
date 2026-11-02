@@ -25,7 +25,7 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
 ## Type sizes (match the PC's Holotable cards; shrink only when a text won't fit)
 Title Fiorello 80 · destiny Akzidenz Medium Extended 80 · lore Light Condensed 58 (first line indented 60) ·
 stat labels Bold Condensed 56 + value Medium Extended bold 60 right after the label (gap 26) · **game text Akzidenz-Grotesk BQ Condensed (regular weight) 62 / line 65** — the face and size of the PC's Holotable cards, verified against the modern Chewbacca (V) at equal scale (Bardez's spec named BE Medium Condensed, which is narrower and heavier than what the PC prints) · deploy & forfeit Fiorello 70 centered in their boxes · card-type banner Bold Condensed
-60, letter-spacing 11 · bottom strip Bold Condensed, auto-sized up to 74 to fill the margin like the PC slip (number Medium Extended, skewed −14°; rev 51) · copyright line Bold Condensed 24.
+60, letter-spacing 11 · bottom strip Bold Condensed, sized to the visible strip like the PC slip (number Medium Extended, digits 0.86 of the caption's cap height, skewed −14°; rev 52) · copyright line Bold Condensed 24.
 
 ## Geometry, Dark Character frame (1632×2220 space)
 title (374,200,884×90) · destiny hole (1312,213,100×84) · lore (321,377,989×193) · art (256,666,1121×770) ·
@@ -475,3 +475,16 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   at 745 wide. The uniqueness dot in the caption is a full bullet (DejaVu Sans, 0.9 em) instead of the 40 px Fiorello
   dot. Cards that set `caption_y` (landscape) or `caption_fixed` keep the old fixed caption. Do, Or Do Not (V) is
   unique (the dot was missing from our caption: a PC slip error Bill confirmed).
+- Rev 52 (Bill 2026-11-01: rev 51 cut "Aim High (V)" and "02" off at the bottom — "there has to be some space above and
+  below the texts in the margin … not touching the bottom of the card nor the card image itself above it"): rev 51
+  centred the text in a 96 px box measured on the 1632 master, but the Holotable/GEMP image keeps master rows only up
+  to 2150 (`holotable_size`), so the lower half fell outside. Now the strip is explicit: `strip_top` 2076 (first black
+  row under the frame) to `strip_bottom` 2150 (the visible card edge), inset by `strip_pad` 8 (template / card keys).
+  `fit_js` reads the face's real cap height and descender from canvas `measureText`, takes the largest size whose cap
+  + descender fit the padded strip (max `caption_max` 74), and puts the baseline at strip_top + pad + cap height, so every
+  caption shares one baseline whatever its letters. The number's digits stand 0.86 of the caption's cap height on the
+  same baseline (the slip's ratio); its −14° skew is on the digits themselves (skewing the zero-height box threw them
+  ~500 px left). A caption too wide shrinks at the same baseline until it clears the number by 40 px. Horizontal, as
+  the slip: caption ink starts just inside the frame's left edge (`caption_x` 140), the number ends ~20 px inside its
+  right edge (`number_right` 185). Checked on all 18 Defensive Shields at 745: ink 2–3 px under the frame, 5 px above
+  the card edge, Aim High within 1–2 px of the slip.

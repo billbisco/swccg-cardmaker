@@ -1741,8 +1741,12 @@ def build_html(card: dict) -> str:
     # card edges. Portrait cards (the default strip) now start at the slip's size and the fitter grows / shrinks each one
     # to fill the strip: the caption up to the number, the number in its own box (data-capmax, `.capgrow` in fit_js).
     capgrow = "caption_y" not in t and not card.get("caption_fixed")
+    # The strip is the black band between the frame's bottom edge and the visible card edge. The Holotable / GEMP image
+    # keeps master rows up to 2150 only (holotable_size), so text placed by the box alone ran off the bottom (Bill
+    # 2026-11-01, Aim High (V)). fit_js sizes by the font's real cap height + descender and sets the baseline itself.
+    strip = f'data-top="{t.get("strip_top", 2076)}" data-bottom="{t.get("strip_bottom", 2150)}" data-pad="{card.get("strip_pad", 8)}" data-capmax="{card.get("caption_max", 74)}"'
     if cap and capgrow:
-        parts.append(f'<div class="cap capgrow" data-capmax="{card.get("caption_max", 74)}" style="position:absolute;left:{card.get("caption_x", 110)}px;top:{cy - 2}px;width:1080px;height:96px;display:flex;align-items:center"><span class="capt">{game_text_html(cap)}</span></div>')
+        parts.append(f'<div class="cap capgrow" {strip} style="position:absolute;left:{card.get("caption_x", 140)}px;top:0;width:1080px;height:0"><span class="capt" style="position:absolute;left:0">{game_text_html(cap)}</span></div>')
     elif cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
     sec('credits')
     if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")) and t.get("landscape"):
@@ -1759,7 +1763,7 @@ def build_html(card: dict) -> str:
     if card.get("number"):
         _num = esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))
         if "caption_y" not in t and not card.get("caption_fixed"):
-            parts.append(f'<div class="num capgrow" data-capmax="{card.get("caption_max", 74)}" style="position:absolute;right:{card.get("number_right", 125)}px;top:{cy - 2}px;width:330px;height:96px;display:flex;align-items:center;justify-content:flex-end"><span class="capt">{_num}</span></div>')
+            parts.append(f'<div class="num capgrow" {strip} style="position:absolute;right:{card.get("number_right", 185)}px;top:0;width:330px;height:0;transform:none"><span class="capt" style="position:absolute;right:0;transform:skewX(-14deg)">{_num}</span></div>')
         else:
             parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{_num}</div>')
     # PC labels (Bill 2026-11-01): small printed marks the Players Committee adds — the errata mark in the bottom-right
@@ -1835,7 +1839,7 @@ def build_html(card: dict) -> str:
     .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
     .cap .dot{{font-size:40px}}
-    .cap.capgrow .dot{{font-family:"DejaVu Sans",sans-serif;font-size:0.9em;margin-right:2px}}
+    .cap.capgrow .dot{{font-family:"DejaVu Sans",sans-serif;font-size:0.9em;margin-right:-0.1em}}
     .dot{{font-family:Fiorello}}
     .num{{font-family:AGMedExt;font-weight:bold;font-size:44px;color:#fff;line-height:52px;text-align:right;transform:skewX(-14deg)}}
     .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:57px;letter-spacing:2px;text-transform:uppercase}}
@@ -1919,17 +1923,45 @@ def build_html(card: dict) -> str:
         const avail = el.parentElement.clientWidth - 30, w = el.offsetWidth;
         if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';
       }
-      {   // margin caption + number (Bill 2026-11-01): largest size up to data-capmax that keeps the caption clear of the number
+      {   // margin caption + number (Bill 2026-11-01): one baseline for both, set from the strip so the text never touches
+          // the frame above or the card edge below. Size = the largest that fits the strip's height (cap height + the
+          // font's descender, inside data-pad) and the width (the caption stays 40 px clear of the number); the number's
+          // digits stand 0.86 of the caption's cap height, as on the PC slips.
         const num = document.querySelector('.num.capgrow'), cap = document.querySelector('.cap.capgrow');
-        for (const el of [num, cap]) {
-          if (!el) continue;
-          const sp = el.querySelector('.capt'); sp.style.whiteSpace = 'nowrap'; sp.style.lineHeight = '1';
-          const max = parseFloat(el.dataset.capmax || 80);
-          let room = el.clientWidth;
-          if (el === cap && num) { const ns = num.querySelector('.capt').getBoundingClientRect(); room = Math.min(room, ns.left - el.getBoundingClientRect().left - 40); }
-          let fs = max; sp.style.fontSize = fs + 'px';
-          while (fs > 30 && (sp.getBoundingClientRect().width > room || sp.getBoundingClientRect().height > el.clientHeight)) { fs -= 1; sp.style.fontSize = fs + 'px'; }
-          el.dataset.fit = fs + 'px';
+        const ref = cap || num;
+        if (ref) {
+          const ctx = document.createElement('canvas').getContext('2d');
+          const met = (sp, txt) => { const cs = getComputedStyle(sp); ctx.font = `${cs.fontStyle} ${cs.fontWeight} 100px ${cs.fontFamily}`; return ctx.measureText(txt); };
+          const top = +ref.dataset.top, bottom = +ref.dataset.bottom, pad = +ref.dataset.pad, max = +ref.dataset.capmax;
+          const place = (el, fs, baseline) => {
+            const sp = el.querySelector('.capt'); sp.style.whiteSpace = 'nowrap'; sp.style.lineHeight = 'normal'; sp.style.fontSize = fs + 'px';
+            const fa = met(sp, 'H').fontBoundingBoxAscent / 100 * fs;
+            sp.style.top = (baseline - fa) + 'px'; el.dataset.fit = fs.toFixed(1) + 'px';
+          };
+          let capH = null, baseline = null;
+          if (cap) {
+            const sp = cap.querySelector('.capt'); sp.style.whiteSpace = 'nowrap';
+            const a = met(sp, 'HIdlk').actualBoundingBoxAscent / 100, d = met(sp, 'gjpqy(),').actualBoundingBoxDescent / 100;
+            let fs = Math.min(max, (bottom - top - 2 * pad) / (a + d));
+            baseline = top + pad + a * fs;   // fixed by the height fit, so short and long captions share one baseline
+            place(cap, fs, baseline);
+            capH = a * fs;
+          }
+          if (num) {
+            const sp = num.querySelector('.capt'); sp.style.whiteSpace = 'nowrap';
+            const a = met(sp, '0123456789').actualBoundingBoxAscent / 100;
+            const d = met(sp, '0123456789').actualBoundingBoxDescent / 100;
+            if (capH == null) { capH = (bottom - top - 2 * pad) * 0.8; baseline = top + pad + capH; }
+            let fs = Math.min(max, capH * 0.86 / a);
+            if (d > 0) fs = Math.min(fs, (bottom - pad - baseline) / d);
+            place(num, fs, baseline);
+          }
+          if (cap) {   // width: shrink (keeping the baseline) until the caption clears the number by 40 px
+            const sp = cap.querySelector('.capt');
+            const lim = num ? num.querySelector('.capt').getBoundingClientRect().left - 40 : cap.getBoundingClientRect().right;
+            let fs = parseFloat(sp.style.fontSize);
+            while (fs > 30 && sp.getBoundingClientRect().right > lim) { fs -= 0.5; place(cap, fs, baseline); }
+          }
         }
       }
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
