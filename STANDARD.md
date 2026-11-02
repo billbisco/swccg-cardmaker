@@ -511,3 +511,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   keep the template `strip_top`. When a low frame would bring the descenders within 3 px (745 scale) of the card edge,
   `fit_js` raises the baseline instead of shrinking the type. Checked on every VS3 card: ink at least 3 px under the
   frame and 4 px above the edge.
+- Rev 55 (2026-11-02, VS1–17 re-render): locations and the wide templates use the PC margin caption too. The slips print
+  Corellia (V) and Asteroid Field (Light) (V) exactly like every other card, but `caption_y` templates kept the old
+  48 px caption. `capgrow` now applies to every template unless the card sets `caption_fixed`. `frame_bottom()` takes
+  the canvas height, so a landscape frame's bottom bar is found (sanity window H−180 … H−125). Templates whose frame it
+  cannot read fall back to `caption_y` − 6. The visible strip ends at master row 2150 on portrait cards and 1560 on
+  landscape ones (`holotable_size` crops). Decipher's non-unique mark ◇ prints in the caption as the slip's Arial
+  lozenge ◊ (◊◊◊ Asteroid Field (Light) (V), VS13 #1).

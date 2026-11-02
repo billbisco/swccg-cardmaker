@@ -1157,11 +1157,11 @@ _HOLE: dict = {}
 _FRAME_BOTTOM: dict = {}
 
 
-def frame_bottom(fr, fy: int) -> int | None:
+def frame_bottom(fr, fy: int, canvas_h: int = 2220) -> int | None:
     """Master row of the frame's bottom edge: the last row where the frame image is opaque across its middle third
     (the bottom bar). Frames that fill the whole card (Admiral's Orders, game aids) give None. Bill 2026-11-02: the
     margin strip starts under each card's own frame (character frames end up to 6 px lower than Effects)."""
-    key = (str(fr), fy)
+    key = (str(fr), fy, canvas_h)
     if key not in _FRAME_BOTTOM:
         import numpy as np
         im = fr if isinstance(fr, Image.Image) else Image.open(fr)
@@ -1169,7 +1169,7 @@ def frame_bottom(fr, fy: int) -> int | None:
         w = a.shape[1]
         rows = np.where(a[:, w // 3: 2 * w // 3].mean(axis=1) > 0.9)[0]
         y = int(rows.max()) + fy if len(rows) else None
-        _FRAME_BOTTOM[key] = y if y is not None and 2040 < y < 2095 else None
+        _FRAME_BOTTOM[key] = y if y is not None and canvas_h - 180 < y < canvas_h - 125 else None
     return _FRAME_BOTTOM[key]
 
 
@@ -1385,10 +1385,10 @@ def build_html(card: dict) -> str:
     sec(None)
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
     try:
-        _fb = frame_bottom(fr, fy)
+        _fb = frame_bottom(fr, fy, H)
     except Exception:
         _fb = None
-    card_ctx["_strip_top"] = (_fb + 1) if _fb else t.get("strip_top", 2076)
+    card_ctx["_strip_top"] = (_fb + 1) if _fb else t.get("strip_top", (t["caption_y"] - 6) if "caption_y" in t else 2076)
     sec('art')
     if card.get("no_lore_box") and card.get("art") and t.get("lore") and not t.get("_artwin"):
         # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
@@ -1766,7 +1766,7 @@ def build_html(card: dict) -> str:
     # Bill 2026-11-01 (Aim High (V)): the slips print the margin caption and number about 1.6x our old 48 px and nearer the
     # card edges. Portrait cards (the default strip) now start at the slip's size and the fitter grows / shrinks each one
     # to fill the strip: the caption up to the number, the number in its own box (data-capmax, `.capgrow` in fit_js).
-    capgrow = "caption_y" not in t and not card.get("caption_fixed")
+    capgrow = not card.get("caption_fixed")   # every template since rev 55 (Bill 2026-11-02: locations and wide cards too)
     # The strip is the black band between the frame's bottom edge and the visible card edge. The Holotable / GEMP image
     # keeps master rows up to 2150 only (holotable_size), so text placed by the box alone ran off the bottom (Bill
     # 2026-11-01, Aim High (V)). fit_js sizes by the font's real cap height + descender and sets the baseline itself.
@@ -1775,10 +1775,12 @@ def build_html(card: dict) -> str:
     # number Akzidenz-Grotesk BE Bold Italic 7.08 pt, one baseline 6.4 pt under the frame. Scaled by the frame width
     # (163.2 pt = 1336 master px, 8.19 px/pt): 61.7 px ×0.906 / 61.9 px / 58.0 px, baseline 52 px under the frame.
     _st = card_ctx.get("_strip_top") or t.get("strip_top", 2076)   # first black row under this card's own frame
-    strip = (f'data-top="{_st}" data-bottom="{t.get("strip_bottom", 2150)}" '
+    _sb = t.get("strip_bottom", 1560 if is_wide(t) else 2150)      # last master row the Holotable / GEMP image keeps
+    strip = (f'data-top="{_st}" data-bottom="{_sb}" '
              f'data-base="{_st - 1 + card.get("caption_drop", 52)}" '
              f'data-capfs="{card.get("caption_size", 61.7)}" data-capsx="{card.get("caption_scale_x", 0.906)}" data-numfs="{card.get("number_size", 58.0)}"')
     if cap and capgrow:
+        cap = cap.replace("◇", "◊")   # the slips print Decipher's non-unique diamonds as Arial's lozenge (VS13 #1)
         parts.append(f'<div class="cap capgrow" {strip} style="position:absolute;left:{card.get("caption_x", 153)}px;top:0;width:1080px;height:0"><span class="capt" style="position:absolute;left:0">{game_text_html(cap)}</span></div>')
     elif cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
     sec('credits')
@@ -1795,7 +1797,7 @@ def build_html(card: dict) -> str:
     sec('number')
     if card.get("number"):
         _num = esc(str(card["number"]).zfill(2) if str(card["number"]).isdigit() else str(card["number"]))
-        if "caption_y" not in t and not card.get("caption_fixed"):
+        if not card.get("caption_fixed"):
             parts.append(f'<div class="num capgrow" {strip} style="position:absolute;right:{card.get("number_right", 185)}px;top:0;width:330px;height:0;transform:none"><span class="capt" style="position:absolute;right:0">{_num}</span></div>')
         else:
             parts.append(f'<div class="num" style="position:absolute;right:230px;top:{cy}px;width:300px;height:52px">{_num}</div>')
