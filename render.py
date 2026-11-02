@@ -1744,7 +1744,7 @@ def build_html(card: dict) -> str:
     # The strip is the black band between the frame's bottom edge and the visible card edge. The Holotable / GEMP image
     # keeps master rows up to 2150 only (holotable_size), so text placed by the box alone ran off the bottom (Bill
     # 2026-11-01, Aim High (V)). fit_js sizes by the font's real cap height + descender and sets the baseline itself.
-    strip = f'data-top="{t.get("strip_top", 2076)}" data-bottom="{t.get("strip_bottom", 2150)}" data-pad="{card.get("strip_pad", 8)}" data-capmax="{card.get("caption_max", 74)}"'
+    strip = f'data-top="{t.get("strip_top", 2076)}" data-bottom="{t.get("strip_bottom", 2150)}" data-pad="{card.get("strip_pad", 6)}" data-capmax="{card.get("caption_max", 74)}"'
     if cap and capgrow:
         parts.append(f'<div class="cap capgrow" {strip} style="position:absolute;left:{card.get("caption_x", 140)}px;top:0;width:1080px;height:0"><span class="capt" style="position:absolute;left:0">{game_text_html(cap)}</span></div>')
     elif cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
@@ -1840,6 +1840,7 @@ def build_html(card: dict) -> str:
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
     .cap .dot{{font-size:40px}}
     .cap.capgrow .dot{{font-family:"DejaVu Sans",sans-serif;font-size:0.9em;margin-right:-0.1em}}
+    .cap.capgrow .dot + .dot{{margin-left:-0.12em}}
     .dot{{font-family:Fiorello}}
     .num{{font-family:AGMedExt;font-weight:bold;font-size:44px;color:#fff;line-height:52px;text-align:right;transform:skewX(-14deg)}}
     .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:57px;letter-spacing:2px;text-transform:uppercase}}
@@ -1941,7 +1942,7 @@ def build_html(card: dict) -> str:
           let capH = null, baseline = null;
           if (cap) {
             const sp = cap.querySelector('.capt'); sp.style.whiteSpace = 'nowrap';
-            const a = met(sp, 'HIdlk').actualBoundingBoxAscent / 100, d = met(sp, 'gjpqy(),').actualBoundingBoxDescent / 100;
+            const a = met(sp, 'HIdlk()[]').actualBoundingBoxAscent / 100, d = met(sp, 'gjpqy(),').actualBoundingBoxDescent / 100;
             let fs = Math.min(max, (bottom - top - 2 * pad) / (a + d));
             baseline = top + pad + a * fs;   // fixed by the height fit, so short and long captions share one baseline
             place(cap, fs, baseline);

@@ -479,12 +479,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   below the texts in the margin … not touching the bottom of the card nor the card image itself above it"): rev 51
   centred the text in a 96 px box measured on the 1632 master, but the Holotable/GEMP image keeps master rows only up
   to 2150 (`holotable_size`), so the lower half fell outside. Now the strip is explicit: `strip_top` 2076 (first black
-  row under the frame) to `strip_bottom` 2150 (the visible card edge), inset by `strip_pad` 8 (template / card keys).
-  `fit_js` reads the face's real cap height and descender from canvas `measureText`, takes the largest size whose cap
+  row under the frame; starship / Rebel Tech frames sit 1–2 px lower and still clear by 3 px) to `strip_bottom` 2150 (the visible card edge), inset by `strip_pad` 6 (3 px at 745) (template / card keys).
+  `fit_js` reads the face's real ascent (capitals and parentheses) and descender from canvas `measureText`, takes the largest size whose cap
   + descender fit the padded strip (max `caption_max` 74), and puts the baseline at strip_top + pad + cap height, so every
   caption shares one baseline whatever its letters. The number's digits stand 0.86 of the caption's cap height on the
   same baseline (the slip's ratio); its −14° skew is on the digits themselves (skewing the zero-height box threw them
   ~500 px left). A caption too wide shrinks at the same baseline until it clears the number by 40 px. Horizontal, as
   the slip: caption ink starts just inside the frame's left edge (`caption_x` 140), the number ends ~20 px inside its
-  right edge (`number_right` 185). Checked on all 18 Defensive Shields at 745: ink 2–3 px under the frame, 5 px above
-  the card edge, Aim High within 1–2 px of the slip.
+  right edge (`number_right` 185). Checked on all 18 Defensive Shields and VS3 interrupt, character, weapon, starship and Imperial frames at 745:
+  ink at least 3 px under every frame and 3 px above the card edge, size within 1 px of the slip. Multiple uniqueness dots close up (each dot after the first −0.12 em).
