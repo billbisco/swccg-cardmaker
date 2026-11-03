@@ -206,6 +206,7 @@ def quotes(t: str) -> str:
 BASE_ICONS: dict = {}   # title -> icons of the original Decipher printing (filled by the server)
 BASE_LOC: dict = {}   # location title -> (Light, Dark) Force icons of the PC data's printing (filled by the server)
 BASE_EXP: dict = {}   # title -> Decipher expansion of the original printing (filled by the server)
+PC_LABELS: dict = {}  # gempId -> PC extra printed labels (gempdata/card_labels.json, filled by the server; swccg-guild/work#100)
 
 
 def gemp_to_spec(c: dict) -> dict:
@@ -235,7 +236,33 @@ def gemp_to_spec(c: dict) -> dict:
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
-    if c.get("legacy"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
+    lab = PC_LABELS.get(str(c.get("gempId") or "")) or {}
+    if lab:   # the PC's extra printed labels (billbisco/swccg-gemp card_labels.json, swccg-guild/work#100)
+        _sid = str(c.get("set") or "")
+        _modern = (_sid.isdigit() and 200 <= int(_sid) <= 399) or _sid == "200d"
+        labels = []
+        if lab.get("original_title"):
+            if _modern:   # Virtual Sets 0-27 set it in the bottom-left label face the PC uses (preset measured on V21-27)
+                it = lab.get("original_title_italic")
+                labels.append(dict({"preset": "bottom-left", "text": lab["original_title"]},
+                                   **({"italic": True, "skew": 10} if it is True else {"italic_part": it} if isinstance(it, str) else {})))
+            else:
+                spec["caption"] = lab["original_title"]
+                if lab.get("original_title_italic"):
+                    spec["caption_italic"] = True
+        if lab.get("errata_mark"):
+            spec["errata_mark"] = lab["errata_mark"]
+        if lab.get("ai_mark"):   # "(AI)" / "(ALT)" (the small PC logo beside it is not drawn yet)
+            labels.append({"preset": "bottom-right", "text": lab["ai_mark"] if isinstance(lab["ai_mark"], str) else "(AI)"})
+        if lab.get("concept_credit"):
+            labels.append({"preset": "concept", "text": lab["concept_credit"]})
+        if labels:
+            spec["labels"] = labels
+        if lab.get("art_credit"):
+            spec["art_credit"] = lab["art_credit"]
+        if lab.get("copyright"):
+            spec["copyright"] = lab["copyright"]
+    if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
         if typ == "Defensive Shield":
             # the Virtual Defensive Shields reuse their original card's frame (QA vs the Holotable scans, 2026-10-15):
@@ -530,7 +557,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
