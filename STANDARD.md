@@ -518,3 +518,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   cannot read fall back to `caption_y` − 6. The visible strip ends at master row 2150 on portrait cards and 1560 on
   landscape ones (`holotable_size` crops). Decipher's non-unique mark ◇ prints in the caption as the slip's Arial
   lozenge ◊ (◊◊◊ Asteroid Field (Light) (V), VS13 #1).
+
+- Rev 56 (2026-11-03, swccg-guild/work#51): `compare_pc.py` — the Epic #48 comparison tool (README "Compare with a
+  PC card"). It measures every element against the PC image with no tolerance. Self-check: a known +3/+2 px shift is
+  reported exactly; against the PC slip PDF, the rev 53 margin caption's ink starts 2 px higher (same bottom row) and
+  the number sits 1–2 px higher, so rev 53's "within 1 px" held for the baseline and left edge only — to fix in the
+  margin-strip work. `deploy.sh` now makes assets world-readable first: the rev 53 deploy left fonts at mode 600
+  (scp) and the live editor failed to render until fixed by hand on 2026-11-03.

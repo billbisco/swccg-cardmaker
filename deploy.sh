@@ -6,6 +6,8 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 B=$(pwd)
+# files copied with scp keep mode 600 and the container user (10010) cannot read them (rev 53 outage)
+chmod -R a+rX assets webapp cards *.py 2>/dev/null || true
 docker build -q -f webapp/Dockerfile -t swccg-cardmaker:latest . >/dev/null
 docker rm -f swccg_cardmaker >/dev/null 2>&1 || true
 mkdir -p /opt/swccg-cardmaker-data && chown 10010:10010 /opt/swccg-cardmaker-data
