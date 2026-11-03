@@ -18,7 +18,7 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Tatooine": "icons/set-tatooine-decipher.png", "Theed Palace": "icons/set-theed-decipher.png",
     "Enhanced Cloud City": "icons/set-premium-decipher.png", "Official Tournament Sealed Deck": "icons/set-premium-decipher.png",   # silver premium sphere
     "Death Star II": "icons/set-ds2-decipher.png", "Reflections III": "icons/set-reflections3-decipher.png",
-    "Reflections Gold": "icons/set-reflections-gold.png",
+    "Reflections Gold": "icons/set-reflections-gold-remaster.png",   # remastered gold coin = RG default (Bill 2026-10-31: approved); Decipher's orange proof sphere = style "original"
     "Premium": "icons/set-premium-decipher.png",   # the silver premium sphere: ESB / Enhanced Premiere / Third Anthology / Virtual Premium (Holotable faces)   # gold sphere cut from Andy Talaga's reconstructions (card maker)
 }
 # PC-redrawn spheres (their Game Aid sheet; what the modern Virtual Sets print — brighter Special Edition, orange-red
@@ -27,14 +27,16 @@ SET_KEY = {"A New Hope": "anh", "Hoth": "hoth", "Dagobah": "dagobah", "Cloud Cit
            "Jabba's Palace Sealed Deck": "jabbaspalace", "Special Edition": "se", "Endor": "endor", "Death Star II": "ds2",
            "Reflections II": "reflections2", "Tatooine": "tatooine", "Coruscant": "coruscant", "Reflections III": "reflections3",
            "Theed Palace": "theed", "Jedi Pack": "premium", "Premium": "premium", "Enhanced Cloud City": "premium",
-           "Official Tournament Sealed Deck": "premium"}
+           "Official Tournament Sealed Deck": "premium", "Reflections Gold": "reflections-gold"}
 
 
 def expansion_icon(exp, style="decipher"):
     if not exp:
         return None
-    if style == "pc" and SET_KEY.get(exp) and (ROOT / f"assets/icons/set-{SET_KEY[exp]}-pc.png").exists():
-        return f"icons/set-{SET_KEY[exp]}-pc.png"
+    if style == "original" and SET_KEY.get(exp) and (ROOT / f"assets/icons/set-{SET_KEY[exp]}-decipher.png").exists():
+        return f"icons/set-{SET_KEY[exp]}-decipher.png"   # Reflections Gold: the orange proof sphere (RG-C1 scans)
+    if style in ("pc", "remaster") and SET_KEY.get(exp) and (ROOT / f"assets/icons/set-{SET_KEY[exp]}-{style}.png").exists():
+        return f"icons/set-{SET_KEY[exp]}-{style}.png"   # "remaster": Reflections Gold's gold coin (RG-GEMP reconstructions)
     return SET_ICON.get(exp, None)
 
 

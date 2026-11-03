@@ -1657,7 +1657,12 @@ def build_html(card: dict) -> str:
     if card.get("expansion_icon") and "expansion_ring" in t:
         x, y = t["expansion_ring"]
         sz = t.get("expansion_size", 62)
-        if card.get("expansion_icon_in_hole", True):
+        if card["expansion_icon"].endswith("-remaster.png"):
+            # remastered Reflections Gold coin: carries its own thin black rim and sits straight on the frame, ~80 % of
+            # the ring (RG-GEMP Looking To The Future: 28 px coin at 745 px = 56 px here), no black hole
+            isz = round(sz * 0.8)
+            parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
+        elif card.get("expansion_icon_in_hole", True):
             # printed cards: the set icon is a sphere sitting in a black hole of the frame
             parts.append(f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
             isz = sz - 4
