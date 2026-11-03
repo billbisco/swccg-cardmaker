@@ -26,3 +26,16 @@ Obi-Wan's Journal (Bardez, LS - Device.xcf) gives a ~62 px halftoned Reflections
 | theed | Theed Palace | icons/set-theed-decipher.png [312, 312] | cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32) | icons/set-theed-pc.png [240, 240] | Players Committee Icon Reference Sheet, Feb 2024 (https://res.starwarsccg.org/virtual/Icon-Reference-Sheet-Feb-2024.pdf): embedded ~57 px JPEG, Real-ESRGAN x4 (STANDARD.md rev 45) |
 | ejp | Enhanced Jabba's Palace | icons/set-ejp-decipher.png [312, 312] | cut at the expansion ring from a 745 px Decipher Holotable scan (res.starwarsccg.org/cards/…); the exact card was not recorded (STANDARD.md rev 32) | —  | none |
 | reflections-gold | Reflections Gold | icons/set-reflections-gold.png  | gold sphere cut from Andy Talaga's Reflections Gold reconstructions (build_vs.py) | —  | none |
+
+## Reflections Gold: remastered gold coin and original Decipher sphere (cut 2026-10-31, added 2026-11-03)
+
+Cut by Alpha2 on 2026-10-31 for swccg-guild/work#50 (the files were only in a scratch folder until 2026-11-03). Both are circular crops with a
+4x supersampled anti-aliased edge, then a Lanczos resample to 312 px like the other `set-*-decipher.png` discs. No AI, no retouching.
+The code that picks them is not in this commit; `set-reflections-gold.png` above is unchanged.
+
+| file | what it is | source scan | crop (source px) |
+|---|---|---|---|
+| icons/set-reflections-gold-remaster.png [312, 312] | Remastered RG set symbol: the gold coin with its thin black rim, frame ring left out. **This is the cut in the CardMaker Looking To The Future render Bill approved on 2026-10-31** (re-rendered 2026-11-03: pixel-identical) | https://wiki.swccg.com/wiki/File:RG-GEMP-Looking-To-The-Future.png (745x1039, sha1 e391dc43…) | centre (668.7, 188.5), radius 14.0 (28 px native, so soft at 312 px) |
+| icons/set-reflections-gold-decipher.png [312, 312] | Original RG set symbol: Decipher's orange sphere as printed | https://wiki.swccg.com/wiki/File:RG-C1-Local-Trouble.jpg (1957x1353 proof scan, sha1 a43e2ca4…) | centre (1853, 328), radius 40.5 (~76 px native sphere, soft JPEG) |
+
+sha256: set-reflections-gold-remaster.png fba7f09986bc96ed53c7f68cf6e37e0f99f50bb8c9f4533cd48ad62a75777711; set-reflections-gold-decipher.png 85a8025332073d01fe0353bc65e90127c3747e1ad97fd277754a8ecb1ca618fd.

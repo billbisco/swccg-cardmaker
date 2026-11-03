@@ -313,6 +313,24 @@
    "source": "gold sphere cut from Andy Talaga's Reflections Gold reconstructions (build_vs.py)",
    "note": "one version only; expansion_style does not change it"
   },
-  "pc": null
+  "pc": null,
+  "remaster": {
+   "file": "icons/set-reflections-gold-remaster.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "gold coin cut from the GEMP remaster of Looking To The Future, https://wiki.swccg.com/wiki/File:RG-GEMP-Looking-To-The-Future.png (745x1039, image https://wiki.swccg.com/images/a/ac/RG-GEMP-Looking-To-The-Future.png, sha1 e391dc436a7bade22a3711bdfa3dcb8c0b7ef677): circular crop centre (668.7, 188.5), radius 14.0 px (28 px coin + its thin black rim, frame ring left out), 4x supersampled anti-aliased edge, Lanczos resample to 312 px; no AI, no retouching",
+   "note": "Remastered RG set symbol. Cut 2026-10-31; used in the CardMaker Looking To The Future render Bill approved 2026-10-31 (swccg-guild/work#50). Native detail ~28 px, so soft at 312 px. Drawn without the black hole at ~80 % of the ring"
+  },
+  "original": {
+   "file": "icons/set-reflections-gold-decipher.png",
+   "size": [
+    312,
+    312
+   ],
+   "source": "orange sphere cut from the Decipher proof scan of Local Trouble, https://wiki.swccg.com/wiki/File:RG-C1-Local-Trouble.jpg (1957x1353, image https://wiki.swccg.com/images/c/ce/RG-C1-Local-Trouble.jpg, sha1 a43e2ca4fe33e30835b2f5aff25f49367bd318b6): circular crop centre (1853, 328), radius 40.5 px (81 px), 4x supersampled anti-aliased edge, Lanczos resample to 312 px; no AI, no retouching",
+   "note": "original Decipher RG set symbol (as printed). Cut 2026-10-31 (picked from 6 RG C1 proof-scan cuts; native sphere ~76 px, soft JPEG). Used for the original-symbol LTF render shown with the approved one; the approved render itself used the remaster coin"
+  }
  }
 }
