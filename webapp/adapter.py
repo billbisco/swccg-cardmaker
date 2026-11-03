@@ -189,8 +189,10 @@ def maintenance(t: str) -> str:
 def pc_shorthand(t: str) -> str:
     """The Players Committee prints its own shorthand (Game Aid sheet): the card JSON spells it out."""
     t = re.sub(r"Adds (\d|one|two|three) to (?:the )?power of anything (?:he|she|it) pilots\.", lambda m: "{pilot:%s}." % {"one": "1", "two": "2", "three": "3"}.get(m.group(1), m.group(1)), t)
-    t = re.sub(r"(?i)\bdeploy ([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle)?", r"▼ \1", t)
-    t = re.sub(r"(?i)\btake ([^.;()]+?) into hand from (?:your )?Reserve Deck(?:; reshuffle)?", r"▲ \1", t)
+    # "take" first, and "deploy" only as the verb: "take Luke … with printed deploy < 4 into hand from Reserve Deck" is
+    # ▲ (PC A New Hope, VS27); matching "deploy" first turned it into "take Luke … printed ▼ < 4 into hand" (#63)
+    t = re.sub(r"(?i)\btake ((?:(?!\binto hand\b)[^.;])+?) into hand from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▲ \1", t)
+    t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▼ \1", t)
     t = t.replace("(Immune to {alter}.)", "{alter}")
     t = re.sub(r"\(Immune to (Sense|Control)\.?\)", lambda m: "{%s}" % m.group(1).lower(), t).replace("(Immune to Alter.)", "{alter}")
     return t
@@ -270,6 +272,9 @@ def gemp_to_spec(c: dict) -> dict:
             spec["grow_keep_frame"] = True   # shield combos keep the shield frame (A Useless Gesture & Death Star Sentry)
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
+        # the PC prints titles with typographic apostrophes (You Know What I’ve Come For, Ommni Box & It’s Worse, #63)
+        spec["title"] = spec["title"].replace("'", "\u2019")
+        spec["caption"] = (spec.get("caption") or "").replace("'", "\u2019")
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
     if c.get("legacy"):
         spec["bold_lore"] = False   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
@@ -503,7 +508,9 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card = build_vs.convert(dict(c, number=c["number"] if c["number"].isdigit() else "0"), vs or 0)
     if not ovs:
         card["art_cover_hole"] = True
-        card["ring_fill"] = True
+        # printed Decipher cards with no sphere: the first disc takes the sphere's place. PC Virtual cards keep the disc in
+        # the second slot even with no sphere (Aayla Secura VS0, You Know What I've Come For, #63)
+        card["ring_fill"] = not str(card.get("set_mark") or "").startswith("pc:")
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
         if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):

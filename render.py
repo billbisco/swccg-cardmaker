@@ -46,16 +46,16 @@ TEMPLATES = {
         "copyright_x": 1404,
     },
     "ls-interrupt": {
-        "frame": ("frames/ls-interrupt.png", 146, 145),
-        "art": (256, 663, 1122, 754),
-        "title": (398, 200, 880, 90),
-        "destiny": (1312, 206, 100, 104),
-        "lore": (321, 380, 1010, 180),
-        "card_type": (268, 1505, 1089, 61),
+        "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 82, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139),
+        "art": (254, 663, 1122, 754),
+        "title": (408, 194, 880, 90),
+        "destiny": (1316, 196, 100, 104),
+        "lore": (321, 373, 1010, 180),
+        "card_type": (276, 1505, 1089, 61),
         "game_text": (320, 1668, 1000, 326),
-        "set_icon_abs": (1397, 1942), "set_icon_size": 60,
-        "expansion_ring": (1381, 405),
-        "copyright_x": 1416,
+        "set_icon_abs": (1397, 1942), "set_icon_size": 68,
+        "expansion_ring": (1381, 407),
+        "copyright_x": 1421, "copy_size": 25.9, "copy_ls": 0.8,
         "dark_text": True,
         "lore_indent": 0,
     },
@@ -114,10 +114,10 @@ TEMPLATES = {
         "expansion_ring": (1380, 405), "copyright_x": 1404,
     },
     "ds-interrupt": {
-        "frame": ("frames/ds-interrupt.png", 141, 147),
-        "art": (247, 663, 1134, 765), "title": (397, 204, 779, 100), "destiny": (1310, 207, 102, 99),
-        "lore": (316, 378, 989, 193), "card_type": (269, 1507, 1091, 61), "game_text": (316, 1666, 997, 328),
-        "banner_icon": (1292, 1495), "set_icon_abs": (1391, 1940), "set_icon_size": 64, "expansion_ring": (1381, 405), "copyright_x": 1404,
+        "lore_x": (319, 1270, 80, 0, 0.0), "expansion_size": 59, "title_stroke": 2, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 82, "title_ls": 0.4, "frame": ("frames/ds-interrupt.png", 141, 141),
+        "art": (245, 661, 1134, 765), "title": (406, 194, 779, 100), "destiny": (1312, 197, 102, 99),
+        "lore": (316, 374, 989, 193), "card_type": (272, 1507, 1091, 61), "game_text": (316, 1666, 997, 328),
+        "banner_icon": (1292, 1495), "set_icon_abs": (1397, 1954), "set_icon_size": 68, "expansion_ring": (1382, 406), "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8,
     },
     "ds-weapon": {
         "frame": ("frames/ds-weapon.png", 150, 148),
@@ -426,7 +426,7 @@ GT_BOX_PC = {
     "ds-character-imperial": (354, 1662, 942, 334),
     "ds-device": (313, 1663, 1015, 334),
     "ds-effect": (314, 1660, 1020, 335),
-    "ds-interrupt": (315, 1665, 1011, 329),
+    "ds-interrupt": (315, 1663, 1011, 329),   # #63: text 1 px low against the PC
     "ds-shield": (314, 1660, 1020, 335),
     "ds-shield-dc": (314, 1660, 1020, 335),
     "ds-shield-fade": (314, 1660, 1020, 335),
@@ -442,7 +442,7 @@ GT_BOX_PC = {
     "ls-character-rebel": (353, 1658, 953, 336),
     "ls-device": (312, 1655, 1018, 331),
     "ls-effect": (311, 1656, 1019, 330),
-    "ls-interrupt": (312, 1661, 1022, 333),
+    "ls-interrupt": (312, 1654, 1022, 333),   # #63: text 3.5 px low against the PC
     "ls-jeditest-epic": (311, 1656, 1019, 330),
     "ls-shield": (311, 1656, 1019, 330),
     "ls-shield-dc": (311, 1656, 1019, 330),
@@ -548,7 +548,12 @@ def game_text_html(text: str) -> str:
     out = []
     pos = 0
     for m in re.finditer(r"\{([\w-]+)(?::([^}]*))?\}", text):
-        out.append(esc(text[pos:m.start()]))
+        seg = text[pos:m.start()]
+        hy = re.search(r"(\S+-)$", seg)   # "non-{icon}" stays on one line, as the PC sets it (Endless Legions, #63)
+        if hy:
+            out.append(esc(seg[:hy.start()]) + '<span style="white-space:nowrap">' + esc(hy.group(1)))
+        else:
+            out.append(esc(seg))
         name, arg = m.group(1), m.group(2)
         if name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
             out.append(icon_img("pilotpower-dark" if card_ctx.get("side") == "Dark" else "pilotpower") + f" {esc(arg or '')}")
@@ -586,6 +591,8 @@ def game_text_html(text: str) -> str:
             out.append(icon_img(name))
         else:   # unknown code: print it as typed rather than fail the card
             out.append(esc(m.group(0)))
+        if hy:
+            out.append("</span>")
         pos = m.end()
     out.append(esc(text[pos:]))
     html = "".join(out)
@@ -1143,11 +1150,13 @@ def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
     ring_a, ring_b = ("#8a6a1c", "#e6c766") if gold else ("#0b3a74", "#5a9bd2")
     edge = "#c97a12" if gold else "#1d4aa0"
     w, h = ss * 2.0, ss * 1.5
+    fs_ = card_ctx.get("_set_digit_fs", 142)
+    ecx_, ecy_, erot_ = card_ctx.get("_set_ring", (100, 80, -28))
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="{w:.0f}" height="{h:.0f}">'
            f'<defs><linearGradient id="rg{num}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{ring_b}"/>'
            f'<stop offset=".55" stop-color="{ring_a}"/><stop offset="1" stop-color="{ring_b}"/></linearGradient></defs>'
-           f'<ellipse cx="100" cy="80" rx="74" ry="30" transform="rotate(-28 100 80)" fill="none" stroke="url(#rg{num})" stroke-width="16"/>'
-           f'<text x="100" y="124" text-anchor="middle" font-family="AGBoldCnA" font-size="142" letter-spacing="-3" '
+           f'<ellipse cx="{ecx_}" cy="{ecy_}" rx="74" ry="30" transform="rotate({erot_} {ecx_} {ecy_})" fill="none" stroke="url(#rg{num})" stroke-width="{card_ctx.get('_set_ring_w', 16)}"/>'
+           f'<text x="100" y="{124 + (fs_ - 142) * .6:.0f}" text-anchor="middle" font-family="AGBoldCnA" font-size="{fs_}" letter-spacing="-3" '
            f'fill="#fff" stroke="{edge}" stroke-width="9" paint-order="stroke" stroke-linejoin="round">{esc(num)}</text></svg>')
     return f'<div style="position:absolute;left:{cx - w / 2 - ss * .1:.0f}px;top:{cy - h / 2 + ss * .2:.0f}px;line-height:0">{svg}</div>'
 
@@ -1641,6 +1650,7 @@ def build_html(card: dict) -> str:
         # Players Committee set marks, drawn as vector: modern Virtual Sets = the number on a tilted ring (blue; gold
         # for Set 0), 2009 Virtual Blocks = the black diamond with its chevron (Bill 2026-10-15, from Holotable scans)
         x, y = t["set_icon_abs"]; ss = t.get("set_icon_size", 76)
+        card_ctx["_set_digit_fs"] = t.get("set_digit_size", 142); card_ctx["_set_ring"] = t.get("set_ring", (100, 80, -28)); card_ctx["_set_ring_w"] = t.get("set_ring_w", 16)
         _sm = set_mark_html(card["set_mark"], x + ss / 2, y + ss / 2, ss)
         if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
             # the whole card (or its frame layers) is turned for the Dark seat: keep the set number upright
@@ -1685,8 +1695,11 @@ def build_html(card: dict) -> str:
         sz = t.get("expansion_size", 62)
         k = 0 if (card.get("ring_fill") and not card.get("expansion_icon")) else 1   # card maker: no sphere -> the first disc takes its place (Aayla Secura)
         for nm in card["ring_icons"]:
-            if nm == "sidious" and "game_text" in t:   # printed in the right margin at the text box top (Unlimited Power!)
-                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{t["game_text"][1] - 70}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+            if nm in ("sidious", "skywalker") and "game_text" in t:   # printed in the right margin at the text box top (Unlimited Power!; Skywalker: My Sister Has It, #63)
+                mx_, my_ = x + 3 + t.get("margin_disc_dx", 0), t["game_text"][1] - 70 + t.get("margin_disc_dy", 0)
+                if t.get("margin_disc_hole"):   # the PC sets it in a dark hole of the frame, like the expansion sphere (#63)
+                    parts.append(f'<div style="position:absolute;left:{mx_ - 5}px;top:{my_ - 5}px;width:{sz + 4}px;height:{sz + 4}px;border-radius:50%;background:#2a0c0c"></div>')
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{mx_}px;top:{my_}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
                 continue
             if nm in RING_DISCS:
                 parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
@@ -1853,11 +1866,12 @@ def build_html(card: dict) -> str:
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
     LP = dict(LORE_CSS, **card.get("_lore_css", {}))
+    title_stroke_css = f"-webkit-text-stroke:{t['title_stroke']}px currentColor;" if t.get("title_stroke") else ""   # rev 59: the PC sets Dark interrupt titles with a slight stroke
     css = f"""
     {font_css}
     body{{margin:0;background:#000}}
     .inv .title, .inv .lore, .inv .ctype, .inv .gt, .inv .destiny {{rotate:180deg}}   /* Dagobah's upside-down cards (Through The Force Things You Will See) */
-    .title{{font-family:Fiorello;font-size:80px;color:{t.get("title_ink", ink)};letter-spacing:1px;line-height:90px;white-space:nowrap}}
+    .title{{font-family:Fiorello;font-size:{t.get("title_size", 80)}px;color:{t.get("title_ink", ink)};letter-spacing:{t.get("title_ls", 1)}px;{title_stroke_css}line-height:90px;white-space:nowrap}}
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};overflow-wrap:anywhere;text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
@@ -1896,7 +1910,7 @@ def build_html(card: dict) -> str:
     .parsec{{font-family:AGMedExt;font-size:72px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:4px;box-sizing:border-box}}
     .copy{{display:flex;align-items:center;justify-content:center}}
     .credit{{font-family:AGCn;font-style:italic;font-size:40px;color:#000;white-space:nowrap;transform:rotate(-90deg)}}
-    .copyin{{font-family:AGBoldCnA;font-size:24px;color:{ink};letter-spacing:1px;white-space:nowrap;transform:rotate(-90deg)}}
+    .copyin{{font-family:AGBoldCnA;font-size:{t.get("copy_size", 24)}px;color:{ink};letter-spacing:{t.get("copy_ls", 1)}px;white-space:nowrap;transform:rotate(-90deg)}}
     """
     fit_js = """
     document.fonts.ready.then(()=>{

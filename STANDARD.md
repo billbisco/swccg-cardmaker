@@ -548,3 +548,30 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   dejarik are not added: they are vehicle, site and creature words, ordinary elsewhere in lore, and stay bold only where
   their slip prints them. Lore changes on three remasters only: Bail Organa (V) and Senator Padmé Amidala (V) (*Senator*)
   and Jedi Advisor (*Jedi Council Member*).
+- Rev 59 (2026-11-03, swccg-guild/work#63, Interrupts; Bill 2026-11-03: "we should not automatically assume either
+  bardez's template or the PC one is automatically correct!"). Each element was checked three ways: CardMaker against
+  12 PC interrupts (one per side × subtype), against 10 printed Decipher interrupts (745-px scans), and Bardez against
+  both. Where the PC and the printed cards agree and Bardez differs, Bardez was wrong:
+  - **Frames:** Bardez's interrupt frames are 0.5 % small and sit 3 px (745) high-left of the printed card. A frame-only
+    fit gives the same scale and offset against the PC and against the printed scans: Light 1.00512, −5.7/−6.2 master
+    px; Dark 1.003/1.004, 0/−6. Both frames are rescaled (premultiplied Lanczos) to 1347×1939 at (140, 139) and
+    1353×1936 at (141, 141); refit 1.0002 / 0, 0. Frame MAD against the printed scans 7.2 → 4.2.
+  - **Dark interrupt icon:** the PC and every printed Dark interrupt show the same orange swirl as the Light one;
+    Bardez's Dark frame had a darker red/black swirl. The disc is taken from the Light frame (MAD in the disc 42 → 26).
+  - **Boxes, measured against both references:** title +12/−6 (Light), +9/−10 (Dark) master px; title 82 px (was 80),
+    tracking 0.6 / 0.4 px, Dark titles a 2 px stroke (the PC's Dark titles are slightly heavier); destiny +4/−10 and
+    +2/−10; type banner 62 px, tracking 11.3, moved to the PC's centre; lore 7 / 4 px up, Dark first-line indent 80;
+    game text 7 / 2 px up (`GT_BOX_PC`); copyright 25.9 px, tracking 0.8, x 1421 / 1420; expansion ring +2 down,
+    Dark 59 px. All within 1 px of the PC (most 0); title, destiny and banner 0 against the printed scans too.
+  - **PC-only elements:** the set mark (Decipher printed a set icon there) follows the PC: 68 px slot, digits 160 (was
+    142), ring moved and thickened (`set_ring`, `set_ring_w`); size and place now 0 px. Episode discs stay in the second
+    slot under the expansion sphere even when a PC card has no sphere (`ring_fill` is now for printed cards only); the
+    Skywalker disc sits at the text box top like Sidious, in a dark hole.
+  - **Text, every card type:** the PC's ▲ shorthand was garbled when the object contained "deploy" or parentheses
+    ("take Luke … printed ▼ < 4 into hand" → "▲ Luke … with printed deploy < 4", A New Hope; the bracketed "(reshuffle)" is
+    dropped as the PC prints it; 27 PC cards change, six checked against their PC images). A hyphenated word and the icon after it stay on one line ("non-[icon]"). PC titles print
+    typographic apostrophes (I’ve, It’s); the card data spells them straight.
+  - **Left as found, explained in evidence/63/checklist.md:** the 1 px art offset (the build cuts art from the PC's
+    350-px scan); game text and lore are ~1 % narrower than the PC's (the fitter's tracking, #49); PC-only labels
+    ("Image courtesy of …", "Original concept by …", the original-title label) are not in the PC card data.
+
