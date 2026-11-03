@@ -153,9 +153,9 @@ def convert(c: dict, vs) -> dict:
         card["banner_icon"] = "grabber"
     if src:
         card["art"] = {"src": src}
-    if art.get("rect"):   # the scan's own art rectangle (tall-slip cards)
+    if art.get("rect") and art.get("src"):   # the scan's own art rectangle (tall-slip cards); an API upload's rect is resolved by the server
         card["art"] = {"src": art["src"], "rect": art["rect"]}
-    if art.get("bbox"):   # a hand-measured scan mapping belongs to the base scan (full-art Admiral's Orders)
+    if art.get("bbox") and art.get("src"):   # a hand-measured scan mapping belongs to the base scan (full-art Admiral's Orders)
         card["art"] = {"src": art["src"], "bbox": art["bbox"]}
     if (c.get("expansion") or "") in ("Coruscant", "Theed Palace", "Tatooine", "Reflections III"):
         card["art_trim"] = True          # Episode I frame: trim the silver edge the classic art box would include

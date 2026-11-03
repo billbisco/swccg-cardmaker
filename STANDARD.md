@@ -574,4 +574,8 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Left as found, explained in evidence/63/checklist.md:** the 1 px art offset (the build cuts art from the PC's
     350-px scan); game text and lore are ~1 % narrower than the PC's (the fitter's tracking, #49); PC-only labels
     ("Image courtesy of …", "Original concept by …", the original-title label) are not in the PC card data.
-
+- Rev 60 (2026-11-03, #63 follow-up, Bill: "Sure. Try that please"): `compare_pc.py` now builds each card with art cut
+  from the full-size reference itself, at the build's own art-window box (sub-pixel crop at master scale), instead of
+  the server's 350-px scan; `--scan-art` keeps the old behaviour. The art row now measures the template: 0 px on the
+  Dark interrupts, 0–1 px on the Light ones (half-pixel window edges at 745). `build_vs.convert` no longer fails on an
+  API upload that carries a crop rectangle (the server resolves it; the convert step needs a `src`).

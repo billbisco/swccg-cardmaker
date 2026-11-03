@@ -19,13 +19,14 @@ logged as an approved deviation (docs/design-log/48-deviations.md) or explained 
 "frame" is everything outside the element boxes and the art window.
 """
 from __future__ import annotations
-import argparse, io, json, os, re, sys, urllib.parse, urllib.request
+import argparse, base64, io, json, os, re, sys, urllib.parse, urllib.request
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
 
 SEARCH = 10         # px, offset search radius for each element (a result at the limit is flagged)
-INK_DELTA = 40      # levels: "differs" for the changed-pixel share
+INK_DELTA = 40
+ART_FROM_REF = True   # --scan-art: use the server's own scan art instead      # levels: "differs" for the changed-pixel share
 UA = {"User-Agent": "swccg-cardmaker-compare/1.0"}
 
 
@@ -126,6 +127,19 @@ def compare(api, q, out, holotable=None, ref=None, build=None, boxes_file=None):
         resp = http(f"{api}/api/render", {"spec": spec, "size": "holotable", "format": "png"})
         bimg = Image.open(io.BytesIO(resp.read())).convert("RGB")
         boxes = json.loads(resp.headers.get("X-Piece-Boxes") or "{}").get("pieces", {})
+        if ART_FROM_REF and not build and boxes.get("art"):
+            # cut the art from the full-size reference itself, at the build's own art window, so the art row measures
+            # the template and not the 350-px scan the server would otherwise use (Bill 2026-11-03, #63 follow-up)
+            pim, _ = ref_image(spec, holotable, ref)
+            if pim.size != bimg.size:
+                pim = pim.resize(bimg.size, Image.LANCZOS)
+            x, y, w, h = boxes["art"]
+            buf = io.BytesIO()   # the window exactly (sub-pixel), at master scale (×2), so nothing is rounded or re-fitted
+            pim.transform((round(w * 2), round(h * 2)), Image.EXTENT, (x, y, x + w, y + h), Image.BICUBIC).save(buf, "PNG")
+            spec = dict(spec, art={"kind": "upload", "data": "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()})
+            resp = http(f"{api}/api/render", {"spec": spec, "size": "holotable", "format": "png"})
+            bimg = Image.open(io.BytesIO(resp.read())).convert("RGB")
+            boxes = json.loads(resp.headers.get("X-Piece-Boxes") or "{}").get("pieces", {})
         if boxes_file:
             boxes = json.load(open(boxes_file)).get("pieces", {})
         if build:
@@ -188,12 +202,15 @@ def main():
     ap.add_argument("--batch", help="file with one title or gempId per line (# comments)")
     ap.add_argument("--api", default=os.environ.get("CARDMAKER_API", "http://127.0.0.1:17010"))
     ap.add_argument("--holotable", default=os.environ.get("HOLOTABLE_CARDS", "/opt/swccg-holotable/Images-HT/starwars"))
+    ap.add_argument("--scan-art", action="store_true", help="build with the server's scan art (default: art cut from the reference)")
     ap.add_argument("--ref", help="reference image instead of the PC hires PNG (single card)")
     ap.add_argument("--build", help="CardMaker image to measure instead of a fresh API render (single card)")
     ap.add_argument("--boxes", help="element boxes JSON ({pieces: {name: [x, y, w, h]}} at the image's size); with --build and --ref no API is needed")
     ap.add_argument("--out", default="out/compare")
     ap.add_argument("--sheet", action="store_true", help="write <out>/sheet.png")
     a = ap.parse_args()
+    global ART_FROM_REF
+    ART_FROM_REF = not a.scan_art
     qs = list(a.cards)
     if a.batch:
         qs += [l.split("#")[0].strip() for l in open(a.batch, encoding="utf-8") if l.split("#")[0].strip()]
