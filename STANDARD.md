@@ -539,3 +539,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   `ls-starship` landscape sites _Redemption_: Command Post (V) (VS13 #11) and Blockade Flagship: Prison (V) (VS16 #7).
   Their worn-paint pattern changed on every run because it was seeded with Python's per-process salted `hash()`; it is
   now seeded with CRC32 of the card id, so it is the same on every run.
+- Rev 58 (2026-11-03, swccg-guild/work#72; Bill 2026-11-03 5:28 AM: "characteristics like spy, leader, smugger, etc.
+  should generally be bolded going forward"): Rev 15 stands. Every characteristic in `KEYWORDS` is bold in a character
+  remaster's lore even where the slip prints it plain. `bold_check.py` checks every transcription (`test`: 0 misses;
+  `report`: card × characteristic, reference vs remaster, possible PC errors). Every word a slip sets bold was
+  reviewed. Three character characteristics joined `KEYWORDS`: **Jedi Council member** (5 slips bold), **musician** (1)
+  and **senator** (1). "then-Senator" is a new exception, next to "Former …" and possessives. Enclosed, hologram and
+  dejarik are not added: they are vehicle, site and creature words, ordinary elsewhere in lore, and stay bold only where
+  their slip prints them. Lore changes on three remasters only: Bail Organa (V) and Senator Padmé Amidala (V) (*Senator*)
+  and Jedi Advisor (*Jedi Council Member*).

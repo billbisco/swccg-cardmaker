@@ -42,7 +42,8 @@ TOKEN_FIX = {"{icon:immune-alter}": "{alter}", "{icon:immune-control}": "{contro
              "{icon:virtual-set symbol}": "{ovs}", "{icon:republic}": "{republic-crest}", "{icon:republic-square}": "{republic-square}"}
 
 
-KEYWORDS = r"bounty hunter|information broker|leader|spy|smuggler|gambler|scout|thief|gangster|assassin"
+# Rev 15 (Bill 2026-10-13) + Rev 58 (#72, 2026-11-03): every characteristic a slip or printed card sets in bold
+KEYWORDS = r"bounty hunter|information broker|jedi council member|leader|spy|smuggler|gambler|scout|thief|gangster|assassin|musician|senator"
 
 
 def bold_keywords(lore: str) -> str:
@@ -51,8 +52,8 @@ def bold_keywords(lore: str) -> str:
     parts = re.split(r"(\*[^*]+\*)", lore)   # leave already-bold runs alone
     def one(m):
         before, after = m.string[:m.start()], m.string[m.end():]
-        if re.search(r"(?i)\bformer\s+$", before) or re.match(r"[’']s\b", after):
-            return m.group(0)        # "Former scout", "smuggler's" — not a characteristic ("to spy on" IS bolded, Bill)
+        if re.search(r"(?i)\bformer\s+$", before) or re.search(r"(?i)\bthen-$", before) or re.match(r"[’']s\b", after):
+            return m.group(0)        # "Former scout", "then-Senator", "smuggler's" — not a characteristic ("to spy on" IS bolded, Bill)
         return f"*{m.group(0)}*"
     return "".join(p if p.startswith("*") else re.sub(rf"(?i)(?<![A-Za-z])(?:{KEYWORDS})(?![A-Za-z])", one, p) for p in parts)
 
