@@ -25,5 +25,7 @@
  "copyright": "TM & © 1997 LUCASFILM LTD. TM, ® & © 1997 DECIPHER INC.",
  "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Dagobah Effect. No grabber box. Slip heading and caption both •; match the base (its Light counterpart Do, Or Do Not (V) drops the dot; this one does not). No inline icons; slip text matches the stub. Lore corrected from the 350 px scan: curly double quotes “…” (wiki straight single quotes). Copyright read off the 350 px scan: Dagobah line, 1997. Modern: none.",
  "grabber": false,
- "game_text_lines": "Plays on table. Sense and Alter are Lost Interrupts.\nWhen any player makes a successful destiny draw for\nSense or Alter, that player loses 2 Force."
+ "game_text_lines": "Plays on table. Sense and Alter are Lost Interrupts.\nWhen any player makes a successful destiny draw for\nSense or Alter, that player loses 2 Force.",
+ "caption_drop": 50.1,
+ "number_drop": 52.1
 }

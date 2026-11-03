@@ -25,5 +25,7 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
  "notes": "Slip text matches the wiki stub exactly. Heading and caption •Wise Advice (V), dots match the base. Lore read off the 350 px scan: matches the wiki, no corrections. Copyright: Special Edition line, partly legible on the 350 px scan, consistent with the set default. No modern remake file.",
  "grabber": false,
- "game_text_lines": "Plays on table. Your Immediate Effects may play for\nfree. Whenever opponent cancels your card with Sense\nor Alter, place that canceled card in Used Pile."
+ "game_text_lines": "Plays on table. Your Immediate Effects may play for\nfree. Whenever opponent cancels your card with Sense\nor Alter, place that canceled card in Used Pile.",
+ "caption_drop": 53.8,
+ "number_drop": 51.9
 }

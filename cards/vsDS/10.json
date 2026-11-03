@@ -25,5 +25,7 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
  "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Endor Effect. No grabber box. Slip heading and caption both •; match the base. No inline icons; slip text matches the stub. Lore wording matches the wiki; curly apostrophe in Empire’s (wiki straight; 350 px scan). Copyright read off the 350 px scan: Endor form, no year after the first ©, 1999. Modern: none.",
  "grabber": false,
- "game_text_lines": "Plays on table. Unless a player occupies a battleground\nsite and a battleground system, that player must first\nuse 3 Force to initiate a Force drain. Suspended if\nBattle Plan on table."
+ "game_text_lines": "Plays on table. Unless a player occupies a battleground\nsite and a battleground system, that player must first\nuse 3 Force to initiate a Force drain. Suspended if\nBattle Plan on table.",
+ "caption_drop": 54.0,
+ "number_drop": 52.1
 }

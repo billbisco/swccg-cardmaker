@@ -25,5 +25,7 @@
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Coruscant Effect. Banner carries the GRABBER icon box at its right end (lavender box, black hand — as on the printed Coruscant Effect) → grabber true. Slip heading and caption both •; match the base. No inline icons; slip text matches the stub. Lore matches the wiki and the 745 px scan (no correction). Copyright read off the 745 px scan: 2001 SE-style line with year after the first ©. Modern: the PC's Virtual Shields remake VSh-D-dotheyhaveacodeclearancev-pre.gif (350 px). Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
  "grabber": true,
- "game_text_lines": "Plays on table. If opponent just retrieved Force using\nan Interrupt or Utinni Effect, you may place that card\nhere. Opponent’s Force retrieval is reduced by X,\nwhere X = number of cards here."
+ "game_text_lines": "Plays on table. If opponent just retrieved Force using\nan Interrupt or Utinni Effect, you may place that card\nhere. Opponent’s Force retrieval is reduced by X,\nwhere X = number of cards here.",
+ "caption_drop": 54.0,
+ "number_drop": 51.6
 }

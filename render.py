@@ -934,7 +934,8 @@ def starship_frame(frame: Image.Image, card: dict, t: dict, DL: int, DD: int) ->
     lum = rgb.mean(axis=2, keepdims=True) / 172.0
     if card["frame_style"] == "ls-starship":
         col = np.array([38, 118, 162], float)
-        rng = np.random.default_rng(abs(hash(card["id"])) % 2**32)
+        import zlib   # rev 57: str hash() is salted per process, so the worn-paint pattern changed on every run
+        rng = np.random.default_rng(zlib.crc32(card["id"].encode("utf-8")))
         from PIL import ImageFilter
         chips = np.zeros((H, Wd))
         for sc, wgt in ((24, 1.0), (9, 0.6), (4, 0.35)):   # worn paint: multi-scale blotches, more of them near the rim
@@ -1774,10 +1775,14 @@ def build_html(card: dict) -> str:
     # condensed to 90.6 % (glyph advances give a 6.83 pt em, the capitals stand 5.4 pt), bullet Fiorello Condensed 7.56 pt,
     # number Akzidenz-Grotesk BE Bold Italic 7.08 pt, one baseline 6.4 pt under the frame. Scaled by the frame width
     # (163.2 pt = 1336 master px, 8.19 px/pt): 61.7 px ×0.906 / 61.9 px / 58.0 px, baseline 52 px under the frame.
+    # Rev 57 (#73): measured on all 18 DS slips, the number's baseline is 51.5–52.2 px under the frame's bottom edge
+    # (the first black row, _st), but the PC set each caption by hand, 49.5–56.3 px. Both default to 52 from _st (rev 53
+    # put them at _st − 1 + 52, 1 px high); "caption_drop" / "number_drop" carry a card's own slip values (vsDS specs),
+    # and such a card keeps the slip's type size: its gap above the ink drops from 6 px to 2 px (the PC's own, ~2.3 px).
     _st = card_ctx.get("_strip_top") or t.get("strip_top", 2076)   # first black row under this card's own frame
     _sb = t.get("strip_bottom", 1560 if is_wide(t) else 2150)      # last master row the Holotable / GEMP image keeps
     strip = (f'data-top="{_st}" data-bottom="{_sb}" '
-             f'data-base="{_st - 1 + card.get("caption_drop", 52)}" '
+             f'data-base="{_st + card.get("caption_drop", 52)}" data-nbase="{_st + card.get("number_drop", 52)}" data-gap="{2 if "caption_drop" in card else 6}" '
              f'data-capfs="{card.get("caption_size", 61.7)}" data-capsx="{card.get("caption_scale_x", 0.906)}" data-numfs="{card.get("number_size", 58.0)}"')
     if cap and capgrow:
         cap = cap.replace("◇", "◊")   # the slips print Decipher's non-unique diamonds as Arial's lozenge (VS13 #1)
@@ -1981,9 +1986,11 @@ def build_html(card: dict) -> str:
           };
           const fitV = (sp, fs, up, down) => {   // keep 3 px (master 6) of black above the ink and below the descenders
             const a = met(sp, up).actualBoundingBoxAscent / 100, d = met(sp, down).actualBoundingBoxDescent / 100;
-            return Math.min(fs, (base - top - 6) / a, d > 0 ? (bottom - 6 - base) / d : fs);
+            // a card placed from its own PC slip (caption_drop) keeps the slip's size: the PC leaves only ~2 px there
+            return Math.min(fs, (base - top - (+sp.parentElement.dataset.gap || 6)) / a, d > 0 ? (bottom - 6 - base) / d : fs);
           };
-          if (num) place(num, fitV(num.querySelector('.capt'), +num.dataset.numfs, '0123456789', '0123456789'));
+          if (num) { const b0 = base; base = Math.min(+num.dataset.nbase, +num.dataset.bottom - 6 - met(num.querySelector('.capt'), '0123456789').actualBoundingBoxDescent / 100 * +num.dataset.numfs);
+                     place(num, fitV(num.querySelector('.capt'), +num.dataset.numfs, '0123456789', '0123456789')); base = b0; }
           if (cap) {
             const sp = cap.querySelector('.capt'), sx = +cap.dataset.capsx || 1;
             sp.style.transformOrigin = 'left top'; sp.style.transform = `scaleX(${sx})`;

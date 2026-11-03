@@ -25,5 +25,6 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
  "notes": "The parenthetical \"(X is equal to … Lost Pile.)\" is printed in ITALICS on the slip (parentheses included) → _…_; the wiki stub and the PDF text layer lose the italics. Curly apostrophe in opponent’s (wiki straight). Otherwise slip text matches the stub. Heading and caption •Aim High (V), dots match the base. Lore read off the 350 px scan: matches the wiki, no corrections. Copyright: vertical line only partly legible on the 350 px scan (SE-style form, \"© LUCASFILM LTD. & TM. …\"); year by set (Endor 1999). No modern remake file.",
  "grabber": false,
- "game_text_lines": "Plays on table. Whenever opponent retrieves X cards,\nopponent must first use X Force or that retrieval is\ncanceled. _(X is equal to the full amount of Force\nallowed to be retrieved, regardless of the number of\ncards in opponent’s Lost Pile.)_"
+ "game_text_lines": "Plays on table. Whenever opponent retrieves X cards,\nopponent must first use X Force or that retrieval is\ncanceled. _(X is equal to the full amount of Force\nallowed to be retrieved, regardless of the number of\ncards in opponent’s Lost Pile.)_",
+ "caption_drop": 52.0
 }

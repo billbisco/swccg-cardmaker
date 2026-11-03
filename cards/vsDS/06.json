@@ -25,5 +25,7 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 2000 DECIPHER INC.",
  "notes": "The white diamond ◇ (non-unique-location mark) is typed as U+25C7; the wiki stub reads it as \"system site\" (differs) and the PDF text layer drops it. Curly apostrophe in opponent’s. \"-2\" printed with a hyphen on the slip (the printed card has \"−3\"). Heading and caption •Ounee Ta (V), dots match the base. Lore corrected: curly apostrophes in Jabba’s (twice; wiki straight). Copyright: SE-style line on the 350 px scan, year unclear — read as 2000 (Jabba’s Palace Sealed Deck, Oct 2000), consistent with vs6/20 (another JPSD base). NB the brief suggested 1998; the scan’s form (no year before LUCASFILM) is the SE/2000-era line. Modern file VSh-L-ouneeta-pre.gif is a later PC shield (Ref III) with DIFFERENT text — art reference only. Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
  "grabber": false,
- "game_text_lines": "Plays on table. At each opponent’s ◇ site, your Rebels\nare each deploy -2 and your Force generation is +1."
+ "game_text_lines": "Plays on table. At each opponent’s ◇ site, your Rebels\nare each deploy -2 and your Force generation is +1.",
+ "caption_drop": 53.8,
+ "number_drop": 51.9
 }

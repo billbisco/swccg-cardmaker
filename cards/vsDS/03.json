@@ -25,5 +25,6 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1999 DECIPHER INC.",
  "notes": "Slip text matches the wiki stub exactly. Heading and caption •Battle Plan (V), dots match the base. Lore read off the 350 px scan: matches the wiki, no corrections. Copyright: vertical line only partly legible on the 350 px scan (SE-style form); year by set (Endor 1999). No modern remake file.",
  "grabber": false,
- "game_text_lines": "Plays on table. Unless a player occupies a battleground\nsite and a battleground system, that player must first\nuse 3 Force to initiate a Force drain."
+ "game_text_lines": "Plays on table. Unless a player occupies a battleground\nsite and a battleground system, that player must first\nuse 3 Force to initiate a Force drain.",
+ "caption_drop": 52.0
 }

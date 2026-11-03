@@ -525,3 +525,17 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   the number sits 1–2 px higher, so rev 53's "within 1 px" held for the baseline and left edge only — to fix in the
   margin-strip work. `deploy.sh` now makes assets world-readable first: the rev 53 deploy left fonts at mode 600
   (scp) and the live editor failed to render until fixed by hand on 2026-11-03.
+- Rev 57 (2026-11-03, swccg-guild/work#73): margin baseline. Measured on all 18 slips in DefensiveShields.pdf (its text
+  layer), the number's baseline sits 51.5–52.2 px (master) under the frame's bottom edge, but the PC placed each caption
+  by hand, 49.5–56.3 px (6.05–6.875 pt). Rev 53 put both at `_st − 1 + 52`, 1 px high; both now default to `_st + 52`.
+  The DS specs carry their own slip values (`caption_drop`, `number_drop`), and a card placed from its slip keeps the
+  slip's type size: its gap above the ink drops from 6 px to the PC's own ~2 px (rev 52's 6 px still holds for every
+  other card). Result against the PDF (registered on the frame edge, 0.1 px steps at 745): caption and number within
+  0.8 px on all 18 (before: up to 1.8 px). The remainder is the registration itself (caption and number share it on
+  14 of 18) and the face: Liberation Sans Narrow's capitals stand ~0.9 px lower than Arial Narrow's at 745 (fonts kept,
+  #48 Q6). Slip 04's caption has no uniqueness dot; Bill ruled that a PC mistake on 2026-11-01, so the remaster keeps
+  •Do, Or Do Not (V) and its caption sits ~9 px right of the slip's (the dot's width).
+  Regression: all 18 DS cards and 692 of the 694 VS1–17 images changed in the margin strip only. The other two are the
+  `ls-starship` landscape sites _Redemption_: Command Post (V) (VS13 #11) and Blockade Flagship: Prison (V) (VS16 #7).
+  Their worn-paint pattern changed on every run because it was seeded with Python's per-process salted `hash()`; it is
+  now seeded with CRC32 of the card id, so it is the same on every run.

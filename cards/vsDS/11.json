@@ -25,5 +25,6 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
  "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Special Edition Effect. DOTS DIFFER: the slip HEADING prints 'Come Here You Big Coward (V)' with NO dot, while the bottom-strip caption prints '•Come Here You Big Coward (V)' and the printed base is unique (•) — title kept as •Come Here You Big Coward (base + caption); the PDF text layer agrees (heading undotted, caption dotted). No grabber box. No inline icons; slip text matches the stub. Lore corrected from the 745 px scan: curly double quotes “Chewie! Come here!” (wiki straight single quotes). Copyright read off the scan: Special Edition line, 1998. Modern: none.",
  "grabber": false,
- "game_text_lines": "Plays on table. While you occupy a battleground and\nopponent occupies less than two battlegrounds, cancel:\nAsteroid Sanctuary, opponent’s Force drains at\nnon-battleground locations, and opponent’s Force\nretrieval."
+ "game_text_lines": "Plays on table. While you occupy a battleground and\nopponent occupies less than two battlegrounds, cancel:\nAsteroid Sanctuary, opponent’s Force drains at\nnon-battleground locations, and opponent’s Force\nretrieval.",
+ "caption_drop": 52.2
 }

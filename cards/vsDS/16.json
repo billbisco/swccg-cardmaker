@@ -25,5 +25,7 @@
  "copyright": "© LUCASFILM LTD. & TM. TM, ® & © 1998 DECIPHER INC.",
  "notes": "Unique. Banner DEFENSIVE SHIELD (slip frame: red Effect top edge fading into the teal shield frame). Printed base is a Special Edition Effect. No grabber box. Slip heading and caption both •; match the base. The closing parenthetical '(X is equal to … Lost Pile.)' is printed in ITALICS on the slip → _…_ (spans the slip's line breaks; the wiki stub and the PDF text layer have it plain). Wording otherwise matches the stub. Lore matches the wiki and the 350 px scan (no correction). Copyright read off the 350 px scan: Special Edition line, 1998. Modern: none.",
  "grabber": false,
- "game_text_lines": "Plays on table. If opponent is about to retrieve X Force,\nopponent must first use X Force or that retrieval is\ncanceled. _(X is equal to the full amount of Force\nallowed to be retrieved, regardless of the number of\ncards in opponent’s Lost Pile.)_"
+ "game_text_lines": "Plays on table. If opponent is about to retrieve X Force,\nopponent must first use X Force or that retrieval is\ncanceled. _(X is equal to the full amount of Force\nallowed to be retrieved, regardless of the number of\ncards in opponent’s Lost Pile.)_",
+ "caption_drop": 50.1,
+ "number_drop": 52.1
 }

@@ -25,5 +25,7 @@
  "copyright": "© 2001 LUCASFILM LTD. & TM. TM, ® & © 2001 DECIPHER INC.",
  "notes": "Slip prints ▲ (\"may ▲ an Immediate Effect\") where the wiki stub expands it as \"may take an Immediate Effect into hand from Reserve Deck; reshuffle.\" (the PDF text layer reads \"▲an\" with no space; the slip image shows a space). Curly apostrophe in the heading/caption Don’t. Heading and caption •Don’t Do That Again (V), dots match the base. Lore corrected: curly apostrophe in won’t (wiki straight; at 350 px the glyph shape is not certain — set curly per Decipher typesetting). Copyright: Tatooine 2001 SE-style line with the year after the first ©, partly legible on the 350 px scan. Base top half prints a gold disc icon (looks like the Republic icon; low-res) and the Episode I icon under the destiny (kept from the printed card). Modern file VSh-L-dontdothatagain-pre.gif is the PC’s later Virtual Shields remake with DIFFERENT game text (adds the “Missing” clause) — art reference only. Art from the base scan, not the modern VSh shield face: the shield frame's art window is narrower and left a cyan strip down the right edge of the art box.",
  "grabber": false,
- "game_text_lines": "Plays on table. Once per game, may ▲ an Immediate\nEffect. Unless opponent occupies a battleground\nsystem, Mobilization Points is suspended."
+ "game_text_lines": "Plays on table. Once per game, may ▲ an Immediate\nEffect. Unless opponent occupies a battleground\nsystem, Mobilization Points is suspended.",
+ "caption_drop": 53.8,
+ "number_drop": 51.9
 }
