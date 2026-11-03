@@ -46,7 +46,7 @@ TEMPLATES = {
         "copyright_x": 1404,
     },
     "ls-interrupt": {
-        "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 82, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139),
+        "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139),
         "art": (254, 663, 1122, 754),
         "title": (408, 194, 880, 90),
         "destiny": (1316, 196, 100, 104),
@@ -114,8 +114,8 @@ TEMPLATES = {
         "expansion_ring": (1380, 405), "copyright_x": 1404,
     },
     "ds-interrupt": {
-        "lore_x": (319, 1270, 80, 0, 0.0), "expansion_size": 59, "title_stroke": 2, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 82, "title_ls": 0.4, "frame": ("frames/ds-interrupt.png", 141, 141),
-        "art": (245, 661, 1134, 765), "title": (406, 194, 779, 100), "destiny": (1312, 197, 102, 99),
+        "lore_x": (319, 1270, 80, 0, 0.0), "expansion_size": 59, "title_stroke": 0.6, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55, "frame": ("frames/ds-interrupt.png", 141, 141),
+        "art": (245, 661, 1134, 765), "title": (404, 196, 779, 100), "destiny": (1312, 197, 102, 99),
         "lore": (316, 374, 989, 193), "card_type": (272, 1507, 1091, 61), "game_text": (316, 1666, 997, 328),
         "banner_icon": (1292, 1495), "set_icon_abs": (1397, 1954), "set_icon_size": 68, "expansion_ring": (1382, 406), "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8,
     },
@@ -636,12 +636,8 @@ def loc_title(card: dict, bar: str = "Light") -> str:
 
 
 def title_html(s: str) -> str:
-    """esc_i() for card titles: Fiorello has no accented letters, so é/è/á are an e/a with the accent drawn above it
-    (Padmé Naberrie (V))."""
-    out = esc_i(s)
-    for ch, base, acc in (("é", "e", "´"), ("è", "e", "`"), ("á", "a", "´")):
-        out = out.replace(ch, f'<span style="position:relative;display:inline-block">{base}<span style="position:absolute;left:0.02em;top:-0.22em;font-family:AGBoldCnA;font-size:0.85em">{acc}</span></span>')
-    return out
+    """esc_i() for card titles (Holotable Title carries é è á à ó ú É and curly quotes itself, #118)."""
+    return esc_i(s)
 
 
 def esc_i(s: str) -> str:
@@ -1216,7 +1212,7 @@ LABEL_PRESETS = {
     "concept":     dict(anchor="center", x=2,    y=-158, size=54, font="AGCn",     italic=True,  stroke=1.0, color="#ffffff", edge="#000000"),
     "top-right":   dict(anchor="right",  x=-150, y=128, size=50, font="AGBoldCnA", italic=False, stroke=1.0, color="#ffffff", sx=1.33),
 }
-LABEL_FONTS = {"bold": "AGBoldCnA", "text": "AGCn", "medium": "AGMedCn", "number": "AGMedExt", "title": "Fiorello"}
+LABEL_FONTS = {"bold": "AGBoldCnA", "text": "AGCn", "medium": "AGMedCn", "number": "AGMedExt", "title": "HoloTitle"}
 
 
 def card_labels(card: dict) -> list:
@@ -1323,7 +1319,7 @@ def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     fonts = {
-        "Fiorello": "fonts/Fiorello CG Condensed Regular.otf",
+        "HoloTitle": "fonts/HolotableTitle/HolotableTitle-Regular.otf",   # titles, deploy / forfeit, caption bullet: our OFL face drawn from the PC titles (#118)
         "AGLightCn": "fonts/Akzidenz-Grotesk BQ Light Conde.otf",
         "AGMedCn": "fonts/AkzidenzGroteskBE-MdCn.otf",
         "AGBoldCnA": "fonts/Akzidenz-Grotesk BQ Condensed A.otf",
@@ -1477,7 +1473,7 @@ def build_html(card: dict) -> str:
     elif t.get("chart"):   # Hyperoute Navigation Chart: title in a white-ruled black box over the starfield
         x, y, w, h = t["title"]
         parts.append(f'<div style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:#000;border:7px solid #e8e8e8;box-sizing:border-box;'
-                     f'display:flex;align-items:center;justify-content:center;font-family:Fiorello;font-size:124px;color:#fff;white-space:nowrap">{title_html(card["title"])}</div>')
+                     f'display:flex;align-items:center;justify-content:center;font-family:HoloTitle;font-size:124px;color:#fff;white-space:nowrap">{title_html(card["title"])}</div>')
     else:
         parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
     sec('destiny')
@@ -1857,7 +1853,7 @@ def build_html(card: dict) -> str:
                 fit_ = "cover" if ex.get("fit") == "cover" else "contain"
                 parts.append(f'<img src="{d_}" style="position:absolute;left:{x_:.0f}px;top:{y_:.0f}px;width:{w_:.0f}px;height:{h_:.0f}px;object-fit:{fit_};{flip_}">')
         else:
-            font_ = {"text": "AGCn", "bold": "AGBoldCnA", "title": "Fiorello", "number": "AGMedExt", "lore": "AGLightCn"}.get(str(ex.get("font")), "AGCn")
+            font_ = {"text": "AGCn", "bold": "AGBoldCnA", "title": "HoloTitle", "number": "AGMedExt", "lore": "AGLightCn"}.get(str(ex.get("font")), "AGCn")
             col_ = str(ex.get("color") or "#ffffff"); col_ = col_ if re.fullmatch(r"#[0-9a-fA-F]{3,8}", col_) else "#ffffff"
             bg_ = str(ex.get("bg") or ""); bg_ = bg_ if re.fullmatch(r"#[0-9a-fA-F]{3,8}", bg_) else "transparent"
             al_ = ex.get("align") if ex.get("align") in ("left", "center", "right") else "left"
@@ -1880,12 +1876,12 @@ def build_html(card: dict) -> str:
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
     LP = dict(LORE_CSS, **card.get("_lore_css", {}))
-    title_stroke_css = f"-webkit-text-stroke:{t['title_stroke']}px currentColor;" if t.get("title_stroke") else ""   # rev 59: the PC sets Dark interrupt titles with a slight stroke
+    title_stroke_css = f"-webkit-text-stroke:{t['title_stroke']}px currentColor;" if t.get("title_stroke") else ""   # the PC's white Dark titles print 0.3 px heavier than Holotable Title (#118 stem check)
     css = f"""
     {font_css}
     body{{margin:0;background:#000}}
     .inv .title, .inv .lore, .inv .ctype, .inv .gt, .inv .destiny {{rotate:180deg}}   /* Dagobah's upside-down cards (Through The Force Things You Will See) */
-    .title{{font-family:Fiorello;font-size:{t.get("title_size", 80)}px;color:{t.get("title_ink", ink)};letter-spacing:{t.get("title_ls", 1)}px;{title_stroke_css}line-height:90px;white-space:nowrap}}
+    .title{{font-family:HoloTitle;font-size:{t.get("title_size", 81.4)}px;color:{t.get("title_ink", ink)};letter-spacing:{t.get("title_ls", 1)}px;{title_stroke_css}line-height:90px;white-space:nowrap}}
     .destiny{{font-family:AGMedExt;font-size:80px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:2px;box-sizing:border-box}}
     .lore{{font-family:{LP["ff"]};font-size:{LP["fs"]}px;color:{ink};letter-spacing:{LP["ls"]}px;line-height:{LP["lh"]}px;padding:{LP["pt"]}px 0 0 0;box-sizing:border-box;text-align:{card.get("lore_align", "left")};overflow-wrap:anywhere;text-indent:{card.get("lore_indent", LP["ind"])}px}}
     .lore b{{font-family:AGCn;font-weight:bold}}
@@ -1903,14 +1899,14 @@ def build_html(card: dict) -> str:
     .stat .val{{white-space:nowrap;font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
     .stat .val.r{{margin-left:auto;padding-left:30px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
     .ctype{{font-family:AGBoldCnA;font-size:{t.get("ctype_size", 60)}px;color:{t.get("ctype_ink", ink)};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:{t.get("ctype_size", 60) + 1}px;white-space:nowrap}}
-    .deploy{{font-family:Fiorello;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
-    .forfeit{{font-family:Fiorello;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
+    .deploy{{font-family:HoloTitle;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
+    .forfeit{{font-family:HoloTitle;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
     .cap .dot{{font-size:40px}}
     .cap.capgrow{{font-family:PCCap}}
-    .cap.capgrow .dot{{font-family:Fiorello;font-size:1.003em}}
+    .cap.capgrow .dot{{font-family:HoloTitle;font-size:1.003em}}
     .num.capgrow{{font-family:PCNum;font-weight:normal}}
-    .dot{{font-family:Fiorello}}
+    .dot{{font-family:HoloTitle}}
     .num{{font-family:AGMedExt;font-weight:bold;font-size:44px;color:#fff;line-height:52px;text-align:right;transform:skewX(-14deg)}}
     .ltitle, .dtitle{{font-family:AGBoldCnA;font-size:57px;letter-spacing:2px;text-transform:uppercase}}
     .ltext.pre span, .dtext.pre span{{white-space:pre}}

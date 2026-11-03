@@ -13,7 +13,7 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
 
 ## Sources
 - Frames, fonts, layout: Bardez's 600 DPI GIMP templates (wiki: Making Custom SWCCG Cards). Card area 1343×1931 at
-  (144,144) on a 1632×2220 black bleed. Fonts from his pack (Fiorello CG Condensed; Akzidenz-Grotesk BQ Light/Medium/
+  (144,144) on a 1632×2220 black bleed. Fonts from his pack (Fiorello CG Condensed, replaced in rev 62 by our own OFL Holotable Title; Akzidenz-Grotesk BQ Light/Medium/
   Bold Condensed, Medium Extended) — commercial fonts; fine for our renders, a licensing question for a public tool.
 - Text: the slip image on the wiki (VSnO-NN-Title.png) and the PC's Dec 2006 Remaster sheets (VirtualCardsN.pdf,
   Wayback of swccgpc.com/Resources/). Wiki `{{Card}}` transcriptions dropped inline icons — re-transcribe from slips.
@@ -23,9 +23,9 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
 - Game Aid Feb 2024 PDF (wiki) = clean copies of all 76 PC icons at template size.
 
 ## Type sizes (match the PC's Holotable cards; shrink only when a text won't fit)
-Title Fiorello 80 · destiny Akzidenz Medium Extended 80 · lore Light Condensed 58 (first line indented 60) ·
+Title Holotable Title 81.4 (rev 62: Fiorello CG's 80 × 1.017, the scale fitted on the PC interrupts; same cap height per px as CG) · destiny Akzidenz Medium Extended 80 · lore Light Condensed 58 (first line indented 60) ·
 stat labels Bold Condensed 56 + value Medium Extended bold 60 right after the label (gap 26) · **game text Akzidenz-Grotesk BQ Condensed (regular weight) 62 / line 65** — the face and size of the PC's Holotable cards, verified against the modern Chewbacca (V) at equal scale (Bardez's spec named BE Medium Condensed, which is narrower and heavier than what the PC prints) · deploy & forfeit Fiorello 70 centered in their boxes · card-type banner Bold Condensed
-60, letter-spacing 11 · bottom strip in the PC slip's faces and geometry: caption Arial Narrow Bold (Liberation Sans Narrow Bold) 61.7 px condensed to 90.6 %, bullet Fiorello 61.9 px, number Akzidenz-Grotesk BE Bold Italic 58 px, one baseline 52 px under the frame (rev 53) · copyright line Bold Condensed 24.
+60, letter-spacing 11 · bottom strip in the PC slip's faces and geometry: caption Arial Narrow Bold (Liberation Sans Narrow Bold) 61.7 px condensed to 90.6 %, bullet Holotable Title 61.9 px, number Akzidenz-Grotesk BE Bold Italic 58 px, one baseline 52 px under the frame (rev 53) · copyright line Bold Condensed 24.
 
 ## Geometry, Dark Character frame (1632×2220 space)
 title (374,200,884×90) · destiny hole (1312,213,100×84) · lore (321,377,989×193) · art (256,666,1121×770) ·
@@ -55,7 +55,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Icon boxes are cut from the printed Hoth card (brighter than Bardez's), 100×94 with their bevel, sitting in
   the title bar (frame y 1148), packed from the outside in: right-most centre frame x 1855, pitch 111; scomp ring
   (cut from the same card, 104 px) at frame (1790,1143). Dark half = the same mirrored and rotated 180°.
-  Light title centred in the grey bar between force slot and first box, Fiorello 80; Dark title white on black.
+  Light title centred in the grey bar between force slot and first box, Holotable Title 81.4; Dark title white on black.
   Text boxes: Light grey (250,1341,1719×120), Dark black (250,195,1719×99), centred, AGCn 62. Set symbol 76 px
   centred in the right margin on the text-box centre line; caption/number in the bottom border at y 1494.
 - System (portrait): Bardez "Location - System" bar assembly at (235,189) over the full-card scan (prefer the
@@ -594,3 +594,14 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     between sets: original-title label 0–1 px on VS26/27 but +7 px on VS0 (Master Qui-Gon); concept credit dx 6/−9;
     art credit 0–5 px. A Decipher copyright line copied from a scan (Do, Or Do Not & Wise Advice (V)) keeps the scan's
     smaller lettering, so CardMaker's standard copyright face runs longer.
+- Rev 62 (2026-11-03, swccg-guild/work#118, Bill: "This is future proofing and important and avoids and legal issues"):
+  card titles, deploy / forfeit numbers and the caption bullet are set in **Holotable Title**, our own font under the SIL
+  Open Font License 1.1 (`assets/fonts/HolotableTitle/`: the OTF, OFL.txt, FONTLOG.txt, specimen and the sources and
+  script that rebuild it byte for byte). It is traced from the PC's own Virtual card titles (each letter averaged over up
+  to 1,166 printed instances), with spacing fitted to 689 measured letter pairs; no font file went into it. Fiorello CG
+  is removed from the repository. Its cap height per px equals Fiorello CG's, so sizes carry over; titles scale 80 → 81.4
+  (the interrupt fit) and the interrupts are re-fitted: 83.4 px, Light tracking 0.6, Dark 0.55 with a 0.6 px stroke (was
+  2 px), Dark title box (404, 196). Accented letters and curly quotes are in the font, so `title_html` no longer draws
+  accents over bare letters. Against the PC: title width within 1 px (median 1.0 px over 24 references, Fiorello CG
+  2.0); the pixel difference is a few levels higher than Fiorello CG's on some long Light titles (deviation D2, Bill
+  2026-11-03 7:08 PM: "if we fail, we just take what you have").

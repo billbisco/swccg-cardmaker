@@ -1,0 +1,61 @@
+FONTLOG for Holotable Title
+===========================
+
+This file provides detailed information on the Holotable Title font software.
+This information should be distributed along with the Holotable Title fonts and any derivative works.
+
+
+Basic Font Information
+----------------------
+
+Holotable Title is the card-title face of swccg-cardmaker (https://github.com/billbisco/swccg-cardmaker), the
+remaster tool for Star Wars CCG Players Committee Virtual cards. It is a condensed display face drawn from the
+card titles the Players Committee printed on its own cards, so that remastered cards can be set without a
+commercial typeface (swccg-guild/work#118).
+
+The font is licensed under the SIL Open Font License, Version 1.1 (OFL.txt), with no Reserved Font Name.
+It is not affiliated with, derived from the files of, or named after any commercial typeface.
+
+Coverage: A-Z, a-z, 0-9, space, ! & ( ) , - . : ; ? / # ’ ‘ “ ” ' • ◊ – and é è á à ó ú É: every
+character in every Players Committee Virtual and Legacy card title and every CardMaker VS spec title, apart
+from the `_..._` (italic) and `<>` (diamond) markup, which CardMaker renders itself.
+
+
+How it was made
+---------------
+
+Nothing in the font comes from another font file. The outlines are traced from the Players Committee's own
+745 x 1039 card images (res.starwarsccg.org), as follows (source/, run in this order):
+
+1. fetch.py: download the title strip (top 170 rows) of every Virtual card in cards.json (1,267 cards, locations
+   excluded because their titles use a different all-caps face).
+2. extract.py: split each title's ink into letter clusters; use titles whose cluster count equals their letter
+   count (405), plus titles aligned to their letters by dynamic programming on a width table (263); scale every
+   instance to a common cap height (32 card px, 8x super-resolution), register instances to each other at
+   sub-pixel precision (phase correlation, outliers rejected) and average them into glyphs/<codepoint>.png.
+   The measured ink-to-ink gap of every letter pair is written to pairs.json.
+3. build.py: smooth (Gaussian, sigma 4 canonical px) and trace each averaged glyph (potrace); fit left and right
+   side bearings by least squares over the 689 measured pairs (median residual 0.15 card px); the word space is
+   the median measured space; kerning only where at least 8 instances agree (V a, O r, O f). Characters with no
+   instances (: ; ' ‘ “ ” – / # ◊ and the accented letters) are built from traced parts (period, comma,
+   apostrophe, hyphen, e, a, o, u, E) or drawn from the measured stem weight. Cap height 752/1000 em (the same
+   as the face CardMaker used before, so its template sizes carry over), x-height 537. The build is
+   reproducible: `python3 build.py ../HolotableTitle-Regular.otf` gives a byte-identical file.
+4. check_width.py: title ink width against the PC images, our font at each title's own cap height.
+
+Measured against the PC (CardMaker rev 61, swccg-guild/work#118 evidence): title width within 1 px (median
+|dw| 1.0 px over 24 reference cards, against 2.0 px with Fiorello CG); stem weight within 0.15 px on Light
+titles.
+
+
+ChangeLog
+---------
+
+2026-11-03 (swccg-cardmaker contributors) Holotable Title Version 1.000
+- First release: 92 glyphs traced from the Players Committee card titles.
+
+
+Acknowledgements
+----------------
+
+The letter shapes are those the Star Wars CCG Players Committee printed on its Virtual cards.
