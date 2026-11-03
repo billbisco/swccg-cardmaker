@@ -1734,7 +1734,8 @@ def build_html(card: dict) -> str:
         # measured on Endless Legions (PC hires, ×2 = master px): text centre x ≈ 2 × 61.5, run 235 px at 745 → 51 px face
         lx = t.get("art_credit_x", ax - (cx - (ax + aw)) - cw + 10)
         parts.append(f'<div class="copy" style="position:absolute;left:{lx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
-                     f'<div class="copyin artcredit" style="font-family:AGCn;font-size:{t.get("art_credit_size", 51)}px;letter-spacing:0">{esc(card["art_credit"])}</div></div>')
+                     f'<div class="copyin artcredit" style="font-family:{t.get("art_credit_font", "AGCn")};font-size:{t.get("art_credit_size", 51)}px;letter-spacing:0;'
+                     f'color:#fff;-webkit-text-stroke:1.6px #fff;text-shadow:0 0 2px #000,0 0 2px #000,0 0 4px #000,2px 2px 4px #000">{esc(card["art_credit"])}</div></div>')
     sec('credits')
     # slip credit lines in the side margins (Wokling (V): "Original concept by …" left, "GenCon 2002 Winner" right),
     # italic, reading bottom-to-top, spanning the banner + text box
