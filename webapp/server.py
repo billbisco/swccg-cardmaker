@@ -52,6 +52,8 @@ for _c in CARDS.values():   # one card spells the Force icon keys in lower case
         if _a in _c["front"]: _c["front"].setdefault(_b, _c["front"].pop(_a))
 _CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if (ROOT / "gempdata/corrections.json").exists() else {}
 _FILL = json.load(open(ROOT / "gempdata/fill.json", encoding="utf-8")) if (ROOT / "gempdata/fill.json").exists() else {}
+if (ROOT / "gempdata/card_labels.json").exists():   # PC extra labels, synced from billbisco/swccg-gemp (swccg-guild/work#100)
+    adapter.PC_LABELS.update(json.load(open(ROOT / "gempdata/card_labels.json", encoding="utf-8")).get("cards", {}))
 for _g, _vals in _FILL.items():   # values the PC JSON lacks, transcribed from the printed cards (Force icons, INFLUENCE, …)
     if _g in CARDS and isinstance(_vals, dict):
         for _k, _v in _vals.items():

@@ -1288,6 +1288,10 @@ def label_html(lb: dict, W: int, H: int) -> str:
                      f'transform-origin:right bottom;{common}">{_mark_html(m.group(1), size, col, stroke)}</div>')
         return html
     body = _mark_html(text, size, col, stroke) if p.get("mark") else esc(text)
+    ip = str(lb.get("italic_part") or "")
+    if ip and ip in text and not p.get("mark"):   # only part italic: the PC italicises a starship's name (Boba Fett In Slave I)
+        a, _, b = text.partition(ip)
+        body = (esc(a) + f'<span style="display:inline-block;transform:skewX(-10deg);transform-origin:left bottom">{esc(ip)}</span>' + esc(b))
     return (f'<div class="label" style="position:absolute;left:{x:.0f}px;top:{top:.0f}px;transform:translateX({tr}) {skew};'
             f'transform-origin:{"right" if p["anchor"] == "right" else "left"} bottom;{common}">{body}</div>')
 
@@ -1722,6 +1726,16 @@ def build_html(card: dict) -> str:
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
                      f'<div class="copyin">{esc(card["copyright"])}</div></div>')
+    sec('art_credit')
+    # PC art credit up the left side of the art ("Image courtesy of Jesus Conde", Endless Legions VS26; swccg-guild/work#100):
+    # the copyright line's mirror image about the art window, same face and size
+    if card.get("art_credit") and not t.get("no_copyright"):
+        cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
+        # measured on Endless Legions (PC hires, ×2 = master px): text centre x ≈ 2 × 61.5, run 235 px at 745 → 51 px face
+        lx = t.get("art_credit_x", ax - (cx - (ax + aw)) - cw + 10)
+        parts.append(f'<div class="copy" style="position:absolute;left:{lx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
+                     f'<div class="copyin artcredit" style="font-family:{t.get("art_credit_font", "AGCn")};font-size:{t.get("art_credit_size", 51)}px;letter-spacing:0;'
+                     f'color:#fff;-webkit-text-stroke:1.6px #fff;text-shadow:0 0 2px #000,0 0 2px #000,0 0 4px #000,2px 2px 4px #000">{esc(card["art_credit"])}</div></div>')
     sec('credits')
     # slip credit lines in the side margins (Wokling (V): "Original concept by …" left, "GenCon 2002 Winner" right),
     # italic, reading bottom-to-top, spanning the banner + text box
@@ -1799,7 +1813,7 @@ def build_html(card: dict) -> str:
              f'data-capfs="{card.get("caption_size", 61.7)}" data-capsx="{card.get("caption_scale_x", 0.906)}" data-numfs="{card.get("number_size", 58.0)}"')
     if cap and capgrow:
         cap = cap.replace("◇", "◊")   # the slips print Decipher's non-unique diamonds as Arial's lozenge (VS13 #1)
-        parts.append(f'<div class="cap capgrow" {strip} style="position:absolute;left:{card.get("caption_x", 153)}px;top:0;width:1080px;height:0"><span class="capt" style="position:absolute;left:0">{game_text_html(cap)}</span></div>')
+        parts.append(f'<div class="cap capgrow" {strip} style="position:absolute;left:{card.get("caption_x", 153)}px;top:0;width:1080px;height:0"><span class="capt" style="position:absolute;left:0{";font-style:italic" if card.get("caption_italic") else ""}">{game_text_html(cap)}</span></div>')
     elif cap: parts.append(f'<div class="cap" style="position:absolute;left:160px;top:{cy}px;width:900px;height:52px">{game_text_html(cap)}</div>')
     sec('credits')
     if "game_text" not in t and (card.get("margin_left") or card.get("margin_right")) and t.get("landscape"):

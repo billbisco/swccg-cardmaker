@@ -579,3 +579,18 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   the server's 350-px scan; `--scan-art` keeps the old behaviour. The art row now measures the template: 0 px on the
   Dark interrupts, 0–1 px on the Light ones (half-pixel window edges at 745). `build_vs.convert` no longer fails on an
   API upload that carries a crop rectangle (the server resolves it; the convert step needs a `src`).
+- Rev 61 (2026-11-03, swccg-guild/work#100): **PC printed labels from `gempdata/card_labels.json`.** The file is the
+  copy of billbisco/swccg-gemp `card_labels.json` (2,544 PC faces: original title, errata mark, (AI)/(ALT) mark, concept
+  credit, art credit, non-standard copyright line). `adapter.gemp_to_spec` applies it to every card: the original title
+  as the `bottom-left` label (italic, or only its italic part, e.g. *Executor*: Control Station), the errata mark, the
+  (AI)/(ALT) mark bottom right, the concept credit as the `concept` label, the art credit, and the copyright line when
+  the card prints a Decipher line instead of the standard Lucasfilm one. Virtual Legacy cards take the original title
+  as the slip caption.
+  - **Art credit:** new `art_credit` section, the copyright line's mirror image about the art window; AGCn 51 px, white
+    with a 1.6 px white stroke and a dark edge, as the PC prints it (Endless Legions: length and centre 0–1 px).
+  - **Card data:** `gempdata/Light.json` and `Dark.json` refreshed from the PC's current card JSON (23 new VS27
+    cards, including Do, Or Do Not & Wise Advice (V), 227_19; 28 updated).
+  - **Left as found, explained in evidence/100/compare.md:** the PC sets its labels by hand, so they move a few px
+    between sets: original-title label 0–1 px on VS26/27 but +7 px on VS0 (Master Qui-Gon); concept credit dx 6/−9;
+    art credit 0–5 px. A Decipher copyright line copied from a scan (Do, Or Do Not & Wise Advice (V)) keeps the scan's
+    smaller lettering, so CardMaker's standard copyright face runs longer.
