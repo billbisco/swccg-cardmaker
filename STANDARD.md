@@ -643,3 +643,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   used since the VS13 location work (the parsec number is set in the stat-value face, now Holotable Numbers Extended);
   checked on 10 PC system cards covering parsecs 0-9: position, width and height within 0 px of the PC, pixel
   difference ~5. Every font in `assets/fonts` is now free software (FONTS.md).
+- Rev 67 (2026-11-03, swccg-guild/work#124 follow-up): Holotable Numbers Extended keeps TeX Gyre Heros' own digits.
+  The digits traced from the PC's destiny numbers (rev 65) matched a little better at 745 px but showed lumpy or
+  rounded outlines at the 600-DPI master; Heros' drawn digits are crisp and closer to the PC's at render size
+  (FONTLOG.txt). Positions are unchanged.

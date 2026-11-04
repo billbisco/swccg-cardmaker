@@ -12,7 +12,7 @@ sources and script that rebuild it.
 | HolotableText/HolotableText-Light.ttf | Holotable Text Light (OFL, from Barlow Condensed) | lore |
 | HolotableText/HolotableText-Regular.ttf | Holotable Text Regular (OFL, from Barlow Condensed) | game text (the PC's Holotable size: 62 px / 65 line at 600 DPI), "medium" labels |
 | HolotableText/HolotableText-Bold.ttf | Holotable Text Bold (OFL, from Barlow Condensed) | stat labels, type banners, © line (landscape bottom strips) |
-| HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros; PC-traced digits) | destiny, stat values, slip numbers, parsec numbers on systems |
+| HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros) | destiny, stat values, slip numbers, parsec numbers on systems |
 | LiberationSansNarrow-Bold.ttf | Liberation Sans Narrow Bold (metric twin of Arial Narrow Bold) | bottom-strip caption on portrait cards (the PC slips use Arial Narrow Bold) |
 | HolotableNumbers/HolotableNumbers-BoldItalic.otf | Holotable Numbers Bold Italic (GUST Font License, from TeX Gyre Heros) | bottom-strip card number (the PC's PDF sets it in Akzidenz-Grotesk BE Bold Italic) |
 
@@ -38,9 +38,9 @@ Condensed (and Bardez's BE Medium Condensed). It is Barlow Condensed (SIL OFL 1.
 and rescaled so CardMaker's sizes, baselines and line breaks carry over; licence, FONTLOG and the script that rebuilds it
 are in `assets/fonts/HolotableText/`. On 24 PC reference cards it breaks lines where Akzidenz-Grotesk did.
 
-**Holotable Numbers** (rev 65, swccg-guild/work#124) replaces Akzidenz-Grotesk Medium Extended and the PC's Akzidenz-Grotesk
+**Holotable Numbers** (rev 65 / 67, swccg-guild/work#124) replaces Akzidenz-Grotesk Medium Extended and the PC's Akzidenz-Grotesk
 BE Bold Italic digits. It is TeX Gyre Heros Bold / Bold Italic (GUST Font License, a free licence: LPPL 1.3c) widened and
-rescaled, with the Extended digits 0-7 and 9 redrawn from the PC's own destiny numbers (averaged from its card images).
+rescaled to the digit height, baseline and spacing the templates assume.
 Licence, FONTLOG and the script that rebuilds it are in `assets/fonts/HolotableNumbers/`.
 
 The wiki page *Typography of Star Wars CCG cards* (wiki.swccg.com) documents what is known about the faces Decipher

@@ -21,20 +21,19 @@ How it was made (source/build.py, byte-for-byte reproducible)
    bottoms on the baseline. Digit spacing and line metrics follow targets.json, so CardMaker's sizes and positions
    carry over. Extended capitals are 5.7 % taller (the I and V of Episode destiny numbers), and the asterisk is
    reduced to the old face's size.
-3. Extended digits 0-7 are then replaced by the PC's own destiny digits. Every Players Committee virtual card with
-   a single-digit destiny was cut from its 745 x 1039 Holotable image, and each digit was aligned to the others at
-   sub-pixel precision and averaged at 8x resolution: 0 (80 instances), 1 (209), 2 (240), 3 (191), 4 (177),
-   5 (116), 6 (33) and 7 (6). The averages are in source/dglyphs. They are traced with potrace (threshold 0.58), and
-   each digit's ink is centred in its advance width. 9 is the traced 6 turned half round. 8 stays Heros' (the PC
-   prints no destiny 8 or 9).
+3. Tried and not used: Extended digits 0-7 redrawn from the PC's own destiny numbers (every PC virtual card with a
+   single-digit destiny, 6-240 instances per digit, aligned and averaged at 8x and traced). At the PC's 745-px scale
+   they matched somewhat better (destiny pixel difference, mean over 24 cards, 19.5 against 21.1), but at CardMaker's 600-DPI master their
+   outlines were lumpy, or with more smoothing their corners went round. Heros' crisp drawn digits look closer to
+   the PC's at the size CardMaker renders, so they were kept.
 
 Measured against the PC (24 reference cards rebuilt in CardMaker, compare_pc.py): destiny numbers and stat values
-land in the same positions as with Akzidenz-Grotesk Medium Extended. The pixel difference of the destiny number
-(0-255) averages 19.5 against 18.9 with Akzidenz-Grotesk. With Heros' own digits it was 20.0. Stat values are
-unchanged (40.1 against 40.2).
-Where it falls short: the digits are averages of 745-px images, so their corners are a little softer than the
-PC's. The 8 and the Bold Italic digits are Heros' design, not the PC's: Helvetica-style rather than Akzidenz
-details.
+land in the same positions as with Akzidenz-Grotesk Medium Extended, and parsec numbers on 10 PC system cards
+within 0 px. The pixel difference of the destiny number (0-255) is 21.1 on average (median 20.0) against 18.9 (18.9) with
+Akzidenz-Grotesk;
+stat values are unchanged (40.1 against 40.2).
+Where it falls short: the digits are Heros' design, Helvetica-style rather than Akzidenz-Grotesk's (the 2, 4 and 7
+differ most), and the widened Extended strokes are about 6 % heavier than Akzidenz-Grotesk Medium Extended's.
 
 
 ChangeLog
