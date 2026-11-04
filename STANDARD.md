@@ -605,3 +605,6 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   accents over bare letters. Against the PC: title width within 1 px (median 1.0 px over 24 references, Fiorello CG
   2.0); the pixel difference is a few levels higher than Fiorello CG's on some long Light titles (deviation D2, Bill
   2026-11-03 7:08 PM: "if we fail, we just take what you have").
+- Rev 63 (2026-11-03, swccg-guild/work#122, Bill: "how it approximates the other font but is still lacking"):
+  documentation only. `assets/fonts/HolotableTitle/ACCURACY.md` records how close Holotable Title is to the PC's
+  titles and where it falls short (per-card figures against Fiorello CG), and FONTLOG.txt points to it. No render change.

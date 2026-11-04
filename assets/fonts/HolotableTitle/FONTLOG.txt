@@ -43,9 +43,10 @@ Nothing in the font comes from another font file. The outlines are traced from t
    reproducible: `python3 build.py ../HolotableTitle-Regular.otf` gives a byte-identical file.
 4. check_width.py: title ink width against the PC images, our font at each title's own cap height.
 
-Measured against the PC (CardMaker rev 61, swccg-guild/work#118 evidence): title width within 1 px (median
-|dw| 1.0 px over 24 reference cards, against 2.0 px with Fiorello CG); stem weight within 0.15 px on Light
-titles.
+Measured against the PC (CardMaker rev 62): title width within 1 px (median |dw| 1.0 px over 24 reference
+cards, against 2.0 px with Fiorello CG); stem weight within 0.1 px. Where it falls short: on long black-on-silver
+titles single letters drift up to 1-2 px and edges are softer, so the pixel difference to the PC is up to 4.4
+levels (0-255) higher than with Fiorello CG, a digital copy of the PC's own face. Details: ACCURACY.md.
 
 
 ChangeLog
