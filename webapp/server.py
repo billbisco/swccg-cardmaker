@@ -18,7 +18,7 @@ Rendering runs render.py in one long-lived headless Chromium on a worker thread 
 thread-safe), so requests are served one at a time. Previews are cached by spec hash.
 """
 from __future__ import annotations
-import base64, hashlib, io, json, os, queue, re, sys, threading, time, traceback, urllib.request
+import base64, hashlib, io, json, os, queue, re, sys, threading, time, traceback, urllib.parse, urllib.request
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
@@ -38,10 +38,24 @@ UA = {"User-Agent": "swccg-cardmaker/0.1"}
 
 # ---------- card index ----------
 CARDS: dict[str, dict] = {}
+_SAME_ID: dict[str, list] = {}
 for side in ("Light", "Dark"):
     for c in json.load(open(ROOT / f"gempdata/{side}.json", encoding="utf-8"))["cards"]:
         if c.get("gempId"):
-            CARDS[c["gempId"]] = c
+            _SAME_ID.setdefault(c["gempId"], []).append(c)
+for _g, _cs in _SAME_ID.items():
+    # PC alternate-image printings share their card's gempId: the plain printing (shortest title) keeps the id, each
+    # other printing is <gempId>^<its extra parenthetical>, as in card_labels.json (200_76^AI, 200_95^Tatooine)
+    _base = min(_cs, key=lambda x: (len(x["front"].get("title") or ""), x["front"].get("title") or ""))
+    _bp = set(re.findall(r"\(([^)]*)\)", _base["front"].get("title") or ""))
+    for _c in _cs:
+        if _c is _base:
+            CARDS[_g] = _c; continue
+        _extra = [p for p in re.findall(r"\(([^)]*)\)", _c["front"].get("title") or "") if p not in _bp]
+        _k = f"{_g}^{' '.join(_extra) or _c['id']}"
+        _c["gempId"] = _k if _k not in CARDS else f"{_g}^{_c['id']}"
+        CARDS[_c["gempId"]] = _c
+for side in ("Light", "Dark"):
     lp = ROOT / f"gempdata/{side}Legacy.json"   # the PC's 2009-2014 Virtual Blocks (legacy): no GEMP ids, keyed <set>_L<id>
     if lp.exists():
         for c in json.load(open(lp, encoding="utf-8"))["cards"]:
@@ -54,16 +68,18 @@ _CORR = json.load(open(ROOT / "gempdata/corrections.json", encoding="utf-8")) if
 _FILL = json.load(open(ROOT / "gempdata/fill.json", encoding="utf-8")) if (ROOT / "gempdata/fill.json").exists() else {}
 if (ROOT / "gempdata/card_labels.json").exists():   # PC extra labels, synced from billbisco/swccg-gemp (swccg-guild/work#100)
     adapter.PC_LABELS.update(json.load(open(ROOT / "gempdata/card_labels.json", encoding="utf-8")).get("cards", {}))
+_PRINTINGS = {g: [g] + [k for k in CARDS if k.startswith(g + "^")] for g in _SAME_ID}   # fills / fixes cover every printing
 for _g, _vals in _FILL.items():   # values the PC JSON lacks, transcribed from the printed cards (Force icons, INFLUENCE, …)
-    if _g in CARDS and isinstance(_vals, dict):
-        for _k, _v in _vals.items():
-            if not _k.startswith("_"):
-                CARDS[_g]["front"][_k] = _v
+    for _gg in _PRINTINGS.get(_g, [_g]):
+        if _gg in CARDS and isinstance(_vals, dict):
+            for _k, _v in _vals.items():
+                if not _k.startswith("_"):
+                    CARDS[_gg]["front"][_k] = _v
 for _g, _fix in _CORR.items():   # printed-card typo fixes over the PC JSON
-    if _g in CARDS:
+    for _gg in [x for x in _PRINTINGS.get(_g, [_g]) if x in CARDS]:
         for _k, _pairs in _fix.items():
             _side, _, _kk = _k.rpartition(".")   # "gametext" (front) or "back.gametext"
-            _f = CARDS[_g].get(_side or "front") or {}
+            _f = CARDS[_gg].get(_side or "front") or {}
             for _wrong, _right in ([_pairs] if isinstance(_pairs[0], str) else _pairs):
                 if isinstance(_f.get(_kk), str):
                     _f[_kk] = _f[_kk].replace(_wrong, _right)
@@ -429,7 +445,7 @@ class H(BaseHTTPRequestHandler):
                 spec["art"] = {"kind": "ovs", "gempId": gid}
                 return self._json({"spec": spec, "art_sources": ["ovs", "upload", "none"], "art_urls": {}})
             if path.startswith("/api/card/"):
-                gid = path.rsplit("/", 1)[1]
+                gid = urllib.parse.unquote(path.rsplit("/", 1)[1])
                 if gid not in CARDS:
                     return self._json({"error": "unknown card"}, 404)
                 spec = adapter.gemp_to_spec(CARDS[gid])

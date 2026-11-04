@@ -37,7 +37,7 @@ def http(url, data=None, timeout=180):
 
 
 def resolve(api, q):
-    if re.fullmatch(r"\d+[a-z]?_\w+", q):
+    if re.fullmatch(r"\d+[a-z]?_\w+(\^[\w ]+)?", q):
         return q
     hits = json.load(http(f"{api}/api/search?q={urllib.parse.quote(q)}&limit=20"))
     exact = [h for h in hits if h["title"].replace("•", "").strip().lower() == q.replace("•", "").strip().lower()]
@@ -123,7 +123,7 @@ def compare(api, q, out, holotable=None, ref=None, build=None, boxes_file=None):
         boxes = json.load(open(boxes_file)).get("pieces", {})
     else:
         gid = resolve(api, q)
-        spec = json.load(http(f"{api}/api/card/{gid}"))["spec"]
+        spec = json.load(http(f"{api}/api/card/{urllib.parse.quote(gid)}"))["spec"]
         resp = http(f"{api}/api/render", {"spec": spec, "size": "holotable", "format": "png"})
         bimg = Image.open(io.BytesIO(resp.read())).convert("RGB")
         boxes = json.loads(resp.headers.get("X-Piece-Boxes") or "{}").get("pieces", {})
