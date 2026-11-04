@@ -1,7 +1,10 @@
 # Fonts
 
-The renderer uses the typefaces of the printed Decipher cards and the Players Committee's Holotable remakes, as
-identified and bundled by Bardez with his templates (`docs/bardez-card-fonts-and-dimensions.txt`):
+Every font in this repository is free software: anyone may use, copy, modify and redistribute it, alone or with this
+code. Each one is built to stand in for a face of the printed Decipher cards and the Players Committee's Holotable
+remakes, as identified by Bardez (`docs/bardez-card-fonts-and-dimensions.txt`) and measured on the PC's own cards.
+Each font's folder holds its licence, a FONTLOG (how it was made, how close it is, where it falls short) and the
+sources and script that rebuild it.
 
 | File | Face | Used for |
 |------|------|----------|
@@ -9,21 +12,20 @@ identified and bundled by Bardez with his templates (`docs/bardez-card-fonts-and
 | HolotableText/HolotableText-Light.ttf | Holotable Text Light (OFL, from Barlow Condensed) | lore |
 | HolotableText/HolotableText-Regular.ttf | Holotable Text Regular (OFL, from Barlow Condensed) | game text (the PC's Holotable size: 62 px / 65 line at 600 DPI), "medium" labels |
 | HolotableText/HolotableText-Bold.ttf | Holotable Text Bold (OFL, from Barlow Condensed) | stat labels, type banners, © line (landscape bottom strips) |
-| HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros; PC-traced digits) | destiny, stat values, slip numbers |
-| CraftGothic-HeavyExtended.otf | Craft Gothic Heavy Extended | parsec numbers on systems |
+| HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros; PC-traced digits) | destiny, stat values, slip numbers, parsec numbers on systems |
 | LiberationSansNarrow-Bold.ttf | Liberation Sans Narrow Bold (metric twin of Arial Narrow Bold) | bottom-strip caption on portrait cards (the PC slips use Arial Narrow Bold) |
 | HolotableNumbers/HolotableNumbers-BoldItalic.otf | Holotable Numbers Bold Italic (GUST Font License, from TeX Gyre Heros) | bottom-strip card number (the PC's PDF sets it in Akzidenz-Grotesk BE Bold Italic) |
 
-Craft Gothic is redistributed here as it came in Bardez's community template pack, for this free, non-commercial fan
-project. It is a commercial design (being replaced: swccg-guild/work#125): they are not open-source fonts, and nothing in this repository's MIT licence applies to them. If you
-redistribute or build a commercial product on this code, replace them (the renderer only needs the
-`@font-face` names in `render.py`).
+Until rev 62-66 (3 November 2026) the repository carried commercial fonts from Bardez's community template pack
+(Fiorello CG Condensed, five Akzidenz-Grotesk files, Craft Gothic Heavy Extended) and a digit subset of Akzidenz-Grotesk
+BE Bold Italic from the PC's PDF. All have been replaced and removed (swccg-guild/work#118, #123, #124, #125); they remain
+in the git history only. Craft Gothic had not been used since the VS13 location work moved the parsec number to the
+stat-value face.
 
 Liberation Sans Narrow (Liberation Fonts 1.07.4, from Debian's `fonts-liberation` package) is free software under the
 GNU GPL v2 with the font exception; its licence is in `assets/fonts/LiberationSansNarrow-LICENSE.txt`. The PC printed
 the slip captions in Arial Narrow Bold (a Monotype font). Liberation has identical advance widths, and at the slip
-geometry (STANDARD rev 53) its ink lands within 1 px of the PDF's. The digits file is a subset of the Berthold face
-that the PC's PDF embeds; it covers only what card numbers need.
+geometry (STANDARD rev 53) its ink lands within 1 px of the PDF's.
 
 **Holotable Title** (rev 62, swccg-guild/work#118) replaces Fiorello CG Condensed, the commercial face of the
 title before. It is traced from the PC's own card titles (the PC set them in AT/PL Fiorello Condensed), shares no

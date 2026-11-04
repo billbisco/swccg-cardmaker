@@ -639,3 +639,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   baseline and digit spacing matches, with Extended digits 0-7 traced from the PC's own destiny numbers (6-240
   instances each, averaged) and 9 from the 6. Akzidenz-Grotesk Medium Extended and the PC's BE Bold Italic digit subset
   leave the repository. No template setting changes: destiny and stat positions match on the 24 reference cards.
+- Rev 66 (2026-11-03, swccg-guild/work#125): Craft Gothic Heavy Extended leaves the repository. It had not been
+  used since the VS13 location work (the parsec number is set in the stat-value face, now Holotable Numbers Extended);
+  checked on 10 PC system cards covering parsecs 0-9: position, width and height within 0 px of the PC, pixel
+  difference ~5. Every font in `assets/fonts` is now free software (FONTS.md).

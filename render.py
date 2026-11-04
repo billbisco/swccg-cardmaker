@@ -1336,7 +1336,6 @@ def build_html(card: dict) -> str:
         "AGBoldCnA": "fonts/HolotableText/HolotableText-Bold.ttf",
         "AGCn": "fonts/HolotableText/HolotableText-Regular.ttf",
         "AGMedExt": "fonts/HolotableNumbers/HolotableNumbers-Extended.otf",   # destiny, stat values, slip numbers: Holotable Numbers, from TeX Gyre Heros (GUST Font License, #124)
-        "Craft": "fonts/CraftGothic-HeavyExtended.otf",
         "PCCap": "fonts/LiberationSansNarrow-Bold.ttf",            # Arial Narrow Bold metrics (the PC slips' caption face)
         "PCNum": "fonts/HolotableNumbers/HolotableNumbers-BoldItalic.otf",   # bottom-strip number (the PC's DefensiveShields.pdf sets it in Akzidenz-Grotesk BE Bold Italic)
     }
