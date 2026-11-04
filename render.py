@@ -531,7 +531,7 @@ def stat_boxes(t: dict, n: int):
 
 
 def data_uri(path: Path) -> str:
-    mime = "font/otf" if path.suffix == ".otf" else "image/png" if path.suffix == ".png" else "image/gif"
+    mime = "font/otf" if path.suffix == ".otf" else "font/ttf" if path.suffix == ".ttf" else "image/png" if path.suffix == ".png" else "image/gif"
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
 
 
@@ -1331,10 +1331,10 @@ def build_html(card: dict) -> str:
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     fonts = {
         "HoloTitle": "fonts/HolotableTitle/HolotableTitle-Regular.otf",   # titles, deploy / forfeit, caption bullet: our OFL face drawn from the PC titles (#118)
-        "AGLightCn": "fonts/Akzidenz-Grotesk BQ Light Conde.otf",
-        "AGMedCn": "fonts/AkzidenzGroteskBE-MdCn.otf",
-        "AGBoldCnA": "fonts/Akzidenz-Grotesk BQ Condensed A.otf",
-        "AGCn": "fonts/Akzidenz-Grotesk BQ Condensed.otf",
+        "AGLightCn": "fonts/HolotableText/HolotableText-Light.ttf",   # lore; text faces: our OFL Holotable Text, from Barlow Condensed (swccg-guild/work#123)
+        "AGMedCn": "fonts/HolotableText/HolotableText-Regular.ttf",   # was Bardez's BE Medium Condensed (label "medium"): Holotable Text Regular is cut from Barlow Medium
+        "AGBoldCnA": "fonts/HolotableText/HolotableText-Bold.ttf",
+        "AGCn": "fonts/HolotableText/HolotableText-Regular.ttf",
         "AGMedExt": "fonts/AkzidenzGrotesk-MediumExtended.otf",
         "Craft": "fonts/CraftGothic-HeavyExtended.otf",
         "PCCap": "fonts/LiberationSansNarrow-Bold.ttf",            # Arial Narrow Bold metrics (the PC slips' caption face)

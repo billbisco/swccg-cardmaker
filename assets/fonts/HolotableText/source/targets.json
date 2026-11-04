@@ -1,0 +1,35 @@
+{
+ "Light": {
+  "cap": 0.706,
+  "hhea.ascent": 0.88,
+  "hhea.descent": -0.25,
+  "hhea.lineGap": 0.0,
+  "OS/2.sTypoAscender": 0.706,
+  "OS/2.sTypoDescender": -0.163,
+  "OS/2.sTypoLineGap": 0.044,
+  "OS/2.usWinAscent": 0.88,
+  "OS/2.usWinDescent": 0.25
+ },
+ "Regular": {
+  "cap": 0.706,
+  "hhea.ascent": 0.908,
+  "hhea.descent": -0.25,
+  "hhea.lineGap": 0.0,
+  "OS/2.sTypoAscender": 0.706,
+  "OS/2.sTypoDescender": -0.159,
+  "OS/2.sTypoLineGap": 0.049,
+  "OS/2.usWinAscent": 0.908,
+  "OS/2.usWinDescent": 0.25
+ },
+ "Bold": {
+  "cap": 0.706,
+  "hhea.ascent": 0.919,
+  "hhea.descent": -0.221,
+  "hhea.lineGap": 0.0,
+  "OS/2.sTypoAscender": 0.706,
+  "OS/2.sTypoDescender": -0.177,
+  "OS/2.sTypoLineGap": 0.053,
+  "OS/2.usWinAscent": 0.919,
+  "OS/2.usWinDescent": 0.221
+ }
+}

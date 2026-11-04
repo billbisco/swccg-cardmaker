@@ -625,3 +625,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Copyright:** `card_labels.json` now records every card's copyright line, the standard one too; a card that
     prints none (Rescue In The Clouds (V)) gets none.
   - `compare_pc.py` accepts `<gempId>^<printing>` ids.
+- Rev 64 (2026-11-03, swccg-guild/work#123, Bill: "let's work on tickets to replace Akzidenz-Grotesk and Craft Gothic"):
+  lore, game text, stat labels, type banners, the © line and the "medium" labels are set in **Holotable Text** Light /
+  Regular / Bold (`assets/fonts/HolotableText/`, SIL OFL 1.1), a modified Barlow Condensed (Light / Medium / SemiBold):
+  narrowed (0.799 / 0.869 / 0.959), rescaled to the cap height per em and line metrics the templates assume, and
+  widened or narrowed per character class so real card text sets to the same widths. Akzidenz-Grotesk BQ Light
+  Condensed, BQ Condensed, BQ Bold Condensed and BE Medium Condensed leave the repository. No template setting changes:
+  positions and line breaks match the Akzidenz-Grotesk build on the 24 reference cards (FONTLOG.txt has the figures).
+  `data_uri` serves .ttf fonts as font/ttf.

@@ -1,0 +1,23 @@
+{
+ "Light": {
+  "upper": 1.0335,
+  "lower": 0.9675,
+  "digits": 1.1312,
+  "punct": 1.184,
+  "space": 1.1573
+ },
+ "Regular": {
+  "upper": 1.0413,
+  "lower": 0.9672,
+  "digits": 1.0597,
+  "punct": 1.1968,
+  "space": 1.1995
+ },
+ "Bold": {
+  "upper": 1.0172,
+  "lower": 0.9917,
+  "digits": 1.0137,
+  "punct": 1.119,
+  "space": 1.2162
+ }
+}

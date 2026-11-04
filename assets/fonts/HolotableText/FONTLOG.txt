@@ -1,0 +1,56 @@
+FONTLOG for Holotable Text
+==========================
+
+This file provides detailed information on the Holotable Text font software.
+This information should be distributed along with the Holotable Text fonts and any derivative works.
+
+
+Basic Font Information
+----------------------
+
+Holotable Text is the text face of swccg-cardmaker (https://github.com/billbisco/swccg-cardmaker): lore (Light),
+game text (Regular) and stat labels, type banners and the copyright line (Bold). It replaces Akzidenz-Grotesk
+BQ Light Condensed, BQ Condensed and BQ Bold Condensed, commercial Berthold typefaces, so that CardMaker can be
+copied and used with no font-licence questions (swccg-guild/work#123).
+
+Holotable Text is a modified version of Barlow Condensed (Copyright 2017 The Barlow Project Authors,
+https://github.com/jpt/barlow), released like it under the SIL Open Font License, Version 1.1 (OFL.txt). Barlow's
+licence is kept in source/Barlow-OFL.txt.
+
+
+How it was made
+---------------
+
+source/build.py, from the Barlow Condensed files in source/:
+
+1. Each style starts from the Barlow Condensed weight whose strokes, once narrowed, match the face it replaces:
+   Light from Barlow Condensed Light, Regular from Medium, Bold from SemiBold.
+2. Outlines and advance widths are narrowed (Light 0.799, Regular 0.869, Bold 0.959) and scaled so the cap height
+   per em equals the replaced face's, so CardMaker's type sizes carry over unchanged (targets.json).
+3. Capitals, lowercase, digits, punctuation and the word space are then widened or narrowed as groups
+   (classes.json) so text sets to the same widths, and therefore the same line breaks, as before. Individual
+   letter widths are Barlow's own.
+4. Line metrics per em follow the replaced face (targets.json), and USE_TYPO_METRICS is off, so lines land on the
+   same baselines in CardMaker's line boxes. Kerning is Barlow's, scaled with the outlines.
+5. New names (Holotable Text Light / Regular / Bold); fixed timestamps, so the build is byte-for-byte reproducible.
+
+Measured against the PC (24 reference cards rebuilt in CardMaker, compare_pc.py): lore, game text, type banners,
+stat labels and the copyright line land in the same positions as with Akzidenz-Grotesk, and lines break in the same
+places (game text: same line count on 23 of 24 cards, 107 of 114 line ends within 12 px; the rest are measuring
+artefacts where descenders touch the next line). Pixel difference to the PC (0-255, median): copyright line 30.3
+(Akzidenz-Grotesk 34.0), stat labels 40.2 (40.3), type banners 16.0 (16.0), game text 45.8 (45.5), lore 21.4 (20.0).
+Barlow's letter shapes are not Akzidenz-Grotesk's: it is a squarer, DIN-like grotesque, its descenders are a little
+longer, and its g, y, parentheses and quotes differ visibly at large sizes.
+
+
+ChangeLog
+---------
+
+2026-11-03 (swccg-cardmaker contributors) Holotable Text Version 1.000
+- First release: Light, Regular and Bold, derived from Barlow Condensed Light, Medium and SemiBold.
+
+
+Acknowledgements
+----------------
+
+Barlow is designed by Jeremy Tribby and The Barlow Project Authors.
