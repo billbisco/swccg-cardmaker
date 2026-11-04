@@ -1335,10 +1335,10 @@ def build_html(card: dict) -> str:
         "AGMedCn": "fonts/HolotableText/HolotableText-Regular.ttf",   # was Bardez's BE Medium Condensed (label "medium"): Holotable Text Regular is cut from Barlow Medium
         "AGBoldCnA": "fonts/HolotableText/HolotableText-Bold.ttf",
         "AGCn": "fonts/HolotableText/HolotableText-Regular.ttf",
-        "AGMedExt": "fonts/AkzidenzGrotesk-MediumExtended.otf",
+        "AGMedExt": "fonts/HolotableNumbers/HolotableNumbers-Extended.otf",   # destiny, stat values, slip numbers: Holotable Numbers, from TeX Gyre Heros (GUST Font License, #124)
         "Craft": "fonts/CraftGothic-HeavyExtended.otf",
         "PCCap": "fonts/LiberationSansNarrow-Bold.ttf",            # Arial Narrow Bold metrics (the PC slips' caption face)
-        "PCNum": "fonts/AkzidenzGroteskBE-BoldIt-PCdigits.otf",    # digits embedded in the PC's DefensiveShields.pdf
+        "PCNum": "fonts/HolotableNumbers/HolotableNumbers-BoldItalic.otf",   # bottom-strip number (the PC's DefensiveShields.pdf sets it in Akzidenz-Grotesk BE Bold Italic)
     }
     font_css = "\n".join(f'@font-face{{font-family:"{k}";src:url("{data_uri(ASSETS / v)}");}}' for k, v in fonts.items())
     global W, H

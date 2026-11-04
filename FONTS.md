@@ -9,14 +9,13 @@ identified and bundled by Bardez with his templates (`docs/bardez-card-fonts-and
 | HolotableText/HolotableText-Light.ttf | Holotable Text Light (OFL, from Barlow Condensed) | lore |
 | HolotableText/HolotableText-Regular.ttf | Holotable Text Regular (OFL, from Barlow Condensed) | game text (the PC's Holotable size: 62 px / 65 line at 600 DPI), "medium" labels |
 | HolotableText/HolotableText-Bold.ttf | Holotable Text Bold (OFL, from Barlow Condensed) | stat labels, type banners, © line (landscape bottom strips) |
-| AkzidenzGrotesk-MediumExtended.otf | Akzidenz-Grotesk Medium Extended | destiny, stat values, slip numbers |
+| HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros; PC-traced digits) | destiny, stat values, slip numbers |
 | CraftGothic-HeavyExtended.otf | Craft Gothic Heavy Extended | parsec numbers on systems |
 | LiberationSansNarrow-Bold.ttf | Liberation Sans Narrow Bold (metric twin of Arial Narrow Bold) | bottom-strip caption on portrait cards (the PC slips use Arial Narrow Bold) |
-| AkzidenzGroteskBE-BoldIt-PCdigits.otf | Akzidenz-Grotesk BE Bold Italic, digits 0–9 and space only | bottom-strip card number (taken from the font subset embedded in the PC's DefensiveShields.pdf) |
+| HolotableNumbers/HolotableNumbers-BoldItalic.otf | Holotable Numbers Bold Italic (GUST Font License, from TeX Gyre Heros) | bottom-strip card number (the PC's PDF sets it in Akzidenz-Grotesk BE Bold Italic) |
 
-Akzidenz-Grotesk Medium Extended and Craft Gothic are redistributed here as they came in Bardez's community template
-pack, and the digit subset as the PC's PDF embeds it, for this free, non-commercial fan project. Akzidenz-Grotesk is a
-Berthold typeface and Craft Gothic is a commercial design (both are being replaced: swccg-guild/work#124, #125): they are not open-source fonts, and nothing in this repository's MIT licence applies to them. If you
+Craft Gothic is redistributed here as it came in Bardez's community template pack, for this free, non-commercial fan
+project. It is a commercial design (being replaced: swccg-guild/work#125): they are not open-source fonts, and nothing in this repository's MIT licence applies to them. If you
 redistribute or build a commercial product on this code, replace them (the renderer only needs the
 `@font-face` names in `render.py`).
 
@@ -36,6 +35,11 @@ title widths within 1 px (Fiorello CG: 2 px). Fiorello CG is no longer in the re
 Condensed (and Bardez's BE Medium Condensed). It is Barlow Condensed (SIL OFL 1.1, The Barlow Project Authors), narrowed
 and rescaled so CardMaker's sizes, baselines and line breaks carry over; licence, FONTLOG and the script that rebuilds it
 are in `assets/fonts/HolotableText/`. On 24 PC reference cards it breaks lines where Akzidenz-Grotesk did.
+
+**Holotable Numbers** (rev 65, swccg-guild/work#124) replaces Akzidenz-Grotesk Medium Extended and the PC's Akzidenz-Grotesk
+BE Bold Italic digits. It is TeX Gyre Heros Bold / Bold Italic (GUST Font License, a free licence: LPPL 1.3c) widened and
+rescaled, with the Extended digits 0-7 and 9 redrawn from the PC's own destiny numbers (averaged from its card images).
+Licence, FONTLOG and the script that rebuilds it are in `assets/fonts/HolotableNumbers/`.
 
 The wiki page *Typography of Star Wars CCG cards* (wiki.swccg.com) documents what is known about the faces Decipher
 and the PC used, measured sizes, and how this program maps to them.

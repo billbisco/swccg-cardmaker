@@ -1,0 +1,44 @@
+FONTLOG for Holotable Numbers
+=============================
+
+Holotable Numbers is the number face of swccg-cardmaker (https://github.com/billbisco/swccg-cardmaker):
+
+- Extended: the destiny number, stat values (power, ability, ...) and slip numbers. It replaces Akzidenz-Grotesk
+  Medium Extended, a commercial Berthold typeface.
+- Bold Italic: the card number in the bottom strip. It replaces a digits-only subset of Akzidenz-Grotesk BE Bold
+  Italic that the Players Committee's Defensive Shields PDF embeds.
+
+Both are modified versions of TeX Gyre Heros (GUST Font License; see LICENSE.txt), swccg-guild/work#124.
+
+
+How it was made (source/build.py, byte-for-byte reproducible)
+-------------------------------------------------------------
+
+1. Base: TeX Gyre Heros Bold (Extended) and Bold Italic (Bold Italic). Of the free fonts compared (Archivo,
+   Encode Sans, Barlow, Montserrat, TeX Gyre Heros), Heros' digits came closest in shape to the faces the PC used.
+   Heros is a Helvetica-style grotesque, and Helvetica descends from Akzidenz-Grotesk.
+2. Widened (Extended x1.47) and scaled so the flat-topped digits (1 4 7) have the height the templates assume, flat
+   bottoms on the baseline. Digit spacing and line metrics follow targets.json, so CardMaker's sizes and positions
+   carry over. Extended capitals are 5.7 % taller (the I and V of Episode destiny numbers), and the asterisk is
+   reduced to the old face's size.
+3. Extended digits 0-7 are then replaced by the PC's own destiny digits. Every Players Committee virtual card with
+   a single-digit destiny was cut from its 745 x 1039 Holotable image, and each digit was aligned to the others at
+   sub-pixel precision and averaged at 8x resolution: 0 (80 instances), 1 (209), 2 (240), 3 (191), 4 (177),
+   5 (116), 6 (33) and 7 (6). The averages are in source/dglyphs. They are traced with potrace (threshold 0.58), and
+   each digit's ink is centred in its advance width. 9 is the traced 6 turned half round. 8 stays Heros' (the PC
+   prints no destiny 8 or 9).
+
+Measured against the PC (24 reference cards rebuilt in CardMaker, compare_pc.py): destiny numbers and stat values
+land in the same positions as with Akzidenz-Grotesk Medium Extended. The pixel difference of the destiny number
+(0-255) averages 19.5 against 18.9 with Akzidenz-Grotesk. With Heros' own digits it was 20.0. Stat values are
+unchanged (40.1 against 40.2).
+Where it falls short: the digits are averages of 745-px images, so their corners are a little softer than the
+PC's. The 8 and the Bold Italic digits are Heros' design, not the PC's: Helvetica-style rather than Akzidenz
+details.
+
+
+ChangeLog
+---------
+
+2026-11-03 (swccg-cardmaker contributors) Holotable Numbers Version 1.000
+- First release: Extended and Bold Italic.

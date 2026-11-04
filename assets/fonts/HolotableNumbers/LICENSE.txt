@@ -1,0 +1,15 @@
+Holotable Numbers (HolotableNumbers-Extended.otf, HolotableNumbers-BoldItalic.otf)
+
+Holotable Numbers is a MODIFIED VERSION of TeX Gyre Heros (Bold and Bold Italic), which is
+Copyright 2007--2009 for TeX Gyre extensions by B. Jackowski and J.M. Nowacki (on behalf of TeX Users Groups),
+and is distributed under the GUST Font License (GFL), an instance of the LaTeX Project Public License (LPPL)
+version 1.3c. Holotable Numbers is distributed under the same licence: see source/GUST-FONT-LICENSE.txt and
+https://www.latex-project.org/lppl.txt.
+
+The modifications (widening and rescaling, digit spacing, and the digits 0-7 and 9 redrawn from the Players
+Committee's printed destiny numbers) are copyright 2026 The swccg-cardmaker contributors
+(https://github.com/billbisco/swccg-cardmaker). As the GFL requests, the fonts and files have new names.
+
+The unmodified TeX Gyre Heros files used are in source/ (texgyreheros-bold.otf, texgyreheros-bolditalic.otf,
+README-TeX-Gyre-Heros.txt); the original distribution is at https://www.gust.org.pl/projects/e-foundry/tex-gyre
+and on CTAN (https://ctan.org/pkg/tex-gyre).

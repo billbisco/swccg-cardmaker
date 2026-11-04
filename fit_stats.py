@@ -14,7 +14,7 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 import render
 
-FONTS = {"AGBoldCnA": "fonts/HolotableText/HolotableText-Bold.ttf", "AGMedExt": "fonts/AkzidenzGrotesk-MediumExtended.otf"}
+FONTS = {"AGBoldCnA": "fonts/HolotableText/HolotableText-Bold.ttf", "AGMedExt": "fonts/HolotableNumbers/HolotableNumbers-Extended.otf"}
 
 
 def mapped_scan(path: str) -> np.ndarray:

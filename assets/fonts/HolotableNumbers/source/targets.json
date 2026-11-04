@@ -1,0 +1,52 @@
+{
+ "Extended": {
+  "digits": [
+   -0.008299999999999998,
+   0.66091420771072
+  ],
+  "line": {
+   "hhea.ascent": 0.929,
+   "hhea.descent": -0.248,
+   "hhea.lineGap": 0.0,
+   "OS/2.sTypoAscender": 0.706,
+   "OS/2.sTypoDescender": -0.192,
+   "OS/2.sTypoLineGap": 0.097,
+   "OS/2.usWinAscent": 0.929,
+   "OS/2.usWinDescent": 0.248
+  },
+  "flat_top": 0.65,
+  "params": {
+   "sx": 1.4705882352941178,
+   "digit_adv": 1.0,
+   "star": 0.7468259895444361,
+   "caps_y": 1.05688622754491,
+   "weight": 500,
+   "italic": false
+  }
+ },
+ "BoldItalic": {
+  "digits": [
+   -0.0087,
+   0.688
+  ],
+  "line": {
+   "hhea.ascent": 0.72,
+   "hhea.descent": -0.2,
+   "hhea.lineGap": 0.0,
+   "OS/2.sTypoAscender": 0.72,
+   "OS/2.sTypoDescender": 0.0,
+   "OS/2.sTypoLineGap": 0.0,
+   "OS/2.usWinAscent": 0.72,
+   "OS/2.usWinDescent": 0.2
+  },
+  "flat_top": 0.6776666666666666,
+  "params": {
+   "sx": 1.0178677784395473,
+   "digit_adv": 1.0387984981226532,
+   "star": 1.0,
+   "caps_y": 1.0,
+   "weight": 700,
+   "italic": true
+  }
+ }
+}

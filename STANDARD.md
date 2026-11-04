@@ -633,3 +633,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Condensed, BQ Condensed, BQ Bold Condensed and BE Medium Condensed leave the repository. No template setting changes:
   positions and line breaks match the Akzidenz-Grotesk build on the 24 reference cards (FONTLOG.txt has the figures).
   `data_uri` serves .ttf fonts as font/ttf.
+- Rev 65 (2026-11-03, swccg-guild/work#124): destiny numbers, stat values and slip numbers are set in **Holotable Numbers
+  Extended**, the bottom-strip card number in **Holotable Numbers Bold Italic** (`assets/fonts/HolotableNumbers/`, GUST Font
+  License): TeX Gyre Heros Bold / Bold Italic widened and rescaled so flat-topped digits keep their height and
+  baseline and digit spacing matches, with Extended digits 0-7 traced from the PC's own destiny numbers (6-240
+  instances each, averaged) and 9 from the 6. Akzidenz-Grotesk Medium Extended and the PC's BE Bold Italic digit subset
+  leave the repository. No template setting changes: destiny and stat positions match on the 24 reference cards.
