@@ -608,3 +608,20 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
 - Rev 63 (2026-11-03, swccg-guild/work#122, Bill: "how it approximates the other font but is still lacking"):
   documentation only. `assets/fonts/HolotableTitle/ACCURACY.md` records how close Holotable Title is to the PC's
   titles and where it falls short (per-card figures against Fiorello CG), and FONTLOG.txt points to it. No render change.
+- Rev 62 (2026-11-03, swccg-guild/work#100 follow-up, Bill: "We need that to recreate the card exactly"):
+  - **Every printing is its own card.** PC alternate-image printings share their card's gempId, so until now only one
+    of them was reachable (the last one read, often the (AI) one). The plain printing keeps the gempId; each other
+    printing is `<gempId>^<its extra parenthetical>` (`200_76^AI`, `200_95^Tatooine`), as in `card_labels.json`.
+    145 more cards. Fills and typo corrections apply to every printing of the id.
+  - **Labels match by printing.** `adapter.pc_labels_for` finds a card's labels by its PC image, so the (AI) printing
+    gets its stamp and the Virtual Block cards (keyed `<set>_L<id>` here) get theirs for the first time.
+  - **(AI)/(ALT) stamp** (`ai` label preset) with the Players Committee logo to its left
+    (`assets/icons/pc-gameaid-named/pc-logo-stamp.png`). Measured on 105 PC AI faces: text right edge x 706, or 667
+    when an errata mark follows; logo 52 × 30 px with an 8 px gap. Count Dooku (AI) and Imperial Decree (V) (AI)
+    builds land within 1 px horizontally.
+  - **Bottom-bar lines:** "In memory of …" dedications and other bar text use the `concept` preset, and so do the
+    Virtual Block concept credits ("Original concept by James Booker, Worlds 2005": Master Qui-Gon (V) VB5 within
+    2 px). Virtual Block errata marks are stamped at the strip's right end (E's left edge x 685).
+  - **Copyright:** `card_labels.json` now records every card's copyright line, the standard one too; a card that
+    prints none (Rescue In The Clouds (V)) gets none.
+  - `compare_pc.py` accepts `<gempId>^<printing>` ids.

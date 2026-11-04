@@ -1211,6 +1211,10 @@ LABEL_PRESETS = {
     "bottom-right": dict(anchor="right", x=-150, y=-90, size=55, font="AGBoldCnA", italic=False, stroke=0.6, color="#ffffff", sx=1.30),
     "concept":     dict(anchor="center", x=2,    y=-158, size=54, font="AGCn",     italic=True,  stroke=1.0, color="#ffffff", edge="#000000"),
     "top-right":   dict(anchor="right",  x=-150, y=128, size=50, font="AGBoldCnA", italic=False, stroke=1.0, color="#ffffff", sx=1.33),
+    # (AI)/(ALT) stamp with the Players Committee logo to its left (swccg-guild/work#100), measured on 105 PC AI faces:
+    # text right edge x 706 (667 when an errata mark follows), logo 52 x 30 px, 8 px gap, same face as the errata mark
+    "ai":          dict(anchor="right",  x=-150, y=-91, size=50, font="AGMedExt", italic=True,  stroke=0.8, color="#ffffff", sx=1.0,
+                         skew=12, logo=True),
 }
 LABEL_FONTS = {"bold": "AGBoldCnA", "text": "AGCn", "medium": "AGMedCn", "number": "AGMedExt", "title": "HoloTitle"}
 
@@ -1249,7 +1253,7 @@ def _mark_html(text: str, size: float, col: str, stroke: float) -> str:
 def label_html(lb: dict, W: int, H: int) -> str:
     p = dict(LABEL_PRESETS.get(lb.get("preset") or "", LABEL_PRESETS["bottom-right"] if lb.get("preset") else
                                dict(anchor="left", x=300, y=300, size=48, font="AGBoldCnA", italic=False, stroke=0, color="#ffffff")))
-    for k in ("anchor", "x", "y", "size", "italic", "stroke", "color", "edge", "sx", "skew"):
+    for k in ("anchor", "x", "y", "size", "italic", "stroke", "color", "edge", "sx", "skew", "e_x"):
         if lb.get(k) is not None:
             p[k] = lb[k]
     if lb.get("font"):
@@ -1283,6 +1287,13 @@ def label_html(lb: dict, W: int, H: int) -> str:
             html += (f'<div class="label" style="position:absolute;left:{ex:.0f}px;top:{top:.0f}px;transform:translateX(-100%) {skew};'
                      f'transform-origin:right bottom;{common}">{_mark_html(m.group(1), size, col, stroke)}</div>')
         return html
+    if p.get("logo"):   # the PC logo (white box, black lettering) left of the stamp, upright; the stamp text oblique
+        lw, lh = 110, 64   # 52 x 30 px on the 745 px face (x 2.19); bottom 6 px below the stamp's baseline
+        return (f'<div class="label ai-stamp" style="position:absolute;left:{x:.0f}px;top:{top:.0f}px;transform:translateX(-100%);'
+                f'{common};display:flex;align-items:flex-end;gap:4px">'
+                f'<img src="{data_uri(ASSETS / "icons/pc-gameaid-named/pc-logo-stamp.png")}" style="width:{lw}px;height:{lh}px;'
+                f'margin-bottom:{0.2 * size - 12:.0f}px">'
+                f'<span style="display:inline-block;transform:{skew};transform-origin:right bottom">{esc(text)}</span></div>')
     body = _mark_html(text, size, col, stroke) if p.get("mark") else esc(text)
     ip = str(lb.get("italic_part") or "")
     if ip and ip in text and not p.get("mark"):   # only part italic: the PC italicises a starship's name (Boba Fett In Slave I)

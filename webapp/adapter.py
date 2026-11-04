@@ -209,6 +209,30 @@ BASE_EXP: dict = {}   # title -> Decipher expansion of the original printing (fi
 PC_LABELS: dict = {}  # gempId -> PC extra printed labels (gempdata/card_labels.json, filled by the server; swccg-guild/work#100)
 
 
+def _img_key(u) -> str:
+    """The PC image a label entry was read from, as a key that also matches the card JSON's imageUrl (the labels were
+    read from hires .png faces for Virtual Sets, the card JSON points at large .gif ones)."""
+    u = str(u or "").strip().lower()
+    return re.sub(r"\.(png|gif|jpe?g)$", "", u.replace("/hires/", "/large/"))
+
+
+_LABELS_BY_IMAGE: dict = {}
+_LABELS_INDEXED = [-1]   # len(PC_LABELS) when the image index was built
+
+
+def pc_labels_for(c: dict) -> dict:
+    """The label entry for this exact printing: matched by its PC image, because alternate-image printings share a
+    gempId and Virtual Block cards have none in the PC data; falls back to the gempId."""
+    if _LABELS_INDEXED[0] != len(PC_LABELS):
+        _LABELS_BY_IMAGE.clear()
+        for k, e in PC_LABELS.items():
+            if not k.endswith("_BACK"):
+                _LABELS_BY_IMAGE.setdefault(_img_key(e.get("image")), e)
+        _LABELS_INDEXED[0] = len(PC_LABELS)
+    hit = _LABELS_BY_IMAGE.get(_img_key((c.get("front") or {}).get("imageUrl")))
+    return hit or PC_LABELS.get(str(c.get("gempId") or "")) or {}
+
+
 def gemp_to_spec(c: dict) -> dict:
     f = c["front"]
     side = c["side"]
@@ -236,7 +260,7 @@ def gemp_to_spec(c: dict) -> dict:
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
-    lab = PC_LABELS.get(str(c.get("gempId") or "")) or {}
+    lab = pc_labels_for(c)
     if lab:   # the PC's extra printed labels (billbisco/swccg-gemp card_labels.json, swccg-guild/work#100)
         _sid = str(c.get("set") or "")
         _modern = (_sid.isdigit() and 200 <= int(_sid) <= 399) or _sid == "200d"
@@ -251,17 +275,24 @@ def gemp_to_spec(c: dict) -> dict:
                 if lab.get("original_title_italic"):
                     spec["caption_italic"] = True
         if lab.get("errata_mark"):
-            spec["errata_mark"] = lab["errata_mark"]
-        if lab.get("ai_mark"):   # "(AI)" / "(ALT)" (the small PC logo beside it is not drawn yet)
-            labels.append({"preset": "bottom-right", "text": lab["ai_mark"] if isinstance(lab["ai_mark"], str) else "(AI)"})
-        if lab.get("concept_credit"):
-            labels.append({"preset": "concept", "text": lab["concept_credit"]})
+            if _modern:
+                spec["errata_mark"] = lab["errata_mark"]
+            else:   # Virtual Block slips stamp it at the strip's right end (E's left edge x 685 on the 745 px face)
+                labels.append({"preset": "errata", "text": lab["errata_mark"], "e_x": -200})
+        if lab.get("ai_mark"):   # "(AI)" / "(ALT)" with the PC logo to its left; it moves left of an errata mark
+            labels.append(dict({"preset": "ai", "text": lab["ai_mark"] if isinstance(lab["ai_mark"], str) else "(AI)"},
+                               **({"x": -228} if lab.get("errata_mark") else {})))
+        for _f in ("concept_credit", "dedication", "bar_text"):   # the line in the frame's bottom bar ("Original concept by …",
+            if lab.get(_f) and not lab.get(_f + "_position"):    # "In memory of …"); edge-printed ones are slip credits
+                labels.append({"preset": "concept", "text": lab[_f]})
         if labels:
             spec["labels"] = labels
         if lab.get("art_credit"):
             spec["art_credit"] = lab["art_credit"]
         if lab.get("copyright"):
             spec["copyright"] = lab["copyright"]
+        elif _modern and lab.get("original_title") is not None:   # checked on the PC image: no copyright line printed
+            spec["copyright"] = ""
     if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
         if typ == "Defensive Shield":
