@@ -647,3 +647,34 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   The digits traced from the PC's destiny numbers (rev 65) matched a little better at 745 px but showed lumpy or
   rounded outlines at the 600-DPI master; Heros' drawn digits are crisp and closer to the PC's at render size
   (FONTLOG.txt). Positions are unchanged.
+- Rev 68 (2026-11-04, swccg-guild/work#62, Effects; Bill 2026-11-03: neither Bardez's template nor the PC is assumed
+  correct). Each element was checked against 13 PC Effects (Effect, Immediate, Political and Starting, both sides),
+  12 printed Decipher Effects (745-px scans) and 10 PC no-lore Effects and Interrupt combos:
+  - **Frames:** Bardez's Effect frames are 0.2-0.4 % small and sit 3 px (745) high-left of the printed card, the
+    same error as the interrupts (Rev 59). A frame-only fit gives the same scale and offset against the PC and against
+    the printed scans (to 0.5 master px): Light 1348×1938 at (140, 139), Dark 1352×1937 at (141, 141), rescaled with
+    premultiplied Lanczos. Frame MAD against the PC 7-12 → 4-6, against the printed scans 8-12 → 4-6.
+  - **Boxes and type:** title +6/−12 (Light), +5/−4 (Dark) master px, 83.4 px with the interrupts' tracking (Dark
+    stroke 0.6); the title bar runs to x 1274 as the PC's does, and a title still too long starts at x 366 before it
+    is condensed (`title_long_left`; PC two-name titles within 2 px at both ends, they were 15-45 px short); destiny
+    −5 (Light) and +4/−8 (Dark); lore 4 px up, Dark first-line indent 80; banner 62 px, tracking 11.3, Light 4 px
+    and Dark 6 px left, Dark 2 up; game text Light 2 up, Dark 4 down (line tops now equal the PC's on all 12 Dark
+    references); set mark as the interrupts (68 px slot, digits 160, `set_ring`); expansion sphere Light 62 px at
+    (1381, 406), Dark 59 px at (1382, 406); copyright 25.9 px, tracking 0.8, x 1420. All within 1 px of the PC (most 0)
+    and the same against the printed scans where they print the element.
+  - **Discs:** Episode discs under the sphere 6 px lower (Light, `ring_disc_dy`). New **Personal Force** disc
+    (`disc-personal-force.png`, drawn by `make_personal_force.py`): the PC prints it on five Light Effects in the
+    right margin at the text box top, stacked under a Skywalker disc 84 px apart; the margin discs on Light Effects sit
+    in the PC's dark-red halo (`margin_disc_hole` may now be a colour, `margin_disc_hole_pad`).
+  - **No-lore Effects and Interrupt combos (PC cards):** built from the template's own frame (`grown_frame`, lore
+    window merged into the art window), banner and text box raised 276 px (was 290 and, for Dark Effects, the fixed
+    `ds-effect-tall` frame whose banner sat 30 px (745) high; banner and first line now within 1 px). The Episode I
+    disc sits in the left margin by the window top (`nolore_disc`), as the PC prints it. `ds-effect-tall` is now the
+    Dark Effect template raised by `NOLORE_GROW` (VS12 #42 follows the PC's VB4 slip).
+  - **Text:** the ▼ shorthand also applies when the object holds a bracketed aside and the Reserve Deck clause ends
+    the sentence ("may ▼ an [Episode I] (or Coruscant) docking bay", never across "deploy phase"); 21 PC cards
+    change, seven checked against their PC images.
+  - **Unchanged on purpose:** `ls-jeditest-epic` and the Mission templates keep the pre-Rev-68 Effect boxes
+    (`_LS_EFFECT_PRE62`, `_EFFECT_PRE62`) until their own Stories.
+  - **Left as found, explained in evidence/62/checklist.md:** game text and lore widths (the fitter's tracking, #49);
+    banner word widths ±5 px (letter widths of the banner face); the 1 px art cut; PC-only labels.

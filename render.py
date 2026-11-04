@@ -32,21 +32,22 @@ TEMPLATES = {
         "expansion_ring": (1380, 402),
         "copyright_x": 1404,
     },
-    "ds-effect": {
-        "frame": ("frames/ds-effect.png", 141, 147),
+    "ds-effect": {   # #62: frame and boxes fitted to the PC and printed Decipher effects
+        "frame": ("frames/ds-effect.png", 141, 141),
+        "lore_x": (319, 1270, 80, 0, 0.0), "nolore_disc": (207, 404), "title_stroke": 0.6, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55,
         "art": (254, 663, 1118, 765),
-        "title": (398, 200, 779, 100),
-        "destiny": (1308, 204, 104, 104),
-        "lore": (321, 378, 989, 190),
-        "card_type": (271, 1508, 1109, 61),
+        "title": (403, 196, 871, 100), "title_long_left": 366,   # #62: the PC's bar runs to x 1274; long titles start at 366
+        "destiny": (1312, 196, 104, 104),
+        "lore": (321, 374, 989, 190),
+        "card_type": (265, 1506, 1109, 61),
         "game_text": (320, 1667, 1000, 328),
         "banner_icon": (1292, 1492),
-        "set_icon_abs": (1391, 1940), "set_icon_size": 64,
-        "expansion_ring": (1381, 405),
-        "copyright_x": 1404,
+        "set_icon_abs": (1397, 1954), "set_icon_size": 68,
+        "expansion_ring": (1382, 406), "expansion_size": 59,
+        "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8,
     },
     "ls-interrupt": {
-        "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139),
+        "nolore_disc": (200, 415), "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139),
         "art": (254, 663, 1122, 754),
         "title": (408, 194, 880, 90),
         "destiny": (1316, 196, 100, 104),
@@ -114,7 +115,7 @@ TEMPLATES = {
         "expansion_ring": (1380, 405), "copyright_x": 1404,
     },
     "ds-interrupt": {
-        "lore_x": (319, 1270, 80, 0, 0.0), "expansion_size": 59, "title_stroke": 0.6, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55, "frame": ("frames/ds-interrupt.png", 141, 141),
+        "lore_x": (319, 1270, 80, 0, 0.0), "nolore_disc": (207, 404), "expansion_size": 59, "title_stroke": 0.6, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55, "frame": ("frames/ds-interrupt.png", 141, 141),
         "art": (245, 661, 1134, 765), "title": (404, 196, 779, 100), "destiny": (1312, 197, 102, 99),
         "lore": (316, 374, 989, 193), "card_type": (272, 1507, 1091, 61), "game_text": (316, 1666, 997, 328),
         "banner_icon": (1292, 1495), "set_icon_abs": (1397, 1954), "set_icon_size": 68, "expansion_ring": (1382, 406), "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8,
@@ -156,12 +157,14 @@ TEMPLATES = {
         "lore": (320, 376, 1019, 193), "card_type": (268, 1505, 1109, 61), "game_text": (317, 1658, 997, 328),
         "banner_icon": (1292, 1492), "set_icon_abs": (1397, 1942), "set_icon_size": 60, "expansion_ring": (1381, 405), "copyright_x": 1416, "dark_text": True, "lore_indent": 0,
     },
-    "ls-effect": {
-        "frame": ("frames/ls-effect.png", 146, 141),
-        "art": (244, 661, 1143, 755), "title": (401, 206, 779, 100), "destiny": (1313, 202, 104, 104),
-        "lore": (320, 376, 1019, 193), "card_type": (271, 1505, 1109, 61), "game_text": (320, 1658, 997, 328),
-        "banner_icon": (1292, 1492), "set_icon_abs": (1397, 1942), "set_icon_size": 60, "expansion_ring": (1378, 410), "expansion_size": 70,
-        "copyright_x": 1416, "dark_text": True, "lore_indent": 0,
+    "ls-effect": {   # #62: frame and boxes fitted to the PC and printed Decipher effects
+        "frame": ("frames/ls-effect.png", 140, 139),
+        "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6,
+        "margin_disc_dx": 9, "margin_disc_dy": 6, "margin_disc_hole": "#b04244", "margin_disc_hole_pad": 8, "ring_disc_dy": 6, "nolore_disc": (201, 415),
+        "art": (244, 661, 1143, 755), "title": (407, 194, 867, 100), "title_long_left": 366, "destiny": (1313, 197, 104, 104),
+        "lore": (320, 372, 1019, 193), "card_type": (267, 1505, 1109, 61), "game_text": (320, 1658, 997, 328),
+        "banner_icon": (1292, 1492), "set_icon_abs": (1397, 1942), "set_icon_size": 68, "expansion_ring": (1381, 406), "expansion_size": 62,
+        "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8, "dark_text": True, "lore_indent": 0,
     },
     "ls-weapon": {
         "frame": ("frames/ls-weapon.png", 146, 145),
@@ -276,13 +279,6 @@ TEMPLATES = {
         "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
         "copyright_x": 1404, "dark_text": True, "credit_mx": (180, 1411), "credit_ink": "#fff",
     },
-    "ds-effect-tall": {
-        "frame": ("frames/ds-effect-tall.png", 0, 0),
-        "art": (240, 372, 1146, 716), "title": (396, 206, 880, 100), "destiny": (1310, 203, 108, 108),
-        "card_type": (271, 1170, 1109, 61), "game_text": (292, 1340, 1056, 650), "gt_grow": True,
-        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
-        "copyright_x": 1404, "dark_text": False, "credit_mx": (180, 1411),
-    },
     # Landscape location (site). Bardez "Location - Site.xcf": doc 2220×1632, frame layer 2073×1497 whose card
     # area (1931×1343) sits at (70,68) inside it → frame at (74,76) puts the card at (144,144) like the portraits.
     # The frame is assembled per card (force icons, packed icon boxes, scomp rings) by loc_frame().
@@ -371,7 +367,16 @@ def is_wide(t: dict) -> bool:
 # Optional era templates (Bill 2026-10-13): the red→cyan fade the Original Virtual Remaster slips used for Defensive
 # Shields (make_shield_fade.py). The hybrid (hard cut) above stays the primary shield template; a card opts in with
 # "shield_style": "fade" (build_vs.py sets it for the Original Virtual sets).
-TEMPLATES["ls-jeditest-epic"] = dict(TEMPLATES["ls-effect"], frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
+# the Light Effect boxes as they were before #62 (Rev 68): the templates built from them keep them until their own Stories
+_LS_EFFECT_PRE62 = {
+    "art": (244, 661, 1143, 755), "title": (401, 206, 779, 100), "destiny": (1313, 202, 104, 104),
+    "lore": (320, 376, 1019, 193), "card_type": (271, 1505, 1109, 61), "game_text": (311, 1656, 1019, 330),
+    "banner_icon": (1292, 1492), "set_icon_abs": (1397, 1942), "set_icon_size": 60, "expansion_ring": (1378, 410), "expansion_size": 70,
+    "copyright_x": 1416, "dark_text": True, "lore_indent": 0,
+}
+_EFFECT_PRE62 = {"ls": {"card_type": (271, 1505, 1109, 61), "set_icon_abs": (1397, 1942)},
+                 "ds": {"card_type": (271, 1508, 1109, 61), "set_icon_abs": (1391, 1940)}}
+TEMPLATES["ls-jeditest-epic"] = dict(_LS_EFFECT_PRE62, frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
 # Light Epic Events (Attack Run, Boonta Eve Podrace) print on the Light Objective frame with the Epic Event disc
 for _k in ("objective-ls", "objective"):   # printed Objectives carry the expansion sphere right of the art, under the destiny
     TEMPLATES[_k].setdefault("expansion_ring", (1412, 295)); TEMPLATES[_k].setdefault("expansion_size", 70)
@@ -379,7 +384,7 @@ TEMPLATES["ls-jeditest-olive"] = dict(TEMPLATES["ls-jeditest-tall"], frame=("fra
 TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
 # Virtual Block Missions (make_mission_frames.py): full art under the Admiral's Order title bar, tan panel at the foot
 for _sd, _D in (("ls", 324), ("ds", 336)):
-    _e = TEMPLATES[f"{_sd}-effect"]; _P = 1080
+    _e = dict(TEMPLATES[f"{_sd}-effect"], **_EFFECT_PRE62[_sd]); _P = 1080
     TEMPLATES[f"{_sd}-mission"] = dict(TEMPLATES["ls-admirals-order"], frame=(f"frames/{_sd}-mission.png", 0, 0),
         art=(146, 146, 1344, _P + 40 - 146), card_type=(_e["card_type"][0], _e["card_type"][1] - _D) + _e["card_type"][2:],
         game_text=(_e["game_text"][0], _e["game_text"][1] - _D, _e["game_text"][2], _e["game_text"][3] + _D),
@@ -425,7 +430,7 @@ GT_BOX_PC = {
     "ds-character-droid-dc": (353, 1663, 945, 336),
     "ds-character-imperial": (354, 1662, 942, 334),
     "ds-device": (313, 1663, 1015, 334),
-    "ds-effect": (314, 1660, 1020, 335),
+    "ds-effect": (314, 1664, 1020, 335),   # #62: line tops 1 px low against the PC and printed
     "ds-interrupt": (315, 1663, 1011, 329),   # #63: text 1 px low against the PC
     "ds-shield": (314, 1660, 1020, 335),
     "ds-shield-dc": (314, 1660, 1020, 335),
@@ -441,7 +446,7 @@ GT_BOX_PC = {
     "ls-character-droid-dc": (354, 1661, 946, 326),
     "ls-character-rebel": (353, 1658, 953, 336),
     "ls-device": (312, 1655, 1018, 331),
-    "ls-effect": (311, 1656, 1019, 330),
+    "ls-effect": (311, 1654, 1019, 330),   # #62
     "ls-interrupt": (312, 1654, 1022, 333),   # #63: text 3.5 px low against the PC
     "ls-jeditest-epic": (311, 1656, 1019, 330),
     "ls-shield": (311, 1656, 1019, 330),
@@ -454,6 +459,12 @@ GT_BOX_PC = {
 for _k, _b in GT_BOX_PC.items():
     if _k in TEMPLATES:
         TEMPLATES[_k] = dict(TEMPLATES[_k], game_text=_b)
+# #62: the PC's no-lore Effects (Begin Landing Your Troops & Fighters Straight Ahead, Steady, Steady & Bargaining Table,
+# the VB4 There Is No Try & Oppressive Enforcement slip) print the Effect frame itself, lore window merged into the art
+# window (grown_frame), banner and text box raised by NOLORE_GROW. ds-effect-tall was a fixed full-card frame whose
+# banner sat 30 px (745) higher than the PC's; the Light ones were built on Bardez's recoloured Epic Objective top.
+NOLORE_GROW = 276   # master px; Light and Dark Effect and Interrupt combos (banner and text 7 px (745) low with 290)
+TEMPLATES["ds-effect-tall"] = dict(TEMPLATES["ds-effect"], nolore_grow=NOLORE_GROW)
 
 ICON_FILES = {
     # column icons: the PC's own Game Aid icons, frame included (COL_ prefix = drawn without the Bardez icon box)
@@ -479,7 +490,9 @@ ICON_FILES = {
 RING_DISCS = {   # discs printed under the expansion sphere (or in its place when the card has none)
     "episode1": "icons/ep1-disc.png", "episode7": "icons/ep7-disc.png",
     "sidious": "icons/disc-sidious.png", "skywalker": "icons/disc-skywalker.png",
+    "personal-force": "icons/disc-personal-force.png",   # #62: drawn by make_personal_force.py from the PC's Commando Training (V)
 }
+MARGIN_DISCS = ("sidious", "skywalker", "personal-force")   # printed in the right margin at the text box top, stacked downward
 
 
 # lore typography (Bill 2026-10-13: lore must break and weigh as on the printed card) — tuned on printed 745 px scans
@@ -808,7 +821,8 @@ def nolore_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, card_type=(t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3]),
              game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, Wt - 10, aw, Wb - D + 6 - (Wt - 10)),
-             expansion_ring=(1390, 373), expansion_size=70)   # the no-lore frame's own ring, clear of the art (Bill)
+             expansion_ring=(1390, 373), expansion_size=70,   # the no-lore frame's own ring, clear of the art (Bill)
+             _nolore_disc=t.get("nolore_disc"))   # #62: the PC sets the Episode I disc in the left margin by the window top
     if "banner_icon" in t:
         t["banner_icon"] = (t["banner_icon"][0], t["banner_icon"][1] - D)
     return p, t, 0, 0
@@ -891,6 +905,8 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
             G[y] = G[y][src]
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
+    if card.get("no_lore_box") and t.get("nolore_disc"):   # #62: the PC sets the Episode I disc in the left margin by the window top
+        t["_nolore_disc"] = t["nolore_disc"]
     if "card_type" in t:
         t["card_type"] = (t["card_type"][0], t["card_type"][1] - D, t["card_type"][2], t["card_type"][3])
     if "stats_y" in t:   # characters: the stat bar rides up with the text box (carbonite captives: The Mythrol)
@@ -1353,6 +1369,8 @@ def build_html(card: dict) -> str:
     else:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
+        if t.get("nolore_grow") and card.get("no_lore_box") and not card.get("text_grow"):
+            card = dict(card, text_grow=t["nolore_grow"], grow_keep_frame=True)   # as the PC cards (adapter): the Effect frame's own window
         if card.get("captive_noart") and "stats_y" in t:
             fr, t, fx, fy = captive_frame(card, t, fr, fx, fy)
         elif card.get("text_grow") and card.get("no_lore_box") and not card.get("grow_keep_frame"):
@@ -1485,7 +1503,8 @@ def build_html(card: dict) -> str:
         parts.append(f'<div style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:#000;border:7px solid #e8e8e8;box-sizing:border-box;'
                      f'display:flex;align-items:center;justify-content:center;font-family:HoloTitle;font-size:124px;color:#fff;white-space:nowrap">{title_html(card["title"])}</div>')
     else:
-        parts.append(f'<div class="title" style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
+        tll = f' data-ll="{t["title_long_left"]}"' if t.get("title_long_left") else ""   # #62: a title too long for the bar starts further left
+        parts.append(f'<div class="title"{tll} style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
     sec('destiny')
     if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
@@ -1704,15 +1723,24 @@ def build_html(card: dict) -> str:
         x, y = t["expansion_ring"]
         sz = t.get("expansion_size", 62)
         k = 0 if (card.get("ring_fill") and not card.get("expansion_icon")) else 1   # card maker: no sphere -> the first disc takes its place (Aayla Secura)
+        mk = 0; nd_used = False
         for nm in card["ring_icons"]:
-            if nm in ("sidious", "skywalker") and "game_text" in t:   # printed in the right margin at the text box top (Unlimited Power!; Skywalker: My Sister Has It, #63)
-                mx_, my_ = x + 3 + t.get("margin_disc_dx", 0), t["game_text"][1] - 70 + t.get("margin_disc_dy", 0)
+            if nm in MARGIN_DISCS and "game_text" in t:   # printed in the right margin at the text box top (Unlimited Power!; Skywalker: My Sister Has It, #63; Personal Force: Commando Training, #62)
+                ds_ = t.get("margin_disc_size", sz - 6)
+                mx_, my_ = x + 3 + t.get("margin_disc_dx", 0), t["game_text"][1] - 70 + t.get("margin_disc_dy", 0) + mk * t.get("margin_disc_pitch", 84)
                 if t.get("margin_disc_hole"):   # the PC sets it in a dark hole of the frame, like the expansion sphere (#63)
-                    parts.append(f'<div style="position:absolute;left:{mx_ - 5}px;top:{my_ - 5}px;width:{sz + 4}px;height:{sz + 4}px;border-radius:50%;background:#2a0c0c"></div>')
-                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{mx_}px;top:{my_}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+                    hp_ = t.get("margin_disc_hole_pad", 5); hc_ = t["margin_disc_hole"] if isinstance(t["margin_disc_hole"], str) else "#2a0c0c"
+                    parts.append(f'<div style="position:absolute;left:{mx_ - hp_}px;top:{my_ - hp_}px;width:{ds_ + 2 * hp_}px;height:{ds_ + 2 * hp_}px;border-radius:50%;background:{hc_}"></div>')
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{mx_}px;top:{my_}px;width:{ds_}px;height:{ds_}px;border-radius:50%">')
+                mk += 1
+                continue
+            if nm in RING_DISCS and t.get("_nolore_disc") and not nd_used:
+                ncx, ncy = t["_nolore_disc"]
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{ncx - 29}px;top:{ncy - 29}px;width:58px;height:58px;border-radius:50%">')
+                nd_used = True
                 continue
             if nm in RING_DISCS:
-                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30) + t.get("ring_disc_dy", 0)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
                 k += 1
     sec('margin_icon')
     if card.get("margin_icon") and "game_text" in t:   # Scoundrel: a portrait disc in the left margin at the text box top
@@ -2037,7 +2065,10 @@ def build_html(card: dict) -> str:
         }
       }
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
-        const w = el.scrollWidth, avail = el.clientWidth;
+        const w = el.scrollWidth; let avail = el.clientWidth;
+        if (w > avail + 1 && el.dataset.ll) {   // the PC first moves a long title left, to the bar's start (#62)
+          const right = el.offsetLeft + avail; el.style.left = el.dataset.ll + 'px'; avail = right - (+el.dataset.ll); el.style.width = avail + 'px';
+        }
         if (w > avail + 1) { el.style.transformOrigin = 'left center'; el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')'; el.style.width = w + 'px'; }
       }
       for (const st of document.querySelectorAll('.stat')) {   // label + gap + value too wide for the box: condense the label (Bill: Green Squadron 1 (V))

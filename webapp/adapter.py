@@ -91,7 +91,7 @@ ICON_COL = {"Pilot": "pilot", "Warrior": "warrior", "Nav Computer": "nav", "Perm
             "Resistance": "resistance", "First Order": "first-order", "Vader": "vader", "Republic": "republic"}
 FACTION = {"independent", "independent-starship", "trade-federation", "clone-army", "separatist", "resistance",
            "first-order", "republic", "vader"}
-RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker"}
+RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker", "Personal Force": "personal-force"}
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
             "Scomp Link": "scomp", "Space": "space"}
@@ -193,6 +193,9 @@ def pc_shorthand(t: str) -> str:
     # ▲ (PC A New Hope, VS27); matching "deploy" first turned it into "take Luke … printed ▼ < 4 into hand" (#63)
     t = re.sub(r"(?i)\btake ((?:(?!\binto hand\b)[^.;])+?) into hand from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▲ \1", t)
     t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▼ \1", t)
+    # #62: the object may hold a bracketed aside ("an [Episode I] (or Coruscant) docking bay"), when the Reserve Deck
+    # clause ends the sentence; never across a second "deploy" or a "deploy phase"
+    t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])(?!phase\b)((?:(?!\bdeploy\b)[^.;()]|\([^().;]*\))+?)(?<!,) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\)|(?=[.;]))", r"▼ \1", t)
     t = t.replace("(Immune to {alter}.)", "{alter}")
     t = re.sub(r"\(Immune to (Sense|Control)\.?\)", lambda m: "{%s}" % m.group(1).lower(), t).replace("(Immune to Alter.)", "{alter}")
     return t
@@ -325,8 +328,8 @@ def gemp_to_spec(c: dict) -> dict:
         # Reflections II combo cards print no lore box: the art runs from the title bar to a raised banner and the text
         # box grows by the same amount (Evader & Monnok, Do, Or Do Not & Wise Advice)
         spec["no_lore_box"] = True; spec["text_grow_scan"] = True
-        spec["text_grow"] = 0 if (side == "Dark" and typ == "Effect") else 290   # the Dark Effect combo frame is already tall
-        if typ == "Defensive Shield":
+        spec["text_grow"] = 290 if typ == "Defensive Shield" else 276   # #62: the PC raises banner and text box 276 px (138 at 745) on both sides
+        if typ in ("Defensive Shield", "Effect", "Interrupt"):   # #62: Effect and Interrupt combos too (the PC keeps the Effect frame's own window edges)
             spec["grow_keep_frame"] = True   # shield combos keep the shield frame (A Useless Gesture & Death Star Sentry)
     if pc_era:
         spec["game_text"] = pc_shorthand(spec["game_text"])
