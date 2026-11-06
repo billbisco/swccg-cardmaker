@@ -678,3 +678,10 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     (`_LS_EFFECT_PRE62`, `_EFFECT_PRE62`) until their own Stories.
   - **Left as found, explained in evidence/62/checklist.md:** game text and lore widths (the fitter's tracking, #49);
     banner word widths ±5 px (letter widths of the banner face); the 1 px art cut; PC-only labels.
+- Rev 69 (swccg-guild/work#174, Bill 2026-11-05: "Definitely the art from the remasters"; one Story for both Reflections Gold sets):
+  set 15 opens in the card maker. `gempdata/ReflectionsGold.json` (from the wiki's RG pages): Remastered `15_N` (set
+  `15`, expansion "Reflections Gold Remastered", gold sphere `set-reflections-gold-remaster.png`) and original playtest
+  `15_No` (set `15o`, "Reflections Gold", original Decipher sphere `set-reflections-gold-decipher.png`, #50 R1). Art
+  library: swccg-card-art `reflections-gold/` (cut from the Remastered renders; `original/` = the same windows cut from
+  the 2001 playtest photos), used by both versions by default (`server.art_base`). Landscape cards set `wide` from the
+  data; RG credits print as gold coins. Copyright year 2001. Tools: `tools/reflections_gold/`.

@@ -33,6 +33,23 @@ DATA = Path(os.environ.get("CARDMAKER_DATA", "/tmp/cardmaker-data")); DATA.mkdir
 CACHE = DATA / "cache"; CACHE.mkdir(exist_ok=True)
 ART_RAW = os.environ.get("ART_RAW", "https://raw.githubusercontent.com/billbisco/swccg-card-art/main/decipher")
 ART_CDN = os.environ.get("ART_CDN", "https://cdn.jsdelivr.net/gh/billbisco/swccg-card-art@main/decipher")
+
+
+def rg_art_urls(gid: str) -> dict:
+    b, _, g = art_base(ART_CDN, gid, "orig"); o, _, _ = art_base(ART_CDN, gid, "original")
+    return {"orig": f"{b}/orig/{g}.png", "original": f"{o}/orig/{g}.png"}
+
+
+def art_base(base: str, gid: str, ver: str) -> tuple[str, str, str]:
+    """Library folder for a card: Reflections Gold (set 15) lives in reflections-gold/; both versions use the art cut
+    from the Remastered render (Bill 2026-11-05), version "original" = the window cut from the 2001 playtest photo."""
+    m = re.fullmatch(r"15_(\d+)o?", gid or "")
+    if not m:
+        return base, ver, gid
+    rg = base.rsplit("/decipher", 1)[0] + "/reflections-gold"
+    if ver == "original":
+        return rg + "/original", "orig", f"15_{m.group(1)}"
+    return rg, ver, f"15_{m.group(1)}"
 HOLOTABLE = Path(os.environ.get("HOLOTABLE", "/holotable/Images-HT/starwars"))   # swccg.com's mirror of the card faces
 UA = {"User-Agent": "swccg-cardmaker/0.1"}
 
@@ -61,6 +78,11 @@ for side in ("Light", "Dark"):
         for c in json.load(open(lp, encoding="utf-8"))["cards"]:
             c["gempId"] = f"{c['set']}_L{c['id']}"
             CARDS[c["gempId"]] = c
+_rgp = ROOT / "gempdata/ReflectionsGold.json"   # set 15 (swccg-guild/work#174): Remastered 15_N, original playtest 15_No
+if _rgp.exists():
+    for c in json.load(open(_rgp, encoding="utf-8"))["cards"]:
+        CARDS[c["gempId"]] = c
+_RG_IDS = [g for g in CARDS if re.fullmatch(r"15_\d+o?", g)]
 for _c in CARDS.values():   # one card spells the Force icon keys in lower case
     for _a, _b in (("lightsideIcons", "lightSideIcons"), ("darksideIcons", "darkSideIcons")):
         if _a in _c["front"]: _c["front"].setdefault(_b, _c["front"].pop(_a))
@@ -100,6 +122,8 @@ ART_MANIFEST = {}
 mp = ROOT / "webapp/art-manifest.json"
 if mp.exists():
     ART_MANIFEST = json.load(open(mp, encoding="utf-8")).get("cards", {})
+for _g in _RG_IDS:   # every Reflections Gold card has its art cut from the Remastered render (swccg-card-art reflections-gold/)
+    ART_MANIFEST.setdefault(_g, {"status": "ok", "library": "reflections-gold"})
 SETS = {s["id"]: s["name"] for s in json.load(open(ROOT / "gempdata/sets.json", encoding="utf-8"))}
 
 
@@ -264,7 +288,8 @@ def resolve_art(spec: dict) -> dict | None:
         ver = a.get("version", "orig"); ext = "png" if ver == "orig" else "webp"
         for base in (ART_RAW, ART_CDN):   # GitHub raw first (fast from the VPS), jsDelivr second (flaky from there)
             try:
-                p = fetch(f"{base}/{ver}/{gid}.{ext}", CACHE / f"art-{ver}-{gid}.{ext}")
+                b_, v_, g_ = art_base(base, gid, ver); ext = "png" if v_ == "orig" else "webp"
+                p = fetch(f"{b_}/{v_}/{g_}.{ext}", CACHE / f"art-{b_.rsplit('/', 1)[-1]}-{v_}-{g_}.{ext}")
                 w, h = Image.open(p).size
                 return {"src": str(p), "rect": [0, 0, w, h]}
             except Exception as e:   # noqa: BLE001
@@ -453,7 +478,7 @@ class H(BaseHTTPRequestHandler):
                 sys_card = spec.get("slip_type") == "System"   # a system's picture is the whole card: its own scan fits, a crop zooms
                 spec["art"] = {"kind": "library" if lib and not sys_card else "scan", "gempId": gid, "version": "orig"}
                 return self._json({"spec": spec, "art_sources": (["library"] if lib else []) + ["scan", "upload", "none"],
-                                   "art_urls": {"orig": f"{ART_CDN}/orig/{gid}.png", "x4": f"{ART_CDN}/x4/{gid}.webp"} if lib else {}})
+                                   "art_urls": rg_art_urls(gid) if gid in _RG_IDS else ({"orig": f"{ART_CDN}/orig/{gid}.png", "x4": f"{ART_CDN}/x4/{gid}.webp"} if lib else {})})
             if path == "/api/options":
                 return self._json(OPTIONS)
             # static UI (nginx serves it in production; this is for local runs)

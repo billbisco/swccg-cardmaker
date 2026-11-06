@@ -18,7 +18,8 @@ SET_ICON = {   # expansion name → ring icon file (None = no ring at all, as Pr
     "Tatooine": "icons/set-tatooine-decipher.png", "Theed Palace": "icons/set-theed-decipher.png",
     "Enhanced Cloud City": "icons/set-premium-decipher.png", "Official Tournament Sealed Deck": "icons/set-premium-decipher.png",   # silver premium sphere
     "Death Star II": "icons/set-ds2-decipher.png", "Reflections III": "icons/set-reflections3-decipher.png",
-    "Reflections Gold": "icons/set-reflections-gold.png",
+    "Reflections Gold": "icons/set-reflections-gold-decipher.png",   # original playtest: the original Decipher sphere (#50 R1)
+    "Reflections Gold Remastered": "icons/set-reflections-gold-remaster.png",   # Remastered: the gold sphere Bill approved 2026-10-31
     "Premium": "icons/set-premium-decipher.png",   # the silver premium sphere: ESB / Enhanced Premiere / Third Anthology / Virtual Premium (Holotable faces)   # gold sphere cut from Andy Talaga's reconstructions (card maker)
 }
 # PC-redrawn spheres (their Game Aid sheet; what the modern Virtual Sets print — brighter Special Edition, orange-red

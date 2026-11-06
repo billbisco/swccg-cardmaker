@@ -14,13 +14,15 @@ SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring s
     "12": "Coruscant", "13": "Reflections III", "14": "Theed Palace", "101": "Premiere", "102": "Jedi Pack",
     "103": "Jedi Pack", "104": "Premium", "106": "Official Tournament Sealed Deck", "108": "Premium",
     "109": "Enhanced Cloud City", "110": "Enhanced Jabba's Palace", "111": "Premium", "112": "Jabba's Palace Sealed Deck",
+    "15": "Reflections Gold Remastered", "15o": "Reflections Gold",   # set 15 (swccg-guild/work#174): Remastered = 15_N, original playtest = 15_No
 }
 
 EXPANSION_NAMES = {"A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palace", "Special Edition", "Endor",
-                   "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Premium"}
+                   "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Premium",
+                   "Reflections Gold", "Reflections Gold Remastered"}
 YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1998, "8": 1998, "9": 2000, "10": 2000,
         "11": 2001, "12": 2001, "13": 2001, "14": 2001, "101": 1996, "102": 1996, "103": 1997, "104": 1997, "106": 1998,
-        "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999}
+        "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999, "15": 2001, "15o": 2001}
 
 
 def copyright_for(set_id) -> str:
@@ -263,6 +265,10 @@ def gemp_to_spec(c: dict) -> dict:
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
+    if c.get("wide"):   # Reflections Gold "wide vision" cards (set 15): landscape per the card data
+        spec["_wide"] = True
+    if f.get("credits"):   # Reflections Gold credit value: gold coins
+        spec["credits"] = f["credits"]
     lab = pc_labels_for(c)
     if lab:   # the PC's extra printed labels (billbisco/swccg-gemp card_labels.json, swccg-guild/work#100)
         _sid = str(c.get("set") or "")
@@ -538,7 +544,7 @@ def finish(spec: dict) -> dict:
     if spec.get("slip_type") == "Objective":
         spec["game_text"] = objective_text(spec.get("game_text") or "", True)
         spec["game_text_back"] = objective_text(spec.get("game_text_back") or "", False)
-    if spec.get("gempId") in WIDE_PRINTED:
+    if spec.get("gempId") in WIDE_PRINTED or spec.pop("_wide", False):
         spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)

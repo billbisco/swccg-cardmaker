@@ -286,6 +286,28 @@
     "size": 120
   },
   {
+    "id": "15o",
+    "name": "Reflections Gold",
+    "gempName": "Reflections Gold",
+    "abbr": "RG",
+    "legacy": false,
+    "cycle_code": "premium",
+    "date_release": "2001-12-31",
+    "position": 15,
+    "size": 310
+  },
+  {
+    "id": "15",
+    "name": "Reflections Gold Remastered",
+    "gempName": "Reflections Gold Remastered",
+    "abbr": "RGR",
+    "legacy": false,
+    "cycle_code": "premium",
+    "date_release": "2001-12-31",
+    "position": 15,
+    "size": 310
+  },
+  {
     "id": "200",
     "name": "Virtual Set 0",
     "gempName": "Set 0",
