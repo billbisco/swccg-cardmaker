@@ -323,10 +323,11 @@ TEMPLATES = {
 # Reflections Gold "wide vision" (Decipher's cancelled last set; Bill 2026-10-15): Effects / Interrupts printed landscape,
 # full art, gold credit coins right of the text box, the set's gold sphere under the destiny lobe. Frames from Bardez's
 # [Horizontal] XCFs (make_rg_frames.py); text positions from Andy Talaga's reconstructions (wiki "Reflections Gold").
-_RG = {"wide": True, "art": (134, 138, 1952, 1356), "title": (500, 222, 860, 100), "destiny": (1850, 216, 108, 108),
-       "card_type": (1180, 246, 580, 56), "ctype_size": 44, "ctype_spacing": 5, "game_text": (330, 1162, 1585, 214),
-       "gt_size": 56, "expansion_ring": (1902, 403), "expansion_size": 68, "no_copyright": True,
-       "coins": (1952, 1370, 39), "caption_y": 1532}
+_RG = {"wide": True, "art": (134, 138, 1952, 1356), "title": (436, 214, 924, 115), "destiny": (1850, 216, 108, 108),
+       "card_type": (1196, 242, 580, 76), "ctype_size": 64, "ctype_spacing": 3, "game_text": (330, 1162, 1585, 214),
+       "gt_size": 66, "expansion_ring": (1927, 392), "expansion_size": 62, "no_copyright": True,
+       "expansion_hole": ("#c0141f", 8), "ring_disc_dy": -6,   # the RG-GEMP renders set the sphere and Episode I disc in red rings (#174)
+       "coins": (1938, 1386, 39), "caption_y": 1532}
 for _side, _ink in (("ls", True), ("ds", False)):
     for _kind in ("interrupt", "effect"):
         TEMPLATES[f"rg-{_side}-{_kind}"] = dict(_RG, frame=(f"frames/rg-{_side}-{_kind}.png", 0, 0), dark_text=_ink)
@@ -1699,7 +1700,9 @@ def build_html(card: dict) -> str:
         sz = t.get("expansion_size", 62)
         if card.get("expansion_icon_in_hole", True):
             # printed cards: the set icon is a sphere sitting in a black hole of the frame
-            parts.append(f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
+            hc_, hp_ = t.get("expansion_hole", ("#000", 1))
+            parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>' if hp_ > 1 else
+                         f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
             isz = sz - 4
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
         else:
@@ -1740,7 +1743,11 @@ def build_html(card: dict) -> str:
                 nd_used = True
                 continue
             if nm in RING_DISCS:
-                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{y + k * (sz + 30) + t.get("ring_disc_dy", 0)}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+                dy_ = y + k * (sz + 30) + t.get("ring_disc_dy", 0)
+                if t.get("expansion_hole"):   # same red ring as the sphere (RG-GEMP renders)
+                    hc_, hp_ = t["expansion_hole"]
+                    parts.append(f'<div style="position:absolute;left:{x + 3 - hp_}px;top:{dy_ - hp_}px;width:{sz - 6 + 2 * hp_}px;height:{sz - 6 + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>')
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{dy_}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
                 k += 1
     sec('margin_icon')
     if card.get("margin_icon") and "game_text" in t:   # Scoundrel: a portrait disc in the left margin at the text box top

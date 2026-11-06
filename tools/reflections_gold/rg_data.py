@@ -24,7 +24,7 @@ for g,e in M.items():
         icons=[x for x in re.findall(r'\[\[([^\]|]+)',F.get('icons','')) if x not in ('Alien','Rebel','Imperial','Droid','Republic','Jedi Master','Sith','Device','Starship','Vehicle')]
         icons=icons+[expname]
         uniq=F.get('uniqueness','')
-        title=clean(F['title']); dot='•' if uniq.lower().startswith('unique') and typ not in ('Location',) else ''
+        title=clean(F['title']); dot='•' if uniq.lower().startswith('unique') else ''   # sites print the dot too (RG-GEMP Naboo: Ceremonial Chamber)
         if ' & ' in title and typ in ('Interrupt','Effect'):
             parts=[]
             for p in title.split(' & '):
@@ -36,8 +36,15 @@ for g,e in M.items():
         st=F.get('subtype','')
         if typ in ('Interrupt','Effect') and st and st not in (typ,): f['subType']=st.replace(' Interrupt','').replace(' Effect','') if typ=='Interrupt' else st.replace(' Effect','')
         if typ=='Character': f['subType']=st
-        if typ in ('Starship','Vehicle'): f['subType']={'Capital':'Capital: Imperial-Class Star Destroyer','Combat':'Combat Vehicle: AT-ST'}.get(st,st)
+        if typ in ('Starship','Vehicle'): f['subType']={'Capital':'Capital: _Imperial_-Class Star Destroyer','Combat':'Combat Vehicle: AT-ST'}.get(st,st)
         if typ=='Location': f['subType']='Site'
+        if typ=='Location':   # "0 Force icons; [[Planet]] [[Exterior Site|Exterior]] [[Episode I]]" per side
+            for side_,key in (('light','lightSideIcons'),('dark','darkSideIcons')):
+                v=F.get(side_+'_icons','')
+                m_=re.match(r'\s*(\d+)',v); f[key]=int(m_.group(1)) if m_ else 0
+            li=[re.split(r'\|',x)[-1] for x in re.findall(r'\[\[([^\]]+)\]\]',F.get('light_icons',''))]
+            f['icons']=[x for x in ('Interior','Exterior','Planet','Episode I') if x in li]+[expname]
+            f['destiny']=F.get('destiny','') or '0'
         for k in ('power','ability','deploy','forfeit','armor','maneuver','hyperspeed','landspeed','politics'):
             if F.get(k): f[k]=clean(F[k])
         ch=bullets(F.get('characteristics',''))

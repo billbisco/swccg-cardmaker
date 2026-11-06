@@ -10,8 +10,8 @@ man={}
 for fam,d in F.items():
     win=d['window'] or MANUAL[fam]
     wide=fam.endswith('|land') and ('Interrupt' in fam or 'Effect' in fam)
-    if wide:   # wide vision: the art fills CardMaker's rg template art box (134,138,1952,1356 on 2220x1632) = this box on the 1039 render
-        win=[int(134*1039/2220),int(138*1039/2220),round(1952*1039/2220),round(1356*1039/2220)]
+    if wide:   # wide vision: the art fills CardMaker's rg template art box (x,y,w,h = 134,138,1952,1356 on 2220x1632) = this box on the 1039 render
+        win=[round(134*1039/2220),round(138*1039/2220),round((134+1952)*1039/2220),round((138+1356)*1039/2220)]
     sp=L/f"sd-{fam.replace('|','_')}.png"
     frame=None
     if d['window'] and sp.exists():
@@ -26,7 +26,7 @@ for fam,d in F.items():
         if wide:   # the remaster's own frame pieces (title bar, text box, set sphere, icons) are inpainted so only the picture
             # is left; CardMaker's template draws its own frame over the same places
             fr=(frame.copy() if frame is not None else np.zeros(im.size[::-1],np.uint8))
-            fr[:150,:]=1; fr[515:,:]=1   # the title bar band and the text box band (their text differs per card, so variance misses it)
+            fr[:153,:]=1; fr[503:,:]=1   # the title bar band and the text box band (their text differs per card, so variance misses it)
             for cy in (194,237): cv2.circle(fr,(961,cy),27,1,-1)
             fr=cv2.dilate(fr,np.ones((9,9),np.uint8))
             fm=fr[y0:y1,x0:x1]; inpainted=round(float(fm.mean()),4)

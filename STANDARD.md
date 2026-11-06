@@ -685,3 +685,9 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   library: swccg-card-art `reflections-gold/` (cut from the Remastered renders; `original/` = the same windows cut from
   the 2001 playtest photos), used by both versions by default (`server.art_base`). Landscape cards set `wide` from the
   data; RG credits print as gold coins. Copyright year 2001. Tools: `tools/reflections_gold/`.
+- Rev 70 (#174 render check, 620 cards against their RG-GEMP renders / straightened playtest photos): Remastered (set 15)
+  prints no copyright line, as its renders; the original (15o) keeps 2001. Wide art recut at the full rg art box (the
+  box's w,h had been read as x1,y1, so the picture was cut short and stretched). `rg-*` wide templates: title box
+  (436,214,924,115), card type 64 px / spacing 3, game text 66 px, sphere and Episode I disc in red rings
+  (`expansion_hole`), coins (1938,1386). Sites print the uniqueness dot and their Planet / Exterior / Episode I icons;
+  Executor's subtype italicises _Imperial_.

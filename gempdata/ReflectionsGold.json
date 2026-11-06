@@ -285,7 +285,7 @@
     "icons": [
      "Reflections Gold Remastered"
     ],
-    "subType": "Capital: Imperial-Class Star Destroyer",
+    "subType": "Capital: _Imperial_-Class Star Destroyer",
     "power": "9",
     "deploy": "9",
     "forfeit": "12",
@@ -321,7 +321,7 @@
     "icons": [
      "Reflections Gold"
     ],
-    "subType": "Capital: Imperial-Class Star Destroyer",
+    "subType": "Capital: _Imperial_-Class Star Destroyer",
     "power": "9",
     "deploy": "9",
     "forfeit": "12",
@@ -9109,15 +9109,20 @@
    "set": "15",
    "side": "Light",
    "front": {
-    "title": "Naboo: Ceremonial Chamber",
+    "title": "•Naboo: Ceremonial Chamber",
     "type": "Location",
-    "destiny": "",
+    "destiny": "0",
     "gametext": "",
     "lore": "",
     "icons": [
+     "Exterior",
+     "Planet",
+     "Episode I",
      "Reflections Gold Remastered"
     ],
     "subType": "Site",
+    "lightSideIcons": 0,
+    "darkSideIcons": 0,
     "characteristics": [
      "Naboo"
     ],
@@ -9140,15 +9145,20 @@
    "set": "15o",
    "side": "Light",
    "front": {
-    "title": "Naboo: Ceremonial Chamber",
+    "title": "•Naboo: Ceremonial Chamber",
     "type": "Location",
-    "destiny": "",
+    "destiny": "0",
     "gametext": "",
     "lore": "",
     "icons": [
+     "Exterior",
+     "Planet",
+     "Episode I",
      "Reflections Gold"
     ],
     "subType": "Site",
+    "lightSideIcons": 0,
+    "darkSideIcons": 0,
     "characteristics": [
      "Naboo"
     ],
