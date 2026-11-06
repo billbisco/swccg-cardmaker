@@ -22,7 +22,7 @@ EXPANSION_NAMES = {"A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palac
                    "Reflections Gold", "Reflections Gold Remastered"}
 YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1998, "8": 1998, "9": 2000, "10": 2000,
         "11": 2001, "12": 2001, "13": 2001, "14": 2001, "101": 1996, "102": 1996, "103": 1997, "104": 1997, "106": 1998,
-        "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999, "15": 2001, "15o": 2001}
+        "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999, "15o": 2001}   # Remastered (15) prints no copyright line, as its renders
 
 
 def copyright_for(set_id) -> str:
