@@ -691,3 +691,46 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (436,214,924,115), card type 64 px / spacing 3, game text 66 px, sphere and Episode I disc in red rings
   (`expansion_hole`), coins (1938,1386). Sites print the uniqueness dot and their Planet / Exterior / Episode I icons;
   Executor's subtype italicises _Imperial_.
+- Rev 71 (Bill 2026-11-08: "anyone, human or AI, should be able to easily re-create any published version of any Star
+  Wars CCG card from any Era … If you need to make updates to properly do this for Virtual Legacy … please do so"):
+  **Virtual Legacy (2009-2014 Virtual Blocks 1-9 + shields) render from their own card, as printed.** Survey: 42 legacy
+  cards across all blocks, sides and types against the PC's gifs (`res.starwarsccg.org/cards/legacy/…`, the printed
+  layout). Systematic differences found and fixed:
+  - **Art was zoomed/cropped** (art match r 0.14-0.99, median 0.61 on the 41-card sample): the scan path trimmed "silver" edges
+    (`art_trim`/`legacy_scan`) and cover-fitted the rest. A Virtual Block slip keeps the top of the Decipher card it was
+    pasted on, so its art *is* that card's library art. `tools/legacy/match_legacy_art.py` template-matches every
+    library crop into every legacy gif → `gempdata/legacy_art.json` (1,040 of 1,203 cards; r ≥ 0.93, or ≥ 0.85 when the
+    matched card has the card's title or original-title strip; cross-title hits follow the strip: There Is Another on
+    The Way Of Things). Those cards open with `art: {kind: library, gempId: <Decipher card>}`. The rest (new PC art: AI
+    printings, Clone Wars cards) use their own scan, mapped by the frame with **no trim** (trim kept behind
+    `CM_LEGACY_TRIM=1` for comparison only). Sample after: median r 0.975 (27 of 41 ≥ 0.95, was 5), a second random 20: median 0.98, 19 ≥ 0.95; below 0.95 only full-art / no-frame cards
+    whose window the metric cannot isolate (Admiral's Order, VB9 systems) and new-art Missions.
+  - **No copyright line:** the slip keeps the Decipher card's line → `copyright_for(<set of the card it was printed
+    on>)` (art match, else the original-title card, else the same-title card). `card_labels.json` lines (the PC's
+    "Artwork not affiliated…") still win. Systems print none of ours: their picture is the whole scan, which carries
+    its own line and side credits.
+  - **No slip number:** `card_labels.json` `slip_mark` ("123", "85E", "2 • 26", "D60") → `number`.
+  - **Expansion sphere** of renamed cards (Baktoid Armor Workshop): the printed-on card's set when no title match.
+  - **Objective strip:** the original-title strip from the labels is kept ("Invasion (V)", it was overwritten by the
+    front title), and a (V) title keeps its (V) ("Local Uprising (V)").
+  - **Side credits** (`concept_credit_position` side/left side, `edge_text` right side) go into `margin_left` /
+    `margin_right` like the OVS slips (Deep Hatred (V)); **"bottom bar" art credits** ("Image courtesy of …", VB AI
+    cards) use the `concept` bottom-bar preset instead of the copyright's mirror.
+  - **Episode I disc** on Virtual Block Objectives, Missions and Epic Events: left margin by the window top
+    (`disc_left`, (200, 412) master), as printed (A Stunning Move, Hunt Down The Dark Acolyte, Deep Hatred (V)).
+  - **Light Epic Events** keep the normal box (no `text_grow`) on Virtual Block cards: It Is The Future You See (V)
+    prints the EPIC EVENT banner over a normal text box (r 0.29 → 0.97).
+  - **"(Immune to Alter)" without the period** becomes the icon (Baktoid Armor Workshop; 7 cards).
+  - **Virtual Block set mark** redrawn from the gifs: flat black face with a light edge over a white lower bevel, the
+    number standing out of it, 92 % of the rev 41 size, ≈18 px higher and ≈8 px further left (745 px face) on the text
+    box corner (6 cards checked, within ~2 px). Inline `{vb:N}` marks keep their place.
+  - Renderer: a timed-out Chromium page is relaunched (it crashed the following jobs).
+  **Recreating a version:** `GET /api/card/<id>` accepts the legacy id, the current GEMP card (12xx/601_x), a 22xx
+  version card or `pc-legacy:<PC id>` (`gempdata/legacy_versions.json`, built by `tools/legacy/build_versions.py` from
+  legacy-versions-v3.json: 2,783 aliases, 1,502 versions) and returns `versions`; `?version=<id|code|GEMP id>` puts
+  that text on the card (`adapter.apply_version`); a `warning` flags the 143 sheet transcriptions whose inline icons
+  were lost. The editor has a *Published version* picker. How-to: `docs/RECREATE-A-CARD.md`.
+  **Left as found (open):** Virtual Block Mission banner (printed tan with the mission disc; ours silver); Dark
+  Virtual Block shields printed with a red right edge (Death Star Sentry (V) and ~12 others) still use Decipher's cyan
+  frame; Wampa (V) prints its art over the left frame; data-level differences (Galen Marek's blank lore, Padmé's
+  FORCE-SENSITIVE, Kashyyyk "FORREST", Deep Hatred's uniqueness dot) are card-data/version questions, not template ones.

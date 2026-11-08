@@ -6,7 +6,7 @@ fields (title, side, slip_type, card_type, stats, game_text, icons, ...) plus an
 AIs and batch jobs can write them directly.
 """
 from __future__ import annotations
-import re
+import os, re
 
 SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring sphere right of the lore box)
     "1": "Premiere", "2": "A New Hope", "3": "Hoth", "4": "Dagobah", "5": "Cloud City", "6": "Jabba's Palace",
@@ -198,7 +198,8 @@ def pc_shorthand(t: str) -> str:
     # #62: the object may hold a bracketed aside ("an [Episode I] (or Coruscant) docking bay"), when the Reserve Deck
     # clause ends the sentence; never across a second "deploy" or a "deploy phase"
     t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])(?!phase\b)((?:(?!\bdeploy\b)[^.;()]|\([^().;]*\))+?)(?<!,) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\)|(?=[.;]))", r"▼ \1", t)
-    t = t.replace("(Immune to {alter}.)", "{alter}")
+    t = re.sub(r"\(Immune to \{alter\}\.?\)", "{alter}", t)
+    t = re.sub(r"\(Immune to Alter\.?\)", "{alter}", t)   # also without the period (Baktoid Armor Workshop, VB7)
     t = re.sub(r"\(Immune to (Sense|Control)\.?\)", lambda m: "{%s}" % m.group(1).lower(), t).replace("(Immune to Alter.)", "{alter}")
     return t
 
@@ -291,19 +292,34 @@ def gemp_to_spec(c: dict) -> dict:
         if lab.get("ai_mark"):   # "(AI)" / "(ALT)" with the PC logo to its left; it moves left of an errata mark
             labels.append(dict({"preset": "ai", "text": lab["ai_mark"] if isinstance(lab["ai_mark"], str) else "(AI)"},
                                **({"x": -228} if lab.get("errata_mark") else {})))
-        for _f in ("concept_credit", "dedication", "bar_text"):   # the line in the frame's bottom bar ("Original concept by …",
-            if lab.get(_f) and not lab.get(_f + "_position"):    # "In memory of …"); edge-printed ones are slip credits
+        for _f in ("concept_credit", "dedication", "bar_text", "edge_text"):   # the line in the frame's bottom bar ("Original concept by …",
+            pos = lab.get(_f + "_position")                                      # "In memory of …"); edge-printed ones run up a side margin
+            if lab.get(_f) and (not pos or pos == "bottom bar") and _f != "edge_text":
                 labels.append({"preset": "concept", "text": lab[_f]})
+            elif lab.get(_f) and pos in ("side", "left side", "right side") and c.get("legacy"):   # rev 71: up the side margins,
+                spec["margin_right" if pos == "right side" else "margin_left"] = lab[_f]           # as the OVS slips (Deep Hatred (V))
         if labels:
             spec["labels"] = labels
-        if lab.get("art_credit"):
+        if lab.get("art_credit") and lab.get("art_credit_position") == "bottom bar":
+            labels.append({"preset": "concept", "text": lab["art_credit"]})   # rev 71: "Image courtesy of …" in the bottom bar (VB AI cards)
+            spec["labels"] = labels
+        elif lab.get("art_credit"):
             spec["art_credit"] = lab["art_credit"]
         if lab.get("copyright"):
             spec["copyright"] = lab["copyright"]
         elif _modern and lab.get("original_title") is not None:   # checked on the PC image: no copyright line printed
             spec["copyright"] = ""
+    if c.get("legacy"):
+        # rev 71: the 2009-14 Virtual Block slips print their sheet number at the strip's right end ("123", "85E", "2 • 26",
+        # "D60"), read off the PC gifs into card_labels.json slip_mark; and keep the copyright line of the Decipher card
+        # they were printed on (the server finds that card: c["_print_base_set"])
+        if lab.get("slip_mark"):
+            spec["number"] = str(lab["slip_mark"])
+        if not lab.get("copyright") and c.get("_print_base_set"):
+            spec["copyright"] = copyright_for(c["_print_base_set"])
     if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
+    if c.get("legacy"):
         if typ == "Defensive Shield":
             # the Virtual Defensive Shields reuse their original card's frame (QA vs the Holotable scans, 2026-10-15):
             # Episode I-style red→cyan with the green swirl (Affect Mind (V), After Her! (V)), else Decipher's cyan
@@ -315,6 +331,8 @@ def gemp_to_spec(c: dict) -> dict:
                 spec["expansion"] = nm; break
     sid = str(c.get("set") or "")
     pc_era = (sid.isdigit() and (200 <= int(sid) <= 399 or int(sid) >= 1000)) or sid in ("200d", "1000d")
+    if not spec.get("expansion") and c.get("legacy") and SETS.get(str(c.get("_print_base_set") or "")) in EXPANSION_NAMES:
+        spec["expansion"] = SETS[str(c["_print_base_set"])]   # rev 71: the sphere of the Decipher card it was printed on (Baktoid Armor Workshop: Coruscant)
     if not spec.get("expansion") and pc_era:   # (V) cards keep the original card's sphere (Overseeing It Personally (V): DS2)
         spec["expansion"] = BASE_EXP.get(re.sub(r"[^a-z0-9]", "", title.lower().replace("•", "")))
     spec["lore"] = quotes(spec["lore"])
@@ -344,7 +362,12 @@ def gemp_to_spec(c: dict) -> dict:
         spec["caption"] = (spec.get("caption") or "").replace("'", "\u2019")
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
     if c.get("legacy"):
-        spec["bold_lore"] = False   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
+        spec["bold_lore"] = False
+        if typ in ("Objective", "Mission", "Epic Event"):
+            spec["disc_left"] = True   # rev 71: the Episode I disc in the left margin (A Stunning Move, Hunt Down The Dark Acolyte)   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
+    if c.get("legacy") and typ == "Location" and sub in ("System", "Sector"):
+        # rev 71: a system's picture is its whole PC scan, which already carries its copyright and side credits
+        spec["copyright"] = ""; spec.pop("margin_left", None); spec.pop("margin_right", None)
     if typ in ("Device",):
         spec["device_frame"] = True
     # modern PC cards print the PC's own redrawn spheres; Decipher, OVS and Virtual Block cards print Decipher's
@@ -483,7 +506,9 @@ def gemp_to_spec(c: dict) -> dict:
             gt = f.get("gametext") or ""
             i = gt.find(bt.replace("•", "").strip() + ":")
             spec["title"] = ft
-            if spec["caption"]: spec["caption"] = ft
+            if spec["caption"] and not lab.get("original_title"):   # rev 71: "Local Uprising (V)", not "Local Uprising"; an
+                cap = spec["caption"]                                # original title from the labels stays (A Stunning Move: "Invasion (V)")
+                spec["caption"] = cap.split(" / ")[0] + (" (V)" if cap.rstrip().endswith("(V)") and not cap.split(" / ")[0].rstrip().endswith("(V)") else "")
             if i > 0:
                 spec["game_text"] = game_text(gt[:i].strip().removeprefix(ft.replace("•", "").strip() + ":").strip())
                 spec["game_text_back"] = game_text(gt[i + len(bt.replace("•", "").strip()) + 1:].strip())
@@ -503,7 +528,7 @@ def gemp_to_spec(c: dict) -> dict:
         spec["card_type"] = spec["slip_type"].upper()
     elif typ == "Epic Event":
         spec["slip_type"] = "Epic Event"
-        if side == "Light":
+        if side == "Light" and not c.get("legacy"):
             spec["text_grow"] = 230 if len(spec["game_text"]) > 600 else (110 if len(spec["game_text"]) > 480 else 0)   # Light Epic Events print a shorter art window over a tall text box (Attack Run, Communing)
         # the printed Epic Events set each step on its own line with a bold run-in label (Communing: "The Living Force:")
         spec["game_text"] = re.sub(r"(?<=[.):'”\"]) ((?:[A-Z][\w'’!-]*,? ){0,6}[A-Z][\w'’!-]*!?):(?= )", r"\n*\1:*", spec["game_text"])
@@ -597,7 +622,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
@@ -607,7 +632,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if spec.get("_art"):
         card["art"] = spec["_art"]
         card.pop("art_trim", None)
-        if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100"):
+        if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100") and os.environ.get("CM_LEGACY_TRIM"):
             card["art_trim"] = True
             if any(k in (spec.get("slip_type") or "") for k in ("Interrupt", "Effect")):
                 card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
@@ -619,3 +644,29 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if not ovs and spec.get("expansion"):
         card["draw_system_ring"] = True   # systems: the scan carries its own sphere; draw ours when there's none or it changed
     return card
+
+
+def polish_text(t: str, pc_era: bool = True) -> str:
+    """GEMP / PC card-list game text -> CardMaker codes, the same steps gemp_to_spec applies to a card's own text."""
+    t = ship_text(maintenance(quotes(game_text(t))))
+    if pc_era:
+        t = pc_shorthand(t)
+    if re.match(r"\s*(USED|LOST|STARTING):", t):
+        t = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", t)
+    return t
+
+
+def apply_version(spec: dict, v: dict) -> dict:
+    """Put one published version's text (gempdata/legacy_versions.json, from legacy-versions-v3) on a Virtual Legacy spec
+    (STANDARD rev 71). Everything else (art, frame, title, lore, icons, slip number) stays the printed card's."""
+    t = polish_text(v.get("text") or "")
+    part = (v.get("part") or "game_text").lower()
+    if spec.get("slip_type") == "Objective" and part in ("front", "back"):
+        spec["game_text" if part == "front" else "game_text_back"] = objective_text(t, part == "front")
+    elif part in ("ds", "dark"):
+        spec["dark_text"] = t
+    else:   # game_text, ls, and the rotated halves of the few 4-way cards
+        spec["game_text"] = t
+    spec.pop("game_text_lines", None)
+    spec["version_id"] = v.get("id")
+    return spec

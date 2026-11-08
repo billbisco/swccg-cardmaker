@@ -96,7 +96,7 @@ function readForm() {
   const pick = form.querySelector("input[name=artpick]:checked");
   if (pick) {
     const k = pick.value;
-    if (k === "orig" || k === "x4") s.art = { kind: "library", gempId: s.gempId, version: k };
+    if (k === "orig" || k === "x4") s.art = { kind: "library", gempId: (spec.art && spec.art.kind === "library" && spec.art.gempId) || (lastData && lastData.spec && lastData.spec.art && lastData.spec.art.kind === "library" && lastData.spec.art.gempId) || s.gempId, version: k };   // Virtual Legacy: the Decipher card's art
     else if (k === "upload") s.art = { ...spec.art, zoom: +$("#fZoom").value, fx: +$("#fX").value, fy: +$("#fY").value };
     else s.art = { kind: k, gempId: s.gempId };
   }
@@ -206,17 +206,36 @@ async function download(size) {
   finally { btn.textContent = t; btn.disabled = false; }
 }
 
-async function loadCard(gid) {
+async function loadCard(gid, version) {
   if ($("#browse").hidden) $("#results").hidden = true;   // browsing: keep the set list open to click through
-  const data = await j(API + "card/" + encodeURIComponent(gid));
-  lastData = data; writeForm(data.spec, data); history.replaceState(null, "", "#card=" + gid); resetHistory(); preview();
+  const data = await j(API + "card/" + encodeURIComponent(gid) + (version ? "?version=" + encodeURIComponent(version) : ""));
+  lastData = data; writeForm(data.spec, data);
+  history.replaceState(null, "", "#card=" + gid + (version ? "&version=" + encodeURIComponent(version) : "")); resetHistory(); preview();
+  versionUI(gid, data);
+}
+
+// Virtual Legacy cards: every published game-text version (STANDARD rev 71), rendered on the card's own Virtual Block template
+function versionUI(gid, data) {
+  const vs = (data && data.versions) || [];
+  $("#versionRow").hidden = !vs.length;
+  if (!vs.length) return;
+  const sel = $("#versionPick"); sel.innerHTML = "";
+  const o0 = document.createElement("option"); o0.value = ""; o0.textContent = "Card data text (the PC's latest)"; sel.appendChild(o0);
+  for (const v of vs) {
+    const o = document.createElement("option"); o.value = v.id;
+    o.textContent = `${v.code || v.label || v.kind}${v.date ? " · " + v.date : ""}${v.latest ? " · latest" : ""}${v.gemp ? " · GEMP " + v.gemp : ""}${v.icons_missing ? " · icons to add" : ""}`;
+    sel.appendChild(o);
+  }
+  sel.value = (data.version && data.version.id) || "";
+  $("#versionNote").textContent = data.warning || (data.version ? `Text of version ${data.version.code || data.version.id}; edit any field to make your own.` : "");
+  sel.onchange = () => loadCard(gid, sel.value);
 }
 
 function blank() {
   writeForm({ side: "Light", slip_type: "Character", title: "•New Character", caption: "", destiny: "1",
     lore: "", game_text: "", stats: STAT_DEFAULTS.Character, deploy: "3", forfeit: "3", icons: ["warrior"], affiliation: "Rebel",
     expansion: null, card_type: "", art: { kind: "none" } }, null);
-  lastData = null; history.replaceState(null, "", "#"); resetHistory(); preview();
+  lastData = null; $("#versionRow").hidden = true; history.replaceState(null, "", "#"); resetHistory(); preview();
 }
 
 let qTimer = null;
@@ -336,8 +355,8 @@ document.querySelectorAll('a[href="#help"]').forEach(a => a.onclick = e => { e.p
   fillSelect(form.elements.affiliation, [null, ...opts.affiliations]);
   fillSelect(form.elements.expansion, opts.expansions, v => v ?? "— none —");
   $("#tokens").innerHTML = Object.entries(opts.tokens).map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${esc(v)}</td></tr>`).join("");
-  const m = location.hash.match(/card=([\w-]+)/);
-  if (m) loadCard(m[1]); else loadCard("5_5");
+  const m = location.hash.match(/card=([\w:^-]+)/), mv = location.hash.match(/version=([^&]+)/);
+  if (m) loadCard(m[1], mv ? decodeURIComponent(mv[1]) : ""); else loadCard("5_5");
 })();
 
 

@@ -1143,22 +1143,28 @@ def sys_frame(card: dict, t: dict) -> Path:
 
 def inline_set_mark(mark: str) -> str:
     """A set mark sized for a line of game text (wrapped so it sits on the baseline like the other inline icons)."""
-    html = set_mark_html(mark, 0, 0, 40).replace("position:absolute;", "position:relative;display:inline-block;vertical-align:-14px;")
+    html = set_mark_html(mark, 0, 0, 40, slot=False).replace("position:absolute;", "position:relative;display:inline-block;vertical-align:-14px;")
     return re.sub(r"left:-?\d+px;top:-?\d+px;", "", html)
 
 
-def set_mark_html(mark: str, cx: float, cy: float, ss: float) -> str:
+def set_mark_html(mark: str, cx: float, cy: float, ss: float, slot: bool = True) -> str:
     """Inline SVG (uses the page's fonts) centred on the template's set-icon slot. mark = "pc:<n>" or "vb:<n>".
     Sizes/placement measured on Holotable faces (Captain Lando Calrissian VS13, Admiral Raddus VS9, A Good Blaster
     At Your Side VS0, 2-1B (Too-Onebee) (V) Virtual Block 2)."""
     kind, _, num = str(mark).partition(":")
     if kind == "vb":   # Virtual Block diamond: black, white edge, number over a V chevron
         w = ss * 1.55; h = w * .86
+        # rev 71, measured on the PC's Virtual Block gifs (Faithful Service (V), Leia Seeker (V), Master Luke (V), ISB Central
+        # Commander, Death Star Sentry (V), Local Uprising (V)): a flat black diamond face (about 2:1) with a thin light
+        # edge, over a white bevel along its two lower edges, the number standing up out of the face; 92 % of the rev 41
+        # size, on the text box's lower-right corner, ~18 px higher and ~8 px further left (745 px face) than rev 41
+        w = ss * 1.42; h = w * .86
         svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 86" width="{w:.0f}" height="{h:.0f}">'
-               '<polygon points="50,3 97,43 50,83 3,43" fill="#111" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>'
-               '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="miter"/>'
-               f'<text x="50" y="53" text-anchor="middle" font-family="AGMedExt" font-size="{38 if len(num) < 2 else 32}" fill="#fff">{esc(num)}</text></svg>')
-        return f'<div style="position:absolute;left:{cx - w / 2 + ss * .25:.0f}px;top:{cy - h / 2 + ss * .85:.0f}px;line-height:0">{svg}</div>'
+               '<polyline points="4,45 50,76 96,45" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter"/>'
+               '<polygon points="50,12 96,40 50,68 4,40" fill="#111" stroke="#cfcfcf" stroke-width="2.5" stroke-linejoin="round"/>'
+               f'<text x="50" y="56" text-anchor="middle" font-family="AGMedExt" font-size="{50 if len(num) < 2 else 38}" fill="#fff" '
+               f'stroke="#111" stroke-width="2" paint-order="stroke">{esc(num)}</text></svg>')
+        return f'<div style="position:absolute;left:{cx - w / 2 + ss * .25 - (16 if slot else 0):.0f}px;top:{cy - h / 2 + ss * .85 - (36 if slot else 0):.0f}px;line-height:0">{svg}</div>'
     gold = num in ("0", "D", "P")   # Set 0 and the Virtual Defensive Shields: gold ring (PC Game Aid sheet)
     ring_a, ring_b = ("#8a6a1c", "#e6c766") if gold else ("#0b3a74", "#5a9bd2")
     edge = "#c97a12" if gold else "#1d4aa0"
@@ -1737,8 +1743,10 @@ def build_html(card: dict) -> str:
                 parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{mx_}px;top:{my_}px;width:{ds_}px;height:{ds_}px;border-radius:50%">')
                 mk += 1
                 continue
-            if nm in RING_DISCS and t.get("_nolore_disc") and not nd_used:
-                ncx, ncy = t["_nolore_disc"]
+            # rev 71: Virtual Block Objectives, Missions and Epic Events print it in the left margin too (A Stunning Move, Deep Hatred (V))
+            _nd = t.get("_nolore_disc") or ((200, 412) if card.get("disc_left") else None)
+            if nm in RING_DISCS and _nd and not nd_used:
+                ncx, ncy = _nd
                 parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{ncx - 29}px;top:{ncy - 29}px;width:58px;height:58px;border-radius:50%">')
                 nd_used = True
                 continue
