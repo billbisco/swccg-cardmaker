@@ -194,7 +194,7 @@ def pc_shorthand(t: str) -> str:
     # "take" first, and "deploy" only as the verb: "take Luke … with printed deploy < 4 into hand from Reserve Deck" is
     # ▲ (PC A New Hope, VS27); matching "deploy" first turned it into "take Luke … printed ▼ < 4 into hand" (#63)
     t = re.sub(r"(?i)\btake ((?:(?!\binto hand\b)[^.;])+?) into hand from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▲ \1", t)
-    t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▼ \1", t)
+    t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])(?!phase\b)((?:(?!\bdeploy\b)[^.;()])+?) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▼ \1", t)   # rev 72: not from "deploy phase, may deploy …" (I'm Sorry (V) PC-E1)
     # #62: the object may hold a bracketed aside ("an [Episode I] (or Coruscant) docking bay"), when the Reserve Deck
     # clause ends the sentence; never across a second "deploy" or a "deploy phase"
     t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])(?!phase\b)((?:(?!\bdeploy\b)[^.;()]|\([^().;]*\))+?)(?<!,) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\)|(?=[.;]))", r"▼ \1", t)

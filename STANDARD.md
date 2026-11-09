@@ -756,6 +756,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - Version texts: two spaces after a sentence (the 2012-13 card list's style) become one and no longer count as lost
     icons (`icons_missing` 160 → 121; the warning stays for the real ones); a leading bare "3." on a Character (the pilot
     icon lost from a sheet / Master List text) is the pilot icon `{pilot:3}`. `?version=original` picks the original.
+  - **"deploy phase" is never the ▼ verb:** the first Reserve Deck shorthand rule matched from "During your deploy
+    phase, may deploy X from Reserve Deck" and printed "During your ▼ phase, may deploy X" (I'm Sorry (V) PC-E1, Boss
+    Nass, every Operative). It now skips "deploy phase" and never runs across a second "deploy", like the #62 rule:
+    116 card texts read "during your deploy phase, may ▼ X", Rebel Infantry "whenever you deploy a Rebel trooper, may
+    immediately ▼ a Blaster Rifle"; Abyssin Ornament's STARTING clause keeps its words.
   - **Lore:** the PC Legacy JSON carries The Signal's Decipher lore on Jabba, This Is Your Last Chance! (1261_80); the slip,
     the PC image and the Master List print an empty lore box → `fill.json` `1006_L5619` lore "". Lore comes from the
     PC Legacy JSON plus `fill.json` (the recorded printed values), never from the Decipher card itself.
