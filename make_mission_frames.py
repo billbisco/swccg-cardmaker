@@ -74,5 +74,37 @@ def disc():
     im.putalpha(Image.fromarray(al)); im.save(A / "icons/disc-mission.png")
 
 
-if __name__ == "__main__":
-    print(build("ls"), build("ds")); disc()
+
+
+def vader_disc():
+    """Rev 73: the round Vader disc the Virtual Block 7 Vader cards print left of the text box and inline (Darth Vader,
+    More Machine Than Man; Vader's Mask, Bionic Limbs, Cape (V), Cybernetic Enhancements, Helmet). No higher-resolution
+    source: the median of the six printed discs, cut from the PC gifs at 745 px (centres found by template match)."""
+    import server
+    UA = {"User-Agent": "Mozilla/5.0"}
+    centres = {"1007_L6225": (81, 809), "1007_L6726": (60, 814), "1007_L6728": (61, 781), "1007_L6729": (64, 816),
+               "1007_L6730": (58, 777), "1007_L6731": (61, 775)}
+    acc = []
+    for g, (cx, cy) in centres.items():
+        u = server.CARDS[g]["front"]["imageUrl"]
+        im = Image.open(io.BytesIO(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30).read())).convert("RGB").resize((745, 1039), Image.LANCZOS)
+        acc.append(np.array(im.crop((cx - 27, cy - 27, cx + 27, cy + 27)).resize((150, 150), Image.LANCZOS)).astype(float))
+    ref = acc[1][7:143, 7:143]   # Vader's Bionic Limbs: align the others on it (the gifs are 350 px: whole-pixel centres blur)
+    al_ = [ref]
+    for a in acc[:1] + acc[2:]:
+        best = max(((((a[7 + dy:143 + dy, 7 + dx:143 + dx] - a[7 + dy:143 + dy, 7 + dx:143 + dx].mean()) * (ref - ref.mean())).mean(), dy, dx)
+                    for dy in range(-7, 8) for dx in range(-7, 8)))
+        al_.append(a[7 + best[1]:143 + best[1], 7 + best[2]:143 + best[2]])
+    d = np.median(np.stack(al_), axis=0).astype(np.uint8)
+    # the printed disc is ~41 px across at 745 (rim included) = 114 px here: keep it and scale it to the 136 px file
+    im = Image.fromarray(d).crop((68 - 58, 68 - 58, 68 + 58, 68 + 58)).resize((136, 136), Image.LANCZOS).convert("RGBA")
+    yy, xx = np.mgrid[0:136, 0:136]; al = np.clip((67 - np.hypot(xx - 67.5, yy - 67.5)) * 60, 0, 255).astype(np.uint8)
+    im.putalpha(Image.fromarray(al)); im.save(A / "icons/disc-vader.png")
+
+
+if __name__ == "__main__":   # --vader: only the Vader disc (rev 73); the frames are refit by tools/legacy/refit_mission_frames.py
+    import sys as _s
+    if "--vader" in _s.argv:
+        vader_disc()
+    else:
+        print(build("ls"), build("ds")); disc()

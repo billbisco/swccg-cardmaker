@@ -764,3 +764,49 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Lore:** the PC Legacy JSON carries The Signal's Decipher lore on Jabba, This Is Your Last Chance! (1261_80); the slip,
     the PC image and the Master List print an empty lore box → `fill.json` `1006_L5619` lore "". Lore comes from the
     PC Legacy JSON plus `fill.json` (the recorded printed values), never from the Decipher card itself.
+- Rev 73 (2026-11-09, batch agents' reports after B03–B34, swccg-gemp PRs #760–#788): **Virtual Block Missions,
+  the [Vader] disc and the Setup icon as printed; version data rebuilt.** Measured on the PC gifs at 745 px (master
+  px = 2 × (745 px + 35 / 36)), as rev 71 did.
+  - **Mission / Critical Mission frames** (`tools/legacy/refit_mission_frames.py`, reads the rev 72 frames from git
+    `240b511` so it can be re-run): the banner and the text box sat 17–33 px (745) too low and the banner was silver.
+    Now as printed: Light (Hunt Down The Dark Acolyte, Assault On Muunilinst, Rescue On Geonosis, Kessel Run (V)) panel
+    edge 1074, banner 1124–1218, text box from 1240; Dark (In The Hands Of The ISB, Galactic Domination, Spice Mine
+    Operations, Defense Of Muunilinst) panel 1054, banner 1084–1190, text box from 1252 (the text box gains the rows,
+    in mirrored tiles of its texture). Text box top vs the PC after: 0–10 px (745), was 35–45. Banner **cream**
+    (Light 210,200,186) / **pale tan** (Dark 204,182,149) instead of silver, smoother on Dark as printed; panel tan
+    darkened to the printed one (side margins: Light 189,151,112, Dark 164,129,88; ours were 210,177,139 / 204,170,130);
+    MISSION ink grey (Light #322d33, Dark #504b49, measured). Dark: top corners cut at 45° with a lit edge, black text
+    box 30 px wider to the right (the PC's runs to x 660 at 745, ours stopped at 645).
+  - **Banner icon:** the Mission templates had no place for it. Setup (Rebel Aces, In The Hands Of The ISB, Kessel Run
+    (V), the Critical Missions) or, on the Virtual Block 9 Missions, the faction icon (Clone Army: Hunt Down The Dark
+    Acolyte, Assault On Muunilinst, Rescue On Geonosis; Separatist: Rally To Our Cause, Arena Execution, Defense Of Muunilinst),
+    106 px at the banner's right end (Light (1274, 1118), Dark (1314, 1086)); template match on the gifs r 0.83–0.88.
+  - **Left-margin disc:** Rebel Aces and Imperial Aces print the **Objective** icon left of the text box top (template
+    match against the Game Aid icons: objective r 0.83 / 0.81, the next best 0.76); no other Mission does, so it is a
+    per-card printed mark (`adapter.MISSION_DISC`, PC ids 5825, 6389), not derived from the card data (their
+    Death Star II icon is the printed-on card's expansion; the DS2 Critical Missions print no disc).
+  - **[Vader]:** Virtual Block 7 prints it as a round silver-rimmed disc, left of the text box top and inline; ours drew
+    the PC's later square Game Aid icon inline and put it in the column of Darth Vader, More Machine Than Man. New
+    `assets/icons/disc-vader.png` (`make_mission_frames.py --vader`: median of the six printed discs, aligned, from the
+    gifs; no higher-resolution source), 82 px at (190, text box top + 34) (Vader's Bionic Limbs, Cape (V), Cybernetic
+    Enhancements, Helmet, Mask; Darth Vader, More Machine Than Man), inline `{ga:disc-vader}` (legacy cards only; the
+    column no longer carries it). Modern PC cards keep the square icon.
+  - **Setup icon on an Epic Event:** Rise Of The Dark Lord prints it in the right margin at the text box top (47 px box
+    at (664, 623), 745): `epic-event` template `banner_icon` (1398, 1318), 94 px. Only cards with a Setup icon draw it;
+    no Decipher / OVS / modern Epic Event has one. The PC Legacy JSON drops its "Twisted And Evil:" paragraph (opened as
+    1271_19 the API shows the recorded PC-E1 text with it).
+  - **Versions** (`gempdata/legacy_versions.json`, rebuilt from legacy-versions-v4 at ai-team-skills `0ec9e00` and
+    swccg-gemp master `823a035be`): 3,061 aliases, 1,565 versions, 312 with a 22xx card (was 261). Stat-only versions
+    (`part: stats`, Bill B34) are versions: Jedi Survivor (V) Original destiny 1 → PC-E1 destiny 3; each version
+    carries the stats it records and the API prints them. Version texts that lost icons are flagged more completely
+    ("adds one and one .", "always A .", [W2-205]: 90 → 111); opened by the GEMP id alone such a version keeps the
+    card's own text (`note`) instead of printing the lost-icon text on the current card. Straight double quotes in
+    GEMP-copied version texts become curly ones (Rebel Aces' "May add 1 astromech.").
+  - Unchanged: every one of the 4,467 Decipher, Reflections and modern cards builds the same render input as rev 72
+    (card dicts compared one by one); the `epic-event` template only gained an icon position they never use; Original
+    Virtual Set remasters render from their own transcriptions (untouched). Production renders before / after the
+    deploy compared on 11 such cards (HANDOFF).
+  - **Left as found (open):** the PC prints three Missions with a lower panel (Rebel Aces +77 px, Imperial Aces +86,
+    Restore Freedom To The Galaxy +36 at 745: more art, shorter text box); ours keep the common layout. Vader's Mask /
+    Helmet print a raised text box (other Effects' layout question, not the disc). Dark Mission panel bevel is drawn
+    flat apart from the cut corners.

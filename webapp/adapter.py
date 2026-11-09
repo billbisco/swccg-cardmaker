@@ -93,6 +93,9 @@ ICON_COL = {"Pilot": "pilot", "Warrior": "warrior", "Nav Computer": "nav", "Perm
             "Resistance": "resistance", "First Order": "first-order", "Vader": "vader", "Republic": "republic"}
 FACTION = {"independent", "independent-starship", "trade-federation", "clone-army", "separatist", "resistance",
            "first-order", "republic", "vader"}
+# rev 73: a type disc printed left of the text box top of two Virtual Block 7 Missions (PC id -> icon), as printed:
+# Rebel Aces / Imperial Aces carry the Objective icon there (template match on the PC gifs, r 0.83 / 0.81)
+MISSION_DISC = {"5825": "objective", "6389": "objective"}
 RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker", "Personal Force": "personal-force"}
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
@@ -362,6 +365,7 @@ def gemp_to_spec(c: dict) -> dict:
         spec["caption"] = (spec.get("caption") or "").replace("'", "\u2019")
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
     if c.get("legacy"):
+        spec["game_text"] = spec["game_text"].replace("{ga:vader}", "{ga:disc-vader}")   # rev 73: the round VB7 disc inline
         spec["bold_lore"] = False
         if typ in ("Objective", "Mission", "Epic Event"):
             spec["disc_left"] = True   # rev 71: the Episode I disc in the left margin (A Stunning Move, Hunt Down The Dark Acolyte)   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
@@ -379,6 +383,11 @@ def gemp_to_spec(c: dict) -> dict:
         spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)
     if "Setup" in icons:
         spec["banner_icon"] = "setup"   # in the banner's right end (A Remote Planet (V))
+    elif c.get("legacy") and typ == "Mission" and ("Clone Army" in icons or "Separatist" in icons):
+        # rev 73: Virtual Block 9 Missions print their faction icon there (Hunt Down The Dark Acolyte, Rally To Our Cause)
+        spec["banner_icon"] = "clone-army" if "Clone Army" in icons else "separatist"
+    if c.get("legacy") and typ == "Mission" and str(c.get("id")) in MISSION_DISC:
+        spec["mission_disc"] = MISSION_DISC[str(c.get("id"))]
     if "Scoundrel" in icons:
         spec["margin_icon"] = "scoundrel"   # left margin at the text box (Scoundrel's Bravado)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and i != "Episode I"]
@@ -391,6 +400,11 @@ def gemp_to_spec(c: dict) -> dict:
         col.append("ds2")   # Reflections reprints print the original set's DS2 icon in the column (Luke, Rebel Scout; The Emperor)
     if typ in ("Starship", "Vehicle"):   # starships print their faction icon at the top of the column (Blockade Support Ship)
         col = [c_ for c_ in col if c_ in FACTION] + [c_ for c_ in col if c_ not in FACTION]
+    if c.get("legacy") and "Vader" in icons:
+        # rev 73: Virtual Block 7 prints [Vader] as a round disc left of the text box, not in the column (Darth Vader,
+        # More Machine Than Man; Vader's Mask) and as the same disc inline ("Deploy on [Vader] Vader")
+        col = [c_ for c_ in col if c_ != "vader"]
+        spec["margin_disc"] = "disc-vader"
     rings = [RING[i] for i in icons if i in RING]
     if "Republic" in icons and typ == "Character":
         col = [c_ for c_ in col if c_ != "republic"]   # characters show Republic as the affiliation disc
@@ -622,7 +636,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
@@ -658,17 +672,33 @@ def polish_text(t: str, pc_era: bool = True, legacy_version: bool = False) -> st
     """GEMP / PC card-list game text -> CardMaker codes, the same steps gemp_to_spec applies to a card's own text."""
     if legacy_version:
         t = legacy_marks(t)
+        t = re.sub(r'"([^"]+)"', "\u201c\\1\u201d", t)   # rev 73: GEMP-copied version texts write straight double quotes (Rebel Aces)
     t = ship_text(maintenance(quotes(game_text(t))))
     if pc_era:
         t = pc_shorthand(t)
+    if legacy_version:
+        t = t.replace("{ga:vader}", "{ga:disc-vader}")
     if re.match(r"\s*(USED|LOST|STARTING):", t):
         t = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", t)
     return t
 
 
-def apply_version(spec: dict, v: dict) -> dict:
+def apply_version(spec: dict, v: dict, text: bool = True) -> dict:
     """Put one published version's text (gempdata/legacy_versions.json, from legacy-versions-v4) on a Virtual Legacy spec
-    (STANDARD rev 71). Everything else (art, frame, title, lore, icons, slip number) stays the printed card's."""
+    (STANDARD rev 71). Everything else (art, frame, title, lore, icons, slip number) stays the printed card's.
+    Rev 73: the version's recorded stats (`stats`: destiny …; stat-only versions such as Jedi Survivor (V) PC-E1) go on
+    too; text=False keeps the card's own text (a recorded text that lost its icons, opened without ?version)."""
+    for k, val in (v.get("stats") or {}).items():
+        if k in ("destiny", "deploy", "forfeit"):
+            spec[k] = str(val)
+        else:
+            lab = {"hyperspeed": "HYPERSPEED", "landspeed": "LANDSPEED"}.get(k, k.upper())
+            for row in spec.get("stats") or []:
+                if row and row[0] == lab:
+                    row[1] = str(val)
+    spec["version_id"] = v.get("id")
+    if not text:
+        return spec
     t = polish_text(v.get("text") or "", legacy_version=True)
     if spec.get("slip_type") == "Character":   # sheets / Master List print the pilot icon as "3." (icon lost): "[Pilot] 3"
         t = re.sub(r"^\s*\{icon:pilot\}\s*(\d)\.?\s+|^\s*(\d)\.\s+(?=[A-Z])", lambda m: "{pilot:%s}. " % (m.group(1) or m.group(2)), t)

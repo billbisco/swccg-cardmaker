@@ -40,6 +40,9 @@ POST /api/render {"spec": {...}, "size": "holotable", "format": "png"}   -> the 
 
 Change any field of `spec` before rendering (`game_text`, `title`, `lore`, `destiny`, `stats`, `number`,
 `labels` …). A `warning` in the card response means the version text lost its icons: fix `game_text` first.
+Opened by the GEMP id alone (no `?version`), such a version keeps the card's own text and says so in `note`; its
+recorded stats still apply. A version can change only stats (`stats`, e.g. Jedi Survivor (V) PC-E1: destiny 1 → 3);
+the API puts them on the card (rev 73).
 `version_notes` lists held texts (capitals / punctuation only, waiting on Bill): shown, not selectable. In version
 texts the record's `[S]` / `[T]` are the slips' ▲ / ▼ (take into hand / deploy from Reserve Deck); Immune to Sense is
 always written out there.

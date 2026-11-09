@@ -538,9 +538,13 @@ class H(BaseHTTPRequestHandler):
                     if want and not hit:
                         return self._json({"error": f"unknown version {want!r}", "versions": extra["versions"]}, 404)
                     if hit:
-                        adapter.apply_version(spec, hit)
+                        implicit = not q.get("version", [""])[0]   # opened by the GEMP id that carries this version
+                        adapter.apply_version(spec, hit, text=not (implicit and hit.get("icons_missing")))
                         extra["version"] = {k: v for k, v in hit.items() if k != "text"}
-                        if hit.get("icons_missing"):
+                        if implicit and hit.get("icons_missing"):
+                            extra["note"] = ("the recorded text of this version lost its inline icons; the card's own text is shown "
+                                             "(ask ?version=" + (hit.get("code") or "original") + " for the recorded text)")
+                        elif hit.get("icons_missing"):
                             extra["warning"] = ("this version's recorded text lost its inline icons when it was read from the printed sheet: "
                                                 "put them back (CardMaker codes such as {set:hoth} {alter}) in game_text before rendering")
                 return self._json(dict({"spec": spec, "art_sources": (["library"] if lib else []) + ["scan", "upload", "none"],

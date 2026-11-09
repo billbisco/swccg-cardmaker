@@ -391,8 +391,25 @@ for _sd, _D in (("ls", 324), ("ds", 336)):
         game_text=(_e["game_text"][0], _e["game_text"][1] - _D, _e["game_text"][2], _e["game_text"][3] + _D),
         set_icon_abs=_e["set_icon_abs"], no_type=False)
     TEMPLATES[f"{_sd}-mission"].pop("gt_ink", None)
+    # rev 73 (tools/legacy/refit_mission_frames.py): banner and text box where the PC prints them (banner Light
+    # 1124-1218 / Dark 1084-1190, text box from 1240 / 1252); the banner's right end holds the Setup / faction icon
+    # (In The Hands Of The ISB, Kessel Run (V), Hunt Down The Dark Acolyte), measured by template match on the PC gifs
+    _m = TEMPLATES[f"{_sd}-mission"]; _ct, _gt = _m["card_type"], _m["game_text"]
+    _dc, _dg = (40, 69) if _sd == "ls" else (74, 70)
+    _m["card_type"] = (_ct[0], _ct[1] - _dc) + _ct[2:]
+    _m["game_text"] = (_gt[0], _gt[1] - _dg, _gt[2], _gt[3] + _dg)
+    _m["banner_icon"] = (1274, 1118) if _sd == "ls" else (1314, 1086)
+    _m["banner_icon_size"] = 106
+    if _sd == "ds":
+        _m["game_text"] = _m["game_text"][:2] + (_m["game_text"][2] + 30, _m["game_text"][3])   # box widened 30 px (refit)
+    _m["mission_disc"] = (207, 1291) if _sd == "ls" else (189, 1267)   # Objective disc left of the text box (Rebel / Imperial Aces)
     if _sd == "ds":
         TEMPLATES["ds-mission"].pop("dark_text", None); TEMPLATES["ds-mission"]["ctype_ink"] = TEMPLATES["ds-mission"]["title_ink"] = "#000"
+    TEMPLATES[f"{_sd}-mission"]["ctype_ink"] = "#322d33" if _sd == "ls" else "#504b49"   # rev 73: grey MISSION ink as printed
+# rev 73: Rise Of The Dark Lord (Virtual Block 7) prints its Setup icon in the right margin at the text box top
+# (PC gif: 47 px box at (664, 623) of 745 px); the template had no place for it. Only cards with a Setup icon draw it.
+TEMPLATES["epic-event"]["banner_icon"] = (1398, 1318)
+TEMPLATES["epic-event"]["banner_icon_size"] = 94
 TEMPLATES["game-aid-chart"] = {"chart": True, "frame": ("frames/game-aid.png", 0, 0), "art": (144, 144, 1343, 1931),
     "title": (300, 230, 1030, 190), "game_text": (250, 480, 1200, 1430), "set_icon_abs": (1340, 1950), "set_icon_size": 70,
     "dark_text": False, "no_type": True, "no_copyright": True}
@@ -589,7 +606,10 @@ def game_text_html(text: str) -> str:
             out.append(f'<img class="gt-icon" src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}" style="height:60px;vertical-align:-12px">')
         elif name == "ga":   # a Players Committee Game Aid icon (Feb 2024 reference sheet), e.g. {ga:separatist}
             gf = ASSETS / f"icons/pc-gameaid-x4/{arg}.png"
-            out.append(f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px">' if gf.exists() else esc(f"[{arg}]"))
+            if not gf.exists() and str(arg).startswith("disc-"):   # rev 73: a printed disc of our own ({ga:disc-vader}, Virtual Block 7)
+                gf = ASSETS / f"icons/{arg}.png"
+            out.append(f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px;border-radius:50%">' if gf.exists() and str(arg).startswith("disc-")
+                       else f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px">' if gf.exists() else esc(f"[{arg}]"))
         elif name in ("vb", "pcset"):   # inline set marks: [Virtual Block 4] -> {vb:4}, [Set 13] -> {pcset:13}
             out.append(inline_set_mark(("vb:" if name == "vb" else "pc:") + (arg or "")))
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
@@ -1577,7 +1597,8 @@ def build_html(card: dict) -> str:
     if card.get("banner_icon") and "banner_icon" in t:
         bx, by = t["banner_icon"]
         if ICON_FILES[card["banner_icon"]].startswith("icons/col-"):   # framed icon (Setup): drawn at box size
-            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx}px;top:{by}px;width:89px;height:90px">')
+            bw_ = t.get("banner_icon_size", 89)
+            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx}px;top:{by}px;width:{bw_}px;height:{bw_ + 1 if bw_ == 89 else bw_}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box-effect.png")}" style="position:absolute;left:{bx}px;top:{by}px">')
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["banner_icon"]])}" style="position:absolute;left:{bx + 8}px;top:{by + 8}px;width:73px;height:73px">')
@@ -1761,6 +1782,13 @@ def build_html(card: dict) -> str:
     if card.get("margin_icon") and "game_text" in t:   # Scoundrel: a portrait disc in the left margin at the text box top
         gx, gy, gw, gh = t["game_text"]
         parts.append(f'<img src="{data_uri(ASSETS / "icons/pc-gameaid-named" / (card["margin_icon"] + ".png"))}" style="position:absolute;left:{t.get("margin_icon_x", 190)}px;top:{gy + 8}px;width:84px;height:84px;border-radius:50%">')
+    if card.get("mission_disc") and t.get("mission_disc"):   # rev 73: Rebel / Imperial Aces print the Objective disc left of the text box
+        mcx, mcy = t["mission_disc"]
+        parts.append(f'<img src="{data_uri(ASSETS / "icons/pc-gameaid-x4" / (card["mission_disc"] + ".png"))}" style="position:absolute;left:{mcx - 28}px;top:{mcy - 28}px;width:56px;height:56px;border-radius:50%">')
+    if card.get("margin_disc") and "game_text" in t:   # rev 73: the round [Vader] disc left of the text box top (Vader's Mask)
+        gx_, gy_ = t["game_text"][:2]
+        mx_, my_ = t.get("margin_disc_c", (190, gy_ + 34))
+        parts.append(f'<img src="{data_uri(ASSETS / "icons" / (card["margin_disc"] + ".png"))}" style="position:absolute;left:{mx_ - 41}px;top:{my_ - 41}px;width:82px;height:82px;border-radius:50%">')
     sec('copyright')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
     if card.get("copyright") and t.get("copyright_split") and card.get("copyright_split"):   # systems (card maker): split over the two bottom margins

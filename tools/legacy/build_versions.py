@@ -12,6 +12,8 @@ Writes {"aliases": {GEMP id -> legacy card id}, "versions": {legacy card id -> [
   label, kind, date, part, seq, gemp (the GEMP card that carries that text), latest, wiki, text, and icons_missing = true
   when the transcription dropped inline icons (printed-sheet texts read from the PDFs: "( ) , ,"). Render those only
   with the icons put back (--text), never as they stand.
+- rev 73: stat-only versions (`part: stats`, e.g. Jedi Survivor (V) PC-E1 destiny 1 -> 3) are versions too, and every
+  version carries the stats it records (`stats`: destiny, power …) for the API to print.
 - notes: v4 entries with `is_version: null` (capitals / punctuation only, waiting on Bill): shown, never selectable.
 
 The 22xx id of a version comes from swccg-gemp itself (`--gemp`): each set22xx class's
@@ -68,7 +70,9 @@ for side in ("Light", "Dark"):
     for c in json.load(open(ROOT / f"gempdata/{side}Legacy.json", encoding="utf-8"))["cards"]:
         leg[c["id"]] = f"{c['set']}_L{c['id']}"
 # two spaces after a sentence end are the 2012-13 card list's style, not a lost icon
-MISSING = re.compile(r"\(\s*\)|,\s*,|\(•\)\s*,|\s[A-Z]\s*$|(?<![.!?:)\"'”’])\s{2,}|\[[A-Za-z]+-[A-Za-z-]+-\d+\]")
+MISSING = re.compile(r"\(\s*\)|,\s*,|\(•\)\s*,|\s[A-Z]\s*$|(?<![.!?:)\"'”’])\s{2,}|\[[A-Za-z]+-[A-Za-z-]+-\d+\]"
+                     r"|\s[.,;:](?=\s|$)|\[W\d*-\d+\]")   # rev 73: "adds one and one ." / "always A ." / [W2-205] (an icon read as a word)
+STAT_KEYS = ("destiny", "power", "ability", "deploy", "forfeit", "armor", "maneuver", "hyperspeed", "landspeed", "politics")
 aliases, versions, notes, unused = {}, {}, {}, set(gemp_ver.values())
 by_current = {}
 for gid, f in rec.items():
@@ -84,7 +88,8 @@ for gid, f in rec.items():
         aliases[str(f["pc_gemp_id"])] = lid
     out, held = [], []
     for v in f.get("versions") or []:
-        if not v.get("text_known") or not v.get("text"):
+        stat_only = (v.get("part") == "stats")   # rev 73: a stat-only change (Jedi Survivor (V) destiny 1 -> 3) is a version (Bill, B34)
+        if not v.get("text") or not (v.get("text_known") or stat_only):
             continue
         if v.get("is_version") is None:   # capitals / punctuation only: Bill has not ruled; a note, not a version
             held.append({"id": v["id"], "date": v.get("date"), "part": v.get("part"), "change": v.get("change"),
@@ -105,6 +110,9 @@ for gid, f in rec.items():
                     "date": v.get("date"), "part": v.get("part"), "seq": seq, "latest": bool(v.get("is_latest")),
                     "gemp": g22[0] if g22 else (gid if v.get("is_latest") else None),
                     "wiki": v.get("wiki_page"), "icons_missing": bool(MISSING.search(v["text"])), "text": v["text"]})
+        st = {k: v[k] for k in STAT_KEYS if v.get(k) is not None}   # printed stats the version records (destiny …)
+        if st:
+            out[-1]["stats"] = st
     out.sort(key=lambda x: (x["seq"] if x["seq"] is not None else 99, x["part"] or ""))
     versions[lid] = out
     if held:
