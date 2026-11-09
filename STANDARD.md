@@ -734,3 +734,28 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Virtual Block shields printed with a red right edge (Death Star Sentry (V) and ~12 others) still use Decipher's cyan
   frame; Wampa (V) prints its art over the left frame; data-level differences (Galen Marek's blank lore, Padmé's
   FORCE-SENSITIVE, Kashyyyk "FORREST", Deep Hatred's uniqueness dot) are card-data/version questions, not template ones.
+- Rev 72 (2026-11-08, batch agents' reports on the rev 71 version data): **Virtual Legacy versions follow
+  legacy-versions-v4 and GEMP's version cards.**
+  - `gempdata/legacy_versions.json` is rebuilt from **legacy-versions-v4.json** (v3 + the strict-audit card-list /
+    Master List versions; 91 printings re-coded): 1,569 versions, listed in order (Original, PC-E1, PC-E2 …, v4
+    `version_seq`), `label` = the code or "Original". Darth Vader, Betrayer Of The Jedi (1261_10): Original (2261_10),
+    PC-E1 = the 2012 card-list text (2261_1010), PC-E2 = the Master List text (1261_10).
+  - **22xx ids are read from swccg-gemp**, not computed: `build_versions.py --gemp <clone> --ref origin/master [--ref
+    <open batch PR>]` reads every set22xx class's `LegacyVersion("<current id>", "<code>")` ("" = original); GEMP numbers
+    versions in the order they were added (`n`, `n + 1000` …), so middle versions carry ids like 2261_1010, 2220_1036,
+    2220_1156, 2261_1034, 2261_1065. 261 versions have a 22xx card; retired 22xx ids (blueprintMapping.txt) and back
+    faces open the card. v4's own `gemp_22xx` is stale (it still names 2261_10 as PC-E1) and is used only without
+    `--gemp`. This build: master `582181c1f` + PR #767 head.
+  - **`is_version: null`** entries (82: capitals / punctuation only, waiting on Bill) are not selectable: the API returns
+    them as `version_notes` (a 404 explains if one is asked for) and the editor names them under the picker.
+  - **`[S]` / `[T]` in version texts are ▲ / ▼** (take into hand / deploy from Reserve Deck), as the slips print them;
+    they had rendered as the Immune to Sense icon. The record always spells Immune to Sense out ("(Immune to Sense.)",
+    "[Immune to Sense]", "[Immune To Sense]", the last now also an icon). GEMP / PC card data keep `[S]` as before.
+    Checked against the slips: Rebel Leadership (V) original and PC-E1 (1230_109), Luke Skywalker (V) original (1210_105),
+    •••Rodian (V) original (1210_20).
+  - Version texts: two spaces after a sentence (the 2012-13 card list's style) become one and no longer count as lost
+    icons (`icons_missing` 160 → 121; the warning stays for the real ones); a leading bare "3." on a Character (the pilot
+    icon lost from a sheet / Master List text) is the pilot icon `{pilot:3}`. `?version=original` picks the original.
+  - **Lore:** the PC Legacy JSON carries The Signal's Decipher lore on Jabba, This Is Your Last Chance! (1261_80); the slip,
+    the PC image and the Master List print an empty lore box → `fill.json` `1006_L5619` lore "". Lore comes from the
+    PC Legacy JSON plus `fill.json` (the recorded printed values), never from the Decipher card itself.

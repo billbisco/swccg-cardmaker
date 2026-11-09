@@ -57,7 +57,7 @@ def set_mark_for(set_id) -> str | None:
 
 INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Immune to Alter.]": "{alter}", "[Immune to Alter]": "{alter}", "[Immune to Sense.]": "{sense}",
-    "[Immune to Sense]": "{sense}", "[Immune to Control.]": "{control}", "[Immune to Control]": "{control}",
+    "[Immune to Sense]": "{sense}", "[Immune To Sense]": "{sense}", "[Immune To Sense.]": "{sense}", "[Immune to Control.]": "{control}", "[Immune to Control]": "{control}",
     "[Episode I]": "{episode1}", "[Light Side Force]": "{light-force}", "[Dark Side Force]": "{dark-force}",
     "[Maintenance]": "{maintenance}", "[Independent]": "{independent}", "[Grabber]": "{grabber}",
     "[Republic]": "{icon:republic}", "[Pilot]": "{icon:pilot}", "[Warrior]": "{icon:warrior}",
@@ -646,8 +646,18 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     return card
 
 
-def polish_text(t: str, pc_era: bool = True) -> str:
+def legacy_marks(t: str) -> str:
+    """The Virtual Legacy version record (legacy-versions-v4) writes the printed Reserve Deck arrows as [S] (▲, take into
+    hand) and [T] (▼, deploy), as the slips print them; Immune to Sense is always spelled out there ("(Immune to Sense.)",
+    "[Immune to Sense]"). Only for version texts: in GEMP / PC card data [S] stays the Immune to Sense mark (rev 72)."""
+    t = (t or "").replace("[S]", "▲").replace("[T]", "▼")
+    return re.sub(r"(?<=[.!?:)\"'”’])[ \t]{2,}", " ", t)   # the 2012-13 card list puts two spaces after a sentence
+
+
+def polish_text(t: str, pc_era: bool = True, legacy_version: bool = False) -> str:
     """GEMP / PC card-list game text -> CardMaker codes, the same steps gemp_to_spec applies to a card's own text."""
+    if legacy_version:
+        t = legacy_marks(t)
     t = ship_text(maintenance(quotes(game_text(t))))
     if pc_era:
         t = pc_shorthand(t)
@@ -657,9 +667,11 @@ def polish_text(t: str, pc_era: bool = True) -> str:
 
 
 def apply_version(spec: dict, v: dict) -> dict:
-    """Put one published version's text (gempdata/legacy_versions.json, from legacy-versions-v3) on a Virtual Legacy spec
+    """Put one published version's text (gempdata/legacy_versions.json, from legacy-versions-v4) on a Virtual Legacy spec
     (STANDARD rev 71). Everything else (art, frame, title, lore, icons, slip number) stays the printed card's."""
-    t = polish_text(v.get("text") or "")
+    t = polish_text(v.get("text") or "", legacy_version=True)
+    if spec.get("slip_type") == "Character":   # sheets / Master List print the pilot icon as "3." (icon lost): "[Pilot] 3"
+        t = re.sub(r"^\s*\{icon:pilot\}\s*(\d)\.?\s+|^\s*(\d)\.\s+(?=[A-Z])", lambda m: "{pilot:%s}. " % (m.group(1) or m.group(2)), t)
     part = (v.get("part") or "game_text").lower()
     if spec.get("slip_type") == "Objective" and part in ("front", "back"):
         spec["game_text" if part == "front" else "game_text_back"] = objective_text(t, part == "front")

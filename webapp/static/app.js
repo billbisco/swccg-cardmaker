@@ -227,7 +227,9 @@ function versionUI(gid, data) {
     sel.appendChild(o);
   }
   sel.value = (data.version && data.version.id) || "";
-  $("#versionNote").textContent = data.warning || (data.version ? `Text of version ${data.version.code || data.version.id}; edit any field to make your own.` : "");
+  const held = (data.version_notes || []).map(n => `${n.date || "undated"}: ${n.change || "capitals / punctuation"}`).join("; ");
+  $("#versionNote").textContent = (data.warning || (data.version ? `Text of version ${data.version.code || data.version.id}; edit any field to make your own.` : ""))
+    + (held ? ` Not listed (capitals / punctuation only, waiting on Bill's ruling): ${held}.` : "");
   sel.onchange = () => loadCard(gid, sel.value);
 }
 

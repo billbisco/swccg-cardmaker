@@ -158,11 +158,12 @@ def print_base(gid: str) -> str | None:
 
 
 # legacy_versions.json (tools/legacy/build_versions.py): GEMP ids (12xx current cards, 22xx version cards, pc-legacy:<id>)
-# -> legacy card ids, and each published game-text version (swccg-guild legacy-versions-v3), so /api/card/<GEMP id> and
+# -> legacy card ids, and each published game-text version (swccg-guild legacy-versions-v4), so /api/card/<GEMP id> and
 # ?version=<id> open a Virtual Legacy card with that version's text on its own Virtual Block template
 _LV = json.load(open(ROOT / "gempdata/legacy_versions.json", encoding="utf-8")) if (ROOT / "gempdata/legacy_versions.json").exists() else {}
 LEGACY_ALIAS: dict = _LV.get("aliases", {})
 LEGACY_VERSIONS: dict = _LV.get("versions", {})
+LEGACY_NOTES: dict = _LV.get("notes", {})   # v4 is_version null (capitals / punctuation only, waiting on Bill): shown, not selectable
 for _g, _c in CARDS.items():
     if _c.get("legacy"):
         _b = print_base(_g)
@@ -527,8 +528,13 @@ class H(BaseHTTPRequestHandler):
                 if CARDS[gid].get("legacy"):
                     vers = LEGACY_VERSIONS.get(gid, [])
                     extra["versions"] = [{k: v for k, v in x.items() if k != "text"} for x in vers]
+                    if LEGACY_NOTES.get(gid):
+                        extra["version_notes"] = LEGACY_NOTES[gid]
                     want = q.get("version", [""])[0] or (asked if asked != gid and asked in {x.get("gemp") for x in vers} else "")
-                    hit = next((x for x in vers if want and want in (x["id"], x.get("code"), x.get("gemp"))), None)
+                    hit = next((x for x in vers if want and (want in (x["id"], x.get("code"), x.get("gemp")) or want.lower() == (x.get("label") or "").lower())), None)
+                    if want and not hit and any(want == x["id"] for x in LEGACY_NOTES.get(gid, [])):
+                        return self._json({"error": f"{want!r} is not a version (capitals / punctuation only, waiting on Bill's ruling)",
+                                           "versions": extra["versions"], "version_notes": LEGACY_NOTES[gid]}, 404)
                     if want and not hit:
                         return self._json({"error": f"unknown version {want!r}", "versions": extra["versions"]}, 404)
                     if hit:
