@@ -828,9 +828,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     and tracking to -6, as the PC did.
   - **Same words, same lines:** a card whose text has the master list's words breaks where the PC broke (the PC's
     composer sometimes broke early or kept "Yavin 4 site" together); any other text (a later version) is set by the
-    rules. Check (`check_typeset.py`, game text of the 756 master-list cards whose text we hold): rules alone 540
-    exact (71 %, rev 73: 0 of them set at the PC's size and frame), the rest one word off on one line where widths
-    differ by 0.1-0.2 pt; with the PC's breaks 756 / 756. Lore: 168 of 203 by rules.
+    rules. Check (`check_typeset.py`, game text of the 756 master-list cards whose text we hold, 2026-11-11): rev 73
+    renderer 326 exact (43 %); rev 74 rules alone 540 (71 %), the rest mostly one word off on one line where our
+    widths differ by 0.1-0.2 pt; with the PC's breaks 692 (92 %; most of the rest are check artefacts: the digit
+    inside an inline set mark counts as a word). Lore of the PC-set full cards: 203 / 203 with the PC's breaks.
+  - **Printed lore breaks (`lore_lines`):** the top half of a slip card is the Decipher card as printed, so its lore
+    keeps Decipher's typesetting; a spec may carry the printed card's own lore lines (`lore_lines`, read off the PC
+    image), which then decide the breaks (106 of the 242 uploaded recreations, 2026-11-11).
   - **Inline icons** take the PC's slot (6.6 pt = 55.5 px, an icon set over a run of spaces), whatever their width
     (Han Solo's pilot icon took 70 px and pushed "otherwise" to line 2).
   - **Raised text box:** a sixth line of game text on an Effect / Interrupt / Weapon / Device / shield raises banner
