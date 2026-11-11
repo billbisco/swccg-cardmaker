@@ -810,3 +810,36 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     Restore Freedom To The Galaxy +36 at 745: more art, shorter text box); ours keep the common layout. Vader's Mask /
     Helmet print a raised text box (other Effects' layout question, not the disc). Dark Mission panel bevel is drawn
     flat apart from the cut corners.
+- Rev 74 (2026-11-10, Bill: "You need to apply more scrutiny to your CardMaker Creations" — Han Solo, Innocent
+  Scoundrel (V) PC-E1: the Cloud City sphere sat on the lore box's edge, "otherwise" wrapped to line 2): **Virtual
+  Legacy cards typeset and laid out as the PC's own cards.** Measured on the PC's vector master lists
+  (`Virtual_Legacy_Final_Master_LS.pdf` / `_DS.pdf`, wiki; 1,050 cards, 337 full cards), not on the 350 px gifs.
+  Tools, numbers and the build: `tools/legacy/typeset/` (README). Applies only to Virtual Legacy cards (`10NN_L…`,
+  `1000d_L…`); Decipher, OVS, Reflections and modern PC cards render exactly as rev 73.
+  - **Type:** the PC set game text and lore in Akzidenz-Grotesk BE Condensed: game text 7.14-7.4 pt on 7.42-7.5 pt
+    lines with -5..+10 / 1000 em tracking, chosen per card; lore 6.2-6.4 pt. Our Holotable Text was fitted to the
+    modern PC's narrower BQ Condensed, so Virtual Legacy lines held fewer words. New face **Holotable Text PC**
+    (Regular / Bold, `assets/fonts/HolotableText/source/build_pc.py`): Holotable Text's own outlines with the PC
+    face's advance widths and kerning pairs read from the PDFs (numbers only; FONTS.md). PC size N pt = N x 8.3333 px.
+  - **Frames:** `gempdata/legacy_typeset.json` = per card (1,021 cards) the text frame's left edge, line width and
+    first baseline, size, tracking, pitch, and the PC's own line breaks; per template defaults for the rest. Line
+    width = the middle of the widths with which a first-fit line breaker reproduces the PC's breaks (841 of 999
+    cards are reproducible that way; a Knuth-Plass composer matched fewer). Long text: size down in 0.05 pt steps
+    and tracking to -6, as the PC did.
+  - **Same words, same lines:** a card whose text has the master list's words breaks where the PC broke (the PC's
+    composer sometimes broke early or kept "Yavin 4 site" together); any other text (a later version) is set by the
+    rules. Check (`check_typeset.py`, game text of the 756 master-list cards whose text we hold): rules alone 540
+    exact (71 %, rev 73: 0 of them set at the PC's size and frame), the rest one word off on one line where widths
+    differ by 0.1-0.2 pt; with the PC's breaks 756 / 756. Lore: 168 of 203 by rules.
+  - **Inline icons** take the PC's slot (6.6 pt = 55.5 px, an icon set over a run of spaces), whatever their width
+    (Han Solo's pilot icon took 70 px and pushed "otherwise" to line 2).
+  - **Raised text box:** a sixth line of game text on an Effect / Interrupt / Weapon / Device / shield raises banner
+    and text box one line (first baseline 181.4 pt instead of 189.5 pt) as the PC did (Protocol Failure (V), Imperial
+    Atrocity (V), Cane Adiss (V)); characters never were (the PC kept them to five lines). The art keeps its top and
+    loses its foot (the slip was pasted over it), so a scan of the PC card no longer shows its own IMMEDIATE EFFECT
+    banner inside the art window (batch B38 had painted two such files by hand).
+  - **Pieces where the PC's card has them** (`render.PC_PIECE_FIX`, template match of each piece of our render into
+    the master list's full cards, median per template, 745 px): expansion sphere (ls-character-alien +11,+10 — Han
+    Solo; Light characters, effects, interrupts, weapons +7..+14 down), icon column (Light characters -4,+6 at 106 %,
+    Dark +4,+6 at 108 %), Virtual Block set mark (effects / interrupts 6-8 px up), destiny and deploy numbers (Dark
+    templates and starships 4-10 px up). After: every measured piece within 3 px (was up to 14).

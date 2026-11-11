@@ -636,7 +636,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
@@ -656,7 +656,11 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         card["expansion_icon"] = None
     src_exp = SETS.get(str((spec.get("source") or {}).get("set")))
     if not ovs and spec.get("expansion"):
-        card["draw_system_ring"] = True   # systems: the scan carries its own sphere; draw ours when there's none or it changed
+        card["draw_system_ring"] = True
+    gid_ = (spec.get("source") or {}).get("gempId") or spec.get("gempId") or ""
+    if spec.get("pc_typeset") is not False and re.fullmatch(r"10\d\d[a-z]?_L\d+", gid_ or "") and not ovs \
+            and not card["template"].startswith(("loc-", "ls-jeditest", "objective", "epic-event")):
+        card["pc_type"] = spec["pc_typeset"] if isinstance(spec.get("pc_typeset"), dict) else legacy_typeset(gid_, card["template"], spec.get("side"))   # systems: the scan carries its own sphere; draw ours when there's none or it changed
     return card
 
 
@@ -712,3 +716,48 @@ def apply_version(spec: dict, v: dict, text: bool = True) -> dict:
     spec.pop("game_text_lines", None)
     spec["version_id"] = v.get("id")
     return spec
+
+
+# rev 74: Virtual Legacy typesetting read from the PC's master list PDFs (tools/legacy/typeset/): each card's text frame,
+# Akzidenz size, tracking and pitch, so the same words land on the same lines as the PC's card (Bill 2026-11-10).
+_TYPESET = None
+
+
+def legacy_typeset(gid: str, template: str, side: str) -> dict | None:
+    global _TYPESET
+    if _TYPESET is None:
+        import json
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gempdata", "legacy_typeset.json")
+        try:
+            _TYPESET = json.load(open(p, encoding="utf-8"))
+        except OSError:
+            _TYPESET = {"templates": {}, "cards": {}}
+    T = _TYPESET["templates"]
+    base = template.replace("-dc", "") if template not in T else template
+    tp = T.get(template) or T.get(base) or {}
+    side_tp = T.get("ls-character-rebel" if side == "Light" else "ds-character-imperial", {})
+    fx = (T.get("ls-effect" if side == "Light" else "ds-effect") or {})
+    card = _TYPESET["cards"].get(gid or "", {})
+    out = {}
+    for b in ("gt", "lore"):
+        c = card.get(b) or {}
+        if b == "lore" and not c:
+            # a slip covers only the card's lower half: title and lore stay the Decipher card's as printed (Decipher's
+            # typesetting). Only a card the PC reprinted whole (a full card in the master list) has PC-set lore.
+            continue
+        d = dict(tp.get(b) or {})
+        if b == "lore" and not d:   # templates the master list shows no full card of: the same side's lore frame
+            d = dict((fx if "character" not in template else side_tp).get("lore") or {})
+        if b == "gt" and "y" not in d and d:
+            d["y"] = (side_tp.get("gt") or {}).get("y", 189.5)
+        for k in ("x", "w", "size", "track", "pitch", "indent", "y"):
+            if c.get(k) is not None:
+                if k == "y" and b == "gt" and d.get("y") is not None and abs(c[k] - d["y"]) > 3:
+                    continue   # a raised text box (six lines, no-lore combos): text_grow moves it, from the template's line
+                d[k] = c[k]
+        if d.get("x") is not None and d.get("w"):
+            d.setdefault("y", 189.5 if b == "gt" else 34.3)
+            out[b] = {k: d[k] for k in ("x", "y", "w", "size", "track", "pitch", "indent") if k in d}
+            if c.get("lines"):
+                out[b]["lines"] = c["lines"]   # the PC's own line breaks (kept when the text is the same words)
+    return out or None

@@ -586,6 +586,7 @@ def game_text_html(text: str) -> str:
         else:
             out.append(esc(seg))
         name, arg = m.group(1), m.group(2)
+        n_out = len(out)
         if name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
             out.append(icon_img("pilotpower-dark" if card_ctx.get("side") == "Dark" else "pilotpower") + f" {esc(arg or '')}")
         elif name in ("alter", "control", "sense"):
@@ -625,6 +626,13 @@ def game_text_html(text: str) -> str:
             out.append(icon_img(name))
         else:   # unknown code: print it as typed rather than fail the card
             out.append(esc(m.group(0)))
+        if card_ctx.get("_pc_icons") and len(out) > n_out and not out[-1].startswith(esc(m.group(0))):
+            # rev 74: the PC set an inline icon over a fixed run of spaces (6.6 pt = 55 px at the master): every icon
+            # takes that room on the line, whatever its own width (Han Solo, Innocent Scoundrel's pilot icon)
+            ic = "".join(out[n_out:]); tail = ""
+            if name == "pilot":
+                ic, tail = ic.rsplit(" ", 1); tail = " " + tail
+            out[n_out:] = [f'<span class="pcic">{ic}</span>{tail}']
         if hy:
             out.append("</span>")
         pos = m.end()
@@ -635,7 +643,7 @@ def game_text_html(text: str) -> str:
     html = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", html, flags=re.S)   # italics may span the slip's line breaks
     html = html.replace("▲", "<span class=tri>▲</span>").replace("▼", "<span class=tri>▼</span>")
     html = html.replace("◇", "<span class=dia>◇</span>")   # Decipher's non-unique-location mark (Defensive Shields: "opponent’s ◇ site")
-    return html.replace("\n", "<br>").replace("¶", "<br>")   # ¶ = a paragraph break that keeps normal wrapping (card maker)
+    return html.replace("\n", "<br>").replace("¶", "<br>").replace("\u2029", "<br>")   # ¶ = a paragraph break that keeps normal wrapping (card maker)
 
 
 def esc(s: str) -> str:
@@ -1369,9 +1377,150 @@ def fit_attrs(card: dict, box: str) -> str:
     return "".join(out) + adj_attr
 
 
+# rev 74: Virtual Legacy typesetting (Bill 2026-11-10: the same words must land on the same lines as the PC's card).
+# The PC set its 2009-2014 slips in Akzidenz-Grotesk BE Condensed; gempdata/legacy_typeset.json holds each card's frame
+# (left edge, line width, first baseline), size, tracking and pitch read from the PC's Virtual Legacy master list PDFs.
+# PT = master px per PDF point (745 px Holotable card = 178.8 pt, master = 2 x Holotable + 35/36 px border).
+PT = 2 * 745 / 178.8
+PC_ASC, PC_DESC = 0.908, 0.25
+PC_ICON_W = 55.5   # room an inline icon takes on a PC line (6.6 pt), master px   # HolotableTextPC hhea ascent / descent per em (CSS line boxes place the baseline from them)
+
+
+# rev 74: Virtual Legacy piece positions measured against the PC's own cards (template match of each piece of 337 renders
+# into the Virtual Legacy master list's full cards, median per template, Holotable px; tools/legacy/typeset/README.md).
+# (dx, dy[, scale]) applied to the piece when the card is a Virtual Legacy card (pc_type). The ring discs under the
+# sphere move with it. Only offsets of 3 px or more seen on 3 or more cards.
+PC_PIECE_FIX = {
+    "ls-character-alien": {"expansion": (11, 10), "icons": (-4, 6, 1.07), "set_mark": (-1.5, 3)},
+    "ls-character-rebel": {"expansion": (1, 12), "icons": (-4.5, 7, 1.06), "set_mark": (-2, 3)},
+    "ls-character-alien-rebel": {"expansion": (1, 12), "icons": (-4.5, 7, 1.06), "set_mark": (-2, 3)},
+    "ls-character-droid-dc": {"expansion": (0, 14), "icons": (-5, 6, 1.06), "set_mark": (-1, 4)},
+    "ls-effect": {"expansion": (2, 8), "set_mark": (-1, -6)},
+    "ls-interrupt": {"expansion": (4, 7), "set_mark": (-1, -5)},
+    "ls-weapon": {"expansion": (3.5, 8), "destiny": (1.5, -4.5), "set_mark": (2, 8)},
+    "ls-device": {"set_mark": (1, 7), "destiny": (1.5, -4.5)},
+    "ls-starship-starfighter": {"expansion": (2, 5), "destiny": (-2, -8), "deploy": (-3, -8), "forfeit": (-2, -3)},
+    "ls-vehicle": {"expansion": (2, 4), "destiny": (-2, -10), "deploy": (-2, -7), "forfeit": (-1.5, -2.5)},
+    "ds-character-imperial": {"expansion": (3, 3), "icons": (5, 9, 1.08), "destiny": (2, -4), "set_mark": (3, -1)},
+    "ds-character-alien": {"icons": (3, 0, 1.04), "destiny": (2, -5)},
+    "ds-character-droid-dc": {"icons": (3.5, 1, 1.03), "destiny": (1, -5), "set_mark": (5, -2)},
+    "ds-effect": {"set_mark": (-1, -7.5), "expansion": (3, 1)},
+    "ds-effect-tall": {"set_mark": (-2, -9)},
+    "ds-interrupt": {"set_mark": (-1, -7.5), "expansion": (7, 3)},
+    "ds-weapon": {"destiny": (0, -7), "set_mark": (3, 1.5)},
+    "ds-device": {"destiny": (0, -8), "set_mark": (3, 3)},
+    "ds-shield-dc": {"destiny": (2.5, -5.5), "set_mark": (5, -1.5)},
+    "ds-shield-vb": {"destiny": (2.5, -5.5), "set_mark": (5, -1.5)},
+    "ds-shield-fade": {"destiny": (2.5, -7), "set_mark": (5, -1.5)},
+    "ds-starship-starfighter": {"destiny": (4.5, -6.5), "deploy": (3, -1)},
+    "ds-vehicle": {"destiny": (3, -5), "icons": (4, 3, 1.1), "expansion": (6.5, 3)},
+    "creature-dc": {"expansion": (8, 5), "destiny": (0, -4)},
+}
+
+PC_GROW_TEMPLATES = {"ls-effect", "ds-effect", "ls-interrupt", "ds-interrupt", "ls-weapon", "ds-weapon", "ls-device", "ds-device",
+                     "ls-shield-dc", "ds-shield-dc", "ds-shield-vb"}   # characters: the PC kept them to five lines (none raised)
+_PC_ADV: dict = {}
+
+
+def pc_count_lines(text: str, p: dict) -> int:
+    """Lines the PC frame p needs for this game text: greedy wrap with the PC font's advance widths (the browser wraps
+    the same way: no kerning, fixed tracking), inline icons at PC_ICON_W."""
+    if not _PC_ADV:
+        from fontTools.ttLib import TTFont
+        for k, fn in (("r", "HolotableTextPC-Regular.ttf"), ("b", "HolotableTextPC-Bold.ttf")):
+            f = TTFont(ASSETS / "fonts/HolotableText" / fn); cm = f.getBestCmap(); hm = f["hmtx"].metrics; upm = f["head"].unitsPerEm
+            _PC_ADV[k] = ({c: hm[g][0] / upm for c, g in cm.items()}, hm[cm[ord("n")]][0] / upm)
+    fs = p["size"] * PT; tr = p.get("track", 0) * fs / 1000; avail = p["w"] * PT + 0.2
+    if "kern" not in _PC_ADV:
+        _PC_ADV["kern"] = json.load(open(ASSETS / "fonts/HolotableText/source/pc_widths.json", encoding="utf-8")).get("kern_regular", {})
+    kern = _PC_ADV["kern"]
+    def wlen(word, bold):
+        adv, dflt = _PC_ADV["b" if bold else "r"]
+        k = 0 if bold else sum(kern.get(a + b, 0) for a, b in zip(word, word[1:])) / 1000 * fs
+        return sum(adv.get(ord(c), dflt) * fs + tr for c in word) + k
+    sp = _PC_ADV["r"][0].get(32, 0.229) * fs + tr
+    lines = 0
+    for para in re.split(r"[¶\n]", text):
+        toks = re.findall(r"\{[^}]*\}|\S+", re.sub(r"\{pilot:([^}]*)\}", r"{pilot} \1", para))
+        x = None; bold = False
+        for tk in toks:
+            if tk.startswith("{"):
+                w = PC_ICON_W
+            else:
+                b0 = tk.startswith("*"); w = wlen(tk.replace("*", "").replace("_", ""), bold or b0)
+                if tk.count("*") % 2: bold = not bold
+            if x is None:
+                x = w; lines += 1
+            elif x + sp + w <= avail:
+                x += sp + w
+            else:
+                x = w; lines += 1
+        if x is None:
+            lines += 1
+    return lines
+
+
+
+def _pc_words(s: str) -> list:
+    s = re.sub(r"\{pilot:([^}]*)\}", r" \1", s)
+    s = re.sub(r"\{[^}]*\}", " ", s).replace("ﬁ", "fi").replace("ﬂ", "fl")
+    return [w for w in (re.sub(r"[^A-Za-z0-9]", "", x).lower() for x in s.split()) if w]
+
+
+def pc_hint_breaks(text: str, lines: list) -> str:
+    """The same words as the PC's own card: break where the PC broke (its composer sometimes broke a word early, kept
+    "Yavin 4 site" together ...). Returns text with U+2029 at each PC line start, or the text unchanged."""
+    if not lines or len(lines) < 2 or os.environ.get("CM_PC_HINTS") == "0":
+        return text
+    pcw = [_pc_words(l) for l in lines]
+    if [w for l in pcw for w in l] != _pc_words(text):
+        return text
+    starts, k = set(), 0
+    for l in pcw[:-1]:
+        k += len(l); starts.add(k)
+    out, n = [], 0
+    for tok in re.split(r"(\s+)", text):
+        if tok and not tok.isspace():
+            if n in starts and out and out[-1].isspace() and "¶" not in out[-1]:
+                out[-1] = "\u2029"
+            n += len(_pc_words(tok))
+        out.append(tok)
+    return "".join(out)
+
+
+
+def pc_box(p: dict, bottom: float, raise_px: float = 0) -> tuple:
+    """(left, top, width, height, css) of a PC text frame in master px; bottom = the template box's foot."""
+    fs, lh = p["size"] * PT, p["pitch"] * PT
+    left = p["x"] * PT + 70
+    base = p["y"] * PT + 136 - raise_px          # first baseline (a raised text box: text_grow)
+    top = base - ((lh - (PC_ASC + PC_DESC) * fs) / 2 + PC_ASC * fs)
+    width = p["w"] * PT + 0.2
+    css = f"font-family:PCText;font-size:{fs:.3f}px;line-height:{lh:.3f}px;letter-spacing:{p.get('track', 0) * fs / 1000:.3f}px;white-space:normal;"
+    n = max(1, int((bottom - top) / lh + 0.15))   # whole lines the frame holds: the PC never squeezed the leading
+    return left, top, width, n * lh + 0.25 * lh, css
+
+
+def pc_fit_attrs(p: dict) -> str:
+    """The PC made long text fit by a slightly smaller size and tighter tracking (7.4 → 7.1 pt, +10 → -5): same here,
+    in 0.05 pt steps."""
+    fs = p["size"] * PT
+    return (f' data-fit-max="{fs:.3f}" data-fit-min="{6.6 * PT:.3f}" data-fit-step="{0.05 * PT:.4f}"'
+            f' data-ls-min="{-6 * fs / 1000:.3f}" data-lh-min="1"')
+
+
+
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
+    card_ctx["_pc_icons"] = bool(card.get("pc_type"))
+    pcg0 = (card.get("pc_type") or {}).get("gt")
+    if pcg0 and not card.get("text_grow") and not card.get("no_lore_box") and card["template"] in PC_GROW_TEMPLATES and not t.get("landscape"):
+        # rev 74: a sixth line of game text: the PC raised banner and text box one line (Protocol Failure (V), Palace
+        # Raider (V): first baseline 181.4 pt instead of 189.5 pt) rather than shrink the type
+        n_ = pc_count_lines(card.get("game_text") or "", pcg0)
+        if n_ == 6:
+            card = dict(card, text_grow=int(round((pcg0["y"] - 181.4) * PT)), _pc_raised=True)
     fonts = {
         "HoloTitle": "fonts/HolotableTitle/HolotableTitle-Regular.otf",   # titles, deploy / forfeit, caption bullet: our OFL face drawn from the PC titles (#118)
         "AGLightCn": "fonts/HolotableText/HolotableText-Light.ttf",   # lore; text faces: our OFL Holotable Text, from Barlow Condensed (swccg-guild/work#123)
@@ -1380,7 +1529,9 @@ def build_html(card: dict) -> str:
         "AGCn": "fonts/HolotableText/HolotableText-Regular.ttf",
         "AGMedExt": "fonts/HolotableNumbers/HolotableNumbers-Extended.otf",   # destiny, stat values, slip numbers: Holotable Numbers, from TeX Gyre Heros (GUST Font License, #124)
         "PCCap": "fonts/LiberationSansNarrow-Bold.ttf",            # Arial Narrow Bold metrics (the PC slips' caption face)
-        "PCNum": "fonts/HolotableNumbers/HolotableNumbers-BoldItalic.otf",   # bottom-strip number (the PC's DefensiveShields.pdf sets it in Akzidenz-Grotesk BE Bold Italic)
+        "PCNum": "fonts/HolotableNumbers/HolotableNumbers-BoldItalic.otf",
+        "PCText": "fonts/HolotableText/HolotableTextPC-Regular.ttf",   # rev 74: Virtual Legacy text with the PC slips' advance widths (Akzidenz-Grotesk BE Condensed)
+        "PCTextBold": "fonts/HolotableText/HolotableTextPC-Bold.ttf",   # bottom-strip number (the PC's DefensiveShields.pdf sets it in Akzidenz-Grotesk BE Bold Italic)
     }
     font_css = "\n".join(f'@font-face{{font-family:"{k}";src:url("{data_uri(ASSETS / v)}");}}' for k, v in fonts.items())
     global W, H
@@ -1438,7 +1589,9 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{art_crop(card, t["_artwin"], "-nolore")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
         else:
             parts.append(f'<div style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px;overflow:hidden">'
-                         f'<img src="{art}" style="position:absolute;left:0;top:{(wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
+                         f'<img src="{art}" style="position:absolute;left:0;top:{0 if card.get("pc_type") else (wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
+            # rev 74: a Virtual Legacy slip with a raised text box was pasted over the printed card: the art keeps its top
+            # and loses its foot (and a scan of the PC card never shows its own banner inside the window: Protocol Failure (V))
     elif art and card.get("art") and card.get("art_cover_hole") and not t.get("landscape") and not t.get("system") and not t.get("wide"):
         # card maker: the picture fills the frame's whole window (some frames' holes run a few px past the template's
         # art box — a black sliver showed on Ahsoka Tano With Lightsabers, Bill 2026-10-15)
@@ -1548,12 +1701,24 @@ def build_html(card: dict) -> str:
         parts.append(f'<div style="position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;background:{col}"></div>')
     sec('lore')
     # lore
-    if card.get("lore") and "lore" in t:   # wide full-art Effects print no lore (I Must Be Allowed To Speak (ALT))
+    pcl = (card.get("pc_type") or {}).get("lore")
+    if card.get("lore") and "lore" in t and pcl:   # rev 74: Virtual Legacy lore as the PC set it (frame, size, first-line indent)
+        lx_, ly_, lw_, lh_ = t["lore"]
+        l_, tp_, w_, h_, st_ = pc_box(pcl, ly_ + lh_ + 8)
+        lrx_ = pc_hint_breaks(card["lore"], pcl.get("lines") or card.get("lore_lines"))
+        if "\u2029" in lrx_:
+            w_ += 2 * PT
+        parts.append(f'<div class="lore fit pctext"{pc_fit_attrs(pcl)} style="position:absolute;left:{l_:.1f}px;top:{tp_:.1f}px;width:{w_:.1f}px;height:{h_:.1f}px;padding:0;'
+                     f'text-indent:{pcl.get("indent", 0) * PT:.1f}px;{st_}">{game_text_html(lrx_)}</div>')
+    elif card.get("lore") and "lore" in t:   # wide full-art Effects print no lore (I Must Be Allowed To Speak (ALT))
         lx_, ly_, lw_, lh_ = t["lore"]
         tx0, rgt, ind, cut, lsp = t.get("lore_x") or LORE_X["Light" if t.get("dark_text") else "Dark"]
+        lore_ = pc_hint_breaks(card["lore"], card.get("lore_lines"))   # rev 74: the printed card's own lore line breaks
+        if "\u2029" in lore_:
+            rgt += 40; cut = 0
         parts.append(f'<div class="lore fit"{fit_attrs(card, "lore")} style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
                      f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
-                     f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(card["lore"])}</div>')
+                     f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(lore_)}</div>')
     sec('stats')
     # stats (character)
     if "stats" in t and card.get("stats"):
@@ -1628,7 +1793,16 @@ def build_html(card: dict) -> str:
         for k, nt in enumerate(notes):
             parts.append(f'<div style="position:absolute;right:{1632 - 1320}px;top:{gy + gh + 10 + k * 56}px;font-family:AGCn;font-size:52px;color:#fff;white-space:nowrap">{esc(nt.replace("✶", "*"))}</div>')
     elif "game_text" in t:
-        parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
+        pcg = (card.get("pc_type") or {}).get("gt")
+        if pcg:   # rev 74: Virtual Legacy — the PC's own frame, size, tracking and pitch (gempdata/legacy_typeset.json)
+            gx_, gy_, gw_, gh_ = t["game_text"]
+            l_, tp_, w_, h_, st_ = pc_box(pcg, gy_ + gh_, float(card.get("text_grow") or 0))
+            gtx_ = pc_hint_breaks(card["game_text"], pcg.get("lines"))
+            if "\u2029" in gtx_:
+                w_ += 2 * PT   # the PC's own breaks: a line must never wrap early on our 0.1-0.2 pt wider words
+            parts.append(f'<div class="gt fit pctext"{pc_fit_attrs(pcg)} style="position:absolute;left:{l_:.1f}px;top:{tp_:.1f}px;width:{w_:.1f}px;height:{h_:.1f}px;padding:0;{st_}">{game_text_html(gtx_)}</div>')
+        else:
+            parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
     if card.get("deploy") not in (None, "") and "deploy" not in t and "game_text" in t and not t.get("wide"):
         # a card type whose frame has no deploy/forfeit boxes but the printing has them (artillery: Ewok Catapult):
@@ -1948,8 +2122,15 @@ def build_html(card: dict) -> str:
     # Dark systems are printed from the Dark Side's seat (Alderaan, Premiere): every layer but the picture and the
     # bottom caption strip turned 180° about the card centre
     dsys = card.get("side") == "Dark" and card["template"] == "loc-system"
+    fixes = PC_PIECE_FIX.get(card["template"], {}) if card.get("pc_type") else {}
     for (name, i), j in reversed(list(zip(marks, ends))):
         turn = ";rotate:180deg" if dsys and name not in ("art", "caption", "number") and not str(name).startswith("x:") else ""
+        fx_ = fixes.get("expansion" if name == "ring_icons" else name)
+        if fx_ and name and j > i:   # rev 74: the piece where the PC's card has it (see PC_PIECE_FIX)
+            turn += f";translate:{fx_[0] * 2:g}px {fx_[1] * 2:g}px"
+            if len(fx_) > 2 and name == "icons" and t.get("icon_slots"):
+                ox_, oy_ = t["icon_slots"][0]
+                turn += f";scale:{fx_[2]:g};transform-origin:{ox_ + 44.5:.0f}px {oy_ + 90:.0f}px"
         if name and j > i:
             parts[i:j] = [f'<div class="piece" data-piece="{name}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px{turn}">'] + parts[i:j] + ["</div>"]
         elif j > i and turn:
@@ -1971,6 +2152,9 @@ def build_html(card: dict) -> str:
     .tri{{font-family:"DejaVu Sans",sans-serif;font-size:0.88em;vertical-align:0.14em;line-height:0}}
     .dia{{font-family:"DejaVu Sans",sans-serif;font-size:0.9em;vertical-align:0.06em;line-height:0}}
     .gt b{{font-family:AGBoldCnA}}
+    .pctext b{{font-family:PCTextBold;font-weight:normal}}
+    .pcic{{display:inline-flex;justify-content:center;width:{PC_ICON_W - 6}px;margin:0 3px;overflow:visible;white-space:nowrap}}
+    .pcic > *{{flex:none;margin-left:0!important;margin-right:0!important}}
     .gt-icon{{vertical-align:-9px;margin:0 3px}}
     .noicon{{display:inline-block;position:relative;width:62px;height:62px;border:6px solid #e3000f;border-radius:50%;box-sizing:border-box;vertical-align:-16px;margin:0 0 0 4px;overflow:hidden}}
     .noicon::after{{content:"";position:absolute;left:-8px;top:22px;width:70px;height:6px;background:#e3000f;transform:rotate(-45deg)}}
@@ -2032,14 +2216,15 @@ def build_html(card: dict) -> str:
         const lsMin = parseFloat(d.lsMin ?? -1.2), lhMin = parseFloat(d.lhMin ?? 0.91), step = 0.1;
         const set = (s, l, t) => { el.style.fontSize = s + 'px'; el.style.lineHeight = l + 'px'; el.style.letterSpacing = t.toFixed(2) + 'px'; };
         let done = false;
-        for (let s = maxS; s >= minS && !done; s -= 1) {
-          let l = Math.round(s * lhRatio), t = ls0;
+        const stepS = parseFloat(d.fitStep || 1);
+        for (let s = maxS; s >= minS - 1e-6 && !done; s -= stepS) {
+          let l = d.fitStep ? s * lhRatio : Math.round(s * lhRatio), t = ls0;
           set(s, l, t);
           if (!overflows(el)) { done = true; break; }
           while (overflows(el) && t > lsMin + 1e-6) { t = Math.max(lsMin, t - step); set(s, l, t); }
           while (overflows(el) && l - 1 >= s * lhRatio * lhMin) { l -= 1; set(s, l, t); }   // lh_min: share of the box's own line pitch
           if (!overflows(el)) {
-            const l0 = Math.round(s * lhRatio);   // give back leading first (the printed cards keep their line pitch), then tracking
+            const l0 = d.fitStep ? s * lhRatio : Math.round(s * lhRatio);   // give back leading first (the printed cards keep their line pitch), then tracking
             while (l < l0) { set(s, l + 1, t); if (overflows(el)) { set(s, l, t); break; } l += 1; }
             while (t < ls0 - 1e-6) { set(s, l, t + step); if (overflows(el)) { set(s, l, t); break; } t += step; }
             done = true;
