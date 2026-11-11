@@ -1388,20 +1388,21 @@ PC_ICON_W = 55.5   # room an inline icon takes on a PC line (6.6 pt), master px 
 
 # rev 74: Virtual Legacy piece positions measured against the PC's own cards (template match of each piece of 337 renders
 # into the Virtual Legacy master list's full cards, median per template, Holotable px; tools/legacy/typeset/README.md).
-# (dx, dy[, scale]) applied to the piece when the card is a Virtual Legacy card (pc_type). The ring discs under the
-# sphere move with it. Only offsets of 3 px or more seen on 3 or more cards.
+# (dx, dy[, scale]) applied to the piece when the card is a Virtual Legacy card (pc_type). The discs under the sphere
+# (ring_icons) were measured on their own: on most frames they sit where they were. Only offsets of 3 px or more seen
+# on 3 or more cards.
 PC_PIECE_FIX = {
-    "ls-character-alien": {"expansion": (11, 10), "icons": (-4, 6, 1.07), "set_mark": (-1.5, 3)},
-    "ls-character-rebel": {"expansion": (1, 12), "icons": (-4.5, 7, 1.06), "set_mark": (-2, 3)},
+    "ls-character-alien": {"expansion": (11, 10), "ring_icons": (11, 14.5), "icons": (-4, 6, 1.07), "set_mark": (-1.5, 3)},
+    "ls-character-rebel": {"expansion": (1, 12), "ring_icons": (2.5, 4), "icons": (-4.5, 7, 1.06), "set_mark": (-2, 3)},
     "ls-character-alien-rebel": {"expansion": (1, 12), "icons": (-4.5, 7, 1.06), "set_mark": (-2, 3)},
     "ls-character-droid-dc": {"expansion": (0, 14), "icons": (-5, 6, 1.06), "set_mark": (-1, 4)},
-    "ls-effect": {"expansion": (2, 8), "set_mark": (-1, -6)},
-    "ls-interrupt": {"expansion": (4, 7), "set_mark": (-1, -5)},
+    "ls-effect": {"expansion": (2, 8), "ring_icons": (3, 2), "set_mark": (-1, -6)},
+    "ls-interrupt": {"expansion": (4, 7), "ring_icons": (4.5, 5.5), "set_mark": (-1, -5)},
     "ls-weapon": {"expansion": (3.5, 8), "destiny": (1.5, -4.5), "set_mark": (2, 8)},
     "ls-device": {"set_mark": (1, 7), "destiny": (1.5, -4.5)},
-    "ls-starship-starfighter": {"expansion": (2, 5), "destiny": (-2, -8), "deploy": (-3, -8), "forfeit": (-2, -3)},
+    "ls-starship-starfighter": {"expansion": (2, 5), "ring_icons": (4.5, 5.5), "destiny": (-2, -8), "deploy": (-3, -8), "forfeit": (-2, -3)},
     "ls-vehicle": {"expansion": (2, 4), "destiny": (-2, -10), "deploy": (-2, -7), "forfeit": (-1.5, -2.5)},
-    "ds-character-imperial": {"expansion": (3, 3), "icons": (5, 9, 1.08), "destiny": (2, -4), "set_mark": (3, -1)},
+    "ds-character-imperial": {"expansion": (3, 3), "icons": (4, 6, 1.08), "destiny": (2, -4), "set_mark": (3, -1)},
     "ds-character-alien": {"icons": (3, 0, 1.04), "destiny": (2, -5)},
     "ds-character-droid-dc": {"icons": (3.5, 1, 1.03), "destiny": (1, -5), "set_mark": (5, -2)},
     "ds-effect": {"set_mark": (-1, -7.5), "expansion": (3, 1)},
@@ -2124,7 +2125,7 @@ def build_html(card: dict) -> str:
     fixes = PC_PIECE_FIX.get(card["template"], {}) if card.get("pc_type") else {}
     for (name, i), j in reversed(list(zip(marks, ends))):
         turn = ";rotate:180deg" if dsys and name not in ("art", "caption", "number") and not str(name).startswith("x:") else ""
-        fx_ = fixes.get("expansion" if name == "ring_icons" else name)
+        fx_ = fixes.get(name)
         if fx_ and name and j > i:   # rev 74: the piece where the PC's card has it (see PC_PIECE_FIX)
             turn += f";translate:{fx_[0] * 2:g}px {fx_[1] * 2:g}px"
             if len(fx_) > 2 and name == "icons" and t.get("icon_slots"):
