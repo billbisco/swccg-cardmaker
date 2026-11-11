@@ -1425,14 +1425,12 @@ _PC_ADV: dict = {}
 def pc_count_lines(text: str, p: dict) -> int:
     """Lines the PC frame p needs for this game text: greedy wrap with the PC font's advance widths (the browser wraps
     the same way: no kerning, fixed tracking), inline icons at PC_ICON_W."""
-    if not _PC_ADV:
-        from fontTools.ttLib import TTFont
-        for k, fn in (("r", "HolotableTextPC-Regular.ttf"), ("b", "HolotableTextPC-Bold.ttf")):
-            f = TTFont(ASSETS / "fonts/HolotableText" / fn); cm = f.getBestCmap(); hm = f["hmtx"].metrics; upm = f["head"].unitsPerEm
-            _PC_ADV[k] = ({c: hm[g][0] / upm for c, g in cm.items()}, hm[cm[ord("n")]][0] / upm)
+    if not _PC_ADV:   # Holotable Text PC's advances are the PC face's widths (source/pc_widths.json, 1/1000 em)
+        pw = json.load(open(ASSETS / "fonts/HolotableText/source/pc_widths.json", encoding="utf-8"))
+        for k, key in (("r", "regular"), ("b", "bold")):
+            _PC_ADV[k] = ({ord(c): v / 1000 for c, v in pw[key].items()}, pw[key].get("n", 375) / 1000)
+        _PC_ADV["kern"] = pw.get("kern_regular", {})
     fs = p["size"] * PT; tr = p.get("track", 0) * fs / 1000; avail = p["w"] * PT + 0.2
-    if "kern" not in _PC_ADV:
-        _PC_ADV["kern"] = json.load(open(ASSETS / "fonts/HolotableText/source/pc_widths.json", encoding="utf-8")).get("kern_regular", {})
     kern = _PC_ADV["kern"]
     def wlen(word, bold):
         adv, dflt = _PC_ADV["b" if bold else "r"]
