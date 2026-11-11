@@ -1473,13 +1473,14 @@ def pc_hint_breaks(text: str, lines: list) -> str:
     pcw = [_pc_words(l) for l in lines]
     if [w for l in pcw for w in l] != _pc_words(text):
         return text
+    text = re.sub(r"\s*[¶\n]\s*", " ", text)   # the PC ran USED: / LOST: on in one paragraph where its lines say so
     starts, k = set(), 0
     for l in pcw[:-1]:
         k += len(l); starts.add(k)
     out, n = [], 0
     for tok in re.split(r"(\s+)", text):
         if tok and not tok.isspace():
-            if n in starts and out and out[-1].isspace() and "¶" not in out[-1]:
+            if n in starts and out and out[-1].isspace():
                 out[-1] = "\u2029"
             n += len(_pc_words(tok))
         out.append(tok)
