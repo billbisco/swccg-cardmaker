@@ -753,11 +753,13 @@ def legacy_typeset(gid: str, template: str, side: str) -> dict | None:
         for k in ("x", "w", "size", "track", "pitch", "indent", "y"):
             if c.get(k) is not None:
                 if k == "y" and b == "gt" and d.get("y") is not None and abs(c[k] - d["y"]) > 3:
+                    if 5 < d["y"] - c[k] < 12:
+                        d["raised"] = round(d["y"] - c[k], 2)   # the PC printed this card with its text box one line up
                     continue   # a raised text box (six lines, no-lore combos): text_grow moves it, from the template's line
                 d[k] = c[k]
         if d.get("x") is not None and d.get("w"):
             d.setdefault("y", 189.5 if b == "gt" else 34.3)
-            out[b] = {k: d[k] for k in ("x", "y", "w", "size", "track", "pitch", "indent") if k in d}
+            out[b] = {k: d[k] for k in ("x", "y", "w", "size", "track", "pitch", "indent", "raised") if k in d}
             if c.get("lines"):
                 out[b]["lines"] = c["lines"]   # the PC's own line breaks (kept when the text is the same words)
     return out or None

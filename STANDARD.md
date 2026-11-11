@@ -839,7 +839,8 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     (Han Solo's pilot icon took 70 px and pushed "otherwise" to line 2).
   - **Raised text box:** a sixth line of game text on an Effect / Interrupt / Weapon / Device / shield raises banner
     and text box one line (first baseline 181.4 pt instead of 189.5 pt) as the PC did (Protocol Failure (V), Imperial
-    Atrocity (V), Cane Adiss (V)); characters never were (the PC kept them to five lines). The art keeps its top and
+    Atrocity (V), Cane Adiss (V)), and so does every card the master list prints raised whatever its text (Return Of The
+    Jedi (V) PC-E1 has five lines on the raised card); characters never were (the PC kept them to five lines). The art keeps its top and
     loses its foot (the slip was pasted over it), so a scan of the PC card no longer shows its own IMMEDIATE EFFECT
     banner inside the art window (batch B38 had painted two such files by hand).
   - **Pieces where the PC's card has them** (`render.PC_PIECE_FIX`, template match of each piece of our render into

@@ -1519,7 +1519,7 @@ def build_html(card: dict) -> str:
         # rev 74: a sixth line of game text: the PC raised banner and text box one line (Protocol Failure (V), Palace
         # Raider (V): first baseline 181.4 pt instead of 189.5 pt) rather than shrink the type
         n_ = pc_count_lines(card.get("game_text") or "", pcg0)
-        if n_ == 6:
+        if n_ == 6 or pcg0.get("raised"):   # or the PC's own card has its text box raised (Return Of The Jedi (V))
             card = dict(card, text_grow=int(round((pcg0["y"] - 181.4) * PT)), _pc_raised=True)
     fonts = {
         "HoloTitle": "fonts/HolotableTitle/HolotableTitle-Regular.otf",   # titles, deploy / forfeit, caption bullet: our OFL face drawn from the PC titles (#118)
