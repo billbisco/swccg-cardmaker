@@ -1759,3 +1759,18 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   decimals print half width even when typed full width (`lang_ja.half_numbers`: ベイ９４ -> ベイ94, ６５, １２．５), in
   titles too. Result: bars, boxes and text lines within ~1-8 px of the eight scans. English renders byte-identical to
   rev 82 (31 cards incl. 8 locations).
+- Rev 84 (Decipher text setting 4) (2026-11-12):
+  - **No break inside a designation** (`render.dc_nobreak`, Decipher setting only): on 746 printed lines read so far,
+    0 of 58 hyphenated words break inside a designation or name (Z-95, X-wing, B-wing, R2-D2, 2-1B, TIE/ln, AT-AT,
+    Obi-Wan); Decipher does break ordinary compounds at the hyphen (A Jedi Test's "upside-" / "down", "non-" /
+    "unique"). A hyphen or slash token with a digit, a one-letter part, an all-capitals part or capitalised parts is
+    kept on one line (`white-space:nowrap` span); "cross-train", "quick-moving", "non-unique" still may break. The PC's
+    Virtual Legacy slips break inside names too ("R2-" / "D2", "Obi-" / "Wan", 22 hyphen line ends in
+    legacy_typeset.json), so PC renders are unchanged. Snub Fighter 7_84: "(Z-95," stays together.
+  - **Objective headings:** of 24 Decipher Objective fronts, a heading 1.09-1.15 of the measure prints condensed on one
+    line (9_151, 10_29, 12_89); every longer one (1.38 and up: 13_46, 13_73, 14_52, 14_113, 9_61, 7_136 …) wraps at full
+    size. The condensing now applies only up to 1.25 of the measure.
+  - Printed line data re-aligned to the printed texts the printed-text agent put on 7 cards (11_10 "re-draw", 12_24,
+    13_42, 1_215, 3_126 "+3", 4_17, 7_71 "at end"): all 82 blocks of decipher_lines.json apply again.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 7_84,
+    9_151, 14_52 with `decipher_print` false.

@@ -1,5 +1,5 @@
 {
- "_comment": "Rev 81 (2): Decipher's printed line breaks, read (OCR, aligned word for word with the card text) from the printed faces on wiki.swccg.com (hires 1497 px scans, Decipher archive 350-367 px). Keys: lore, game_text, game_text_back (an Objective's back face). Used for decipher_print renders only (render.dc_hint).",
+ "_comment": "Rev 84 (2): Decipher's printed line breaks, read (OCR, aligned word for word with the card text) from the printed faces on wiki.swccg.com (hires 1497 px scans, Decipher archive 350-367 px). Keys: lore, game_text, game_text_back (an Objective's back face). Used for decipher_print renders only (render.dc_hint).",
  "1_7": {
   "game_text": [
    "If present where an opponent’s character just",
@@ -57,8 +57,8 @@
  },
  "1_215": {
   "game_text": [
-   "Deploy on any site. ‘Expands’ your ‘game text’ for",
-   "that site to add to your ‘game text’ at the",
+   "Deploy on any site. ‘Expands’ your “game text” for",
+   "that site to add to your “game text” at the",
    "adjacent sites."
   ]
  },
@@ -226,7 +226,7 @@
    "During your control phase, target any character",
    "alone at one of your exterior planet sites (except a",
    "docking bay). Draw destiny. Target is missing if",
-   "destiny + 3 > ability."
+   "destiny +3 > ability."
   ]
  },
  "4_17": {
@@ -352,7 +352,7 @@
    "that character battles this turn). On a subsequent",
    "turn, if in a battle at a site, character’s total weapon",
    "destiny is +3 and character adds one battle destiny.",
-   "Effect lost at the end of that battle."
+   "Effect lost at end of that battle."
   ]
  },
  "7_97": {
@@ -527,7 +527,7 @@
    "Deploys -2 to Tatooine. Power +1 at same site",
    "as Maul. Once during a duel Qui-Gon is in, may",
    "cancel a duel destiny just drawn and cause a",
-   "redraw. Opponent’s aliens are power -1 at same",
+   "re-draw. Opponent’s aliens are power -1 at same",
    "site. Immune to attrition."
   ]
  },
@@ -583,7 +583,7 @@
   "game_text": [
    "Adds 3 to power of anything he pilots (or adds 4",
    "if Queen’s Royal Starship). While piloting Queen’s",
-   "Royal Starship, once during a battle Ric is in,",
+   "Royal Starship, once during a battle Ric is in, you",
    "may use X Force to reduce attrition against you",
    "by X."
   ]
@@ -644,7 +644,7 @@
  },
  "13_42": {
   "game_text": [
-   "Agenda: order. While at same site as Amidala,",
+   "Agenda : order. While at same site as Amidala,",
    "your Force generation is +2 here. While on",
    "Naboo, subtracts one from opponent’s Force",
    "drains at adjacent sites, and your other Republic",

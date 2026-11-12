@@ -701,6 +701,29 @@ def dc_hint(text: str, card: dict, key: str, fallback=None) -> tuple:
     return text, ""
 
 
+_DC_TOKEN = re.compile(r"(?<![\w’'/-])([\w’']+(?:[-/][\w’']+)+)(?![\w’'])")
+
+
+def _dc_designation(tok: str) -> bool:
+    parts = [p for p in re.split(r"[-/]", tok) if p]
+    return (any(re.search(r"\d", p) or len(p) == 1 or (p.isupper() and len(p) > 1) for p in parts)
+            or ("/" in tok) or all(p[:1].isupper() for p in parts))
+
+
+def dc_nobreak(html: str) -> str:
+    """Rev 84 (4): Decipher never breaks inside a hyphenated designation or name (Z-95, X-wing, B-wing, R2-D2, 2-1B,
+    TIE/ln, AT-AT, Obi-Wan): 0 of 58 hyphenated words on 746 printed lines; it does break ordinary compounds at the
+    hyphen (A Jedi Test's "upside-" / "down", "non-" / "unique"). The PC breaks inside names too (R2- / D2, Obi- / Wan
+    on its Virtual Legacy slips), so this applies to Decipher's setting only. Text outside tags only."""
+    out = []
+    for part in re.split(r"(<[^>]*>)", html):
+        if part.startswith("<"):
+            out.append(part)
+        else:
+            out.append(_DC_TOKEN.sub(lambda m: f'<span style="white-space:nowrap">{m.group(1)}</span>' if _dc_designation(m.group(1)) else m.group(1), part))
+    return "".join(out)
+
+
 def dc_gt_box(card: dict, t: dict) -> str:
     """The game text box's style under dc_text: measure / k, stretched by k, Decipher's pitch and tracking."""
     p = DC_TEXT["gt"]; x, y, w, h = t["game_text"]; tpl = card.get("template", "")
@@ -2652,7 +2675,7 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="lore fit dct" data-fit-step="1"{fit_attrs(card, "lore")} style="position:absolute;left:{p["x"]}px;top:{ly_}px;width:{w_:.2f}px;height:{max(lh_, p["min_h"])}px;'
                          f'transform:scaleX({k});transform-origin:left top;line-height:{p["lh"]}px;'
                          f'text-indent:{card.get("lore_indent", p["indent"]) / k:.2f}px;letter-spacing:0px;{dc_stroke(card, t, "lore")}{nw_}">'
-                         f'<span style="float:right;width:{cut / k:.2f}px;height:58px"></span>{game_text_html(lore_)}</div>')
+                         f'<span style="float:right;width:{cut / k:.2f}px;height:58px"></span>{dc_nobreak(game_text_html(lore_))}</div>')
         else:
             parts.append(f'<div class="lore fit"{fit_attrs(card, "lore")} style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
                          f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
@@ -2750,7 +2773,7 @@ def build_html(card: dict) -> str:
         elif dc_text(card, t):   # rev 84: Decipher's own setting (wider face, pitch 63.5, measured measure)
             gtx_, nw_ = dc_hint(card["game_text"], card, "game_text")
             obj_ = " objhead" if card["template"].startswith("objective") else ""
-            parts.append(f'<div class="gt fit dct{obj_}" data-fit-step="1"{fit_attrs(card, "game_text")} style="position:absolute;{dc_gt_box(card, t)}{nw_}">{game_text_html(gtx_)}</div>')
+            parts.append(f'<div class="gt fit dct{obj_}" data-fit-step="1"{fit_attrs(card, "game_text")} style="position:absolute;{dc_gt_box(card, t)}{nw_}">{dc_nobreak(game_text_html(gtx_))}</div>')
         else:
             parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
@@ -3271,10 +3294,14 @@ def build_html(card: dict) -> str:
       // first tighten the tracking (to ls_min), then the leading (to lh_min x size), and only then try a smaller size.
       // Once a size fits, give back as much tracking as it can spare. Limits per box: data-fit-* (card "text_fit").
       const overflows = (el) => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
-      for (const h of document.querySelectorAll('.dct.objhead > i:first-child')) {   // rev 84 (2): Decipher's Objectives condense the italic heading onto one line
+      for (const h of document.querySelectorAll('.dct.objhead > i:first-child')) {
+        // rev 84 (2/4): a Decipher Objective's italic heading a little too long for one line (1.09-1.15 of the measure:
+        // 9_151, 10_29, 12_89) is condensed onto it; a longer one (1.38 and up: 13_46, 13_73, 14_52, 14_113, 9_61 ...)
+        // wraps at full size, as printed (24 Objective fronts)
         const W = h.parentElement.clientWidth; h.style.display = 'inline-block'; h.style.whiteSpace = 'nowrap';
         const w = h.offsetWidth;
-        if (w > W) { h.style.transform = 'scaleX(' + (W / w) + ')'; h.style.transformOrigin = 'left center'; h.style.marginRight = (W - w) + 'px'; }
+        if (w > W && w <= 1.25 * W) { h.style.transform = 'scaleX(' + (W / w) + ')'; h.style.transformOrigin = 'left center'; h.style.marginRight = (W - w) + 'px'; }
+        else { h.style.display = ''; h.style.whiteSpace = ''; }
       }
       for (const el of document.querySelectorAll('.fit')) {
         const cs = getComputedStyle(el);
