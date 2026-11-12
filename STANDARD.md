@@ -1549,3 +1549,45 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Reflections II's The Emperor and Arica keep the default, checked). Sheet: Mara Jade gif / archive / ours, Emperor
   Palpatine print / ours. md5-identical before / after: Japanese samples (Darth Vader, Luke Skywalker, Admiral Ozzel),
   223_40, 200_105, 205_14, 213_12, 211_48, 1_3, 1_74, 9_113, 10_51, 10_31, 219_19, 226_8, 15_260o, 11_24.
+- Rev 81 (sites 2) (2026-11-12): the leftovers of rev 81 (site wear and PC wide starships), measured on printed faces.
+  - **Site icon boxes** (Decipher sites, all): the Mobile, Starship and Vehicle boxes were the Holotable icon on box.png
+    (a brown-speckled surround, ~10 px too large, which read as a dark shadow block on the blue sites). New
+    `assets/loc/scanbox-{mobile,starship,vehicle}.png` (100 x 94, as the existing interior / exterior / planet /
+    underground scanboxes) cut by `tools/make_site_scanboxes.py` from 10 wiki hi-res faces (five Executor sites, Death
+    Star: Docking Bay 327 / Central Core / War Room, Sandcrawler: Loading Bay / Droid Junkheap): each face registered to
+    the frame (make_site_wear.register; silver sites too), the row of square boxes matched by the scanbox rim and fitted,
+    each kind's crops rim-colour matched, ECC-aligned and per-pixel median'd (mobile 15, starship 10, vehicle 4). The
+    rows sit within 5 px of print. Decipher prints the exterior icon outside the interior one (Hoth: Echo Docking Bay,
+    Death Star: Docking Bay 327): adapter now orders them so.
+  - **Site title position** (Decipher printings, `dc_title_cx` 1110 on loc-site): Decipher centres the title on the
+    card's centre line in both bars, moving it only to clear the boxes / Force slot; ours centred it in the free bar
+    (Home One: War Room / Docking Bay, Executor: Comm Station, Hoth: Echo Docking Bay up to 70 px off). Now within a
+    few px on the 9 faces checked (Home One x2, Sandcrawler x2, Executor: Comm Station, Cloud City: Lower Corridor,
+    Death Star: Central Core, Hoth: Echo Docking Bay / Command Center).
+  - **Nav Computer box** (`BOX_ICON_FILES`, `assets/icons/col-nav.png`, `tools/make_col_nav.py`): was the in-text icon
+    (grey inner frame) inside icon-box.png; no printing shows the double frame (Executor, Ghost, Azure Angel, Blue
+    Squadron 1, Bright Hope, Finalizer): red field to a thin silver rim, median of five PC faces. The in-text icon is
+    unchanged.
+  - **WIDE_PRINTED by printing id** (`adapter.is_wide_printed`): the PC's alternate-image printings carry ^ ids. The
+    GEMP gifs show I Must Be Allowed To Speak (V) 200_41 and Bow To The First Order 204_47 are portrait and only their
+    (ALT) printings landscape: the set now lists 204_54, 204_54^AI, 200_41^ALT, 204_47^ALT (the old 200_41 / 204_47
+    entries turned the portrait cards landscape). The (ALT) Effects take `rg-{ls,ds}-{effect,interrupt}-pc`: banner
+    55 px, 18 px left (printed 652..726 at 745); text 8 px lower; sphere in its red ring at the printed place (925..961 x
+    183..219); Episode VII disc in the left margin in a red ring (`ep7-disc-red.png`, `tools/make_ep7_disc.py`, which
+    also makes the blue one); the PC set mark at the text box's lower right; labels turned into the right margin;
+    "Original concept by" 19 px (745) higher in the bottom bar.
+  - **Finalizer (AI) credit doubled**: the (AI) face prints its art credit 46 px (745) higher than Finalizer's; the redraw
+    sat beside the scan's own. `adapter.LABEL_PLACE` per printing ({"204_54^AI": concept x 95}); both now lie on the
+    scan's credit. Label kinds: art credits are tagged `kind: art_credit` (template `label_presets` by kind or preset).
+  - **PC set mark** (all PC cards): the ring was long and thin (57 x 39 px at 745 for a 35 px digit); printed 46.5 x 42,
+    a rounder band tilted 38 degrees with a dark navy (gold: brown) edge; digit 18 % wider. Portrait PC starships
+    (`ls-/ds-starship-starfighter`, `pc_set_icon_abs`, `pc_set_digit_size`, `pc_stack`): the mark 8 px lower (digit
+    centre (664.5, 961) at 745), and 3-4 icon boxes stacked up from a fixed foot at the printed 43 px / 48 px pitch with
+    the mark below (Azure Angel, Booster In Pulsar Skate, Bravo Fighter (V), Acclamator, Blockade Support Ship), not
+    shrunk to fit above it.
+  - **Sandcrawler text**: no transcription error. GEMP 2_66 / 2_149 is the PC errata printing ("Deploy on your
+    sandcrawler. Each Jawa is forfeit +2 here.", •••), matching the PC face; Decipher printed "Deploy on your
+    Sandcrawler. Jawas forfeit +2 here." with one dot (wiki 2_66o / 2_149o). corrections.json unchanged.
+  - **Checks:** md5 identical before / after: 1_19, 1_121, 1_70, 7_135, effect 1_42, combo 10_7 and the three Japanese
+    samples. Changed as intended: sites (1_283, 5_78, 4_159, 9_58, 2_66 ...: titles, boxes), Nav cards (4_167, 9_157,
+    PC starships), every PC set mark, 200_41 (portrait again), the (ALT) Effects and the Finalizers.

@@ -379,7 +379,7 @@ def gemp_to_spec(c: dict) -> dict:
         if labels:
             spec["labels"] = labels
         if lab.get("art_credit") and lab.get("art_credit_position") == "bottom bar":
-            labels.append({"preset": "concept", "text": lab["art_credit"]})   # rev 71: "Image courtesy of …" in the bottom bar (VB AI cards)
+            labels.append({"preset": "concept", "text": lab["art_credit"], "kind": "art_credit"})   # rev 71: "Image courtesy of …" in the bottom bar (VB AI cards)
             spec["labels"] = labels
         elif lab.get("art_credit"):
             spec["art_credit"] = lab["art_credit"]
@@ -542,6 +542,10 @@ def gemp_to_spec(c: dict) -> dict:
             # rev 81: Decipher prints the mobile icon outside the starship icon (Executor: Comm Station, Home One: War
             # Room, Star Destroyer: Launch Bay, Blockade Flagship: Bridge); GEMP lists them either way round
             li.remove("mobile"); li.insert(li.index("starship"), "mobile")
+        if "exterior" in li and "interior" in li and str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
+            # rev 81 (sites 2): Decipher prints the exterior icon outside the interior one (Hoth: Echo Docking Bay,
+            # Death Star: Docking Bay 327, Executor: Docking Bay, Star Destroyer: Launch Bay); GEMP lists them either way
+            li.remove("exterior"); li.insert(li.index("interior"), "exterior")
         spec["light_icons"] = spec["dark_icons"] = li
         if c.get("legacy") and f.get("lightSideIcons") is None and f.get("darkSideIcons") is None:
             # the Virtual Block data carries no Force icons: take the original printing's (Lars' Moisture Farm (V))
@@ -637,14 +641,27 @@ def gemp_to_spec(c: dict) -> dict:
         spec["slip_type"] = "Admiral's Order"
     else:
         spec["slip_type"] = typ or "Effect"; spec["card_type"] = typ.upper()
-    if typ in ("Starship", "Vehicle") and (str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS or c.get("gempId") in WIDE_PRINTED):
+    if typ in ("Starship", "Vehicle") and (str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS or is_wide_printed(c.get("gempId"))):
         # rev 81: Decipher set the class name italic in the banner (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
         # _VICTORY_-CLASS, _SUPER_-CLASS: Devastator, Victory-Class Star Destroyer, Executor, Flagship Executor)
         spec["card_type"] = re.sub(r"(?<![_\w])([A-Z]{3,})(?=-CLASS\b)", r"_\1_", spec.get("card_type") or "")
     return finish(spec)
 
 
-WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "204_54^AI", "200_41", "204_47"}   # QA 2026-10-15: every non-location scan printed landscape   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
+# rev 81 (sites 2): label placements that differ from the preset on a printing's face (master px; for landscape cards
+# with labels_rotated the portrait x runs up the right margin). Finalizer (AI): the art credit 46.5 px (745) higher
+# than on Finalizer (printed 210..440 against 256..486), so the redraw lies over the scan's own credit
+LABEL_PLACE = {"204_54^AI": {"concept": {"x": 95}}}
+WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "204_54^AI", "200_41^ALT", "204_47^ALT"}   # QA 2026-10-15: every non-location scan printed landscape (rev 81 sites 2: by printing id)   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
+
+
+
+def is_wide_printed(gid) -> bool:
+    """rev 81 (sites 2): is this printing landscape? By the printing's own id: the PC's alternate-image printings carry the
+    card's id with a ^ suffix and are not always printed like their card. Checked on the PC gifs: Finalizer and
+    Finalizer (AI) both 1039 x 745; I Must Be Allowed To Speak (V) and Bow To The First Order 745 x 1039 (portrait),
+    their (ALT) printings 1039 x 745 (the old entries 200_41 / 204_47 turned the portrait cards landscape)."""
+    return str(gid or "") in WIDE_PRINTED
 
 
 def objective_text(t: str, front: bool) -> str:
@@ -668,6 +685,9 @@ PODRACER_FLAGS = {"Anakin's Podracer": "anakin", "Sebulba's Podracer": "sebulba"
 
 
 def finish(spec: dict) -> dict:
+    for lb_ in spec.get("labels") or []:   # rev 81 (sites 2): per-printing label placement measured on the printed face
+        if isinstance(lb_, dict):
+            lb_.update(LABEL_PLACE.get(str(spec.get("gempId") or ""), {}).get(lb_.get("preset"), {}))
     if spec.get("slip_type") == "Podracer" and not spec.get("podracer_flag"):
         fl = PODRACER_FLAGS.get(re.sub(r"[•\u2022<>]", "", spec.get("title") or "").replace("(V)", "").strip())
         if fl:
@@ -685,7 +705,7 @@ def finish(spec: dict) -> dict:
     if spec.get("slip_type") == "Objective":
         spec["game_text"] = objective_text(spec.get("game_text") or "", True)
         spec["game_text_back"] = objective_text(spec.get("game_text_back") or "", False)
-    if spec.get("gempId") in WIDE_PRINTED or spec.pop("_wide", False):
+    if is_wide_printed(spec.get("gempId")) or spec.pop("_wide", False):
         spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)
@@ -799,8 +819,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["disc"] = "mission"   # the teal hologram type disc
         if card["template"] == "ds-starship-wide" and not (spec.get("lore") or "").strip():
             card["template"] = "ds-starship-wide-nolore"
-        if card["template"].startswith("ds-starship-wide") and str(card.get("set_mark") or "").startswith("pc:"):
-            card["template"] += "-pc"   # rev 81: the PC's landscape Finalizers: their own banner, set mark, disc and labels
+        if (card["template"].startswith("ds-starship-wide") or card["template"].startswith("rg-")) and str(card.get("set_mark") or "").startswith("pc:"):
+            card["template"] += "-pc"   # rev 81: the PC's landscape Finalizers and (ALT) Effects: their own banner, set mark, disc and labels
         if card["template"] in ("ls-character-droid", "ds-character-droid"):
             card["template"] += "-dc"   # brass droid disc as printed
         if card["template"] == "creature":

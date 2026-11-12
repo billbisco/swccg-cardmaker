@@ -301,6 +301,7 @@ TEMPLATES = {
         "art": (262, 458, 1695, 713),              # frame hole (188,382)-(1883,1095) + offset
         "ls_bar": (527, 1224, 90),                 # x0 of the Light title bar text area, y, h (frame 453,1148)
         "ls_bar_x1": 1657,                         # bar end when no icon boxes (frame 1583)
+        "dc_title_cx": 1110,                       # rev 81 (sites 2): Decipher printings centre the title on the card's centre line
         "ds_bar": (580, 313, 1112, 90),            # Dark title bar (black) x, y, w, h  (frame 506,237)
         "ls_text": (250, 1344, 1719, 86),           # the box interior (frame 1268-1352)
         "ds_text": (250, 195, 1719, 99),
@@ -349,6 +350,31 @@ for _side, _ink in (("ls", True), ("ds", False)):
         TEMPLATES[f"rg-{_side}-{_kind}"] = dict(_RG, frame=(f"frames/rg-{_side}-{_kind}.png", 0, 0), dark_text=_ink)
 
 
+# rev 81 (sites 2): the PC's portrait starships (Virtual Sets), measured on Ghost, Bright Hope, Azure Angel, Booster In
+# Pulsar Skate, Bravo Fighter (V), Acclamator-Class Assault Ship, Blockade Support Ship (GEMP 745 px faces): the set mark
+# 8 px lower and 2 px right (digit centre (664.5, 961) at 745 with 1-2 boxes, (669, 973) under a stack of 3-4), its digit
+# 34 px tall (ours 38); 3-4 icon boxes stacked up from a fixed foot as printed (pc_stack), not shrunk to fit above the mark
+for _k, _dx in (("ls-starship-starfighter", 0), ("ds-starship-starfighter", -1)):   # Dark: the mark 1 px left, 4 px lower (745)
+    TEMPLATES[_k].update(pc_set_icon_abs=(1368, 1942), pc_set_digit_size=127,
+                         pc_stack={"bottom": 1976, "span": 356, "k": 0.955, "mark": (1377 + _dx, 1965 - 8 * _dx)})
+
+
+# rev 81 (sites 2): the PC's landscape (ALT) Effects (I Must Be Allowed To Speak (V) (ALT) 200_41^ALT, Bow To The First
+# Order (ALT) 204_47^ALT) on the Reflections Gold frames, measured on their printed faces (wiki V0-L- / V4-D-..._ai.gif,
+# 745 px): banner smaller (cap 19 px at 745, not 22) and 18 px left (printed 652..726); game text 8 px lower (printed
+# first line 557 at 745); "Original concept by ..." 19 px higher (745) and a little larger, the art credit upright; the sphere 51 px lower in its red ring (printed ring 925..961 x 183..219); the
+# Episode VII disc in the left margin in a red ring (ep7-disc-red.png, as on the Finalizers); the PC set mark at the text
+# box's lower right (printed "4" 937..960 x 642..675, Set 0's gold "0" in the same place); labels turned into the right
+# margin as on the Finalizers
+for _side in ("ls", "ds"):
+    for _kind in ("interrupt", "effect"):
+        TEMPLATES[f"rg-{_side}-{_kind}-pc"] = dict(TEMPLATES[f"rg-{_side}-{_kind}"], card_type=(1160, 233, 580, 76), ctype_size=55,
+            game_text=(330, 1170, 1585, 214), expansion_ring=(1929, 443), expansion_size=58,
+            ring_disc_left=(252, 474, 82), ring_disc_left_files={"episode7": "icons/ep7-disc-red.png"},
+            set_icon_abs=(1938, 1340), set_icon_size=70, set_ring=(100, 80, -33), labels_rotated=True,
+            label_presets={"art_credit": {"italic": False, "size": 51}, "concept": {"y": -196, "size": 56.5}})
+
+
 # Dark Side wide weapon (Bill 2026-10-15: precedent = Maul's Double-Bladed Lightsaber, Reflections III, printed landscape)
 TEMPLATES["ds-weapon-wide"] = {
     "wide": True, "frame": ("frames/ds-weapon-wide.png", 0, 0), "art": (134, 138, 1952, 1356),
@@ -391,7 +417,7 @@ for _k in ("ds-starship-wide", "ds-starship-wide-nolore"):
                                  card_type=(900, 233, 1100, 65), title=(434, 219, 800, 112),
                                  ring_disc_left=(252, 476, 82), ring_disc_left_files={"episode7": "icons/ep7-disc-blue.png"}, set_icon_abs=(1916, 1104), set_icon_size=70, set_ring=(100, 80, -33),
                                  icon_slots=[(x - 6, y + 10) for x, y in TEMPLATES[_k]["icon_slots"]],
-                                 labels_rotated=True, label_presets={"concept": {"italic": False, "size": 51}})   # credit upright, 231 px long at 745
+                                 labels_rotated=True, label_presets={"art_credit": {"italic": False, "size": 51}})   # credit upright, 231 px long at 745
 # Decipher's printed creatures (Worrt, Bog-wing): black title and the banner (GUARD CREATURE) — card maker; the VS
 # remasters keep "creature" as approved (white title, empty banner)
 TEMPLATES["creature-dc"] = dict(TEMPLATES["creature"], card_type=(271, 1466, 1109, 61), title_ink="#000", ctype_ink="#000")
@@ -576,6 +602,9 @@ ICON_FILES = {
     "separatist": "icons/col-separatist.png", "resistance": "icons/col-resistance.png", "first-order": "icons/col-first-order.png",
     "vader": "icons/col-vader.png", "setup": "icons/col-setup.png",
 }
+# rev 81 (sites 2): icons whose box is printed differently from the in-text icon: the Nav Computer box as printed (red field
+# to a thin silver rim, tools/make_col_nav.py), not the in-text icon (grey inner frame) inside icon-box.png
+BOX_ICON_FILES = {"nav": "icons/col-nav.png"}
 RING_DISCS = {   # discs printed under the expansion sphere (or in its place when the card has none)
     "episode1": "icons/ep1-disc.png", "episode7": "icons/ep7-disc.png",
     "sidious": "icons/disc-sidious.png", "skywalker": "icons/disc-skywalker.png",
@@ -1684,8 +1713,13 @@ def set_mark_html(mark: str, cx: float, cy: float, ss: float, slot: bool = True)
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="{w:.0f}" height="{h:.0f}">'
            f'<defs><linearGradient id="rg{num}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{ring_b}"/>'
            f'<stop offset=".55" stop-color="{ring_a}"/><stop offset="1" stop-color="{ring_b}"/></linearGradient></defs>'
-           f'<ellipse cx="{ecx_}" cy="{ecy_}" rx="74" ry="30" transform="rotate({erot_} {ecx_} {ecy_})" fill="none" stroke="url(#rg{num})" stroke-width="{card_ctx.get('_set_ring_w', 16)}"/>'
+           # rev 81 (sites 2): the printed ring is a shorter, rounder band tilted 38 degrees, centred on the digit, with a dark
+           # navy edge (Ghost, Bright Hope, Azure Angel, Finalizer: outer extent 46.5 x 42 px at 745 for a 35 px digit; ours
+           # was 57 x 39, thin and pale): rx 62, ry 36 (centre line), the template's band width, a dark edge 4 units wider
+           f'<ellipse cx="{ecx_}" cy="{ecy_}" rx="62" ry="36" transform="rotate(-38 {ecx_} {ecy_})" fill="none" stroke="{"#5a420c" if gold else "#0a2152"}" stroke-width="{card_ctx.get('_set_ring_w', 16) + 4}"/>'
+           f'<ellipse cx="{ecx_}" cy="{ecy_}" rx="62" ry="36" transform="rotate(-38 {ecx_} {ecy_})" fill="none" stroke="url(#rg{num})" stroke-width="{card_ctx.get('_set_ring_w', 16)}"/>'
            f'<text x="100" y="{124 + (fs_ - 142) * .6:.0f}" text-anchor="middle" font-family="AGBoldCnA" font-size="{fs_}" letter-spacing="-3" '
+           f'transform="translate(100 0) scale(1.18 1) translate(-100 0)" '
            f'fill="#fff" stroke="{edge}" stroke-width="9" paint-order="stroke" stroke-linejoin="round">{esc(num)}</text></svg>')
     return f'<div style="position:absolute;left:{cx - w / 2 - ss * .1:.0f}px;top:{cy - h / 2 + ss * .2:.0f}px;line-height:0">{svg}</div>'
 
@@ -2675,7 +2709,17 @@ def build_html(card: dict) -> str:
         else:
             packed.append(nm)
     slots = list(t.get("icon_slots", []))
-    if packed and slots and ("warrior2" in packed or len(packed) > len(slots)) and "set_icon_abs" in t:
+    _pcs = t.get("pc_stack") if str(card.get("set_mark") or "").startswith("pc:") else None
+    if packed and slots and _pcs and len(packed) > len(slots) and "warrior2" not in packed:
+        # rev 81 (sites 2): the PC's starships stack 3-4 boxes up from a fixed foot (last box bottom 952 px at 745), boxes
+        # 43 px on a 48 px pitch, shrinking only past the room four need, the set mark below them over the last box
+        # (Azure Angel, Booster In Pulsar Skate, Bravo Fighter (V), Acclamator-Class Assault Ship, Blockade Support Ship)
+        n = len(packed); k = min(_pcs["k"], _pcs["span"] / (n * 90 + (n - 1) * 10)); pitch = 100 * k
+        x0 = slots[0][0]
+        slots = [(x0 + int((89 - 89 * k) / 2), int(_pcs["bottom"] - 90 * k - (n - 1 - i) * pitch)) for i in range(n)]
+        sizes = [k] * n
+        card["_pc_mark_stacked"] = True
+    elif packed and slots and ("warrior2" in packed or len(packed) > len(slots)) and "set_icon_abs" in t:
         # more than the frame's slots: stack from the first slot down to the set sphere, shrinking uniformly to fit
         x0, y0 = slots[0]
         sy = t["set_icon_abs"][1]; ss = t.get("set_icon_size", 76)
@@ -2695,8 +2739,9 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/col-warrior2.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(158 * k)}px">')
             continue
         key = f"{name}-light" if light and f"{name}-light" in ICON_FILES else name   # Light and Dark pilot icons differ
-        if ICON_FILES[key].startswith("icons/col-"):   # Game Aid icon with its own silver frame, box size
-            parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
+        _bf = BOX_ICON_FILES.get(key, ICON_FILES[key])
+        if _bf.startswith("icons/col-"):   # Game Aid icon with its own silver frame, box size
+            parts.append(f'<img src="{data_uri(ASSETS / _bf)}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / "icons/icon-box.png")}" style="position:absolute;left:{x}px;top:{y}px;width:{int(89 * k)}px;height:{int(90 * k)}px">')
             parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[key])}" style="position:absolute;left:{x + int(6 * k)}px;top:{y + int(7 * k)}px;width:{int(75 * k)}px;height:{int(75 * k)}px">')
@@ -2706,7 +2751,9 @@ def build_html(card: dict) -> str:
         # Players Committee set marks, drawn as vector: modern Virtual Sets = the number on a tilted ring (blue; gold
         # for Set 0), 2009 Virtual Blocks = the black diamond with its chevron (Bill 2026-10-15, from Holotable scans)
         x, y = t["set_icon_abs"]; ss = t.get("set_icon_size", 76)
-        card_ctx["_set_digit_fs"] = t.get("set_digit_size", 142); card_ctx["_set_ring"] = t.get("set_ring", (100, 80, -28)); card_ctx["_set_ring_w"] = t.get("set_ring_w", 16)
+        if t.get("pc_set_icon_abs"):   # rev 81 (sites 2): where the PC prints it (below a 3-4 box stack: pc_stack["mark"])
+            x, y = t["pc_stack"]["mark"] if card.get("_pc_mark_stacked") else t["pc_set_icon_abs"]
+        card_ctx["_set_digit_fs"] = t.get("pc_set_digit_size") or t.get("set_digit_size", 142); card_ctx["_set_ring"] = t.get("set_ring", (100, 80, -28)); card_ctx["_set_ring_w"] = t.get("set_ring_w", 16)
         _sm = set_mark_html(card["set_mark"], x + ss / 2, y + ss / 2, ss)
         if card.get("side") == "Dark" and card["template"] in ("loc-site", "loc-system"):
             # the whole card (or its frame layers) is turned for the Dark seat: keep the set number upright
@@ -2989,12 +3036,15 @@ def build_html(card: dict) -> str:
     # card "errata_mark": "D-E1" is a shortcut for {"preset": "errata", "text": "D-E1"}; "labels": [{preset|x/y, text, …}]
     for i_, lb in enumerate(card_labels(card)):
         sec(f"label{i_}")
-        if t.get("labels_rotated"):
-            # rev 81: the PC's landscape starships (Finalizer, Finalizer (AI)) set the labels as on a portrait card turned a
-            # quarter left: the caption, the (AI) stamp and the art credit read upward in the right margin
+        if t.get("labels_rotated") and (lb.get("preset") in ("bottom-left", "bottom-right", "ai", "errata") or lb.get("kind") == "art_credit"):
+            # rev 81: the PC's landscape cards (Finalizer, Finalizer (AI), the (ALT) Effects) set the labels as on a portrait
+            # card turned a quarter left: the caption, the (AI) stamp, the errata mark and the art credit read upward in the
+            # right margin; "Original concept by ..." stays in the bottom bar (Bow To The First Order (ALT))
             parts.append(f'<div style="position:absolute;left:0;top:0;width:{H}px;height:{W}px;transform-origin:0 0;'
                          f'transform:translate(0px,{H}px) rotate(-90deg)">'
-                         f'{label_html(dict(t.get("label_presets", {}).get(lb.get("preset"), {}), **lb), H, W)}</div>')
+                         f'{label_html(dict(t.get("label_presets", {}).get(lb.get("kind") or lb.get("preset"), {}), **lb), H, W)}</div>')
+        elif t.get("label_presets"):   # rev 81 (sites 2): the template's measured placement of a label kind / preset
+            parts.append(label_html(dict(t["label_presets"].get(lb.get("kind") or lb.get("preset"), {}), **lb), W, H))
         else:
             parts.append(label_html(lb, W, H))
     # user layers (card maker): free text boxes and pictures, each its own piece "x:<id>" (move / resize / hide / reset)
@@ -3309,6 +3359,21 @@ def build_html(card: dict) -> str:
                                           for kk in ("dx", "dy", "sx", "sy", "hidden") if v.get(kk) is not None}
            for k, v in (card.get("layout") or {}).items() if isinstance(v, dict)}
     fit_js = fit_js.replace("__LAYOUT__", json.dumps(lay))
+    if t.get("landscape") and card.get("decipher_print") and t.get("dc_title_cx"):
+        # rev 81 (sites 2): Decipher centres a site's title on the card's centre line (x 1110) in both bars, whatever the
+        # icon boxes leave free, and only moves it off centre to clear the boxes / the Force slot (printed centres at 745:
+        # 518-521 on Home One: War Room / Docking Bay, Executor: Comm Station, Cloud City: Lower Corridor, Death Star:
+        # Central Core, Hoth: Echo Docking Bay, Sandcrawler: Loading Bay / Droid Junkheap; ours were centred in the bar
+        # between the slot and the boxes, 4-20 px left with three boxes)
+        fit_js = fit_js.replace("      document.body.dataset.ready = '1';", """      document.querySelectorAll('.ltitle, .dtitle').forEach(function (d) {
+        const sp = d.querySelector('span.lt'); if (!sp) return;
+        const dr = d.getBoundingClientRect(), r = sp.getBoundingClientRect(), pad = 8;
+        const rot = d.classList.contains('dtitle') ? -1 : 1;   // the Dark bar is turned: a visual move right is left inside it
+        let sh = %d - (r.left + r.right) / 2;
+        sh = Math.max(dr.left + pad - r.left, Math.min(dr.right - pad - r.right, sh));
+        sp.style.position = 'relative'; sp.style.left = (rot * sh) + 'px';
+      });
+      document.body.dataset.ready = '1';""" % t["dc_title_cx"], 1)
     if t.get("ctype_after_title"):   # rev 81: the PC's wide starships set the banner a fixed gap after the title's end
         fit_js = fit_js.replace("      document.body.dataset.ready = '1';", """      { const ti = document.querySelector('.title'), ct = document.querySelector('.ctype');
         if (ti && ct) { const r = document.createRange(); r.selectNodeContents(ti); const tr = r.getBoundingClientRect().right;

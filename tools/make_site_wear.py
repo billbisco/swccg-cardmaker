@@ -52,7 +52,7 @@ def fetch(name: str) -> Path:
     return p
 
 
-def frame_zone():
+def frame_zone(painted: bool = True):
     """The bare frame on the master, and the zone render.starship_frame paints (no icon boxes, no grown text)."""
     fa = np.array(Image.open(ROOT / "assets/frames/loc-site.png").convert("RGBA")).astype(float)
     H, W = fa.shape[:2]
@@ -67,7 +67,8 @@ def frame_zone():
     ref = np.zeros((MH, MW, 3), np.uint8)
     a = fa[:, :, 3:] / 255.0
     paint = rgb * a
-    paint[zone] = rgb[zone].mean(-1, keepdims=True) / 172.0 * np.array([33.0, 95.0, 140.0])   # painted, as printed
+    if painted:   # the blue sites: the zone painted, as printed (make_site_scanboxes.py also registers silver sites)
+        paint[zone] = rgb[zone].mean(-1, keepdims=True) / 172.0 * np.array([33.0, 95.0, 140.0])
     ref[FY:FY + H, FX:FX + W] = np.clip(paint, 0, 255).astype(np.uint8)
     # registration mask: the whole card body and its edge on the black border, but not the picture
     msk = np.zeros((MH, MW), np.uint8)
@@ -79,6 +80,8 @@ def frame_zone():
 def bbox_blue(a):
     a = a.astype(int)
     blue = (a[:, :, 2] - a[:, :, 0]) > 25
+    if (blue.mean(1) > 0.25).sum() < 50:   # a silver site: the card body (neither the black border nor the white scan ground)
+        m = a.mean(-1); blue = (m > 55) & (m < 238)
     r = np.where(blue.mean(1) > 0.25)[0]; c = np.where(blue.mean(0) > 0.25)[0]
     return c[0], r[0], c[-1] + 1, r[-1] + 1
 
