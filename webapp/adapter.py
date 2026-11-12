@@ -754,7 +754,8 @@ def objective_text(t: str, front: bool) -> str:
     # "Flip this card" always open a paragraph on the printed Objectives
     # rev 77: "Place out of play" and "Immediately retrieve" open their own paragraph too (In The Hands Of The Empire,
     # Systems Will Slip Through Your Fingers, Save You It Can, Or Be Destroyed); the 2010s PC text leaves them unmarked
-    t = re.sub(r"(?<![*\w])(For remainder of game|While this side up|Flip this card|Place out of play|Immediately retrieve)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
+    # rev 84: a keyword after U+2060 (word joiner) stays regular, as printed (Rescue The Princess front "Place out of play")
+    t = re.sub(r"(?<![*\w\u2060])(For remainder of game|While this side up|Flip this card|Place out of play|Immediately retrieve)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
     t = re.sub(r"\s+(\*(?:For|While|Flip|Place|Immediately)\*)", r"\n\1", t).strip()
     if front:
         first, sep, rest = t.partition("\n")

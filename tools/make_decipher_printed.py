@@ -127,6 +127,10 @@ PRINTED_SEEN = {
     "10_19": {"gametext": [("OR If opponent has no presence or Force icons,", "OR If opponent just deployed a spy to a site where opponent has no presence or Force icons,")]},
     "10_28": {"gametext": [("game text of one Rebel for remainder", "game text of one Rebel present for remainder")]},
     "10_8": {"gametext": [("battle damage. (Immune to Sense.)", "battle damage (immune to Sense).")]},
+    # Rescue The Princess front: "Place out of play if Leia is lost from table" set regular on the print (SE-L-
+    # rescuetheprincess-decipher-archive.gif), unlike its back's bold "Place": its own line, U+2060 keeps it regular
+    # (adapter.objective_text)
+    "7_139": {"gametext": [("{Place} out of play if Leia is lost from table (you", "\n\u2060Place out of play if Leia is lost from table (you")]},
     "13_13": {"icons": ["Reflections 3", "Episode I"]},
     "112_9": {"gametext": [("Your characters here aboard vehicles are each power +1.", "Your characters aboard vehicles here are each power +1.")]},
 }

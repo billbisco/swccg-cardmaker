@@ -527,5 +527,71 @@
       "there, swamp, and Droid Racks",
       "there, Naboo: Swamp, and Droid Racks"
     ]
+  },
+  "10_29": {
+    "gametext": [
+      [
+        "(With Xizor there)",
+        "(with Xizor there)"
+      ],
+      [
+        "are Black Sun Agents. You may not deploy cards with ability except Black Sun Agents, Emperor, or Independent starships.",
+        "are Black Sun agents. You may not deploy cards with ability except Black Sun agents, Emperor or [Independent] starships."
+      ],
+      [
+        "For each Black Sun Agent in battle,",
+        "For each Black Sun agent in a battle,"
+      ],
+      [
+        "or if Xizor not on table.",
+        "or if Xizor is not on table."
+      ]
+    ],
+    "back.gametext": [
+      [
+        "(With Xizor there)",
+        "(with Xizor there)"
+      ],
+      [
+        "are Black Sun Agents. You may not deploy cards with ability except Black Sun Agents, Emperor, or Independent starships.",
+        "are Black Sun agents. You may not deploy cards with ability except Black Sun agents, Emperor or [Independent] starships."
+      ],
+      [
+        "For each Black Sun Agent in battle,",
+        "For each Black Sun agent in a battle,"
+      ],
+      [
+        "or if Xizor not on table.",
+        "or if Xizor is not on table."
+      ]
+    ]
+  },
+  "7_139": {
+    "gametext": [
+      [
+        "{Flip} this card if Leia is captured.",
+        "{Flip} this card if Leia is captured. {Place} out of play if Leia is lost from table."
+      ]
+    ],
+    "back.gametext": [
+      [
+        "{Flip} this card if Leia is captured.",
+        "{Flip} this card if Leia is captured. {Place} out of play if Leia is lost from table."
+      ]
+    ]
+  },
+  "7_296": {
+    "gametext": [
+      [
+        "your aliens and starships are immune",
+        "your aliens and [Independent] starships are immune"
+      ]
+    ],
+    "back.gametext": [
+      [
+        "your aliens and starships are immune",
+        "your aliens and [Independent] starships are immune"
+      ]
+    ]
   }
 }

@@ -1802,3 +1802,14 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     is the PC's 745 px re-render (which also reads "any deploy phase"). Nothing to change.
   - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 7_135,
     9_61, 4_76 with `decipher_print` false.
+- Rev 84 (Decipher printed text 4) (2026-11-12): five points from the text agent's reading, checked on the Decipher-archive
+  faces (Ref2-D-agentsofblacksun / -vengeanceofthedarkprince, SE-L-rescuetheprincess / -sometimesiamazeevenmyself,
+  SE-D-myfavoritedecoration-hires). None is a documented erratum (no errata symbol, no Errata.wiki / Glossary / Appendix A
+  entry; the wiki's "printed" pages copy the same text), so (a)-(d) are transcription fixes in corrections.json, front
+  and back field: 10_29 Agents Of Black Sun "(with Xizor there)", "Black Sun agents", "Emperor or [Independent]
+  starships", back "Black Sun agent in a battle", "if Xizor is not on table"; 7_139 Sometimes I Amaze Even Myself gains
+  its last line "Place out of play if Leia is lost from table."; 7_296 My Favorite Decoration "your aliens and
+  [Independent] starships". (e) is typesetting of the Decipher print only (decipher_printed.json): Rescue The Princess
+  sets "Place out of play if Leia is lost from table (…)" regular on its own line; a U+2060 before a keyword now keeps
+  `objective_text` from bolding it. The stored printed lines of 10_29 (both faces), 7_139 (both) and 7_296 (both) now
+  all apply (hints 128 of 128). md5: only 10_29, 7_139, 7_296 change (en and ja: the corrections).
