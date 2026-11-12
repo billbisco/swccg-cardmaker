@@ -565,8 +565,10 @@ def objective_text(t: str, front: bool) -> str:
     """Decipher's Objective layout: the setup sentence(s) in italics, then a paragraph per *For* / *While* / *Flip*."""
     # the PC JSON marks the keywords {For} (-> *For*) or not at all: "For remainder of game", "While this side up",
     # "Flip this card" always open a paragraph on the printed Objectives
-    t = re.sub(r"(?<![*\w])(For remainder of game|While this side up|Flip this card)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
-    t = re.sub(r"\s+(\*(?:For|While|Flip)\*)", r"\n\1", t).strip()
+    # rev 77: "Place out of play" and "Immediately retrieve" open their own paragraph too (In The Hands Of The Empire,
+    # Systems Will Slip Through Your Fingers, Save You It Can, Or Be Destroyed); the 2010s PC text leaves them unmarked
+    t = re.sub(r"(?<![*\w])(For remainder of game|While this side up|Flip this card|Place out of play|Immediately retrieve)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
+    t = re.sub(r"\s+(\*(?:For|While|Flip|Place|Immediately)\*)", r"\n\1", t).strip()
     if front:
         first, sep, rest = t.partition("\n")
         if sep and not first.startswith("*"):
@@ -574,7 +576,16 @@ def objective_text(t: str, front: bool) -> str:
     return t
 
 
+# rev 77: the five printed Podracers' pilot flags (assets/icons/podracer-flag-<slug>.png, tools/cut_podracer_flags.py)
+PODRACER_FLAGS = {"Anakin's Podracer": "anakin", "Sebulba's Podracer": "sebulba", "Ben Quadinaros' Podracer": "ben-quadinaros",
+                  "Dud Bolt's Podracer": "dud-bolt", "Teemto Pagalies' Podracer": "teemto-pagalies"}
+
+
 def finish(spec: dict) -> dict:
+    if spec.get("slip_type") == "Podracer" and not spec.get("podracer_flag"):
+        fl = PODRACER_FLAGS.get(re.sub(r"[•\u2022<>]", "", spec.get("title") or "").replace("(V)", "").strip())
+        if fl:
+            spec["podracer_flag"] = fl
     ps = spec.pop("_printed_stats", None)
     if ps:   # stat boxes transcribed from the printed card (gempdata/fill.json "printedStats")
         spec["stats"] = [list(x) for x in ps]
@@ -628,6 +639,10 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":
             card["disc"] = "podracer"   # Episode I Podracers: the podracer type disc (Game Aid icon)
+            if spec.get("_podracer_flag_file"):   # rev 77: the editor's own flag image (podracer_flag_data)
+                card["podracer_flag_file"] = spec["_podracer_flag_file"]
+            elif spec.get("podracer_flag"):
+                card["podracer_flag"] = spec["podracer_flag"]
         if spec.get("gempId") in UNDERCOVER_FRAME and spec.get("side") == "Light" and "rebel" in (spec.get("affiliation") or "").lower():
             card["disc"] = "rebel"   # the Rebel disc on the Dark frame (TK-422, Boushh)
         if card["template"].endswith("-mission"):
@@ -640,9 +655,28 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
+    if card.get("back"):   # rev 77: the back face's margin caption follows the front's (Decipher printings: none), not
+        bt = card["back"].get("title") or ""   # build_vs's slip default "<back title> (V)"
+        if spec.get("caption_back") is not None:
+            card["back"]["caption"] = spec["caption_back"]
+        elif not (card["caption"] or "").strip():
+            card["back"]["caption"] = ""
+        else:
+            card["back"]["caption"] = bt + (" (V)" if card["caption"].rstrip().endswith("(V)") and not bt.rstrip().endswith("(V)") else "")
     card["number"] = str(spec.get("number") or "")
     if spec.get("border") == "white":
         card["border"] = "white"
+    # rev 77 printing variants: uniqueness dot colour (Eriadu's white dot), Lando In Millennium Falcon's thick forfeit
+    # border, Reflections foil sheen. Absent / default values leave the card exactly as before.
+    if str(spec.get("bullet_colour") or "red").lower() != "red":
+        card["bullet_colour"] = spec["bullet_colour"]
+    try:
+        if float(spec.get("forfeit_box_border") or 0) > 0:
+            card["forfeit_box_border"] = max(0.0, min(40.0, float(spec["forfeit_box_border"])))
+    except (TypeError, ValueError):
+        pass
+    if spec.get("foil"):
+        card["foil"] = True
     for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines", "text_breaks"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
@@ -657,6 +691,10 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["art_trim"] = True
             if any(k in (spec.get("slip_type") or "") for k in ("Interrupt", "Effect")):
                 card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
+    if spec.get("_art2"):   # rev 77: second picture of a split window (Reflections II combos): spec art2 + split
+        card["art2"] = spec["_art2"]
+        if isinstance(spec.get("split"), dict):
+            card["split"] = spec["split"]
     if spec.get("slip_type") == "Game Aid" and spec.get("_art_kind") != "upload":
         card.pop("art", None)   # the chart's own starfield is drawn (the scan carries the printed chart)
     if not spec.get("expansion"):

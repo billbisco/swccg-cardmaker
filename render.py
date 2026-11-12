@@ -16,6 +16,12 @@ W, H = 1632, 2220
 # White-border printings (Premiere Unlimited, Revised, First/Second Anthology, two-player sets): card body corner
 # radius in master px, measured on Premiere Unlimited Luke Skywalker (wiki Premiere-U-L-lukeskywalker.png, ~3 px at 350).
 WHITE_BORDER_RADIUS = 14
+# Rev 77 printing variants. Uniqueness dot colours the spec's bullet_colour may name ("red" = as printed, the default).
+BULLET_COLOURS = {"white": "#fff", "black": "#000", "red": None}
+# Lando In Millennium Falcon (Enhanced Cloud City): 1 in 20 printed the forfeit box with a thicker black border
+# (Collecting Encyclopedia 3.2 p.47 photo, normal and variant side by side): the variant's black box is 1.79x the white
+# deploy box's width against 1.27x on the normal printing, ~12 master px more black each side; it grows up to meet the
+# deploy box. The spec's forfeit_box_border (0 = as printed) adds that many px round the frame's black box; use 12.
 
 # Template geometry (x, y, w, h) in 1632×2220 space.
 TEMPLATES = {
@@ -382,8 +388,12 @@ _EFFECT_PRE62 = {"ls": {"card_type": (271, 1505, 1109, 61), "set_icon_abs": (139
                  "ds": {"card_type": (271, 1508, 1109, 61), "set_icon_abs": (1391, 1940)}}
 TEMPLATES["ls-jeditest-epic"] = dict(_LS_EFFECT_PRE62, frame=("frames/ls-jeditest-epic.png", 0, 0))   # Jedi Test frame (olive) with the slip's purple Epic Event foot
 # Light Epic Events (Attack Run, Boonta Eve Podrace) print on the Light Objective frame with the Epic Event disc
-for _k in ("objective-ls", "objective"):   # printed Objectives carry the expansion sphere right of the art, under the destiny
-    TEMPLATES[_k].setdefault("expansion_ring", (1412, 295)); TEMPLATES[_k].setdefault("expansion_size", 70)
+# printed Objectives carry the expansion sphere right of the art, under the destiny (Rev 77 sphere): measured on 20 printed
+# Light and 10 Dark scans (SE, Endor, DSII, R2, Coruscant, R3, Theed, Enhanced CC / JP, both faces): Light centre at
+# 745-px (678.5, 159.5) = master (1427, 391), Dark (676, 166) = (1422, 404), ~29 px across incl. its black ring = 58 master;
+# clear of the destiny circle (the old (1412, 295) 70-px sphere sat on it). Light Epic Events share it (Attack Run, Deactivate)
+for _k, _xy in (("objective-ls", (1398, 362)), ("objective", (1393, 375))):
+    TEMPLATES[_k].setdefault("expansion_ring", _xy); TEMPLATES[_k].setdefault("expansion_size", 58)
 TEMPLATES["ls-jeditest-olive"] = dict(TEMPLATES["ls-jeditest-tall"], frame=("frames/ls-jeditest-olive.png", 0, 0))   # printed Jedi Tests: olive throughout
 TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
 # Virtual Block Missions (make_mission_frames.py): full art under the Admiral's Order title bar, tan panel at the foot
@@ -682,6 +692,12 @@ def loc_title(card: dict, bar: str = "Light") -> str:
     return '<span class="lt">' + re.sub(r"^([•◊＊]+)", lambda m: f'<span class="{cls}">{m.group(1)}</span>', h) + '</span>'
 
 
+def title_dots(h: str, card: dict) -> str:
+    """Rev 77: a card title's leading uniqueness dots in the spec's bullet_colour (unchanged when none is set)."""
+    c = bullet_colour(card)
+    return re.sub(r"^([•◊]+)", lambda m: f'<span style="color:{c}">{m.group(1)}</span>', h) if c else h
+
+
 def title_html(s: str) -> str:
     """esc_i() for card titles (Holotable Title carries é è á à ó ú É and curly quotes itself, #118)."""
     return esc_i(s)
@@ -813,8 +829,122 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
     return data_uri(p)
 
 
+# rev 77: two-picture art of the Reflections II combo cards (Do, Or Do Not & Wise Advice, Ghhhk & Those Rebels Won't
+# Escape Us). Measured on 24 printed combo scans (12 Light, 12 Dark; Ghhhk at 745 px true colour, the rest 354 px GIFs):
+# a straight stripe rising from lower left to upper right at 60.0° from horizontal (dx/dy -0.577 on every scan), its
+# centre line crossing the window's mid-height 0.508 of the window width from the left (master x 821 in a window
+# 240..1384; it meets the top edge at ~0.70 and the bottom edge at ~0.31 of the width). Width across the stripe: Light
+# 36 master px (20.5 px horizontally at 745), Dark 38 (22 px). Two bevel facets split along the middle: Light silver,
+# the lower-left facet lighter (226/225/222) than the upper-right (200/200/198); Dark red, the lower-left darker
+# (176/28/45) than the upper-right (214/31/53, Ghhhk true colour; the GIFs carry the same split darker). Edges ~1 px soft.
+SPLIT_DEFAULT = {"angle": 60.0, "x": 0.508}
+SPLIT_WIDTH = {"light": 36, "dark": 38}
+SPLIT_STOPS = {   # (position across the stripe 0 = lower-left edge .. 1 = upper-right edge, RGB)
+    "silver": [(0.0, (206, 206, 203)), (0.1, (225, 224, 222)), (0.45, (228, 228, 224)), (0.52, (211, 208, 203)),
+               (0.6, (200, 200, 197)), (0.92, (202, 202, 200)), (1.0, (190, 191, 189))],
+    "red": [(0.0, (160, 29, 40)), (0.12, (174, 27, 45)), (0.3, (185, 29, 45)), (0.45, (180, 28, 45)), (0.52, (204, 30, 50)),
+            (0.58, (213, 32, 55)), (0.9, (215, 30, 52)), (1.0, (198, 36, 57))],
+}
+
+
+def split_params(card: dict) -> dict:
+    """The stripe of a two-picture window: spec `split` over the measured defaults (side from the template)."""
+    sp = dict(card.get("split") or {})
+    dark = str(card.get("template") or "").startswith("ds-") or card.get("side") == "Dark"
+    out = {"angle": float(sp.get("angle") or SPLIT_DEFAULT["angle"]),
+           "x": float(sp["x"]) if sp.get("x") is not None else SPLIT_DEFAULT["x"],
+           "width": float(sp["width"]) if sp.get("width") is not None else SPLIT_WIDTH["dark" if dark else "light"],
+           "color": sp.get("color") or ("red" if dark else "silver"),
+           "texture": sp.get("texture") or "bevel",
+           "fit1": sp.get("fit1") or {}, "fit2": sp.get("fit2") or {}}
+    out["angle"] = min(max(out["angle"], 15.0), 89.0); out["x"] = min(max(out["x"], 0.0), 1.0)
+    out["width"] = min(max(out["width"], 0.0), 200.0)
+    return out
+
+
+def _split_picture(card: dict, p: dict, n: int) -> Image.Image:
+    """One picture of a split window, as a plain image: an art rectangle (library art, upload) or a Decipher scan whose
+    standard art window is mapped (art_crop with the template's art box)."""
+    if p.get("rect"):
+        im = Image.open(p["src"])
+        if im.mode == "P" and "transparency" in im.info:
+            bg = Image.new("RGBA", im.size, (255, 255, 255, 255)); bg.alpha_composite(im.convert("RGBA")); im = bg
+        return im.convert("RGB").crop(tuple(int(round(v)) for v in p["rect"]))
+    tmp = {k: v for k, v in card.items() if k not in ("art_trim", "legacy_scan")}
+    tmp.update(art={k: v for k, v in p.items() if k in ("src", "bbox")}, id=f"{card['id']}-p{n}")
+    art_crop(tmp, TEMPLATES[card["template"]]["art"], "-split")
+    return Image.open(OUT / f"_art_{tmp['id']}-split.png").convert("RGB")
+
+
+def _place(im: Image.Image, W_: int, H_: int, box: tuple, fx_default: float, fit: dict) -> Image.Image:
+    """Picture for one side of a split window, cut to that side's box (bx, by, bw, bh). As Decipher composed the combos,
+    each picture is at the scale of the WHOLE window (cover-fitted to it, times `zoom` >= 1) and pushed against the
+    stripe, its outer part cut off (Ghhhk & Those Rebels Won't Escape Us: Ghhhk's right edge at the stripe's top end,
+    the TIE picture's left edge at its bottom end): fx 1 for picture 1, 0 for picture 2. `fx` / `fy` in 0..1 slide it
+    across the range that keeps the box covered (0 = its left / top part shows, as the editor's upload framing)."""
+    bx, by, bw, bh = box
+    iw, ih = im.size
+    z = min(max(float(fit.get("zoom") or 1), 1.0), 6.0)
+    sc = max(W_ / iw, H_ / ih) * z
+    pw, ph = iw * sc, ih * sc
+    fx = min(max(float(fit["fx"] if fit.get("fx") is not None else fx_default), 0.0), 1.0)
+    fy = min(max(float(fit["fy"] if fit.get("fy") is not None else 0.5), 0.0), 1.0)
+    L = bx - fx * (pw - bw)   # picture's left edge (window px)
+    T = by - fy * (ph - bh)
+    x0, y0 = (bx - L) / sc, (by - T) / sc
+    return im.resize((bw, bh), Image.LANCZOS, box=(x0, y0, x0 + bw / sc, y0 + bh / sc))
+
+
+def split_art(card: dict, win: tuple, tag: str = "-split") -> str:
+    """Rev 77: compose the window of a two-picture card. Picture 1 (`art`) fills the left / lower part, picture 2
+    (`art2`) the right / upper part, the stripe is drawn over the seam; all of it is the window `win` (x, y, w, h)."""
+    import math
+    import numpy as np
+    sp = split_params(card)
+    W_, H_ = int(win[2]), int(win[3])
+    th = math.radians(sp["angle"]); s_, c_ = math.sin(th), math.cos(th)
+    xm, ym = sp["x"] * W_, H_ / 2
+    hw = sp["width"] / 2
+    yy, xx = np.mgrid[0:H_, 0:W_].astype(float)
+    d = (xx + 0.5 - xm) * s_ + (yy + 0.5 - ym) * c_   # signed distance from the centre line, > 0 = right / upper side
+    cot = c_ / s_
+    pad = hw / s_ + 4
+    # each picture is fitted to the box of its own side of the seam (the stripe hides the join)
+    r1 = (0, 0, int(min(W_, math.ceil(xm + ym * cot + pad))), H_)
+    x2 = int(max(0, math.floor(xm - (H_ - ym) * cot - pad)))
+    r2 = (x2, 0, W_ - x2, H_)
+    canvas = []
+    for n, (p, box, cen, fit) in enumerate(((card.get("art"), r1, 1.0, sp["fit1"]), (card.get("art2"), r2, 0.0, sp["fit2"])), 1):
+        bx, by, bw, bh = box
+        c = np.zeros((H_, W_, 3), float)
+        if p:
+            c[by:by + bh, bx:bx + bw] = np.array(_place(_split_picture(card, p, n), W_, H_, box, cen, fit)).astype(float)
+        canvas.append(c)
+    a2 = np.clip(d + 0.5, 0, 1)[..., None]   # 1 px anti-aliased seam (hidden under a stripe of any width)
+    out = canvas[0] * (1 - a2) + canvas[1] * a2
+    col = sp["color"]
+    if hw > 0 and col != "none":
+        if col in SPLIT_STOPS:
+            stops = SPLIT_STOPS[col]
+        else:
+            m = re.fullmatch(r"#?([0-9a-fA-F]{6})", str(col))
+            rgb = tuple(int(m.group(1)[i:i + 2], 16) for i in (0, 2, 4)) if m else (200, 200, 200)
+            lo, hi = tuple(int(v * 1.06) for v in rgb), tuple(int(v * 0.92) for v in rgb)   # the same two facets
+            stops = [(0, lo), (0.48, lo), (0.54, hi), (1, hi)]
+        if sp["texture"] == "flat":
+            mean = np.mean([s[1] for s in stops], axis=0); stops = [(0, mean), (1, mean)]
+        t = np.clip((d + hw) / (2 * hw), 0, 1)
+        pos = [s[0] for s in stops]
+        stripe = np.stack([np.interp(t, pos, [s[1][k] for s in stops]) for k in range(3)], axis=-1)
+        a = np.clip(hw - np.abs(d) + 0.5, 0, 1)[..., None]
+        out = out * (1 - a) + stripe * a
+    p = OUT / f"_art_{card['id']}{tag}.png"
+    Image.fromarray(np.clip(out + 0.5, 0, 255).astype(np.uint8)).save(p)
+    return data_uri(p)
+
+
 LOC = ASSETS / "loc"
-LOC_ICON_FILES = {k: f"icon-{k}.png" for k in
+LOC_ICON_FILES ={k: f"icon-{k}.png" for k in
                   ("grabber", "underground", "interior", "planet", "space", "exterior", "underwater", "creature", "mobile", "starship", "vehicle")}
 
 
@@ -1425,7 +1555,32 @@ PC_PIECE_FIX = {
 
 PC_GROW_TEMPLATES = {"ls-effect", "ds-effect", "ls-interrupt", "ds-interrupt", "ls-weapon", "ds-weapon", "ls-device", "ds-device",
                      "ls-shield-dc", "ds-shield-dc", "ds-shield-vb"}   # characters: the PC kept them to five lines (none raised)
+
+# rev 77: Episode I Podracers (Tatooine 11_47, 11_95-98; make_podracer_frames.py). The Effect frame with the printed
+# Podracer top: straight title bar (ridge 336..360), plain rectangular lore box 276..1350 x 402..603, lore set flush left
+# with no first-line indent (scan: text x 320..1292). The pilot flag badge (podracer_flag_box: the flag picture's window,
+# x, y, w, h; bevel round it) sits between the type disc and the title; the title then starts at x 618 (printed bullet).
+for _sd in ("ls", "ds"):
+    _e = TEMPLATES[f"{_sd}-effect"]
+    TEMPLATES[f"{_sd}-podracer"] = dict(_e, frame=(f"frames/{_sd}-podracer.png",) + _e["frame"][1:],
+                                        lore=(313, 404, 1022, 196), lore_x=(320, 1330, 0, 0, 0.0),
+                                        podracer_flag_box=(357, 174, 189, 153) if _sd == "ls" else (366, 183, 186, 144),
+                                        podracer_title_x=611)
+    if f"{_sd}-effect" in PC_PIECE_FIX:
+        PC_PIECE_FIX[f"{_sd}-podracer"] = PC_PIECE_FIX[f"{_sd}-effect"]
+    PC_GROW_TEMPLATES.add(f"{_sd}-podracer")
 _PC_ADV: dict = {}
+
+
+def podracer_flag_file(card: dict):
+    """rev 77: the pilot flag image for a Podracer: an uploaded file (podracer_flag_file, resolved by the web app) or one of
+    the five printed flags (podracer_flag = slug -> assets/icons/podracer-flag-<slug>.png)."""
+    f = card.get("podracer_flag_file")
+    if f and Path(f).exists():
+        return Path(f)
+    slug = re.sub(r"[^a-z0-9-]", "", str(card.get("podracer_flag") or "").lower())
+    p = ASSETS / "icons" / f"podracer-flag-{slug}.png"
+    return p if slug and p.exists() else None
 
 
 def pc_count_lines(text: str, p: dict) -> int:
@@ -1515,6 +1670,41 @@ def pc_fit_attrs(p: dict) -> str:
 
 
 
+def bullet_colour(card: dict):
+    """Rev 77: the spec's uniqueness-dot colour (Eriadu, Jedi Pack: first runs printed the dot white), or None (as printed)."""
+    v = str(card.get("bullet_colour") or "").strip().lower()
+    if v in BULLET_COLOURS:
+        return BULLET_COLOURS[v]
+    return v if re.fullmatch(r"#[0-9a-f]{3,8}", v) else None
+
+
+def foil_html(fr, fx: int, fy: int, holes=()) -> str:
+    """Rev 77: Reflections I-III foil sheen, laid over the frame only (the frame PNG's own alpha masks it, so the art
+    window, starfield and outer black border stay matte). Matched to collector photos of Reflections II foils (Admiral
+    Ackbar, Chewie With Blaster Rifle, Jodo Kast, Lord Vader): the silver splatter and bevels turn pastel rainbow
+    (magenta, violet, cyan, green, gold) in broad diagonal bands; the dark frames keep their tone with a faint
+    violet / blue cast and a soft metallic highlight. The text boxes (holes: card-space rects) stay plain silver / black,
+    as on the photographed cards, so the text reads as on a non-foil card."""
+    try:
+        fw, fh = Image.open(fr).size
+    except Exception:
+        return ""
+    m = data_uri(Path(fr))
+    mask = f"-webkit-mask-image:url('{m}');-webkit-mask-size:{fw}px {fh}px;-webkit-mask-repeat:no-repeat;"
+    clip = ""
+    if holes:   # even-odd path: the frame rectangle minus each text box
+        d_ = f"M0 0H{fw}V{fh}H0Z" + "".join(f"M{x - fx} {y - fy}h{w}v{h}h{-w}Z" for x, y, w, h in holes)
+        clip = f"clip-path:path(evenodd,'{d_}');"
+    box = f"position:absolute;left:{fx}px;top:{fy}px;width:{fw}px;height:{fh}px;pointer-events:none;{mask}{clip}"
+    bands = ("repeating-linear-gradient(118deg,#ff8fd0 0px,#c7a2ff 180px,#86dcff 360px,#9cf5b8 540px,"
+             "#fff09a 720px,#ffb8a8 900px,#ff8fd0 1080px)")
+    gloss = ("linear-gradient(118deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.55) 30%,rgba(255,255,255,0) 42%,"
+             "rgba(255,255,255,0) 60%,rgba(255,255,255,.4) 70%,rgba(255,255,255,0) 80%)")
+    return (f'<div class="foil" style="{box}background:{bands};mix-blend-mode:multiply;opacity:.5"></div>'
+            f'<div class="foil" style="{box}background:{bands};mix-blend-mode:screen;opacity:.16"></div>'
+            f'<div class="foil" style="{box}background:{gloss};mix-blend-mode:soft-light;opacity:.7"></div>')
+
+
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
@@ -1596,7 +1786,19 @@ def build_html(card: dict) -> str:
     def sec(name):
         marks.append((name, len(parts)))
     sec('art')
-    if art and t.get("_artwin"):   # reshaped window (tall slips): the art fills it, under the frame
+    split = card.get("art2") and not t.get("_noart") and not t.get("landscape") and not t.get("system")   # rev 77: two pictures
+    if split and not (card.get("no_lore_box") and t.get("lore") and not t.get("_artwin")):
+        if t.get("_artwin"):
+            win = t["_artwin"]
+        elif card.get("art_cover_hole") and not t.get("wide"):
+            hx0, hy0, hx1, hy1 = frame_hole(t)
+            win = (min(ax, hx0), min(ay, hy0), max(ax + aw, hx1) - min(ax, hx0), max(ay + ah, hy1) - min(ay, hy0))
+        else:
+            win = (ax, ay, aw, ah)
+        parts.append(f'<img src="{split_art(card, win)}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
+    elif split:
+        pass   # drawn over the frame's lore window below
+    elif art and t.get("_artwin"):   # reshaped window (tall slips): the art fills it, under the frame
         wx, wy, ww, wh = t["_artwin"]
         if card.get("no_lore_box") and card["art"].get("rect"):
             parts.append(f'<img src="{art_crop(card, t["_artwin"], "-rect")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
@@ -1618,22 +1820,35 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{art}" style="position:absolute;left:{ax}px;top:{ay}px;width:{aw}px;height:{ah}px">')
     sec(None)
     parts.append(f'<img src="{data_uri(fr)}" style="position:absolute;left:{fx}px;top:{fy}px">')
+    if card.get("foil"):   # rev 77: Reflections foil printing
+        parts.append(foil_html(fr, fx, fy, [t[k] for k in ("lore", "game_text", "ls_text", "ds_text")
+                                           if isinstance(t.get(k), tuple) and len(t[k]) == 4 and not (k == "lore" and card.get("no_lore_box"))]))
     try:
         _fb = frame_bottom(fr, fy, H)
     except Exception:
         _fb = None
     card_ctx["_strip_top"] = (_fb + 1) if _fb else t.get("strip_top", (t["caption_y"] - 6) if "caption_y" in t else 2076)
     sec('art')
-    if card.get("no_lore_box") and card.get("art") and t.get("lore") and not t.get("_artwin"):
+    if card.get("no_lore_box") and (card.get("art") or split) and t.get("lore") and not t.get("_artwin"):
         # the printed card has no lore box (Jedi Tests, Reflections II combo cards): its art runs from the title bar to the
         # banner — lay the mapped scan over the frame's lore window too
         lx, ly, lw, lh = t["lore"]
         win = (ax, ly - 34, aw, ay + ah - (ly - 34) - int(card.get("text_grow") or 0))
-        parts.append(f'<img src="{art_crop(card, win, "-rect" if card["art"].get("rect") else "-full")}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
+        src_ = split_art(card, win) if split else art_crop(card, win, "-rect" if card["art"].get("rect") else "-full")
+        parts.append(f'<img src="{src_}" style="position:absolute;left:{win[0]}px;top:{win[1]}px;width:{win[2]}px;height:{win[3]}px">')
     sec('affiliation')
     if card.get("disc"):   # affiliation disc swapped over the frame's own (Yoda: the Light Jedi Master blade on the Rebel frame)
         dx_, dy__ = t.get("disc_at", (193, 176))
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc"]}.png")}" style="position:absolute;left:{dx_}px;top:{dy__}px">')
+    _pf = podracer_flag_file(card) if t.get("podracer_flag_box") else None
+    if _pf:   # rev 77: the pilot's flag in its recessed window between the type disc and the title (Sebulba's Podracer)
+        bx, by, bw, bh = t["podracer_flag_box"]; bv = 14
+        parts.append(f'<div style="position:absolute;left:{bx - bv}px;top:{by - bv}px;width:{bw + 2 * bv}px;height:{bh + 2 * bv}px;box-sizing:border-box;'
+                     f'border:{bv}px solid;border-color:rgba(0,0,0,.26) rgba(0,0,0,.06) rgba(255,255,255,.20) rgba(0,0,0,.16)"></div>')
+        parts.append(f'<img src="{data_uri(_pf)}" style="position:absolute;left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;object-fit:cover;'
+                     f'outline:2px solid rgba(0,0,0,.30)">')
+        tx_ = t["podracer_title_x"]; ttl = t["title"]
+        t = dict(t, title=(tx_, ttl[1], ttl[0] + ttl[2] - tx_, ttl[3])); t.pop("title_long_left", None)
     if card.get("disc2"):   # second affiliation disc right of the first, title bar shortened (The Emperor: Dark Jedi Master + Imperial)
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{359}px;top:{174}px">')
         t = dict(t, title=(t["title"][0] + 170, t["title"][1], t["title"][2] - 170, t["title"][3]))
@@ -1697,10 +1912,10 @@ def build_html(card: dict) -> str:
     elif t.get("chart"):   # Hyperoute Navigation Chart: title in a white-ruled black box over the starfield
         x, y, w, h = t["title"]
         parts.append(f'<div style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:#000;border:7px solid #e8e8e8;box-sizing:border-box;'
-                     f'display:flex;align-items:center;justify-content:center;font-family:HoloTitle;font-size:124px;color:#fff;white-space:nowrap">{title_html(card["title"])}</div>')
+                     f'display:flex;align-items:center;justify-content:center;font-family:HoloTitle;font-size:124px;color:#fff;white-space:nowrap">{title_dots(title_html(card["title"]), card)}</div>')
     else:
         tll = f' data-ll="{t["title_long_left"]}"' if t.get("title_long_left") else ""   # #62: a title too long for the bar starts further left
-        parts.append(f'<div class="title"{tll} style="position:absolute;{box("title")}">{title_html(card["title"])}</div>')
+        parts.append(f'<div class="title"{tll} style="position:absolute;{box("title")}">{title_dots(title_html(card["title"]), card)}</div>')
     sec('destiny')
     if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
@@ -1839,6 +2054,10 @@ def build_html(card: dict) -> str:
         for k_ in ("deploy", "forfeit"):   # long values (544) condense into the printed box, then shrink — never overflow it
             sec(k_)
             ink_ = (";color:#000" if k_ == "deploy" else ";color:#fff") if card.get("_df_ink") else ""
+            fb_ = float(card.get("forfeit_box_border") or 0) if k_ == "forfeit" else 0
+            if fb_ > 0:   # rev 77: the thicker black border round the forfeit value (Lando In Millennium Falcon, 1 in 20)
+                x_, y_, w_, h_ = t[k_]; fb_ = min(fb_, 40)
+                parts.append(f'<div style="position:absolute;left:{x_ - fb_:g}px;top:{y_ - fb_:g}px;width:{w_ + 2 * fb_:g}px;height:{h_ + 2 * fb_:g}px;background:#000"></div>')
             parts.append(f'<div class="{k_}" style="position:absolute;{box(k_)}{ink_}"><span class="fitnum" data-avail="{t[k_][2] + 6}" data-h="{t[k_][3]}">{esc(str(card[k_]))}</span></div>')
     sec(None)
     sec('scomp')
@@ -2206,6 +2425,7 @@ def build_html(card: dict) -> str:
     .ltext.pre span, .dtext.pre span{{white-space:pre}}
     .ltitle .dot, .dtitle .dot{{font-family:"DejaVu Sans",sans-serif;color:#d4141c;font-size:0.8em;margin-right:6px;vertical-align:0.05em}}
     .ltitle .dot.plain, .dtitle .dot.plain{{color:inherit}}
+    {f".ltitle .dot:not(.plain), .dtitle .dot:not(.plain){{color:{bullet_colour(card)}}}" if bullet_colour(card) else ""}
     .ltitle span.lt, .dtitle span.lt{{display:inline-block;white-space:nowrap;transform-origin:center center}}
     .ltitle{{color:#000;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box}}
     .dtitle{{color:#fff;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box;transform:rotate(180deg)}}
