@@ -2135,6 +2135,12 @@ def build_html(card: dict) -> str:
             parts[i:j] = [f'<div class="piece" data-piece="{name}" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px{turn}">'] + parts[i:j] + ["</div>"]
         elif j > i and turn:
             parts[i:j] = [f'<div style="position:absolute;left:0;top:0;width:{W}px;height:{H}px{turn}">'] + parts[i:j] + ["</div>"]
+    if card.get("early_slip") and not is_wide(t) and not t.get("landscape"):
+        # rev 75: the 2002 Virtual Set #1 paper slip laid over the printed card's lower quarter (early_slip.py)
+        import early_slip
+        parts.append(f'<div class="piece" data-piece="slip" style="position:absolute;left:0;top:0;width:{W}px;height:{H}px">'
+                     + early_slip.html(card["early_slip"], 144, 144 + 1931, 1343 / early_slip.SLIP_W, 1931 / 252, esc,
+                                       {"text": "'PCText'", "stat": "'AGBoldCnA'", "mark": "'PCNum'"}) + "</div>")
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
     LP = dict(LORE_CSS, **card.get("_lore_css", {}))

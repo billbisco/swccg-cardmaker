@@ -848,3 +848,21 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     Solo; Light characters, effects, interrupts, weapons +7..+14 down), icon column (Light characters -4,+6 at 106 %,
     Dark +4,+6 at 108 %), Virtual Block set mark (effects / interrupts 6-8 px up), destiny and deploy numbers (Dark
     templates and starships 4-10 px up). After: every measured piece within 3 px (was up to 14).
+- Rev 75 (2026-11-12, Bill: "update CardMaker to be able to create cards utilizing those old (bad) slips"): **Early
+  Virtual slip** (`style: "early-slip"`, `early_slip.py`). The Players Committee's first sheet, Virtual Set #1
+  (decipher.com/starwars/cardlists/virtual/VirtualCards1.pdf, 6 March 2002, Adobe Illustrator 9; VirtualCards1a.pdf
+  the same 12 cards), was not drawn on Decipher's templates: flat vector strips cut out below their title label and
+  laid over the bottom of the printed card. Measured on the vector PDF (all 12 slips): a black U as wide as the card
+  (bar 8.95 pt, legs 8.66 pt, corners 3.8 x 4.5 pt), a flat band — characters a grey panel 55 pt high notched on the
+  right at 32.9 pt (icons stay visible; Light 211/210/210, Dark 94/91/92) with the new deploy (white box) over forfeit
+  (black box), Haettenschweiler 9 pt; starships a 12 pt band under the box (Light 35/140/212, Dark 45/86/174); weapons
+  and devices (93/196/102, 14/131/54) and effects (201/52/93, 161/35/36) a 12 pt band across — a white text box with a
+  0.5 pt rule (124.5 x 44.5 pt; starships 41.6 pt and 2.2 pt lower), game text Akzidenz-Grotesk BE Condensed 8/8 pt
+  ragged right (our HolotableTextPC, the same advance widths), and the set mark "(1)•N" (Wingdings negative circled
+  digit, Bold Italic number, 7 pt, white) in the bottom bar. The card under it is the Decipher printing (title without
+  "(V)"); the slip is cut to its outline by default (`early_slip.paper: true` = the whole printed rectangle with its
+  white paper, as on the sheet). Spec: `early_slip` = {kind, colour, deploy, forfeit, text, lines (printed breaks),
+  set, number, under_text (the original card's own text where it shows), keep_v_title, paper}; a version record with
+  `early_slip` opens on it (`adapter.apply_version`). Not on the VS1 sheet, so not measured: interrupts, locations,
+  vehicles, creatures, objectives (band kind, Effect colours) — and later early sets were not found on Wayback
+  (decipher.com hosted only VS1); every other card, template and style renders exactly as rev 74.

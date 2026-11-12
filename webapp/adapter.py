@@ -658,6 +658,17 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if not ovs and spec.get("expansion"):
         card["draw_system_ring"] = True
     gid_ = (spec.get("source") or {}).get("gempId") or spec.get("gempId") or ""
+    if spec.get("style") == "early-slip" or spec.get("early_slip"):
+        # rev 75: the original card as Decipher printed it, under the 2002 Virtual Set #1 paper slip (early_slip.py):
+        # the printed title has no "(V)"; the slip carries the virtual deploy / forfeit / game text
+        import early_slip
+        card["early_slip"] = early_slip.resolve(spec, card)
+        es_ = spec.get("early_slip") if isinstance(spec.get("early_slip"), dict) else {}
+        if isinstance(es_.get("under_text"), str):   # the original card's own text, where it shows round the cut slip
+            card["game_text"] = es_["under_text"][:1500]
+        if not es_.get("keep_v_title"):
+            card["title"] = re.sub(r"\s*\(V\)\s*$", "", card.get("title") or "")
+        return card
     if spec.get("pc_typeset") is not False and re.fullmatch(r"10\d\d[a-z]?_L\d+", gid_ or "") and not ovs \
             and not card["template"].startswith(("loc-", "ls-jeditest", "objective", "epic-event")):
         card["pc_type"] = spec["pc_typeset"] if isinstance(spec.get("pc_typeset"), dict) else legacy_typeset(gid_, card["template"], spec.get("side"))   # systems: the scan carries its own sphere; draw ours when there's none or it changed
@@ -692,6 +703,9 @@ def apply_version(spec: dict, v: dict, text: bool = True) -> dict:
     (STANDARD rev 71). Everything else (art, frame, title, lore, icons, slip number) stays the printed card's.
     Rev 73: the version's recorded stats (`stats`: destiny …; stat-only versions such as Jedi Survivor (V) PC-E1) go on
     too; text=False keeps the card's own text (a recorded text that lost its icons, opened without ?version)."""
+    if v.get("early_slip"):   # rev 75: a VO version whose image is a 2002 paper slip (early_slip.py)
+        spec["style"] = "early-slip"
+        spec["early_slip"] = v["early_slip"] if isinstance(v["early_slip"], dict) else {}
     for k, val in (v.get("stats") or {}).items():
         if k in ("destiny", "deploy", "forfeit"):
             spec[k] = str(val)
