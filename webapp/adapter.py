@@ -29,17 +29,41 @@ YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1
         "108": 1998, "109": 1998, "110": 1998, "111": 1998, "112": 1999, "15o": 2001}   # Remastered (15) prints no copyright line, as its renders
 
 
-def copyright_for(set_id) -> str:
-    """The vertical Lucasfilm / Decipher line printed beside the art (format as on the scans, cf. VS specs)."""
+DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "106", "108", "109", "110", "111", "112"}
+# rev 80: the line as each set printed it, read on the printed scans (wiki Decipher archive / Holotable 350 px faces, 4+ cards a
+# set). 1995-98 (Premiere .. Jabba's Palace and their premium sets): "TM & © y LUCASFILM LTD.  TM, ® & © y DECIPHER INC.";
+# Special Edition (Dec 1998) .. Death Star II and the 1999-2000 premium sets drop "TM &" and the first year:
+# "© LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC."; Reflections II .. Theed Palace (2000-01) bring the year back and
+# print no final period ("… DECIPHER INC"); Coruscant alone sets a comma after the ® ("TM, ®, & ©"). Enhanced Cloud City
+# (1999) prints no final period either. Every printing sets two spaces before the Decipher half and a full-size ®.
+SE_ERA = {"7", "8", "9", "109", "110", "111", "112"}
+PRINT_YEAR = {"101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
+NO_FINAL_PERIOD = {"10", "11", "12", "13", "14", "109"}
+
+
+def copyright_for(set_id, decipher: bool = True) -> str:
+    """The vertical Lucasfilm / Decipher line printed beside the art, word for word as each set printed it (rev 80).
+    decipher=False: the line as the Players Committee's slips reproduce it (the form before rev 80, kept for their cards)."""
     sid = str(set_id or "")
     if (sid.isdigit() and 200 <= int(sid) <= 299) or sid == "200d":
         return "ARTWORK NEITHER AFFILIATED WITH NOR ENDORSED BY LUCASFILM LTD."   # the modern PC cards (I Want That Map)
-    y = YEAR.get(sid)
+    if not decipher:
+        y = YEAR.get(sid)
+        if not y:
+            return ""
+        if y >= 2000:
+            return f"© {y} LUCASFILM LTD. & TM. TM, ® & © {y} DECIPHER INC."
+        return f"TM & © {y} LUCASFILM LTD. TM, ® & © {y} DECIPHER INC."
+    y = PRINT_YEAR.get(sid) or YEAR.get(sid)
     if not y:
         return ""
+    end = "" if sid in NO_FINAL_PERIOD else "."
+    reg = "®," if sid == "12" else "®"
+    if sid in SE_ERA:
+        return f"© LUCASFILM LTD. & TM.  TM, {reg} & © {y} DECIPHER INC{end}"
     if y >= 2000:
-        return f"© {y} LUCASFILM LTD. & TM. TM, ® & © {y} DECIPHER INC."
-    return f"TM & © {y} LUCASFILM LTD. TM, ® & © {y} DECIPHER INC."
+        return f"© {y} LUCASFILM LTD. & TM.  TM, {reg} & © {y} DECIPHER INC{end}"
+    return f"TM & © {y} LUCASFILM LTD.  TM, {reg} & © {y} DECIPHER INC{end}"
 
 
 def set_mark_for(set_id) -> str | None:
@@ -325,7 +349,7 @@ def gemp_to_spec(c: dict) -> dict:
         if lab.get("slip_mark"):
             spec["number"] = str(lab["slip_mark"])
         if not lab.get("copyright") and c.get("_print_base_set"):
-            spec["copyright"] = copyright_for(c["_print_base_set"])
+            spec["copyright"] = copyright_for(c["_print_base_set"], decipher=False)   # rev 80: the PC slip's form
     if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
     if c.get("legacy"):
@@ -637,6 +661,11 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         card["ring_fill"] = not str(card.get("set_mark") or "").startswith("pc:")
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
+        # rev 80: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
+        # and copyright line where Decipher printed them (render.DC_PRINT); PC and Virtual Block cards keep the PC's
+        _sid = str((spec.get("source") or {}).get("set") or "")
+        card["decipher_print"] = (_sid in DECIPHER_SETS or (not _sid and not str(card.get("set_mark") or "").startswith("pc")))
+        card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
         if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":

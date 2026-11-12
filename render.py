@@ -1759,6 +1759,71 @@ for _sd in ("ls", "ds"):
 _PC_ADV: dict = {}
 
 
+# rev 80: Decipher's own placement of the expansion sphere and the vertical copyright line (card key decipher_print,
+# set by the card maker for cards of Decipher's sets; VS remasters and Players Committee cards keep the template).
+# Measured on printed scans (Holotable 745 px and 350 px faces, Decipher archive scans), registered to our render
+# by an affine fit of the whole card (scratch tool m2.py; STANDARD rev 80). Per template: dc_sphere = centre x, y and
+# diameter (master px) of the sphere with its own dark rim; dc_copy = centre x, y (master px) of the copyright line.
+DC_COPY = {"size": 28, "ls": 1, "ws": 5, "cond": 0.83, "ring": 25, "ring_w": 2.2, "ring_letter": 18, "ring_va": -2, "ring_m": 1}
+DC_SPHERE_BEVEL = (6, "rgba(104, 108, 112, 0.5)")   # rev 80: width (master px) and fill of the frame's bevel round the hole: it pulls the frame towards mid grey (darker on Light frames, lighter on Dark ones, as printed)
+DC_PRINT: dict = {
+    "creature-dc": {"dc_sphere": (1414, 440, 56), "dc_copy": (1442, 1017), "dc_copy_ink": "#000"},   # printed in black (Bubo, Worrt)
+    "ds-character-alien": {"dc_sphere": (1409, 439, 56), "dc_copy": (1439, 1051)},
+    "ds-character-droid-dc": {"dc_sphere": (1410, 438, 56), "dc_copy": (1438, 1048)},
+    "ds-character-imperial": {"dc_sphere": (1413, 438, 56), "dc_copy": (1438, 1047)},
+    "ds-device": {"dc_sphere": (1411, 444, 56), "dc_copy": (1441, 1037)},
+    "ds-effect": {"dc_sphere": (1412, 432, 56), "dc_copy": (1439, 1035)},
+    "ds-interrupt": {"dc_sphere": (1412, 433, 56), "dc_copy": (1441, 1034)},
+    "ds-podracer": {"dc_copy": (1436, 1038)},   # sphere: the Podracer template's own (rev 80 Podracer agent, all five cards)
+    "ds-shield-dc": {"dc_sphere": (1408, 436, 56), "dc_copy": (1433, 1036)},
+    "ds-starship-starfighter": {"dc_sphere": (1402, 440, 56), "dc_copy": (1432, 1025)},
+    "ds-vehicle": {"dc_sphere": (1408, 445, 56), "dc_copy": (1437, 1019)},
+    "ds-weapon": {"dc_sphere": (1413, 441, 56), "dc_copy": (1439, 1039)},
+    "ls-character-alien": {"dc_sphere": (1420, 435, 56), "dc_copy": (1448, 1041)},
+    "ls-character-alien-rebel": {"dc_sphere": (1413, 440, 56), "dc_copy": (1433, 1054)},
+    "ls-character-droid-dc": {"dc_sphere": (1416, 439, 56), "dc_copy": (1442, 1042)},
+    "ls-character-rebel": {"dc_sphere": (1412, 441, 56), "dc_copy": (1439, 1044)},
+    "ls-device": {"dc_sphere": (1411, 446, 56), "dc_copy": (1438, 1037)},
+    "ls-effect": {"dc_sphere": (1413, 441, 56), "dc_copy": (1440, 1034)},
+    "ls-interrupt": {"dc_sphere": (1414, 441, 56), "dc_copy": (1441, 1040)},
+    "ls-podracer": {"dc_copy": (1430, 1036)},
+    "ls-shield-dc": {"dc_sphere": (1410, 446, 56), "dc_copy": (1436, 1035)},
+    "ls-starship-starfighter": {"dc_sphere": (1416, 445, 56), "dc_copy": (1440, 1016)},
+    "ls-vehicle": {"dc_sphere": (1412, 446, 56), "dc_copy": (1440, 1014)},
+    "ls-weapon": {"dc_sphere": (1413, 446, 56), "dc_copy": (1439, 1037)},
+    # printed Jedi Tests: white line in the olive margin, 204-508 px (745) on It Is The Future You See, Size Matters Not,
+    # You Must Confront Vader; sphere centre (683.5, 173.5) at 745
+    "ls-jeditest-olive": {"dc_sphere": (1437, 419, 56), "dc_copy": (1444, 784), "dc_copy_ink": "#fff"},
+    # Admiral's Orders: white line over the picture right of the text box (Battle Deployment, I'll Try Spinning: 715-978 px
+    # at 745); drawn only over an uploaded / library picture, the printed scan carries its own
+    "ls-admirals-order": {"dc_sphere": (1415, 440, 56), "dc_copy": (1440, 1764), "dc_copy_ink": "#fff", "dc_copy_unless_scan": True},
+    "ds-admirals-order": {"dc_sphere": (1415, 440, 56), "dc_copy": (1440, 1764), "dc_copy_ink": "#fff", "dc_copy_unless_scan": True},
+    # wide cards (the picture is the printed scan, which carries its own line): sphere 8-10 px (745) lower than the template
+    "ds-starship-wide": {"dc_sphere": (1980, 464, 56)},       # Executor, Flagship Executor
+    "ds-weapon-wide": {"dc_sphere": (1958, 472, 56)},         # Maul's Double-Bladed Lightsaber
+    # sites: sphere 3 px right and larger (56); the line in black (the frame is silver on both sides), ~4 % larger than
+    # on the portrait cards and ~20 px (745) lower than the template had it, ending well below the sphere (Sandcrawler:
+    # Loading Bay, Tatooine: Podrace Arena, Cloud City: Upper Walkway)
+    "loc-site": {"dc_sphere": (2022, 480, 56), "dc_copy": (2017, 840), "dc_copy_size": 29, "dc_copy_ink": "#000"},
+    # systems: the sphere 8 px left / 4 up (745) on 11 Light systems (Premiere-Death Star II, OTSD); the split line 3 px lower
+    "loc-system": {"dc_system_ring": (149, 188, 56), "dc_split": ((197, 1902), (1435, 1902))},
+}
+
+
+def dc_template(t: dict, dc: dict) -> dict:
+    """The template with Decipher's printed sphere / copyright geometry; Episode I discs under the sphere follow it."""
+    t = dict(t, **dc)
+    if "dc_sphere" in dc and "expansion_ring" in t:
+        sz = t.get("expansion_size", 62); cx, cy, _ = dc["dc_sphere"]
+        t["expansion_ring"] = (round(cx - sz / 2), round(cy - sz / 2))
+    return t
+
+
+def dc_copy_html(text: str) -> str:
+    """The copyright line as Decipher set it: © and ® as full-size thin circles round a small letter."""
+    return "".join(f'<span class="cr">{"C" if ch == "©" else "R"}</span>' if ch in "©®" else esc(ch) for ch in text)
+
+
 def podracer_flag_file(card: dict):
     """rev 77: the pilot flag image for a Podracer: an uploaded file (podracer_flag_file, resolved by the web app) or one of
     the five printed flags (podracer_flag = slug -> assets/icons/podracer-flag-<slug>.png)."""
@@ -1894,6 +1959,8 @@ def foil_html(fr, fx: int, fy: int, holes=()) -> str:
 
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
+    if card.get("decipher_print") and DC_PRINT.get(card["template"]):
+        t = dc_template(t, DC_PRINT[card["template"]])   # rev 80: sphere and copyright line where Decipher printed them
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     card_ctx["_pc_icons"] = bool(card.get("pc_type"))
     pcg0 = (card.get("pc_type") or {}).get("gt")
@@ -2346,7 +2413,15 @@ def build_html(card: dict) -> str:
         if t.get("expansion_halo"):   # rev 80: the frame's ring round the combo sphere (Light: red paint; Dark: lighter rim)
             hc_, hp_ = t["expansion_halo"]
             parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_}"></div>')
-        if card.get("expansion_icon_in_hole", True) and not t.get("expansion_bare"):
+        if t.get("dc_sphere") and card.get("decipher_print"):
+            # rev 80: Decipher's printed sphere: the disc (its own dark rim included) in a hole only 1 px wider, the
+            # frame's light bevel showing round it (measured on 120 printed scans, see DC_PRINT)
+            cx_, cy_, d_ = t["dc_sphere"]
+            bw_ = DC_SPHERE_BEVEL[0]   # the frame's grey bevel round the hole (r 15-17.5 px at 745 on every scan)
+            parts.append(f'<div style="position:absolute;left:{cx_ - d_ / 2 - bw_:g}px;top:{cy_ - d_ / 2 - bw_:g}px;width:{d_ + 2 * bw_:g}px;height:{d_ + 2 * bw_:g}px;border-radius:50%;background:{DC_SPHERE_BEVEL[1]}"></div>')
+            parts.append(f'<div style="position:absolute;left:{cx_ - d_ / 2 - 1:g}px;top:{cy_ - d_ / 2 - 1:g}px;width:{d_ + 2:g}px;height:{d_ + 2:g}px;border-radius:50%;background:#000"></div>')
+            parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{cx_ - d_ / 2:g}px;top:{cy_ - d_ / 2:g}px;width:{d_:g}px;height:{d_:g}px">')
+        elif card.get("expansion_icon_in_hole", True) and not t.get("expansion_bare"):
             # printed cards: the set icon is a sphere sitting in a black hole of the frame
             hc_, hp_ = t.get("expansion_hole", ("#000", 1))
             parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>' if hp_ > 1 else
@@ -2364,6 +2439,10 @@ def build_html(card: dict) -> str:
     if card.get("expansion_icon") and t.get("system_ring") and card.get("draw_system_ring"):
         # systems keep the scan whole (its own sphere included): drawn only when asked (card maker: no scan, or a new set)
         x, y, sz = t["system_ring"]
+        if card.get("decipher_print") and t.get("dc_system_ring"):
+            x, y, sz = t["dc_system_ring"]   # rev 80: where the printed systems carry it (Light systems, sets 1-9)
+            # in a dark grey ring ~5 px (745) wide, as printed on the starfield (Corellia, Bespin)
+            parts.append(f'<div style="position:absolute;left:{x - 10}px;top:{y - 10}px;width:{sz + 20}px;height:{sz + 20}px;border-radius:50%;box-sizing:border-box;background:#000;border:9px solid #3c3e41"></div>')
         ic_ = card["expansion_icon"]
         if "episode1" in (card.get("ring_icons") or []) and card.get("set_mark"):
             ic_ = "icons/inline-episode1.png"   # PC Episode I systems print the circled Episode I icon there (Naboo (V))
@@ -2425,14 +2504,28 @@ def build_html(card: dict) -> str:
         txt = card["copyright"]
         cut = txt.find("TM, ®")
         halves = (txt[:cut].strip(), txt[cut:].strip()) if cut > 0 else (txt, "")
-        for (cx, cy, cw, ch), part in zip(t["copyright_split"], halves):
+        dc_ = card.get("decipher_print")
+        boxes_ = t["copyright_split"]
+        if dc_ and t.get("dc_split"):   # rev 80: the two halves where Decipher printed them (centre x, y)
+            boxes_ = [(x_ - 18, y_ - 210, 36, 420) for x_, y_ in t["dc_split"]]
+        for (cx, cy, cw, ch), part in zip(boxes_, halves):
             if part:
                 parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
-                             f'<div class="copyin" style="color:#fff">{esc(part)}</div></div>')
+                             f'<div class="copyin{" dccopy" if dc_ else ""}" style="color:#fff">{dc_copy_html(part) if dc_ else esc(part)}</div></div>')
+    elif card.get("copyright") and t.get("dc_copy") and card.get("decipher_print") and not (t.get("dc_copy_unless_scan") and card.get("art_scan")):
+        # rev 80: Decipher's typesetting of the line (taller, condensed, full-size circled © and ®), centred on dc_copy;
+        # full-art Admiral's Orders print it over the picture (a scan already carries it: dc_copy_unless_scan)
+        dcx, dcy = t["dc_copy"]
+        ink_ = (f'color:{t["dc_copy_ink"]};' if t.get("dc_copy_ink") else "") + (f'font-size:{t["dc_copy_size"]}px;' if t.get("dc_copy_size") else "")
+        ink_ = f' style="{ink_}"' if ink_ else ""
+        parts.append(f'<div class="copy" style="position:absolute;left:{dcx - 30:g}px;top:{dcy - 600:g}px;width:60px;height:1200px">'
+                     f'<div class="copyin dccopy"{ink_}>{dc_copy_html(card["copyright"])}</div></div>')
     elif card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
+        # rev 80: a Decipher card keeps the template's place but takes Decipher's typesetting (full-size ®)
+        dc_ = card.get("decipher_print")
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
-                     f'<div class="copyin">{esc(card["copyright"])}</div></div>')
+                     f'<div class="copyin{" dccopy" if dc_ else ""}">{dc_copy_html(card["copyright"]) if dc_ else esc(card["copyright"])}</div></div>')
     sec('art_credit')
     # PC art credit up the left side of the art ("Image courtesy of Jesus Conde", Endless Legions VS26; swccg-guild/work#100):
     # the copyright line's mirror image about the art window, same face and size
@@ -2650,6 +2743,8 @@ def build_html(card: dict) -> str:
     .copy{{display:flex;align-items:center;justify-content:center}}
     .credit{{font-family:AGCn;font-style:italic;font-size:40px;color:#000;white-space:nowrap;transform:rotate(-90deg)}}
     .copyin{{font-family:AGBoldCnA;font-size:{t.get("copy_size", 24)}px;color:{ink};letter-spacing:{t.get("copy_ls", 1)}px;white-space:nowrap;transform:rotate(-90deg)}}
+    .copyin.dccopy{{white-space:pre;font-size:{DC_COPY["size"]}px;letter-spacing:{DC_COPY["ls"]}px;word-spacing:{DC_COPY["ws"]}px;transform:rotate(-90deg) scaleX({DC_COPY["cond"]})}}
+    .dccopy .cr{{display:inline-block;box-sizing:border-box;width:{DC_COPY["ring"]}px;height:{DC_COPY["ring"]}px;border:{DC_COPY["ring_w"]}px solid currentColor;border-radius:50%;font-size:{DC_COPY["ring_letter"]}px;line-height:{DC_COPY["ring"] - 2 * DC_COPY["ring_w"]}px;text-align:center;vertical-align:{DC_COPY["ring_va"]}px;overflow:hidden;letter-spacing:0;margin:0 {DC_COPY["ring_m"]}px}}
     """
     if card.get("lang") == "ja":
         import lang_ja

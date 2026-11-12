@@ -1132,3 +1132,40 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   adapter.copyright_for, all 2000+ sets); printed lore / game text use curly apostrophes (Anakin's, owner's, doesn't);
   the printed Tatooine sphere is octagonal (our tatooine sphere icon is round); the shared `icons/ep1-disc.png` (VS14,
   67 px) differs from Decipher's printed disc on every Episode I-era Decipher card.
+- Rev 80 sphere and copyright audit (2026-11-12): the expansion sphere and the vertical copyright line of every
+  Decipher-printed template other than the no-lore combos, Objectives and Epic Events, measured against the printed
+  cards. 166 cards (2-6 a template, every era: Premiere, ANH-JP, SE-DSII and the premium sets, Reflections II-Theed)
+  rendered and compared with their printed faces (Holotable 350 / 745 px faces and the wiki's Decipher archive scans),
+  each scan registered to our render by an affine ECC fit of the whole card; sphere found by multi-scale template match
+  of Decipher's own sphere, copyright line by its ink extent and by template-matching our line into the scan.
+  - **Scope switch:** new card key `decipher_print` (set by `adapter.spec_to_card` for a card of a Decipher set, or a new
+    card with no Players Committee set mark). Only those cards change: VS remasters, PC and Virtual Block cards keep
+    the templates as fitted to the PC (md5-identical, 13 cards checked: VS0-27 characters / interrupts / sites /
+    starships / effects, four Virtual Block legacy cards, Reflections Gold).
+  - **Sphere** (`render.DC_PRINT[template]["dc_sphere"]` = centre x, y and diameter, master px): Decipher prints it
+    56 px across with its own dark rim, in a hole only 1 px wider, the frame's bevel (`DC_SPHERE_BEVEL`, a 6 px ring
+    pulling the frame to mid grey) round it; we drew 58-66 px inside a 3 px black ring. Positions moved by up to
+    29 master px (Light alien characters: 14.7 px (745) right, 4 down); Light devices, weapons, vehicles, starships,
+    shields, Dark vehicles and creatures 4-5 px (745) down; Dark starships 5.5 px left; Jedi Tests 6 / 5.5 px right /
+    down; wide starships / weapon 8-10 px down; sites 3 px right and 50 → 56 px; systems 8 px left / 4 up, in a dark
+    grey ring (`dc_system_ring`). Episode I discs under the sphere follow it (`dc_template`). Residual on the sample
+    after the fix: ≤ 1 px (745) on every portrait template, ≤ 2 px on wide / site / system.
+  - **Copyright line** (`DC_PRINT[...]["dc_copy"]` = centre x, y; `dc_copy_ink`, `dc_copy_size`, `dc_split` for
+    systems, `dc_copy_unless_scan` for full-art Admiral's Orders): Decipher's line is taller and more condensed than
+    ours and centred beside the art. New typesetting `DC_COPY` (applies to every Decipher-printed card, the combos,
+    Objectives and Epic Events included, at their own positions): Holotable Text Bold 28 px condensed to 83 %,
+    word-spacing +5, © and ® as full-size circles (25 px, 2.2 px ring, 18 px letter) where we printed a small superscript
+    ®; run length now within 2-3 px (745) of the crisp scans (was 15-25 px short). Centres moved: Dark characters,
+    devices, weapons 8-9 px (745) right (Imperial 16 px: rev 79 had fitted it to the PC), Dark shields 5.5, Light 1-4;
+    Dark effects / interrupts / shields 4-5 px up; Jedi Tests white (was black) and 11 px right; creatures black (was
+    white); sites black (was white), 20 px lower and slightly larger; systems' split halves 3 px lower. Residual ≤ 3 px.
+  - **Wording** (`adapter.copyright_for`, read on ≥ 4 scans a set): 1995-98 `TM & © y LUCASFILM LTD.  TM, ® & © y
+    DECIPHER INC.`; Special Edition, Endor, Death Star II, Enhanced Cloud City / Jabba's Palace, Third Anthology, JP
+    Sealed Deck `© LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC.` (we printed "TM & © 1998 LUCASFILM" on all of
+    them); Reflections II-Theed `© y LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC` with no final period; Coruscant
+    `TM, ®, & ©`; Enhanced Cloud City no final period. Years corrected: Premiere Two-Player 1995, ESB Two-Player 1996,
+    Enhanced Cloud City / Jabba's Palace 1999, Third Anthology and JP Sealed Deck 2000. Two spaces before the Decipher
+    half on every printing. PC slips keep their own form (`copyright_for(set, decipher=False)`).
+  - **Not changed here (other templates' owners / not near the elements):** Jedi Test frame (printed silver with olive
+    speckle, art window and banner placement differ), creature frame, ANH site frames (printed blue), the wide
+    starship's type icon. Evidence sheets: per template scan | before | after with x4 sphere and x3 copyright zooms.
