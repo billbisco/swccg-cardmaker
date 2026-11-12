@@ -1741,11 +1741,11 @@ for _sd in ("ls", "ds"):
                                         game_text=(312, 1664, 1050, 330) if _sd == "ls" else (312, 1666, 1006, 335),
                                         # rev 80: sphere 58 px across (outline incl.), centre Dark (1408, 435.5) / Light
                                         # (1410, 445); the Episode I disc under it 58 px, centre (1408, 536), Decipher's
-                                        # printed disc (tall I, small EPISODE: tools/make_ep1_disc_decipher.py)
+                                        # printed disc (the one measured Episode I disc: tools/make_ep1_disc.py, rev 80 text and icons)
                                         expansion_size=56, expansion_ring=(1382, 417) if _sd == "ls" else (1380, 407), expansion_inset=2,
                                         ring_disc_size=58, ring_disc_dx=-3 if _sd == "ls" else -1,
                                         ring_disc_dy=4 if _sd == "ls" else 14,
-                                        ring_disc_icons={"episode1": "icons/ep1-disc-decipher.png"},
+                                        ring_disc_icons={"episode1": "icons/ep1-disc.png"},
                                         # rev 80: "PODRACER" printed 4 % smaller, tighter, 5 px lower (x 675..961 x 1521..1562)
                                         ctype_size=59.5, ctype_spacing=10.8,
                                         card_type=(269, 1512, 1109, 61) if _sd == "ls" else (269, 1511, 1109, 61),

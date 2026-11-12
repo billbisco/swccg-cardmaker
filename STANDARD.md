@@ -1121,7 +1121,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   digit sits 4-6 px above the circle's centre); `disc_at` (192, 187) / (185, 182); expansion sphere 56 px at
   (1380, 407) / (1382, 417), `expansion_inset` 2 (thin outline; new key, default 4); Episode I disc 58 px centred (1408,
   536) (`ring_disc_size`, `ring_disc_dx`, `ring_disc_icons` new keys, defaults = before) drawn with
-  `icons/ep1-disc-decipher.png` (`tools/make_ep1_disc_decipher.py`: Decipher's tall heavy I over a small dim EPISODE);
+  `icons/ep1-disc.png` (the one measured disc of the text-and-icons pass; the pod2 `ep1-disc-decipher.png` was dropped);
   banner "PODRACER" 59.5 px, spacing 10.8, box (269, 1511/1512); art (254, 668) / (244, 666); copyright `copy_ls` 1.0 in
   box (1420, 661 / 666) (printed 735..1352). **Teemto Pagalies' Podracer** lore set by hand ("is designed" starts line
   2): `gempdata/fill.json` "11_98": "loreLines" -> spec `lore_lines` (adapter.gemp_to_spec: any card's fill.json
