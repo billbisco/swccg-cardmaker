@@ -376,6 +376,18 @@ TEMPLATES["ds-starship-wide"].update(card_type=(900, 239, 920, 65), ctype_size=6
     ctype_centre_to=1845)               # banner centred between the title's end and x 1845 (Executor 1225, Flagship 1366)
 TEMPLATES["ds-starship-wide"].pop("gt_size")
 TEMPLATES["ds-starship-wide-nolore"] = dict(TEMPLATES["ds-starship-wide"], frame=("frames/ds-starship-wide-nolore.png", 0, 0))   # Finalizer (AI): no lore box
+# rev 81 (PC wide starships): the Players Committee's landscape Finalizer and Finalizer (AI) (Virtual Set 4, both
+# printed 1039 x 745) on the same frame, measured on their printed faces (wiki V4-D-finalizer.gif / _ai.gif, 745 px,
+# x 2 + Holotable offset = master): banner left-set 108 px after the title's end (printed 345..837 at 745, title end 291),
+# wider (ctype_spacing 3) and 6 px higher; title 8 px left; Episode VII disc in the left margin (centre (252, 476), 76 px:
+# the scan's own ring), not in the sphere ring; the Virtual Set 4 mark after the icon boxes (printed ring centre
+# (1948, 1152)); labels (caption, (AI) stamp, art credit) turned a quarter left into the right margin, the credit upright
+for _k in ("ds-starship-wide", "ds-starship-wide-nolore"):
+    TEMPLATES[_k + "-pc"] = dict(TEMPLATES[_k], ctype_centre_to=None, ctype_after_title=108, ctype_spacing=0.95,
+                                 card_type=(900, 233, 1100, 65), title=(434, 219, 800, 112),
+                                 ring_disc_left=(252, 476, 82), ring_disc_left_files={"episode7": "icons/ep7-disc-blue.png"}, set_icon_abs=(1916, 1104), set_icon_size=70, set_ring=(100, 80, -33),
+                                 icon_slots=[(x - 6, y + 10) for x, y in TEMPLATES[_k]["icon_slots"]],
+                                 labels_rotated=True, label_presets={"concept": {"italic": False, "size": 51}})   # credit upright, 231 px long at 745
 # Decipher's printed creatures (Worrt, Bog-wing): black title and the banner (GUARD CREATURE) — card maker; the VS
 # remasters keep "creature" as approved (white title, empty banner)
 TEMPLATES["creature-dc"] = dict(TEMPLATES["creature"], card_type=(271, 1466, 1109, 61), title_ink="#000", ctype_ink="#000")
@@ -1391,9 +1403,21 @@ def starship_frame(frame: Image.Image, card: dict, t: dict, DL: int, DD: int) ->
     paint = silver & ~keep
     lum = rgb.mean(axis=2, keepdims=True) / 172.0
     dc = bool(card.get("decipher_print"))   # rev 81: Decipher's printed blue, sampled on the margins of 9 printed sites
-    if card["frame_style"] == "ls-starship":
+    if card["frame_style"] == "ls-starship" and dc:
         # printed Light: Sandcrawler: Loading Bay (33, 105, 165), Home One: War Room (36, 107, 157); ours was (41, 128, 175)
-        col = np.array([32.4, 97.7, 149.0] if dc else [38, 118, 162], float)
+        col = np.array([32.4, 97.7, 149.0], float)
+        # rev 81 (site wear): Decipher's worn paint, the per-pixel median of four printed Light faces
+        # (tools/make_site_wear.py): large scratched patches, heaviest on the strips beside the picture, a silver rim
+        wm = np.array(Image.open(ASSETS / "frames/site-wear-light.png").convert("L")) > 127
+        if DL or DD:   # a taller text box moved the frame's rows (loc_frame): move the wear with them
+            old = wm.copy()
+            if DL:
+                wm[1096 - DL:1320 - DL] = old[1096:1320]; wm[1320 - DL:1320] = old[1272:1272 + DL]
+            if DD:
+                wm[160 + DD:381 + DD] = old[160:381]; wm[160:160 + DD] = old[122:122 + DD]
+        paint &= ~wm
+    elif card["frame_style"] == "ls-starship":
+        col = np.array([38, 118, 162], float)
         import zlib   # rev 57: str hash() is salted per process, so the worn-paint pattern changed on every run
         rng = np.random.default_rng(zlib.crc32(card["id"].encode("utf-8")))
         from PIL import ImageFilter
@@ -2712,7 +2736,8 @@ def build_html(card: dict) -> str:
             if nm in ("episode1", "episode7") and not _nd and t.get("ring_disc_left") and not nd_used:
                 # rev 78: printed Objectives / Epic Events: the Episode disc in the left margin under the type disc (We Have A Plan)
                 ncx, ncy, nsz = t["ring_disc_left"]
-                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{ncx - nsz / 2}px;top:{ncy - nsz / 2}px;width:{nsz}px;height:{nsz}px;border-radius:50%">')
+                _df = t.get("ring_disc_left_files", {}).get(nm, RING_DISCS[nm])   # rev 81: the PC Finalizers' blue-ringed disc
+                parts.append(f'<img src="{data_uri(ASSETS / _df)}" style="position:absolute;left:{ncx - nsz / 2}px;top:{ncy - nsz / 2}px;width:{nsz}px;height:{nsz}px;border-radius:50%">')
                 nd_used = True
                 continue
             if nm in RING_DISCS and _nd and not nd_used:
@@ -2884,7 +2909,14 @@ def build_html(card: dict) -> str:
     # card "errata_mark": "D-E1" is a shortcut for {"preset": "errata", "text": "D-E1"}; "labels": [{preset|x/y, text, …}]
     for i_, lb in enumerate(card_labels(card)):
         sec(f"label{i_}")
-        parts.append(label_html(lb, W, H))
+        if t.get("labels_rotated"):
+            # rev 81: the PC's landscape starships (Finalizer, Finalizer (AI)) set the labels as on a portrait card turned a
+            # quarter left: the caption, the (AI) stamp and the art credit read upward in the right margin
+            parts.append(f'<div style="position:absolute;left:0;top:0;width:{H}px;height:{W}px;transform-origin:0 0;'
+                         f'transform:translate(0px,{H}px) rotate(-90deg)">'
+                         f'{label_html(dict(t.get("label_presets", {}).get(lb.get("preset"), {}), **lb), H, W)}</div>')
+        else:
+            parts.append(label_html(lb, W, H))
     # user layers (card maker): free text boxes and pictures, each its own piece "x:<id>" (move / resize / hide / reset)
     for ex in (card.get("extras") or [])[:30]:
         if not isinstance(ex, dict):
@@ -3196,6 +3228,12 @@ def build_html(card: dict) -> str:
                                           for kk in ("dx", "dy", "sx", "sy", "hidden") if v.get(kk) is not None}
            for k, v in (card.get("layout") or {}).items() if isinstance(v, dict)}
     fit_js = fit_js.replace("__LAYOUT__", json.dumps(lay))
+    if t.get("ctype_after_title"):   # rev 81: the PC's wide starships set the banner a fixed gap after the title's end
+        fit_js = fit_js.replace("      document.body.dataset.ready = '1';", """      { const ti = document.querySelector('.title'), ct = document.querySelector('.ctype');
+        if (ti && ct) { const r = document.createRange(); r.selectNodeContents(ti); const tr = r.getBoundingClientRect().right;
+          const sp = ct.querySelector('.ct'); const sl = (sp || ct).getBoundingClientRect().left;
+          ct.style.left = (ct.offsetLeft + tr + %d - sl) + 'px'; } }
+      document.body.dataset.ready = '1';""" % t["ctype_after_title"], 1)
     if t.get("ctype_centre_to"):   # rev 81: the wide capital's banner is centred between the title's end and the destiny
         fit_js = fit_js.replace("      document.body.dataset.ready = '1';", """      { const ti = document.querySelector('.title'), ct = document.querySelector('.ctype');
         if (ti && ct) { const r = document.createRange(); r.selectNodeContents(ti); const tr = r.getBoundingClientRect().right;

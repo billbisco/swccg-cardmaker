@@ -1434,3 +1434,35 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     templates, so nothing was warped. PC and Japanese renders are untouched by this revision: md5-identical before /
     after for the Japanese samples Darth Vader, Luke Skywalker, Admiral Ozzel, PC cards 223_40, 200_105, 205_14, 213_12,
     211_48, 211_47, and Decipher 1_3, 1_74, 1_140, 9_113, 9_55.
+- Rev 81 (site wear and PC wide starships) (2026-11-12): two follow-ups to rev 81 frames, measured on printed faces.
+  - **Light starship / vehicle site wear** (`ls-starship`, Decipher printings only, `decipher_print`): the procedural
+    fine speckle is replaced by Decipher's worn paint as printed: large scratched patches, heaviest on the strips
+    between the title bars and the picture, a silver outer rim and window rim. `tools/make_site_wear.py` registers
+    four printed Light faces (wiki: Sandcrawler: Loading Bay hi-res 2073 px; Decipher archive images of Home One: War
+    Room, Home One: Docking Bay, Blockade Flagship: Docking Bay) to the site frame by ECC (affine), classifies each
+    pixel of the frame's paint zone as blue / silver / ink (Otsu on blue - red per face), and takes the per-pixel
+    median (ink left out) -> `assets/frames/site-wear-light.png` (frame coordinates, 255 = worn; 44 % of the zone).
+    No smoothing or retouching; under the copyright line (ink on all four) the paint stays. Rows move with a taller
+    text box exactly as the frame does. The Light colour (32.4, 97.7, 149) is unchanged. Each Light card has its own
+    patches on the print (the hi-res and archive Loading Bay agree, so the wear is printed, not handling damage); the
+    median gives the shared character, not any one card's pattern. Dark blue sites: the six hi-res Dark faces (Droid
+    Junkheap, five Executor sites) show smooth unworn paint, as we render it: unchanged. PC / non-Decipher Light
+    starship sites (Profundity: Docking Bay) keep the previous speckle (unchanged).
+  - **PC landscape starships** (Finalizer 204_54 and Finalizer (AI) 204_54^AI, both printed 1039 x 745): Finalizer
+    (AI) was missing from WIDE_PRINTED (its printing id carries ^AI) and rendered on the portrait starfighter frame;
+    now on the wide frame without lore box. The PC printed the round type disc too (no square icon): kept. Both take
+    new templates `ds-starship-wide-pc` / `ds-starship-wide-nolore-pc` (adapter: wide starship with a `pc:` set mark),
+    measured on wiki V4-D-finalizer.gif / V4-D-finalizer_ai.gif (745 px; x 2 + Holotable offset = master): banner
+    left-set 108 px after the title's end (`ctype_after_title`, printed 345..837, ours 344..837), `ctype_spacing`
+    0.95, y 233; title y 219 (printed cap top 76); class name italic (_RESURGENT_-CLASS) as printed; the Episode VII
+    disc in the left margin (`ring_disc_left` (252, 476, 82), not under the destiny) with the PC's broad blue ring
+    (`assets/icons/ep7-disc-blue.png`, ring profile measured on the two faces by `tools/make_ep7_disc_blue.py`); the
+    Virtual Set 4 mark after the icon boxes (`set_icon_abs` (1916, 1104), size 70: digit 924..947 x 524..558 printed,
+    926..946 x 524..557 ours); icon boxes 10 px lower and 6 px left (within 1 px of print); the PC labels turned a
+    quarter left into the right margin (`labels_rotated`: caption "Executor", the (AI) stamp and logo, the art credit,
+    within 2-3 px of print; the credit upright at 51 px, `label_presets`). Executor and Flagship Executor (Decipher)
+    unchanged.
+  - **Checks:** md5 identical before / after (holotable PNG): 1_19, 1_283, 1_121, 1_70, 7_135, Dark blue sites 4_159,
+    2_149, 12_164, Executor 4_167, Flagship Executor 9_157, Profundity: Docking Bay 217_44, Death Star: Docking Bay 1_124
+    and the Japanese samples darth_vader / luke_skywalker / admiral_ozzel (tools/japanese/samples). Changed as intended:
+    2_66, 9_57, 9_58, 14_48 (wear), 204_54, 204_54^AI.

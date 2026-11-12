@@ -631,14 +631,14 @@ def gemp_to_spec(c: dict) -> dict:
         spec["slip_type"] = "Admiral's Order"
     else:
         spec["slip_type"] = typ or "Effect"; spec["card_type"] = typ.upper()
-    if typ in ("Starship", "Vehicle") and str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
+    if typ in ("Starship", "Vehicle") and (str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS or c.get("gempId") in WIDE_PRINTED):
         # rev 81: Decipher set the class name italic in the banner (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
         # _VICTORY_-CLASS, _SUPER_-CLASS: Devastator, Victory-Class Star Destroyer, Executor, Flagship Executor)
         spec["card_type"] = re.sub(r"(?<![_\w])([A-Z]{3,})(?=-CLASS\b)", r"_\1_", spec.get("card_type") or "")
     return finish(spec)
 
 
-WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "200_41", "204_47"}   # QA 2026-10-15: every non-location scan printed landscape   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
+WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "204_54^AI", "200_41", "204_47"}   # QA 2026-10-15: every non-location scan printed landscape   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
 
 
 def objective_text(t: str, front: bool) -> str:
@@ -762,6 +762,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["disc"] = "mission"   # the teal hologram type disc
         if card["template"] == "ds-starship-wide" and not (spec.get("lore") or "").strip():
             card["template"] = "ds-starship-wide-nolore"
+        if card["template"].startswith("ds-starship-wide") and str(card.get("set_mark") or "").startswith("pc:"):
+            card["template"] += "-pc"   # rev 81: the PC's landscape Finalizers: their own banner, set mark, disc and labels
         if card["template"] in ("ls-character-droid", "ds-character-droid"):
             card["template"] += "-dc"   # brass droid disc as printed
         if card["template"] == "creature":
