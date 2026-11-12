@@ -65,3 +65,23 @@ python3 legacy_version_image.py --card 1210_124 --version PC-E1 --out VB1-123-Fa
   22xx version classes in billbisco/swccg-gemp by `tools/legacy/build_versions.py` (rerun it when either changes).
 
 Rules behind all of this: `STANDARD.md` (rev 71-72 for Virtual Legacy).
+
+## Japanese printings (Takara 1997–98)
+
+STANDARD rev 77 (`lang_ja.py`, swccg-guild/work#283). Open the English card (e.g. Darth Vader, `1_168`), then:
+
+1. **Printing language → Japanese.** The frame, art, destiny, icons and deploy / forfeit stay; the title takes `＊` for
+   `•`, the stats print as one strip (戦闘力６　能力値６　ダーク・ジェダイ — English labels are translated where Takara's
+   word is known, or type the Japanese label), banners and the copyright line (© 1997 / 1998) change.
+2. **Type the Japanese title, lore and game text** as printed (the wiki's Japanese card pages carry most of them, e.g.
+   [Darth Vader (Japanese)](https://wiki.swccg.com/wiki/Darth_Vader_(Japanese))). `{u:語}` underlines a term.
+3. **Line breaks as printed** (optional): tick it and type each printed line on its own line in lore and game text.
+   Takara broke lines by hand and varied the leading; with the printed breaks every line is justified as on the card
+   and a line-end 。 hangs past the measure as printed.
+4. Compare with the Japanese scan. For scripts: `tools/japanese/compare_ja.py` renders the samples in
+   `tools/japanese/samples/` beside their wiki scans.
+
+API: the same spec with `"language": "ja"`, optional `"lore_lines": [...]`, `"text_breaks": [...]`,
+`"printed_breaks": true`. Not yet: Takara's art shows ~4 % more picture than the English crop (upload the Japanese scan
+as art if it matters); types other than characters use the same text layer but are not measured yet.
+

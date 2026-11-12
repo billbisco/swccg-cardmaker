@@ -882,3 +882,20 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Premiere-U-L-lukeskywalker.png) sits under the frame, so locations keep their black starfield; text printed in the
   border (caption, number, labels) turns black. Black-border renders are byte-identical to rev 75 (checked on
   Luke Skywalker, Dejarik Hologameboard, Captain Yorr, Jabba's Palace: Audience Chamber, a Dark interrupt).
+- Rev 77 (2026-11-12, swccg-guild/work#283, Bill: "We also need to be able to re-create Japanese cards in Cardmaker"):
+  **Japanese printings** (Takara 1997-98) as a language layer, `lang_ja.py`. Spec `language: "ja"` (editor: Printing
+  language), default `en`; English renders are byte-identical to rev 76. Compared on the wiki's Japanese scans warped into
+  the master by the frame edges (Darth Vader, Luke Skywalker, Admiral Ozzel; `tools/japanese/compare_ja.py`): Takara kept
+  Decipher's frames, art window, destiny, icons, deploy / forfeit and sphere, and changed: uniqueness `＊` for `•`; title
+  in a heavy gothic condensed to 91 % (Noto Sans JP 800, 67 px, x 395, 27 px higher); the character lore box taller
+  (25 px up, 27 px down, chamfered, English side bevels blended away) with gothic lore 46.6 px / 58 px, justified, the
+  first line pulled in 130 px a side; **one stat strip** instead of three boxes (black on Dark frames, the frame's light
+  well on Light frames, black text), items at the English wells (two stats: the second mid-strip), labels translated
+  (`LABELS`), figures full width; game text Noto Sans JP 500, 47.6 px / 57.5 px, justified, Japanese line breaking, Dark
+  imperial box (335, 1656, 962); banners in katakana / kanji (`CARD_TYPES`) without the English tracking; copyright
+  © 1997 (Premiere, ANH) / 1998 (Hoth) in the light face. Takara broke lines by hand and its leading varies card to
+  card: `lore_lines` / `text_breaks` (editor: Line breaks as printed = each typed line is a printed line) set each line
+  justified and unwrapped, so a line-end 。 hangs as printed. `{u:…}` underlines (Blizzard Walker, Admiral Ozzel).
+  Font: Noto Sans JP (SIL OFL) in `assets/fonts/NotoSansJP`, installed in the container's fontconfig. Not yet: Takara's
+  art shows ~4 % more picture (scale 0.95-0.97; our library art is the English window), types other than characters
+  (they get the same text layer, unmeasured), Japanese location halves.

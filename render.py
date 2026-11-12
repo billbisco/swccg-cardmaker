@@ -590,7 +590,9 @@ def game_text_html(text: str) -> str:
             out.append(esc(seg))
         name, arg = m.group(1), m.group(2)
         n_out = len(out)
-        if name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
+        if name == "u":   # rev 77: an underlined run as Takara printed some terms ({u:密閉型}, Blizzard Walker (Japanese))
+            out.append(f'<u>{esc(arg or "")}</u>')
+        elif name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
             out.append(icon_img("pilotpower-dark" if card_ctx.get("side") == "Dark" else "pilotpower") + f" {esc(arg or '')}")
         elif name in ("alter", "control", "sense"):
             # the slips' red "no" circle with the letter: drawn (transparent), not a pasted raster
@@ -677,7 +679,7 @@ def loc_title(card: dict, bar: str = "Light") -> str:
     t = card.get("card_type") or card["title"]
     h = esc_i(t)
     cls = "dot" if bar == card.get("side", "Light") else "dot plain"
-    return '<span class="lt">' + re.sub(r"^([•◊]+)", lambda m: f'<span class="{cls}">{m.group(1)}</span>', h) + '</span>'
+    return '<span class="lt">' + re.sub(r"^([•◊＊]+)", lambda m: f'<span class="{cls}">{m.group(1)}</span>', h) + '</span>'
 
 
 def title_html(s: str) -> str:
@@ -1558,6 +1560,12 @@ def build_html(card: dict) -> str:
             fr, t, fx, fy = nolore_frame(card, t, fr, fx, fy)
         elif card.get("text_grow"):
             fr, t, fx, fy = grown_frame(card, t, fr, fx, fy)
+    ja = card.get("lang") == "ja"   # rev 77: Takara's Japanese printings (lang_ja.py)
+    if ja:
+        import lang_ja
+        t = lang_ja.template(card, t)
+        if "stats" in t and not t.get("landscape") and not t.get("system"):
+            fr = lang_ja.frame(fr, fx, fy, card, t, stat_boxes(t, len(t["stats"])) or t["stats"])
     ax, ay, aw, ah = t["art"]
     art = art_crop(card) if card.get("art") and not t.get("_noart") else ""
     if t.get("chart") and not art:   # starfield with a spiral galaxy glow (Hyperoute Navigation Chart)
@@ -1710,7 +1718,9 @@ def build_html(card: dict) -> str:
     sec('lore')
     # lore
     pcl = (card.get("pc_type") or {}).get("lore")
-    if card.get("lore") and "lore" in t and pcl:   # rev 74: Virtual Legacy lore as the PC set it (frame, size, first-line indent)
+    if ja and card.get("lore") and "lore" in t and not t.get("landscape"):   # rev 77: Takara's taller lore box
+        parts.append(lang_ja.lore_html(card, t, game_text_html, fit_attrs(card, "lore")))
+    elif card.get("lore") and "lore" in t and pcl:   # rev 74: Virtual Legacy lore as the PC set it (frame, size, first-line indent)
         lx_, ly_, lw_, lh_ = t["lore"]
         l_, tp_, w_, h_, st_ = pc_box(pcl, ly_ + lh_ + 8)
         lrx_ = pc_hint_breaks(card["lore"], pcl.get("lines") or card.get("lore_lines"))
@@ -1729,7 +1739,9 @@ def build_html(card: dict) -> str:
                      f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(lore_)}</div>')
     sec('stats')
     # stats (character)
-    if "stats" in t and card.get("stats"):
+    if ja and "stats" in t and card.get("stats"):   # rev 77: one long strip ("戦闘力６　能力値６　ダーク・ジェダイ")
+        parts.append(lang_ja.stats_html(card, t, stat_boxes(t, len(t["stats"])) or t["stats"], esc))
+    elif "stats" in t and card.get("stats"):
         y = t["stats_y"]
         stats = list(card["stats"])
         if len(stats) == 3 and "stats_row3" in t:
@@ -1809,6 +1821,8 @@ def build_html(card: dict) -> str:
             if "\u2029" in gtx_:
                 w_ += 2 * PT   # the PC's own breaks: a line must never wrap early on our 0.1-0.2 pt wider words
             parts.append(f'<div class="gt fit pctext"{pc_fit_attrs(pcg)} style="position:absolute;left:{l_:.1f}px;top:{tp_:.1f}px;width:{w_:.1f}px;height:{h_:.1f}px;padding:0;{st_}">{game_text_html(gtx_)}</div>')
+        elif ja:   # rev 77: Takara's text (printed line breaks when given: text_breaks)
+            parts.append(lang_ja.gt_html(card, t, game_text_html, fit_attrs(card, "game_text")))
         else:
             parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
@@ -2202,6 +2216,9 @@ def build_html(card: dict) -> str:
     .credit{{font-family:AGCn;font-style:italic;font-size:40px;color:#000;white-space:nowrap;transform:rotate(-90deg)}}
     .copyin{{font-family:AGBoldCnA;font-size:{t.get("copy_size", 24)}px;color:{ink};letter-spacing:{t.get("copy_ls", 1)}px;white-space:nowrap;transform:rotate(-90deg)}}
     """
+    if card.get("lang") == "ja":
+        import lang_ja
+        css += lang_ja.css(card, t)
     fit_js = """
     document.fonts.ready.then(()=>{
       for (const el of document.querySelectorAll('.ctype')) {   // a long banner (HEAVILY-MODIFIED LIGHT FREIGHTER): tighten, then condense as the slip does

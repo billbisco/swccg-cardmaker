@@ -67,9 +67,11 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark", "border"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark", "border", "language"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
+  if (s.language === "en") delete s.language;   // rev 77: printing language (lang_ja.py); English is the default
+  s.printed_breaks = !!fd.get("printed_breaks"); if (!s.printed_breaks) delete s.printed_breaks;
   // PC label (Bill 2026-11-01): one free label with a position preset; the errata mark has its own field (errata_mark)
   const lt = (fd.get("label_text") || "").trim();
   s.labels = lt ? [{ preset: fd.get("label_preset") || "concept", text: lt }] : [];
@@ -115,6 +117,7 @@ function writeForm(s, data) {
     else el.value = s[el.name] ?? "";
   }
   if (!s.style) form.elements.style.value = "decipher";
+  if (!s.language) form.elements.language.value = "en";
   if (!s.expansion_style) form.elements.expansion_style.value = "pc";
   if (!s.border) form.elements.border.value = "black";   // rev 76: white for Unlimited / Revised / Anthology printings   // the PC's spheres by default (Bill 2026-11-01)
   const lb = (s.labels || [])[0] || {};
