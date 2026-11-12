@@ -1,4 +1,4 @@
-"""Rev 81 (frames): the wide Dark capital starship frames (Executor, Flagship Executor; Finalizer (AI)) carried
+"""Rev 84 (frames): the wide Dark capital starship frames (Executor, Flagship Executor; Finalizer (AI)) carried
 Bardez's "Type Icon" layer as a square crop of the starship icon art over the title bar's left end. Decipher printed
 the round starship type disc in a ring, as on the portrait starships: measured on Executor (4_167) and Flagship Executor
 (9_157) printed faces (745 x 532, registered at 2x + 70 master px): picture centre (305, 280), picture radius ~65,

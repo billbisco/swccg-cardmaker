@@ -352,7 +352,7 @@ def resolve_art(spec: dict, face: str = "front", split: bool = False) -> dict | 
                 w, h = Image.open(p).size
                 e_ = ART_MANIFEST.get(gid, {})
                 if e_.get("system") and e_.get("box") and e_.get("box_space") in ("card350", "card normalised to 350x490 (490x350 landscape)"):
-                    # rev 81: a system's strip between the bars, placed where it sits on the printed card (render.system_library_art)
+                    # rev 84: a system's strip between the bars, placed where it sits on the printed card (render.system_library_art)
                     return {"src": str(p), "rect": [0, 0, w, h], "card350": list(e_["box"])}
                 return {"src": str(p), "rect": [0, 0, w, h]}
             except Exception as e:   # noqa: BLE001

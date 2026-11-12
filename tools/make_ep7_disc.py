@@ -1,6 +1,6 @@
-"""Rev 81 (site wear and PC wide starships): the Episode VII disc as the PC printed it on its landscape cards: a broad
+"""Rev 84 (site wear and PC wide starships): the Episode VII disc as the PC printed it on its landscape cards: a broad
 ring in the frame's colour (assets/icons/ep7-disc.png has a thin silver one) -> assets/icons/ep7-disc-blue.png (blue:
-Finalizer, Finalizer (AI)) and, rev 81 (sites 2), assets/icons/ep7-disc-red.png (red: Bow To The First Order (ALT),
+Finalizer, Finalizer (AI)) and, rev 84 (sites 2), assets/icons/ep7-disc-red.png (red: Bow To The First Order (ALT),
 wiki V4-D-bowtothefirstorder_ai.gif / GEMP VirtualAlternateImage-Dark bowtothefirstorder_ai.gif, same place).
 
 The ring's radial colour profile is measured on the two printed faces (wiki V4-D-finalizer.gif, V4-D-finalizer_ai.gif,

@@ -1,4 +1,4 @@
-"""Rev 81 (frames): Decipher's printed Jedi Test frame (Dagobah Jedi Tests #1-#5, Death Star II's #6 and the PC's
+"""Rev 84 (frames): Decipher's printed Jedi Test frame (Dagobah Jedi Tests #1-#5, Death Star II's #6 and the PC's
 It Is The Future You See (V) print the same frame) rebuilt from the printed faces -> assets/frames/ls-jeditest-olive.png.
 
 The six printed faces (GEMP hires, 745 x 1039: 4_75-4_79, 9_55) are pixel-registered (card body 34..709 x 36..1003 on

@@ -30,19 +30,19 @@ YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1
 
 
 DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "106", "108", "109", "110", "111", "112"}
-# rev 81: the line as each set printed it, read on the printed scans (wiki Decipher archive / Holotable 350 px faces, 4+ cards a
+# rev 84: the line as each set printed it, read on the printed scans (wiki Decipher archive / Holotable 350 px faces, 4+ cards a
 # set). 1995-98 (Premiere .. Jabba's Palace and their premium sets): "TM & © y LUCASFILM LTD.  TM, ® & © y DECIPHER INC.";
 # Special Edition (Dec 1998) .. Death Star II and the 1999-2000 premium sets drop "TM &" and the first year:
 # "© LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC."; Reflections II .. Theed Palace (2000-01) bring the year back and
 # print no final period ("… DECIPHER INC"); Coruscant alone sets a comma after the ® ("TM, ®, & ©"). Every printing sets
 # two spaces before the Decipher half and a full-size ®.
-# rev 81, read on sharp photos of printed cards (pricecharting.com card photos, 700-1600 px): Enhanced Cloud City prints the
+# rev 84, read on sharp photos of printed cards (pricecharting.com card photos, 700-1600 px): Enhanced Cloud City prints the
 # final period (Boba Fett In Slave I, Crush The Rebellion, Dengar In Punishing One, IG-88 With Riot Gun, Any Methods
 # Necessary); Endor prints 1999 on every card (Chewbacca's Bowcaster, Chewie's AT-ST, Chief Chirpa, Corporal Beezer; the
 # Decipher archive scans of 8_160-8_178 carry the same digits, Speeder Bike and Tempest Scout 6 included); Reflections II's
 # own cards (the combos: Alter & Collateral Damage, Sense & Recoil In Fear) print the final period and "TM, ® &" (its foil
 # reprints of older cards set "TM, ®, &", but those render as their first printing).
-# rev 81 (geometry 3): Decipher's own two-disc character titles, per set: (title x offset, letter-spacing, extra bar width),
+# rev 84 (geometry 3): Decipher's own two-disc character titles, per set: (title x offset, letter-spacing, extra bar width),
 # master px. Measured against the frame (from the Imperial disc's right edge, 745 px faces): Ref2 / PC print the bullet
 # 28-29 px from the disc (our default); Death Star II (Emperor Palpatine) 20 px, run 3 % tighter; Enhanced Jabba's Palace
 # (Mara Jade, The Emperor's Hand, both wiki faces) 23-25 px, title running to 384 px from the disc (19 px past our bar).
@@ -51,7 +51,7 @@ DISC2_DECIPHER = {"9": (-17, 0.1, 0), "110": (-8, None, 42)}
 SE_ERA = {"7", "8", "9", "109", "110", "111", "112"}
 PRINT_YEAR = {"8": 1999, "101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
 NO_FINAL_PERIOD = {"11"}
-# Rev 81 (integration): only Tatooine has no final period. Reflections II, Coruscant, Reflections III and Theed Palace DO
+# Rev 84 (integration): only Tatooine has no final period. Reflections II, Coruscant, Reflections III and Theed Palace DO
 # print it (8x re-read of 4-8 scans a set; Reflections III also on photos of Stormtrooper Garrison, The Ebb Of Battle,
 # Qui-Gon's Lightsaber). Enhanced Cloud City: the 350 px scans read no period, but sharp 700-1600 px photos of five cards
 # (Boba Fett In Slave I, Crush The Rebellion, Dengar, IG-88, Any Methods Necessary) show it, so the photos win.
@@ -60,8 +60,8 @@ NO_FINAL_PERIOD = {"11"}
 
 
 def copyright_for(set_id, decipher: bool = True, card_type: str = "") -> str:
-    """The vertical Lucasfilm / Decipher line printed beside the art, word for word as each set printed it (rev 81).
-    decipher=False: the line as the Players Committee's slips reproduce it (the form before rev 81, kept for their cards)."""
+    """The vertical Lucasfilm / Decipher line printed beside the art, word for word as each set printed it (rev 84).
+    decipher=False: the line as the Players Committee's slips reproduce it (the form before rev 84, kept for their cards)."""
     sid = str(set_id or "")
     if (sid.isdigit() and 200 <= int(sid) <= 299) or sid == "200d":
         return "ARTWORK NEITHER AFFILIATED WITH NOR ENDORSED BY LUCASFILM LTD."   # the modern PC cards (I Want That Map)
@@ -76,7 +76,7 @@ def copyright_for(set_id, decipher: bool = True, card_type: str = "") -> str:
     if not y:
         return ""
     end = "" if sid in NO_FINAL_PERIOD and not (sid == "11" and card_type == "Epic Event") else "."
-    reg = "®," if sid in ("12", "15o") else "®"   # rev 81: Reflections Gold's playtest prints set the comma too (Local Trouble)
+    reg = "®," if sid in ("12", "15o") else "®"   # rev 84: Reflections Gold's playtest prints set the comma too (Local Trouble)
     if sid == "11":
         return f"©{y} LUCASFILM LTD. & TM.  TM, ®& ©{y} DECIPHER INC{end}"
     if sid in SE_ERA:
@@ -148,7 +148,7 @@ RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious"
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
             "Scomp Link": "scomp", "Space": "space",
-            # rev 81: GEMP's names for the printed vehicle / creature site icons (Sandcrawler: Loading Bay, Big One)
+            # rev 84: GEMP's names for the printed vehicle / creature site icons (Sandcrawler: Loading Bay, Big One)
             "Vehicle Site": "vehicle", "Starship Site": "starship", "Creature Site": "creature"}
 
 
@@ -259,12 +259,12 @@ def pc_shorthand(t: str) -> str:
 
 def quotes(t: str) -> str:
     """The PC JSON writes printed double quotes as single ones: 'Vehicle with armor' -> “Vehicle with armor”. Lore
-    (rev 81): every quoted run prints in double curly quotes, Premiere to the PC's Virtual Sets ("What was that?" …
+    (rev 84): every quoted run prints in double curly quotes, Premiere to the PC's Virtual Sets ("What was that?" …
     "affect mind", Affect Mind; "It’s a good bet …", Perimeter Scan (V))."""
     return re.sub(r"(?<![\w])'(.+?)'(?![\w])", "\u201c\\1\u201d", t)
 
 
-# rev 81: a quoted run of game text that names words a card carries ("with 'Death Star' in title") prints in double
+# rev 84: a quoted run of game text that names words a card carries ("with 'Death Star' in title") prints in double
 # curly quotes (Ominous Rumors, Something Special Planned For Them, Mara Jade (V) "Mara" in game text, Darth Maul,
 # Young Apprentice (V) "Trade Federation" in lore); every other quoted game term in single curly ones ('insert',
 # A Tremor In The Force; 'react', Admiral Ackbar (V); 'credits.', 'communing,', 'BEEP-BOOP'). Decipher printed a few
@@ -274,7 +274,7 @@ GT_DOUBLE = r"\s+in\s+(?:its\s+|their\s+)?(?:title|lore|game\s+text|name|persona
 
 
 def gt_quotes(t: str, dset: int | None = None) -> str:
-    """Game-text quotes. dset = the Decipher set (1-14) of a Decipher card's own text: Decipher's rule (rev 81 Decipher
+    """Game-text quotes. dset = the Decipher set (1-14) of a Decipher card's own text: Decipher's rule (rev 84 Decipher
     text setting 3, 148 quoted runs read on printed faces Premiere to Theed Palace, 1497 px hires and 350-367 px scans):
     a quoted PHRASE of two or more words prints double (“nighttime conditions,” “break cover”, “blown away”,
     “Hidden Base”, “game text”, “highest-ability character.”, “Dejarik Rules”, “suck up”), a quoted WORD
@@ -282,7 +282,7 @@ def gt_quotes(t: str, dset: int | None = None) -> str:
     to Coruscant / Reflections III; a word named "in title / lore" prints single up to Reflections II and Tatooine
     (‘levitation’ in title, ‘Rebel’ in, ‘Ewok’ in title, ‘Rebellion’ in lore) and double on Coruscant and
     Reflections III (“Podracer(s)” in its, “sabacc”, “door” in title). Theed Palace prints every quote single
-    (‘blow away’, ‘Trade Federation’ in lore). Any other card (PC, Virtual): the rev 81 rule above (double only
+    (‘blow away’, ‘Trade Federation’ in lore). Any other card (PC, Virtual): the rev 84 rule above (double only
     for runs named in title / lore). Quotes already set double in Decipher text data are re-set by the rule."""
     t = (t or "").replace("`", "'")   # a few PC texts open the quote with a backtick (`credits.', Credits Will Do Fine (V))
     if dset is None:
@@ -299,7 +299,7 @@ def gt_quotes(t: str, dset: int | None = None) -> str:
 
 
 def apostrophes(t: str) -> str:
-    """Rev 81: Decipher and the PC print typographic apostrophes in titles, lore and game text (Han’s Heavy Blaster
+    """Rev 84: Decipher and the PC print typographic apostrophes in titles, lore and game text (Han’s Heavy Blaster
     Pistol, Don’t Get Cocky, opponent’s, Let ’er go!, Twi’lek): any straight ' left after the quotes are paired."""
     return (t or "").replace("'", "\u2019") if isinstance(t, str) else t
 
@@ -338,7 +338,7 @@ _DC_PRINTED = None
 
 
 def dc_printed_data() -> dict:
-    """Rev 81 (Decipher printed text): GEMP id -> the fields Decipher printed where GEMP carries an errata
+    """Rev 84 (Decipher printed text): GEMP id -> the fields Decipher printed where GEMP carries an errata
     (gempdata/decipher_printed.json, tools/make_decipher_printed.py from the wiki's printed-face pages)."""
     global _DC_PRINTED
     if _DC_PRINTED is None:
@@ -353,7 +353,7 @@ def dc_printed_data() -> dict:
 
 
 def gemp_to_spec(c: dict) -> dict:
-    """GEMP card -> spec. Rev 81 (Decipher printed text): a Decipher card whose GEMP text is an errata also carries the
+    """GEMP card -> spec. Rev 84 (Decipher printed text): a Decipher card whose GEMP text is an errata also carries the
     printed version of every spec field that differs (`dc_printed`, with the errata values in `dc_errata`), built by the
     same pipeline from Decipher's printed fields; spec_to_card puts them on when the card is rendered as Decipher
     printed it (decipher_print, English)."""
@@ -372,9 +372,9 @@ def gemp_to_spec(c: dict) -> dict:
 
 
 def dc_printed_spec(spec: dict) -> dict:
-    """Rev 81 (Decipher printed text): the spec as rendered. On a Decipher printing in English the printed fields
+    """Rev 84 (Decipher printed text): the spec as rendered. On a Decipher printing in English the printed fields
     replace the errata ones they were made from (a field the editor changed is left alone); the dc_* keys never reach
-    the card. Runs before the rev 81 text rules (dc_bold, dc_ellipses) so those apply to the printed text too."""
+    the card. Runs before the rev 84 text rules (dc_bold, dc_ellipses) so those apply to the printed text too."""
     if "dc_printed" not in spec and "dc_errata" not in spec:
         return spec
     s = dict(spec)
@@ -391,7 +391,7 @@ def dc_printed_spec(spec: dict) -> dict:
 
 
 def _dset(c: dict) -> int | None:
-    """Rev 81 (3): the Decipher set (1-14) of a Decipher card's own printing, for its quote style; None otherwise."""
+    """Rev 84 (3): the Decipher set (1-14) of a Decipher card's own printing, for its quote style; None otherwise."""
     try:
         s = int(str(c.get("set") or "").strip())
     except ValueError:
@@ -426,7 +426,7 @@ def _gemp_to_spec(c: dict) -> dict:
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set"), card_type=f.get("type") or ""), "set_mark": set_mark_for(c.get("set"))}
-    if f.get("loreLines"):   # rev 81: the printed lore's own line breaks (gempdata/fill.json "loreLines"; Teemto Pagalies' Podracer)
+    if f.get("loreLines"):   # rev 84: the printed lore's own line breaks (gempdata/fill.json "loreLines"; Teemto Pagalies' Podracer)
         spec["lore_lines"] = list(f["loreLines"])
     if c.get("wide"):   # Reflections Gold "wide vision" cards (set 15): landscape per the card data
         spec["_wide"] = True
@@ -478,7 +478,7 @@ def _gemp_to_spec(c: dict) -> dict:
         if lab.get("slip_mark"):
             spec["number"] = str(lab["slip_mark"])
         if not lab.get("copyright") and c.get("_print_base_set"):
-            spec["copyright"] = copyright_for(c["_print_base_set"], decipher=False)   # rev 81: the PC slip's form
+            spec["copyright"] = copyright_for(c["_print_base_set"], decipher=False)   # rev 84: the PC slip's form
     if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
     if c.get("legacy"):
@@ -623,11 +623,11 @@ def _gemp_to_spec(c: dict) -> dict:
         li = [LOC_ICON[i] for i in reversed(icons) if i in LOC_ICON]
         li.sort(key=lambda k: {"scomp": 0, "planet": 1}.get(k, 2))
         if "mobile" in li and "starship" in li and str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
-            # rev 81: Decipher prints the mobile icon outside the starship icon (Executor: Comm Station, Home One: War
+            # rev 84: Decipher prints the mobile icon outside the starship icon (Executor: Comm Station, Home One: War
             # Room, Star Destroyer: Launch Bay, Blockade Flagship: Bridge); GEMP lists them either way round
             li.remove("mobile"); li.insert(li.index("starship"), "mobile")
         if "exterior" in li and "interior" in li and str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
-            # rev 81 (sites 2): Decipher prints the exterior icon outside the interior one (Hoth: Echo Docking Bay,
+            # rev 84 (sites 2): Decipher prints the exterior icon outside the interior one (Hoth: Echo Docking Bay,
             # Death Star: Docking Bay 327, Executor: Docking Bay, Star Destroyer: Launch Bay); GEMP lists them either way
             li.remove("exterior"); li.insert(li.index("interior"), "exterior")
         spec["light_icons"] = spec["dark_icons"] = li
@@ -644,11 +644,11 @@ def _gemp_to_spec(c: dict) -> dict:
             for half, txt, frc in (("light", "game_text", "light_force_count"), ("dark", "dark_text", "dark_force_count")):
                 if half != side.lower() and not (spec.get(txt) or "").strip().strip("-") and not spec.get(frc):
                     spec[f"{half}_half_absent"] = True
-        # starship/vehicle sites print blue (Blockade Flagship: Bridge). rev 81: GEMP names the vehicle-site icon "Vehicle Site"
+        # starship/vehicle sites print blue (Blockade Flagship: Bridge). rev 84: GEMP names the vehicle-site icon "Vehicle Site"
         # (Sandcrawler: Loading Bay / Droid Junkheap, Jabba's Sail Barge: Passenger Deck print blue too)
         if sub == "Site" and ("Starship" in icons or "Vehicle" in icons or "Vehicle Site" in icons or "Starship Site" in icons):
             spec["frame_style"] = "ls-starship" if side == "Light" else "ds-starship"
-            # rev 81: Decipher italicised the named capital ship in its sites' title bars (EXECUTOR: COMM STATION,
+            # rev 84: Decipher italicised the named capital ship in its sites' title bars (EXECUTOR: COMM STATION,
             # HOME ONE: WAR ROOM); class names stay roman (STAR DESTROYER: LAUNCH BAY, BLOCKADE FLAGSHIP: BRIDGE)
             if str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
                 spec["card_type"] = re.sub(r"^([•◊]*)(EXECUTOR|HOME ONE)(?=:)", r"\1_\2_", spec["card_type"])
@@ -710,7 +710,7 @@ def _gemp_to_spec(c: dict) -> dict:
     elif typ.startswith("Jedi Test"):
         spec["slip_type"] = "Jedi Test"; spec["card_type"] = typ.upper()
         # the printed steps start with the Jedi Test icon and a bold verb: "[icon] Deploy … [icon] Target … [icon] Attempt"
-        # rev 81: also after "test completed:" (Size Matters Not, Great Warrior: "[icon] Place"; You Must Confront Vader: "[icon] Leave")
+        # rev 84: also after "test completed:" (Size Matters Not, Great Warrior: "[icon] Place"; You Must Confront Vader: "[icon] Leave")
         spec["game_text"] = re.sub(r"(^|(?<=[.):] ))(Deploy|Target|Attempt|Place|Leave|Required|Reward)\b", r"{ga:jedi-test}*\2*", spec["game_text"])
     elif typ == "Mission":   # Virtual Block Missions (Rebel Aces) / Critical Missions (Spice Mine Operations)
         spec["slip_type"] = "Critical Mission" if sub == "Critical" else "Mission"
@@ -726,22 +726,22 @@ def _gemp_to_spec(c: dict) -> dict:
     else:
         spec["slip_type"] = typ or "Effect"; spec["card_type"] = typ.upper()
     if typ in ("Starship", "Vehicle") and (str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS or is_wide_printed(c.get("gempId"))):
-        # rev 81: Decipher set the class name italic in the banner (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
+        # rev 84: Decipher set the class name italic in the banner (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
         # _VICTORY_-CLASS, _SUPER_-CLASS: Devastator, Victory-Class Star Destroyer, Executor, Flagship Executor)
         spec["card_type"] = re.sub(r"(?<![_\w])([A-Z]{3,})(?=-CLASS\b)", r"_\1_", spec.get("card_type") or "")
     return finish(spec)
 
 
-# rev 81 (sites 2): label placements that differ from the preset on a printing's face (master px; for landscape cards
+# rev 84 (sites 2): label placements that differ from the preset on a printing's face (master px; for landscape cards
 # with labels_rotated the portrait x runs up the right margin). Finalizer (AI): the art credit 46.5 px (745) higher
 # than on Finalizer (printed 210..440 against 256..486), so the redraw lies over the scan's own credit
 LABEL_PLACE = {"204_54^AI": {"concept": {"x": 95}}}
-WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "204_54^AI", "200_41^ALT", "204_47^ALT"}   # QA 2026-10-15: every non-location scan printed landscape (rev 81 sites 2: by printing id)   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
+WIDE_PRINTED = {"13_75", "4_167", "9_157", "204_54", "204_54^AI", "200_41^ALT", "204_47^ALT"}   # QA 2026-10-15: every non-location scan printed landscape (rev 84 sites 2: by printing id)   # Decipher cards printed landscape: Maul's Double-Bladed Lightsaber (Reflections III)
 
 
 
 def is_wide_printed(gid) -> bool:
-    """rev 81 (sites 2): is this printing landscape? By the printing's own id: the PC's alternate-image printings carry the
+    """rev 84 (sites 2): is this printing landscape? By the printing's own id: the PC's alternate-image printings carry the
     card's id with a ^ suffix and are not always printed like their card. Checked on the PC gifs: Finalizer and
     Finalizer (AI) both 1039 x 745; I Must Be Allowed To Speak (V) and Bow To The First Order 745 x 1039 (portrait),
     their (ALT) printings 1039 x 745 (the old entries 200_41 / 204_47 turned the portrait cards landscape)."""
@@ -769,7 +769,7 @@ PODRACER_FLAGS = {"Anakin's Podracer": "anakin", "Sebulba's Podracer": "sebulba"
 
 
 def finish(spec: dict) -> dict:
-    for lb_ in spec.get("labels") or []:   # rev 81 (sites 2): per-printing label placement measured on the printed face
+    for lb_ in spec.get("labels") or []:   # rev 84 (sites 2): per-printing label placement measured on the printed face
         if isinstance(lb_, dict):
             lb_.update(LABEL_PLACE.get(str(spec.get("gempId") or ""), {}).get(lb_.get("preset"), {}))
     if spec.get("slip_type") == "Podracer" and not spec.get("podracer_flag"):
@@ -793,12 +793,12 @@ def finish(spec: dict) -> dict:
         spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)
-    for k in ("title", "caption", "title_back", "lore", "game_text", "dark_text", "game_text_back"):   # rev 81: as printed
+    for k in ("title", "caption", "title_back", "lore", "game_text", "dark_text", "game_text_back"):   # rev 84: as printed
         if spec.get(k):
             spec[k] = apostrophes(spec[k])
     if decipher_print(spec):
-        spec["decipher_print"] = True   # Rev 81: Decipher's own title setting and ink (editor: "As Decipher printed it")
-        # rev 81: a creature's ferocity formula prints a spaced en dash ("Ferocity = destiny – 1": Bog-wing both sides,
+        spec["decipher_print"] = True   # Rev 84: Decipher's own title setting and ink (editor: "As Decipher printed it")
+        # rev 84: a creature's ferocity formula prints a spaced en dash ("Ferocity = destiny – 1": Bog-wing both sides,
         # Nudj, Sleen); modifiers keep the hyphen as printed ("destiny -1 > ability", "power -1", "deploy -1")
         if spec.get("game_text"):
             spec["game_text"] = re.sub(r"(Ferocity = destiny) ?- ?(\d)", "\\1 – \\2", spec["game_text"])
@@ -806,7 +806,7 @@ def finish(spec: dict) -> dict:
 
 
 def dc_ellipses(t: str) -> str:
-    """Rev 81: lore ellipses as Decipher printed them: spaced ". . ." (31 of 33 printed lore ellipses checked, Premiere to
+    """Rev 84: lore ellipses as Decipher printed them: spaced ". . ." (31 of 33 printed lore ellipses checked, Premiere to
     Reflections III), no space before, one space before a following word ("Luke. . . She", "“. . . I know"). Already
     spaced ones (corrections.json) are left as they are."""
     t = re.sub(r"\s*(?:\.{3}|…)", ".\u00a0.\u00a0.", t)   # no-break spaces: the dots never split over a line end
@@ -814,7 +814,7 @@ def dc_ellipses(t: str) -> str:
 
 
 def dc_bold(t: str, set_id, slip_type: str = "") -> str:
-    """Rev 81 (text data 2): keywords Decipher set bold in game text. "Agenda"/"Agendas" (not the colon) on every
+    """Rev 84 (text data 2): keywords Decipher set bold in game text. "Agenda"/"Agendas" (not the colon) on every
     Coruscant / Reflections III senator (Horox Ryyder, Mas Amedda, Aks Moe, Tikkes, Sio Bibble). "cumulatively" in
     A New Hope to Special Edition (Rebel Tech, Death Star Gunner, Frozen Dinner, Mynock, Ortolan, Ugnaught, Aqualish,
     Nudj, Sleen, Something Hit Us!); Endor and Death Star II print it regular (AT-ST Pilot, Navy Trooper Shield
@@ -823,7 +823,7 @@ def dc_bold(t: str, set_id, slip_type: str = "") -> str:
     if str(set_id or "").isdigit() and 1 <= int(set_id) <= 7:
         t = re.sub(r"(?<![*\w])([Cc]umulatively)(?![*\w])", r"*\1*", t)
     if slip_type in ("Political Effect", "Objective"):
-        # rev 81 (Decipher printed text): Political Effects and the senate Objectives bold a named agenda ("If an *order
+        # rev 84 (Decipher printed text): Political Effects and the senate Objectives bold a named agenda ("If an *order
         # agenda* here", Ascertaining The Truth; *justice agenda*, Plea To The Court; *peace agenda* / *order agenda*,
         # Plead My Case To The Senate; *blockade agenda*, My Lord, Is That Legal?). Characters and Interrupts print it
         # regular (Yarua "wealth agenda", Toonbuck Toora "ambition agenda", On The Payroll "matching agenda")
@@ -832,19 +832,19 @@ def dc_bold(t: str, set_id, slip_type: str = "") -> str:
 
 
 def decipher_print(spec: dict, card: dict | None = None) -> bool:
-    """Rev 81: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
+    """Rev 84: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
     if spec.get("decipher_print") is not None:
         return bool(spec["decipher_print"])
     if spec.get("style") == "ovs" or (card or spec).get("set_mark") or spec.get("virtual_set") or (spec.get("language") or "en") != "en":
         return False   # PC / OVS cards, and Takara's Japanese printings (their own typesetting, lang_ja.py) unless asked
     sid = str((spec.get("source") or {}).get("set") or "").strip()
-    # a Decipher set's own card, or a new card with no source set and no PC set mark (rev 81 sphere-copyright audit)
+    # a Decipher set's own card, or a new card with no source set and no PC set mark (rev 84 sphere-copyright audit)
     return sid in DECIPHER_SETS or not sid
 
 
 def spec_to_card(spec: dict, build_vs) -> dict:
     """spec (+ resolved art/set-symbol files) -> render.py card dict, through build_vs.convert (the remaster path)."""
-    spec = dc_printed_spec(spec)   # rev 81: Decipher's printed text on a Decipher printing of an errata'd card
+    spec = dc_printed_spec(spec)   # rev 84: Decipher's printed text on a Decipher printing of an errata'd card
     c = dict(spec)
     # bounded inputs (the boxes condense, then shrink, but only so far): API callers get the same limits as the editor
     for k, n in (("destiny", 8), ("deploy", 4), ("forfeit", 4), ("destiny_back", 8)):
@@ -854,7 +854,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     for k in ("game_text", "dark_text", "game_text_back", "lore"):   # typed line breaks = paragraphs that still wrap
         if isinstance(c.get(k), str):
             c[k] = c[k].replace("\r\n", "\n").replace("\n", "¶")
-    if decipher_print(spec) and (spec.get("language") or "en") == "en":   # rev 81: Decipher's bold keywords (dc_bold)
+    if decipher_print(spec) and (spec.get("language") or "en") == "en":   # rev 84: Decipher's bold keywords (dc_bold)
         for k in ("game_text", "dark_text", "game_text_back"):
             if isinstance(c.get(k), str):
                 c[k] = dc_bold(c[k], (spec.get("source") or {}).get("set"), spec.get("slip_type") or "")
@@ -874,20 +874,20 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # printed Decipher cards with no sphere: the first disc takes the sphere's place. PC Virtual cards keep the disc in
         # the second slot even with no sphere (Aayla Secura VS0, You Know What I've Come For, #63)
         card["ring_fill"] = not str(card.get("set_mark") or "").startswith("pc:")
-        # Rev 81: the card as Decipher printed it (1995-2001): Decipher's title setting and ink on the Effect / Interrupt
+        # Rev 84: the card as Decipher printed it (1995-2001): Decipher's title setting and ink on the Effect / Interrupt
         # frames. Default: a Decipher set's own card (GEMP set 1-199) without a PC set mark; the spec's decipher_print
         # (true / false) decides otherwise (custom cards keep the PC look)
         if decipher_print(spec, card):
             card["decipher_print"] = True
-            card["dc_expansion"] = spec.get("expansion")   # rev 81: Decipher's text setting differs by set (render.DC_EARLY)
+            card["dc_expansion"] = spec.get("expansion")   # rev 84: Decipher's text setting differs by set (render.DC_EARLY)
             if card.get("lore"):
-                card["lore"] = dc_ellipses(card["lore"])   # rev 81: Decipher spaced its lore ellipses ". . ."
+                card["lore"] = dc_ellipses(card["lore"])   # rev 84: Decipher spaced its lore ellipses ". . ."
             dl = decipher_lines(spec.get("gempId"))
-            if dl:   # rev 81 (2): the printed card's own line breaks (gempdata/decipher_lines.json)
+            if dl:   # rev 84 (2): the printed card's own line breaks (gempdata/decipher_lines.json)
                 card["dc_lines"] = dl
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
-        # rev 81: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
+        # rev 84: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
         # and copyright line where Decipher printed them (render.DC_PRINT); PC and Virtual Block cards keep the PC's
         # (one definition for both: decipher_print() above; the editor's "As Decipher printed it" box overrides)
         card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
@@ -895,8 +895,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         if card.get("decipher_print") and card.get("disc2") and _d2:
             card["disc2_title_dx"], card["disc2_title_ls"], card["disc2_title_dw"] = _d2
         if card.get("decipher_print") and str((spec.get("source") or {}).get("set")) == "11" and card["template"] == "ls-epic-event":
-            card["copyright_ink"] = "#fff"   # rev 81: Boonta Eve Podrace, I Did It! print the line white on the purple (other Light Epic Events black)
-            # rev 81 (geometry 2): line measured against the card body on both printed faces (Boonta Eve Podrace 11_24,
+            card["copyright_ink"] = "#fff"   # rev 84: Boonta Eve Podrace, I Did It! print the line white on the purple (other Light Epic Events black)
+            # rev 84 (geometry 2): line measured against the card body on both printed faces (Boonta Eve Podrace 11_24,
             # I Did It! 11_25): 1.3 px (745) right and 2.6 px lower than ours
             card["copyright_dxy"] = (3, 6)
         if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):
@@ -914,11 +914,11 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         if card["template"] == "ds-starship-wide" and not (spec.get("lore") or "").strip():
             card["template"] = "ds-starship-wide-nolore"
         if (card["template"].startswith("ds-starship-wide") or card["template"].startswith("rg-")) and str(card.get("set_mark") or "").startswith("pc:"):
-            card["template"] += "-pc"   # rev 81: the PC's landscape Finalizers and (ALT) Effects: their own banner, set mark, disc and labels
+            card["template"] += "-pc"   # rev 84: the PC's landscape Finalizers and (ALT) Effects: their own banner, set mark, disc and labels
         if card["template"] in ("ls-character-droid", "ds-character-droid"):
             card["template"] += "-dc"   # brass droid disc as printed
         if card["template"] == "creature":
-            card["template"] = "creature-dc" if card.get("decipher_print") else "creature-dc-pc"   # printed Decipher creature: banner + black title (rev 81: measured layout on Decipher's own)
+            card["template"] = "creature-dc" if card.get("decipher_print") else "creature-dc-pc"   # printed Decipher creature: banner + black title (rev 84: measured layout on Decipher's own)
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     if card.get("back"):   # rev 77: the back face's margin caption follows the front's (Decipher printings: none), not
@@ -1090,7 +1090,7 @@ _DC_LINES = None
 
 
 def decipher_lines(gid) -> dict | None:
-    """Rev 81 (2): Decipher's printed line breaks of a card's lore / game text ({"lore": [...], "game_text": [...],
+    """Rev 84 (2): Decipher's printed line breaks of a card's lore / game text ({"lore": [...], "game_text": [...],
     "game_text_back": [...]}), read from the printed faces (gempdata/decipher_lines.json). Used on decipher_print
     renders only; a text whose words no longer match the lines is set normally (render.pc_hint_breaks)."""
     global _DC_LINES

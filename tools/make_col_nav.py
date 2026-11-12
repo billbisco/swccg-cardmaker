@@ -1,4 +1,4 @@
-"""Rev 81 (sites 2): the Nav Computer icon box as printed -> assets/icons/col-nav.png (89 x 90, the box size of the
+"""Rev 84 (sites 2): the Nav Computer icon box as printed -> assets/icons/col-nav.png (89 x 90, the box size of the
 other col-* icons, drawn in the icon slots without icon-box.png).
 
 The renderer drew the in-text icon (inline-nav.png: R2-D2 small, inside a grey inner frame) inside icon-box.png, a

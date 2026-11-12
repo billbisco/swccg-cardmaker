@@ -1,4 +1,4 @@
-"""Rev 81 (Decipher printed text): gempdata/decipher_printed.json from a dump of wiki.swccg.com.
+"""Rev 84 (Decipher printed text): gempdata/decipher_printed.json from a dump of wiki.swccg.com.
 
 GEMP carries each card's current text, which for a card that got errata (Decipher's Glossary Version 2.0 / Glossary
 Supplement, or the Players Committee's Advanced Rulebook Appendix A) is the errata, not what Decipher printed. The wiki
@@ -36,7 +36,7 @@ from adapter import DECIPHER_SETS  # noqa: E402
 UNIQUENESS_SEEN = {
     "Sandcrawler: Loading Bay": "•",    # ANH-L-sandcrawlerloadingbay-decipher-archive.gif: one bullet; PC errata •••
     "Sandcrawler: Droid Junkheap": "•",  # ANH-D-sandcrawlerdroidjunkheap-decipher-archive.gif: one bullet; PC errata •••
-    # rev 81 (2): title strips of all 512 faces compared with ours: these print no bullet (Glossary made them unique /
+    # rev 84 (2): title strips of all 512 faces compared with ours: these print no bullet (Glossary made them unique /
     # restricted: "•Legendary Starfighter", "••Floating Refinery")
     "Do, Or Do Not": "",
     "Legendary Starfighter": "",
@@ -107,7 +107,7 @@ PRINTED_SEEN = {
     "13_62": "Deploy on table. Once per turn, you may take a non-Interrupt card with “door” in title into hand from Reserve Deck; reshuffle. At Endor sites where you have a scout, Rebel scouts are power -1 and forfeit -3. (Immune to Alter.)",
     "13_74": {"gametext": [("Immune to Clash Of Sabers and attrition < 5 (or < 6 if armed with a lightsaber). May not be Disarmed.",
                             "Immune to Disarmed, Clash Of Sabers, and attrition < 5 (or < 6 if armed with a lightsaber).")]},
-    # lore "to weld properly": Decipher's 497 px face (Ref3-D-maulsdoublebladedlightsaber-decipher-archive.jpg, rev 81
+    # lore "to weld properly": Decipher's 497 px face (Ref3-D-maulsdoublebladedlightsaber-decipher-archive.jpg, rev 84
     # text setting 3); the PC's D-E1 re-render prints "to wield"
     "13_75": {"gametext": [("While on Maul, may not be stolen.", "May not be stolen.")],
               "lore": [("years of training to wield properly", "years of training to weld properly")]},
@@ -119,7 +119,7 @@ PRINTED_SEEN = {
     # the wiki's printed page holds another printing's / the list's words (read on ANH-D-dssixtyonefour… archive faces)
     "2_88": "Adds 3 to power of any starship he pilots. On Black 4, also draws one battle destiny if not able to otherwise. May use 1 Force to search through your Reserve Deck and take one Lone Pilot into your hand. Shuffle, cut and replace.",
     "2_45": "After a battle at an interior _site_ is initiated, use 1 Force to cause all leaders and all characters with ability > 2 (on both sides) to be completely excluded from that battle.",
-    # rev 81 (3): Reflections II combos whose GEMP text is not what Decipher printed and the wiki keeps no printed page
+    # rev 84 (3): Reflections II combos whose GEMP text is not what Decipher printed and the wiki keeps no printed page
     # (Ref2-<side>-<name>-decipher-archive.gif): Sense & Recoil In Fear carries Sense & Uncertain's printed LOST text
     "10_21": "USED: Target your highest-ability character and one just-played Interrupt. Draw destiny. If destiny < ability of target character, cancel target Interrupt. LOST: Use 3 Force. Each player counts cards in hand, then places entire hand and Used Pile onto Reserve Deck; reshuffle. Each player then draws from Reserve Deck the counted number of cards to create a new hand.",
     "10_13": {"gametext": [("(Immune to Sense)", "(immune to Sense)"), ("may immediately deploy as", "may deploy as")]},
@@ -131,7 +131,7 @@ PRINTED_SEEN = {
     "112_9": {"gametext": [("Your characters here aboard vehicles are each power +1.", "Your characters aboard vehicles here are each power +1.")]},
 }
 # fields whose wiki "printed" text the printed face contradicts (OCR of the wiki's Decipher-archive scan, see STANDARD
-# rev 81 Decipher printed text): GEMP's text is kept for these
+# rev 84 Decipher printed text): GEMP's text is kept for these
 REJECT = {}
 # corrections to the wiki's printed text where the printed face differs (checked by eye)
 WIKI_FIX = {
@@ -149,7 +149,7 @@ WIKI_FIX = {
 # "Interrogator droid", the list "Interceptor"; Imperial Blaster "power packs", the page "packagedProduct"); only lore
 # the printed face confirms is taken (read on the wiki's hires / archive faces)
 LORE_OK = {"1_112", "1_168", "1_309", "2_16", "2_32", "3_16", "4_15", "4_110", "5_122", "6_75",
-           # rev 81 (2): read on the hires / archive faces (the wiki's lore was right)
+           # rev 84 (2): read on the hires / archive faces (the wiki's lore was right)
            "1_22", "1_150", "1_155", "1_164", "1_211", "1_256", "2_25", "2_116", "2_129", "2_136", "2_161", "3_4", "4_39",
            "4_108", "5_15", "5_45", "5_65", "6_10", "6_124", "6_125", "6_173", "7_12", "13_53"}
 # lore the faces contradict (GEMP kept): 1_18 LIN-V8K (the wiki has another card's lore), 1_26 "heroes", 1_149 "open-air",

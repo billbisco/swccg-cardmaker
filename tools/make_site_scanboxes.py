@@ -1,4 +1,4 @@
-"""Rev 81 (sites 2): the Mobile, Starship and Vehicle icon boxes of Decipher's location cards, cut from printed faces ->
+"""Rev 84 (sites 2): the Mobile, Starship and Vehicle icon boxes of Decipher's location cards, cut from printed faces ->
 assets/loc/scanbox-{mobile,starship,vehicle}.png (100 x 94, as scanbox-interior / -exterior / -planet / -underground,
 which were cut from the printed Hoth cards).
 

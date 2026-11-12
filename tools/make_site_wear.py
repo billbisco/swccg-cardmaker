@@ -1,4 +1,4 @@
-"""Rev 81 (site wear and PC wide starships): the paint of Decipher's blue starship / vehicle site frames, rebuilt from
+"""Rev 84 (site wear and PC wide starships): the paint of Decipher's blue starship / vehicle site frames, rebuilt from
 the printed faces -> assets/frames/site-wear-light.png (frame coordinates, 2073 x 1497, the size of
 assets/frames/loc-site.png).
 

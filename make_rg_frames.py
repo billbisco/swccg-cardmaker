@@ -90,7 +90,7 @@ if __name__ == "__main__" and "starship" in __import__("sys").argv:
 
 
 def round_ds_interrupt_disc(cx=318.5, cy=288.0, r=82.0, ring=5.0):
-    """Rev 81: the Dark Interrupt type disc round, as the 2001 playtest prints show it (Atmospheric Assault, Blow
+    """Rev 84: the Dark Interrupt type disc round, as the 2001 playtest prints show it (Atmospheric Assault, Blow
     Parried: a round swirl disc with a thin dark rim in the red lobe). Bardez's DS layer clips the swirl to a chamfered
     square (227-410 x 200-375 px): the swirl inside the circle is kept, a dark rim drawn, and the square's corners
     filled with the lobe round them (OpenCV inpainting)."""
@@ -114,4 +114,4 @@ def round_ds_interrupt_disc(cx=318.5, cy=288.0, r=82.0, ring=5.0):
 
 
 if __name__ == "__main__" and "weapon" not in __import__("sys").argv:
-    round_ds_interrupt_disc()   # rev 81: after a full build too (python3 make_rg_frames.py [round-disc])
+    round_ds_interrupt_disc()   # rev 84: after a full build too (python3 make_rg_frames.py [round-disc])
