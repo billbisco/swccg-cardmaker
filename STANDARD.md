@@ -701,9 +701,18 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     2.3 px (745) right / 2 px high → 1426×1972 at (133, 139); Dark `ds-character-imperial` 0.3 % too small, 1 px high
     → 1348×1938 at (142, 143), the same error as Bardez's Effect frames (Rev 68). Resampled with premultiplied
     Lanczos (`refit_frame.py`, sub-pixel rest baked in).
-  - **Boxes** (master px; Light / Dark): title +10/−4 / +18/0; destiny −8/+8 / +4/−4; stat row −4/−2 / +6/+4; icon
-    column −14/−4 / +2/+6; set mark −5/+6 / +12/+12; deploy and forfeit 2 px left (Dark also 5-6 px down); copyright
-    13 / 12 px left; expansion sphere (Light) 4 down; swapped affiliation disc (`disc_at`) (189, 184) / (195, 183);
-    Episode I disc under the sphere (`ring_disc_dy`) 12 / 14 down.
+  - **Boxes** (master px; Light / Dark): title +10/−4 / +30/0 (Dark bar end kept at x 1276: width 872); destiny
+    −8/+2 / +4/−4 (Light: the digit sat 3 px (745) low in the ring); stat row −4/−2 / +6/+4; icon column −14/−4 /
+    +2/+6; set mark −5/+6 / +12/+12; deploy and forfeit 2 px left (Dark also 5-6 px down); copyright 13 / 16 px left;
+    expansion sphere 4 down (Light) / 2 right, 8 down (Dark); swapped affiliation disc (`disc_at`) (189, 184) /
+    (195, 183); Episode I disc under the sphere (`ring_disc_dy`) 8 / 6.
+  - **Dark stat squeeze:** the Dark wells are tight, so the label-value squeeze (render JS) had shrunk the labels to
+    about ×1.0 against the PC's ×1.1. New template key `stat_min` (smallest label-value gap, right margin) = (22, 14)
+    on `ds-character-imperial` (default 28, 18 elsewhere): POWER / ABILITY labels and values now within 1 px of the PC.
+  - **Result** (10 references, 745 px): every title, destiny, icon column, set mark, deploy, forfeit, copyright and
+    swapped disc within 1 px (one set mark 2 px); frame MAD 11.6 → 4.4. Regression (13-card sample of the 115 VS1-17
+    remasters on these two templates, art-less): every card changes, frame and boxes only (Light ≈10 % of pixels,
+    Dark ≈4 %), as intended. Evidence: swccg-guild/work evidence/52/.
   - **Left as found** (evidence/52/checklist.md): lore and game text line widths and wraps (the fitter, #49), art
-    credit and label strip, Bardez XCF and printed-scan cross-checks (R7) not yet done.
+    credit and margin strip faces, the Dark third (wide) stat box 1-2 px; Bardez XCF and printed-scan cross-checks
+    (R7, AC7) not yet done.
