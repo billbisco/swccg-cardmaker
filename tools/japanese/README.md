@@ -22,3 +22,7 @@ Comparison sheets (scan | CardMaker, half size): `sheets/<sample>.jpg`.
 Rev 81 (Starships, Vehicles, Weapons, Creatures): samples tie_fighter, x_wing (Starships), sandcrawler,
 sandcrawler_dark (Vehicles), jedi_lightsaber, imperial_blaster (Weapons), dianoga, wampa (Creatures). Same printed lines;
 strip items within ~6 px (TIE Fighter's condensed third item ~50 px wider than printed).
+
+Rev 82 (Locations, Epic Events, Reflections II foil): samples kessel, yavin_4_dark (systems; Takara's text boxes are
+taller, not yet drawn), death_star_detention_block_control_room, tatooine_cantina_dark (sites: Takara printed them in
+portrait; the sheets show the gap), attack_run, commence_primary_ignition (Epic Events), darth_vader_ref2_foil.

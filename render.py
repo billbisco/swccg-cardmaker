@@ -602,8 +602,8 @@ def game_text_html(text: str) -> str:
             out.append(esc(seg))
         name, arg = m.group(1), m.group(2)
         n_out = len(out)
-        if name == "u":   # rev 77: an underlined run as Takara printed some terms ({u:密閉型}, Blizzard Walker (Japanese))
-            out.append(f'<u>{esc(arg or "")}</u>')
+        if name in ("u", "ub"):   # rev 77: an underlined run as Takara printed some terms ({u:密閉型}, Blizzard Walker (Japanese));
+            out.append(f'<u>{esc(arg or "")}</u>' if name == "u" else f'<b><u>{esc(arg or "")}</u></b>')   # rev 82 {ub:…} bold too (Attack Run)
         elif name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
             out.append(icon_img("pilotpower-dark" if card_ctx.get("side") == "Dark" else "pilotpower") + f" {esc(arg or '')}")
         elif name in ("alter", "control", "sense"):

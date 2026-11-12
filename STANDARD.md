@@ -1062,3 +1062,17 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   as the scans): TIE Fighter, X-wing, Sandcrawler (both sides), Jedi Lightsaber, Imperial Blaster, Dianoga, Wampa.
   English renders byte-identical to rev 80. Not done: Wampa's art breaking out of the window (Hoth Limited prints it
   too; CardMaker draws the window art only).
+- Rev 82 (2026-11-12, swccg-guild/work#283, Japanese printings part 4): **Locations, Epic Events, the Reflections II
+  Japanese foil**. Locations: the bars carry the Japanese title (`adapter.apply_language`: card type = title, ＊ red on
+  the card's own bar), Noto Sans JP 800 at 44 px condensed to 85 %, black on the Light bar; both halves' text in the
+  Japanese gothic, left-aligned, 41.5 px, full width figures (`dark_text` too). Found and **not yet drawn** (frame work,
+  logged in TEMPLATE-DIFFERENCES): Takara's systems have taller text boxes (bars ~25 px nearer the picture; Yavin 4
+  prints three 47 px lines where CardMaker fits three smaller ones), and Takara printed **sites in portrait**, laid
+  out like systems with a framed portrait picture (Tatooine: Cantina, Death Star: Detention Block Control Room) — the
+  English Decipher sites are landscape. Epic Events (`epic-event`, `ls-epic-event`): text 35 px on a 50 px pitch; the
+  step names bold and underlined with the new inline code `{ub:…}` (Attack Run トレンチへの突入, Commence Primary
+  Ignition 星系を指定する). Reflections II Japanese foil (Darth Vader): expansion Reflections II gives © 2000; the icon
+  column prints warrior above pilot (spec `icons` order); no foil look. Not printed in Japanese: Starting Interrupts,
+  Objectives, Admiral's Orders. `compare_ja.py`: `_scan_bounds` may be {"scan": [...], "ref": [...]} (the two text
+  boxes' outer edges, for systems whose starfield hides the frame), non-library art goes through the server's
+  resolver. English renders byte-identical to rev 81.
