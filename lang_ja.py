@@ -39,7 +39,7 @@ CARD_TYPES = {
     "CHARACTER WEAPON": "個人用武器", "SNOW CREATURE": "寒冷地生物", "COMBAT VEHICLE: AT-AT": "戦闘用ビークル：ＡＴ－ＡＴ",
 }
 # Takara's copyright line (1997 for Premiere / A New Hope, 1998 for Hoth; the Reflections II foils say 2000)
-COPYRIGHT = {"Premiere": 1997, "A New Hope": 1997, "Hoth": 1998}
+COPYRIGHT = {"Premiere": 1997, "A New Hope": 1997, "Hoth": 1998, "Reflections II": 2000}
 
 # Per-template geometry at the master (1632x2220). Measured: ds-character-imperial (Darth Vader). Other templates use
 # the same offsets from their own boxes until measured (DEFAULT).
@@ -84,6 +84,8 @@ CREATURE = {
     "gt_abs": (342, 1716, 950, 286), "strip": (-5, -2, -2, 71), "strip_mode": "tabs", "strip_tabs": (322, 800), "strip_pad": 26,
 }
 JA_GEOM: dict[str, dict] = {
+    # rev 82: Epic Events (Attack Run, Commence Primary Ignition): Takara set the long text at ~35 px on a 50 px pitch
+    "epic-event": {"gt_size": 35, "gt_lh": 50, "gt_ratio": 1.43}, "ls-epic-event": {"gt_size": 35, "gt_lh": 50, "gt_ratio": 1.43},
     "ds-starship-starfighter": {"gt_abs": (339, 1712, 955, 290), "strip": (0, -17, 14, 56)},   # TIE Fighter
     "ds-vehicle": {"gt_abs": (349, 1709, 952, 295), "strip": (0, -16, 10, 53)},               # Sandcrawler (Dark)
     "ds-character-imperial": {"gt_abs": (335, 1650, 958, 362), "strip": (-26, -10, 27, 62)},   # rev 80: refit after #52 moved the stat boxes
@@ -110,7 +112,7 @@ def fullwidth(s):
     for part in re.split(r"(\{[^{}]*\})", s):
         if part.startswith("{") and part.endswith("}"):
             m = re.match(r"\{([a-z]+):(.*)\}$", part, re.S)
-            out.append("{%s:%s}" % (m.group(1), _fw_run(m.group(2))) if m and m.group(1) in ("u", "b", "i") else part)
+            out.append("{%s:%s}" % (m.group(1), _fw_run(m.group(2))) if m and m.group(1) in ("u", "ub", "b", "i") else part)
         else:
             out.append(_fw_run(part))
     return "".join(out)
@@ -346,5 +348,9 @@ def css(card: dict, t: dict) -> str:
     .jastat{{display:flex;align-items:center;font-family:{FONT};font-weight:800;font-size:{g["strip_size"]}px;color:{"#e8e8e8" if not t.get("dark_text") else "#1c1c1c"};padding-bottom:2px;box-sizing:border-box}}
     .ctype{{font-family:{FONT}!important;font-weight:800;letter-spacing:0!important}}
     .ctype .ct{{display:inline-block;transform:scaleX(0.95);transform-origin:center}}
+    .ltext, .dtext{{font-family:{FONT}!important;font-weight:600;font-size:41.5px;line-height:50px;letter-spacing:0!important;text-align:left!important;justify-content:flex-start!important;
+      line-break:strict;word-break:normal;overflow-wrap:anywhere}}
+    .ltitle .lt, .dtitle .lt{{font-family:{FONT}!important;font-weight:800;font-size:44px!important;letter-spacing:0!important;display:inline-block;transform:scaleX(0.85);transform-origin:center}}
+    .ltitle .lt{{color:#161616!important;-webkit-text-stroke:0!important}}
     .copyin{{font-family:AGCn!important;font-weight:normal;color:{"#c4c4c4" if not t.get("dark_text") else "#333"}!important;letter-spacing:0.6px!important}}
     """

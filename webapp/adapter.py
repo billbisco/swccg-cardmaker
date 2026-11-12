@@ -743,8 +743,10 @@ def apply_language(spec: dict, card: dict) -> dict:
             if len(parts) > 1 and not card.get(dest):
                 card[dest] = parts
                 card[key] = "".join(parts)
+    if (card.get("template") or "").startswith("loc-"):   # rev 82: a location's bars carry the Japanese title (＊ケッセル)
+        card["card_type"] = card["title"]
     if not spec.get("halfwidth"):   # rev 80: Takara's figures and Latin letters are full width (３フォース, 能力値＞２)
-        for key in ("lore", "game_text"):
+        for key in ("lore", "game_text", "dark_text"):
             card[key] = lang_ja.fullwidth(card.get(key))
         for key in ("lore_lines", "text_breaks"):
             if isinstance(card.get(key), list):
