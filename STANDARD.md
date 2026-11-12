@@ -1371,3 +1371,19 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     Ahch-To 211_48, Coruscant (V) 203_31 and the three Japanese samples; Death Star: Central Core 1_283, Cloud City:
     Carbonite Chamber 5_166 and Bespin 5_76 from its scan change only inside the two title bars (the dot, intended);
     Allegations Of Corruption 13_52 ends "DECIPHER INC.".
+- Rev 81 (Coruscant sphere) (2026-11-12): `DC_SPHERE_ZOOM` re-measured per picture and per place; the default
+  `expansion_style` "pc" (Bill 2026-11-01) is unchanged. Ring fit (least-squares circle on the dark ring, 8x upsampled,
+  then a radial yellowness / lightness profile) on Decipher's own 745 / 1039 px faces of Allegations Of Corruption, A
+  Tragedy Has Occurred and Naboo: Battle Plains (Light and Dark): the gold ring peaks at r 11.0 px (745) of the 14 px seat
+  and a black ring runs from r 12.5 to 14.5 (all four faces alike). The rev 81 zoom (PC 1.23, Decipher 1.16) pushed the
+  gold out of the clip on cards and sites: no gold showed at all. The pictures: Decipher's has its gold peak at 0.80 of
+  the radius and its own black ring 0.88-0.97; the PC redraw's gold peaks at 0.94 with no black ring. Cards and sites
+  now draw Decipher's 1:1 and the PC's at 0.87 (gold at 0.82, the black hole behind it shows as the printed black ring);
+  measured after: gold peak r 11.0 and black ring from r 12.0-12.5 on all three cards, both styles. Systems print the
+  sphere larger on the bare starfield (Coruscant, Tatooine, Naboo, Malastare systems: gold peak r 13 px of the 14 px
+  seat, its black ring lost in the starfield): systems keep Decipher's at 1.16 and draw the PC's 1:1 (gold r 13.0 after;
+  was clipped at 1.23). Values are (cards and sites, systems); `dc_sphere_img(..., system=True)` takes the second. Only
+  Coruscant's two pictures are in the table: every other set's sphere is drawn whole and unclipped, so none loses its rim.
+  Checks: md5 identical before / after for 1_19, 1_70, 7_135, 3_56, 1_283, 5_76, Tatooine: City Outskirts 11_42, Naboo:
+  Boss Nass' Chambers 14_49 (Theed sphere) and the Tatooine system 12_84 in Decipher style; Coruscant cards change only
+  in the sphere.

@@ -1926,16 +1926,22 @@ DC_PRINT: dict = {
 }
 
 
-# rev 81: sphere pictures whose printed disc runs to the edge of the 56 px hole: our Coruscant spheres carry a black rim
-# outside the gold ring (gold edge at 0.81 of the radius on the PC redraw, 0.86 on Decipher's); printed, the gold ring is
-# the disc's edge (radial profiles of 18 Coruscant cards: gold peak at r 12.5-13 px (745), no dark ring). Drawn enlarged
-# by this factor, clipped to the disc.
-DC_SPHERE_ZOOM = {"icons/set-coruscant-pc.png": 1.23, "icons/set-coruscant-decipher.png": 1.16}
+# Rev 81 (Coruscant sphere): re-measured. Ring fit on Decipher's own 745 / 1039 px Coruscant faces (Allegations Of
+# Corruption, A Tragedy Has Occurred, Naboo: Battle Plains Light and Dark): the gold ring peaks at r 11.0-11.5 px (745) of a
+# 14 px disc (0.80 of the radius) and a black ring runs from r 12.5 to the edge (0.89-1.0). The zoom above clipped the gold
+# away on both pictures. Decipher's picture already has that layout (gold peak 0.80, black ring 0.88-0.97): drawn 1:1. The
+# PC redraw's gold peaks at 0.94 with no black ring: drawn at 0.87 (gold at 0.82) inside the disc, the black hole behind it
+# showing as the printed black ring. Systems print the sphere larger on the bare starfield: on the Coruscant-set systems
+# (Coruscant, Naboo, Tatooine, Malastare) the gold ring peaks at r 13 px (745) of the 14 px seat, at the edge, its black
+# ring lost in the starfield: Decipher's picture 1.16x, the PC redraw 1:1 (second value). Only Coruscant's pictures are
+# listed; every other sphere is drawn whole, unclipped.
+DC_SPHERE_ZOOM = {"icons/set-coruscant-pc.png": (0.87, 1.0), "icons/set-coruscant-decipher.png": (1.0, 1.16)}
 
 
-def dc_sphere_img(icon: str, cx: float, cy: float, d: float) -> str:
-    """The printed sphere picture, d px across centred on (cx, cy) (DC_SPHERE_ZOOM: enlarged inside a round clip)."""
-    z = DC_SPHERE_ZOOM.get(icon)
+def dc_sphere_img(icon: str, cx: float, cy: float, d: float, system: bool = False) -> str:
+    """The printed sphere picture, d px across centred on (cx, cy) (DC_SPHERE_ZOOM: scaled by that factor inside a round
+    clip; `system`: the systems' factor)."""
+    z = (DC_SPHERE_ZOOM.get(icon) or (None, None))[1 if system else 0]
     if not z:
         return f'<img src="{data_uri(ASSETS / icon)}" style="position:absolute;left:{cx - d / 2:g}px;top:{cy - d / 2:g}px;width:{d:g}px;height:{d:g}px">'
     D = d * z
@@ -2649,7 +2655,7 @@ def build_html(card: dict) -> str:
         if "episode1" in (card.get("ring_icons") or []) and card.get("set_mark"):
             ic_ = "icons/inline-episode1.png"   # PC Episode I systems print the circled Episode I icon there (Naboo (V))
         if card.get("decipher_print") and t.get("dc_system_ring") and ic_ in DC_SPHERE_ZOOM:
-            parts.append(dc_sphere_img(ic_, x + sz / 2, y + sz / 2, sz))   # rev 81: Coruscant's gold rim at the edge
+            parts.append(dc_sphere_img(ic_, x + sz / 2, y + sz / 2, sz, system=True))   # rev 81: Coruscant's gold rim at the edge
         else:
             parts.append(f'<img src="{data_uri(ASSETS / ic_)}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
     sec('ring_icons')
