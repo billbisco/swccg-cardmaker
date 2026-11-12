@@ -1,0 +1,48 @@
+{
+ "side": "Dark",
+ "title": "＊操縦ドロイド不足",
+ "caption": "",
+ "number": "",
+ "destiny": "3",
+ "lore": "ハイパースペースへの逃亡をふせぐために、宇宙戦闘機の操縦ドロイドを狙い撃ちするのは、帝国軍パイロットの常套手段だ。無傷の操縦ドロイドが不足すれば、宇宙戦闘機の迅速な配備も困難になる。",
+ "game_text": "３フォース消費して、場の敵の側に配備する。操縦ドロイド／ナビコン・アイコンのついた宇宙戦闘機はすべて配備コスト＋１となる。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "A New Hope",
+ "card_type": "EFFECT",
+ "gempId": "2_116",
+ "source": {
+  "gempId": "2_116",
+  "imageUrl": "https://res.starwarsccg.org/cards/ANewHope-Dark/large/astromechshortage.gif",
+  "set": "2"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Effect",
+ "grabber": false,
+ "dark_text": "",
+ "_en_title": "•Astromech Shortage",
+ "art": {
+  "kind": "library",
+  "gempId": "2_116",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-ANH-Astromech-Shortage-PSA-164793252.jpg",
+ "_page": "Astromech Shortage (Japanese)",
+ "lore_lines": [
+  "ハイパースペースへの逃亡をふせぐために、宇",
+  "宙戦闘機の操縦ドロイドを狙い撃ちするのは、帝国軍パイロ",
+  "ットの常套手段だ。無傷の操縦ドロイドが不足すれば、宇宙",
+  "戦闘機の迅速な配備も困難になる。"
+ ],
+ "text_breaks": [
+  "３フォース消費して、場の敵の側に配備する。操",
+  "縦ドロイド／ナビコン・アイコンのついた宇宙戦",
+  "闘機はすべて配備コスト＋１となる。"
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "side": "Light",
+ "title": "もうだめだ！",
+ "caption": "",
+ "number": "",
+ "destiny": "5",
+ "lore": "３ＰＯは、数多くの災難に脅かされ、たびたび作動停止の危機に見舞われた。この不運な通訳ドロイドは、罪のない皮肉感覚が発達し、状況判断力も鋭くなった。",
+ "game_text": "ライフフォースが15より小さいときの相手の支配フェイズに使用できる。場に出す。このターンの残りの間、フォースを失う毎に、失うフォースの数を半分にする（端数切り上げ）。Ｒ２－Ｄ２かＣ－３ＰＯが場に出ていれば、端数切り捨て。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "Premiere",
+ "card_type": "USED INTERRUPT",
+ "gempId": "1_120",
+ "source": {
+  "gempId": "1_120",
+  "imageUrl": "https://res.starwarsccg.org/cards/Premiere-Light/large/weredoomed.gif",
+  "set": "1"
+ },
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Used Interrupt",
+ "dark_text": "",
+ "_en_title": "We're Doomed",
+ "art": {
+  "kind": "library",
+  "gempId": "1_120",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-Premiere-1301-120o-Face.jpg",
+ "_page": "We're Doomed (Japanese)",
+ "lore_lines": [
+  "３ＰＯは、数多くの災難に脅かされ、",
+  "たびたび作動停止の危機に見舞われた。この不",
+  "運な通訳ドロイドは、罪のない皮肉感覚が発達",
+  "し、状況判断力も鋭くなった。"
+ ],
+ "text_breaks": [
+  "ライフフォースが15より小さいときの相手の支配",
+  "フェイズに使用できる。場に出す。このターンの",
+  "残りの間、フォースを失う毎に、失うフォースの",
+  "数を半分にする（端数切り上げ）。Ｒ２－Ｄ２か",
+  "Ｃ－３ＰＯが場に出ていれば、端数切り捨て。"
+ ]
+}

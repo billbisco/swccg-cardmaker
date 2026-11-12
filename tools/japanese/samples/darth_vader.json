@@ -53,5 +53,13 @@
   "包む。オビ＝ワン・ケノービの弟子であった。銀",
   "河一のパイロットであり、狡猾な戦士でもある。"
  ],
- "_scan": "Japanese-Premiere-Darth-Vader-Encyclopedia32-original.jpg"
+ "_scan": "Japanese-Premiere-Darth-Vader-Encyclopedia32-original.jpg",
+ "text_breaks": [
+  "戦闘の際、各戦闘運命数を＋１できる（合計",
+  "に＋１ではなく、１回引くごとに＋１でき",
+  "る）。彼が操縦する宇宙船は、戦闘力＋３と",
+  "なる。「ベイダー専用タイ・ファイター」に",
+  "乗っているなら、戦闘力＋４、回避値＋３と",
+  "なる。耐：損耗＜５。"
+ ]
 }

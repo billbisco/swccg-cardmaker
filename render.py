@@ -1756,8 +1756,8 @@ def build_html(card: dict) -> str:
     if ja:
         import lang_ja
         t = lang_ja.template(card, t)
-        if "stats" in t and not t.get("landscape") and not t.get("system"):
-            fr = lang_ja.frame(fr, fx, fy, card, t, stat_boxes(t, len(t["stats"])) or t["stats"])
+        if not t.get("landscape") and not t.get("system") and ("stats" in t or "lore" in t):   # rev 80: also the lore box sides
+            fr = lang_ja.frame(fr, fx, fy, card, t, (stat_boxes(t, len(t["stats"])) or t["stats"]) if "stats" in t else None)
     ax, ay, aw, ah = t["art"]
     art = art_crop(card) if card.get("art") and not t.get("_noart") else ""
     if t.get("chart") and not art:   # starfield with a spiral galaxy glow (Hyperoute Navigation Chart)
@@ -1917,7 +1917,9 @@ def build_html(card: dict) -> str:
                      f'display:flex;align-items:center;justify-content:center;font-family:HoloTitle;font-size:124px;color:#fff;white-space:nowrap">{title_dots(title_html(card["title"]), card)}</div>')
     else:
         tll = f' data-ll="{t["title_long_left"]}"' if t.get("title_long_left") else ""   # #62: a title too long for the bar starts further left
-        parts.append(f'<div class="title"{tll} style="position:absolute;{box("title")}">{title_dots(title_html(card["title"]), card)}</div>')
+        if ja:   # rev 80: Takara condensed a long title further to stay clear of the destiny (Luke Skywalker)
+            tll += lang_ja.title_attrs(card)
+        parts.append(f'<div class="title{" jatitle" if ja else ""}"{tll} style="position:absolute;{box("title")}">{title_dots(title_html(card["title"]), card)}</div>')
     sec('destiny')
     if card.get("destiny") and "destiny" in t:
         dv = esc(card["destiny"])
@@ -2595,6 +2597,10 @@ def build_html(card: dict) -> str:
       for (const el of document.querySelectorAll('.fitlab')) {   // label-only stat: squeeze to the well, keep the height
         const avail = parseFloat(el.dataset.avail), w = el.getBoundingClientRect().width;
         if (w > avail) el.style.transform = 'scaleX(' + (avail / w).toFixed(3) + ')';
+      }
+      for (const el of document.querySelectorAll('.jatitle[data-avail]')) {   // rev 80 Japanese title: Takara's 長体, condensed more to stay within the bar
+        const w = el.scrollWidth, k = Math.min(parseFloat(el.dataset.sx), parseFloat(el.dataset.avail) / w);
+        el.style.transformOrigin = 'left center'; el.style.transform = 'scaleX(' + k.toFixed(4) + ')'; el.style.width = w + 'px';
       }
       { // card maker layers: per-piece offset / scale / hide (applied after all fitting), then report each piece's box
         const LAYOUT = __LAYOUT__, boxes = {};

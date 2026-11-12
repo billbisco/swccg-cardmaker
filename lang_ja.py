@@ -47,23 +47,81 @@ DEFAULT = {
     "lore_chamfer": 55,
     "lore_text": (-18, -31, 25, 28),   # text area offsets from the English lore text box (left, top, right, bottom)
     "lore_cut": 130,                  # first line pulled in on both sides (clear of the chamfers)
+    # rev 80: Takara's lore box sits in the same place whatever Decipher's box (Luke Skywalker's English box is 30 px
+    # wider than Vader's; the Japanese ones are the same), so it is absolute: Vader's rev 77 box.
+    "lore_box_abs": (284, 352, 1341, 597), "lore_text_abs": (303, 346, 1335, 598),
     "lore_size": 46.6, "lore_lh": 58,   # Vader: 22 characters a line (16 on the first; Takara broke line 2 at 21)
     "strip": (-29, -6, 42, 66),       # stat strip: (left of first well, top from stats_y, right of last well, bottom)
     "strip_items": (-5, -15),         # item x = well x + a + b * i (Vader: 300, 598, 889)
     "strip_items2": (-5, 90),         # two stats: the second sits mid-strip (Admiral Ozzel 703, Nalan Cheel ~690)
     "strip_size": 58,
-    "title_left": 395, "title_dy": -27, "title_size": 67, "title_sx": 0.91,   # Takara's titles are condensed (長体)
+    "title_left": 386, "title_max": 790, "title_dy": -27, "title_size": 79, "title_sx": 0.78,   # rev 80: Takara's titles are condensed (長体); glyphs 73 px tall
+    "lore_ratio": 1.245, "gt_ratio": 1.21,   # leading / size when printed lines set a smaller size (Takara fitted each card)
     "gt": (-19, -6, 20, 11),          # game text offsets from the English box as rendered (left, top, width, height)
     "gt_size": 47.6, "gt_lh": 57.5,
 }
+# rev 80: Effects, Interrupts, Devices, Weapons. Takara's lore box is the same on all of them (measured on Astromech
+# Shortage, Affect Mind, Charming To The Last, Emergency Deployment, We're Doomed, Droid Detector, Electrobinoculars),
+# whatever the English template's own box, so it is set absolutely; game text likewise (text 286-1336 on every scan).
+TEXT = {
+    "lore_box_abs": (281, 359, 1348, 600), "lore_text_abs": (303, 362, 1336, 594), "lore_cut": 125,
+    "gt_abs": (284, 1652, 1054, 360), "title_dy": -22,
+}
+TEXT_TEMPLATES = re.compile(r"^(ls|ds)-(effect|interrupt|device|weapon)$")
 JA_GEOM: dict[str, dict] = {
-    "ds-character-imperial": {"gt_abs": (335, 1656, 962, 362)},
+    "ds-character-imperial": {"gt_abs": (335, 1650, 958, 362), "strip": (-26, -10, 27, 62)},   # rev 80: refit after #52 moved the stat boxes
     "ls-character-rebel": {"strip": (-34, -6, 8, 66)},   # Luke Skywalker (Japanese)   # Darth Vader (Japanese): 20 characters of 47.6 px a line
 }
 
 
 def geom(template: str) -> dict:
-    return dict(DEFAULT, **JA_GEOM.get(template, {}))
+    fam = TEXT if TEXT_TEMPLATES.match(template or "") else {}
+    return dict(DEFAULT, **fam, **JA_GEOM.get(template, {}))
+
+
+_FW = {c: chr(ord(c) + 0xFEE0) for c in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+=<>/%#&?!"}
+_FW.update({"-": "－", "−": "－"})
+
+
+def fullwidth(s):
+    """rev 80: Takara set figures, Latin letters and + － ＞ ＜ ＝ ／ full width in lore and game text (３フォース, 能力値＞２,
+    ＡＴ－ＡＴ); a number of two or more digits stays half width (15). CardMaker codes ({...}) keep their names; {u:...} / {b:...} contents are converted."""
+    if not isinstance(s, str):
+        return s
+    out = []
+    for part in re.split(r"(\{[^{}]*\})", s):
+        if part.startswith("{") and part.endswith("}"):
+            m = re.match(r"\{([a-z]+):(.*)\}$", part, re.S)
+            out.append("{%s:%s}" % (m.group(1), _fw_run(m.group(2))) if m and m.group(1) in ("u", "b", "i") else part)
+        else:
+            out.append(_fw_run(part))
+    return "".join(out)
+
+
+def _fw_run(s: str) -> str:
+    """Single figures full width, figures of two or more digits half width (We're Doomed: ライフフォースが15より, Ｒ２－Ｄ２)."""
+    return "".join(p if re.fullmatch(r"\d{2,}", p) else p.translate(str.maketrans(_FW)) for p in re.split(r"(\d{2,})", s))
+
+
+def em_width(line: str) -> float:
+    """Width of a printed line in ems: full-width characters 1, half-width 0.55, a line-end 。、 hangs (ぶら下げ) 0.5."""
+    t = re.sub(r"\{[a-z]+:|\}", "", line or "")
+    w = sum(1.0 if ord(c) > 0x2E7F or c in "＊" else 0.55 for c in t)
+    return w - (0.5 if t[-1:] in "。、" else 0)
+
+
+def fitted(lines: list, width: float, base: float, ratio: float, cut: float = 0, condense: float = 1.0) -> tuple[float, float, float]:
+    """The size Takara chose for these printed lines: the base size unless the longest line needs a smaller one.
+    Lore shrinks (Astromech Shortage: 27 characters at ~37 px); game text is first condensed (長体) down to `condense`
+    and then shrinks (Droid Detector: 26 characters a line, glyphs as tall as 22-character cards, leading 51 px).
+    Returns (font size, line height, horizontal scale)."""
+    need = max([em_width(l) / max(1.0, width - (2 * cut if i == 0 else 0)) for i, l in enumerate(lines)] or [0])
+    s0 = 1 / need if need else base
+    if s0 >= base:
+        return base, round(base * ratio, 2), 1.0
+    sx = max(condense, s0 / base)
+    size = s0 / sx
+    return round(size, 2), round(size * ratio * sx ** 0.5, 2), round(sx, 4)
 
 
 def title(s: str) -> str:
@@ -98,9 +156,15 @@ def template(card: dict, t: dict) -> dict:
         t["game_text"] = tuple(g["gt_abs"]) if g.get("gt_abs") else (x + a, y + b, w + c, h + d)
     if "title" in t and not t.get("landscape"):
         x, y, w, h = t["title"]
-        left = max(x, g["title_left"]) if "character" in card["template"] else x
+        left = g["title_left"]
         t["title"] = (left, y + g["title_dy"], w + (x - left), h)
     return t
+
+
+def title_attrs(card: dict) -> str:
+    """Widest title Takara printed (Luke Skywalker, 787 px): longer titles are condensed further (render.py JS)."""
+    g = geom(card["template"])
+    return f' data-avail="{g["title_max"]}" data-sx="{g["title_sx"]}"'
 
 
 def lines_html(lines: list, text_html) -> str:
@@ -112,8 +176,12 @@ def lines_html(lines: list, text_html) -> str:
 def gt_html(card: dict, t: dict, text_html, fit_attrs: str = "") -> str:
     x, y, w, h = t["game_text"]
     lines = printed_lines(card.get("game_text"), card.get("text_breaks"))
-    if lines:   # printed breaks: no fitting (a hanging 。 is meant to cross the measure)
-        return f'<div class="gt jagt" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{lines_html(lines, text_html)}</div>'
+    if lines:   # printed breaks: no fitting (a hanging 。 is meant to cross the measure); a long line sets a smaller size
+        g = geom(card["template"])
+        fs, lh, sx = fitted(lines, w, g["gt_size"], g["gt_ratio"], condense=0.9)
+        sq = f";transform:scaleX({sx});transform-origin:left top" if sx < 1 else ""
+        return (f'<div class="gt jagt" style="position:absolute;left:{x}px;top:{y}px;width:{w / sx:.1f}px;height:{h}px;font-size:{fs}px;line-height:{lh}px{sq}">'
+                f'{lines_html(lines, text_html)}</div>')
     return f'<div class="gt jagt fit"{fit_attrs} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">{text_html(card["game_text"])}</div>'
 
 
@@ -143,15 +211,21 @@ def frame(fr, fx: int, fy: int, card: dict, t: dict, wells) -> "Path":
     from pathlib import Path
     from PIL import Image
     import numpy as np, os, hashlib
-    if not wells or "stats_y" not in t:
+    strip = bool(wells) and "stats_y" in t
+    if not strip and not ("lore" in t and card.get("lore") and not t.get("dark_text")):
         return fr
     g = geom(card["template"])
     lx, ly, lw, lh = t["lore"]
     la, lb, lc, ld = g["lore_box"]
+    if g.get("lore_box_abs"):
+        L_, T_, R_, B_ = g["lore_box_abs"]; la, lc, ld = L_ - lx, R_ - lx - lw, B_ - ly - lh
     LX0, LX1, LY0, LY1 = lx + la, lx + lw + lc, ly + 43, ly + lh + ld - 4   # the English lore box's side bevels
-    y = t["stats_y"]; a, b, c, d = g["strip"]
-    X0, X1 = wells[0][0] + a - 14, wells[-1][0] + wells[-1][1] + c + 14
-    Y0, Y1 = y + b - 12, y + d + 22
+    if strip:
+        y = t["stats_y"]; a, b, c, d = g["strip"]
+        X0, X1 = wells[0][0] + a - 14, wells[-1][0] + wells[-1][1] + c + 14
+        Y0, Y1 = y + b - 12, y + d + 22
+    else:
+        y = b = d = 0; X0 = X1 = Y0 = Y1 = 0
     out = Path(os.environ.get("CARDMAKER_OUT") or Path(__file__).resolve().parent / "out")
     out.mkdir(exist_ok=True)
     key = hashlib.sha1(f"{fr}|{fx}|{fy}|{X0}|{X1}|{Y0}|{Y1}|{LX0}|{LX1}|{LY0}|{LY1}|5|{bool(t.get('dark_text'))}".encode()).hexdigest()[:12]
@@ -159,12 +233,13 @@ def frame(fr, fx: int, fy: int, card: dict, t: dict, wells) -> "Path":
     if dest.exists():
         return dest
     im = np.array(Image.open(fr).convert("RGBA")).astype(float)
-    x0, x1, y0, y1 = X0 - fx, X1 - fx, Y0 - fy, Y1 - fy
-    s0, s1 = y + b - fy, y + d - fy   # the strip itself covers these rows; mirror the frame into the bands above / below it
-    for i in range(s0 - y0):
-        im[s0 - 1 - i, x0:x1] = im[y0 - 1 - i, x0:x1] if i < y0 else im[s0 - 1 - i, x0:x1]
-    for i in range(y1 - s1):
-        im[s1 + i, x0:x1] = im[y1 + (y1 - s1) - 1 - i, x0:x1]
+    if strip:
+        x0, x1, y0, y1 = X0 - fx, X1 - fx, Y0 - fy, Y1 - fy
+        s0, s1 = y + b - fy, y + d - fy   # the strip itself covers these rows; mirror the frame into the bands above / below it
+        for i in range(s0 - y0):
+            im[s0 - 1 - i, x0:x1] = im[y0 - 1 - i, x0:x1] if i < y0 else im[s0 - 1 - i, x0:x1]
+        for i in range(y1 - s1):
+            im[s1 + i, x0:x1] = im[y1 + (y1 - s1) - 1 - i, x0:x1]
     for yy in (range(LY0 - fy, LY1 - fy) if not t.get("dark_text") else ()):   # lore box sides (Dark frames; Light frames are mottled)
         lft = im[yy, LX0 - 46 - fx:LX0 - 40 - fx].mean(0) * [.9, .9, .9, 1]; rgt = im[yy, LX1 + 30 - fx:LX1 + 36 - fx].mean(0) * [.9, .9, .9, 1]   # the box's shadow on the frame
         im[yy, LX0 - 40 - fx:LX0 + 4 - fx] = lft
@@ -177,7 +252,7 @@ def lore_html(card: dict, t: dict, text_html, fit_attrs: str = "") -> str:
     g = geom(card["template"])
     lx, ly, lw, lh = t["lore"]
     a, b, c, d = g["lore_box"]
-    L, T, R, B = lx + a, ly + b, lx + lw + c, ly + lh + d
+    L, T, R, B = g.get("lore_box_abs") or (lx + a, ly + b, lx + lw + c, ly + lh + d)
     k = g["lore_chamfer"]
     pts = f"{L + k},{T} {R - k},{T} {R},{T + k} {R},{B} {L},{B} {L},{T + k}"
     fill, stroke = "#000", "#4d5a5e"
@@ -186,13 +261,15 @@ def lore_html(card: dict, t: dict, text_html, fit_attrs: str = "") -> str:
     svg = (f'<svg style="position:absolute;left:0;top:0" width="1632" height="2220">'
            f'<polygon points="{pts}" fill="{fill}" stroke="{stroke}" stroke-width="3" stroke-linejoin="miter"/></svg>')
     a, b, c, d = g["lore_text"]
-    x0, y0, x1, y1 = lx + a, ly + b, lx + lw + c, ly + lh + d
+    x0, y0, x1, y1 = g.get("lore_text_abs") or (lx + a, ly + b, lx + lw + c, ly + lh + d)
     cut = g["lore_cut"]
     lines = printed_lines(card.get("lore"), card.get("lore_lines"))
     body = lines_html(lines, text_html) if lines else text_html(card["lore"])
-    return (svg + f'<div class="lore jalore fit"{fit_attrs} style="position:absolute;left:{x0}px;top:{y0}px;width:{x1 - x0}px;height:{y1 - y0}px">'
-            f'<span class="jacut" style="float:left;width:{cut}px;height:{g["lore_lh"] - 2}px"></span>'
-            f'<span class="jacut" style="float:right;width:{cut}px;height:{g["lore_lh"] - 2}px"></span>{body}</div>')
+    fs, lh_, _ = fitted(lines, x1 - x0, g["lore_size"], g["lore_ratio"], cut) if lines else (g["lore_size"], g["lore_lh"], 1)
+    size = f";font-size:{fs}px;line-height:{lh_}px" if lines else ""
+    return (svg + f'<div class="lore jalore{"" if lines else " fit"}"{"" if lines else fit_attrs} style="position:absolute;left:{x0}px;top:{y0}px;width:{x1 - x0}px;height:{y1 - y0}px{size}">'
+            f'<span class="jacut" style="float:left;width:{cut}px;height:{lh_ - 2}px"></span>'
+            f'<span class="jacut" style="float:right;width:{cut}px;height:{lh_ - 2}px"></span>{body}</div>')
 
 
 def stats_html(card: dict, t: dict, wells: list, esc) -> str:
@@ -222,9 +299,9 @@ def css(card: dict, t: dict) -> str:
     .title{{font-family:{FONT}!important;font-weight:800;font-size:{g["title_size"]}px;letter-spacing:0!important;-webkit-text-stroke:0!important;color:{"#dedede" if not t.get("dark_text") else "#1a1a1a"}!important;}}
     .title:not(.ltitle):not(.dtitle){{transform:scaleX({g["title_sx"]});transform-origin:left center}}
     .title .dot{{font-family:{FONT}}}
-    .lore.jalore{{font-family:{FONT}!important;font-weight:500;font-size:{g["lore_size"]}px;line-height:{g["lore_lh"]}px;letter-spacing:0!important;color:{ink};text-indent:0!important;padding:0;
+    .lore.jalore{{font-family:{FONT}!important;font-weight:600;font-size:{g["lore_size"]}px;line-height:{g["lore_lh"]}px;letter-spacing:0!important;color:{ink};text-indent:0!important;padding:0;
       text-align:justify;text-align-last:left;line-break:strict;word-break:normal;overflow-wrap:anywhere}}
-    .gt{{font-family:{FONT}!important;font-weight:500;font-size:{g["gt_size"]}px;line-height:{g["gt_lh"]}px;letter-spacing:0!important;color:{ink};padding:0!important;
+    .gt{{font-family:{FONT}!important;font-weight:600;font-size:{g["gt_size"]}px;line-height:{g["gt_lh"]}px;letter-spacing:0!important;color:{ink};padding:0!important;
       text-align:justify;text-align-last:left;line-break:strict;word-break:normal;overflow-wrap:anywhere}}
     .jal{{display:block;white-space:nowrap;text-align:justify;text-align-last:justify}}
     .jal.jalast{{text-align-last:left}}
@@ -234,5 +311,6 @@ def css(card: dict, t: dict) -> str:
     .jastrip.light{{box-shadow:inset 3px 3px 0 0 #5c5c62, 2px 3px 0 0 #f4f4f6}}
     .jastat{{display:flex;align-items:center;font-family:{FONT};font-weight:800;font-size:{g["strip_size"]}px;color:{"#e8e8e8" if not t.get("dark_text") else "#1c1c1c"};padding-bottom:2px;box-sizing:border-box}}
     .ctype{{font-family:{FONT}!important;font-weight:800;letter-spacing:0!important}}
+    .ctype .ct{{display:inline-block;transform:scaleX(0.95);transform-origin:center}}
     .copyin{{font-family:AGCn!important;font-weight:normal;color:{"#c4c4c4" if not t.get("dark_text") else "#333"}!important;letter-spacing:0.6px!important}}
     """

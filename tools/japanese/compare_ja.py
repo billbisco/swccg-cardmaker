@@ -39,7 +39,39 @@ def frame_bounds(im: Image.Image):
             if fr[i] > 0.8: best = i
             elif best is not None and fr[i] < 0.3: return best + step
         return best
-    return edge(colk, 0, w // 3, 1), edge(rowk, 0, h // 4, 1), edge(colk, w - 1, 2 * w // 3, -1), edge(rowk, h - 1, 3 * h // 4, -1)
+    b = edge(colk, 0, w // 3, 1), edge(rowk, 0, h // 4, 1), edge(colk, w - 1, 2 * w // 3, -1), edge(rowk, h - 1, 3 * h // 4, -1)
+    try:
+        c = frame_bounds_inside(a)
+        if None not in c and 1.40 < (c[3] - c[1]) / (c[2] - c[0]) < 1.48:
+            return c
+    except TypeError:
+        pass
+    return b
+
+
+def frame_bounds_inside(a):
+    """Slabbed / photographed scans (PSA, BGS holders): walk out from the card's middle to the first column / row that
+    is black from end to end (the border inside the frame's outer edge). Columns are judged on the middle rows; rows on
+    a narrow band just inside the frame's left side bar (the lore and text boxes are black across the middle)."""
+    h, w = a.shape
+    def walk(fr, start, stop, step):
+        for i in range(start, stop, step):
+            if fr[i] > 0.8 and fr[i + step] > 0.8:
+                return i - step
+        return None
+    colk = (a[int(h * .35):int(h * .65)] < 50).mean(0)
+    def side(start, stop, step):   # from inside the frame's side bar outward: first frame-coloured column, then the border
+        seen = False
+        for i in range(start, stop, step):
+            if colk[i] < 0.15: seen = True
+            elif seen and colk[i] > 0.85 and colk[i + step] > 0.85: return i - step
+        return None
+    x0, x1 = side(int(w * .2), 1, -1), side(int(w * .8), w - 2, 1)
+    cw = x1 - x0
+    rowk = (a[:, x0 + int(cw * .008):x0 + int(cw * .025)] < 50).mean(1)
+    rowk2 = (a[:, x1 - int(cw * .025):x1 - int(cw * .008)] < 50).mean(1)
+    rk = np.minimum(rowk, rowk2)
+    return x0, walk(rk, h // 2, 1, -1), x1, walk(rk, h // 2, h - 2, 1)
 
 
 def warp(scan: Path, bounds=None) -> Image.Image:
@@ -71,12 +103,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("specs", nargs="*", default=sorted(str(p) for p in (Path(__file__).parent / "samples").glob("*.json")))
     ap.add_argument("--out", default="out/japanese")
+    ap.add_argument("--full", action="store_true", help="also save the warped scan and the render at full size (measuring)")
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True); os.environ.setdefault("CARDMAKER_OUT", str(out))
     for f in a.specs:
         spec = json.loads(Path(f).read_text(encoding="utf-8")); name = Path(f).stem
         scan = warp(wiki_file(spec["_scan"], out / spec["_scan"]), spec.get("_scan_bounds"))
         ours = render(spec, out)
+        if a.full:
+            scan.save(out / f"{name}-scanw.png"); ours.save(out / f"{name}-ours.png")
         sheet = Image.new("RGB", (1632 * 2 + 10, 2220), "white"); sheet.paste(scan, (0, 0)); sheet.paste(ours, (1642, 0))
         sheet.resize((sheet.width // 2, sheet.height // 2), Image.LANCZOS).save(out / f"{name}-sheet.png")
         for part, box in (("top", (140, 140, 1500, 640)), ("bottom", (140, 1440, 1500, 2090))):
