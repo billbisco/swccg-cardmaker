@@ -405,6 +405,26 @@
    "Flip this card if Luke captured."
   ]
  },
+ "10_1": {
+  "game_text": [
+   "USED: Target your highest-ability character and one",
+   "Effect. Draw destiny. If destiny < ability of target",
+   "character, cancel target Effect.",
+   "LOST: If a battle was just initiated at a site where",
+   "opponent has at least two characters and one",
+   "weapon, draw destiny. If destiny is < number of",
+   "opponent’s characters at that site, opponent chooses",
+   "one to be lost."
+  ]
+ },
+ "10_4": {
+  "game_text": [
+   "Cancel one Sense or Alter card. (Immune to Sense.)",
+   "OR Cancel one Immediate Effect, Mobile Effect, or",
+   "Force drain. OR Take one card into hand from Force",
+   "Pile; reshuffle."
+  ]
+ },
  "10_6": {
   "game_text": [
    "Adds 3 to power of anything he pilots. When",
@@ -412,6 +432,94 @@
    "to otherwise, and once per battle, may reduce",
    "power of one opponent’s starship in same battle",
    "by power of Outrider for remainder of battle."
+  ]
+ },
+ "10_7": {
+  "game_text": [
+   "Deploy on table. Sense and Alter are now Lost",
+   "Interrupts. When any player makes a destiny draw for",
+   "Sense or Alter, and that destiny draw is successful,",
+   "that player loses 2 Force. Your Immediate Effects may",
+   "deploy for free. Whenever opponent cancels your",
+   "card with Sense or Alter, place that canceled card in",
+   "Used Pile. (Immune to Alter.)"
+  ]
+ },
+ "10_25": {
+  "game_text": [
+   "Shuffle any player’s Reserve Deck or Used Pile.",
+   "OR During your move phase, relocate one of your",
+   "characters (unless Disarmed) from Weather Vane",
+   "to any Cloud City site. Character may not move for",
+   "remainder of turn. OR Cancel Imperial Barrier or The",
+   "Shield Doors Must Be Closed."
+  ]
+ },
+ "10_28": {
+  "game_text": [
+   "USED: Take one non-unique alien into hand from",
+   "Reserve Deck; reshuffle.",
+   "LOST: During a battle, if opponent drew more than",
+   "two battle destiny, cancel all but two of those",
+   "destiny draws (your choice). OR If your non-unique",
+   "alien is in a battle, cancel game text of one Rebel",
+   "for remainder of turn."
+  ]
+ },
+ "10_30": {
+  "game_text": [
+   "USED: Target your highest-ability character and one",
+   "Effect. Draw Destiny. If destiny < ability of target",
+   "character, cancel target Effect.",
+   "LOST: If a battle was just initiated at a site where",
+   "opponent has at least two characters and",
+   "one weapon, draw destiny. If destiny < number of",
+   "opponent’s characters at that site, opponent chooses",
+   "one to be lost."
+  ]
+ },
+ "10_35": {
+  "game_text": [
+   "Add 2 to maneuver and 1 to power of any TIE for the",
+   "remainder of this turn. (Interrupt may even affect the",
+   "result immediately after a destiny draw targeting the",
+   "TIE’s maneuver.) OR Target two starfighters (your",
+   "TIE/ln and any Rebel starfighter) present at same",
+   "system or sector. Each player draws destiny. Opponent",
+   "totals destiny and starship’s power. You total destiny,",
+   "TIE’s power, and TIE’s maneuver. Lowest total loses",
+   "starfighter (if tied, neither starfighter is lost)."
+  ]
+ },
+ "10_44": {
+  "game_text": [
+   "USED: Shuffle any player’s Reserve Deck or Lost Pile.",
+   "LOST: If It Could Be Worse was just played, it is",
+   "canceled and you may use X Force to raise damage",
+   "against opponent by X amount. OR If opponent just lost",
+   "Force from a battle, play to increase loss by 1 Force."
+  ]
+ },
+ "10_46": {
+  "game_text": [
+   "USED: Target your highest-ability character and one",
+   "just-played Interrupt. Draw destiny. If destiny < ability",
+   "of target character, cancel target Interrupt.",
+   "LOST: Use 3 Force. Each player counts cards in hand,",
+   "then places entire hand and Used Pile onto Reserve",
+   "Deck; reshuffle. Each player then draws from Reserve",
+   "Deck the counted number of cards to create a new hand."
+  ]
+ },
+ "10_52": {
+  "game_text": [
+   "Deploy on table. Sense and Alter are now Lost",
+   "Interrupts. When any player makes a destiny draw for",
+   "Sense or Alter, and that destiny draw is successful,",
+   "that player loses 2 Force. Your Immediate Effects may",
+   "deploy for free. Whenever opponent cancels your",
+   "card with Sense or Alter, place that canceled card in",
+   "Used Pile. (Immune to Alter.)"
   ]
  },
  "11_10": {

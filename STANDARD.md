@@ -1679,3 +1679,25 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     "system, and". Quote style is left to the text-setting rule (cases listed in the batch report).
   - **Checks:** card-dict md5 over all CARDS en / ja against 6eaa4c9: 39 change, all listed cards (ja only 2_135, 3_137:
     corrections); decipher_lines hints unchanged (69 of 72).
+- Rev 81 (Decipher text setting 3) (2026-11-12):
+  - **Game-text quote style** (`adapter.gt_quotes(t, dset)`, `_dset()`: the Decipher set 1-14 of a Decipher card's own
+    text; PC / Virtual / Legacy texts keep the rule above). Read on 148 quoted runs of 177 printed faces (Premiere to
+    Theed Palace; hires 1497 px for sets 1-6, Decipher 350-367 px scans after), sampled across every set and phrase:
+    the style follows the PHRASE, not the era. A quoted run of two or more words prints double (“nighttime
+    conditions,” “break cover” “blown away” “blow away” “Hidden Base” “game text” “highest-ability character.”
+    “Dejarik Rules” “suck up” “jump off” “snub fighter” “cover charge.” “salt consumption.” “crazy wizard”); a quoted
+    single word prints single (‘react’ ‘hit’ ‘insert’ ‘sleeps’ ‘patient’ ‘fly’ ‘steal’ ‘frozen’ ‘escape’ ‘charm’ …: every
+    one of 100). A word named "in title / lore" prints single to Tatooine (‘levitation’, ‘Rebel’, ‘Ewok’, ‘Rebellion’,
+    Death Star II ‘Occupation’) and double on Coruscant / Reflections III (“Podracer(s)”, “sabacc”, “door”); Theed Palace
+    prints every quote single (‘blow away’, ‘Trade Federation’ in lore). Quotes the printed-text data (decipher_printed.json)
+    set double by hand are re-set by the same rule (they all agree). 96 Decipher cards change (93 single → double, 3
+    double → single: 9_144, 14_113, 7_299), every one as its print shows.
+  - **Reflections II measure:** its combo Effects / Interrupts (tall box, no lore) print lines to x 1337-1349 (ours
+    1315-1326) on 15 faces: the game-text measure is 32 px wider for Reflections II Effects / Interrupts
+    (`render.DC_WIDE`); and their printed line breaks (10 blocks) join decipher_lines.json: 10 of 10 break as printed
+    (Sense & Uncertain Is The Future 10_46: 7 lines as printed, was 8).
+  - **13_75 Maul's Double-Bladed Lightsaber lore:** Decipher's own face (497 px archive scan) prints "training to weld
+    properly" (no i between w and e; the PC's D-E1 re-render prints "wield"). corrections.json keeps "to wield"
+    (GEMP / PC text); decipher_printed.json carries the printed "weld" for Decipher printings.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, the PC quote cards
+    203_7, 208_14, 217_46 (“in title” runs), and 2_13, 4_75, 9_151, 13_8 with `decipher_print` false.

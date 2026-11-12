@@ -643,6 +643,9 @@ DC_TEXT = {"gt": {"k": 1.026, "lh": 63.5, "dy": 1, "dw": {"character": -18, "ear
            "lore": {"k": 1.044, "lh": 60.5, "x": 317, "indent": 75, "dw": {"Dark": -6, "Light": 6}, "min_h": 187,
                     "stroke": {"Light": 0.3, "Dark": -0.35}}}
 DC_EARLY = ("Premiere", "A New Hope")   # sets whose Effects / Interrupts print the narrower measure
+# rev 81 (3): Reflections II's combo Effects / Interrupts (tall text box, no lore) set a wider measure: printed lines run
+# to x 1337-1349 (ours 1315-1326) on 15 faces; fitted on their printed breaks: +32 px
+DC_WIDE = {"Reflections II": 32}
 # Ink weight: printed black text (Light cards) is heavier than Holotable Text and printed white text (Dark cards, reversed
 # out of black) lighter: ink coverage printed / ours 1.04-1.08 (game text) and 1.15 (lore) on Light, 0.83-0.88 / 0.77-0.90
 # on Dark (7 hires faces). "stroke" (master px): > 0 = a text-stroke in the text colour, < 0 = in the box's black (thins).
@@ -703,7 +706,8 @@ def dc_gt_box(card: dict, t: dict) -> str:
     p = DC_TEXT["gt"]; x, y, w, h = t["game_text"]; tpl = card.get("template", "")
     o = DC_TPL.get(tpl, {})
     dw = o.get("dw", p["dw"]["character"] if "-character" in tpl else
-               p["dw"]["early"] if re.search(r"-(effect|interrupt)", tpl) and card.get("dc_expansion") in DC_EARLY else 0)
+               p["dw"]["early"] if re.search(r"-(effect|interrupt)", tpl) and card.get("dc_expansion") in DC_EARLY else
+               DC_WIDE.get(card.get("dc_expansion"), 0) if re.search(r"-(effect|interrupt)", tpl) else 0)
     k = p["k"]; fs = f"font-size:{o['size']}px;" if o.get("size") else ""
     h += o.get("dh", 0)   # Admiral's Orders print seven lines at full pitch, 45 px further down than the PC's box
     return (f"left:{x}px;top:{y + p['dy']}px;width:{(w + dw) / k:.2f}px;height:{h - p['dy']}px;transform:scaleX({k});"

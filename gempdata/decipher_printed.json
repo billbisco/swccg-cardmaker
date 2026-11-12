@@ -3051,8 +3051,9 @@
  },
  "13_75": {
   "gametext": "Deploy on Maul. Adds 1 to Maul's lightsaber combat total. May lose 1 Force to add 2 to Force drain where present. Twice per battle, may target a character. Draw two destiny. Target hit, and its forfeit = 0, if total > defense value. May not be stolen.",
-  "_label": "read off the printed face (PRINTED_SEEN)",
-  "_page": "Maul's Double-Bladed Lightsaber"
+  "_label": "read off the printed face (PRINTED_SEEN); lore \"to weld properly\" read off Decipher's 497 px face (Ref3-D-maulsdoublebladedlightsaber-decipher-archive.jpg, rev 81 text setting 3); the PC's D-E1 re-render prints \"to wield\"",
+  "_page": "Maul's Double-Bladed Lightsaber",
+  "lore": "Maul's double-bladed lightsaber is two lightsabers fused into one that requires years of training to weld properly. Like its mysterious owner, this weapon hasn't been seen for a millennia."
  },
  "13_77": {
   "gametext": "Dark: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile. Light: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile.",

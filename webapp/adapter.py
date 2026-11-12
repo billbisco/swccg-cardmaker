@@ -273,10 +273,29 @@ def quotes(t: str) -> str:
 GT_DOUBLE = r"\s+in\s+(?:its\s+|their\s+)?(?:title|lore|game\s+text|name|persona)\b"
 
 
-def gt_quotes(t: str) -> str:
+def gt_quotes(t: str, dset: int | None = None) -> str:
+    """Game-text quotes. dset = the Decipher set (1-14) of a Decipher card's own text: Decipher's rule (rev 81 Decipher
+    text setting 3, 148 quoted runs read on printed faces Premiere to Theed Palace, 1497 px hires and 350-367 px scans):
+    a quoted PHRASE of two or more words prints double (“nighttime conditions,” “break cover”, “blown away”,
+    “Hidden Base”, “game text”, “highest-ability character.”, “Dejarik Rules”, “suck up”), a quoted WORD
+    single (‘react’, ‘hit’, ‘insert’, ‘sleeps’, ‘patient’, ‘fly’, ‘steal’: 100 of 100), on every set
+    to Coruscant / Reflections III; a word named "in title / lore" prints single up to Reflections II and Tatooine
+    (‘levitation’ in title, ‘Rebel’ in, ‘Ewok’ in title, ‘Rebellion’ in lore) and double on Coruscant and
+    Reflections III (“Podracer(s)” in its, “sabacc”, “door” in title). Theed Palace prints every quote single
+    (‘blow away’, ‘Trade Federation’ in lore). Any other card (PC, Virtual): the rev 81 rule above (double only
+    for runs named in title / lore). Quotes already set double in Decipher text data are re-set by the rule."""
     t = (t or "").replace("`", "'")   # a few PC texts open the quote with a backtick (`credits.', Credits Will Do Fine (V))
-    return re.sub(r"(?<![\w])'(.+?)'(?![\w])(?=(" + GT_DOUBLE + r")?)",
-                  lambda m: ("\u201c%s\u201d" if m.group(2) else "\u2018%s\u2019") % m.group(1), t)
+    if dset is None:
+        return re.sub(r"(?<![\w])'(.+?)'(?![\w])(?=(" + GT_DOUBLE + r")?)",
+                      lambda m: ("\u201c%s\u201d" if m.group(2) else "\u2018%s\u2019") % m.group(1), t)
+    t = re.sub(r"[\u201c\u2018](.+?)[\u201d\u2019](?![\w])", r"'\1'", t)   # printed-text data: set by the rule below
+    t = t.replace('"', "'") if t.count('"') % 2 == 0 else t
+
+    def q(m):
+        multi = bool(re.search(r"\s", m.group(1).strip()))
+        dbl = dset != 14 and (multi or (bool(m.group(2)) and dset in (12, 13)))
+        return ("\u201c%s\u201d" if dbl else "\u2018%s\u2019") % m.group(1)
+    return re.sub(r"(?<![\w])'(.+?)'(?![\w])(?=(" + GT_DOUBLE + r")?)", q, t)
 
 
 def apostrophes(t: str) -> str:
@@ -369,6 +388,15 @@ def dc_printed_spec(spec: dict) -> dict:
                 else:
                     s[k] = copy.deepcopy(v)
     return s
+
+
+def _dset(c: dict) -> int | None:
+    """Rev 81 (3): the Decipher set (1-14) of a Decipher card's own printing, for its quote style; None otherwise."""
+    try:
+        s = int(str(c.get("set") or "").strip())
+    except ValueError:
+        return None
+    return s if 1 <= s <= 14 and not c.get("legacy") else None
 
 
 def _gemp_to_spec(c: dict) -> dict:
@@ -472,7 +500,7 @@ def _gemp_to_spec(c: dict) -> dict:
     spec["lore"] = quotes(spec["lore"])
     if typ != "Objective" and "/" in (f.get("title") or "") and title != strip_printing(f.get("title") or ""):   # flip card text joined to the other side's: "…unpiloted).May not…"
         spec["game_text"] = re.split(r"(?<=[.)!])(?=[A-Z•])", spec["game_text"], maxsplit=1)[0]
-    spec["game_text"] = ship_text(maintenance(gt_quotes(spec["game_text"])))
+    spec["game_text"] = ship_text(maintenance(gt_quotes(spec["game_text"], _dset(c))))
     spec["lore"] = ship_text(re.sub(r"\{([A-Za-z][A-Za-z' ]*)\}", r"*\1*", spec["lore"]))   # {leader} = bold in lore
     if c.get("gempId") in UNDERCOVER_FRAME:   # undercover spies print on the other side's frame (TK-422, Boushh, U-3PO)
         spec["side_frame"] = "Dark" if side == "Light" else "Light"
@@ -589,7 +617,7 @@ def _gemp_to_spec(c: dict) -> dict:
         if not m:
             m2 = re.match(r"\s*(?:Dark|DARK)\s*:?\s*(.*?)\s*(?:Light|LIGHT)\s*:\s*(.*)$", gt, re.S)
             if m2: dark, light = m2.group(1), m2.group(2)
-        polish = lambda x: (pc_shorthand if pc_era else str)(ship_text(maintenance(gt_quotes(game_text(x)))))
+        polish = lambda x: (pc_shorthand if pc_era else str)(ship_text(maintenance(gt_quotes(game_text(x), _dset(c)))))
         spec["game_text"], spec["dark_text"] = polish(light), polish(dark)
         # icon boxes are drawn right to left from the list: scomp outermost, then planet, then the rest (Docking Bay 94)
         li = [LOC_ICON[i] for i in reversed(icons) if i in LOC_ICON]
@@ -670,14 +698,14 @@ def _gemp_to_spec(c: dict) -> dict:
                 cap = spec["caption"]                                # original title from the labels stays (A Stunning Move: "Invasion (V)")
                 spec["caption"] = cap.split(" / ")[0] + (" (V)" if cap.rstrip().endswith("(V)") and not cap.split(" / ")[0].rstrip().endswith("(V)") else "")
             if i > 0:
-                spec["game_text"] = gt_quotes(game_text(gt[:i].strip().removeprefix(ft.replace("•", "").strip() + ":").strip()))
-                spec["game_text_back"] = gt_quotes(game_text(gt[i + len(bt.replace("•", "").strip()) + 1:].strip()))
+                spec["game_text"] = gt_quotes(game_text(gt[:i].strip().removeprefix(ft.replace("•", "").strip() + ":").strip()), _dset(c))
+                spec["game_text_back"] = gt_quotes(game_text(gt[i + len(bt.replace("•", "").strip()) + 1:].strip()), _dset(c))
             spec["title_back"] = bt
             spec["destiny_back"] = "7"
             return finish(spec)
         b = c.get("back") or {}
         spec["title_back"] = b.get("title") or ""
-        spec["game_text_back"] = gt_quotes(game_text(b.get("gametext")))
+        spec["game_text_back"] = gt_quotes(game_text(b.get("gametext")), _dset(c))
         spec["destiny_back"] = b.get("destiny") or "7"
     elif typ.startswith("Jedi Test"):
         spec["slip_type"] = "Jedi Test"; spec["card_type"] = typ.upper()
