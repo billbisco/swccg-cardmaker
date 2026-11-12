@@ -289,8 +289,9 @@ def fetch(url: str, dest: Path) -> Path:
     return dest
 
 
-def scan_path(gid: str) -> Path | None:
-    u = (CARDS.get(gid) or {}).get("front", {}).get("imageUrl") or ""
+def scan_path(gid: str, face: str = "front") -> Path | None:
+    """The card's printed face (Holotable mirror, else the PC image). face "back": an Objective's second side (rev 77)."""
+    u = ((CARDS.get(gid) or {}).get(face) or {}).get("imageUrl") or ""
     m = re.search(r"/cards/(.+)$", u)
     if m:
         p = HOLOTABLE / m.group(1)
@@ -300,7 +301,23 @@ def scan_path(gid: str) -> Path | None:
     return None
 
 
-def resolve_art(spec: dict) -> dict | None:
+def resolve_art(spec: dict, face: str = "front", split: bool = False) -> dict | None:
+    """`split` (rev 77): a picture of a two-picture window: an upload comes whole (render.split_art frames it with
+    spec split.fit1 / fit2 in its own side of the stripe)."""
+    if face == "back":
+        # rev 77: an Objective's back face has its own picture. spec art_back takes the art shapes (upload / scan / none);
+        # the art library holds front windows only, so the default (and "library") is the scan of the printed back
+        # ("front": the front's own picture; "library" / "upload" / "none" as for art)
+        a = dict(spec.get("art_back") or {}) if isinstance(spec.get("art_back"), dict) and (spec.get("art_back") or {}).get("kind") else {}
+        if a.get("kind") == "front":
+            return resolve_art(spec)
+        if a.get("kind") in (None, "ovs"):
+            a["kind"] = "scan"
+        gid = a.get("gempId") or spec.get("gempId")
+        if a["kind"] == "scan":
+            p = scan_path(gid, "back") if gid else None
+            return {"src": str(p)} if p else None   # render.py maps the frame and cuts the window, as for a front scan
+        return resolve_art(dict(spec, art=a))
     a = spec.get("art") or {}
     kind = a.get("kind") or ("library" if ART_MANIFEST.get(spec.get("gempId") or "", {}).get("status") == "ok" else "scan")
     if kind == "none":
@@ -310,6 +327,8 @@ def resolve_art(spec: dict) -> dict | None:
         h = hashlib.sha1(raw).hexdigest()[:16]; p = CACHE / f"up-{h}.img"
         if not p.exists(): p.write_bytes(raw)
         im = Image.open(p); w, hgt = im.size
+        if split and not a.get("rect"):
+            return {"src": str(p), "rect": [0, 0, w, hgt]}
         if a.get("rect"):
             return {"src": str(p), "rect": list(a["rect"])}
         # framing: zoom >= 1 and a focus point (fx, fy in 0..1) inside the cover-fitted crop of the art window
@@ -429,13 +448,32 @@ def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
         s["_art"], s["_art_kind"], keep_art = None, "ovs", True
     else:
       try:
-        s["_art"] = resolve_art(spec); s["_art_kind"] = (spec.get("art") or {}).get("kind")
+        two = bool((spec.get("art2") or {}).get("kind") not in (None, "none"))   # rev 77: second picture (split window)
+        s["_art"] = resolve_art(spec, split=two); s["_art_kind"] = (spec.get("art") or {}).get("kind")
+        s["_art2"] = resolve_art(dict(spec, art=spec["art2"]), split=True) if two else None
       except Exception as e:   # art source unreachable: still draw the card (blank window), don't cache it
-        print("art failed:", spec.get("gempId"), e, file=sys.stderr); s["_art"] = None; art_ok = False
+        print("art failed:", spec.get("gempId"), e, file=sys.stderr); s["_art"] = None; s["_art2"] = None; art_ok = False
     s["_set_icon_file"] = resolve_set_symbol(spec)
+    if spec.get("podracer_flag_data"):   # rev 77: a custom Podracer's own pilot flag (data URI, like the set symbol)
+        s["_podracer_flag_file"] = resolve_set_symbol({"set_symbol": spec["podracer_flag_data"]})
     card = adapter.spec_to_card(s, build_vs)
     if s["_art"] is None and not keep_art:
         card.pop("art", None)
+    if spec.get("face") == "back" and card.get("back"):
+        # rev 77: an Objective's back face, exactly as build_vs's batch path renders it (front card + card["back"])
+        art_b = (card["back"] or {}).get("art") or {}
+        b = dict(card); b.update(card["back"]); b["id"] = card["id"] + "b"; b.pop("back")
+        b.pop("art", None)
+        if keep_art and art_b.get("src"):
+            b["art"] = art_b   # the remaster's own back picture
+        else:
+            try:
+                ab = resolve_art(spec, "back")
+            except Exception as e:   # noqa: BLE001
+                print("back art failed:", spec.get("gempId"), e, file=sys.stderr); ab = None; art_ok = False
+            if ab:
+                b["art"] = ab
+        card = b
     done = {"ev": threading.Event()}
     JOBS.put((card, done))
     if not done["ev"].wait(120):
@@ -465,7 +503,7 @@ OPTIONS = {
     "sides": ["Light", "Dark"],
     "slip_types": ["Character", "Effect", "Immediate Effect", "Used Interrupt", "Lost Interrupt", "Used Or Lost Interrupt",
                    "Starting Interrupt", "Character Weapon", "Starship Weapon", "Device", "Starfighter", "Starship",
-                   "Vehicle", "Creature", "Defensive Shield", "Site", "System", "Objective", "Epic Event", "Jedi Test", "Admiral's Order"],
+                   "Vehicle", "Creature", "Defensive Shield", "Site", "System", "Objective", "Epic Event", "Jedi Test", "Admiral's Order", "Podracer"],
     "affiliations": ["Rebel", "Imperial", "Alien", "Droid", "Republic", "Jedi Master", "Dark Jedi Master", "Sith",
                      "Alien/Rebel", "Alien/Imperial"],
     "icons": ["pilot", "warrior", "nav", "astromech", "permanent-weapon", "permanent-pilot", "independent", "presence", "episode1"],

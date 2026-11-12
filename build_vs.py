@@ -87,6 +87,8 @@ def template_for(c: dict) -> str:
         return f"{side}-mission"
     if st == "epic event":
         return "ls-epic-event" if side == "ls" else "epic-event"
+    if st == "podracer":   # rev 77: Episode I Podracers: the Effect frame with the printed straight title bar and flat lore box
+        return f"{side}-podracer"
     if "admiral" in st:
         return f"{side}-admirals-order"
     if st == "character" or c.get("stats") and not c.get("card_type"):
@@ -118,6 +120,12 @@ def template_for(c: dict) -> str:
     if "interrupt" in st:
         return f"{side}-interrupt"
     return f"{side}-effect"
+
+
+def _token_fix(t: str) -> str:
+    for k, v in TOKEN_FIX.items():
+        t = t.replace(k, v)
+    return t
 
 
 def convert(c: dict, vs) -> dict:
@@ -200,7 +208,7 @@ def convert(c: dict, vs) -> dict:
     if t.startswith("objective"):
         card["destiny"] = c.get("destiny") or "0"
         card["back"] = {"title": c.get("title_back") or "", "caption": c.get("caption_back") or f"{c.get('title_back','')} (V)",
-                        "destiny": c.get("destiny_back") or "7", "game_text": (c.get("game_text_back_lines") or c.get("game_text_back") or ""),
+                        "destiny": c.get("destiny_back") or "7", "game_text": _token_fix(c.get("game_text_back_lines") or c.get("game_text_back") or ""),
                         "art": {"src": (c.get("art_back") or {}).get("modern") or (c.get("art_back") or {}).get("src")}}
     return card
 

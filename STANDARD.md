@@ -899,3 +899,107 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Font: Noto Sans JP (SIL OFL) in `assets/fonts/NotoSansJP`, installed in the container's fontconfig. Not yet: Takara's
   art shows ~4 % more picture (scale 0.95-0.97; our library art is the English window), types other than characters
   (they get the same text layer, unmeasured), Japanese location halves.
+- Rev 78 (2026-11-12, template survey fixes; numbered 78 because the Japanese printings layer took rev 77 the same day; code comments say "rev 77"):
+- Rev 78 two-sided Objectives (2026-11-12): the editor and `/api/render` render an Objective's **back face** with spec
+  `face: "back"` (default front; a spec without it renders exactly as before). The back is built exactly as build_vs's
+  batch path builds it (front card dict + `card["back"]`: back title, destiny 7, back game text, id + "b"); its picture
+  is spec `art_back` — default (and `{"kind": "scan"}`) the card's own printed back from the GEMP data's `back.imageUrl`
+  (every GEMP / Legacy Objective has one; the art library holds front windows only), `{"kind": "front"}` the front's
+  picture, `{"kind": "none"}`, `{"kind": "upload", …}` / `library` as for `art`; `art.kind: "ovs"` keeps the remaster's
+  own back art. The back's margin caption follows the front's (Decipher printings: none) instead of build_vs's slip
+  default "<back title> (V)"; spec `caption_back` overrides. Editor (Objectives only): Face Front / Back and Back art
+  (back scan / same as front / none); exports of the back are named `…_back.png`. Compared with the wiki Decipher-archive
+  scans — I Shall Enjoy Watching You Die (EJP 110_6), Systems Will Slip Through Your Fingers (SE 7_136), In The Hands
+  Of The Empire (7_300), Save You It Can (7_138): title, destiny 7, art window and text box sit where the front's do.
+  Found and fixed: `*Place* out of play` and `*Immediately* retrieve` open their own paragraph on the printed Objectives
+  (both faces, 23 cards), as *For* / *While* / *Flip* do (`adapter.objective_text`; unmarked 2010s PC text is marked
+  too), and the back text now gets build_vs's TOKEN_FIX. Fronts without those words are byte-identical to rev 76
+  (md5 checked on Hidden Base, Court Of The Vile Gangster, a character, a Dark site, a system, an interrupt). Not
+  changed: the Light Objective frame (`objective-ls`) draws the expansion sphere lower and further right than the
+  scans (it touches the destiny circle) — front and back alike.
+- Rev 78 printing variants (2026-11-12): three misprint / finish variants, all off by default.
+  **Uniqueness dot colour** — Eriadu (Jedi Pack, GEMP 102_7): first runs printed the Dark bar's uniqueness dot white
+  instead of red (Collecting Encyclopedia 3.2 p.46, both printings side by side; wiki Jedi-D-eriadu-decipher-archive.gif
+  is the corrected red one). Spec `bullet_colour`: `red` / absent = as printed; `white` (or `black`, or a #hex) recolours
+  the location dot on the card's own-side bar (the other bar's plain dot is unchanged) and the leading dots of a card
+  title. Editor: Uniqueness dot → Red / White (Eriadu misprint).
+  **Forfeit box border** — Lando In Millennium Falcon (Enhanced Cloud City, GEMP 109_2): 1 in 20 per sheet printed a
+  thicker black border round the forfeit value (Encyclopedia p.47 photo, normal and variant cards side by side, pdf
+  image 1152×2048). Measured with a 3 px blur on the halftone: the black box is 1.79× the white deploy box's width on
+  the variant against 1.27× on the normal card, i.e. ~12 master px more black each side (photo ≈ 1 master px per px by
+  the game-text pitch); vertically the box grows up to meet the deploy box (~6-8 px, the photo is too soft to separate
+  it). Spec `forfeit_box_border` (extra master px, default 0, max 40) draws a black rectangle that much larger than the
+  frame's forfeit box under the value; use 12 for this variant. Editor: Forfeit box border (extra px).
+  **Foil** — Reflections I-III foils (and any other card): spec `foil: true`, editor checkbox Foil. No wiki scan shows
+  the foil; matched to collector photos of Reflections II foils (PriceCharting: Admiral Ackbar, Chewie With Blaster
+  Rifle, Jodo Kast, Lord Vader, Home One): the silver frame's white splatter and bevels shimmer pastel rainbow (magenta,
+  violet, cyan, green, gold) in broad diagonal bands; dark frames keep their tone with a faint violet / blue cast; the
+  outer black border, the art and the text boxes stay as on a normal card. Drawn (`foil_html`) as three layers over the
+  frame image, each masked by the frame PNG's own alpha (so art windows and location starfields are untouched) and
+  clipped (even-odd path) round the lore / game text / location text boxes: a 118° repeating rainbow (1080 px period)
+  multiplied at 50 %, the same screened at 16 %, and two soft-light gloss streaks at 70 %.
+  Checks: renders without the keys (and with `bullet_colour: red`, `forfeit_box_border: 0`, `foil: false`) are
+  byte-identical to rev 76 (md5 on Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan system 1_121, Charming
+  To The Last 1_236, an objective 7_135, Eriadu 102_7, Lando In Millennium Falcon 109_2).
+- Rev 78 Split art (2026-11-12): **two-picture windows** of the Reflections II combo cards (Do, Or Do Not & Wise
+  Advice, Ghhhk & Those Rebels Won't Escape Us, Sunsdown & Too Cold For Speeders …), for new cards and remasters.
+  Measured on 24 printed combo scans (res.starwarsccg.org ReflectionsII-Light/-Dark large faces: 12 Light, 12 Dark;
+  Ghhhk 745 px true colour, the rest 354 px GIFs): one straight stripe rising from lower left to upper right at 60.0°
+  from horizontal (dx/dy −0.577 on every scan, centre ±1 px at 745 across all 24), its centre line crossing the window's
+  mid-height 0.508 of the window width from the left (master x 821 in the scan window 240..1384 × 372..1150; it meets the
+  top edge at ~0.70 and the bottom edge at ~0.31 of the width); width across the stripe Light 36 master px (20.5 px
+  horizontally at 745), Dark 38 (22 px); two bevel facets split along its middle, soft ~1 px edges, no outline: Light
+  silver, lower-left facet 226/225/222, upper-right 200/200/198 (median of 12); Dark red, lower-left 176/28/45, upper-right
+  214/31/53 (Ghhhk; the GIFs show the same split darker, 138/25/37 and 167/14/40). Each printed picture is at the scale of
+  the whole window and pushed against the stripe (Ghhhk's right edge at the stripe's top end, the TIE picture's left edge at
+  its bottom end). Spec: `art2` = the second picture, same forms as `art` (`{kind: library, gempId, version}`,
+  `{kind: scan, gempId}`, `{kind: upload, data}`; `none` or absent = one picture, rendering unchanged); `split` (optional)
+  = `{angle: 60, x: 0.508, width: 36 Light / 38 Dark, color: "silver" | "red" | "#rrggbb" (two facets ±6/8 %) | "none"
+  (default silver for Light, red for Dark templates), texture: "bevel" | "flat", fit1 / fit2: {zoom ≥ 1, fx, fy}}` — fx 1
+  for picture 1 and 0 for picture 2 by default (pushed against the stripe), fy 0.5. `render.split_art()` composes the
+  window (picture 1 left / lower, picture 2 right / upper, analytic anti-aliasing, stripe over the seam) and places it in
+  whatever window the card has: the raised no-lore window (`_artwin`), the lore-merged window, the frame hole, or a lore
+  card's normal window (Owen Lars & Beru Lars); landscape and system cards ignore `art2`. A scan picture is cut by the
+  template's normal art box (a lore-box card's window). Server: `resolve_art(spec, split=True)` returns uploads whole
+  (framed by fit1 / fit2, not by the upload's own zoom). Editor (Art): "Split art" checkbox (ticked on cards with no lore
+  box or with art2), first / second picture from any card (title or GEMP id, library art, 4× or scan) or uploaded, zoom /
+  left-right / up-down sliders for each picture, stripe angle, position, width, colour (auto / silver / red / own colour /
+  none), finish (bevelled / flat), reset. Checks: md5 of 9 renders identical before / after (Beru Lars 1_2, Death Star:
+  Central Core 1_283, Alderaan system 1_121, Alter 1_234, objective 9_151, and the combos 10_7, 10_39, 10_50, 10_18 with
+  their own scans), and `art2: {kind: none}` = no art2; composed from library art and compared with the scans: 10_7 = 4_21
+  + 7_81, 10_39 = 2_132 + 4_150, 10_50 = 1_230 + 3_113, 10_22 = 5_68 + 2_49 — stripe position, angle, width and colour
+  within ~1 px (745) of the printed cards; Decipher's own crops of each picture differ a little (adjust with fx / zoom).
+- Rev 78 Podracers (2026-11-12): **Episode I Podracers** (Tatooine Anakin's 11_47, Ben Quadinaros' 11_95, Dud Bolt's
+  11_96, Sebulba's 11_97, Teemto Pagalies' 11_98; GEMP has five, not six). Measured on the wiki's 497×692 Decipher
+  archive scans (card body 24..471 × 24..669, master = 144 + (scan − 24) × 3) against our Effect renders: the printed
+  Podracer top differs from the Effect frame — the title bar runs straight across (ridge master y 336..360, no notch) and
+  the lore box is a plain rectangle 276..1350 × 402..603 (Light: silver box 255..1361 × 393..612), lore flush left with no
+  first-line indent (text x 320..~1310); the type disc, destiny, art window, banner "PODRACER" and text box are the
+  Effect's (within 5 px). New templates `ds-podracer` / `ls-podracer` (`build_vs.template_for`: slip type Podracer;
+  frames from `make_podracer_frames.py`, built from our own Effect frames: band refilled from the clean rows under the
+  old lore box, header carried down, the Effect's own ridge profile and box rims; the frame's green Effect icon under the
+  podracer disc darkened). The **pilot flag badge**: the flag picture in a recessed window right of the disc — Dark
+  master 366..552 × 183..327 (scan 98..160 × 37..85), Light 357..546 × 174..327 — drawn with a 14 px CSS bevel; the
+  title then starts at x 611 (printed bullet 618) instead of 403. Flags cut from the wiki scans (the Holotable faces are
+  350×490, lower) by `tools/cut_podracer_flags.py`, 6× Lanczos + unsharp mask → `assets/icons/podracer-flag-<slug>.png`
+  (anakin, sebulba, ben-quadinaros, dud-bolt, teemto-pagalies; the window is ≈4:3, not square). Spec keys:
+  `podracer_flag: "<slug>"` (set by `adapter.finish` from the title for the five cards; `"own"` with
+  `podracer_flag_data`: a data-URI image, resolved by the server like the set symbol → card `podracer_flag_file`);
+  no flag → no badge and the Effect title position. Editor: Card type "Podracer" is now in the list; a Podracer shows
+  "Pilot flag" (the five, None, Your own) and an upload. Checks: before/after sheets of all five against the scans;
+  non-Podracer renders byte-identical to rev 76 (Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan System
+  1_121, A Few Maneuvers 1_70, Carbon Chamber Testing 7_296, A Bright Center To The Universe 7_218, 1_47). Not changed:
+  the printed Podracers set their game text a little larger/narrower than our Effect box (the shared Effect text box).
+- Rev 78 objective sphere (2026-11-12): the expansion sphere on printed Objectives sits in the purple margin right of
+  the art, clear below the destiny circle. Measured (ring fit on body-normalised 745 px scans) on 20 Light faces (Hidden
+  Base / Systems Will Slip, Mind What You Have Learned / Save You It Can, Rescue The Princess, Rebel Strike Team, There Is
+  Good In Him, Watch Your Step, Plead My Case, We'll Handle This, We Have A Plan, Quiet Mining Colony, You Can Either
+  Profit, fronts and backs) and Light Epic Events (Attack Run, Deactivate The Shield Generator, Boonta Eve, Inner
+  Strength): centre (678.5, 159.5) at 745 px = master (1427, 391); 10 Dark faces (Carbon Chamber Testing, Endor
+  Operations, Bring Him Before Me, Coruscant, R3, Theed, Enhanced CC / JP): (676, 166) = master (1422, 404). The sphere
+  with its black ring is ~29 px across at 745 = 58 master. `objective-ls` (and `ls-epic-event`, which copies it)
+  expansion_ring (1412, 295) -> (1398, 362), `objective` -> (1393, 375); expansion_size 70 -> 58. No new spec keys; the
+  Episode I disc under the sphere (Theed-era) follows it down. Every other template is md5-identical (character, Dark
+  site, system, interrupt, effect, Admiral's Order, starship, Dark Epic Events Target The Main Generator / Boonta Eve,
+  a Virtual Objective). Not changed: the Dark Epic Event template (`epic-event`) is in the right place but draws its
+  sphere at 70 px vs ~58 printed; printed Theed Objectives carry the Episode I disc in the LEFT margin, not under the sphere.
