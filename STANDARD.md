@@ -1028,3 +1028,23 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Left as found** (evidence/52/checklist.md): lore and game text line widths and wraps (the fitter, #49), art
     credit and margin strip faces, the Dark third (wide) stat box 1-2 px; Bardez XCF and printed-scan cross-checks
     (R7, AC7) not yet done.
+- Rev 80 (2026-11-12, swccg-guild/work#283, Japanese printings part 2): **Effects, Interrupts, Devices** measured against
+  the wiki's Japanese scans (`tools/japanese/compare_ja.py`, which now also finds the frame inside PSA / SWCA slabs).
+  Takara used the same lore box on every one of these types whatever Decipher's box (`lang_ja.TEXT`, templates
+  `ls|ds-effect|interrupt|device|weapon`): box (281, 359)-(1348, 600), text 303-1336 from y 362, first line pulled in
+  125 px a side; game text (284, 1652, 1054 × 360), the English box's side bevels blended away on Dark frames as on
+  characters. Text weight 600 (was 500; Takara's gothic is heavier). Takara fitted each card: with printed lines
+  (`lore_lines` / `text_breaks`) the size follows the longest line — lore shrinks (Astromech Shortage, 27 characters,
+  ~37 px), game text is first condensed to 90 % (長体) and then shrinks (Droid Detector, 26 characters, leading 51 px).
+  Figures, Latin letters and + － ＞ ＜ ＝ ／ print full width (３フォース, 能力値＞２, Ｒ２－Ｄ２); a number of two or
+  more digits stays half width (ライフフォースが15より); spec `halfwidth: true` keeps text as typed (`lang_ja.fullwidth`).
+  Titles on every Japanese card: glyphs 73 px tall (Noto Sans JP 800 at 79 px, condensed to 78 %; was 67 px / 91 %,
+  ~11 px short on the rev 77 characters too), x 386, condensed further when wider than 790 px (Luke Skywalker 787,
+  Charming To The Last 730; `.jatitle` JS). Banner condensed to 95 %. The character lore box is absolute too (Vader's rev 77
+  box): Luke Skywalker's English box is 30 px wider, the Japanese one is not. After rev 79 (#52) moved the Dark
+  character stat boxes, the Dark Japanese strip and game text were refit (Vader: strip within 2 px, same printed lines). **Help Me Obi-Wan Kenobi**: slip type
+  Effect with the card type left as USED INTERRUPT draws Takara's misprint (Effect frame and icon, interrupt banner).
+  Samples (same printed lines as the scans): Astromech Shortage, Affect Mind (Effects), Charming To The Last (Lost),
+  Emergency Deployment (Used), We're Doomed (Used), Warrior's Courage (Lost), Blue Milk (Used Or Lost), Electrobinoculars,
+  Droid Detector (Devices), Help Me Obi-Wan Kenobi. Starting Interrupts were never printed in Japanese. English renders
+  byte-identical to rev 79. `tools/japanese/make_sample.py` builds a sample from a wiki page "<Card> (Japanese)".

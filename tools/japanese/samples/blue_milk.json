@@ -1,0 +1,47 @@
+{
+ "side": "Light",
+ "title": "＊ブルー・ミルク",
+ "caption": "",
+ "number": "",
+ "destiny": "4",
+ "lore": "モイスチャー・ファームで常飲される栄養価の高い飲み物。薬効作用もあるといわれている。カンティーナでもジュリ・ジュースの飲めない者には人気。",
+ "game_text": "ユーズド：どちらか一方のプレイヤーが１フォースを起動する。ロスト：「ジュリ・ジュース」または「ハイポ」をキャンセルする。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "A New Hope",
+ "card_type": "USED OR LOST INTERRUPT",
+ "gempId": "2_46",
+ "source": {
+  "gempId": "2_46",
+  "imageUrl": "https://res.starwarsccg.org/cards/ANewHope-Light/large/bluemilk.gif",
+  "set": "2"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Used Or Lost Interrupt",
+ "dark_text": "",
+ "_en_title": "•Blue Milk",
+ "art": {
+  "kind": "library",
+  "gempId": "2_46",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-ANH-Blue-Milk-PSA-159081590.jpg",
+ "_page": "Blue Milk (Japanese)",
+ "lore_lines": [
+  "モイスチャー・ファームで常飲され",
+  "る栄養価の高い飲み物。薬効作用もあるといわ",
+  "れている。カンティーナでもジュリ・ジュース",
+  "の飲めない者には人気。"
+ ],
+ "text_breaks": [
+  "ユーズド：どちらか一方のプレイヤーが１フォー",
+  "スを起動する。ロスト：「ジュリ・ジュース」ま",
+  "たは「ハイポ」をキャンセルする。"
+ ]
+}

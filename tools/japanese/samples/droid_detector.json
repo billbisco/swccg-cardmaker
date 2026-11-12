@@ -1,0 +1,50 @@
+{
+ "side": "Dark",
+ "title": "ドロイド探知機",
+ "caption": "",
+ "number": "",
+ "destiny": "5",
+ "lore": "ウーハーは、機械類をひどく嫌っており、それらを遠ざけるため、店の入り口に、自動ドロイド探知機を取り付けた。",
+ "game_text": "任意の屋内位置に配備する。移動させることはできない。相手の次のターンの終わりまでに、（通常の移動コストを支払って）その位置から移動しなかったドロイドは、ロストする。新たにドロイドをこの位置に配備することはできない。毎ターンの終わりにこの位置にいるドロイドはロストする。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "Premiere",
+ "card_type": "DEVICE",
+ "gempId": "1_202",
+ "source": {
+  "gempId": "1_202",
+  "imageUrl": "https://res.starwarsccg.org/cards/Premiere-Dark/large/droiddetector.gif",
+  "set": "1"
+ },
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "set_mark": null,
+ "device_frame": true,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Device",
+ "dark_text": "",
+ "_en_title": "Droid Detector",
+ "art": {
+  "kind": "library",
+  "gempId": "1_202",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-Premiere-1301-202o-Face.jpg",
+ "_page": "Droid Detector (Japanese)",
+ "lore_lines": [
+  "ウーハーは、機械類をひどく嫌って",
+  "おり、それらを遠ざけるため、店の入り口に、",
+  "自動ドロイド探知機を取り付けた。"
+ ],
+ "text_breaks": [
+  "任意の屋内位置に配備する。移動させることはできない。",
+  "相手の次のターンの終わりまでに、（通常の移動コストを",
+  "支払って）その位置から移動しなかったドロイドは、ロ",
+  "ストする。新たにドロイドをこの位置に配備することは",
+  "できない。毎ターンの終わりにこの位置にいるドロイド",
+  "はロストする。"
+ ]
+}

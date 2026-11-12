@@ -743,6 +743,12 @@ def apply_language(spec: dict, card: dict) -> dict:
             if len(parts) > 1 and not card.get(dest):
                 card[dest] = parts
                 card[key] = "".join(parts)
+    if not spec.get("halfwidth"):   # rev 80: Takara's figures and Latin letters are full width (３フォース, 能力値＞２)
+        for key in ("lore", "game_text"):
+            card[key] = lang_ja.fullwidth(card.get(key))
+        for key in ("lore_lines", "text_breaks"):
+            if isinstance(card.get(key), list):
+                card[key] = [lang_ja.fullwidth(x) for x in card[key]]
     cr = card.get("copyright") or ""
     if not spec.get("keep_copyright") and re.search(r"19\d\d LUCASFILM", cr):
         card["copyright"] = lang_ja.copyright_for(spec.get("expansion")) or cr   # Takara's line: 1997 (Premiere, ANH), 1998 (Hoth)
