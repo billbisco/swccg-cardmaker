@@ -17,6 +17,10 @@ SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring s
     "15": "Reflections Gold Remastered", "15o": "Reflections Gold",   # set 15 (swccg-guild/work#174): Remastered = 15_N, original playtest = 15_No
 }
 
+# GEMP sets Decipher printed only with a white outer border (rev 76). The Unlimited / Revised reprints (GEMP 5x_N,
+# First / Second Anthology previews) are not separate cards in the data: open the card and pick Border: White.
+WHITE_BORDER_SETS = {"104"}   # The Empire Strikes Back Introductory Two-Player Game (ESB2P-L-chewie-decipher-archive.gif)
+
 EXPANSION_NAMES = {"A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palace", "Special Edition", "Endor",
                    "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Premium",
                    "Reflections Gold", "Reflections Gold Remastered"}
@@ -378,6 +382,7 @@ def gemp_to_spec(c: dict) -> dict:
     # expansion sphere style: the PC's redraws by default (Bill 2026-11-01: the target look is the PC's); Decipher's own
     # as printed is the editor's / API's "decipher". The 2009-14 Virtual Blocks (sets 1000+) printed Decipher's spheres.
     spec["expansion_style"] = "decipher" if (sid.isdigit() and int(sid) >= 1000) or sid == "1000d" else "pc"
+    spec["border"] = "white" if sid in WHITE_BORDER_SETS else "black"   # rev 76: Unlimited / Revised / Anthology printings
     rings = [RING[i] for i in icons if i in RING]
     if rings:
         spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)
@@ -636,6 +641,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     card["number"] = str(spec.get("number") or "")
+    if spec.get("border") == "white":
+        card["border"] = "white"
     for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
