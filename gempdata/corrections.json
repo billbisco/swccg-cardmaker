@@ -473,5 +473,17 @@
         "combat vehicle from your Reserve Deck"
       ]
     ]
+  },
+  "2_135": {
+    "lore": [
+      "Soccorran hunters, considered",
+      "Soccorran hunters; considered"
+    ]
+  },
+  "3_137": {
+    "lore": [
+      "That is the system and I'm",
+      "That is the system, and I'm"
+    ]
   }
 }

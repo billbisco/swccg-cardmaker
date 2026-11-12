@@ -36,6 +36,11 @@ from adapter import DECIPHER_SETS  # noqa: E402
 UNIQUENESS_SEEN = {
     "Sandcrawler: Loading Bay": "•",    # ANH-L-sandcrawlerloadingbay-decipher-archive.gif: one bullet; PC errata •••
     "Sandcrawler: Droid Junkheap": "•",  # ANH-D-sandcrawlerdroidjunkheap-decipher-archive.gif: one bullet; PC errata •••
+    # rev 81 (2): title strips of all 512 faces compared with ours: these print no bullet (Glossary made them unique /
+    # restricted: "•Legendary Starfighter", "••Floating Refinery")
+    "Do, Or Do Not": "",
+    "Legendary Starfighter": "",
+    "Floating Refinery": "",
 }
 # read off the printed faces (Decipher archive scans on the wiki) where the wiki's printed page has no separate text:
 # (wrong, right) replacements over GEMP's raw text, on Decipher printings only
@@ -76,13 +81,20 @@ PRINTED_SEEN = {
     "5_91": "Adds 3 to power of any starship he pilots. On Slave I, also adds 2 to maneuver and draws one battle destiny if not able to otherwise. When escorting a captive, captive is forfeit +5. May 'fly' (landspeed = 3). Immune to attrition < 3.",
     "7_110": "Light: Your spies deploy -1 here and at related sites. If you control, Undercover is immune to Hutt Smooch. Dark: Force drain -X here, where X = number of spies opponent has on table.",
     "7_123": {"gametext": [("Neither player may Force drain here.", "Opponent's Force drains here are canceled. You may not Force drain here.")]},
-    "7_136": {"gametext": [("from outside your deck face down", "from Reserve Deck face down"),
-                           ("your 'Hidden Base' is located", "your “Hidden Base” is located"),
-                           ("{Flip} this card any time after you have deployed five battleground systems and your 'Hidden Base' system.",
-                            "{Flip} this card any time after the system matching your “Hidden Base” indicator has been deployed.")]},
+    # Hidden Base / Systems Will Slip Through Your Fingers: both faces (SE-L-hiddenbase / -systemswillslipthroughyourfingers
+    # -decipher-archive.gif); "system(s)" set italic throughout
+    "7_136": "Hidden Base: Deploy Rendezvous Point. Place a planet _system_ (with a parsec number from 1 to 8) from Reserve Deck face down on your side of table (not in play); that card indicates the planet where your “Hidden Base” is located. {While} this side up, once during each of your deploy phases, may deploy one _system_ from Reserve Deck; reshuffle. Opponent loses no more than 1 Force from each of your Force drains at _systems_ and sectors. {Flip} this card any time after the _system_ matching your “Hidden Base” indicator has been deployed. Systems Will Slip Through Your Fingers: {While} this side up, to draw a card from Force Pile, opponent must first use 1 Force. For each battleground _system_ you control, you may cancel one opponent's Force drain (limit twice per turn). You may not deploy any _systems_. At each _system_ opponent occupies during any draw phase, opponent may 'probe' there by placing one card from hand face down beneath that _system_. {Place} out of play if “Hidden Base” _system_ is 'probed;' Dark Side places 'probe' cards in Used Pile (and may retrieve 1 Force for each Probe Droid used to 'probe').",
     "8_78": {"gametext": [("into hand from Reserve Deck; reshuffle", "into hand; reshuffle"), ("if Bunker 'blown away'", "if Bunker “blown away”"),
-                          ("if Endor 'blown away.'", "if Endor “blown away.”")]},
-    "9_61": {"gametext": [("Alter, Strangle, or Captive Fury", "Alter, Strangle or Captive Fury")]},
+                          ("if Endor 'blown away.'", "if Endor “blown away.”"),
+                          # back (Endor-L-garrisondestroyed-decipher-archive.gif)
+                          ("except by a 'react'.", "except by a 'react.'"), ("(unless Bunker 'blown away')", "(unless Bunker “blown away”)"),
+                          ("during an opponent's move phase", "during opponent's move phase"), ("if Endor is 'blown away'.", "if Endor is “blown away.”")]},
+    "9_61": {"gametext": [("Alter, Strangle, or Captive Fury", "Alter, Strangle or Captive Fury"),
+                          ("transfer Luke to Vader, if present with Vader.", "transfer Luke to Vader, if present.")]},   # back: DS2-L-icansavehim
+    # Hindsight: the printed (mirrored) face, pricecharting.com/game/star-wars-ccg-cloud-city/hindsight
+    "5_26": {"gametext": [("Also, during each draw phase,", "Also, at the end of every turn,")]},
+    # Rebel Guard prints POWER * (GEMP 0); DFS Squadron Starfighter (below) ARMOR 2 (GEMP: maneuver 2)
+    "1_26": {"power": "*"},
     "10_27": "USED: During opponent's turn, take up to four cards from your hand and place them on top of your Force Pile. LOST: During a battle, before any cards have been forfeited, cause all attrition for both sides to be reduced to zero.",
     "10_46": "USED: Target your highest-ability character and one just-played Interrupt. Draw destiny. If destiny < ability of target character, cancel target Interrupt. LOST: Use 3 Force. Each player counts cards in hand, then places entire hand and Used Pile onto Reserve Deck; reshuffle. Each player then draws from Reserve Deck the counted number of cards to create a new hand.",
     "11_18": "Deploy on table. If Death Star “blown away”: once during each of your turns you may deploy (for free) a starship from hand or Reserve Deck and reshuffle; if you just deployed a unique (*) starship to a system location, retrieve 3 Force. (Immune to Alter.)",
@@ -97,9 +109,13 @@ PRINTED_SEEN = {
                             "Immune to Disarmed, Clash Of Sabers, and attrition < 5 (or < 6 if armed with a lightsaber).")]},
     "13_75": {"gametext": [("While on Maul, may not be stolen.", "May not be stolen.")]},
     "13_77": "Dark: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile. Light: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile.",
-    "14_115": {"gametext": [("Laser Cannons aboard from Reserve Deck", "Laser Cannons here from Reserve Deck")]},
+    "14_115": {"gametext": [("Laser Cannons aboard from Reserve Deck", "Laser Cannons here from Reserve Deck")], "armor": "2", "maneuver": None},
     "110_7": {"gametext": [("Adds 2 to the power of anything he pilots.", "Adds 2 to power of anything he pilots.")]},
     # Desperate Times: printed with the Episode I disc under its Reflections III sphere (Glossary Supplement struck it)
+    "7_224": {"title": "Come Here You Big Coward!"},  # SE-D-comehereyoubigcoward: no bullet, "!" (GEMP •Come Here You Big Coward)
+    # the wiki's printed page holds another printing's / the list's words (read on ANH-D-dssixtyonefour… archive faces)
+    "2_88": "Adds 3 to power of any starship he pilots. On Black 4, also draws one battle destiny if not able to otherwise. May use 1 Force to search through your Reserve Deck and take one Lone Pilot into your hand. Shuffle, cut and replace.",
+    "2_45": "After a battle at an interior _site_ is initiated, use 1 Force to cause all leaders and all characters with ability > 2 (on both sides) to be completely excluded from that battle.",
     "13_13": {"icons": ["Reflections 3", "Episode I"]},
     "112_9": {"gametext": [("Your characters here aboard vehicles are each power +1.", "Your characters aboard vehicles here are each power +1.")]},
 }
@@ -115,12 +131,18 @@ WIKI_FIX = {
     "2_149": {"gametext": [("'Nighttime conditions'", "“Nighttime conditions”"), ("'Nighttime conditions'", "“Nighttime conditions”")]},
     "1_212": {"gametext": [("'nighttime conditions.'", "“nighttime conditions.”"), ("'game text'", "“game text”")]},
     "1_13": {"gametext": [("On Red 6 also", "On Red 6, also")]},                 # Jek Porkins: comma on the print
+    "5_45": {"lore": [("to prevent their", "to _prevent_ their")]},       # Dodge: "prevent" italic on the print
     "4_121": {"gametext": [("gains leader skill", "gains {leader} skill")]},  # Field Promotion: "leader" bold
 }
 # lore: the wiki's printed pages copy lore from Decipher's card lists, which differ from the print (Dark Hours prints
 # "Interrogator droid", the list "Interceptor"; Imperial Blaster "power packs", the page "packagedProduct"); only lore
 # the printed face confirms is taken (read on the wiki's hires / archive faces)
-LORE_OK = {"1_112", "1_168", "1_309", "2_16", "2_32", "3_16", "4_15", "4_110", "5_122", "6_75"}
+LORE_OK = {"1_112", "1_168", "1_309", "2_16", "2_32", "3_16", "4_15", "4_110", "5_122", "6_75",
+           # rev 81 (2): read on the hires / archive faces (the wiki's lore was right)
+           "1_22", "1_150", "1_155", "1_164", "1_211", "1_256", "2_25", "2_116", "2_129", "2_136", "2_161", "3_4", "4_39",
+           "4_108", "5_15", "5_45", "5_65", "6_10", "6_124", "6_125", "6_173", "7_12", "13_53"}
+# lore the faces contradict (GEMP kept): 1_18 LIN-V8K (the wiki has another card's lore), 1_26 "heroes", 1_149 "open-air",
+# 1_173 "missions", 1_174 "Pilot DS-61-3.", 1_212 "Interrogator", 1_261 "as laborer", 1_317 "power packs"
 STATS = ("destiny", "power", "ability", "deploy", "forfeit", "maneuver", "armor", "hyperspeed", "landspeed", "politics", "parsec")
 
 
@@ -299,7 +321,7 @@ def main():
         e = out.setdefault(gid, {})
         for k, pairs in ({"gametext": fix} if isinstance(fix, str) else fix).items():
             v = e.get(k, f.get(k))
-            if isinstance(pairs, str) or k == "icons":
+            if isinstance(pairs, str) or pairs is None or k not in ("gametext", "lore", "title"):
                 v = pairs
             else:
                 for a, b in pairs:

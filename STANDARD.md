@@ -1655,3 +1655,27 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     (corrections, en and ja) + 4_17 ja (dc_lines data); no PC / VS / OVS / Legacy card and no other Japanese card
     changes. Holotable renders md5-identical: 1_70, 1_283, 200_1, 223_40, 2_66 and 7_135 with the box off, Japanese
     2_66 / 1_13. decipher_lines hints: all 69 that applied before still apply (4_17 now too).
+- Rev 81 (Decipher printed text 2) (2026-11-12): the leftovers of Rev 81 (Decipher printed text), closed on the faces.
+  - *No wiki face:* pricecharting.com card photos (web.archive.org was unreachable from here) for For Luck, I Find Your
+    Lack Of Faith Disturbing, WED15-I7 'Septoid' Droid, Cloud City: Chasm Walkway (both), Hindsight, Vibro-Ax, Sienar
+    Fleet Systems: all print GEMP's words except Hindsight ("Also, at the end of every turn," for "during each draw
+    phase"); the rest of their errata lies outside the printed text (bullets / PC rules notes).
+  - *Objective backs* (Decipher-archive faces of Garrison Destroyed, I Can Save Him, Systems Will Slip Through Your
+    Fingers, No Love For The Empire, Fearless And Inventive): Hidden Base / Systems Will Slip whole text (Reserve Deck,
+    "draw phase", “Hidden Base”, italic _system(s)_, "'probed;'"), Garrison Destroyed punctuation and “blown away”, I
+    Can Save Him "if present."; the JPSD backs match GEMP.
+  - *Errata not in the words:* the title strips of all 512 faces set against ours: Come Here You Big Coward! prints no
+    bullet and the "!", Do, Or Do Not / Legendary Starfighter / Floating Refinery print no bullet (Glossary made them
+    unique); every stat box OCR'd against GEMP: DFS Squadron Starfighter prints ARMOR 2 (GEMP maneuver 2), Rebel Guard
+    POWER * (GEMP 0); the other 30 cards' errata are PC rules notes (Appendix A "your warrior" etc.) already printed
+    as GEMP holds them, or pure clarifications.
+  - *Lore:* the 33 unconfirmed wiki lore texts read on the hires / archive faces: 23 confirmed (`LORE_OK`), 8 rejected
+    (GEMP kept: LIN-V8K, Rebel Guard, Luke's X-34, DS-61-2, DS-61-3, Dark Hours, Nevar Yalnal, Imperial Blaster); Dodge
+    prints _prevent_ italic. Golan Laser Battery ("DF.9") and Beedo ("wrath") were already in corrections.json.
+  - *Punctuation:* the 314 hires faces OCR'd (text box and lore) and every printed / served field compared token by
+    token incl. trailing punctuation; the 206 flags read by eye where not OCR noise: DS-61-4 2_88 and Blast The Door,
+    Kid! 2_45: the wiki held list wording (print "into your hand. Shuffle, cut and replace.", "After a battle at an
+    interior _site_ is initiated, use 1 Force…"); corrections.json Monnok "hunters;", That's It, The Rebels Are There!
+    "system, and". Quote style is left to the text-setting rule (cases listed in the batch report).
+  - **Checks:** card-dict md5 over all CARDS en / ja against 6eaa4c9: 39 change, all listed cards (ja only 2_135, 3_137:
+    corrections); decipher_lines hints unchanged (69 of 72).
