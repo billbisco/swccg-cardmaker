@@ -25,21 +25,22 @@ BULLET_COLOURS = {"white": "#fff", "black": "#000", "red": None}
 
 # Template geometry (x, y, w, h) in 1632×2220 space.
 TEMPLATES = {
-    "ds-character-imperial": {
-        "frame": ("frames/ds-character-imperial.png", 144, 144),
+    "ds-character-imperial": {   # #52: frame and boxes fitted to 10 PC characters (VS24-27); see STANDARD.md Rev 79
+        "frame": ("frames/ds-character-imperial.png", 142, 143),
         "art": (256, 666, 1121, 770),
-        "title": (374, 200, 884, 90),
-        "destiny": (1312, 213, 100, 84),
+        "title": (404, 200, 872, 90),   # bar end kept at x 1276
+        "destiny": (1316, 209, 100, 84),
         "lore": (321, 377, 989, 193),
-        "stats_y": 1506,
-        "stats": [(305, 251), (613, 256), (924, 396)],   # (x, width): the three black stat boxes
+        "stats_y": 1510,
+        "stats": [(311, 251), (619, 256), (930, 396)],   # (x, width): the three black stat boxes
         "game_text": (341, 1663, 971, 333),
-        "deploy": (205, 1821, 45, 83),
-        "forfeit": (205, 1927, 47, 85),
-        "icon_slots": [(1352, 1643), (1352, 1749), (1352, 1855)],
-        "set_icon_abs": (1358, 1933),
-        "expansion_ring": (1380, 402),
-        "copyright_x": 1404,
+        "deploy": (203, 1827, 45, 83),
+        "forfeit": (203, 1932, 47, 85),
+        "icon_slots": [(1354, 1649), (1354, 1755), (1354, 1861)],
+        "set_icon_abs": (1370, 1945),
+        "expansion_ring": (1382, 410),
+        "copyright_x": 1388,
+        "disc_at": (195, 183), "ring_disc_dy": 6, "stat_min": (22, 14),
     },
     "ds-effect": {   # #62: frame and boxes fitted to the PC and printed Decipher effects
         "frame": ("frames/ds-effect.png", 141, 141),
@@ -141,14 +142,15 @@ TEMPLATES = {
         "lore": (321, 378, 989, 190), "card_type": (262, 1506, 1110, 61), "game_text": (314, 1665, 997, 328),
         "banner_icon": (1292, 1492), "set_icon_abs": (1391, 1940), "set_icon_size": 64, "expansion_ring": (1374, 405), "copyright_x": 1404,
     },
-    "ls-character-rebel": {
-        "frame": ("frames/ls-character-rebel.png", 135, 131),
-        "art": (259, 656, 1130, 763), "title": (400, 200, 900, 90), "destiny": (1318, 196, 108, 108),
-        "lore": (300, 380, 1040, 170), "stats_y": 1504, "stats": [(300, 275), (605, 285), (930, 420)],
-        "stats_wide": (605, 745), "game_text": (340, 1668, 990, 326),
-        "deploy": (205, 1827, 45, 78), "forfeit": (205, 1931, 45, 84),
-        "icon_slots": [(1367, 1653), (1367, 1757)], "set_icon_abs": (1372, 1935),
-        "expansion_ring": (1381, 405), "copyright_x": 1428, "dark_text": True,
+    "ls-character-rebel": {   # #52: frame and boxes fitted to 10 PC characters (VS24-27); see STANDARD.md Rev 79
+        "frame": ("frames/ls-character-rebel.png", 133, 139),
+        "art": (259, 656, 1130, 763), "title": (410, 196, 900, 90), "destiny": (1310, 198, 108, 108),
+        "lore": (300, 380, 1040, 170), "stats_y": 1502, "stats": [(296, 275), (601, 285), (926, 420)],
+        "stats_wide": (601, 745), "game_text": (340, 1668, 990, 326),
+        "deploy": (203, 1827, 45, 78), "forfeit": (203, 1931, 45, 84),
+        "icon_slots": [(1353, 1649), (1353, 1753)], "set_icon_abs": (1367, 1941),
+        "expansion_ring": (1381, 409), "copyright_x": 1415, "dark_text": True,
+        "disc_at": (189, 184), "ring_disc_dy": 8,
     },
     "ls-character-droid": {
         "frame": ("frames/ls-character-droid.png", 144, 133),
@@ -1975,6 +1977,8 @@ def build_html(card: dict) -> str:
         if boxes is t["stats"]:
             boxes = stat_boxes(t, len(boxes)) or boxes   # the wells as painted in the frame
         is_char = "character" in card["template"]
+        # #52: the tightest label-value gap and right margin the box squeeze may reach (PC Dark characters: 26 / 16 master px)
+        stat_min = f' data-gmin="{t["stat_min"][0]}" data-mmin="{t["stat_min"][1]}"' if t.get("stat_min") else ""
         for i, ((x, w), (label, value)) in enumerate(zip(boxes, stats)):
             # Decipher sets the value at the right end of its box (ARMOR      5, LANDSPEED    2 on starships and
             # vehicles; POWER 5 / ABILITY 6 fill theirs) — except a character's wide third box (ARMOR 5 follows the
@@ -1986,7 +1990,7 @@ def build_html(card: dict) -> str:
             if not value:
                 # full height, squeezed horizontally to the well (as the slips print MAINTENANCE DROID) — fitlab JS
                 lab_style = f' class="lab fitlab" data-avail="{w - 2 * t.get("stat_pl", 16)}" style="white-space:nowrap;display:inline-block;transform-origin:left center"'
-            parts.append(f'<div class="stat" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
+            parts.append(f'<div class="stat"{stat_min} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
                          f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{f'<span class="{vcls}">' + esc(value) + "</span>" if value else ""}</div>')
     if card.get("stat_icon") and t.get("stats_y"):   # a round icon left of the stat row (Mon Mothma (V): the Republic crest)
         sx0 = (stat_boxes(t, 3) or t["stats"])[0][0]
@@ -2559,7 +2563,8 @@ def build_html(card: dict) -> str:
         if (val.classList.contains('r')) {   // narrow (character) boxes: the value closes up to the label and the box end first
           const mr = parseFloat(getComputedStyle(val).marginRight) || 0, w0 = lab.offsetWidth * 1.1 + (val.offsetWidth - vp) * 1.15;
           const slack = inner - w0 - vp - mr;
-          if (slack < 0) { const cut = Math.min(-slack, (vp - 28) + (mr - 18)); const a = Math.min(vp - 28, cut / 2 + Math.max(0, cut / 2 - (mr - 18)));
+          const gmin = +(st.dataset.gmin || 28), mmin = +(st.dataset.mmin || 18);
+          if (slack < 0) { const cut = Math.min(-slack, (vp - gmin) + (mr - mmin)); const a = Math.min(vp - gmin, cut / 2 + Math.max(0, cut / 2 - (mr - mmin)));
             val.style.paddingLeft = (vp - a) + 'px'; val.style.marginRight = (mr - (cut - a)) + 'px'; }
         }
         { const vp2 = parseFloat(getComputedStyle(val).paddingLeft) || 0;
