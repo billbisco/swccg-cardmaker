@@ -11,6 +11,12 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
   the icon column, the Original Virtual set symbol at the bottom of the icon column, and the bottom strip:
   "•Title (V)" bottom-left and the slip number bottom-right in the black border.
 
+## Remaster corrections
+Published texts stay exactly as printed on the wiki and in GEMP. Corrections for a remaster (typos, unclear wording,
+attributes to bold, icon/notation slips, image quality, inconsistent titles) are collected on the wiki's
+[Remaster changes list](https://wiki.swccg.com/wiki/Remaster_changes_list) (swccg-guild/work#234). Read it before
+building a remaster and apply the listed correction for the card; add any new finding there.
+
 ## Sources
 - Frames, fonts, layout: Bardez's 600 DPI GIMP templates (wiki: Making Custom SWCCG Cards). Card area 1343×1931 at
   (144,144) on a 1632×2220 black bleed. Fonts from his pack (Fiorello CG Condensed, replaced in rev 62 by our own OFL Holotable Title; Akzidenz-Grotesk BQ Light/Medium/
