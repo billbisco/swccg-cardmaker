@@ -530,8 +530,9 @@ class H(BaseHTTPRequestHandler):
                     extra["versions"] = [{k: v for k, v in x.items() if k != "text"} for x in vers]
                     if LEGACY_NOTES.get(gid):
                         extra["version_notes"] = LEGACY_NOTES[gid]
-                    want = q.get("version", [""])[0] or (asked if asked != gid and asked in {x.get("gemp") for x in vers} else "")
-                    hit = next((x for x in vers if want and (want in (x["id"], x.get("code"), x.get("gemp")) or want.lower() == (x.get("label") or "").lower())), None)
+                    # an Objective's back class (22xx_n_BACK) opens the same version as its front (gemp_back, V4-GAPS 2026-11-12)
+                    want = q.get("version", [""])[0] or (asked if asked != gid and asked in {x.get(k) for x in vers for k in ("gemp", "gemp_back")} else "")
+                    hit = next((x for x in vers if want and (want in (x["id"], x.get("code"), x.get("gemp"), x.get("gemp_back")) or want.lower() == (x.get("label") or "").lower())), None)
                     if want and not hit and any(want == x["id"] for x in LEGACY_NOTES.get(gid, [])):
                         return self._json({"error": f"{want!r} is not a version (capitals / punctuation only, waiting on Bill's ruling)",
                                            "versions": extra["versions"], "version_notes": LEGACY_NOTES[gid]}, 404)

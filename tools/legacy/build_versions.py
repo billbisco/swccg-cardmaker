@@ -57,7 +57,10 @@ if a.gemp:
             bid = f"{m.group(1)}_{int(m.group(2))}{m.group(3)}"
             lv = re.search(r'new\s+LegacyVersion\(\s*"([^"]+)"\s*,\s*"([^"]*)"', src)
             if lv:
-                gemp_ver[(lv.group(1), lv.group(2))] = bid
+                cur = lv.group(1)
+                if bid.endswith("_BACK") and not cur.endswith("_BACK"):   # 2220_72_BACK names "1220_72": it is the back
+                    cur += "_BACK"
+                gemp_ver[(cur, lv.group(2))] = bid
         for line in git("show", f"{ref}:{MAPPING}").splitlines():
             x = line.strip().split(",")
             if len(x) == 2 and re.fullmatch(r"22\d\d_\d+\w*", x[0]):
@@ -87,6 +90,10 @@ for gid, f in rec.items():
     if f.get("pc_gemp_id"):
         aliases[str(f["pc_gemp_id"])] = lid
     out, held = [], []
+    # V4-GAPS (2026-11-12): an Objective's back is its own GEMP class `22xx_n_BACK` (LegacyVersion "<id>_BACK", same code).
+    # A record version of the back part takes the back class; any other part also carries the back class of the same
+    # code (`gemp_back`) unless the record keeps that code for a separate back version.
+    back_codes = {v.get("version_code") or "" for v in f.get("versions") or [] if v.get("part") == "back" and v.get("is_version")}
     for v in f.get("versions") or []:
         stat_only = (v.get("part") == "stats")   # rev 73: a stat-only change (Jedi Survivor (V) destiny 1 -> 3) is a version (Bill, B34)
         # R8 (2026-11-11): pc-image / master-list-repeat / repeat versions leave text_known unset (None) and carry a
@@ -102,11 +109,15 @@ for gid, f in rec.items():
         if not v.get("is_version"):
             continue
         code = v.get("version_code")
+        back = None
         if a.gemp:
-            g22 = [gemp_ver[(gid, code or "")]] if (gid, code or "") in gemp_ver else []   # is_latest is per part: match by code
+            key = (gid + "_BACK" if v.get("part") == "back" else gid, code or "")
+            g22 = [gemp_ver[key]] if key in gemp_ver else []   # is_latest is per part: match by code
+            if v.get("part") != "back" and (code or "") not in back_codes:
+                back = gemp_ver.get((gid + "_BACK", code or ""))
         else:
             g22 = [x["blueprint"] for x in (v.get("gemp_22xx") or []) if x.get("blueprint")]
-        for b in g22:
+        for b in g22 + ([back] if back else []):
             aliases[b] = lid
             unused.discard(b)
         seq = v.get("version_seq")
@@ -114,6 +125,8 @@ for gid, f in rec.items():
                     "date": v.get("date"), "part": v.get("part"), "seq": seq, "latest": bool(v.get("is_latest")),
                     "gemp": g22[0] if g22 else (gid if v.get("is_latest") else None),
                     "wiki": v.get("wiki_page"), "icons_missing": bool(MISSING.search(v["text"])), "text": v["text"]})
+        if back:
+            out[-1]["gemp_back"] = back
         st = {k: v[k] for k in STAT_KEYS if v.get(k) is not None}   # printed stats the version records (destiny …)
         if st:
             out[-1]["stats"] = st
