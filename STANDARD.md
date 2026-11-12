@@ -691,3 +691,19 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (436,214,924,115), card type 64 px / spacing 3, game text 66 px, sphere and Episode I disc in red rings
   (`expansion_hole`), coins (1938,1386). Sites print the uniqueness dot and their Planet / Exterior / Episode I icons;
   Executor's subtype italicises _Imperial_.
+- Rev 71 (2026-11-12, swccg-guild/work#52, Characters: Rebel / Imperial plates with the Republic, First Order and
+  Resistance discs; **pending deploy**, not yet on the live CardMaker). Measured with `compare_pc.py` on 10 PC
+  characters (VS24-27; Light: Chewbacca Of Kashyyyk (V), Obi-Wan Kenobi Jedi In Exile, Captain Han Solo (V), Finn
+  Resistance Hero, Corporal Rushing (V); Dark: Sil Unch (V), Captain Moden Canady, Cardo, Warrant Officer
+  Bachenkall, DS-61-3 (V)); every per-element offset was the same on all five cards of a side.
+  - **Frames:** a frame-only affine fit (ECC, element boxes and art window masked; `tools/pc_characters/`) gives the
+    same scale and shift on every reference of a side (to 0.01 px): Light `ls-character-rebel` 0.4 % too large and
+    2.3 px (745) right / 2 px high → 1426×1972 at (133, 139); Dark `ds-character-imperial` 0.3 % too small, 1 px high
+    → 1348×1938 at (142, 143), the same error as Bardez's Effect frames (Rev 68). Resampled with premultiplied
+    Lanczos (`refit_frame.py`, sub-pixel rest baked in).
+  - **Boxes** (master px; Light / Dark): title +10/−4 / +18/0; destiny −8/+8 / +4/−4; stat row −4/−2 / +6/+4; icon
+    column −14/−4 / +2/+6; set mark −5/+6 / +12/+12; deploy and forfeit 2 px left (Dark also 5-6 px down); copyright
+    13 / 12 px left; expansion sphere (Light) 4 down; swapped affiliation disc (`disc_at`) (189, 184) / (195, 183);
+    Episode I disc under the sphere (`ring_disc_dy`) 12 / 14 down.
+  - **Left as found** (evidence/52/checklist.md): lore and game text line widths and wraps (the fitter, #49), art
+    credit and label strip, Bardez XCF and printed-scan cross-checks (R7) not yet done.
