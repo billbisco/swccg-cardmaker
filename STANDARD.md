@@ -1616,3 +1616,42 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     4_75, 9_151, 13_8, 9_3, 11_47 with `decipher_print` false, and the Decipher site / system 1_283, 2_143.
   - Left for the text-data agent (GEMP text differs from the print): Concentrate All Fire 9_3 ("for remainder", "Once
     per turn, you"), Plead My Case back 12_88b (bold "order agenda"), More Dangerous Than You Realize 7_135b (“blown away.”).
+- Rev 81 (Decipher printed text) (2026-11-12): a card rendered as Decipher printed it (`decipher_print`, English) now
+  carries the text, title / bullets, lore and icons Decipher printed where GEMP's text is an errata (Decipher Glossary
+  Version 2.0 / Glossary Supplement, or the Players Committee's AR 2023 Appendix A). 514 cards.
+  - *Source:* `gempdata/decipher_printed.json` (GEMP id -> the GEMP front fields that differ, raw GEMP conventions,
+    `_page` / `_image` / `_label` provenance), made by `tools/make_decipher_printed.py` from a dump of wiki.swccg.com.
+    Wiki conventions: the printed face's page has `card_uid` = GEMP id + "o" (Jek Porkins 1_13o, version_label "printed"
+    or "Decipher final (Glossary …)"); the errata page carries the GEMP id, "<Title> (Errata)" (Decipher errata, label
+    "errata (Decipher Glossary …)") or "<Title> (PC Errata)" (label "PC Errata (AR 2023 Appendix A)"); "<Title>
+    (Original)" is a redirect to the printed page or a second printed page (label "printed (Decipher archive)", which
+    wins). Cards without errata have one page (uid = GEMP id). The printed pages' uniqueness field is copied from the
+    errata page (equal on all 491), so printed bullets come from Errata.wiki ("Errata face (• unique)", Appendix A
+    "print: (non-unique)") and the faces: Beru Stew, Limited Resources, Spaceport Speeders, Innocent Scoundrel, Pride Of
+    The Empire print none; Sandcrawler: Loading Bay / Droid Junkheap print one (GEMP •••). Only words count as a
+    difference (quote style, ellipses, markup and the wiki's missing / spurious stat fields do not).
+  - *Checked against the print:* every printed text was OCR'd (tesseract) on the wiki's Decipher-archive face of the card
+    (hires 1497 px scan for lore) and scored against both texts; the 31 not clearly decided were read by eye: the wiki was
+    right on all game text (OCR's three "GEMP" votes were misreads); fixes `WIKI_FIX` (Exposure "missing", Special
+    Modifications _Millenium Falcon_, Field Promotion bold *leader*, Jek Porkins "On Red 6, also", Decipher's double quotes
+    on the Sandcrawler sites and Dark Hours). Lore: the wiki's printed pages copy Decipher's card lists, not the print (Dark
+    Hours prints "Interrogator", the page "Interceptor"; Imperial Blaster "packagedProduct"), so only the 10 lore texts a
+    face confirms are taken (`LORE_OK`: Darth Vader "Servant of Emperor.", RA-7 "menial", Retractable Arm ".85", …).
+    50 errata'd cards the wiki keeps no printed page for (or whose page copied the errata) were read off their faces
+    (`PRINTED_SEEN`: Run Luke, Run!, the Jedi Pack / ECC cards, Wedge Antilles, Sense & Uncertain Is The Future, Kessel,
+    Lord Maul, …; Desperate Times' Episode I disc), plus two non-errata printing details (Dantooine Base Operations
+    “blown away.” / italic _site_, Plead My Case To The Senate "with with").
+  - *Adapter:* `gemp_to_spec` builds the spec twice (GEMP card, and the card with the printed fields) and keeps the
+    differing spec keys as `dc_printed` / `dc_errata`; `dc_printed_spec` (first thing in `spec_to_card`) puts the printed
+    values on when `decipher_print` and English, for every field still equal to its errata value (an edited field is
+    kept), before dc_bold / dc_ellipses run; the dc_* keys never reach the card. Editor: "As Decipher printed it" swaps the
+    form between printed and errata text (`dcSwap`, app.js); a card opens with the printed text.
+  - *Also:* dc_bold bolds a named agenda ("order agenda") on Political Effects and senate Objectives (Ascertaining The
+    Truth, Plea To The Court, Plead My Case, My Lord, Is That Legal?; characters and Interrupts print it regular);
+    corrections.json: Concentrate All Fire "for remainder of battle. Once per turn, you", Battle Deployment "present,
+    that player's" / "from your Reserve Deck" (transcription, read on the DS2 archive faces); decipher_lines.json 4_17
+    Asteroid Sanctuary holds the printed lines (the stored ones had GEMP's errata words).
+  - **Checks:** card-dict md5 over all 8116 CARDS × en/ja: 528 change = the 514 cards (en) + 9 agenda cards + 9_3 / 9_92
+    (corrections, en and ja) + 4_17 ja (dc_lines data); no PC / VS / OVS / Legacy card and no other Japanese card
+    changes. Holotable renders md5-identical: 1_70, 1_283, 200_1, 223_40, 2_66 and 7_135 with the box off, Japanese
+    2_66 / 1_13. decipher_lines hints: all 69 that applied before still apply (4_17 now too).

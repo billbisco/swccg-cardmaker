@@ -453,5 +453,25 @@
       "Super Star Destroyer Executor.",
       "Super Star Destroyer _Executor_."
     ]
+  },
+  "9_3": {
+    "gametext": [
+      [
+        "power +3 for the remainder of battle. Once per turn you may",
+        "power +3 for remainder of battle. Once per turn, you may"
+      ]
+    ]
+  },
+  "9_92": {
+    "gametext": [
+      [
+        "capital starship present that player's",
+        "capital starship present, that player's"
+      ],
+      [
+        "combat vehicle from Reserve Deck",
+        "combat vehicle from your Reserve Deck"
+      ]
+    ]
   }
 }

@@ -323,9 +323,22 @@ async function download(size) {
   finally { btn.textContent = t; btn.disabled = false; }
 }
 
+// rev 81 (Decipher printed text): an errata'd Decipher card carries Decipher's printed fields (dc_printed) and the errata
+// ones (dc_errata); "As Decipher printed it" shows the printed text, off shows the errata. A field the user changed is kept.
+function dcSwap(s, on) {
+  if (!s || !s.dc_printed) return s;
+  const from = on ? (s.dc_errata || {}) : s.dc_printed, to = on ? s.dc_printed : (s.dc_errata || {}), r = { ...s };
+  for (const k of Object.keys(s.dc_printed)) {
+    if (JSON.stringify(r[k] ?? null) !== JSON.stringify(from[k] ?? null)) continue;
+    if (to[k] === null || to[k] === undefined) delete r[k]; else r[k] = JSON.parse(JSON.stringify(to[k]));
+  }
+  return r;
+}
+
 async function loadCard(gid, version) {
   if ($("#browse").hidden) $("#results").hidden = true;   // browsing: keep the set list open to click through
   const data = await j(API + "card/" + encodeURIComponent(gid) + (version ? "?version=" + encodeURIComponent(version) : ""));
+  if (data.spec && data.spec.decipher_print) data.spec = dcSwap(data.spec, true);   // rev 81: Decipher's printed text
   lastData = data; writeForm(data.spec, data);
   history.replaceState(null, "", "#card=" + gid + (version ? "&version=" + encodeURIComponent(version) : "")); resetHistory(); preview();
   versionUI(gid, data);
@@ -388,6 +401,9 @@ form.addEventListener("change", e => {
     if (STAT_DEFAULTS[st] && !(spec.stats || []).length) statsUI(STAT_DEFAULTS[st]);
     if (st === "Site" || st === "System") $("#icons").querySelectorAll("input:checked").forEach(i => i.checked = false);   // pilot/warrior… don't belong on a location
     if (!spec.card_type || spec.card_type === spec.card_type.toUpperCase()) form.elements.card_type.value = BANNER(st);
+  }
+  if (e.target.name === "decipher_print" && spec && spec.dc_printed) {   // rev 81: printed text <-> errata text
+    writeForm(dcSwap(readForm(), e.target.checked), lastData);
   }
   if (e.target.name === "wide" && e.target.checked && !form.elements.expansion.value && /Interrupt|Effect/.test(form.elements.slip_type.value)) form.elements.expansion.value = "Reflections Gold";
   if (e.target.type !== "file") changed();

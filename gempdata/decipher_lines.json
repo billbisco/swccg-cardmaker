@@ -231,8 +231,8 @@
  },
  "4_17": {
   "game_text": [
-   "Deploy on any asteroid sector you control. During each of",
-   "your control phases, opponent loses X Force,",
+   "Deploy on any asteroid sector. During each of",
+   "opponent’s control phases, opponent loses X Force,",
    "where X = total number of asteroid sectors at same",
    "system that are not occupied by opponent. Effect",
    "canceled if opponent controls this location."

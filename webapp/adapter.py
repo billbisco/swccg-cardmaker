@@ -315,7 +315,63 @@ def pc_labels_for(c: dict) -> dict:
     return hit or PC_LABELS.get(str(c.get("gempId") or "")) or {}
 
 
+_DC_PRINTED = None
+
+
+def dc_printed_data() -> dict:
+    """Rev 81 (Decipher printed text): GEMP id -> the fields Decipher printed where GEMP carries an errata
+    (gempdata/decipher_printed.json, tools/make_decipher_printed.py from the wiki's printed-face pages)."""
+    global _DC_PRINTED
+    if _DC_PRINTED is None:
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gempdata", "decipher_printed.json")
+        try:
+            import json
+            with open(p, encoding="utf-8") as fh:
+                _DC_PRINTED = {k: {f: v for f, v in e.items() if not f.startswith("_")} for k, e in json.load(fh).items()}
+        except OSError:
+            _DC_PRINTED = {}
+    return _DC_PRINTED
+
+
 def gemp_to_spec(c: dict) -> dict:
+    """GEMP card -> spec. Rev 81 (Decipher printed text): a Decipher card whose GEMP text is an errata also carries the
+    printed version of every spec field that differs (`dc_printed`, with the errata values in `dc_errata`), built by the
+    same pipeline from Decipher's printed fields; spec_to_card puts them on when the card is rendered as Decipher
+    printed it (decipher_print, English)."""
+    spec = _gemp_to_spec(c)
+    pr = dc_printed_data().get(str(c.get("gempId") or "")) if not c.get("legacy") else None
+    if pr:
+        import copy
+        c2 = copy.deepcopy(c)
+        c2["front"].update(pr)
+        s2 = _gemp_to_spec(c2)
+        keys = sorted(k for k in set(spec) | set(s2) if k not in ("source", "gempId") and spec.get(k) != s2.get(k))
+        if keys:
+            spec["dc_printed"] = {k: s2.get(k) for k in keys}
+            spec["dc_errata"] = {k: spec.get(k) for k in keys}
+    return spec
+
+
+def dc_printed_spec(spec: dict) -> dict:
+    """Rev 81 (Decipher printed text): the spec as rendered. On a Decipher printing in English the printed fields
+    replace the errata ones they were made from (a field the editor changed is left alone); the dc_* keys never reach
+    the card. Runs before the rev 81 text rules (dc_bold, dc_ellipses) so those apply to the printed text too."""
+    if "dc_printed" not in spec and "dc_errata" not in spec:
+        return spec
+    s = dict(spec)
+    dp, de = s.pop("dc_printed", None) or {}, s.pop("dc_errata", None) or {}
+    if dp and decipher_print(s) and (s.get("language") or "en") == "en":
+        import copy
+        for k, v in dp.items():
+            if s.get(k) == de.get(k):
+                if v is None:
+                    s.pop(k, None)
+                else:
+                    s[k] = copy.deepcopy(v)
+    return s
+
+
+def _gemp_to_spec(c: dict) -> dict:
     f = c["front"]
     side = c["side"]
     typ = f.get("type") or ""
@@ -729,7 +785,7 @@ def dc_ellipses(t: str) -> str:
     return re.sub(r"\.[ \u00a0]\.[ \u00a0]\.(?=[A-Za-z0-9])", lambda m: m.group(0) + " ", t)
 
 
-def dc_bold(t: str, set_id) -> str:
+def dc_bold(t: str, set_id, slip_type: str = "") -> str:
     """Rev 81 (text data 2): keywords Decipher set bold in game text. "Agenda"/"Agendas" (not the colon) on every
     Coruscant / Reflections III senator (Horox Ryyder, Mas Amedda, Aks Moe, Tikkes, Sio Bibble). "cumulatively" in
     A New Hope to Special Edition (Rebel Tech, Death Star Gunner, Frozen Dinner, Mynock, Ortolan, Ugnaught, Aqualish,
@@ -738,6 +794,12 @@ def dc_bold(t: str, set_id) -> str:
     t = re.sub(r"(?<![*\w])(Agendas?)(?=:)", r"*\1*", t)
     if str(set_id or "").isdigit() and 1 <= int(set_id) <= 7:
         t = re.sub(r"(?<![*\w])([Cc]umulatively)(?![*\w])", r"*\1*", t)
+    if slip_type in ("Political Effect", "Objective"):
+        # rev 81 (Decipher printed text): Political Effects and the senate Objectives bold a named agenda ("If an *order
+        # agenda* here", Ascertaining The Truth; *justice agenda*, Plea To The Court; *peace agenda* / *order agenda*,
+        # Plead My Case To The Senate; *blockade agenda*, My Lord, Is That Legal?). Characters and Interrupts print it
+        # regular (Yarua "wealth agenda", Toonbuck Toora "ambition agenda", On The Payroll "matching agenda")
+        t = re.sub(r"(?<![*\w])((?:peace|order|justice|taxation|wealth|trade|blockade|ambition) agendas?)(?![*\w])", r"*\1*", t)
     return t
 
 
@@ -754,6 +816,7 @@ def decipher_print(spec: dict, card: dict | None = None) -> bool:
 
 def spec_to_card(spec: dict, build_vs) -> dict:
     """spec (+ resolved art/set-symbol files) -> render.py card dict, through build_vs.convert (the remaster path)."""
+    spec = dc_printed_spec(spec)   # rev 81: Decipher's printed text on a Decipher printing of an errata'd card
     c = dict(spec)
     # bounded inputs (the boxes condense, then shrink, but only so far): API callers get the same limits as the editor
     for k, n in (("destiny", 8), ("deploy", 4), ("forfeit", 4), ("destiny_back", 8)):
@@ -766,7 +829,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if decipher_print(spec) and (spec.get("language") or "en") == "en":   # rev 81: Decipher's bold keywords (dc_bold)
         for k in ("game_text", "dark_text", "game_text_back"):
             if isinstance(c.get(k), str):
-                c[k] = dc_bold(c[k], (spec.get("source") or {}).get("set"))
+                c[k] = dc_bold(c[k], (spec.get("source") or {}).get("set"), spec.get("slip_type") or "")
     c.setdefault("number", "")
     ovs = spec.get("style") == "ovs"   # Original Virtual Set remaster look (2002-08 slips) instead of Decipher's printing
     if not ovs:
