@@ -1066,5 +1066,11 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   no-lore `nolore_disc` are unchanged. No new spec keys or editor controls. Checks: before/after sheets against the
   scans; renders of every other template md5-identical (Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan
   1_121, Charming To The Last 1_236, objectives 7_135 / 9_151 / 7_136 back, Light Epic Events Attack Run 2_42 and
-  Deactivate The Shield Generator 8_43, effect 1_72, 4_19, combos 10_18 / 10_22). Not changed: the disc picture
-  itself (`ep1-disc.png` has "EPISODE" lettering; the printed Objective disc shows only the "I").
+  Deactivate The Shield Generator 8_43, effect 1_72, 4_19, combos 10_18 / 10_22). **Episode I disc picture**
+  (second commit): the printed disc (left margin and under the sphere alike: We Have A Plan, Hunt For The Droid
+  General, Communing, I Did It!, A Tragedy Has Occurred, Boss Nass, Captain Panaka, A Remote Planet) is a black disc with
+  a tall serif "I" (0.80 of the disc, stem ~0.09, serifs ~0.29 wide) over bright white, heavy, wide "EPISODE" (cap height
+  ~0.14, ~0.88 wide, centred at 0.48) that reads as a white bar at card size; our old `ep1-disc.png` had a short "I"
+  (0.61) and thin grey serif lettering that vanished. Redrawn by `tools/make_ep1_disc.py` (232 px, Holotable Text Bold
+  stretched to width, stem cut through the S with a thin black gap); one picture serves every place the disc prints.
+  Cards without an Episode I disc render md5-identical (1_19, 1_283, 1_121, 1_236, 7_135, 9_151, 2_42, 3_115, 10_22).
