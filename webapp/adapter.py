@@ -34,11 +34,17 @@ DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "1
 # set). 1995-98 (Premiere .. Jabba's Palace and their premium sets): "TM & © y LUCASFILM LTD.  TM, ® & © y DECIPHER INC.";
 # Special Edition (Dec 1998) .. Death Star II and the 1999-2000 premium sets drop "TM &" and the first year:
 # "© LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC."; Reflections II .. Theed Palace (2000-01) bring the year back and
-# print no final period ("… DECIPHER INC"); Coruscant alone sets a comma after the ® ("TM, ®, & ©"). Enhanced Cloud City
-# (1999) prints no final period either. Every printing sets two spaces before the Decipher half and a full-size ®.
+# print no final period ("… DECIPHER INC"); Coruscant alone sets a comma after the ® ("TM, ®, & ©"). Every printing sets
+# two spaces before the Decipher half and a full-size ®.
+# rev 81, read on sharp photos of printed cards (pricecharting.com card photos, 700-1600 px): Enhanced Cloud City prints the
+# final period (Boba Fett In Slave I, Crush The Rebellion, Dengar In Punishing One, IG-88 With Riot Gun, Any Methods
+# Necessary); Endor prints 1999 on every card (Chewbacca's Bowcaster, Chewie's AT-ST, Chief Chirpa, Corporal Beezer; the
+# Decipher archive scans of 8_160-8_178 carry the same digits, Speeder Bike and Tempest Scout 6 included); Reflections II's
+# own cards (the combos: Alter & Collateral Damage, Sense & Recoil In Fear) print the final period and "TM, ® &" (its foil
+# reprints of older cards set "TM, ®, &", but those render as their first printing).
 SE_ERA = {"7", "8", "9", "109", "110", "111", "112"}
-PRINT_YEAR = {"101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
-NO_FINAL_PERIOD = {"10", "11", "12", "13", "14", "109"}
+PRINT_YEAR = {"8": 1999, "101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
+NO_FINAL_PERIOD = {"11", "12", "13", "14"}
 
 
 def copyright_for(set_id, decipher: bool = True) -> str:

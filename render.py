@@ -1869,10 +1869,41 @@ DC_PRINT: dict = {
     # sites: sphere 3 px right and larger (56); the line in black (the frame is silver on both sides), ~4 % larger than
     # on the portrait cards and ~20 px (745) lower than the template had it, ending well below the sphere (Sandcrawler:
     # Loading Bay, Tatooine: Podrace Arena, Cloud City: Upper Walkway)
-    "loc-site": {"dc_sphere": (2022, 480, 56), "dc_copy": (2017, 840), "dc_copy_size": 29, "dc_copy_ink": "#000"},
-    # systems: the sphere 8 px left / 4 up (745) on 11 Light systems (Premiere-Death Star II, OTSD); the split line 3 px lower
-    "loc-system": {"dc_system_ring": (149, 188, 56), "dc_split": ((197, 1902), (1435, 1902))},
+    "loc-site": {"dc_sphere": (2022, 480, 56), "dc_copy": (2017, 840), "dc_copy_size": 29, "dc_copy_ink": "#000",
+                 # rev 81: Episode I-era sites (Tatooine .. Theed, Light and Dark: 13 printed sites) carry Decipher's Episode I
+                 # disc 99 px under the sphere, 56 px across (ours: 44 px, 77 px under it, over the end of the line); the
+                 # sphere 4 px higher; the line ~12 % smaller and centred 110 px further from the sphere, ending ~40 px
+                 # (745) short of the disc
+                 "ep1": {"dc_sphere": (2022, 476, 56), "dc_copy": (2017, 950), "dc_copy_size": 25.5,
+                         "ring_disc_size": 56, "ring_disc_dx": -2, "ring_disc_dy": 16,
+                         "ring_disc_icons": {"episode1": "icons/ep1-disc-decipher.png"}}},
+    # systems (rev 81, registered on the two bar assemblies of 16 Light and 17 Dark printed systems, every era): the sphere
+    # 8.7 / 6.1 px (745) right / down of rev 80's spot on Light systems, 9.8 / 7.8 on Dark ones (measured turned, the
+    # Dark half's seat: dc_system_ring_dark, pre-turn coordinates); the halves of the line 9.5 px in (Lucasfilm) / 4 px in
+    # (Decipher) and 9-11 px higher; the left half reads top to bottom (letters facing the card, as the right half does):
+    # dc_split_left_down
+    "loc-system": {"dc_system_ring": (166, 200, 56), "dc_system_ring_dark": (169, 204, 56),
+                   "dc_split": ((216, 1884), (1427, 1880)), "dc_split_left_down": True,
+                   # Coruscant-set systems: Decipher's Episode I disc 100 px under the sphere, 56 px in a 74 px grey ring
+                   "dc_system_ep1": (2, 100, 56, 74, 6, "#5f6163")},
 }
+
+
+# rev 81: sphere pictures whose printed disc runs to the edge of the 56 px hole: our Coruscant spheres carry a black rim
+# outside the gold ring (gold edge at 0.81 of the radius on the PC redraw, 0.86 on Decipher's); printed, the gold ring is
+# the disc's edge (radial profiles of 18 Coruscant cards: gold peak at r 12.5-13 px (745), no dark ring). Drawn enlarged
+# by this factor, clipped to the disc.
+DC_SPHERE_ZOOM = {"icons/set-coruscant-pc.png": 1.23, "icons/set-coruscant-decipher.png": 1.16}
+
+
+def dc_sphere_img(icon: str, cx: float, cy: float, d: float) -> str:
+    """The printed sphere picture, d px across centred on (cx, cy) (DC_SPHERE_ZOOM: enlarged inside a round clip)."""
+    z = DC_SPHERE_ZOOM.get(icon)
+    if not z:
+        return f'<img src="{data_uri(ASSETS / icon)}" style="position:absolute;left:{cx - d / 2:g}px;top:{cy - d / 2:g}px;width:{d:g}px;height:{d:g}px">'
+    D = d * z
+    return (f'<div style="position:absolute;left:{cx - d / 2:g}px;top:{cy - d / 2:g}px;width:{d:g}px;height:{d:g}px;border-radius:50%;overflow:hidden">'
+            f'<img src="{data_uri(ASSETS / icon)}" style="position:absolute;left:{(d - D) / 2:g}px;top:{(d - D) / 2:g}px;width:{D:g}px;height:{D:g}px"></div>')
 
 
 def dc_template(t: dict, dc: dict) -> dict:
@@ -2067,7 +2098,9 @@ def decipher_toned(fr: Path, side: str, disc, circle) -> Path:
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     if card.get("decipher_print") and DC_PRINT.get(card["template"]):
-        t = dc_template(t, DC_PRINT[card["template"]])   # rev 80: sphere and copyright line where Decipher printed them
+        t = dc_template(t, {k: v for k, v in DC_PRINT[card["template"]].items() if k != "ep1"})   # rev 80: sphere and copyright line where Decipher printed them
+        if DC_PRINT[card["template"]].get("ep1") and "episode1" in (card.get("ring_icons") or []):
+            t = dc_template(t, DC_PRINT[card["template"]]["ep1"])   # rev 81: Episode I-era sites
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     card_ctx["_pc_icons"] = bool(card.get("pc_type"))
     pcg0 = (card.get("pc_type") or {}).get("gt")
@@ -2539,7 +2572,7 @@ def build_html(card: dict) -> str:
             bw_ = DC_SPHERE_BEVEL[0]   # the frame's grey bevel round the hole (r 15-17.5 px at 745 on every scan)
             parts.append(f'<div style="position:absolute;left:{cx_ - d_ / 2 - bw_:g}px;top:{cy_ - d_ / 2 - bw_:g}px;width:{d_ + 2 * bw_:g}px;height:{d_ + 2 * bw_:g}px;border-radius:50%;background:{DC_SPHERE_BEVEL[1]}"></div>')
             parts.append(f'<div style="position:absolute;left:{cx_ - d_ / 2 - 1:g}px;top:{cy_ - d_ / 2 - 1:g}px;width:{d_ + 2:g}px;height:{d_ + 2:g}px;border-radius:50%;background:#000"></div>')
-            parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{cx_ - d_ / 2:g}px;top:{cy_ - d_ / 2:g}px;width:{d_:g}px;height:{d_:g}px">')
+            parts.append(dc_sphere_img(card["expansion_icon"], cx_, cy_, d_))
         elif card.get("expansion_icon_in_hole", True) and not t.get("expansion_bare"):
             # printed cards: the set icon is a sphere sitting in a black hole of the frame
             hc_, hp_ = t.get("expansion_hole", ("#000", 1))
@@ -2560,12 +2593,28 @@ def build_html(card: dict) -> str:
         x, y, sz = t["system_ring"]
         if card.get("decipher_print") and t.get("dc_system_ring"):
             x, y, sz = t["dc_system_ring"]   # rev 80: where the printed systems carry it (Light systems, sets 1-9)
-            # in a dark grey ring ~5 px (745) wide, as printed on the starfield (Corellia, Bespin)
-            parts.append(f'<div style="position:absolute;left:{x - 10}px;top:{y - 10}px;width:{sz + 20}px;height:{sz + 20}px;border-radius:50%;box-sizing:border-box;background:#000;border:9px solid #3c3e41"></div>')
+            if card.get("side") == "Dark" and t.get("dc_system_ring_dark"):
+                x, y, sz = t["dc_system_ring_dark"]   # rev 81: Dark systems (the layer is turned 180° afterwards)
+            ep1_ = "episode1" in (card.get("ring_icons") or []) and t.get("dc_system_ep1")
+            if ep1_:
+                # rev 81: Episode I-era systems (Coruscant set): the sphere bare on the starfield (no grey ring), Decipher's
+                # Episode I disc under it in a thin grey ring (Coruscant, Naboo; dc_system_ep1 = offset of the disc's
+                # centre from the sphere's, disc size, ring size, ring width, ring colour)
+                ex_, ey_, ed_, er_, ew_, ec_ = t["dc_system_ep1"]
+                dcx_, dcy_ = x + sz / 2 + ex_, y + sz / 2 + ey_
+                parts.append(f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
+                parts.append(f'<div style="position:absolute;left:{dcx_ - er_ / 2:g}px;top:{dcy_ - er_ / 2:g}px;width:{er_}px;height:{er_}px;border-radius:50%;box-sizing:border-box;background:#000;border:{ew_}px solid {ec_}"></div>')
+                parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc-decipher.png")}" style="position:absolute;left:{dcx_ - ed_ / 2:g}px;top:{dcy_ - ed_ / 2:g}px;width:{ed_}px;height:{ed_}px;border-radius:50%">')
+            else:
+                # in a dark grey ring ~5 px (745) wide, as printed on the starfield (Corellia, Bespin)
+                parts.append(f'<div style="position:absolute;left:{x - 10}px;top:{y - 10}px;width:{sz + 20}px;height:{sz + 20}px;border-radius:50%;box-sizing:border-box;background:#000;border:9px solid #3c3e41"></div>')
         ic_ = card["expansion_icon"]
         if "episode1" in (card.get("ring_icons") or []) and card.get("set_mark"):
             ic_ = "icons/inline-episode1.png"   # PC Episode I systems print the circled Episode I icon there (Naboo (V))
-        parts.append(f'<img src="{data_uri(ASSETS / ic_)}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
+        if card.get("decipher_print") and t.get("dc_system_ring") and ic_ in DC_SPHERE_ZOOM:
+            parts.append(dc_sphere_img(ic_, x + sz / 2, y + sz / 2, sz))   # rev 81: Coruscant's gold rim at the edge
+        else:
+            parts.append(f'<img src="{data_uri(ASSETS / ic_)}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
     sec('ring_icons')
     # Episode I icon below the ring, as the Episode I-era printed cards carry it (Radiant VII, Wesa Ready To Do Our-sa Part)
     if card.get("ring_icons") and "expansion_ring" in t:
@@ -2627,10 +2676,12 @@ def build_html(card: dict) -> str:
         boxes_ = t["copyright_split"]
         if dc_ and t.get("dc_split"):   # rev 80: the two halves where Decipher printed them (centre x, y)
             boxes_ = [(x_ - 18, y_ - 210, 36, 420) for x_, y_ in t["dc_split"]]
-        for (cx, cy, cw, ch), part in zip(boxes_, halves):
+        for k_, ((cx, cy, cw, ch), part) in enumerate(zip(boxes_, halves)):
             if part:
+                # rev 81: Decipher set the left half reading top to bottom (both halves face the card)
+                down_ = ";transform:rotate(90deg) scaleX(%g)" % DC_COPY["cond"] if dc_ and k_ == 0 and t.get("dc_split_left_down") else ""
                 parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
-                             f'<div class="copyin{" dccopy" if dc_ else ""}" style="color:#fff">{dc_copy_html(part) if dc_ else esc(part)}</div></div>')
+                             f'<div class="copyin{" dccopy" if dc_ else ""}" style="color:#fff{down_}">{dc_copy_html(part) if dc_ else esc(part)}</div></div>')
     elif card.get("copyright") and t.get("dc_copy") and card.get("decipher_print") and not (t.get("dc_copy_unless_scan") and card.get("art_scan")):
         # rev 80: Decipher's typesetting of the line (taller, condensed, full-size circled © and ®), centred on dc_copy;
         # full-art Admiral's Orders print it over the picture (a scan already carries it: dc_copy_unless_scan)

@@ -1300,3 +1300,42 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     objective 7_135, Corellian Corvette 1_140, effect 1_42, combo 10_7, Death Star: Docking Bay 327 1_124, Cloud City:
     Carbonite Chamber 5_78, Porg 223_43 (PC creature), Home One 9_74 and YV-class 7_144 (no italic class name);
     Devastator 1_301 changes only by its italic banner (intended). Evidence sheets (scan | before | after, zooms) in the batch report.
+- Rev 81 verify (2026-11-12): the three points the rev 80 sphere / copyright audit could not settle, measured.
+  - **Systems, Light and Dark** (`loc-system`): 33 printed systems (16 Light, 17 Dark, Premiere .. Coruscant, Jedi
+    Pack, OTSD) registered to our render on the two bar assemblies (the picture differs from the library art; the
+    350 px faces are cropped up to 2.5 % inside the card edge, so the card outline is no reference); Dark scans turned
+    180° and measured in Light coordinates. The Dark system is the Light layout turned whole, as rendered, but rev 80's
+    numbers were off on both sides: the sphere sits 8.7 / 6.1 px (745) right / down of rev 80's spot on Light systems
+    and 9.8 / 7.8 on Dark ones (`dc_system_ring` (166, 200, 56); new key `dc_system_ring_dark` (169, 204, 56), pre-turn
+    coordinates; median of 10 / 9 centroid fits, spread ±1.5 px); the copyright halves 9.5 px in (Lucasfilm) / 4 px in
+    (Decipher) and 9-12 px higher (`dc_split` ((216, 1884), (1427, 1880)), 14-16 halves a side, sd ≤ 1.8 px across).
+    The printed left half reads top to bottom (letters facing the card, like the right half; real Alderaan, Kessel,
+    Fondor, Corellia printings): new key `dc_split_left_down` turns it (`rotate(90deg)`), Decipher-printed cards only.
+    Coruscant-set systems (Coruscant, Naboo, Malastare, Tatooine, both sides) print the sphere bare on the starfield
+    (no grey ring) and Decipher's Episode I disc under it, which we did not draw: centre 2 / 100 px (master) from the
+    sphere's, 56 px in a 74 px ring 6 px wide, grey #5f6163 (new key `dc_system_ep1`, drawn when the card's `ring_icons`
+    hold `episode1`; 8 printed systems, ≤ 1.5 px (745)).
+    Dark sites (`loc-site`, the whole card turned): sphere and line where the Light measurement puts them (11 Dark sites,
+    ≤ 2 px), no change, except Episode I-era sites.
+  - **Episode I-era sites** (Tatooine .. Theed, Light and Dark, 13 printed sites): Decipher's Episode I disc
+    (`icons/ep1-disc-decipher.png`) 56 px across, centred 99 px under the sphere (ours: the VS disc, 44 px, 77 px under,
+    lying over the end of the copyright line); the sphere 4 px higher; the line 12 % smaller and centred 110 px further
+    from the sphere, ending ~40 px (745) short of the disc. `DC_PRINT["loc-site"]["ep1"]` (applied when the card's
+    `ring_icons` hold `episode1`): `dc_sphere` (2022, 476, 56), `dc_copy` (2017, 950), `dc_copy_size` 25.5,
+    `ring_disc_size` 56, `ring_disc_dx` -2, `ring_disc_dy` 16, `ring_disc_icons`.
+  - **Coruscant** (GEMP 12_*, 18 characters, effects, interrupts, weapons, starships, sites, systems): the template
+    positions hold (centre within 1 px on every template); the weak rev 80 match came from the picture: our Coruscant
+    spheres (the PC redraw `set-coruscant-pc.png`, the default, and Decipher's) carry a black rim outside the gold ring,
+    the printed one has the gold ring at the disc's edge (radial profiles: gold peak r 12.5-13 px (745), no dark ring).
+    `DC_SPHERE_ZOOM` (render.py) draws those pictures 1.23x / 1.16x inside a round clip (`dc_sphere_img`), on
+    Decipher-printed cards, sites and systems.
+  - **Wording** (`adapter.copyright_for`), settled on sharp photos of printed cards (pricecharting.com, 700-1600 px):
+    Enhanced Cloud City prints the final period (5 cards); Endor prints "TM, ® & © 1999 DECIPHER INC." on every card
+    (4 photos; Speeder Bike and Tempest Scout 6 carry the same digits as the rest of the set on the Decipher archive
+    scans): `PRINT_YEAR["8"]` 1999; Reflections II's own cards print the final period ("… 2000 DECIPHER INC.", Alter &
+    Collateral Damage, Sense & Recoil In Fear; its foil reprints set "TM, ®, &" but render as their first printing).
+    `NO_FINAL_PERIOD` now 11-14.
+  Checks: md5 identical before / after for Luke Skywalker 1_19, Death Star: Central Core 1_283, A Few Maneuvers 1_70,
+  objective 7_135, starship 1_140, Hoth: Echo Command Center 3_56, Cloud City: Casino (Dark) 7_269, Tatooine Interrupt
+  with the Episode I disc 11_26, effect 1_42, Coruscant objective 12_88, PC systems Ahch-To 211_48 and Coruscant (V)
+  203_31. Evidence sheets: scan | before | after with x4 zooms of the sphere and each copyright half.
