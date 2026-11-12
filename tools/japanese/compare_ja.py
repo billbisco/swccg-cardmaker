@@ -30,8 +30,11 @@ def wiki_file(name: str, dest: Path) -> Path:
     return dest
 
 
-def frame_bounds(im: Image.Image):
-    """Inner edge of the card's black border (the frame's outer edge)."""
+def frame_bounds(im: Image.Image, land: bool = False):
+    """Inner edge of the card's black border (the frame's outer edge). A landscape card (site) is found turned upright."""
+    if land:
+        x0, y0, x1, y1 = frame_bounds(im.transpose(Image.ROTATE_90))   # rotated 90° counter-clockwise: (x, y) <- (W-1-y', x')
+        return im.width - 1 - y1, x0, im.width - 1 - y0, x1
     a = np.asarray(im.convert("L")).astype(float); h, w = a.shape
     colk = (a[int(h * .25):int(h * .75)] < 60).mean(0); rowk = (a[:, int(w * .3):int(w * .7)] < 60).mean(1)
     def edge(fr, lo, hi, step):
@@ -102,10 +105,11 @@ def warp(scan: Path, bounds=None, ref: Image.Image | None = None) -> Image.Image
         kx, ky = (rx1 - rx0) / (sx1 - sx0), (ry1 - ry0) / (sy1 - sy0)
         out = Image.new("RGB", (1632, 2220)); out.paste(im.resize((round(im.width * kx), round(im.height * ky)), Image.LANCZOS), (round(rx0 - sx0 * kx), round(ry0 - sy0 * ky)))
         return out
-    im = Image.open(scan).convert("RGB"); x0, y0, x1, y1 = bounds or frame_bounds(im)
-    X0, Y0, X1, Y1 = 146, 145, 1484, 2073   # the frame's outer edge in a portrait render
+    land = ref is not None and ref.width > ref.height   # rev 83: sites are landscape (Takara printed them as Decipher did)
+    im = Image.open(scan).convert("RGB"); x0, y0, x1, y1 = bounds or frame_bounds(im, land)
+    X0, Y0, X1, Y1 = (145, 146, 2073, 1484) if land else (146, 145, 1484, 2073)   # the frame's outer edge in the render
     sx, sy = (X1 - X0) / (x1 - x0), (Y1 - Y0) / (y1 - y0)
-    out = Image.new("RGB", (1632, 2220)); out.paste(im.resize((round(im.width * sx), round(im.height * sy)), Image.LANCZOS), (round(X0 - x0 * sx), round(Y0 - y0 * sy)))
+    out = Image.new("RGB", (2220, 1632) if land else (1632, 2220)); out.paste(im.resize((round(im.width * sx), round(im.height * sy)), Image.LANCZOS), (round(X0 - x0 * sx), round(Y0 - y0 * sy)))
     return out
 
 
@@ -146,9 +150,12 @@ def main():
             print(name, "-> scan not usable:", e, "(set _scan_bounds, or \"bars\" for a location)"); continue
         if a.full:
             scan.save(out / f"{name}-scanw.png"); ours.save(out / f"{name}-ours.png")
-        sheet = Image.new("RGB", (1632 * 2 + 10, 2220), "white"); sheet.paste(scan, (0, 0)); sheet.paste(ours, (1642, 0))
+        W_, H_ = ours.size
+        sheet = Image.new("RGB", (W_ * 2 + 10, H_), "white"); sheet.paste(scan, (0, 0)); sheet.paste(ours, (W_ + 10, 0))
         sheet.resize((sheet.width // 2, sheet.height // 2), Image.LANCZOS).save(out / f"{name}-sheet.png")
-        for part, box in (("top", (140, 140, 1500, 640)), ("bottom", (140, 1440, 1500, 2090))):
+        boxes = ((("top", (140, 140, 2080, 520)), ("bottom", (140, 1100, 2080, 1500))) if W_ > H_ else
+                 (("top", (140, 140, 1500, 640)), ("bottom", (140, 1440, 1500, 2090))))
+        for part, box in boxes:
             x, y = scan.crop(box), ours.crop(box); c = Image.new("RGB", (x.width, x.height * 2 + 6), "red")
             c.paste(x, (0, 0)); c.paste(y, (0, x.height + 6)); c.save(out / f"{name}-{part}.png")
         print(name, "->", out / f"{name}-sheet.png")

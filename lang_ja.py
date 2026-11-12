@@ -93,6 +93,68 @@ JA_GEOM: dict[str, dict] = {
 }
 
 
+# rev 83: locations. Takara printed sites landscape like Decipher (the "portrait" seen in rev 82 was compare_ja.py
+# squeezing the landscape scans into the portrait master). Measured on Death Star: Detention Block Control Room and
+# Tatooine: Cantina (Dark) (sites) and Kessel, Yavin 4 (Dark) (systems), scans warped into the master:
+# - sites: same art window; each title bar (with its Force slot and icon boxes) sits SITE_SHIFT nearer the art and its
+#   text box follows it, reaching SITE_OUT further out too (box 120-125 px tall against Decipher's 86 / 99);
+# - systems: each text box is SYS_GROW taller toward the art (Kessel 218 / 230 px against 166 / 175), outer edges kept,
+#   the bar assembly (title, planet icon, parsec, Force) moved with it.
+SITE_SHIFT, SITE_OUT = 15, 8
+SYS_GROW = 48
+ONE_LINE_MIN = 40
+SITE_TEXT = (48, 60)    # font size / line pitch: one line centred, two lines fill the measure (Detention Block)
+SYS_TEXT = (47, 60)     # systems: set from the box's top left (Kessel, Yavin 4); first line 15 px nearer the Light bar,
+SYS_TEXT_UP, SYS_DTEXT_DOWN = 15, 7   # 7 px further from the Dark bar than Decipher's boxes put them
+
+
+def site_frame_rows(fa, old, S: int = SITE_SHIFT, O: int = SITE_OUT) -> None:
+    """Move the landscape site frame's rows (frame px, loc-site.png 2073x1497) as Takara printed them. Light half: the
+    band from below the art's bevel to the text box's top (1128-1268) moves S up, the box stretches from its interior,
+    and its bottom bevel moves O down into the margin (the margin's outer bevel kept). Dark half mirrored (bar band
+    219-360 down S; the box hole 120-216 grows S down and O up)."""
+    fa[1128 - S:1268 - S] = old[1128:1268]; fa[1268 - S:1268] = old[1290:1290 + S]
+    fa[1356 + O:1390] = old[1356:1390 - O]; fa[1356:1356 + O] = old[1300:1300 + O]
+    fa[219 + S:360 + S] = old[219:360]; fa[219:219 + S] = old[150:150 + S]
+    fa[87:120 - O] = old[87 + O:120]; fa[120 - O:120] = old[150:150 + O]
+
+
+def system_frame_rows(fa, old, G: int = SYS_GROW) -> None:
+    """Portrait system bar assemblies (frame px, loc-system.png 1167x1842): the Dark bar band (160-294) moves G down,
+    the Light bar band (1549-1687, with the bevel's shadow) G up, each box stretched from its own interior."""
+    fa[160 + G:294 + G] = old[160:294]; fa[160:160 + G] = old[60:60 + G]
+    fa[1549 - G:1687 - G] = old[1549:1687]; fa[1687 - G:1687] = old[1720:1720 + G]
+
+
+def system_template(t: dict, G: int = SYS_GROW) -> dict:
+    """A system's pieces moved with its bars (before sys_frame draws the Force glows, icon and parsec boxes)."""
+    t = dict(t)
+    for k, d in (("ls_bar", -G), ("ls_parsec", -G), ("ds_bar", G), ("ds_parsec", G)):
+        x, y, w, h = t[k]; t[k] = (x, y + d, w, h)
+    for k, d in (("ls_icon", -G), ("ls_force", -G), ("ds_icon", G), ("ds_force", G)):
+        x, y = t[k]; t[k] = (x, y + d)
+    x, y, w, h = t["ls_text"]; t["ls_text"] = (x, y - G - SYS_TEXT_UP, w, h + G + SYS_TEXT_UP)
+    x, y, w, h = t["ds_text"]; t["ds_text"] = (x, y, w, h + G - SYS_DTEXT_DOWN)   # (turned 180°: its first line is at the box's bottom)
+    return t
+
+
+def loc_lines(card: dict, light: bool, w: float, text_html, system: bool = False):
+    """rev 83: a location half's printed lines (spec text_breaks for the Light half, dark_breaks for the Dark half): the
+    size Takara chose for them (Detention Block Control Room: its 41-character first line at ~41 px), each line justified.
+    Returns (style, inner html) or None when no printed lines are given."""
+    text, br = (card.get("game_text"), card.get("text_breaks")) if light else (card.get("dark_text"), card.get("dark_breaks"))
+    lines = printed_lines(text, br)
+    size, pitch = SYS_TEXT if system else SITE_TEXT
+    if not lines:   # a text that fits one line at ONE_LINE_MIN or more is set on one line (Mos Eisley: 38 characters at ~44 px)
+        em = em_width(text or "")
+        need = (w - 40) / em * 0.99 if em else 0
+        if text and "\n" not in text and ONE_LINE_MIN <= need < size:
+            return f";font-size:{need:.2f}px;line-height:{pitch}px", f'<span style="white-space:nowrap">{text_html(text)}</span>'
+        return None
+    fs, lh, _ = fitted(lines, w - 40, size, pitch / size)   # the box's 20 px side padding
+    return f";font-size:{fs}px;line-height:{lh}px", f'<span style="display:block;width:100%">{lines_html(lines, text_html)}</span>'
+
+
 def geom(template: str) -> dict:
     t = template or ""
     fam = TEXT if TEXT_TEMPLATES.match(t) else SHIP if SHIP_TEMPLATES.match(t) else CREATURE if t.startswith("creature") else {}
@@ -122,6 +184,15 @@ def _fw_run(s: str) -> str:
     """Single figures full width, figures of two or more digits half width (We're Doomed: ライフフォースが15より, Ｒ２－Ｄ２)."""
     return "".join(p if re.fullmatch(r"\d+(?:\.\d+)+|\d{2,}", p or "") else p.translate(str.maketrans(_FW))
                    for p in re.split(r"(\d+(?:\.\d+)+|\d{2,})", s))
+
+
+def half_numbers(s):
+    """rev 83: a number of two or more digits, or a decimal, prints half width even when typed full width (the wiki gives
+    ベイ９４ / ６５ / １２．５; the cards print ベイ94, 65, 12.5). Single figures stay as typed."""
+    if not isinstance(s, str):
+        return s
+    tr = str.maketrans("０１２３４５６７８９．", "0123456789.")
+    return re.sub(r"[０-９]{2,}(?:．[０-９]+)*|[０-９]+(?:．[０-９]+)+", lambda m: m.group(0).translate(tr), s)
 
 
 def em_width(line: str) -> float:
@@ -331,6 +402,10 @@ def stats_html(card: dict, t: dict, wells: list, esc) -> str:
 def css(card: dict, t: dict) -> str:
     g = geom(card["template"])
     ink = "#dcdcdc" if not t.get("dark_text") else "#111"
+    # rev 83: site text centred in its box (one line centred, more lines justified); system text from the top left
+    lfs, llh = SYS_TEXT if t.get("system") else SITE_TEXT
+    lalign = (";text-align:left!important;justify-content:flex-start!important;align-items:flex-start!important;padding-top:0!important"
+              if t.get("system") else "")
     return f"""
     .title{{font-family:{FONT}!important;font-weight:800;font-size:{g["title_size"]}px;letter-spacing:0!important;-webkit-text-stroke:0!important;color:{t.get("title_ink") or ("#dedede" if not t.get("dark_text") else "#1a1a1a")}!important;}}
     .title:not(.ltitle):not(.dtitle){{transform:scaleX({g["title_sx"]});transform-origin:left center}}
@@ -348,8 +423,10 @@ def css(card: dict, t: dict) -> str:
     .jastat{{display:flex;align-items:center;font-family:{FONT};font-weight:800;font-size:{g["strip_size"]}px;color:{"#e8e8e8" if not t.get("dark_text") else "#1c1c1c"};padding-bottom:2px;box-sizing:border-box}}
     .ctype{{font-family:{FONT}!important;font-weight:800;letter-spacing:0!important}}
     .ctype .ct{{display:inline-block;transform:scaleX(0.95);transform-origin:center}}
-    .ltext, .dtext{{font-family:{FONT}!important;font-weight:600;font-size:41.5px;line-height:50px;letter-spacing:0!important;text-align:left!important;justify-content:flex-start!important;
-      line-break:strict;word-break:normal;overflow-wrap:anywhere}}
+    .ltext, .dtext{{font-family:{FONT}!important;font-weight:600;font-size:{lfs}px;line-height:{llh}px;letter-spacing:0!important;
+      line-break:strict;word-break:normal;overflow-wrap:anywhere{lalign}}}
+    .ltext span, .dtext span{{text-align:justify;text-align-last:left}}
+    .dtext{{font-weight:500}}
     .ltitle .lt, .dtitle .lt{{font-family:{FONT}!important;font-weight:800;font-size:44px!important;letter-spacing:0!important;display:inline-block;transform:scaleX(0.85);transform-origin:center}}
     .ltitle .lt{{color:#161616!important;-webkit-text-stroke:0!important}}
     .copyin{{font-family:AGCn!important;font-weight:normal;color:{"#c4c4c4" if not t.get("dark_text") else "#333"}!important;letter-spacing:0.6px!important}}

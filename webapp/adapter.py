@@ -677,7 +677,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         pass
     if spec.get("foil"):
         card["foil"] = True
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines", "text_breaks"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines", "text_breaks", "dark_breaks"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
@@ -738,7 +738,7 @@ def apply_language(spec: dict, card: dict) -> dict:
     if card.get("card_type"):
         card["card_type"] = lang_ja.card_type(card["card_type"])
     if spec.get("printed_breaks"):   # editor: each typed line is a printed line
-        for key, dest in (("lore", "lore_lines"), ("game_text", "text_breaks")):
+        for key, dest in (("lore", "lore_lines"), ("game_text", "text_breaks"), ("dark_text", "dark_breaks")):   # rev 83: the Dark half too
             parts = [x for x in (card.get(key) or "").split("¶") if x.strip()]
             if len(parts) > 1 and not card.get(dest):
                 card[dest] = parts
@@ -747,10 +747,12 @@ def apply_language(spec: dict, card: dict) -> dict:
         card["card_type"] = card["title"]
     if not spec.get("halfwidth"):   # rev 80: Takara's figures and Latin letters are full width (３フォース, 能力値＞２)
         for key in ("lore", "game_text", "dark_text"):
-            card[key] = lang_ja.fullwidth(card.get(key))
-        for key in ("lore_lines", "text_breaks"):
+            card[key] = lang_ja.half_numbers(lang_ja.fullwidth(card.get(key)))
+        for key in ("lore_lines", "text_breaks", "dark_breaks"):
             if isinstance(card.get(key), list):
-                card[key] = [lang_ja.fullwidth(x) for x in card[key]]
+                card[key] = [lang_ja.half_numbers(lang_ja.fullwidth(x)) for x in card[key]]
+    for key in ("title", "card_type"):   # rev 83: ベイ９４ -> ベイ94 (numbers of two or more digits print half width)
+        card[key] = lang_ja.half_numbers(card.get(key))
     cr = card.get("copyright") or ""
     if not spec.get("keep_copyright") and re.search(r"19\d\d LUCASFILM", cr):
         card["copyright"] = lang_ja.copyright_for(spec.get("expansion")) or cr   # Takara's line: 1997 (Premiere, ANH), 1998 (Hoth)

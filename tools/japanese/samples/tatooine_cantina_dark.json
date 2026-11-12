@@ -44,5 +44,11 @@
  },
  "language": "ja",
  "_scan": "Japanese-Premiere-1301-290o-Face.jpg",
- "_page": "Tatooine: Cantina (Dark) (Japanese)"
+ "_page": "Tatooine: Cantina (Dark) (Japanese)",
+ "_scan_bounds": [
+  98,
+  86,
+  1737,
+  1223
+ ]
 }

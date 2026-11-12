@@ -1076,3 +1076,21 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Objectives, Admiral's Orders. `compare_ja.py`: `_scan_bounds` may be {"scan": [...], "ref": [...]} (the two text
   boxes' outer edges, for systems whose starfield hides the frame), non-library art goes through the server's
   resolver. English renders byte-identical to rev 81.
+- Rev 83 (2026-11-12, swccg-guild/work#283, Japanese printings part 5): **location frames**. Correction to rev 82:
+  Takara printed **sites landscape**, laid out as Decipher's (the wiki scans are landscape files; rev 82's "portrait"
+  came from `compare_ja.py` squeezing every scan into the portrait master; it now warps a landscape render's scan into
+  the landscape master, frame edges found turned upright). Measured on Death Star: Detention Block Control Room,
+  Tatooine: Cantina (Dark), Tatooine: Mos Eisley, Tatooine: Docking Bay 94 (Dark) (sites) and Kessel, Yavin 4 (Dark),
+  Alderaan, Hoth (Dark) (systems). **Sites:** same art window; each title bar with its Force slot and icon boxes sits
+  15 px nearer the art, its text box follows it and reaches 8 px further out (`lang_ja.site_frame_rows`, frame rows
+  moved; the moved Force glows are kept out of the art window); text Noto Sans JP 48 px on a 60 px pitch, centred in
+  the box (one line centred, two lines fill the measure); a text that fits one line at 40 px or more is set on one line
+  (Mos Eisley ~44 px); the white Dark-box text in weight 500. **Systems:** each text box 48 px taller toward the art,
+  outer edges kept (Kessel 218 / 230 px against 166 / 175); bar, planet icon, parsec and Force move with it
+  (`lang_ja.system_template`, `system_frame_rows`); text 47 px on a 60 px pitch from the box's top left, the Light
+  half's first line 15 px nearer its bar, the Dark half's 7 px further from it. Printed line breaks for both halves:
+  `text_breaks` (Light) and the new `dark_breaks` (Dark; editor "Line breaks as printed" covers the Dark text too), set
+  at the size Takara chose for them (Detention Block's 41-character line at ~41 px). Numbers of two or more digits and
+  decimals print half width even when typed full width (`lang_ja.half_numbers`: ベイ９４ -> ベイ94, ６５, １２．５), in
+  titles too. Result: bars, boxes and text lines within ~1-8 px of the eight scans. English renders byte-identical to
+  rev 82 (31 cards incl. 8 locations).
