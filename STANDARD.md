@@ -1004,7 +1004,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   a Virtual Objective). Not changed: the Dark Epic Event template (`epic-event`) is in the right place but draws its
   sphere at 70 px vs ~58 printed; printed Theed Objectives carry the Episode I disc in the LEFT margin, not under the sphere.
 - Rev 79 (2026-11-12, swccg-guild/work#52, Characters: Rebel / Imperial plates with the Republic, First Order and
-  Resistance discs; **pending deploy**, not yet on the live CardMaker). Measured with `compare_pc.py` on 10 PC
+  Resistance discs; deployed 2026-11-12). Measured with `compare_pc.py` on 10 PC
   characters (VS24-27; Light: Chewbacca Of Kashyyyk (V), Obi-Wan Kenobi Jedi In Exile, Captain Han Solo (V), Finn
   Resistance Hero, Corporal Rushing (V); Dark: Sil Unch (V), Captain Moden Canady, Cardo, Warrant Officer
   Bachenkall, DS-61-3 (V)); every per-element offset was the same on all five cards of a side.
