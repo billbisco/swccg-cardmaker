@@ -278,8 +278,8 @@ TEMPLATES = {
         "frame": ("frames/epic-event.png", 0, 0),
         "art": (238, 372, 1146, 866), "title": (396, 206, 880, 100), "destiny": (1310, 203, 108, 108),
         "game_text": (290, 1340, 1060, 650), "gt_ink": "#fff", "gt_grow": True,
-        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1391, 376), "expansion_size": 58,   # rev 78: printed sphere centre (1420, 405), 58 px (7 Dark Epic Event scans)
-        "ring_disc_left": (204, 410, 56),   # rev 78: Episode I disc in the left margin (Boonta Eve, If The Trace Was Correct, Deep Hatred)
+        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1391, 376), "expansion_size": 58,   # rev 81: printed sphere centre (1420, 405), 58 px (7 Dark Epic Event scans)
+        "ring_disc_left": (204, 410, 56),   # rev 81: Episode I disc in the left margin (Boonta Eve, If The Trace Was Correct, Deep Hatred)
         "copyright_x": 1404, "dark_text": False, "no_type": True, "credit_mx": (180, 1411), "credit_ink": "#000",
     },
     # printed cards with no lore box (Jedi Tests, Reflections II combo cards) carry a TALL slip (VS12 #13, #42): Bardez's
@@ -460,7 +460,7 @@ TEMPLATES["ls-jeditest-epic"] = dict(_LS_EFFECT_PRE62, frame=("frames/ls-jedites
 # clear of the destiny circle (the old (1412, 295) 70-px sphere sat on it). Light Epic Events share it (Attack Run, Deactivate)
 for _k, _xy in (("objective-ls", (1398, 362)), ("objective", (1393, 375))):
     TEMPLATES[_k].setdefault("expansion_ring", _xy); TEMPLATES[_k].setdefault("expansion_size", 58)
-# rev 78: printed Episode I-era Objectives and Epic Events (Theed Palace, Coruscant, Tatooine, Reflections III and the
+# rev 81: printed Episode I-era Objectives and Epic Events (Theed Palace, Coruscant, Tatooine, Reflections III and the
 # PC's Virtual ones) carry the Episode I (or VII) disc in the LEFT margin under the card-type disc, not under the sphere:
 # measured on 18 faces (half-level edge, 745 px): centre x 67.2, Light y 163 / Dark y 168.5, ~28 px across = master
 # (205, 397) Light, (204, 410) Dark, 56 px. Epic Events of both sides print it at the same spot as the Objectives.
@@ -576,7 +576,7 @@ for _k, _b in GT_BOX_PC.items():
 # banner sat 30 px (745) higher than the PC's; the Light ones were built on Bardez's recoloured Epic Objective top.
 NOLORE_GROW = 276   # master px; Light and Dark Effect and Interrupt combos (banner and text 7 px (745) low with 290)
 TEMPLATES["ds-effect-tall"] = dict(TEMPLATES["ds-effect"], nolore_grow=NOLORE_GROW)
-# rev 80: the window corners, sphere and copyright line of the no-lore combos (Reflections II, Coruscant and the PC's
+# rev 81: the window corners, sphere and copyright line of the no-lore combos (Reflections II, Coruscant and the PC's
 # reissues) as printed — see COMBO_CORNERS / combo_corners()
 for _k, _c in (("ls-effect", "light"), ("ls-interrupt", "light"), ("ds-effect", "dark"), ("ds-interrupt", "dark"), ("ds-effect-tall", "dark")):
     TEMPLATES[_k] = dict(TEMPLATES[_k], combo_corners=_c)
@@ -1272,7 +1272,7 @@ def captive_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     return p, t, 0, 0
 
 
-# rev 80 (Bill 2026-11-12, Do, Or Do Not & Wise Advice against its printed card): the printed no-lore combos (Reflections
+# rev 81 (Bill 2026-11-12, Do, Or Do Not & Wise Advice against its printed card): the printed no-lore combos (Reflections
 # II, Coruscant; the PC's reissues the same) cut the window's top corners round the type disc and the destiny circle.
 # Measured on the 745 px true-colour scans (Ghhhk & Those Rebels Won't Escape Us, Houjix & Out Of Nowhere), checked on
 # the 354 px GIFs of the other 22 Reflections II combos: master px = 2 x (745 px + 35 / 36).
@@ -1292,7 +1292,7 @@ COMBO_COPYRIGHT_CY = 798   # centre of the copyright run (printed 210..519 at 74
 
 
 def combo_corners(G, top: int, kind: str):
-    """Reshape the top corners of a merged no-lore window (rev 80). G: the grown frame (H x W x 4, uint8), `top` the
+    """Reshape the top corners of a merged no-lore window (rev 81). G: the grown frame (H x W x 4, uint8), `top` the
     window opening's top row. Each column of a corner is moved down by its drop s(x) from the top of the window's
     edge band (opening top - 25) — the bevel band bends into the chamfer / step with its own shading, the window
     sides start lower — and the rows it opens are filled with the frame's own margin, taken from the same rows of
@@ -1362,7 +1362,7 @@ COMBO_LOBE_RIM = 12
 
 
 def combo_lobes(G, wtop):
-    """Light combos (rev 80): the printed silver title bar bulges round the type disc and the destiny circle (rim
+    """Light combos (rev 81): the printed silver title bar bulges round the type disc and the destiny circle (rim
     bottom 157 at 745 px, Houjix & Out Of Nowhere) where the Effect / Interrupt frame's bar runs flat at 141. Paint
     each lobe below the bar: silver body (the bar's own colour just above, per column, with its grain), a white rim
     band and an anti-aliased edge into the red margin. `wtop`: per column, the first row of the window edge band."""
@@ -1440,7 +1440,7 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
         G[e:gy + 30] = np.array(Image.fromarray(F[gy + 40:gy + gh - 40]).resize((F.shape[1], gy + 30 - e), Image.LANCZOS))
     G[gy + 30:] = F[gy + 30:]
     if card.get("no_lore_box") and t.get("lore") and t.get("combo_corners"):
-        G = combo_corners(G, top, t["combo_corners"])   # rev 80: as printed (Reflections II / Coruscant combos, PC reissues)
+        G = combo_corners(G, top, t["combo_corners"])   # rev 81: as printed (Reflections II / Coruscant combos, PC reissues)
     elif card.get("no_lore_box") and t.get("lore"):
         # the printed no-lore cards chamfer the window's top corners under the title bar (Bill 2026-10-14,
         # Abyssin Ornament (V)): shear the corner rows so the window edge runs in diagonally, bevel included
@@ -1464,7 +1464,7 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
     if card.get("no_lore_box") and t.get("lore") and t.get("combo_corners"):
-        # rev 80: the sphere sits right of the window top, just under the destiny circle, without the lore-box ring's
+        # rev 81: the sphere sits right of the window top, just under the destiny circle, without the lore-box ring's
         # extra hole; the copyright line runs from just under it (printed: alongside the upper window)
         hole = np.array(Image.open(p))[top + 200, :, 3] < 20   # the art covers the whole opening (no black sliver)
         hx = np.nonzero(hole[:W // 2 + 1][::-1] == False)[0]
@@ -1995,28 +1995,28 @@ for _sd in ("ls", "ds"):
     TEMPLATES[f"{_sd}-podracer"] = dict(_e, frame=(f"frames/{_sd}-podracer.png",) + _e["frame"][1:],
                                         lore=(313, 406, 1022, 196), lore_x=(317, 1330, 0, 0, 0.0),
                                         podracer_flag_box=(357, 174, 189, 153) if _sd == "ls" else (366, 183, 186, 144),
-                                        podracer_title_x=617,   # rev 80: printed bullet at x 621, cap top y 204
+                                        podracer_title_x=617,   # rev 81: printed bullet at x 621, cap top y 204
                                         title=(407, 200, 867, 100) if _sd == "ls" else (403, 200, 871, 100),
                                         title_ls=0.3 if _sd == "ls" else 0.15,   # printed titles ~1.5 % tighter than the Effect's
-                                        # rev 80: the destiny circle moved on the frame (make_podracer_frames DESTINY_SHIFT)
+                                        # rev 81: the destiny circle moved on the frame (make_podracer_frames DESTINY_SHIFT)
                                         # (the printed digit sits ~4-6 px above the circle's centre)
                                         destiny=(1325, 206, 104, 104) if _sd == "ls" else (1312, 197, 104, 104),
                                         disc_at=(185, 182) if _sd == "ls" else (192, 187),   # the type disc moved with its socket
-                                        # rev 80: the printed Podracers set lore and game text ~3 % larger than the
-                                        # Effect (line pitch unchanged) in their own measured boxes (STANDARD rev 80)
+                                        # rev 81: the printed Podracers set lore and game text ~3 % larger than the
+                                        # Effect (line pitch unchanged) in their own measured boxes (STANDARD rev 81)
                                         lore_css={"fs": 59.6}, gt_size=63.9, gt_lh_add=-0.15,
                                         game_text=(312, 1664, 1050, 330) if _sd == "ls" else (312, 1666, 1006, 335),
-                                        # rev 80: sphere 58 px across (outline incl.), centre Dark (1408, 435.5) / Light
+                                        # rev 81: sphere 58 px across (outline incl.), centre Dark (1408, 435.5) / Light
                                         # (1410, 445); the Episode I disc under it 58 px, centre (1408, 536), Decipher's
-                                        # printed disc (the one measured Episode I disc: tools/make_ep1_disc.py, rev 80 text and icons)
+                                        # printed disc (the one measured Episode I disc: tools/make_ep1_disc.py, rev 81 text and icons)
                                         expansion_size=56, expansion_ring=(1382, 417) if _sd == "ls" else (1380, 407), expansion_inset=2,
                                         ring_disc_size=58, ring_disc_dx=-3 if _sd == "ls" else -1,
                                         ring_disc_dy=4 if _sd == "ls" else 14,
                                         ring_disc_icons={"episode1": "icons/ep1-disc.png"},
-                                        # rev 80: "PODRACER" printed 4 % smaller, tighter, 5 px lower (x 675..961 x 1521..1562)
+                                        # rev 81: "PODRACER" printed 4 % smaller, tighter, 5 px lower (x 675..961 x 1521..1562)
                                         ctype_size=59.5, ctype_spacing=10.8,
                                         card_type=(269, 1512, 1109, 61) if _sd == "ls" else (269, 1511, 1109, 61),
-                                        # rev 80: art window 5 px lower (frame band moved); the copyright line 2 % longer,
+                                        # rev 81: art window 5 px lower (frame band moved); the copyright line 2 % longer,
                                         # printed x 1425..1450 x 735..1352 on both sides
                                         art=(244, 666, 1143, 755) if _sd == "ls" else (254, 668, 1118, 765), copy_ls=1.0,
                                         copyright=(1420, 666, 36, 755) if _sd == "ls" else (1420, 661, 36, 765),
@@ -2027,10 +2027,10 @@ for _sd in ("ls", "ds"):
 _PC_ADV: dict = {}
 
 
-# rev 80: Decipher's own placement of the expansion sphere and the vertical copyright line (card key decipher_print,
+# rev 81: Decipher's own placement of the expansion sphere and the vertical copyright line (card key decipher_print,
 # set by the card maker for cards of Decipher's sets; VS remasters and Players Committee cards keep the template).
 # Measured on printed scans (Holotable 745 px and 350 px faces, Decipher archive scans), registered to our render
-# by an affine fit of the whole card (scratch tool m2.py; STANDARD rev 80). Per template: dc_sphere = centre x, y and
+# by an affine fit of the whole card (scratch tool m2.py; STANDARD rev 81). Per template: dc_sphere = centre x, y and
 # diameter (master px) of the sphere with its own dark rim; dc_copy = centre x, y (master px) of the copyright line.
 # rev 81: second affiliation disc: the title moves right by this much (was 170 everywhere). Measured title (bullet) start on
 # printed two-disc faces registered to our renders: Dark 235-238 px at 745 (8 cards), Light Rebel frame 229-230 (4),
@@ -2041,7 +2041,7 @@ DISC2_TITLE_SHIFT_DEFAULT = 136
 # the height of the capitals (12.8 x 11.2 px at 745), set against the year / ampersand (8 printed cards, 497 px scans)
 DC_COPY_TAT = {"size": 30, "ls": 0.8, "ring_w": 29, "ring_h": 24, "ring_b": 2.4, "ring_letter": 20, "ring_va": -3}
 DC_COPY = {"size": 28, "ls": 1, "ws": 5, "cond": 0.83, "ring": 25, "ring_w": 2.2, "ring_letter": 18, "ring_va": -2, "ring_m": 1}
-DC_SPHERE_BEVEL = (6, "rgba(104, 108, 112, 0.5)")   # rev 80: width (master px) and fill of the frame's bevel round the hole: it pulls the frame towards mid grey (darker on Light frames, lighter on Dark ones, as printed)
+DC_SPHERE_BEVEL = (6, "rgba(104, 108, 112, 0.5)")   # rev 81: width (master px) and fill of the frame's bevel round the hole: it pulls the frame towards mid grey (darker on Light frames, lighter on Dark ones, as printed)
 DC_PRINT: dict = {
     "creature-dc": {"dc_sphere": (1414, 440, 56), "dc_copy": (1442, 1017), "dc_copy_ink": "#000"},   # printed in black (Bubo, Worrt)
     "ds-character-alien": {"dc_sphere": (1409, 439, 56), "dc_copy": (1439, 1051)},
@@ -2050,7 +2050,7 @@ DC_PRINT: dict = {
     "ds-device": {"dc_sphere": (1411, 444, 56), "dc_copy": (1441, 1037)},
     "ds-effect": {"dc_sphere": (1412, 432, 56), "dc_copy": (1439, 1035)},
     "ds-interrupt": {"dc_sphere": (1412, 433, 56), "dc_copy": (1441, 1034)},
-    "ds-podracer": {"dc_copy": (1436, 1038)},   # sphere: the Podracer template's own (rev 80 Podracer agent, all five cards)
+    "ds-podracer": {"dc_copy": (1436, 1038)},   # sphere: the Podracer template's own (rev 81 Podracer agent, all five cards)
     "ds-shield-dc": {"dc_sphere": (1408, 436, 56), "dc_copy": (1433, 1036)},
     "ds-starship-starfighter": {"dc_sphere": (1402, 440, 56), "dc_copy": (1432, 1025)},
     "ds-vehicle": {"dc_sphere": (1408, 445, 56), "dc_copy": (1437, 1019)},
@@ -2089,7 +2089,7 @@ DC_PRINT: dict = {
                          "ring_disc_size": 56, "ring_disc_dx": -2, "ring_disc_dy": 16,
                          "ring_disc_icons": {"episode1": "icons/ep1-disc.png"}}},
     # systems (rev 81, registered on the two bar assemblies of 16 Light and 17 Dark printed systems, every era): the sphere
-    # 8.7 / 6.1 px (745) right / down of rev 80's spot on Light systems, 9.8 / 7.8 on Dark ones (measured turned, the
+    # 8.7 / 6.1 px (745) right / down of rev 81's spot on Light systems, 9.8 / 7.8 on Dark ones (measured turned, the
     # Dark half's seat: dc_system_ring_dark, pre-turn coordinates); the halves of the line 9.5 px in (Lucasfilm) / 4 px in
     # (Decipher) and 9-11 px higher; the left half reads top to bottom (letters facing the card, as the right half does):
     # dc_split_left_down
@@ -2278,7 +2278,7 @@ def foil_html(fr, fx: int, fy: int, holes=()) -> str:
             f'<div class="foil" style="{box}background:{gloss};mix-blend-mode:soft-light;opacity:.7"></div>')
 
 
-# Rev 80: Decipher printings of the Effect / Interrupt frames. Our frames carry the PC's colours (within 5 levels of the
+# Rev 81: Decipher printings of the Effect / Interrupt frames. Our frames carry the PC's colours (within 5 levels of the
 # PC's Virtual cards); Decipher's printed faces are a deeper crimson (Dark margin 181,1,46 against 186,32,55), silver
 # chips on the Light red margins (not cyan) and redder / yellower type discs. make_decipher_tone.py fits, from 100 printed
 # Effects and Interrupts against our renders, a 3D colour offset table per side (17^3 nodes, frame pixels only) and
@@ -2323,12 +2323,12 @@ def decipher_toned(fr: Path, side: str, disc, circle) -> Path:
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     if card.get("decipher_print") and DC_PRINT.get(card["template"]):
-        t = dc_template(t, {k: v for k, v in DC_PRINT[card["template"]].items() if k != "ep1"})   # rev 80: sphere and copyright line where Decipher printed them
+        t = dc_template(t, {k: v for k, v in DC_PRINT[card["template"]].items() if k != "ep1"})   # rev 81: sphere and copyright line where Decipher printed them
         if DC_PRINT[card["template"]].get("ep1") and "episode1" in (card.get("ring_icons") or []):
             t = dc_template(t, DC_PRINT[card["template"]]["ep1"])   # rev 81: Episode I-era sites
     if card.get("decipher_print") and card["template"] in ("ls-podracer", "ds-podracer"):
         # rev 81 (2): the five printed Podracers set game text at a 63.0 pitch (ours 63.75) and lore at 60.5 (ours 60);
-        # size and width were right (rev 80: printed / ours line width 0.99-1.00)
+        # size and width were right (rev 81: printed / ours line width 0.99-1.00)
         t = dict(t, gt_lh_add=63.0 - t.get("gt_size", 62), lore_css=dict(t.get("lore_css") or {}, lh=60.5))
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     card_ctx["_pc_icons"] = bool(card.get("pc_type"))
@@ -2366,7 +2366,7 @@ def build_html(card: dict) -> str:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
         if card.get("decipher_print") and t.get("decipher_tone"):
-            fr = decipher_toned(fr, *t["decipher_tone"])   # Rev 80: Decipher's ink on the Effect / Interrupt frames
+            fr = decipher_toned(fr, *t["decipher_tone"])   # Rev 81: Decipher's ink on the Effect / Interrupt frames
         if t.get("nolore_grow") and card.get("no_lore_box") and not card.get("text_grow"):
             card = dict(card, text_grow=t["nolore_grow"], grow_keep_frame=True)   # as the PC cards (adapter): the Effect frame's own window
         if card.get("captive_noart") and "stats_y" in t:
@@ -2431,7 +2431,7 @@ def build_html(card: dict) -> str:
             # the card's own (no-lore) scan: its art already sits in this raised window — map the window itself
             card_ = card
             if t.get("combo_corners") and not card["art"].get("bbox"):
-                # rev 80: the combo scans (res.starwarsccg.org, wiki) are Holotable faces — 745 x 1039 or scaled down
+                # rev 81: the combo scans (res.starwarsccg.org, wiki) are Holotable faces — 745 x 1039 or scaled down
                 # (354 x 492) — with the card body at (37, 36)..(708.5, 1001.5) of 745: map by that, not by the silver
                 # frame's bbox (found 3-4 % small on the 354 px GIFs: the printed frame and copyright showed in the window)
                 try:
@@ -2562,7 +2562,7 @@ def build_html(card: dict) -> str:
         if ja:   # rev 80: Takara condensed a long title further to stay clear of the destiny (Luke Skywalker)
             tll += lang_ja.title_attrs(card)
         if card.get("decipher_print") and t.get("decipher_title"):
-            # Rev 80: Decipher's own typesetting (printed 1995-2001; 70 printed Effects / Interrupts measured): Light
+            # Rev 81: Decipher's own typesetting (printed 1995-2001; 70 printed Effects / Interrupts measured): Light
             # titles 8 px left of the PC's; the bar runs to x 1274 on all four; a title too long for it is set smaller
             # (font size, baseline kept), ending by x 1248 and starting further left the more it shrinks (fit_lead)
             ddx, dend, dright, dlead = t["decipher_title"]
@@ -2827,11 +2827,11 @@ def build_html(card: dict) -> str:
     if card.get("expansion_icon") and "expansion_ring" in t:
         x, y = t["expansion_ring"]
         sz = t.get("expansion_size", 62)
-        if t.get("expansion_halo"):   # rev 80: the frame's ring round the combo sphere (Light: red paint; Dark: lighter rim)
+        if t.get("expansion_halo"):   # rev 81: the frame's ring round the combo sphere (Light: red paint; Dark: lighter rim)
             hc_, hp_ = t["expansion_halo"]
             parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_}"></div>')
         if t.get("dc_sphere") and card.get("decipher_print"):
-            # rev 80: Decipher's printed sphere: the disc (its own dark rim included) in a hole only 1 px wider, the
+            # rev 81: Decipher's printed sphere: the disc (its own dark rim included) in a hole only 1 px wider, the
             # frame's light bevel showing round it (measured on 120 printed scans, see DC_PRINT)
             cx_, cy_, d_ = t["dc_sphere"]
             bw_ = DC_SPHERE_BEVEL[0]   # the frame's grey bevel round the hole (r 15-17.5 px at 745 on every scan)
@@ -2843,7 +2843,7 @@ def build_html(card: dict) -> str:
             hc_, hp_ = t.get("expansion_hole", ("#000", 1))
             parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>' if hp_ > 1 else
                          f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
-            isz = sz - t.get("expansion_inset", 4)   # rev 80: Podracers print a thinner black outline (2)
+            isz = sz - t.get("expansion_inset", 4)   # rev 81: Podracers print a thinner black outline (2)
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
@@ -2857,7 +2857,7 @@ def build_html(card: dict) -> str:
         # systems keep the scan whole (its own sphere included): drawn only when asked (card maker: no scan, or a new set)
         x, y, sz = t["system_ring"]
         if card.get("decipher_print") and t.get("dc_system_ring"):
-            x, y, sz = t["dc_system_ring"]   # rev 80: where the printed systems carry it (Light systems, sets 1-9)
+            x, y, sz = t["dc_system_ring"]   # rev 81: where the printed systems carry it (Light systems, sets 1-9)
             if card.get("side") == "Dark" and t.get("dc_system_ring_dark"):
                 x, y, sz = t["dc_system_ring_dark"]   # rev 81: Dark systems (the layer is turned 180° afterwards)
             ep1_ = "episode1" in (card.get("ring_icons") or []) and t.get("dc_system_ep1")
@@ -2903,7 +2903,7 @@ def build_html(card: dict) -> str:
             # rev 71: Virtual Block Objectives, Missions and Epic Events print it in the left margin too (A Stunning Move, Deep Hatred (V))
             _nd = t.get("_nolore_disc") or ((200, 412) if card.get("disc_left") else None)
             if nm in ("episode1", "episode7") and not _nd and t.get("ring_disc_left") and not nd_used:
-                # rev 78: printed Objectives / Epic Events: the Episode disc in the left margin under the type disc (We Have A Plan)
+                # rev 81: printed Objectives / Epic Events: the Episode disc in the left margin under the type disc (We Have A Plan)
                 ncx, ncy, nsz = t["ring_disc_left"]
                 _df = t.get("ring_disc_left_files", {}).get(nm, RING_DISCS[nm])   # rev 81: the PC Finalizers' blue-ringed disc
                 parts.append(f'<img src="{data_uri(ASSETS / _df)}" style="position:absolute;left:{ncx - nsz / 2}px;top:{ncy - nsz / 2}px;width:{nsz}px;height:{nsz}px;border-radius:50%">')
@@ -2919,7 +2919,7 @@ def build_html(card: dict) -> str:
                 if t.get("expansion_hole"):   # same red ring as the sphere (RG-GEMP renders)
                     hc_, hp_ = t["expansion_hole"]
                     parts.append(f'<div style="position:absolute;left:{x + 3 - hp_}px;top:{dy_ - hp_}px;width:{sz - 6 + 2 * hp_}px;height:{sz - 6 + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>')
-                # rev 80: a template may set the disc's own size / left offset / picture (Podracers: Decipher's printed disc)
+                # rev 81: a template may set the disc's own size / left offset / picture (Podracers: Decipher's printed disc)
                 dsz_ = t.get("ring_disc_size", sz - 6); ddx_ = t.get("ring_disc_dx", 3)
                 src_ = (t.get("ring_disc_icons") or {}).get(nm, RING_DISCS[nm])
                 parts.append(f'<img src="{data_uri(ASSETS / src_)}" style="position:absolute;left:{x + ddx_}px;top:{dy_}px;width:{dsz_}px;height:{dsz_}px;border-radius:50%">')
@@ -2943,7 +2943,7 @@ def build_html(card: dict) -> str:
         halves = (txt[:cut].strip(), txt[cut:].strip()) if cut > 0 else (txt, "")
         dc_ = card.get("decipher_print")
         boxes_ = t["copyright_split"]
-        if dc_ and t.get("dc_split"):   # rev 80: the two halves where Decipher printed them (centre x, y)
+        if dc_ and t.get("dc_split"):   # rev 81: the two halves where Decipher printed them (centre x, y)
             boxes_ = [(x_ - 18, y_ - 210, 36, 420) for x_, y_ in t["dc_split"]]
         for k_, ((cx, cy, cw, ch), part) in enumerate(zip(boxes_, halves)):
             if part:
@@ -2964,7 +2964,7 @@ def build_html(card: dict) -> str:
                 parts.append(f'<div class="copy" style="position:absolute;left:{cx - 30:g}px;top:{cy - 400:g}px;width:60px;height:800px">'
                              f'<div class="copyin dccopy" style="color:#fff;font-size:{t.get("rg_copy_size", DC_COPY["size"])}px;transform:rotate({rot_}) scaleX({DC_COPY["cond"]})">{dc_copy_html(part)}</div></div>')
     elif card.get("copyright") and t.get("dc_copy") and card.get("decipher_print") and not (t.get("dc_copy_unless_scan") and card.get("art_scan")):
-        # rev 80: Decipher's typesetting of the line (taller, condensed, full-size circled © and ®), centred on dc_copy;
+        # rev 81: Decipher's typesetting of the line (taller, condensed, full-size circled © and ®), centred on dc_copy;
         # full-art Admiral's Orders print it over the picture (a scan already carries it: dc_copy_unless_scan)
         dcx, dcy = t["dc_copy"]
         ink_ = (f'color:{t["dc_copy_ink"]};' if t.get("dc_copy_ink") else "") + (f'font-size:{t["dc_copy_size"]}px;' if t.get("dc_copy_size") else "")
@@ -2975,7 +2975,7 @@ def build_html(card: dict) -> str:
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         if card.get("copyright_dxy"):   # rev 81: a printing's own offset of the line (Tatooine's Light Epic Events)
             cx, cy = cx + card["copyright_dxy"][0], cy + card["copyright_dxy"][1]
-        # rev 80: a Decipher card keeps the template's place but takes Decipher's typesetting (full-size ®)
+        # rev 81: a Decipher card keeps the template's place but takes Decipher's typesetting (full-size ®)
         dc_ = card.get("decipher_print")
         ink_ = f' style="color:{card["copyright_ink"]}"' if card.get("copyright_ink") else ""   # rev 81: Tatooine's Light Epic Events print white
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
@@ -3156,7 +3156,7 @@ def build_html(card: dict) -> str:
                                        {"text": "'PCText'", "stat": "'AGBoldCnA'", "mark": "'PCNum'"}) + "</div>")
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
-    LP = dict(LORE_CSS, **t.get("lore_css", {}), **card.get("_lore_css", {}))   # rev 80: a template's own lore size (Podracers)
+    LP = dict(LORE_CSS, **t.get("lore_css", {}), **card.get("_lore_css", {}))   # rev 81: a template's own lore size (Podracers)
     title_stroke_css = f"-webkit-text-stroke:{t['title_stroke']}px currentColor;" if t.get("title_stroke") else ""   # the PC's white Dark titles print 0.3 px heavier than Holotable Title (#118 stem check)
     css = f"""
     {font_css}
@@ -3330,7 +3330,7 @@ def build_html(card: dict) -> str:
       }
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
         const w = el.scrollWidth; let avail = el.clientWidth;
-        if (el.dataset.dfit && w > avail + 1) {   // Rev 80: Decipher printings set a long title smaller instead (baseline kept)
+        if (el.dataset.dfit && w > avail + 1) {   // Rev 81: Decipher printings set a long title smaller instead (baseline kept)
           const [R, A] = el.dataset.dfit.split(' ').map(Number), x0 = el.offsetLeft;
           const k = Math.min(1, (R - x0 + A) / (w + A)), cs = getComputedStyle(el);
           const mk = document.createElement('span'); mk.style.cssText = 'display:inline-block;width:0;height:0'; el.appendChild(mk);

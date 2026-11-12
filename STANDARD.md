@@ -1048,7 +1048,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Emergency Deployment (Used), We're Doomed (Used), Warrior's Courage (Lost), Blue Milk (Used Or Lost), Electrobinoculars,
   Droid Detector (Devices), Help Me Obi-Wan Kenobi. Starting Interrupts were never printed in Japanese. English renders
   byte-identical to rev 79. `tools/japanese/make_sample.py` builds a sample from a wiki page "<Card> (Japanese)".
-- Rev 78 leftovers (2026-11-12): two fixes on Objectives / Epic Events, measured on printed scans (body-normalised to
+- Rev 81 leftovers (2026-11-12): two fixes on Objectives / Epic Events, measured on printed scans (body-normalised to
   745 px; master = 2 × (x + 35), 2 × (y + 36)). **Dark Epic Event sphere** (`epic-event`): ring fit on 7 printed Dark
   Epic Events (Target The Main Generator, Commence Primary Ignition, Epic Duel, That Thing's Operational, Boonta Eve
   Podrace (Dark), If The Trace Was Correct, Deep Hatred; the PC's With Thunderous Applause agrees): centre (675, 166.4),
@@ -1074,7 +1074,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (0.61) and thin grey serif lettering that vanished. Redrawn by `tools/make_ep1_disc.py` (232 px, Holotable Text Bold
   stretched to width, stem cut through the S with a thin black gap); one picture serves every place the disc prints.
   Cards without an Episode I disc render md5-identical (1_19, 1_283, 1_121, 1_236, 7_135, 9_151, 2_42, 3_115, 10_22).
-- Rev 80 Combo template (2026-11-12, Bill: Do, Or Do Not & Wise Advice against its printed card — window corner,
+- Rev 81 Combo template (2026-11-12, Bill: Do, Or Do Not & Wise Advice against its printed card — window corner,
   sphere, copyright line): the **no-lore combo cards** (Reflections II and Coruscant Effects / Interrupts, and the
   PC's reissues, which print the same corners) now follow the printed frame. Measured on the 745 px true-colour scans
   (Ghhhk & Those Rebels Won't Escape Us, Houjix & Out Of Nowhere) and checked on the 354 px GIFs of all 24 Reflections II
@@ -1104,7 +1104,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   carbonite captive 200_16 (no-lore character, keeps the rev 30 shear). Left as found (shared with every card): the
   copyright's ® is set as a small superscript where Decipher prints it full size; the Dark Interrupt frame's type disc
   shows red streaks on its right edge; title widths 2-4 % wider than printed on long combo titles (the fitter).
-- Rev 80 Podracers (2026-11-12): every remaining difference between our five Podracers (11_47, 11_95-98) and the wiki's
+- Rev 81 Podracers (2026-11-12): every remaining difference between our five Podracers (11_47, 11_95-98) and the wiki's
   497x692 Decipher archive scans fixed (master = 72 + 3 x scan px; checked by line boxes, column profiles and template
   matching on all five). **Frames** (`make_podracer_frames.py`, rebuilt, no seams at 4x): Dark header between the old
   notch and the new ridge (341..363) is a harmonic (Laplace) fill from the header, disc rims, strips and body (no mirrored
@@ -1132,7 +1132,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   adapter.copyright_for, all 2000+ sets); printed lore / game text use curly apostrophes (Anakin's, owner's, doesn't);
   the printed Tatooine sphere is octagonal (our tatooine sphere icon is round); the shared `icons/ep1-disc.png` (VS14,
   67 px) differs from Decipher's printed disc on every Episode I-era Decipher card.
-- Rev 80 sphere and copyright audit (2026-11-12): the expansion sphere and the vertical copyright line of every
+- Rev 81 sphere and copyright audit (2026-11-12): the expansion sphere and the vertical copyright line of every
   Decipher-printed template other than the no-lore combos, Objectives and Epic Events, measured against the printed
   cards. 166 cards (2-6 a template, every era: Premiere, ANH-JP, SE-DSII and the premium sets, Reflections II-Theed)
   rendered and compared with their printed faces (Holotable 350 / 745 px faces and the wiki's Decipher archive scans),
@@ -1169,7 +1169,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Not changed here (other templates' owners / not near the elements):** Jedi Test frame (printed silver with olive
     speckle, art window and banner placement differ), creature frame, ANH site frames (printed blue), the wide
     starship's type icon. Evidence sheets: per template scan | before | after with x4 sphere and x3 copyright zooms.
-- Rev 80 shared Effect / Interrupt frames and title fitter (2026-11-12): measured on 100 printed Decipher Effects and
+- Rev 81 shared Effect / Interrupt frames and title fitter (2026-11-12): measured on 100 printed Decipher Effects and
   Interrupts (the PC's 2x .png faces / 350 px .gif faces, sets 1-14, both sides, registered to our renders by the card
   body) and 15 PC Virtual Effects / Interrupts as control.
   - **Dark Interrupt type disc** (`ds-interrupt.png`, all printings): the swirl was Bardez's Light disc shifted 5.5 px
@@ -1203,7 +1203,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Regression:** md5 identical before/after for 25 cards of other templates (characters, sites, systems, starships,
     vehicles, weapons, devices, creatures, Objectives, Epic Events, Admiral's Orders, Jedi Test) and for PC Effects /
     Light Interrupts; PC Dark Interrupts differ only in the disc.
-- Rev 80 text and icons (2026-11-12): three findings from the printed cards, fixed together.
+- Rev 81 text and icons (2026-11-12): three findings from the printed cards, fixed together.
   - **Quotes and apostrophes** (`webapp/adapter.py`; gempdata unchanged, converted when the spec is built). Checked on
     printed faces from Premiere to Theed Palace, the PC's Virtual Sets 1-27 and a Virtual Block 3 slip (Admiral Ackbar
     (V)): every era prints typographic marks, so the rule is the same for all cards that come from GEMP data
@@ -1258,7 +1258,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     integration branch's DC_PRINT / DC_SPHERE_BEVEL work; Decipher's web (decipher-archive) images show Cloud City and
     Theed Palace spheres more saturated (red-yellow, yellow ship) than the printed-card scans and the PC's faces
     (orange): the files follow the printed scans.
-- Rev 81 frames (2026-11-12): four printed-frame differences found by the rev 80 sphere / copyright audit, fixed against
+- Rev 81 frames (2026-11-12): four printed-frame differences found by the rev 81 sphere / copyright audit, fixed against
   the printed faces (GEMP / Holotable 745 px, card body registered to the master), plus everything else seen on the same
   templates. No new spec keys; new template keys only where noted. Untouched templates md5-identical (see the check).
   - **Jedi Test** (`ls-jeditest-olive`, Dagobah #1-#5, Death Star II #6 You Must Confront Vader, the PC's It Is The Future
@@ -1300,12 +1300,12 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     objective 7_135, Corellian Corvette 1_140, effect 1_42, combo 10_7, Death Star: Docking Bay 327 1_124, Cloud City:
     Carbonite Chamber 5_78, Porg 223_43 (PC creature), Home One 9_74 and YV-class 7_144 (no italic class name);
     Devastator 1_301 changes only by its italic banner (intended). Evidence sheets (scan | before | after, zooms) in the batch report.
-- Rev 81 verify (2026-11-12): the three points the rev 80 sphere / copyright audit could not settle, measured.
+- Rev 81 verify (2026-11-12): the three points the rev 81 sphere / copyright audit could not settle, measured.
   - **Systems, Light and Dark** (`loc-system`): 33 printed systems (16 Light, 17 Dark, Premiere .. Coruscant, Jedi
     Pack, OTSD) registered to our render on the two bar assemblies (the picture differs from the library art; the
     350 px faces are cropped up to 2.5 % inside the card edge, so the card outline is no reference); Dark scans turned
-    180° and measured in Light coordinates. The Dark system is the Light layout turned whole, as rendered, but rev 80's
-    numbers were off on both sides: the sphere sits 8.7 / 6.1 px (745) right / down of rev 80's spot on Light systems
+    180° and measured in Light coordinates. The Dark system is the Light layout turned whole, as rendered, but rev 81's
+    numbers were off on both sides: the sphere sits 8.7 / 6.1 px (745) right / down of rev 81's spot on Light systems
     and 9.8 / 7.8 on Dark ones (`dc_system_ring` (166, 200, 56); new key `dc_system_ring_dark` (169, 204, 56), pre-turn
     coordinates; median of 10 / 9 centroid fits, spread ±1.5 px); the copyright halves 9.5 px in (Lucasfilm) / 4 px in
     (Decipher) and 9-12 px higher (`dc_split` ((216, 1884), (1427, 1880)), 14-16 halves a side, sd ≤ 1.8 px across).
@@ -1324,7 +1324,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     `ring_icons` hold `episode1`): `dc_sphere` (2022, 476, 56), `dc_copy` (2017, 950), `dc_copy_size` 25.5,
     `ring_disc_size` 56, `ring_disc_dx` -2, `ring_disc_dy` 16, `ring_disc_icons`.
   - **Coruscant** (GEMP 12_*, 18 characters, effects, interrupts, weapons, starships, sites, systems): the template
-    positions hold (centre within 1 px on every template); the weak rev 80 match came from the picture: our Coruscant
+    positions hold (centre within 1 px on every template); the weak rev 81 match came from the picture: our Coruscant
     spheres (the PC redraw `set-coruscant-pc.png`, the default, and Decipher's) carry a black rim outside the gold ring,
     the printed one has the gold ring at the disc's edge (radial profiles: gold peak r 12.5-13 px (745), no dark ring).
     `DC_SPHERE_ZOOM` (render.py) draws those pictures 1.23x / 1.16x inside a round clip (`dc_sphere_img`), on
@@ -1399,7 +1399,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     prints of the SE-era sets). The second disc on the Dark frames sits 4 px (745) left of ours on all six measured faces:
     x 350 (was 359). Tarfful's "original" face (243) is an outlier, not followed.
   - **Copyright wording** (`adapter.copyright_for`, re-read at 8x on 4-8 scans a set): Reflections II, Coruscant,
-    Reflections III and Theed Palace print the final period ("… DECIPHER INC.", rev 80 had dropped it); only Tatooine
+    Reflections III and Theed Palace print the final period ("… DECIPHER INC.", rev 81 had dropped it); only Tatooine
     and Enhanced Cloud City print none (`NO_FINAL_PERIOD` = 11, 109). Tatooine sets the line in its own tighter face:
     `©2001 LUCASFILM LTD. & TM.  TM, ®& ©2001 DECIPHER INC`; its Epic Events (Boonta Eve Podrace, I Did It!) print the
     period. `copyright_for(set, card_type=…)`. Render: a line containing "®&" takes `DC_COPY_TAT` (30 px, letter-spacing
@@ -1429,7 +1429,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     templates) warped into the 1632 x 2220 master by ECC affine fit and measured edge by edge against our master renders
     (gradient peaks): window top −2 px master on Light Effects / Interrupts / Rebels, +0.3 on Aliens / starships, ~0 on
     Dark; lore-box top within ±1 px (median −0.5); window left edge +1.3..+2.2 px master (print RIGHT of ours) on Light
-    Effects / Interrupts and scattered elsewhere. No consistent offset of the size or direction reported in rev 80
+    Effects / Interrupts and scattered elsewhere. No consistent offset of the size or direction reported in rev 81
     (bevel 1.4 px (745) right, tops 2 px) shows at master resolution; all are ≤ 1 px at 745 and differ in sign between
     templates, so nothing was warped. PC and Japanese renders are untouched by this revision: md5-identical before /
     after for the Japanese samples Darth Vader, Luke Skywalker, Admiral Ozzel, PC cards 223_40, 200_105, 205_14, 213_12,
@@ -1525,7 +1525,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     printed-scan PNGs, 33 Decipher-archive scans at 357 / 497 px) give dx -1.5..-2.1, dy -0.8..+0.8, and the classic
     archive scans the same again. So the Episode I-era sphere sits where the classic one does (within 0.5 px per source);
     the 2-3 px spread is between sources (the same card differs that much: I Will Find Them Quickly, Master printed
-    -1.95 / -0.09 vs Decipher's file +0.65 / +1.40; Booma -1.49 / +0.54 vs +0.29 / -2.62), and the rev 80 positions,
+    -1.95 / -0.09 vs Decipher's file +0.65 / +1.40; Booma -1.49 / +0.54 vs +0.29 / -2.62), and the rev 81 positions,
     fitted on all sources, stay. Tables: m745.txt, m357.txt, mclassic745.txt, mclassic-archive.txt in the batch sheets.
   - **Coruscant-set systems (Coruscant, Naboo, Tatooine, Malastare): no grey ring round the sphere; the sphere is larger.**
     Sharpest faces found: the PC's 742 px faces (2x of the printed scans; pricecharting and the wiki only have 350 px).
@@ -1608,7 +1608,7 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     Insignificant Rebellion and Your Destiny.") is condensed onto one line as printed (JS, `.objhead`). Jedi Tests (5,
     incl. the 1497 px A Jedi's Strength): x-height 30 (ours 31), widths as the family at 58.5 px, pitch 58.0-59.0 (mean
     58.4; the 57.3 of the rebuilt frame came from the PC's faces) → 58.5 px, pitch 58.4, measure -16. Podracers (5):
-    widths already within 1 % (rev 80); pitch 63.0 (ours 63.75) and lore 60.5 → set for Decipher printings.
+    widths already within 1 % (rev 81); pitch 63.0 (ours 63.75) and lore 60.5 → set for Decipher printings.
   - **Dark white text tone:** on 14 hires Dark faces the brightest point of each white glyph (median 194-213) equals the
     brightest paper on the same scan (99.5th percentile 194-213, R = G = B): the letters are unprinted paper, the scans
     are just exposed ~200. Our white (#fff, like our paper white) stays.

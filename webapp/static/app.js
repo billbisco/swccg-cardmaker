@@ -76,7 +76,7 @@ function readForm() {
   if ((fd.get("bullet_colour") || "red") === "red") delete s.bullet_colour; else s.bullet_colour = fd.get("bullet_colour");
   { const n = parseFloat(fd.get("forfeit_box_border")); if (n > 0) s.forfeit_box_border = Math.min(40, n); else delete s.forfeit_box_border; }
   if (fd.get("foil")) s.foil = true; else delete s.foil;
-  s.decipher_print = !!fd.get("decipher_print");   // Rev 80: Decipher's title setting and frame ink (Effects / Interrupts)
+  s.decipher_print = !!fd.get("decipher_print");   // Rev 81: Decipher's title setting and frame ink (Effects / Interrupts)
   // PC label (Bill 2026-11-01): one free label with a position preset; the errata mark has its own field (errata_mark)
   const lt = (fd.get("label_text") || "").trim();
   s.labels = lt ? [{ preset: fd.get("label_preset") || "concept", text: lt }] : [];
@@ -225,7 +225,7 @@ function writeForm(s, data) {
   if (!s.border) form.elements.border.value = "black";   // rev 76: white for Unlimited / Revised / Anthology printings
   if (!s.bullet_colour) form.elements.bullet_colour.value = "red";   // rev 77
   if (!s.forfeit_box_border) form.elements.forfeit_box_border.value = "";   // rev 77
-  if (s.decipher_print === undefined) {   // Rev 80: a spec saved before: a Decipher set's own card or a new one (no PC mark)
+  if (s.decipher_print === undefined) {   // Rev 81: a spec saved before: a Decipher set's own card or a new one (no PC mark)
     const sid = String((s.source || {}).set || "").trim();   // same rule as adapter.decipher_print (DECIPHER_SETS)
     const dec = !sid || /^([1-9]|1[0-4]|10[1-4]|106|108|109|11[0-2])$/.test(sid);
     form.elements.decipher_print.checked = s.style !== "ovs" && !s.set_mark && !s.virtual_set && (s.language || "en") === "en" && dec;

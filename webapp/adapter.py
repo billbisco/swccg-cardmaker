@@ -30,7 +30,7 @@ YEAR = {"1": 1995, "2": 1996, "3": 1996, "4": 1997, "5": 1997, "6": 1998, "7": 1
 
 
 DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "106", "108", "109", "110", "111", "112"}
-# rev 80: the line as each set printed it, read on the printed scans (wiki Decipher archive / Holotable 350 px faces, 4+ cards a
+# rev 81: the line as each set printed it, read on the printed scans (wiki Decipher archive / Holotable 350 px faces, 4+ cards a
 # set). 1995-98 (Premiere .. Jabba's Palace and their premium sets): "TM & © y LUCASFILM LTD.  TM, ® & © y DECIPHER INC.";
 # Special Edition (Dec 1998) .. Death Star II and the 1999-2000 premium sets drop "TM &" and the first year:
 # "© LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC."; Reflections II .. Theed Palace (2000-01) bring the year back and
@@ -60,8 +60,8 @@ NO_FINAL_PERIOD = {"11"}
 
 
 def copyright_for(set_id, decipher: bool = True, card_type: str = "") -> str:
-    """The vertical Lucasfilm / Decipher line printed beside the art, word for word as each set printed it (rev 80).
-    decipher=False: the line as the Players Committee's slips reproduce it (the form before rev 80, kept for their cards)."""
+    """The vertical Lucasfilm / Decipher line printed beside the art, word for word as each set printed it (rev 81).
+    decipher=False: the line as the Players Committee's slips reproduce it (the form before rev 81, kept for their cards)."""
     sid = str(set_id or "")
     if (sid.isdigit() and 200 <= int(sid) <= 299) or sid == "200d":
         return "ARTWORK NEITHER AFFILIATED WITH NOR ENDORSED BY LUCASFILM LTD."   # the modern PC cards (I Want That Map)
@@ -259,12 +259,12 @@ def pc_shorthand(t: str) -> str:
 
 def quotes(t: str) -> str:
     """The PC JSON writes printed double quotes as single ones: 'Vehicle with armor' -> “Vehicle with armor”. Lore
-    (rev 80): every quoted run prints in double curly quotes, Premiere to the PC's Virtual Sets ("What was that?" …
+    (rev 81): every quoted run prints in double curly quotes, Premiere to the PC's Virtual Sets ("What was that?" …
     "affect mind", Affect Mind; "It’s a good bet …", Perimeter Scan (V))."""
     return re.sub(r"(?<![\w])'(.+?)'(?![\w])", "\u201c\\1\u201d", t)
 
 
-# rev 80: a quoted run of game text that names words a card carries ("with 'Death Star' in title") prints in double
+# rev 81: a quoted run of game text that names words a card carries ("with 'Death Star' in title") prints in double
 # curly quotes (Ominous Rumors, Something Special Planned For Them, Mara Jade (V) "Mara" in game text, Darth Maul,
 # Young Apprentice (V) "Trade Federation" in lore); every other quoted game term in single curly ones ('insert',
 # A Tremor In The Force; 'react', Admiral Ackbar (V); 'credits.', 'communing,', 'BEEP-BOOP'). Decipher printed a few
@@ -280,7 +280,7 @@ def gt_quotes(t: str) -> str:
 
 
 def apostrophes(t: str) -> str:
-    """Rev 80: Decipher and the PC print typographic apostrophes in titles, lore and game text (Han’s Heavy Blaster
+    """Rev 81: Decipher and the PC print typographic apostrophes in titles, lore and game text (Han’s Heavy Blaster
     Pistol, Don’t Get Cocky, opponent’s, Let ’er go!, Twi’lek): any straight ' left after the quotes are paired."""
     return (t or "").replace("'", "\u2019") if isinstance(t, str) else t
 
@@ -342,7 +342,7 @@ def gemp_to_spec(c: dict) -> dict:
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set"), card_type=f.get("type") or ""), "set_mark": set_mark_for(c.get("set"))}
-    if f.get("loreLines"):   # rev 80: the printed lore's own line breaks (gempdata/fill.json "loreLines"; Teemto Pagalies' Podracer)
+    if f.get("loreLines"):   # rev 81: the printed lore's own line breaks (gempdata/fill.json "loreLines"; Teemto Pagalies' Podracer)
         spec["lore_lines"] = list(f["loreLines"])
     if c.get("wide"):   # Reflections Gold "wide vision" cards (set 15): landscape per the card data
         spec["_wide"] = True
@@ -394,7 +394,7 @@ def gemp_to_spec(c: dict) -> dict:
         if lab.get("slip_mark"):
             spec["number"] = str(lab["slip_mark"])
         if not lab.get("copyright") and c.get("_print_base_set"):
-            spec["copyright"] = copyright_for(c["_print_base_set"], decipher=False)   # rev 80: the PC slip's form
+            spec["copyright"] = copyright_for(c["_print_base_set"], decipher=False)   # rev 81: the PC slip's form
     if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
     if c.get("legacy"):
@@ -709,11 +709,11 @@ def finish(spec: dict) -> dict:
         spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)
-    for k in ("title", "caption", "title_back", "lore", "game_text", "dark_text", "game_text_back"):   # rev 80: as printed
+    for k in ("title", "caption", "title_back", "lore", "game_text", "dark_text", "game_text_back"):   # rev 81: as printed
         if spec.get(k):
             spec[k] = apostrophes(spec[k])
     if decipher_print(spec):
-        spec["decipher_print"] = True   # Rev 80: Decipher's own title setting and ink (editor: "As Decipher printed it")
+        spec["decipher_print"] = True   # Rev 81: Decipher's own title setting and ink (editor: "As Decipher printed it")
         # rev 81: a creature's ferocity formula prints a spaced en dash ("Ferocity = destiny – 1": Bog-wing both sides,
         # Nudj, Sleen); modifiers keep the hyphen as printed ("destiny -1 > ability", "power -1", "deploy -1")
         if spec.get("game_text"):
@@ -742,13 +742,13 @@ def dc_bold(t: str, set_id) -> str:
 
 
 def decipher_print(spec: dict, card: dict | None = None) -> bool:
-    """Rev 80: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
+    """Rev 81: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
     if spec.get("decipher_print") is not None:
         return bool(spec["decipher_print"])
     if spec.get("style") == "ovs" or (card or spec).get("set_mark") or spec.get("virtual_set") or (spec.get("language") or "en") != "en":
         return False   # PC / OVS cards, and Takara's Japanese printings (their own typesetting, lang_ja.py) unless asked
     sid = str((spec.get("source") or {}).get("set") or "").strip()
-    # a Decipher set's own card, or a new card with no source set and no PC set mark (rev 80 sphere-copyright audit)
+    # a Decipher set's own card, or a new card with no source set and no PC set mark (rev 81 sphere-copyright audit)
     return sid in DECIPHER_SETS or not sid
 
 
@@ -783,7 +783,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # printed Decipher cards with no sphere: the first disc takes the sphere's place. PC Virtual cards keep the disc in
         # the second slot even with no sphere (Aayla Secura VS0, You Know What I've Come For, #63)
         card["ring_fill"] = not str(card.get("set_mark") or "").startswith("pc:")
-        # Rev 80: the card as Decipher printed it (1995-2001): Decipher's title setting and ink on the Effect / Interrupt
+        # Rev 81: the card as Decipher printed it (1995-2001): Decipher's title setting and ink on the Effect / Interrupt
         # frames. Default: a Decipher set's own card (GEMP set 1-199) without a PC set mark; the spec's decipher_print
         # (true / false) decides otherwise (custom cards keep the PC look)
         if decipher_print(spec, card):
@@ -796,7 +796,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
                 card["dc_lines"] = dl
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
-        # rev 80: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
+        # rev 81: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
         # and copyright line where Decipher printed them (render.DC_PRINT); PC and Virtual Block cards keep the PC's
         # (one definition for both: decipher_print() above; the editor's "As Decipher printed it" box overrides)
         card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
