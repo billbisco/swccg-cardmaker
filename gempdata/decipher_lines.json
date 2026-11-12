@@ -1,5 +1,5 @@
 {
- "_comment": "Rev 84 (2): Decipher's printed line breaks, read (OCR, aligned word for word with the card text) from the printed faces on wiki.swccg.com (hires 1497 px scans, Decipher archive 350-367 px). Keys: lore, game_text, game_text_back (an Objective's back face). Used for decipher_print renders only (render.dc_hint).",
+ "_comment": "Rev 84 (2): Decipher's printed line breaks, read (OCR, aligned word for word with the card text) from the printed faces on wiki.swccg.com (hires 1497 px scans, Decipher archive 350-367 px). Objective faces 7_135, 7_137, 7_139, 9_61, 10_29, 7_296 (back) read by eye at zoom (rev 84 text setting 6). Keys: lore, game_text, game_text_back (an Objective's back face). Used for decipher_print renders only (render.dc_hint).",
  "1_7": {
   "game_text": [
    "If present where an opponent’s character just",
@@ -376,6 +376,17 @@
    "Flip this card if opponent controls at least two",
    "Dantooine locations.",
    "Place out of play if Dantooine is “blown away.”"
+  ],
+  "game_text": [
+   "Deploy Dantooine system.",
+   "While this side up, once during each of your deploy",
+   "phases, may deploy from Reserve Deck to Dantooine",
+   "one site or non-unique Rebel; reshuffle. At Dantooine",
+   "locations, each Imperial is deploy +2.",
+   "Flip this card if Rebels control at least three",
+   "Dantooine sites and opponent controls no Dantooine",
+   "locations.",
+   "Place out of play if Dantooine is “blown away.”"
   ]
  },
  "7_136": {
@@ -416,6 +427,16 @@
    "planet, you may add one battle destiny.",
    "Flip this card if you do not occupy at least two",
    "battleground sites related to the Subjugated planet."
+  ],
+  "game_text": [
+   "Deploy any planet system and one ◊ site to that system.",
+   "This system is the Subjugated planet.",
+   "While this side up, once during each of your deploy",
+   "phases, you may deploy one ◊ site to the Subjugated",
+   "planet from Reserve Deck; reshuffle.",
+   "Flip this card if your matching operatives control",
+   "at least three battleground sites related to the",
+   "Subjugated planet."
   ]
  },
  "7_138": {
@@ -444,6 +465,31 @@
    "Luke is placed out of play. Cancel Luke’s Jedi Tests."
   ]
  },
+ "7_139": {
+  "game_text": [
+   "Deploy Detention Block Corridor (with Leia of ability < 4",
+   "imprisoned there), Docking Bay 327, Yavin 4: Docking Bay",
+   "and Yavin 4: War Room.",
+   "While this side up, your spies, 8D8, Revolution, Death",
+   "Star Plans and Detention Block Control Room may not",
+   "deploy to Death Star. Cards that release captives are",
+   "immune to Sense and Alter. May not play Nabrun Leids.",
+   "Flip this card if you move Leia to Yavin 4: War Room.",
+   "Place out of play if Leia is lost from table (you may",
+   "not deploy Death Star Plans for remainder of game)."
+  ],
+  "game_text_back": [
+   "While this side up, for opponent to initiate a Force",
+   "drain, opponent must use +1 Force. During battle,",
+   "opponent’s unique (•) characters, vehicles and",
+   "starships lost from table are placed out of play; Leia",
+   "adds one battle destiny; attrition against opponent is",
+   "+2; and Imperials, Dark Jedi and Imperial starships",
+   "lose all immunity to attrition.",
+   "Flip this card if Leia is captured.",
+   "Place out of play if Leia is lost from table."
+  ]
+ },
  "7_167": {
   "game_text": [
    "Adds 2 to power and 1 to maneuver of anything",
@@ -465,6 +511,18 @@
    "Flip this card if you move a frozen captive to",
    "Audience Chamber (or if no Rebel was in opponent’s",
    "Reserve Deck at start of game)."
+  ],
+  "game_text_back": [
+   "While this side up, your aliens and starships are",
+   "immune to attrition < 4 and, once during each of",
+   "your control phases, you may retrieve 1 Force. While",
+   "you have a frozen captive at Audience Chamber,",
+   "Scum And Villainy is immune to Alter and during your",
+   "deploy phase, you may deploy Scum And Villainy from",
+   "Reserve Deck; reshuffle.",
+   "Place out of play if there are no frozen captives on",
+   "table (unless no Rebel was in opponent’s Reserve",
+   "Deck at start of game)."
   ]
  },
  "7_297": {
@@ -627,6 +685,32 @@
    "2 from each of opponent’s battle destiny draws."
   ]
  },
+ "9_61": {
+  "game_text": [
+   "Deploy Chief Chirpa’s Hut (with Luke and Luke’s Lightsaber",
+   "there), Endor: Landing Platform and I Feel The Conflict.",
+   "For remainder of game, you may not play Alter, Strangle",
+   "or Captive Fury.",
+   "While this side up, your Force generation is +2 at Luke’s",
+   "site. While an Imperial is at Landing Platform, you may",
+   "not Force drain or generate Force at Luke’s location.",
+   "When any Imperial is at Luke’s site, Luke is captured",
+   "(seized by an Imperial, if possible, even if not a warrior).",
+   "Flip this card if Luke captured."
+  ],
+  "game_text_back": [
+   "While this side up, at end of each of opponent’s",
+   "turns, opponent loses 2 Force unless Vader is",
+   "escorting Luke. At any time, an Imperial escorting",
+   "Luke may transfer Luke to Vader, if present. Vader",
+   "may not transfer Luke. Once during each of your",
+   "turns, if Vader present with Luke (even as a non-",
+   "frozen captive), may shuffle Reserve Deck and draw",
+   "destiny. If destiny > 14, Vader crosses to Light Side,",
+   "totally depleting opponent’s Life Force.",
+   "Flip if Luke neither present with Vader nor a captive."
+  ]
+ },
  "9_151": {
   "game_text": [
    "Deploy Throne Room, Insignificant Rebellion and Your Destiny.",
@@ -738,6 +822,32 @@
    "destiny draws (your choice). OR If your non-unique",
    "alien is in a battle, cancel game text of one Rebel",
    "present for remainder of turn."
+  ]
+ },
+ "10_29": {
+  "game_text": [
+   "Deploy Imperial City (with Xizor there) and Coruscant system.",
+   "For remainder of game, your aliens with “Black Sun”",
+   "in lore, bounty hunters, and information brokers are",
+   "Black Sun agents. You may not deploy cards with ability",
+   "except Black Sun agents, Emperor or starships.",
+   "During your control phase, each of your bounty hunters",
+   "may make a regular move to an adjacent site where",
+   "there is a bounty. Scanning Crew may not be played.",
+   "Flip this card if Xizor is at a battleground site and Luke",
+   "is not at a battleground site."
+  ],
+  "game_text_back": [
+   "While this side up, once per turn, may place a card",
+   "from hand in Used Pile to peek at cards in your Force",
+   "Pile. Once during each of your battle phases, may peek",
+   "at top X cards of any Reserve Deck, where X = number",
+   "of locations you occupy. For each Black Sun agent in a",
+   "battle, attrition against opponent is +1. During your",
+   "control phase, opponent loses 1 Force for each",
+   "battleground location occupied by Xizor or Emperor.",
+   "Flip this card if Luke is at a battleground site or if",
+   "Xizor is not on table."
   ]
  },
  "10_30": {

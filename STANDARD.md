@@ -1788,3 +1788,17 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     lines (layout check 119 / 119), including the 14_113 and 12_89 body measure.
   - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 14_52,
     12_89, 9_151, 2_13 with `decipher_print` false.
+- Rev 84 (Decipher text setting 6) (2026-11-12):
+  - *Objective faces OCR could not read*, read by eye at 3× on the sharpest faces available (Decipher's 354-367 px
+    archive faces; the wiki has no hires or Decipher 745 / 1039 px file for these, and its 745 px 7_136 back is the PC's
+    re-render with different wording): 7_135, 7_137, 7_139 front and back, 9_61 front and back, 10_29 front and back,
+    7_296 back → decipher_lines.json (128 blocks). 125 render line for line as printed; 10_29 (both faces) and the
+    7_139 back wait on their text data (print: "Emperor or [icon] starships", "Black Sun agent in a battle", a closing
+    "Place out of play if Leia is lost from table.").
+  - `render.dc_hint` now also takes a printed break *inside* a hyphenated word ("non-" / "frozen captive", 9_61 back):
+    a line ending in a hyphen joins the next line's first word and the break goes after the hyphen.
+  - *7_136 back, "system":* Decipher's own face (Decipher.com card list image, 367 px) prints system / systems in italic
+    on both faces, as decipher_printed.json and tools/make_decipher_printed.py have it; the upright "system" seen before
+    is the PC's 745 px re-render (which also reads "any deploy phase"). Nothing to change.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 7_135,
+    9_61, 4_76 with `decipher_print` false.

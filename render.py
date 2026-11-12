@@ -682,12 +682,25 @@ def dc_hint(text: str, card: dict, key: str, fallback=None) -> tuple:
     for lines in cands:
         if not lines or len(lines) < 2:
             continue
-        lk = [[k for k in (_dc_key(x) for x in l.split()) if k] for l in lines]
-        if [k for l in lk for k in l] != [k for _, k in keys]:
+        # flat printed keys: [key, opens a line, breaks inside the word after its hyphen ("non-" / "frozen")]
+        flat, carry = [], None
+        for l in lines:
+            ws = l.split()
+            first = True
+            if carry is not None and ws:
+                w0 = ws.pop(0); flat[carry][0] = _dc_key(flat[carry][3] + w0); flat[carry][2] = True; first = False
+            carry = None
+            for j, x in enumerate(ws):
+                k = _dc_key(x)
+                if not k:
+                    continue
+                flat.append([k, first, False, x]); first = False
+                if j == len(ws) - 1 and x.endswith("-") and len(x) > 1:
+                    carry = len(flat) - 1
+        if [f[0] for f in flat] != [k for _, k in keys]:
             continue
-        starts, n = set(), 0
-        for l in lk[:-1]:
-            n += len(l); starts.add(keys[n][0])
+        starts = {keys[n][0] for n, f in enumerate(flat) if f[1] and n > 0}
+        inner = {keys[n][0] for n, f in enumerate(flat) if f[2]}
         out = []
         for i, x in enumerate(toks):
             if i in starts:   # this token opens a printed line: the run of spaces / paragraph marks before it becomes the break
@@ -696,6 +709,8 @@ def dc_hint(text: str, card: dict, key: str, fallback=None) -> tuple:
                 out.append("\u2029")
             elif x in ("¶", "\n"):
                 x = " "   # Decipher ran USED: / LOST: on where its lines say so
+            if i in inner and "-" in x:   # Decipher broke this word at its hyphen
+                x = x.replace("-", "-\u2029", 1)
             out.append(x)
         return "".join(out), ";white-space:nowrap"
     return text, ""
