@@ -39,3 +39,18 @@ The code that picks them is not in this commit; `set-reflections-gold.png` above
 | icons/set-reflections-gold-decipher.png [312, 312] | Original RG set symbol: Decipher's orange sphere as printed | https://wiki.swccg.com/wiki/File:RG-C1-Local-Trouble.jpg (1957x1353 proof scan, sha1 a43e2ca4…) | centre (1853, 328), radius 40.5 (~76 px native sphere, soft JPEG) |
 
 sha256: set-reflections-gold-remaster.png fba7f09986bc96ed53c7f68cf6e37e0f99f50bb8c9f4533cd48ad62a75777711; set-reflections-gold-decipher.png 85a8025332073d01fe0353bc65e90127c3747e1ad97fd277754a8ecb1ca618fd.
+
+## Rev 80 (2026-11-12): re-cut from the printed cards (supersedes the table above where listed)
+
+Audit against printed faces (sheets in the rev 80 evidence): the wiki Icon-set-* inner discs were not the printed
+spheres, and the PC Game Aid redraws (`-pc`) are not what the PC prints on its Virtual cards (they print Decipher's
+sphere art). Re-cut by `tools/set_spheres/cut_set_spheres.py` (sources: `tools/set_spheres/sources.json`): per-pixel
+median of the sphere on many printed faces, each centred on its black ring to sub-pixel, scaled by its ring radius and
+registered by cross-correlation; cut at 0.92 of the ring's centre-line radius, 312 px, round anti-aliased mask.
+
+| file | now from |
+|---|---|
+| set-{anh,hoth,dagobah,cloudcity,jabbaspalace,se,endor,ds2,premium}-decipher.png | Decipher's printed faces of the set: wiki 745 px Holotable gifs (+ decipher-archive scans where few); A New Hope: the wiki's 1497 px `ANH-*-hires.webp` |
+| set-{anh,hoth,dagobah,cloudcity,jabbaspalace,se,endor,ds2,reflections2,coruscant,theed,tatooine,premium}-pc.png | the PC's printed 745 px Virtual faces carrying that sphere (res.starwarsccg.org hires) |
+| set-reflections3-pc.png | copy of set-reflections3-decipher.png (only two PC faces carry it) |
+| set-{coruscant,reflections2,reflections3,theed,tatooine,ejp}-decipher.png | unchanged (rev 32/33 scan cuts, they match the print) |

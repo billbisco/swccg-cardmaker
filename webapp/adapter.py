@@ -236,8 +236,31 @@ def pc_shorthand(t: str) -> str:
 
 
 def quotes(t: str) -> str:
-    """The PC JSON writes printed double quotes as single ones: 'Vehicle with armor' -> “Vehicle with armor”."""
+    """The PC JSON writes printed double quotes as single ones: 'Vehicle with armor' -> “Vehicle with armor”. Lore
+    (rev 80): every quoted run prints in double curly quotes, Premiere to the PC's Virtual Sets ("What was that?" …
+    "affect mind", Affect Mind; "It’s a good bet …", Perimeter Scan (V))."""
     return re.sub(r"(?<![\w])'(.+?)'(?![\w])", "\u201c\\1\u201d", t)
+
+
+# rev 80: a quoted run of game text that names words a card carries ("with 'Death Star' in title") prints in double
+# curly quotes (Ominous Rumors, Something Special Planned For Them, Mara Jade (V) "Mara" in game text, Darth Maul,
+# Young Apprentice (V) "Trade Federation" in lore); every other quoted game term in single curly ones ('insert',
+# A Tremor In The Force; 'react', Admiral Ackbar (V); 'credits.', 'communing,', 'BEEP-BOOP'). Decipher printed a few
+# "in title" runs single (Death Star II: Coolant Shaft 'Occupation', Invasion 'Trade Federation'): the data does not say
+# which, the double form is the commoner one.
+GT_DOUBLE = r"\s+in\s+(?:its\s+|their\s+)?(?:title|lore|game\s+text|name|persona)\b"
+
+
+def gt_quotes(t: str) -> str:
+    t = (t or "").replace("`", "'")   # a few PC texts open the quote with a backtick (`credits.', Credits Will Do Fine (V))
+    return re.sub(r"(?<![\w])'(.+?)'(?![\w])(?=(" + GT_DOUBLE + r")?)",
+                  lambda m: ("\u201c%s\u201d" if m.group(2) else "\u2018%s\u2019") % m.group(1), t)
+
+
+def apostrophes(t: str) -> str:
+    """Rev 80: Decipher and the PC print typographic apostrophes in titles, lore and game text (Han’s Heavy Blaster
+    Pistol, Don’t Get Cocky, opponent’s, Let ’er go!, Twi’lek): any straight ' left after the quotes are paired."""
+    return (t or "").replace("'", "\u2019") if isinstance(t, str) else t
 
 
 BASE_ICONS: dict = {}   # title -> icons of the original Decipher printing (filled by the server)
@@ -371,7 +394,7 @@ def gemp_to_spec(c: dict) -> dict:
     spec["lore"] = quotes(spec["lore"])
     if typ != "Objective" and "/" in (f.get("title") or "") and title != strip_printing(f.get("title") or ""):   # flip card text joined to the other side's: "…unpiloted).May not…"
         spec["game_text"] = re.split(r"(?<=[.)!])(?=[A-Z•])", spec["game_text"], maxsplit=1)[0]
-    spec["game_text"] = ship_text(maintenance(quotes(spec["game_text"])))
+    spec["game_text"] = ship_text(maintenance(gt_quotes(spec["game_text"])))
     spec["lore"] = ship_text(re.sub(r"\{([A-Za-z][A-Za-z' ]*)\}", r"*\1*", spec["lore"]))   # {leader} = bold in lore
     if c.get("gempId") in UNDERCOVER_FRAME:   # undercover spies print on the other side's frame (TK-422, Boushh, U-3PO)
         spec["side_frame"] = "Dark" if side == "Light" else "Light"
@@ -488,7 +511,7 @@ def gemp_to_spec(c: dict) -> dict:
         if not m:
             m2 = re.match(r"\s*(?:Dark|DARK)\s*:?\s*(.*?)\s*(?:Light|LIGHT)\s*:\s*(.*)$", gt, re.S)
             if m2: dark, light = m2.group(1), m2.group(2)
-        polish = lambda x: (pc_shorthand if pc_era else str)(ship_text(maintenance(quotes(game_text(x)))))
+        polish = lambda x: (pc_shorthand if pc_era else str)(ship_text(maintenance(gt_quotes(game_text(x)))))
         spec["game_text"], spec["dark_text"] = polish(light), polish(dark)
         # icon boxes are drawn right to left from the list: scomp outermost, then planet, then the rest (Docking Bay 94)
         li = [LOC_ICON[i] for i in reversed(icons) if i in LOC_ICON]
@@ -555,14 +578,14 @@ def gemp_to_spec(c: dict) -> dict:
                 cap = spec["caption"]                                # original title from the labels stays (A Stunning Move: "Invasion (V)")
                 spec["caption"] = cap.split(" / ")[0] + (" (V)" if cap.rstrip().endswith("(V)") and not cap.split(" / ")[0].rstrip().endswith("(V)") else "")
             if i > 0:
-                spec["game_text"] = game_text(gt[:i].strip().removeprefix(ft.replace("•", "").strip() + ":").strip())
-                spec["game_text_back"] = game_text(gt[i + len(bt.replace("•", "").strip()) + 1:].strip())
+                spec["game_text"] = gt_quotes(game_text(gt[:i].strip().removeprefix(ft.replace("•", "").strip() + ":").strip()))
+                spec["game_text_back"] = gt_quotes(game_text(gt[i + len(bt.replace("•", "").strip()) + 1:].strip()))
             spec["title_back"] = bt
             spec["destiny_back"] = "7"
             return finish(spec)
         b = c.get("back") or {}
         spec["title_back"] = b.get("title") or ""
-        spec["game_text_back"] = game_text(b.get("gametext"))
+        spec["game_text_back"] = gt_quotes(game_text(b.get("gametext")))
         spec["destiny_back"] = b.get("destiny") or "7"
     elif typ.startswith("Jedi Test"):
         spec["slip_type"] = "Jedi Test"; spec["card_type"] = typ.upper()
@@ -629,6 +652,9 @@ def finish(spec: dict) -> dict:
         spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)
+    for k in ("title", "caption", "title_back", "lore", "game_text", "dark_text", "game_text_back"):   # rev 80: as printed
+        if spec.get(k):
+            spec[k] = apostrophes(spec[k])
     if decipher_print(spec):
         spec["decipher_print"] = True   # Rev 80: Decipher's own title setting and ink (editor: "As Decipher printed it")
     return spec
@@ -816,9 +842,10 @@ def polish_text(t: str, pc_era: bool = True, legacy_version: bool = False) -> st
     if legacy_version:
         t = legacy_marks(t)
         t = re.sub(r'"([^"]+)"', "\u201c\\1\u201d", t)   # rev 73: GEMP-copied version texts write straight double quotes (Rebel Aces)
-    t = ship_text(maintenance(quotes(game_text(t))))
+    t = ship_text(maintenance(gt_quotes(game_text(t))))
     if pc_era:
         t = pc_shorthand(t)
+    t = apostrophes(t)
     if legacy_version:
         t = t.replace("{ga:vader}", "{ga:disc-vader}")
     if re.match(r"\s*(USED|LOST|STARTING):", t):

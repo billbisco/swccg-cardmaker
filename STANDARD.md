@@ -1203,3 +1203,58 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Regression:** md5 identical before/after for 25 cards of other templates (characters, sites, systems, starships,
     vehicles, weapons, devices, creatures, Objectives, Epic Events, Admiral's Orders, Jedi Test) and for PC Effects /
     Light Interrupts; PC Dark Interrupts differ only in the disc.
+- Rev 80 text and icons (2026-11-12): three findings from the printed cards, fixed together.
+  - **Quotes and apostrophes** (`webapp/adapter.py`; gempdata unchanged, converted when the spec is built). Checked on
+    printed faces from Premiere to Theed Palace, the PC's Virtual Sets 1-27 and a Virtual Block 3 slip (Admiral Ackbar
+    (V)): every era prints typographic marks, so the rule is the same for all cards that come from GEMP data
+    (the Original Virtual remasters keep their own transcribed text). Titles, captions, lore and game text print ’
+    for every apostrophe (Han’s Heavy Blaster Pistol, Don’t Get Cocky, opponent’s, Let ’er go!, Twi’lek). Lore quotes
+    print double curly “…” (“What was that?” … “affect mind”, Affect Mind; “It’s a good bet …”, Perimeter Scan (V)).
+    Game text: a quoted term prints single curly ‘…’ (‘insert’, A Tremor In The Force; ‘react’, Admiral Ackbar (V);
+    ‘credits.’, Credits Will Do Fine (V); ‘BEEP-BOOP’), a quoted run naming words a card carries (“… with ‘X’ in
+    title / lore / game text / name / persona”) double curly (“Death Star”, Put All Sections On Alert; “Bad Feeling”;
+    “sabacc”; “Mara”, Mara Jade (V); “Trade Federation”, Darth Maul (V)). Decipher printed two such runs single (Death
+    Star II: Coolant Shaft ‘Occupation’, Invasion ‘Trade Federation’) and one term double (Death Star “blown away.”);
+    the data cannot tell those apart, the commoner form wins. New `gt_quotes()` / `apostrophes()`; `quotes()` stays
+    for lore; Objective front/back texts and version texts (`polish_text`) get the same treatment; a leading backtick
+    (`credits.') opens a single quote. All fonts in assets/fonts carry U+2018/2019/201C/201D.
+  - **Expansion spheres re-cut from the printed cards** (`tools/set_spheres/cut_set_spheres.py`, sources in
+    `tools/set_spheres/sources.json`; no AI, no retouching). Each `set-<key>-decipher.png` and `set-<key>-pc.png` is
+    the per-pixel median of the sphere on many printed faces, each centred on its own black ring to sub-pixel and
+    scaled by the ring radius, then registered to the PC stack by cross-correlation (the soft Decipher scans) and cut
+    at 0.92 of the ring's centre line (312 px, as rev 32/33). Sources: `decipher` = Decipher's faces of that set
+    (wiki 745 px Holotable gifs, topped up with wiki decipher-archive scans; A New Hope the wiki's 1497 px hires),
+    `pc` = the PC's 745 px Virtual faces that carry that sphere. Audit result (scan | before | after sheets): the
+    wiki Icon-set-* discs used since rev 32 for A New Hope, Hoth, Dagobah, Cloud City, Jabba's Palace, Special
+    Edition, Endor, Death Star II and premium were NOT the printed spheres (zoomed-in inner crops, wrong colours; Cloud
+    City was a different picture altogether, a yellow-red cloud car instead of the printed orange banded planet; Hoth
+    a flat grey ball instead of the dark sphere lit white from below). The PC's printed Virtual cards (VS0-27) carry
+    exactly the same sphere art as Decipher's cards, not the Game Aid redraws the `pc` files were made from in rev
+    45 (those differed most on Endor: a white blob for the printed blue sky with the grey speeder), so `pc` is now
+    cut from the PC's own printed faces too. Kept: the Decipher files of Coruscant, Reflections II, Reflections III,
+    Theed Palace, Tatooine and Enhanced Jabba's Palace (the rev 32/33 scan cuts match the print and are sharper than
+    their stacks); `set-reflections3-pc.png` = the Decipher file (only two PC faces carry it). Provenance table:
+    assets/icons/SET-ICONS-PROVENANCE.md. Shape: every sphere is round with a black ring; the Tatooine sphere
+    only looks octagonal at the ~20 px of the 497 px scans (staircase of a 9-px-radius ring): a circle fits the
+    ring better than an octagon on every scan tried (3 Decipher, 1 printed scan, 1 PC face) and the PC's 745 px
+    faces print it round. Rim: black on every set; Theed Palace's olive rim on res.starwarsccg.org's face of
+    Panaka, Protector Of The Queen (14_24) is that one image only: Decipher's own face of the same card and five
+    other Theed cards print it black. Coruscant's gold ring is inside the black ring (part of the picture) and kept.
+  - **Episode I disc** (`assets/icons/ep1-disc.png`, `tools/make_ep1_disc.py`, 232 px): one disc for every place
+    (under the sphere, left margin, Podracers). Measured on two median stacks of printed discs (40 PC faces at 745 px,
+    30 Decipher Tatooine faces at 497 px), which agree: serif I 0.79 of the disc tall, stem 0.085, bracketed serifs
+    0.26 wide; EPISODE behind it in a bold sans, light grey (dimmer than the I), cap 0.125, 0.88 wide, centred
+    (0.495), a 0.018 black gap each side of the stem (it runs through the S). Replaces the 67 px VS14 disc; the two
+    candidate discs from other branches were each wrong in part (cm-left: the closest, but EPISODE pure white, too heavy
+    and a little high; cm-pod2 `ep1-disc-decipher.png`: EPISODE in a serif face, cap 0.19 and set low at 0.53).
+  - Also fixed on the way: the ring finder took the Episode I disc for the sphere on Episode I-era faces (the tool
+    now takes the uppermost good hit and skips black-inside hits).
+  - **Checks:** md5-identical before/after (holotable PNG) on six cards with no apostrophe, no quote, no sphere and no
+    Episode I disc: 1_3 Biggs Darklighter, 1_74 Collision!, 1_122 Dantooine, 1_140 Corellian Corvette, 1_49 Ellorrs
+    Madak (Premiere: no sphere printed) and 223_40 Life Day (VS23). Changed as intended on 16 others (quotes, title
+    apostrophes, spheres, Episode I disc), each looked at against its printed face.
+  - **Left as found (other scopes):** GEMP text differs from the print in places (A Tremor In The Force: "When effect"
+    for printed "When Effect", "Stand By..." for "Stand by . . ."); sphere placement / rim / bevel belong to the
+    integration branch's DC_PRINT / DC_SPHERE_BEVEL work; Decipher's web (decipher-archive) images show Cloud City and
+    Theed Palace spheres more saturated (red-yellow, yellow ship) than the printed-card scans and the PC's faces
+    (orange): the files follow the printed scans.
