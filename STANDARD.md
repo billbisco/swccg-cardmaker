@@ -1074,3 +1074,33 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (0.61) and thin grey serif lettering that vanished. Redrawn by `tools/make_ep1_disc.py` (232 px, Holotable Text Bold
   stretched to width, stem cut through the S with a thin black gap); one picture serves every place the disc prints.
   Cards without an Episode I disc render md5-identical (1_19, 1_283, 1_121, 1_236, 7_135, 9_151, 2_42, 3_115, 10_22).
+- Rev 80 Combo template (2026-11-12, Bill: Do, Or Do Not & Wise Advice against its printed card — window corner,
+  sphere, copyright line): the **no-lore combo cards** (Reflections II and Coruscant Effects / Interrupts, and the
+  PC's reissues, which print the same corners) now follow the printed frame. Measured on the 745 px true-colour scans
+  (Ghhhk & Those Rebels Won't Escape Us, Houjix & Out Of Nowhere) and checked on the 354 px GIFs of all 24 Reflections II
+  combos, the four Coruscant combos and four PC reissues (master = 2 × (745 px + 35 / 36)):
+  - **Window top corners** (`combo_corners()`, replacing the rev 30 45° shear on these templates): each corner column of
+    the merged window is moved down by a drop profile from the top of the window's edge band, so the frame's own bevel
+    bends into the corner with its shading; the opened rows are filled with the side margin's per-row median colour and
+    grain, blended into the row above. Dark: straight 30° chamfers, left 82 px down × 144 wide, right 78 × 136 (printed
+    (83,192)→(155,151) and (590,151)→(658,190) at 745). Light: a rounded step under each lobe, 74 / 70 px down, flat 12,
+    S-curve over 118 (printed: rounded step at y 182, ~40° rise to the top edge at x 155).
+  - **Light title-bar lobes** (`combo_lobes()`): the printed silver bar bulges round the type disc and the destiny circle
+    (rim lower edge at 745 y 157 / 152; the Effect / Interrupt frame's bar runs flat at 141): circles (264, 216, R 170)
+    and (1366, 228, R 148) painted below the bar, silver body from the bar above, 12 px white rim.
+  - **Expansion sphere**: centre Dark (1420, 404), Light (1425, 411), 56 px with its own black ring and no extra hole
+    (printed ring 28 px, purple 22 px at 745; it sat 15 px (745) low, 5 left and ~10 % heavy), with the frame's ring
+    round it (Light red paint, Dark lighter rim) — template keys `expansion_bare`, `expansion_halo`.
+  - **Copyright line**: centred at master y 798 (printed run 210..519 at 745; it ran 333..618), same face, size and x.
+  - **Art**: the window art covers the frame's whole opening (no black sliver at the right edge), and the card's own
+    combo scan (Holotable face, 745 × 1039 or scaled) is mapped by the Holotable card body (37, 36)..(708.5, 1001.5)
+    instead of the detected silver bbox, which was 3-4 % small on the 354 px GIFs (the printed frame and copyright
+    showed inside the window).
+  No new spec keys: the templates `ls-effect`, `ls-interrupt`, `ds-effect`, `ds-interrupt`, `ds-effect-tall` carry
+  `combo_corners` (light / dark), used only with `no_lore_box`; constants `COMBO_CORNERS`, `COMBO_LOBES`, `COMBO_SPHERE`,
+  `COMBO_SPHERE_HALO`, `COMBO_COPYRIGHT_CY` in render.py. Checks: md5 of renders identical before / after for Luke
+  Skywalker 1_19, Dark site 1_283, Alderaan system 1_121, Effects with lore 1_42 / 1_208, Interrupts 1_70 / 1_234,
+  objective 7_135, starships 1_140 / 1_299, the lore combos Owen Lars & Beru Lars 10_18 / Artoo & Threepio 10_2 and the
+  carbonite captive 200_16 (no-lore character, keeps the rev 30 shear). Left as found (shared with every card): the
+  copyright's ® is set as a small superscript where Decipher prints it full size; the Dark Interrupt frame's type disc
+  shows red streaks on its right edge; title widths 2-4 % wider than printed on long combo titles (the fitter).

@@ -505,6 +505,10 @@ for _k, _b in GT_BOX_PC.items():
 # banner sat 30 px (745) higher than the PC's; the Light ones were built on Bardez's recoloured Epic Objective top.
 NOLORE_GROW = 276   # master px; Light and Dark Effect and Interrupt combos (banner and text 7 px (745) low with 290)
 TEMPLATES["ds-effect-tall"] = dict(TEMPLATES["ds-effect"], nolore_grow=NOLORE_GROW)
+# rev 80: the window corners, sphere and copyright line of the no-lore combos (Reflections II, Coruscant and the PC's
+# reissues) as printed — see COMBO_CORNERS / combo_corners()
+for _k, _c in (("ls-effect", "light"), ("ls-interrupt", "light"), ("ds-effect", "dark"), ("ds-interrupt", "dark"), ("ds-effect-tall", "dark")):
+    TEMPLATES[_k] = dict(TEMPLATES[_k], combo_corners=_c)
 
 ICON_FILES = {
     # column icons: the PC's own Game Aid icons, frame included (COL_ prefix = drawn without the Bardez icon box)
@@ -1023,6 +1027,140 @@ def captive_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     return p, t, 0, 0
 
 
+# rev 80 (Bill 2026-11-12, Do, Or Do Not & Wise Advice against its printed card): the printed no-lore combos (Reflections
+# II, Coruscant; the PC's reissues the same) cut the window's top corners round the type disc and the destiny circle.
+# Measured on the 745 px true-colour scans (Ghhhk & Those Rebels Won't Escape Us, Houjix & Out Of Nowhere), checked on
+# the 354 px GIFs of the other 22 Reflections II combos: master px = 2 x (745 px + 35 / 36).
+#   Dark: straight 30 deg chamfers — left from the window's left edge 82 px down, 144 px wide; right 78 px down, 136 wide.
+#   Light: a rounded step under the disc lobe — 74 px down, flat for 12 px, then an S-curve rising over 118 px (steepest
+#   ~43 deg); right the same round the destiny lobe, 70 px down, flat 12, curve 118.
+# side: (drop, flat, run, shape) per corner.
+COMBO_CORNERS = {
+    "dark": {"left": (82, 0, 144, "line"), "right": (78, 0, 136, "line")},
+    "light": {"left": (74, 12, 118, "smooth"), "right": (70, 12, 118, "smooth")},
+}
+COMBO_SPHERE = {"dark": (1420, 404, 56), "light": (1425, 411, 56)}   # sphere centre and size (black ring included)
+# the ring round it: Light red paint ~4 px (745) on the silver, Dark a lighter rim ~2 px (745)
+COMBO_SPHERE_HALO = {"dark": ("radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(255,120,140,.45) 78%, rgba(255,120,140,0) 100%)", 6),
+                     "light": ("#d44a43", 8)}
+COMBO_COPYRIGHT_CY = 798   # centre of the copyright run (printed 210..519 at 745 on Ghhhk, 220..503 on Houjix)
+
+
+def combo_corners(G, top: int, kind: str):
+    """Reshape the top corners of a merged no-lore window (rev 80). G: the grown frame (H x W x 4, uint8), `top` the
+    window opening's top row. Each column of a corner is moved down by its drop s(x) from the top of the window's
+    edge band (opening top - 25) — the bevel band bends into the chamfer / step with its own shading, the window
+    sides start lower — and the rows it opens are filled with the frame's own margin, taken from the same rows of
+    the side margin 260 rows lower (mirror-tiled across), feathered into the margin above."""
+    import numpy as np
+    prof = COMBO_CORNERS[kind]
+    Hh, Ww = G.shape[:2]
+    mid = top + 200
+    cx = Ww // 2
+    hole = G[mid, :, 3] < 20
+    xl = cx
+    while xl > 0 and hole[xl - 1]: xl -= 1
+    xr = cx
+    while xr < Ww - 1 and hole[xr + 1]: xr += 1
+    bl = xl - 32; br = xr + 30   # outer edge of the side bevels (26-28 px wide on the four templates)
+    s = np.zeros(Ww)
+    X = np.arange(Ww).astype(float)
+    for side, (D, flat, run, shape) in prof.items():
+        if side == "left":
+            u = (X - (xl + flat)) / run; inside = X >= bl
+        else:
+            u = ((xr - flat) - X) / run; inside = X <= br
+        u = np.clip(u, 0, 1)
+        f = (1 - u) if shape == "line" else (1 - (u * u * (3 - 2 * u)))
+        s = np.where(inside & (f > 0), np.maximum(s, D * f), s)
+    s = np.round(s).astype(int)
+    y0 = top - 25
+    Smax = int(s.max())
+    span = 420   # rows moved down in each column (the side bevel is uniform there)
+    src = G.copy()
+    # the opened rows are filled with the side margin next to the window's side bevel at the same rows: its per-row
+    # median colour (keeps the frame's shading, drops splatter chips) plus its fine grain (mirror-tiled across)
+    from PIL import ImageFilter
+    fills = {}
+    for side, (m0, m1) in (("left", (max(bl - 56, 0), bl - 2)), ("right", (br + 2, min(br + 56, Ww)))):
+        st = src[y0:y0 + Smax + 1, m0:m1, :3].astype(float)
+        med = np.median(st, axis=1)                                        # rows x 3
+        bl_ = np.array(Image.fromarray(st.clip(0, 255).astype(np.uint8)).filter(ImageFilter.BoxBlur(3))).astype(float)
+        grain = np.clip(st - bl_, -10, 10)
+        fills[side] = (med, grain, m1 - m0)
+    ab = src[y0 - 4:y0 - 1, :, :3].astype(float).mean(axis=0)   # the margin row above, smoothed across (no streaks)
+    kern = np.ones(41) / 41
+    above = np.stack([np.convolve(np.pad(ab[:, k], 20, mode="edge"), kern, mode="valid") for k in range(3)], axis=1)
+    for x in np.nonzero(s)[0]:
+        d = int(s[x])
+        G[y0 + d:y0 + span, x] = src[y0:y0 + span - d, x]
+        med, grain, w = fills["left" if x < cx else "right"]
+        k = (x - bl) % (2 * w) if x < cx else (br - x) % (2 * w)
+        k = k if k < w else 2 * w - 1 - k
+        gx_ = (w - 1 - k) if x < cx else k
+        # blend into the colour of the row just above (no hard edge where the opened rows begin)
+        top_off = above[x] - med[0]
+        wv = np.clip(1 - np.arange(d) / 16.0, 0, 1)[:, None]
+        G[y0:y0 + d, x, :3] = np.clip(med[:d] + top_off * wv + grain[:d, gx_], 0, 255).round().astype(np.uint8)
+        G[y0:y0 + d, x, 3] = 255
+    if kind == "light":
+        wt = (y0 + s).astype(float)
+        wt[(X < bl) | (X > br)] = 1e9   # outside the window: nothing below to keep clear
+        combo_lobes(G, wt)
+    return G
+
+
+# Light: the disc and destiny lobes as circles (cx, cy, R, master px) fitted to the printed rim's lower edge on Houjix
+# (745 px: left through (48,142), (97,157), (150,136); right through (590,139), (648,152), (690,139)); rim 6 px (745)
+COMBO_LOBES = [(264, 216, 170), (1366, 228, 148)]
+COMBO_LOBE_RIM = 12
+
+
+def combo_lobes(G, wtop):
+    """Light combos (rev 80): the printed silver title bar bulges round the type disc and the destiny circle (rim
+    bottom 157 at 745 px, Houjix & Out Of Nowhere) where the Effect / Interrupt frame's bar runs flat at 141. Paint
+    each lobe below the bar: silver body (the bar's own colour just above, per column, with its grain), a white rim
+    band and an anti-aliased edge into the red margin. `wtop`: per column, the first row of the window edge band."""
+    import numpy as np
+    Hh, Ww = G.shape[:2]
+    rim = COMBO_LOBE_RIM
+    src = G.copy()
+    op = np.nonzero(G[600, :, 3] > 200)[0]
+    xmin = int(op.min()) + 26 if len(op) else 170   # inside the card's outer edge bevel
+    xmax = int(op.max()) - 26 if len(op) else 1460
+    for cx, cy, R in COMBO_LOBES:
+        for x in range(max(cx - R, xmin), min(cx + R + 1, xmax)):
+            dx = x - cx
+            yc = cy + (R * R - dx * dx) ** 0.5
+            ys = int(250 + (max(0, 90 * 90 - dx * dx)) ** 0.5) + 4   # below the disc / destiny ring (centre y ~250, r ~90)
+            col = src[ys:ys + 120, x, :3].astype(int)
+            red = np.nonzero((col[:, 0] - col[:, 1]) > 60)[0]
+            if not len(red):
+                continue
+            yb = ys + int(red[0])
+            if yc + 2 <= yb:
+                continue
+            body_rows = src[max(yb - 30, ys):yb - 14, x, :3].astype(float)
+            if not len(body_rows):
+                body_rows = src[yb - 16:yb - 12, x, :3].astype(float)
+            body = np.median(body_rows, axis=0)
+            for y in range(yb - 12, min(int(yc) + 3, int(wtop[x]) - 4)):
+                r = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if r > R + 1.5:
+                    continue
+                gy = yb - 16 - ((y - yb) % 12)
+                grain = np.clip(src[gy, x, :3].astype(float) - body, -8, 8)
+                if r <= R - rim:
+                    c = body + grain
+                else:
+                    u = min((r - (R - rim)) / rim, 1.0)   # 0 inner .. 1 outer edge of the rim
+                    hi = np.array([246.0, 246.0, 246.0]); lo = np.array([206.0, 206.0, 210.0])
+                    c = (body + (hi - body) * (u / 0.4)) if u < 0.4 else (hi if u < 0.8 else hi + (lo - hi) * ((u - 0.8) / 0.2))
+                a = float(np.clip(R + 0.5 - r, 0, 1))
+                G[y, x, :3] = np.clip(c * a + G[y, x, :3].astype(float) * (1 - a), 0, 255).round().astype(np.uint8)
+                G[y, x, 3] = 255
+
+
 def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     """A tall slip (VS15 Anger, Fear, Aggression (V), Knowledge And Defense (V)): the slip's banner sits higher and its
     text box is taller, as the PC's own reissues print it (V0 Knowledge And Defense): the art window gets shorter with
@@ -1056,7 +1194,9 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
     elif D:
         G[e:gy + 30] = np.array(Image.fromarray(F[gy + 40:gy + gh - 40]).resize((F.shape[1], gy + 30 - e), Image.LANCZOS))
     G[gy + 30:] = F[gy + 30:]
-    if card.get("no_lore_box") and t.get("lore"):
+    if card.get("no_lore_box") and t.get("lore") and t.get("combo_corners"):
+        G = combo_corners(G, top, t["combo_corners"])   # rev 80: as printed (Reflections II / Coruscant combos, PC reissues)
+    elif card.get("no_lore_box") and t.get("lore"):
         # the printed no-lore cards chamfer the window's top corners under the title bar (Bill 2026-10-14,
         # Abyssin Ornament (V)): shear the corner rows so the window edge runs in diagonally, bevel included
         def run(row, c):
@@ -1078,6 +1218,20 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
             G[y] = G[y][src]
     p = OUT / f"_frame_{card['id']}.png"; Image.fromarray(G).save(p)
     t = dict(t, game_text=(gx, gy - D, gw, gh + D), _artwin=(ax, top, aw, bot - top))
+    if card.get("no_lore_box") and t.get("lore") and t.get("combo_corners"):
+        # rev 80: the sphere sits right of the window top, just under the destiny circle, without the lore-box ring's
+        # extra hole; the copyright line runs from just under it (printed: alongside the upper window)
+        hole = np.array(Image.open(p))[top + 200, :, 3] < 20   # the art covers the whole opening (no black sliver)
+        hx = np.nonzero(hole[:W // 2 + 1][::-1] == False)[0]
+        hl = W // 2 - (int(hx[0]) - 1) if len(hx) else ax
+        hx = np.nonzero(hole[W // 2:] == False)[0]
+        hr = W // 2 + int(hx[0]) if len(hx) else ax + aw
+        x0_, x1_ = min(ax, hl), max(ax + aw, hr)
+        t["_artwin"] = (x0_, top, x1_ - x0_, bot - top)
+        scx, scy, ssz = COMBO_SPHERE[t["combo_corners"]]
+        t["expansion_ring"] = (scx - ssz // 2, scy - ssz // 2); t["expansion_size"] = ssz; t["expansion_bare"] = True
+        t["expansion_halo"] = COMBO_SPHERE_HALO[t["combo_corners"]]
+        t["copyright"] = (t.get("copyright_x", 1404), COMBO_COPYRIGHT_CY - ah // 2, 36, ah)
     if card.get("no_lore_box") and t.get("nolore_disc"):   # #62: the PC sets the Episode I disc in the left margin by the window top
         t["_nolore_disc"] = t["nolore_disc"]
     if "card_type" in t:
@@ -1813,7 +1967,19 @@ def build_html(card: dict) -> str:
             parts.append(f'<img src="{art_crop(card, t["_artwin"], "-rect")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
         elif card.get("no_lore_box") and card.get("text_grow_scan"):
             # the card's own (no-lore) scan: its art already sits in this raised window — map the window itself
-            parts.append(f'<img src="{art_crop(card, t["_artwin"], "-nolore")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
+            card_ = card
+            if t.get("combo_corners") and not card["art"].get("bbox"):
+                # rev 80: the combo scans (res.starwarsccg.org, wiki) are Holotable faces — 745 x 1039 or scaled down
+                # (354 x 492) — with the card body at (37, 36)..(708.5, 1001.5) of 745: map by that, not by the silver
+                # frame's bbox (found 3-4 % small on the 354 px GIFs: the printed frame and copyright showed in the window)
+                try:
+                    wi_, hi_ = Image.open(card["art"]["src"]).size
+                except Exception:
+                    wi_ = hi_ = 0
+                if wi_ and abs((hi_ / wi_) / (1039 / 745) - 1) < 0.012:
+                    k_ = wi_ / 745
+                    card_ = dict(card, art=dict(card["art"], bbox=(37 * k_, 36 * k_ * (hi_ / wi_) / (1039 / 745), 708.5 * k_, 1001.5 * k_ * (hi_ / wi_) / (1039 / 745))))
+            parts.append(f'<img src="{art_crop(card_, t["_artwin"], "-nolore")}" style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px">')
         else:
             parts.append(f'<div style="position:absolute;left:{wx}px;top:{wy}px;width:{ww}px;height:{wh}px;overflow:hidden">'
                          f'<img src="{art}" style="position:absolute;left:0;top:{0 if card.get("pc_type") else (wh - ah) // 2}px;width:{aw}px;height:{ah}px"></div>')
@@ -2153,7 +2319,10 @@ def build_html(card: dict) -> str:
     if card.get("expansion_icon") and "expansion_ring" in t:
         x, y = t["expansion_ring"]
         sz = t.get("expansion_size", 62)
-        if card.get("expansion_icon_in_hole", True):
+        if t.get("expansion_halo"):   # rev 80: the frame's ring round the combo sphere (Light: red paint; Dark: lighter rim)
+            hc_, hp_ = t["expansion_halo"]
+            parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_}"></div>')
+        if card.get("expansion_icon_in_hole", True) and not t.get("expansion_bare"):
             # printed cards: the set icon is a sphere sitting in a black hole of the frame
             hc_, hp_ = t.get("expansion_hole", ("#000", 1))
             parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>' if hp_ > 1 else
