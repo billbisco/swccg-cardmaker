@@ -709,6 +709,18 @@ def dc_ellipses(t: str) -> str:
     return re.sub(r"\.[ \u00a0]\.[ \u00a0]\.(?=[A-Za-z0-9])", lambda m: m.group(0) + " ", t)
 
 
+def dc_bold(t: str, set_id) -> str:
+    """Rev 81 (text data 2): keywords Decipher set bold in game text. "Agenda"/"Agendas" (not the colon) on every
+    Coruscant / Reflections III senator (Horox Ryyder, Mas Amedda, Aks Moe, Tikkes, Sio Bibble). "cumulatively" in
+    A New Hope to Special Edition (Rebel Tech, Death Star Gunner, Frozen Dinner, Mynock, Ortolan, Ugnaught, Aqualish,
+    Nudj, Sleen, Something Hit Us!); Endor and Death Star II print it regular (AT-ST Pilot, Navy Trooper Shield
+    Technician, Imperial Academy Training, Scimitar Squadron TIE)."""
+    t = re.sub(r"(?<![*\w])(Agendas?)(?=:)", r"*\1*", t)
+    if str(set_id or "").isdigit() and 1 <= int(set_id) <= 7:
+        t = re.sub(r"(?<![*\w])([Cc]umulatively)(?![*\w])", r"*\1*", t)
+    return t
+
+
 def decipher_print(spec: dict, card: dict | None = None) -> bool:
     """Rev 80: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
     if spec.get("decipher_print") is not None:
@@ -731,6 +743,10 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     for k in ("game_text", "dark_text", "game_text_back", "lore"):   # typed line breaks = paragraphs that still wrap
         if isinstance(c.get(k), str):
             c[k] = c[k].replace("\r\n", "\n").replace("\n", "¶")
+    if decipher_print(spec) and (spec.get("language") or "en") == "en":   # rev 81: Decipher's bold keywords (dc_bold)
+        for k in ("game_text", "dark_text", "game_text_back"):
+            if isinstance(c.get(k), str):
+                c[k] = dc_bold(c[k], (spec.get("source") or {}).get("set"))
     c.setdefault("number", "")
     ovs = spec.get("style") == "ovs"   # Original Virtual Set remaster look (2002-08 slips) instead of Decipher's printing
     if not ovs:
