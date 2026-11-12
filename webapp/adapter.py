@@ -127,7 +127,9 @@ MISSION_DISC = {"5825": "objective", "6389": "objective"}
 RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker", "Personal Force": "personal-force"}
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
-            "Scomp Link": "scomp", "Space": "space"}
+            "Scomp Link": "scomp", "Space": "space",
+            # rev 81: GEMP's names for the printed vehicle / creature site icons (Sandcrawler: Loading Bay, Big One)
+            "Vehicle Site": "vehicle", "Starship Site": "starship", "Creature Site": "creature"}
 
 
 def dedupe(label: str) -> str:
@@ -516,6 +518,10 @@ def gemp_to_spec(c: dict) -> dict:
         # icon boxes are drawn right to left from the list: scomp outermost, then planet, then the rest (Docking Bay 94)
         li = [LOC_ICON[i] for i in reversed(icons) if i in LOC_ICON]
         li.sort(key=lambda k: {"scomp": 0, "planet": 1}.get(k, 2))
+        if "mobile" in li and "starship" in li and str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
+            # rev 81: Decipher prints the mobile icon outside the starship icon (Executor: Comm Station, Home One: War
+            # Room, Star Destroyer: Launch Bay, Blockade Flagship: Bridge); GEMP lists them either way round
+            li.remove("mobile"); li.insert(li.index("starship"), "mobile")
         spec["light_icons"] = spec["dark_icons"] = li
         if c.get("legacy") and f.get("lightSideIcons") is None and f.get("darkSideIcons") is None:
             # the Virtual Block data carries no Force icons: take the original printing's (Lars' Moisture Farm (V))
@@ -530,8 +536,14 @@ def gemp_to_spec(c: dict) -> dict:
             for half, txt, frc in (("light", "game_text", "light_force_count"), ("dark", "dark_text", "dark_force_count")):
                 if half != side.lower() and not (spec.get(txt) or "").strip().strip("-") and not spec.get(frc):
                     spec[f"{half}_half_absent"] = True
-        if sub == "Site" and ("Starship" in icons or "Vehicle" in icons):   # starship/vehicle sites print blue (Blockade Flagship: Bridge)
+        # starship/vehicle sites print blue (Blockade Flagship: Bridge). rev 81: GEMP names the vehicle-site icon "Vehicle Site"
+        # (Sandcrawler: Loading Bay / Droid Junkheap, Jabba's Sail Barge: Passenger Deck print blue too)
+        if sub == "Site" and ("Starship" in icons or "Vehicle" in icons or "Vehicle Site" in icons or "Starship Site" in icons):
             spec["frame_style"] = "ls-starship" if side == "Light" else "ds-starship"
+            # rev 81: Decipher italicised the named capital ship in its sites' title bars (EXECUTOR: COMM STATION,
+            # HOME ONE: WAR ROOM); class names stay roman (STAR DESTROYER: LAUNCH BAY, BLOCKADE FLAGSHIP: BRIDGE)
+            if str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
+                spec["card_type"] = re.sub(r"^([•◊]*)(EXECUTOR|HOME ONE)(?=:)", r"\1_\2_", spec["card_type"])
         spec["deploy"] = spec["forfeit"] = None
     elif typ == "Interrupt":
         spec["slip_type"] = f"{sub} Interrupt".strip()
@@ -590,7 +602,8 @@ def gemp_to_spec(c: dict) -> dict:
     elif typ.startswith("Jedi Test"):
         spec["slip_type"] = "Jedi Test"; spec["card_type"] = typ.upper()
         # the printed steps start with the Jedi Test icon and a bold verb: "[icon] Deploy … [icon] Target … [icon] Attempt"
-        spec["game_text"] = re.sub(r"(^|(?<=[.)] ))(Deploy|Target|Attempt|Place|Required|Reward)\b", r"{ga:jedi-test}*\2*", spec["game_text"])
+        # rev 81: also after "test completed:" (Size Matters Not, Great Warrior: "[icon] Place"; You Must Confront Vader: "[icon] Leave")
+        spec["game_text"] = re.sub(r"(^|(?<=[.):] ))(Deploy|Target|Attempt|Place|Leave|Required|Reward)\b", r"{ga:jedi-test}*\2*", spec["game_text"])
     elif typ == "Mission":   # Virtual Block Missions (Rebel Aces) / Critical Missions (Spice Mine Operations)
         spec["slip_type"] = "Critical Mission" if sub == "Critical" else "Mission"
         spec["card_type"] = spec["slip_type"].upper()
@@ -604,6 +617,10 @@ def gemp_to_spec(c: dict) -> dict:
         spec["slip_type"] = "Admiral's Order"
     else:
         spec["slip_type"] = typ or "Effect"; spec["card_type"] = typ.upper()
+    if typ in ("Starship", "Vehicle") and str(c.get("gempId") or "").split("_")[0] in DECIPHER_SETS:
+        # rev 81: Decipher set the class name italic in the banner (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
+        # _VICTORY_-CLASS, _SUPER_-CLASS: Devastator, Victory-Class Star Destroyer, Executor, Flagship Executor)
+        spec["card_type"] = re.sub(r"(?<![_\w])([A-Z]{3,})(?=-CLASS\b)", r"_\1_", spec.get("card_type") or "")
     return finish(spec)
 
 
@@ -726,7 +743,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         if card["template"] in ("ls-character-droid", "ds-character-droid"):
             card["template"] += "-dc"   # brass droid disc as printed
         if card["template"] == "creature":
-            card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
+            card["template"] = "creature-dc" if card["decipher_print"] else "creature-dc-pc"   # printed Decipher creature: banner + black title (rev 81: measured layout on Decipher's own)
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     if card.get("back"):   # rev 77: the back face's margin caption follows the front's (Decipher printings: none), not

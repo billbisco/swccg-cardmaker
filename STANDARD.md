@@ -1258,3 +1258,45 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     integration branch's DC_PRINT / DC_SPHERE_BEVEL work; Decipher's web (decipher-archive) images show Cloud City and
     Theed Palace spheres more saturated (red-yellow, yellow ship) than the printed-card scans and the PC's faces
     (orange): the files follow the printed scans.
+- Rev 81 frames (2026-11-12): four printed-frame differences found by the rev 80 sphere / copyright audit, fixed against
+  the printed faces (GEMP / Holotable 745 px, card body registered to the master), plus everything else seen on the same
+  templates. No new spec keys; new template keys only where noted. Untouched templates md5-identical (see the check).
+  - **Jedi Test** (`ls-jeditest-olive`, Dagobah #1-#5, Death Star II #6 You Must Confront Vader, the PC's It Is The Future
+    You See (V)): the frame is **olive paint (58, 61, 15) chipped to silver** (silver ground with olive, not olive with
+    silver speckle), with a silver title bar bulging round the stone disc and the destiny circle. Rebuilt from the
+    per-pixel median of the six printed faces by `tools/make_jeditest_frame.py` (window from where the faces differ,
+    plates re-textured with the Light Effect frame's crisp silver over the printed shading, paint mask re-drawn crisp).
+    Measured: window 243..1386 x 387..1107 with 18 px rounded lower corners (ours 240..1386 x 372..1088), banner
+    1160..1258 (was 1170), text box 1290..2015, text left 310, first line 1318, a fixed 57.3 px pitch on all six (the
+    fitter no longer grows it: `gt_grow` False, 60 px on 57.3 lines). Title box (405, 196), destiny (1308, 201).
+    The step keyword icon is the bare stone (no disc), 36 px, kept on the line with its word
+    (`assets/icons/jedi-test-stone.png`, cut from the Game Aid icon); the adapter now also marks "test completed:
+    Place" and You Must Confront Vader's "Leave". `ls-jeditest-tall` (VS slips) and `ls-jeditest-epic` unchanged.
+  - **Creatures** (`creature-dc`, Decipher's sets only; PC creatures such as Porg keep the previous layout as
+    `creature-dc-pc`): frame within 2 px of print; the text was off. Title box from x 402 (29 px right, 5 up); lore
+    flush left 318..1300 (no first-line indent), box from 410; banner 8 px higher, 54.5 px heavy (`ctype_stroke` 1.4)
+    and tight (`ctype_spacing` 3.2: AVIAN CREATURE 353 px, GIGANTIC PREDATOR CREATURE 653, within 10 px of print);
+    second stat value 19 px after its label (`stat_val_gap`); FEROCITY ✶ and the "✶ Ferocity = ..." note print
+    Decipher's eight-point star (`dc_star_img`); hyphenated names never break (Bog-wing); the creature icon box sits
+    beside the text box top (icon slots (1357, 1715) / (1357, 1820), printed centre (1402, 1758)).
+  - **Starship / vehicle sites**: GEMP names the vehicle-site icon "Vehicle Site", so Sandcrawler: Loading Bay /
+    Droid Junkheap and Jabba's Sail Barge: Passenger Deck missed the blue frame and the vehicle icon box. Both mapped
+    (also "Starship Site", "Creature Site": Big One's creature box). Decipher printings (`decipher_print`) take the
+    printed blue sampled on nine site margins: Light (32, 98, 149) worn, Dark (33, 91, 131) (VS slips keep theirs);
+    margin colour now within 3-6 levels of print (was 20-30 too bright / saturated). The ship's name in Executor and
+    Home One site bars is italic as printed (_EXECUTOR_: COMM STATION); the mobile icon sits outside the starship icon
+    (Executor, Home One, Star Destroyer, Blockade Flagship sites). Checked: Death Star, Death Star II, Cloud City and
+    Big One sites print silver (unchanged); Blockade Flagship, Star Destroyer: Launch Bay, Executor: Docking Bay blue.
+  - **Wide capital starships** (`ds-starship-wide`, `-nolore`: Executor, Flagship Executor, Finalizer (AI)): the
+    frame carried Bardez's square type-icon crop; Decipher printed the round starship disc in its ring with the bar's
+    bevel bending into a V under it, as on the portrait starships. `tools/fix_starship_wide_disc.py` inpaints the
+    square and sets the portrait DS starship corner in, aligned on the V tip (disc centre (317, 279)). Banner 60 px
+    tight (`ctype_spacing` 0.5), centred between the title's end and x 1845 (`ctype_centre_to`); game text at the
+    printed 62 px in a box ending at 1992 (lines ended on the bevel); destiny number 12 px higher. Portrait capitals
+    (Devastator, Home One, Corellian Corvette) checked: disc and ring as printed, unchanged.
+  - **Banners of Decipher starships / vehicles**: the class name is italic (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
+    STARFIGHTER: _LAMBDA_-CLASS SHUTTLE; YV-CLASS stays roman as printed).
+  - Checks: md5 identical before / after for Luke Skywalker 1_19, Dark site 1_283, system 1_121, interrupt 1_70,
+    objective 7_135, Corellian Corvette 1_140, effect 1_42, combo 10_7, Death Star: Docking Bay 327 1_124, Cloud City:
+    Carbonite Chamber 5_78, Porg 223_43 (PC creature), Home One 9_74 and YV-class 7_144 (no italic class name);
+    Devastator 1_301 changes only by its italic banner (intended). Evidence sheets (scan | before | after, zooms) in the batch report.

@@ -366,10 +366,31 @@ TEMPLATES["ds-starship-wide"] = {
     "expansion_ring": (1945, 414), "expansion_size": 66, "no_copyright": True, "caption_y": 1532, "dark_text": False,
 }
 
+# rev 81 (frames): measured on the printed Executor (4_167) and Flagship Executor (9_157): the banner is set larger and
+# tight (cap height 42 px, not 34; run ~865 px, centred at x 1360, 6 px lower) and the game text at the printed 62 px
+# body size (two lines at a 65 px pitch; we set it at 56). The round type disc replaces Bardez's square icon crop in
+# the frame (tools/fix_starship_wide_disc.py)
+TEMPLATES["ds-starship-wide"].update(card_type=(900, 239, 920, 65), ctype_size=60, ctype_spacing=0.5,
+    game_text=(382, 1238, 1610, 144),   # printed lines end by x 1972-1976 (ours ran to 2020, on the box's bevel)
+    destiny=(1885, 227, 121, 118),      # the printed number sits centred in the circle, 12 px higher than ours
+    ctype_centre_to=1845)               # banner centred between the title's end and x 1845 (Executor 1225, Flagship 1366)
+TEMPLATES["ds-starship-wide"].pop("gt_size")
 TEMPLATES["ds-starship-wide-nolore"] = dict(TEMPLATES["ds-starship-wide"], frame=("frames/ds-starship-wide-nolore.png", 0, 0))   # Finalizer (AI): no lore box
 # Decipher's printed creatures (Worrt, Bog-wing): black title and the banner (GUARD CREATURE) — card maker; the VS
 # remasters keep "creature" as approved (white title, empty banner)
 TEMPLATES["creature-dc"] = dict(TEMPLATES["creature"], card_type=(271, 1466, 1109, 61), title_ink="#000", ctype_ink="#000")
+# rev 81 (frames): measured on the printed creatures (Bog-wing, Bubo, Worrt, Rancor, Sarlacc, Dragonsnake; card body
+# registered to the master): the frame itself matches print within 2 px, but the title starts 29 px further right and
+# 5 px higher; the lore is set flush left (no first-line indent) from x 318 to ~1294 at its 60 px pitch, first line
+# 8 px higher; the banner is set tight (cap height 39 px, not 43; tracking ~3.6 px, not 11: AVIAN CREATURE 353 px wide,
+# GIGANTIC PREDATOR CREATURE 653) and 11 px higher; the creature icon box sits beside the text box top (centre
+# (1402, 1758), not (1398, 1694))
+TEMPLATES["creature-dc-pc"] = dict(TEMPLATES["creature-dc"])   # Players Committee creatures (Porg): kept as before rev 81
+TEMPLATES["creature-dc"].update(
+    title=(402, 210, 812, 80), lore=(318, 410, 990, 196), lore_x=(318, 1300, 0, 0, 0.0),
+    card_type=(271, 1458, 1109, 61), ctype_size=54.5, ctype_spacing=3.2, ctype_stroke=1.4,   # heavy, as the stat labels
+    stat_val_gap=19,   # FLIGHT 2, ARMORED HIDE 5: the value 19 px after the label (30 elsewhere)
+    icon_slots=[(1357, 1715), (1357, 1820)])
 
 
 def is_wide(t: dict) -> bool:
@@ -403,7 +424,14 @@ for _k, _xy in (("objective-ls", (1398, 362)), ("objective", (1393, 375))):
 # (205, 397) Light, (204, 410) Dark, 56 px. Epic Events of both sides print it at the same spot as the Objectives.
 TEMPLATES["objective-ls"]["ring_disc_left"] = (205, 397, 56)
 TEMPLATES["objective"]["ring_disc_left"] = (204, 410, 56)
-TEMPLATES["ls-jeditest-olive"] = dict(TEMPLATES["ls-jeditest-tall"], frame=("frames/ls-jeditest-olive.png", 0, 0))   # printed Jedi Tests: olive throughout
+# rev 81 (frames): Decipher's printed Jedi Test frame (Dagobah #1-#5, Death Star II #6; the PC's It Is The Future You See
+# (V) prints it too), rebuilt from the six printed faces by tools/make_jeditest_frame.py: silver title bar bulging round
+# the stone disc and the destiny circle, olive paint chipped to silver in the margins, window 243..1386 x 387..1107,
+# banner 1160..1258, text box 1290..2015. Text measured on the faces: left edge 310, first line 1318, a fixed 57.3 px
+# pitch on every card (Decipher did not grow or shrink it: Domain Of Evil leaves the box's foot empty)
+TEMPLATES["ls-jeditest-olive"] = dict(TEMPLATES["ls-jeditest-tall"], frame=("frames/ls-jeditest-olive.png", 0, 0),
+    art=(243, 387, 1144, 721), title=(405, 196, 880, 100), destiny=(1308, 201, 104, 104),
+    card_type=(262, 1178, 1110, 61), game_text=(308, 1306, 1046, 684), gt_size=60, gt_lh_add=-2.7, gt_grow=False)
 TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
 # Virtual Block Missions (make_mission_frames.py): full art under the Admiral's Order title bar, tan panel at the foot
 for _sd, _D in (("ls", 324), ("ds", 336)):
@@ -465,6 +493,7 @@ TEMPLATES["ds-shield-vb"] = dict(TEMPLATES["ds-shield-dc"], frame=("frames/ds-sh
 GT_BOX_PC = {
     "creature": (338, 1727, 952, 270),
     "creature-dc": (338, 1727, 952, 270),
+    "creature-dc-pc": (338, 1727, 952, 270),
     "ds-character-alien": (353, 1663, 951, 336),
     "ds-character-droid": (353, 1663, 945, 336),
     "ds-character-droid-dc": (353, 1663, 945, 336),
@@ -599,13 +628,31 @@ def icon_img(name: str, h: int = 64) -> str:
 card_ctx: dict = {}   # set by render() so tokens can see the card (virtual_set for {ovs})
 
 
+def dc_star_img(h: float, extra: str = "") -> str:
+    """rev 81: Decipher's printed creature star (Bog-wing, Rancor, Sarlacc: FEROCITY and "Ferocity = ..."): an
+    eight-pointed burst with a fat centre (inner radius 0.46 of the outer), white, where the slips print the six-point ✶"""
+    import math
+    pts = " ".join(f"{(10 if k % 2 == 0 else 4.6) * math.sin(k * math.pi / 8):.2f},{-(10 if k % 2 == 0 else 4.6) * math.cos(k * math.pi / 8):.2f}" for k in range(16))
+    svg = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10.5 -10.5 21 21"><polygon points="{pts}" fill="#fff"/></svg>'
+    return f'<img src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}" style="height:{h}px;{extra}">'
+
+
 def game_text_html(text: str) -> str:
     """{pilot:2} → pilot-power icon + number; {alter} {control} {sense} {maintenance} {grabber} {lightsaber} → icons.
     ▲ / ▼ (PC shorthand triangles) pass through as text. *bold* → bold."""
     out = []
     pos = 0
+    pend = [False]   # rev 81: the printed Jedi Test stone keeps its keyword on its line (Domain Of Evil)
+
+    def close_nowrap(seg):
+        if not pend[0]:
+            return seg
+        pend[0] = False
+        w = re.match(r"\S*", seg).end()
+        out.append(esc(seg[:w]) + "</span>")
+        return seg[w:]
     for m in re.finditer(r"\{([\w-]+)(?::([^}]*))?\}", text):
-        seg = text[pos:m.start()]
+        seg = close_nowrap(text[pos:m.start()])
         hy = re.search(r"(\S+-)$", seg)   # "non-{icon}" stays on one line, as the PC sets it (Endless Legions, #63)
         if hy:
             out.append(esc(seg[:hy.start()]) + '<span style="white-space:nowrap">' + esc(hy.group(1)))
@@ -633,6 +680,11 @@ def game_text_html(text: str) -> str:
                    '<polyline points="12,47 50,76 88,47" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="miter"/>'
                    f'<text x="50" y="53" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="{40 if len(arg or "") < 2 else 36}" fill="#fff">{esc(arg or "")}</text></svg>')
             out.append(f'<img class="gt-icon" src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}" style="height:60px;vertical-align:-12px">')
+        elif name == "ga" and arg == "jedi-test" and card_ctx.get("template") == "ls-jeditest-olive":
+            # rev 81: the printed Jedi Tests set the bare stone (no disc) before Deploy / Target / Attempt / Place:
+            # 30 x 17 px at 745 (Domain Of Evil); cut from the Game Aid icon (assets/icons/jedi-test-stone.png)
+            out.append(f'<span style="white-space:nowrap"><img class="gt-icon" src="{data_uri(ASSETS / "icons/jedi-test-stone.png")}" style="height:36px;vertical-align:-1px;margin-right:6px">')
+            pend[0] = True
         elif name == "ga":   # a Players Committee Game Aid icon (Feb 2024 reference sheet), e.g. {ga:separatist}
             gf = ASSETS / f"icons/pc-gameaid-x4/{arg}.png"
             if not gf.exists() and str(arg).startswith("disc-"):   # rev 73: a printed disc of our own ({ga:disc-vader}, Virtual Block 7)
@@ -664,11 +716,18 @@ def game_text_html(text: str) -> str:
         if hy:
             out.append("</span>")
         pos = m.end()
-    out.append(esc(text[pos:]))
+    out.append(esc(close_nowrap(text[pos:])))
+    if pend[0]:
+        out.append("</span>")
     html = "".join(out)
     html = html.replace("•", '<span class="dot">•</span>')
     html = re.sub(r"\*(.+?)\*", r"<b>\1</b>", html, flags=re.S)
     html = re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", html, flags=re.S)   # italics may span the slip's line breaks
+    if card_ctx.get("template") == "creature-dc":   # rev 81: the printed eight-point star, set close to its word (✶Ferocity)
+        html = re.sub(r"✶ ?", lambda _m: dc_star_img(40, "vertical-align:5px;margin-right:4px"), html)
+        # the printed creatures never break a hyphenated name (Bog-wing, Ree-Yees): keep it on one line
+        html = "".join(x if x.startswith("<") else re.sub(r"(\w+(?:-\w+)+)", r'<span style="white-space:nowrap">\1</span>', x)
+                       for x in re.split(r"(<[^>]*>)", html))
     html = html.replace("▲", "<span class=tri>▲</span>").replace("▼", "<span class=tri>▼</span>")
     html = html.replace("◇", "<span class=dia>◇</span>")   # Decipher's non-unique-location mark (Defensive Shields: "opponent’s ◇ site")
     return html.replace("\n", "<br>").replace("¶", "<br>").replace("\u2029", "<br>")   # ¶ = a paragraph break that keeps normal wrapping (card maker)
@@ -1278,8 +1337,10 @@ def starship_frame(frame: Image.Image, card: dict, t: dict, DL: int, DD: int) ->
     silver = (np.abs(rgb[:, :, 0] - rgb[:, :, 2]) < 30) & (rgb.mean(axis=2) > 80) & (fa[:, :, 3] > 0)
     paint = silver & ~keep
     lum = rgb.mean(axis=2, keepdims=True) / 172.0
+    dc = bool(card.get("decipher_print"))   # rev 81: Decipher's printed blue, sampled on the margins of 9 printed sites
     if card["frame_style"] == "ls-starship":
-        col = np.array([38, 118, 162], float)
+        # printed Light: Sandcrawler: Loading Bay (33, 105, 165), Home One: War Room (36, 107, 157); ours was (41, 128, 175)
+        col = np.array([32.4, 97.7, 149.0] if dc else [38, 118, 162], float)
         import zlib   # rev 57: str hash() is salted per process, so the worn-paint pattern changed on every run
         rng = np.random.default_rng(zlib.crc32(card["id"].encode("utf-8")))
         from PIL import ImageFilter
@@ -1293,7 +1354,9 @@ def starship_frame(frame: Image.Image, card: dict, t: dict, DL: int, DD: int) ->
         worn = np.array(Image.fromarray((worn * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(3))) > 0
         paint &= ~worn
     else:
-        col = np.array([18, 95, 160], float)
+        # printed Dark: Executor: Comm Station (41, 99, 142), Droid Junkheap (32, 99, 142), Sail Barge (32, 96, 140),
+        # Executor: Docking Bay (35, 99, 140); ours was (19, 102, 172)
+        col = np.array([33.2, 91.3, 131.2] if dc else [18, 95, 160], float)
     tint = np.clip(lum * col * 1.08, 0, 255)
     rgb[paint] = tint[paint]
     fa[:, :, :3] = rgb
@@ -1714,6 +1777,7 @@ PC_PIECE_FIX = {
     "ds-starship-starfighter": {"destiny": (4.5, -6.5), "deploy": (3, -1)},
     "ds-vehicle": {"destiny": (3, -5), "icons": (4, 3, 1.1), "expansion": (6.5, 3)},
     "creature-dc": {"expansion": (8, 5), "destiny": (0, -4)},
+    "creature-dc-pc": {"expansion": (8, 5), "destiny": (0, -4)},
 }
 
 PC_GROW_TEMPLATES = {"ls-effect", "ds-effect", "ls-interrupt", "ds-interrupt", "ls-weapon", "ds-weapon", "ls-device", "ds-device",
@@ -2298,6 +2362,7 @@ def build_html(card: dict) -> str:
         is_char = "character" in card["template"]
         # #52: the tightest label-value gap and right margin the box squeeze may reach (PC Dark characters: 26 / 16 master px)
         stat_min = f' data-gmin="{t["stat_min"][0]}" data-mmin="{t["stat_min"][1]}"' if t.get("stat_min") else ""
+        gap_style = f' style="margin-left:{t["stat_val_gap"]}px"' if "stat_val_gap" in t else ""   # rev 81: printed creatures (FLIGHT 2)
         for i, ((x, w), (label, value)) in enumerate(zip(boxes, stats)):
             # Decipher sets the value at the right end of its box (ARMOR      5, LANDSPEED    2 on starships and
             # vehicles; POWER 5 / ABILITY 6 fill theirs) — except a character's wide third box (ARMOR 5 follows the
@@ -2310,7 +2375,8 @@ def build_html(card: dict) -> str:
                 # full height, squeezed horizontally to the well (as the slips print MAINTENANCE DROID) — fitlab JS
                 lab_style = f' class="lab fitlab" data-avail="{w - 2 * t.get("stat_pl", 16)}" style="white-space:nowrap;display:inline-block;transform-origin:left center"'
             parts.append(f'<div class="stat"{stat_min} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:68px">'
-                         f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{f'<span class="{vcls}">' + esc(value) + "</span>" if value else ""}</div>')
+                         f'<span{lab_style if lab_style else " class=lab"}>{esc(label)}</span>{f'<span class="{vcls}"{gap_style if vcls == "val" else ""}>' + esc(value) + "</span>" if value and not (value == "✶" and card["template"] == "creature-dc") else ""}'
+                         f'{f'<span class="{vcls}" style="transform:none;margin-right:{t.get("stat_pl", 16) + 10}px;padding-bottom:2px">' + dc_star_img(47) + "</span>" if value == "✶" and card["template"] == "creature-dc" else ""}</div>')
     if card.get("stat_icon") and t.get("stats_y"):   # a round icon left of the stat row (Mon Mothma (V): the Republic crest)
         sx0 = (stat_boxes(t, 3) or t["stats"])[0][0]
         parts.append(f'<img src="{data_uri(ASSETS / ICON_FILES[card["stat_icon"]])}" style="position:absolute;left:{sx0 - 100}px;top:{t["stats_y"] - 14}px;width:96px;height:96px">')
@@ -2771,7 +2837,7 @@ def build_html(card: dict) -> str:
     .stat .lab{{font-family:AGBoldCnA;font-size:55px;color:{t.get("stats_ink", ink)};letter-spacing:1.4px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)}}}
     .stat .val{{white-space:nowrap;font-family:AGMedExt;font-size:63px;color:{t.get("stats_ink", ink)};margin-left:30px;-webkit-text-stroke:1.1px {t.get("stats_ink", ink)};display:inline-block;transform:scaleX(1.15);transform-origin:left center}}
     .stat .val.r{{margin-left:auto;padding-left:30px;margin-right:{t.get("stat_pl", 16) + 26}px;transform-origin:right center}}
-    .ctype{{font-family:AGBoldCnA;font-size:{t.get("ctype_size", 60)}px;color:{t.get("ctype_ink", ink)};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:{t.get("ctype_size", 60) + 1}px;white-space:nowrap}}
+    .ctype{{font-family:AGBoldCnA;font-size:{t.get("ctype_size", 60)}px;color:{t.get("ctype_ink", ink)};letter-spacing:{t.get("ctype_spacing", 11)}px;text-align:center;line-height:{t.get("ctype_size", 60) + 1}px;white-space:nowrap{(";-webkit-text-stroke:" + str(t["ctype_stroke"]) + "px " + t.get("ctype_ink", ink)) if t.get("ctype_stroke") else ""}}}
     .deploy{{font-family:HoloTitle;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:HoloTitle;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
@@ -2999,6 +3065,12 @@ def build_html(card: dict) -> str:
                                           for kk in ("dx", "dy", "sx", "sy", "hidden") if v.get(kk) is not None}
            for k, v in (card.get("layout") or {}).items() if isinstance(v, dict)}
     fit_js = fit_js.replace("__LAYOUT__", json.dumps(lay))
+    if t.get("ctype_centre_to"):   # rev 81: the wide capital's banner is centred between the title's end and the destiny
+        fit_js = fit_js.replace("      document.body.dataset.ready = '1';", """      { const ti = document.querySelector('.title'), ct = document.querySelector('.ctype');
+        if (ti && ct) { const r = document.createRange(); r.selectNodeContents(ti); const tr = r.getBoundingClientRect().right;
+          const sp = ct.querySelector('.ct'); const w = sp ? sp.getBoundingClientRect().width : ct.clientWidth;
+          const c = (tr + %d) / 2; ct.style.left = Math.max(tr + 12, c - ct.clientWidth / 2) + 'px'; } }
+      document.body.dataset.ready = '1';""" % t["ctype_centre_to"], 1)
     return f"<!doctype html><html><head><meta charset='utf-8'><style>{css}</style></head><body>{''.join(parts)}<script>{fit_js}</script></body></html>"
 
 
