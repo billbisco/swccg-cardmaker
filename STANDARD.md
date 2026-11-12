@@ -1515,3 +1515,24 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Checks:** md5-identical holotable renders before/after: 223_40 Life Day (PC set mark), 200_1 Aayla Secura (VS0),
     the OVS spec 1101_1, the three Japanese samples, 2_13 / 1_241 / 3_126 with `decipher_print` false, and the Decipher
     sites / system 1_283, 2_67, 2_143.
+- Rev 81 (Episode I spheres) (2026-11-12): two leftovers of the Coruscant sphere work, measured.
+  - **Portrait cards (Effect, Interrupt, Character, Weapon, Shield, Starship) of Tatooine, Coruscant, Theed Palace and
+    Reflections III: no change.** Each face registered to our render on the frame round the sphere (top-right corner,
+    destiny area, right margin; NCC, sub-pixel), the sphere matched by its own picture and by a ring fit; print minus
+    ours, px at 745. Decipher's 745 px files (25 faces): Dark Effects / Interrupts / Shields dx -0.1..+0.8, dy +2.1..+3.0;
+    Light Effects / Interrupts dx -0.3..-1.0, dy -1.2..-2.2. The same files of classic sets (ANH .. DS II, 10 Effects /
+    Interrupts) give the same: Dark dy +0.1..+3.2, Light dy -1.4..-2.2, dx within 0.7. Scans of printed cards (3
+    printed-scan PNGs, 33 Decipher-archive scans at 357 / 497 px) give dx -1.5..-2.1, dy -0.8..+0.8, and the classic
+    archive scans the same again. So the Episode I-era sphere sits where the classic one does (within 0.5 px per source);
+    the 2-3 px spread is between sources (the same card differs that much: I Will Find Them Quickly, Master printed
+    -1.95 / -0.09 vs Decipher's file +0.65 / +1.40; Booma -1.49 / +0.54 vs +0.29 / -2.62), and the rev 80 positions,
+    fitted on all sources, stay. Tables: m745.txt, m357.txt, mclassic745.txt, mclassic-archive.txt in the batch sheets.
+  - **Coruscant-set systems (Coruscant, Naboo, Tatooine, Malastare): no grey ring round the sphere; the sphere is larger.**
+    Sharpest faces found: the PC's 742 px faces (2x of the printed scans; pricecharting and the wiki only have 350 px).
+    Radial profiles: the Episode I disc's grey ring shows as a peak (L 50 at r 16 px, dip to 30 inside, 9 outside); round
+    the sphere the profile falls smoothly from the gold (L 152 at r 12 to 8 at r 20) and stays below the disc ring's at
+    r 17-18 (41 / 28 against 44 / 33) although the gold's blur adds to it: no ring. The sphere's bright edge (half level
+    of a blurred-disc fit) is at r 15.0-15.3 on all four (ours 13.5 at 56 px): new key `dc_system_ep1_sphere` 62 draws
+    it 62 px across on the same centre (after: r 15.0 both styles); the Episode I disc stays where it was.
+  - Checks: md5 identical before / after for 1_19, 1_283, 1_70, 7_135, Alderaan 1_121, Bespin 5_76, Allegations Of
+    Corruption 12_128 and Naboo: Battle Plains 12_79; only the Coruscant-set systems change (the sphere).

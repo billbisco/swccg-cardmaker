@@ -2014,7 +2014,12 @@ DC_PRINT: dict = {
     "loc-system": {"dc_system_ring": (166, 200, 56), "dc_system_ring_dark": (169, 204, 56),
                    "dc_split": ((216, 1884), (1427, 1880)), "dc_split_left_down": True,
                    # Coruscant-set systems: Decipher's Episode I disc 100 px under the sphere, 56 px in a 74 px grey ring
-                   "dc_system_ep1": (2, 100, 56, 74, 6, "#5f6163")},
+                   "dc_system_ep1": (2, 100, 56, 74, 6, "#5f6163"),
+                   # Rev 81 (Episode I spheres): on those systems the sphere's bright edge (half level of a blurred-disc fit)
+                   # sits at r 15.0-15.3 px (745) on the PC's 742 px faces of Coruscant, Naboo, Tatooine, Malastare (ours
+                   # 13.5 at 56 px): drawn 62 px across, same centre; no grey ring round it (the disc's ring is there, the
+                   # sphere's tail falls below the disc ring's at r 17-18 even with the gold's blur added)
+                   "dc_system_ep1_sphere": 62},
 }
 
 
@@ -2759,6 +2764,9 @@ def build_html(card: dict) -> str:
                 # centre from the sphere's, disc size, ring size, ring width, ring colour)
                 ex_, ey_, ed_, er_, ew_, ec_ = t["dc_system_ep1"]
                 dcx_, dcy_ = x + sz / 2 + ex_, y + sz / 2 + ey_
+                if t.get("dc_system_ep1_sphere"):
+                    # Rev 81 (Episode I spheres): the bare sphere prints larger than the ringed one, same centre
+                    d2_ = t["dc_system_ep1_sphere"]; x, y, sz = x + (sz - d2_) / 2, y + (sz - d2_) / 2, d2_
                 parts.append(f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
                 parts.append(f'<div style="position:absolute;left:{dcx_ - er_ / 2:g}px;top:{dcy_ - er_ / 2:g}px;width:{er_}px;height:{er_}px;border-radius:50%;box-sizing:border-box;background:#000;border:{ew_}px solid {ec_}"></div>')
                 parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc.png")}" style="position:absolute;left:{dcx_ - ed_ / 2:g}px;top:{dcy_ - ed_ / 2:g}px;width:{ed_}px;height:{ed_}px;border-radius:50%">')
