@@ -804,7 +804,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         if card["template"] in ("ls-character-droid", "ds-character-droid"):
             card["template"] += "-dc"   # brass droid disc as printed
         if card["template"] == "creature":
-            card["template"] = "creature-dc" if card["decipher_print"] else "creature-dc-pc"   # printed Decipher creature: banner + black title (rev 81: measured layout on Decipher's own)
+            card["template"] = "creature-dc" if card.get("decipher_print") else "creature-dc-pc"   # printed Decipher creature: banner + black title (rev 81: measured layout on Decipher's own)
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
     if card.get("back"):   # rev 77: the back face's margin caption follows the front's (Decipher printings: none), not
