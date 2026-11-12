@@ -148,6 +148,10 @@ WIKI_FIX = {
     "1_13": {"gametext": [("On Red 6 also", "On Red 6, also")]},                 # Jek Porkins: comma on the print
     "5_45": {"lore": [("to prevent their", "to _prevent_ their")]},       # Dodge: "prevent" italic on the print
     "4_121": {"gametext": [("gains leader skill", "gains {leader} skill")]},  # Field Promotion: "leader" bold
+    # rev 84 (inline icons): the faces print the skill icon the wiki dropped (Ellorrs Madak, Sai'torr Kal Fas, Ket Maliss)
+    "1_49": {"gametext": [("character pilot skill", "character pilot [Pilot] skill")]},
+    "1_64": {"gametext": [("character warrior skill", "character warrior [Warrior] skill")]},
+    "1_221": {"gametext": [("character warrior skill", "character warrior [Warrior] skill")]},
 }
 # lore: the wiki's printed pages copy lore from Decipher's card lists, which differ from the print (Dark Hours prints
 # "Interrogator droid", the list "Interceptor"; Imperial Blaster "power packs", the page "packagedProduct"); only lore

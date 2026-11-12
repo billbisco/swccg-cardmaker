@@ -146,7 +146,7 @@
   "_label": "printed"
  },
  "1_49": {
-  "gametext": "Deploy on any non-pilot character (except droids) to give that character pilot skill. Adds 2 to power of any starship that character pilots. OR Deploy on any pilot. Adds 1 to power of any starship that character pilots. (Immune to Alter.)",
+  "gametext": "Deploy on any non-pilot character (except droids) to give that character pilot [Pilot] skill. Adds 2 to power of any starship that character pilots. OR Deploy on any pilot. Adds 1 to power of any starship that character pilots. (Immune to Alter.)",
   "_page": "Ellorrs Madak",
   "_image": "Premiere-L-ellorrsmadak-decipher-archive.gif",
   "_label": "printed"
@@ -182,7 +182,7 @@
   "_label": "printed"
  },
  "1_64": {
-  "gametext": "Deploy on any non-warrior character (except droids) to give that character warrior skill. OR Deploy on any warrior. That character is power +1. (Immune to Alter.)",
+  "gametext": "Deploy on any non-warrior character (except droids) to give that character warrior [Warrior] skill. OR Deploy on any warrior. That character is power +1. (Immune to Alter.)",
   "_page": "Sai'torr Kal Fas",
   "_image": "Premiere-L-saitorrkalfas-decipher-archive.gif",
   "_label": "printed"
@@ -584,7 +584,7 @@
   "_label": "printed"
  },
  "1_221": {
-  "gametext": "Deploy on any non-warrior character (except droids) to give that character warrior skill. OR Deploy on any warrior. That character is power +1. (Immune to Alter.)",
+  "gametext": "Deploy on any non-warrior character (except droids) to give that character warrior [Warrior] skill. OR Deploy on any warrior. That character is power +1. (Immune to Alter.)",
   "_page": "Ket Maliss",
   "_image": "Premiere-D-ketmaliss-decipher-archive.gif",
   "_label": "printed"

@@ -797,7 +797,33 @@ def data_uri(path: Path) -> str:
 
 
 def icon_img(name: str, h: int = 64) -> str:
-    return f'<img class="gt-icon" src="{data_uri(ASSETS / ICON_FILES[name])}" style="height:{h}px">'
+    f = (dc_inline(name) or ICON_FILES[name])
+    if card_ctx.get("_dc_text") and h == 64:
+        return f'<img class="gt-icon" src="{data_uri(ASSETS / f)}" style="{DC_ICON_CSS}">'
+    if h == 64 and str(card_ctx.get("set_mark") or "").startswith("pc:") and card_ctx.get("lang") != "ja" and not card_ctx.get("decipher_print"):
+        # rev 84 (inline icons): the PC's Virtual Sets print these inline icons 28 px tall at 745 (Light / Dark Side Force,
+        # Independent, Maintenance, Republic, pilot power; 211_31, 202_3, 200_50, 207_3, 210_12, 200_59, 200_2) and the
+        # Episode I circle 36 px (Captain Rex, 501st Legion): ours were 32
+        h = 72 if name == "episode1" else 56
+    return f'<img class="gt-icon" src="{data_uri(ASSETS / f)}" style="height:{h}px">'
+
+
+# rev 84 (inline icons): Decipher printed some inline game-text icons in its own colours (measured on the 1497 px hires
+# faces; tools/make_inline_decipher.py): the dark slate Independent square (the PC draws it bright blue) and a duller
+# green selective-creature icon. Used on Decipher's own printings (card decipher_print), never on PC / Japanese cards.
+DC_INLINE = {"independent": "icons/inline-independent-decipher.png", "independent-starship": "icons/inline-independent-decipher.png",
+             "selective-creature": "icons/selective-creature-decipher.png"}
+# and smaller: printed inline icons are 23-26 px tall at 745 (Light / Dark Side Force, Independent, selective creature,
+# 6 hires faces) against our 28-33, from about the baseline to the cap height; the inline set spheres 20-24 px with a
+# heavier dark ring (Rendezvous Point On Tatooine, You Will Go To The Dagobah System, Corporal Beezer)
+DC_ICON_CSS = "height:48px;vertical-align:-3px"
+DC_SPHERE_CSS = "height:42px;vertical-align:-2px;border-radius:50%;box-shadow:0 0 0 4px #111;margin:0 6px"
+
+
+def dc_inline(name: str):
+    if card_ctx.get("decipher_print") and not card_ctx.get("_pc_icons") and card_ctx.get("lang") != "ja":
+        return DC_INLINE.get(name)
+    return None
 
 
 card_ctx: dict = {}   # set by render() so tokens can see the card (virtual_set for {ovs})
@@ -861,22 +887,23 @@ def game_text_html(text: str) -> str:
             out.append(f'<span style="white-space:nowrap"><img class="gt-icon" src="{data_uri(ASSETS / "icons/jedi-test-stone.png")}" style="height:36px;vertical-align:-1px;margin-right:6px">')
             pend[0] = True
         elif name == "ga":   # a Players Committee Game Aid icon (Feb 2024 reference sheet), e.g. {ga:separatist}
-            gf = ASSETS / f"icons/pc-gameaid-x4/{arg}.png"
+            gf = ASSETS / (dc_inline(arg) or f"icons/pc-gameaid-x4/{arg}.png")
             if not gf.exists() and str(arg).startswith("disc-"):   # rev 73: a printed disc of our own ({ga:disc-vader}, Virtual Block 7)
                 gf = ASSETS / f"icons/{arg}.png"
             out.append(f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px;border-radius:50%">' if gf.exists() and str(arg).startswith("disc-")
-                       else f'<img class="gt-icon" src="{data_uri(gf)}" style="height:56px">' if gf.exists() else esc(f"[{arg}]"))
+                       else f'<img class="gt-icon" src="{data_uri(gf)}" style="{DC_ICON_CSS if card_ctx.get("_dc_text") else "height:56px"}">' if gf.exists() else esc(f"[{arg}]"))
         elif name in ("vb", "pcset"):   # inline set marks: [Virtual Block 4] -> {vb:4}, [Set 13] -> {pcset:13}
             out.append(inline_set_mark(("vb:" if name == "vb" else "pc:") + (arg or "")))
         elif name == "set":   # expansion-set symbol inline, e.g. {set:anh} = "the A New Hope R2-D2"
             sf = ASSETS / f"icons/set-{arg}-decipher.png"   # Decipher's own sphere (Bill 2026-10-14)
             if not sf.exists():
                 sf = ASSETS / f"icons/set-{arg}-grainy.png"
-            out.append(f'<img class="gt-icon" src="{data_uri(sf)}" style="height:56px;border-radius:50%;box-shadow:0 0 0 3px #000">')
+            out.append(f'<img class="gt-icon" src="{data_uri(sf)}" style="{DC_SPHERE_CSS if card_ctx.get("_dc_text") else "height:56px;border-radius:50%;box-shadow:0 0 0 3px #000"}">')
         elif name == "icon" and arg in ICON_FILES:   # {icon:pilot}, {icon:warrior} …
-            out.append(icon_img(arg))
+            # rev 84 (inline icons): a Light card prints the Light pilot icon inline (Ellorrs Madak), as in its column
+            out.append(icon_img("pilot-light" if arg == "pilot" and card_ctx.get("side") == "Light" else arg))
         elif name == "icon" and (ASSETS / f"icons/pc-gameaid-x4/{arg}.png").exists():
-            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / f"icons/pc-gameaid-x4/{arg}.png")}" style="height:56px">')
+            out.append(f'<img class="gt-icon" src="{data_uri(ASSETS / (dc_inline(arg) or f"icons/pc-gameaid-x4/{arg}.png"))}" style="{DC_ICON_CSS if card_ctx.get("_dc_text") else "height:56px"}">')
         elif name in ICON_FILES:
             out.append(icon_img(name))
         else:   # unknown code: print it as typed rather than fail the card
@@ -2405,6 +2432,7 @@ def build_html(card: dict) -> str:
         t = dict(t, gt_lh_add=63.0 - t.get("gt_size", 62), lore_css=dict(t.get("lore_css") or {}, lh=60.5))
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     card_ctx["_pc_icons"] = bool(card.get("pc_type"))
+    card_ctx["_dc_text"] = dc_text(card, t)   # rev 84 (inline icons): Decipher's inline icon size on its own printings
     pcg0 = (card.get("pc_type") or {}).get("gt")
     if pcg0 and not card.get("text_grow") and not card.get("no_lore_box") and card["template"] in PC_GROW_TEMPLATES and not t.get("landscape"):
         # rev 74: a sixth line of game text: the PC raised banner and text box one line (Protocol Failure (V), Palace

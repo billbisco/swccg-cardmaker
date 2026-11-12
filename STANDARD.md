@@ -1813,3 +1813,30 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   sets "Place out of play if Leia is lost from table (…)" regular on its own line; a U+2060 before a keyword now keeps
   `objective_text` from bolding it. The stored printed lines of 10_29 (both faces), 7_139 (both) and 7_296 (both) now
   all apply (hints 128 of 128). md5: only 10_29, 7_139, 7_296 change (en and ja: the corrections).
+- Rev 84 (inline icons) (2026-11-12): the inline game-text icons against printed faces (Decipher: the wiki's 1497 px
+  hires faces; the PC: its 745 px hires faces), per printing.
+  - **Decipher's own printings** (card `decipher_print`, not PC / Japanese): the Independent icon ([Independent],
+    [Independent Starship]) prints as a dark slate square with the wheel barely showing and a light grey border, not the
+    PC's bright blue (Gela Yeens 7_178, Outer Rim Scout 7_195, Thul Fain 6_125, My Favorite Decoration 7_296 back; inside
+    median ≈ (65, 73, 73) against our (107, 134, 154)); the selective-creature icon a duller green ((88, 135, 84) against
+    (76, 193, 124), Ithorian 6_20). New files `inline-independent-decipher.png`, `selective-creature-decipher.png`
+    (`tools/make_inline_decipher.py`), picked by `render.DC_INLINE` / `dc_inline()`. Light / Dark Side Force icons, pilot,
+    warrior and the inline set spheres match in colour and shape.
+  - **Size on Decipher's text setting** (`dc_text`): printed inline icons are 23-26 px tall at 745 (ours 28-33), from
+    about the baseline to the cap height: square icons 48 master px, `vertical-align:-3px` (`DC_ICON_CSS`); inline set
+    spheres 42 px with a 4 px dark ring (printed 20-24 px, heavier ring; `DC_SPHERE_CSS`).
+  - **PC Virtual Sets** (set mark `pc:`): the icons drawn at 64 px print 28 px tall at 745 (Light / Dark Side Force,
+    Independent, Maintenance, Republic, pilot power; 211_31, 202_3, 200_50, 207_3, 210_12, 200_59, 200_2): now 56; the
+    Episode I circle prints 36 px (Captain Rex, 501st Legion): 72. Game Aid icons (56) already matched (Clone Trooper).
+  - **Text**: a Light card's inline pilot icon is the Light one (Ellorrs Madak; it was always the Dark helmet). The
+    wiki's printed text dropped the skill icons of Ellorrs Madak, Sai'torr Kal Fas and Ket Maliss (`decipher_printed.json`
+    and `tools/make_decipher_printed.py` WIKI_FIX); You Will Go To The Dagobah System and Rendezvous Point On Tatooine
+    print "[icon] icon characters … [icon] icon location" (`corrections.json`; the same fix belongs on the wiki and in
+    swccg-gemp).
+  - **Checks:** md5 identical (holotable PNG) on cards without inline icons 1_3, 1_74, 1_122, 1_140, 223_40 and the
+    Japanese samples darth_vader, luke_skywalker, admiral_ozzel, attack_run, commence_primary_ignition (two of them carry
+    inline icons: Japanese printings keep their size). Changed as intended: 1_49, 1_64, 3_54, 5_66, 6_20, 6_136, 7_178,
+    7_195, 8_4, 8_8, 211_31, 202_3, 200_50, 207_3, 200_3; Clone Trooper 210_9 (Game Aid icon) unchanged.
+  - **Left as found:** the PC's inline Episode I circle prints a whiter, heavier EPISODE than `inline-episode1.png`
+    (the Game Aid g033); Reflections III maintenance glyphs, the Republic and Trade Federation inline icons on
+    Decipher cards had no hires face to check (Reflections III / Theed are not on the wiki in hires).

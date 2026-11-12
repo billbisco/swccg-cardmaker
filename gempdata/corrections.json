@@ -593,5 +593,21 @@
         "your aliens and [Independent] starships are immune"
       ]
     ]
+  },
+  "3_54": {
+    "gametext": [
+      [
+        "your [Hoth] characters of ability > 1 to any [Dagobah] location",
+        "your [Hoth] icon characters of ability > 1 to any [Dagobah] icon location"
+      ]
+    ]
+  },
+  "5_66": {
+    "gametext": [
+      [
+        "your [Cloud City] characters of ability > 1 to any [Jabba's Palace] location",
+        "your [Cloud City] icon characters of ability > 1 to any [Jabba's Palace] icon location"
+      ]
+    ]
   }
 }
