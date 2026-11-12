@@ -1774,3 +1774,17 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     13_42, 1_215, 3_126 "+3", 4_17, 7_71 "at end"): all 82 blocks of decipher_lines.json apply again.
   - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 7_84,
     9_151, 14_52 with `decipher_print` false.
+- Rev 84 (Decipher text setting 5) (2026-11-12): **Decipher Objectives**.
+  - *Heading face:* Decipher set the italic heading in a narrower italic than ours: printed width 0.87 of our oblique
+    Holotable Text on 15 heading lines of 13 Objective fronts (body lines on the same faces 0.99). The heading is now a
+    block laid out at measure / 0.87 and drawn at 0.87 (JS, `.objhead`, inside an overflow-clipped wrapper so the wider
+    layout box is never taken for overflow). With it, a heading still a little too long for one line (12_89: 1.01 of
+    the measure) is condensed onto it and longer ones wrap at full size (14_113 from 1.21): 9_151, 10_29 now fit one
+    line naturally as printed, 14_52 sets "…Theed Palace Hallway, and" on line 1 as printed.
+  - *Printed line breaks:* 39 Objective faces (fronts and backs, Special Edition to Theed Palace, Decipher 350-367 px
+    scans) read by OCR and fitted line by line to the card text (dynamic-programming alignment, per-line similarity;
+    faces whose OCR is too poor were left out: 7_135, 7_137, 7_139 both faces, 9_61 both, 10_29 both, 7_296 back) are
+    in decipher_lines.json (`game_text` / `game_text_back`), 119 blocks in all; every block renders with the printed
+    lines (layout check 119 / 119), including the 14_113 and 12_89 body measure.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 14_52,
+    12_89, 9_151, 2_13 with `decipher_print` false.

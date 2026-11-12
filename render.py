@@ -3295,13 +3295,18 @@ def build_html(card: dict) -> str:
       // Once a size fits, give back as much tracking as it can spare. Limits per box: data-fit-* (card "text_fit").
       const overflows = (el) => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
       for (const h of document.querySelectorAll('.dct.objhead > i:first-child')) {
-        // rev 84 (2/4): a Decipher Objective's italic heading a little too long for one line (1.09-1.15 of the measure:
-        // 9_151, 10_29, 12_89) is condensed onto it; a longer one (1.38 and up: 13_46, 13_73, 14_52, 14_113, 9_61 ...)
-        // wraps at full size, as printed (24 Objective fronts)
-        const W = h.parentElement.clientWidth; h.style.display = 'inline-block'; h.style.whiteSpace = 'nowrap';
-        const w = h.offsetWidth;
-        if (w > W && w <= 1.25 * W) { h.style.transform = 'scaleX(' + (W / w) + ')'; h.style.transformOrigin = 'left center'; h.style.marginRight = (W - w) + 'px'; }
-        else { h.style.display = ''; h.style.whiteSpace = ''; }
+        // rev 84 (5): Decipher's Objective heading is set in a narrower italic: printed width 0.87 of our oblique Holotable
+        // Text (15 heading lines on 13 Objective fronts; body lines 0.99), so the heading is a block laid out at width / 0.87
+        // and drawn at 0.87. A heading still a little too long for one line (12_89: 1.01 of the measure at that width) is
+        // condensed onto it; longer ones wrap (14_113 from 1.21), as printed (24 fronts)
+        const K = 0.87, W = h.parentElement.clientWidth;
+        const nx = h.nextSibling; if (nx && nx.nodeName === 'BR') nx.remove();
+        h.style.display = 'block'; h.style.transformOrigin = 'left top';
+        h.style.width = 'max-content'; const w = h.offsetWidth * K;
+        if (w > W && w <= 1.1 * W) { h.style.width = (W / (W / w * K)) + 'px'; h.style.transform = 'scaleX(' + (W / w * K) + ')'; h.style.whiteSpace = 'nowrap'; }
+        else { h.style.width = (W / K) + 'px'; h.style.transform = 'scaleX(' + K + ')'; }
+        const wr = document.createElement('div'); wr.style.overflow = 'hidden'; wr.style.width = W + 'px';   // the wider layout box never counts as overflow
+        h.parentNode.insertBefore(wr, h); wr.appendChild(h);
       }
       for (const el of document.querySelectorAll('.fit')) {
         const cs = getComputedStyle(el);
