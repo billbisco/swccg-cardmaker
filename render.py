@@ -1876,7 +1876,7 @@ DC_PRINT: dict = {
                  # (745) short of the disc
                  "ep1": {"dc_sphere": (2022, 476, 56), "dc_copy": (2017, 950), "dc_copy_size": 25.5,
                          "ring_disc_size": 56, "ring_disc_dx": -2, "ring_disc_dy": 16,
-                         "ring_disc_icons": {"episode1": "icons/ep1-disc-decipher.png"}}},
+                         "ring_disc_icons": {"episode1": "icons/ep1-disc.png"}}},
     # systems (rev 81, registered on the two bar assemblies of 16 Light and 17 Dark printed systems, every era): the sphere
     # 8.7 / 6.1 px (745) right / down of rev 80's spot on Light systems, 9.8 / 7.8 on Dark ones (measured turned, the
     # Dark half's seat: dc_system_ring_dark, pre-turn coordinates); the halves of the line 9.5 px in (Lucasfilm) / 4 px in
@@ -2604,7 +2604,7 @@ def build_html(card: dict) -> str:
                 dcx_, dcy_ = x + sz / 2 + ex_, y + sz / 2 + ey_
                 parts.append(f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
                 parts.append(f'<div style="position:absolute;left:{dcx_ - er_ / 2:g}px;top:{dcy_ - er_ / 2:g}px;width:{er_}px;height:{er_}px;border-radius:50%;box-sizing:border-box;background:#000;border:{ew_}px solid {ec_}"></div>')
-                parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc-decipher.png")}" style="position:absolute;left:{dcx_ - ed_ / 2:g}px;top:{dcy_ - ed_ / 2:g}px;width:{ed_}px;height:{ed_}px;border-radius:50%">')
+                parts.append(f'<img src="{data_uri(ASSETS / "icons/ep1-disc.png")}" style="position:absolute;left:{dcx_ - ed_ / 2:g}px;top:{dcy_ - ed_ / 2:g}px;width:{ed_}px;height:{ed_}px;border-radius:50%">')
             else:
                 # in a dark grey ring ~5 px (745) wide, as printed on the starfield (Corellia, Bespin)
                 parts.append(f'<div style="position:absolute;left:{x - 10}px;top:{y - 10}px;width:{sz + 20}px;height:{sz + 20}px;border-radius:50%;box-sizing:border-box;background:#000;border:9px solid #3c3e41"></div>')
