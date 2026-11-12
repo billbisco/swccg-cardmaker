@@ -107,7 +107,10 @@ PRINTED_SEEN = {
     "13_62": "Deploy on table. Once per turn, you may take a non-Interrupt card with “door” in title into hand from Reserve Deck; reshuffle. At Endor sites where you have a scout, Rebel scouts are power -1 and forfeit -3. (Immune to Alter.)",
     "13_74": {"gametext": [("Immune to Clash Of Sabers and attrition < 5 (or < 6 if armed with a lightsaber). May not be Disarmed.",
                             "Immune to Disarmed, Clash Of Sabers, and attrition < 5 (or < 6 if armed with a lightsaber).")]},
-    "13_75": {"gametext": [("While on Maul, may not be stolen.", "May not be stolen.")]},
+    # lore "to weld properly": Decipher's 497 px face (Ref3-D-maulsdoublebladedlightsaber-decipher-archive.jpg, rev 81
+    # text setting 3); the PC's D-E1 re-render prints "to wield"
+    "13_75": {"gametext": [("While on Maul, may not be stolen.", "May not be stolen.")],
+              "lore": [("years of training to wield properly", "years of training to weld properly")]},
     "13_77": "Dark: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile. Light: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile.",
     "14_115": {"gametext": [("Laser Cannons aboard from Reserve Deck", "Laser Cannons here from Reserve Deck")], "armor": "2", "maneuver": None},
     "110_7": {"gametext": [("Adds 2 to the power of anything he pilots.", "Adds 2 to power of anything he pilots.")]},
@@ -116,6 +119,14 @@ PRINTED_SEEN = {
     # the wiki's printed page holds another printing's / the list's words (read on ANH-D-dssixtyonefour… archive faces)
     "2_88": "Adds 3 to power of any starship he pilots. On Black 4, also draws one battle destiny if not able to otherwise. May use 1 Force to search through your Reserve Deck and take one Lone Pilot into your hand. Shuffle, cut and replace.",
     "2_45": "After a battle at an interior _site_ is initiated, use 1 Force to cause all leaders and all characters with ability > 2 (on both sides) to be completely excluded from that battle.",
+    # rev 81 (3): Reflections II combos whose GEMP text is not what Decipher printed and the wiki keeps no printed page
+    # (Ref2-<side>-<name>-decipher-archive.gif): Sense & Recoil In Fear carries Sense & Uncertain's printed LOST text
+    "10_21": "USED: Target your highest-ability character and one just-played Interrupt. Draw destiny. If destiny < ability of target character, cancel target Interrupt. LOST: Use 3 Force. Each player counts cards in hand, then places entire hand and Used Pile onto Reserve Deck; reshuffle. Each player then draws from Reserve Deck the counted number of cards to create a new hand.",
+    "10_13": {"gametext": [("(Immune to Sense)", "(immune to Sense)"), ("may immediately deploy as", "may deploy as")]},
+    "10_16": "USED: Use 1 Force to randomly select one card from opponent's Lost Pile and place out of play. LOST: Cancel one hologram. OR Use 4 Force. Draw destiny. Add 1 to destiny for each asteroid sector on table. If total destiny > 3, Imperial Holotable site is “blown away.”",
+    "10_19": {"gametext": [("OR If opponent has no presence or Force icons,", "OR If opponent just deployed a spy to a site where opponent has no presence or Force icons,")]},
+    "10_28": {"gametext": [("game text of one Rebel for remainder", "game text of one Rebel present for remainder")]},
+    "10_8": {"gametext": [("battle damage. (Immune to Sense.)", "battle damage (immune to Sense).")]},
     "13_13": {"icons": ["Reflections 3", "Episode I"]},
     "112_9": {"gametext": [("Your characters here aboard vehicles are each power +1.", "Your characters aboard vehicles here are each power +1.")]},
 }

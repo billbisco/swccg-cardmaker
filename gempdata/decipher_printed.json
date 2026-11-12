@@ -3051,9 +3051,9 @@
  },
  "13_75": {
   "gametext": "Deploy on Maul. Adds 1 to Maul's lightsaber combat total. May lose 1 Force to add 2 to Force drain where present. Twice per battle, may target a character. Draw two destiny. Target hit, and its forfeit = 0, if total > defense value. May not be stolen.",
-  "_label": "read off the printed face (PRINTED_SEEN); lore \"to weld properly\" read off Decipher's 497 px face (Ref3-D-maulsdoublebladedlightsaber-decipher-archive.jpg, rev 81 text setting 3); the PC's D-E1 re-render prints \"to wield\"",
-  "_page": "Maul's Double-Bladed Lightsaber",
-  "lore": "Maul's double-bladed lightsaber is two lightsabers fused into one that requires years of training to weld properly. Like its mysterious owner, this weapon hasn't been seen for a millennia."
+  "lore": "Maul's double-bladed lightsaber is two lightsabers fused into one that requires years of training to weld properly. Like its mysterious owner, this weapon hasn't been seen for a millennia.",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Maul's Double-Bladed Lightsaber"
  },
  "13_77": {
   "gametext": "Dark: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile. Light: Characters of ability < 5 'hit' here are placed (with all cards on them) in owner's Used Pile.",
@@ -3076,6 +3076,36 @@
   "title": "Come Here You Big Coward!",
   "_label": "read off the printed face (PRINTED_SEEN)",
   "_page": "Come Here You Big Coward"
+ },
+ "10_21": {
+  "gametext": "USED: Target your highest-ability character and one just-played Interrupt. Draw destiny. If destiny < ability of target character, cancel target Interrupt. LOST: Use 3 Force. Each player counts cards in hand, then places entire hand and Used Pile onto Reserve Deck; reshuffle. Each player then draws from Reserve Deck the counted number of cards to create a new hand.",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Sense & Recoil In Fear"
+ },
+ "10_13": {
+  "gametext": "Once per game, target one non-unique character on table. Draw destiny. If destiny < X, retrieve X Force, where X equals the number of copies of that card you have on table (immune to Sense). OR Take one non-unique alien into hand from Reserve Deck; reshuffle. OR If opponent just initiated a battle with more than double your total power, search your Reserve Deck. Any one character you find there may deploy as a 'react;' reshuffle.",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Nar Shaddaa Wind Chimes & •Out Of Somewhere"
+ },
+ "10_16": {
+  "gametext": "USED: Use 1 Force to randomly select one card from opponent's Lost Pile and place out of play. LOST: Cancel one hologram. OR Use 4 Force. Draw destiny. Add 1 to destiny for each asteroid sector on table. If total destiny > 3, Imperial Holotable site is “blown away.”",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Out of Commission & Transmission Terminated"
+ },
+ "10_19": {
+  "gametext": "Place one opponent's Undercover spy in opponent's Used Pile. OR If opponent just deployed a spy to a site where opponent has no presence or Force icons, return spy to hand. Any Force used to deploy spy remains used and that card may not deploy this turn. OR Relocate one of your characters at an interior mobile site to a related interior mobile site.",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Path Of Least Resistance & •Revealed"
+ },
+ "10_28": {
+  "gametext": "USED: Take one non-unique alien into hand from Reserve Deck; reshuffle. LOST: During a battle, if opponent drew more than two battle destiny, cancel all but two of those destiny draws (your choice). OR If your non-unique alien is in a battle, cancel game text of one Rebel present for remainder of turn.",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Abyssin Ornament & •Wounded Wookiee"
+ },
+ "10_8": {
+  "gametext": "USED: If opponent just initiated a battle at a system or sector where you have a starship with maneuver > 3, use 1 Force to add one battle destiny. LOST: If you just forfeited all your cards that participated in a battle you lost, cancel all remaining battle damage (immune to Sense).",
+  "_label": "read off the printed face (PRINTED_SEEN)",
+  "_page": "Houjix & Out Of Nowhere"
  },
  "13_13": {
   "icons": [

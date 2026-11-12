@@ -412,7 +412,7 @@
    "character, cancel target Effect.",
    "LOST: If a battle was just initiated at a site where",
    "opponent has at least two characters and one",
-   "weapon, draw destiny. If destiny is < number of",
+   "weapon, draw destiny. If destiny < number of",
    "opponent’s characters at that site, opponent chooses",
    "one to be lost."
   ]
@@ -463,7 +463,7 @@
    "two battle destiny, cancel all but two of those",
    "destiny draws (your choice). OR If your non-unique",
    "alien is in a battle, cancel game text of one Rebel",
-   "for remainder of turn."
+   "present for remainder of turn."
   ]
  },
  "10_30": {

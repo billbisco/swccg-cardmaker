@@ -1701,3 +1701,15 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     (GEMP / PC text); decipher_printed.json carries the printed "weld" for Decipher printings.
   - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, the PC quote cards
     203_7, 208_14, 217_46 (“in title” runs), and 2_13, 4_75, 9_151, 13_8 with `decipher_print` false.
+- Rev 81 (Decipher printed text 3) (2026-11-12): all 27 Reflections II combos (set 10) read on their Decipher-archive faces
+  (Ref2-<side>-<name>-decipher-archive.gif) against GEMP, since GEMP marks few of them errata'd and the wiki keeps no
+  printed page for them. Printed text (`PRINTED_SEEN`, Decipher printings only): Sense & Recoil In Fear 10_21 (LOST as
+  Sense & Uncertain Is The Future prints it), Out Of Commission & Transmission Terminated 10_16, Path Of Least Resistance
+  & Revealed 10_19 ("just deployed a spy to a site where"), Abyssin Ornament & Wounded Wookiee 10_28 ("one Rebel
+  present"), Nar Shaddaa Wind Chimes & Out Of Somewhere 10_13 ("(immune to Sense)", no "immediately"), Houjix & Out Of
+  Nowhere 10_8 ("damage (immune to Sense)."). Transcription fixes (corrections.json, every printing): 10_1 "If destiny <
+  number", 10_2 "take one card", 10_18 "Deploys free", 10_30 "Draw destiny.", 10_47 final period; and from the quote
+  sheet 7_84 Balanced Attack "B-wing", 14_113 Invasion "there, Naboo: Swamp, and Droid Racks" (no other hyphen-dropped
+  ship name in GEMP's texts). decipher_lines.json 10_1 / 10_28 now hold the printed words (they had GEMP's). The 13_75
+  printed lore ("to weld") moved into the tool so regeneration keeps it. Checks: card-dict md5 against 0412e82 changes
+  only the cards named (ja: the corrections and 10_28's line data); hints apply on 79 of 82 blocks (the 3 that never did).

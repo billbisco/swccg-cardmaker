@@ -485,5 +485,47 @@
       "That is the system and I'm",
       "That is the system, and I'm"
     ]
+  },
+  "10_1": {
+    "gametext": [
+      "If destiny is < number",
+      "If destiny < number"
+    ]
+  },
+  "10_2": {
+    "gametext": [
+      "may take on card",
+      "may take one card"
+    ]
+  },
+  "10_18": {
+    "gametext": [
+      "Deploy free to Lars'",
+      "Deploys free to Lars'"
+    ]
+  },
+  "10_30": {
+    "gametext": [
+      "Draw Destiny.",
+      "Draw destiny."
+    ]
+  },
+  "10_47": {
+    "gametext": [
+      "character in Lost Pile",
+      "character in Lost Pile."
+    ]
+  },
+  "7_84": {
+    "gametext": [
+      "Bwing",
+      "B-wing"
+    ]
+  },
+  "14_113": {
+    "gametext": [
+      "there, swamp, and Droid Racks",
+      "there, Naboo: Swamp, and Droid Racks"
+    ]
   }
 }
