@@ -339,7 +339,11 @@ _RG = {"wide": True, "art": (134, 138, 1952, 1356), "title": (436, 214, 924, 115
        "card_type": (1196, 242, 580, 76), "ctype_size": 64, "ctype_spacing": 3, "game_text": (330, 1162, 1585, 214),
        "gt_size": 66, "expansion_ring": (1927, 392), "expansion_size": 62, "no_copyright": True,
        "expansion_hole": ("#c0141f", 8), "ring_disc_dy": -6,   # the RG-GEMP renders set the sphere and Episode I disc in red rings (#174)
-       "coins": (1938, 1386, 39), "caption_y": 1532}
+       "coins": (1938, 1386, 39), "caption_y": 1532,
+       # rev 81: centres (master px) of the two halves of the copyright line in the black border, measured on the
+       # playtest photos mapped to the card body (Local Trouble 1957 px: left x 114, y 177-508; right x 2116, y 185-521;
+       # Strangle right y 197-523; the run is 12 % longer than our Decipher line: 31.5 px); drawn only when the card has a line (original playtest set 15o; Remastered prints none)
+       "rg_copy": ((112, 352), (2116, 348)), "rg_copy_size": 31.5}
 for _side, _ink in (("ls", True), ("ds", False)):
     for _kind in ("interrupt", "effect"):
         TEMPLATES[f"rg-{_side}-{_kind}"] = dict(_RG, frame=(f"frames/rg-{_side}-{_kind}.png", 0, 0), dark_text=_ink)
@@ -2359,6 +2363,8 @@ def build_html(card: dict) -> str:
         # rev 81: the title shift measured on the printed two-disc cards (DISC2_TITLE_SHIFT; was 170 everywhere)
         d2 = DISC2_TITLE_SHIFT.get(card["template"], DISC2_TITLE_SHIFT_DEFAULT) + int(card.get("disc2_title_dx") or 0)
         t = dict(t, title=(t["title"][0] + d2, t["title"][1], t["title"][2] - d2, t["title"][3]))
+        if card.get("disc2_title_ls") is not None:   # rev 81 (geometry 2): Decipher's 1999-2000 two-disc titles set tighter
+            t = dict(t, title_ls=card["disc2_title_ls"])
     sec('title')
     # title + destiny
     pre = " pre" if card.get("text_lines") else ""
@@ -2782,6 +2788,18 @@ def build_html(card: dict) -> str:
                 down_ = ";transform:rotate(90deg) scaleX(%g)" % DC_COPY["cond"] if dc_ and k_ == 0 and t.get("dc_split_left_down") else ""
                 parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
                              f'<div class="copyin{" dccopy" if dc_ else ""}" style="color:#fff{down_}">{dc_copy_html(part) if dc_ else esc(part)}</div></div>')
+    elif card.get("copyright") and t.get("rg_copy"):
+        # rev 81 (geometry 2): Reflections Gold's 2001 playtest prints (wide Effects / Interrupts) split the line over the
+        # black border, white, Decipher's typesetting: "© 2001 LUCASFILM LTD. & TM." down the left edge reading top to
+        # bottom, "TM, ®, & © 2001 DECIPHER INC." up the right edge (Local Trouble, Strangle, Weapon Malfunction photos)
+        txt = card["copyright"]
+        cut = txt.find("TM, ®")
+        halves = (txt[:cut].strip(), txt[cut:].strip()) if cut > 0 else ("", txt)
+        for k_, ((cx, cy), part) in enumerate(zip(t["rg_copy"], halves)):
+            if part:
+                rot_ = "90deg" if k_ == 0 else "-90deg"
+                parts.append(f'<div class="copy" style="position:absolute;left:{cx - 30:g}px;top:{cy - 400:g}px;width:60px;height:800px">'
+                             f'<div class="copyin dccopy" style="color:#fff;font-size:{t.get("rg_copy_size", DC_COPY["size"])}px;transform:rotate({rot_}) scaleX({DC_COPY["cond"]})">{dc_copy_html(part)}</div></div>')
     elif card.get("copyright") and t.get("dc_copy") and card.get("decipher_print") and not (t.get("dc_copy_unless_scan") and card.get("art_scan")):
         # rev 80: Decipher's typesetting of the line (taller, condensed, full-size circled © and ®), centred on dc_copy;
         # full-art Admiral's Orders print it over the picture (a scan already carries it: dc_copy_unless_scan)
@@ -2792,6 +2810,8 @@ def build_html(card: dict) -> str:
                      f'<div class="copyin dccopy"{ink_}>{dc_copy_html(card["copyright"])}</div></div>')
     elif card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
+        if card.get("copyright_dxy"):   # rev 81: a printing's own offset of the line (Tatooine's Light Epic Events)
+            cx, cy = cx + card["copyright_dxy"][0], cy + card["copyright_dxy"][1]
         # rev 80: a Decipher card keeps the template's place but takes Decipher's typesetting (full-size ®)
         dc_ = card.get("decipher_print")
         ink_ = f' style="color:{card["copyright_ink"]}"' if card.get("copyright_ink") else ""   # rev 81: Tatooine's Light Epic Events print white

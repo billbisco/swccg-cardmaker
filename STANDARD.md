@@ -1466,3 +1466,22 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     2_149, 12_164, Executor 4_167, Flagship Executor 9_157, Profundity: Docking Bay 217_44, Death Star: Docking Bay 1_124
     and the Japanese samples darth_vader / luke_skywalker / admiral_ozzel (tools/japanese/samples). Changed as intended:
     2_66, 9_57, 9_58, 14_48 (wear), 204_54, 204_54^AI.
+- Rev 81 (geometry 2) (2026-11-12): the three items left open by Rev 81 (geometry and copyright).
+  - **Reflections Gold original playtest cards (set 15o), wide Effects / Interrupts**: the 2001 photos (Local Trouble
+    1957 px, Strangle, Weapon Malfunction, Atmospheric Assault) print the copyright line split over the black border,
+    white, in Decipher's typesetting: "© 2001 LUCASFILM LTD. & TM." down the left edge (reading top to bottom) and
+    "TM, ®, & © 2001 DECIPHER INC." up the right edge (with the comma after ®, as Coruscant). Template key `rg_copy`
+    (centres (112, 352) and (2116, 348) master, from the photos mapped to the card body) and `rg_copy_size` 31.5 (the
+    printed run is 12 % longer than our 28 px Decipher line). Remastered set 15 keeps no line (md5-identical).
+  - **Tatooine Light Epic Events** (Boonta Eve Podrace 11_24, I Did It! 11_25): third measurement, the line against the
+    card body on the same face (the black border on both sides, the scan's stray white last column excluded): ours sat
+    1.3 px (745) left and 2.6 px high. Card key `copyright_dxy` = (3, 6) master; now x 0.9596-0.9600 of the body width
+    (print 0.9598) and centre 0.3410-0.3420 of its height (print 0.3421).
+  - **Decipher 1999-2000 two-disc titles** (Emperor Palpatine 9_109, Mara Jade, The Emperor's Hand 110_10): glyph by
+    glyph on the printed faces (card normalised to 745 x 1039) the caps are the same height (31 / 22 px) but the run is
+    3 % narrower and starts further left: `disc2_title_dx` −32 (was −22) and new `disc2_title_ls` 0.1 (letter-spacing,
+    was 1). 9_109 now bullet 221, E 234, end 428 against the print's 221 / 234 / 429. Mara Jade's long title still
+    starts ~5 px right of the print's and is condensed 2 % more; the EJP archive scan sits 10 px off vertically, so its
+    crop is not reliable enough to follow further. 9_109 keeps the PC sphere (Bill's default).
+  - md5-identical before / after: Japanese samples (Darth Vader, Luke Skywalker, Admiral Ozzel), 223_40, 200_105,
+    205_14, 213_12, 211_48, 1_3, 1_74, 1_140, 9_113, 9_55, 10_51, 219_19, 15_260, 15_220, 2_42, 11_97.

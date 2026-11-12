@@ -70,7 +70,7 @@ def copyright_for(set_id, decipher: bool = True, card_type: str = "") -> str:
     if not y:
         return ""
     end = "" if sid in NO_FINAL_PERIOD and not (sid == "11" and card_type == "Epic Event") else "."
-    reg = "®," if sid == "12" else "®"
+    reg = "®," if sid in ("12", "15o") else "®"   # rev 81: Reflections Gold's playtest prints set the comma too (Local Trouble)
     if sid == "11":
         return f"©{y} LUCASFILM LTD. & TM.  TM, ®& ©{y} DECIPHER INC{end}"
     if sid in SE_ERA:
@@ -745,9 +745,15 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # (one definition for both: decipher_print() above; the editor's "As Decipher printed it" box overrides)
         card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
         if card.get("decipher_print") and card.get("disc2") and str((spec.get("source") or {}).get("set")) in SE_ERA:
-            card["disc2_title_dx"] = -22   # rev 81: Emperor Palpatine (DS2), Mara Jade (EJP) set the title 10 px (745) further left than Ref2 / PC
+            # rev 81: Emperor Palpatine (DS2), Mara Jade (EJP) set the title further left than Ref2 / PC, and tighter: glyph
+            # by glyph on the printed faces (geometry 2) the run is 3 % narrower at the same cap height (31 / 22 px at 745)
+            card["disc2_title_dx"] = -32
+            card["disc2_title_ls"] = 0.1
         if card.get("decipher_print") and str((spec.get("source") or {}).get("set")) == "11" and card["template"] == "ls-epic-event":
             card["copyright_ink"] = "#fff"   # rev 81: Boonta Eve Podrace, I Did It! print the line white on the purple (other Light Epic Events black)
+            # rev 81 (geometry 2): line measured against the card body on both printed faces (Boonta Eve Podrace 11_24,
+            # I Did It! 11_25): 1.3 px (745) right and 2.6 px lower than ours
+            card["copyright_dxy"] = (3, 6)
         if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":
