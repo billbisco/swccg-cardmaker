@@ -89,7 +89,11 @@ for gid, f in rec.items():
     out, held = [], []
     for v in f.get("versions") or []:
         stat_only = (v.get("part") == "stats")   # rev 73: a stat-only change (Jedi Survivor (V) destiny 1 -> 3) is a version (Bill, B34)
-        if not v.get("text") or not (v.get("text_known") or stat_only):
+        # R8 (2026-11-11): pc-image / master-list-repeat / repeat versions leave text_known unset (None) and carry a
+        # version_code; an explicit text_known: false means the text is not known (README: re-made sheets). An entry
+        # with neither text_known nor a code (forum notes) stays out, as before.
+        tk = v.get("text_known")
+        if not v.get("text") or not (tk or stat_only or (tk is None and v.get("version_code"))):
             continue
         if v.get("is_version") is None:   # capitals / punctuation only: Bill has not ruled; a note, not a version
             held.append({"id": v["id"], "date": v.get("date"), "part": v.get("part"), "change": v.get("change"),
