@@ -1387,3 +1387,50 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Checks: md5 identical before / after for 1_19, 1_70, 7_135, 3_56, 1_283, 5_76, Tatooine: City Outskirts 11_42, Naboo:
   Boss Nass' Chambers 14_49 (Theed sphere) and the Tatooine system 12_84 in Decipher style; Coruscant cards change only
   in the sphere.
+- Rev 81 (geometry and copyright) (2026-11-12): measured on the printed faces on wiki.swccg.com (Decipher archive scans,
+  hires 1497 px faces of sets 1-4, the PC's 745 px faces), each registered to our render.
+  - **Two-disc title** (`render.DISC2_TITLE_SHIFT`): the title moved 170 px right of the one-disc title on every
+    template; printed bullets start at x 235-238 (745) on Dark two-disc cards (The Emperor 10_51, Arica 10_31, The
+    Emperor, Relentless, Palpatine, Galactic Emperor, Mara Jade (V), Arica (V)), 229-230 on the Light Rebel frame
+    (Bail Organa, Mon Mothma, Cal Kestis, Kelleran Beq), 231 on the Light Alien frame (Chewie With Bowcaster, Solo,
+    Chewbacca, Defender Of Kashyyyk, Grakchawwaa); we set them at 253-254 / 240 / 235. Now Dark 136, `ls-character-rebel`
+    114, `ls-character-alien` 127 (all within 1 px). Decipher's 1999-2000 printings (Emperor Palpatine 9_109, Mara Jade,
+    The Emperor's Hand 110_10) set it 10 px (745) further left again: card key `disc2_title_dx` = -22 (adapter, Decipher
+    prints of the SE-era sets). The second disc on the Dark frames sits 4 px (745) left of ours on all six measured faces:
+    x 350 (was 359). Tarfful's "original" face (243) is an outlier, not followed.
+  - **Copyright wording** (`adapter.copyright_for`, re-read at 8x on 4-8 scans a set): Reflections II, Coruscant,
+    Reflections III and Theed Palace print the final period ("… DECIPHER INC.", rev 80 had dropped it); only Tatooine
+    and Enhanced Cloud City print none (`NO_FINAL_PERIOD` = 11, 109). Tatooine sets the line in its own tighter face:
+    `©2001 LUCASFILM LTD. & TM.  TM, ®& ©2001 DECIPHER INC`; its Epic Events (Boonta Eve Podrace, I Did It!) print the
+    period. `copyright_for(set, card_type=…)`. Render: a line containing "®&" takes `DC_COPY_TAT` (30 px, letter-spacing
+    0.8, oval rings 29 x 24 px, 2.4 px rim, 20 px letter): print cap 11.2 px (745) against our 10.5, © / ® 12.8 x 11.2;
+    run length now 310.0 / 309.5 against 309.5 / 308.5 printed (Sebulba's Podracer, Losing Track), centre within 2 px.
+    Tatooine's Light Epic Events print the line white on the purple (`copyright_ink`, others black as before).
+  - **Scan mapping** (`render._edge_trim`): Decipher's 350 x 490 Tatooine GIFs carry a white last column, so the frame
+    bbox ran to the image edge and the Podracer scans mapped 5 % wide: their own red frame and copyright line showed
+    inside the window (two copyright lines). A run of bright columns / rows touching the image edge, under 1 % of it and
+    3+ px from the body is dropped. All five Podracers checked with library and scan art: one line, at the printed spot.
+  - **Location bar titles on Decipher prints** (decipher_print sites and systems only): letter-spacing 1.4 px (was 2) and
+    the black-on-grey title a 1 px stroke heavier. Death Star: Central Core (hires): printed caps 40 / 42 px (white on
+    black / black on grey), widths 21.5 / 23, stem 6 / 7, run 586 / 588 px; ours now 40 / 41, 21 / 22, 6 / 7, 589 / 589
+    (was 601 / 601, black caps 40 x 21, stem 6). Kessel's white title was already 40 px, as printed.
+  - **Reflections Gold Dark Interrupt disc**: printed references exist (the 2001 playtest photos, e.g. Atmospheric
+    Assault, Blow Parried): a round swirl disc with a thin dark rim in the red lobe. Bardez's layer clipped it to a
+    chamfered square; `make_rg_frames.round_ds_interrupt_disc()` keeps the swirl inside r 82 round (318.5, 288), draws
+    a 5 px dark rim and inpaints the square's corners from the lobe (`python3 make_rg_frames.py round-disc`).
+  - **Text** (gempdata/corrections.json; the same fixes are listed for GEMP / wiki): A Tremor In The Force "When
+    Effect", lore “Stand by . . .” (1_42 and its VB1 printing); A Disturbance In The Force "When Effect", lore "in the
+    Force, “. . . as if" (1_208 and VB1, whose game text also had "Whever"); Presence Of The Force "“. . . binds";
+    Out Of Commission lore "got that tractor beam"; Out of Commission & Transmission Terminated (title "of",
+    "destiny > 3"); Domain Of Evil "test completed: Place" (the other Jedi Tests had it); Sleen "✶ Ferocity". Adapter,
+    Decipher prints only: "Ferocity = destiny – N" with a spaced en dash (Bog-wing both sides, Nudj, Sleen print it so;
+    modifiers such as "destiny -1 > ability", "power -1", "deploy -1" print a hyphen and stay).
+  - **Checked, not changed — Decipher window / lore-box geometry (sets 1-8)**: 20 hires faces (sets 1-4, eight
+    templates) warped into the 1632 x 2220 master by ECC affine fit and measured edge by edge against our master renders
+    (gradient peaks): window top −2 px master on Light Effects / Interrupts / Rebels, +0.3 on Aliens / starships, ~0 on
+    Dark; lore-box top within ±1 px (median −0.5); window left edge +1.3..+2.2 px master (print RIGHT of ours) on Light
+    Effects / Interrupts and scattered elsewhere. No consistent offset of the size or direction reported in rev 80
+    (bevel 1.4 px (745) right, tops 2 px) shows at master resolution; all are ≤ 1 px at 745 and differ in sign between
+    templates, so nothing was warped. PC and Japanese renders are untouched by this revision: md5-identical before /
+    after for the Japanese samples Darth Vader, Luke Skywalker, Admiral Ozzel, PC cards 223_40, 200_105, 205_14, 213_12,
+    211_48, 211_47, and Decipher 1_3, 1_74, 1_140, 9_113, 9_55.

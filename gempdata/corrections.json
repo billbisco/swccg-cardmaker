@@ -335,5 +335,75 @@
       "inciting his wraith.",
       "inciting his wrath."
     ]
+  },
+  "1_42": {
+    "gametext": [
+      "When effect reaches",
+      "When Effect reaches"
+    ],
+    "lore": [
+      "'Stand By...'",
+      "'Stand by . . .'"
+    ]
+  },
+  "1001_L5309": {
+    "lore": [
+      "'Stand By...'",
+      "'Stand by . . .'"
+    ]
+  },
+  "1_208": {
+    "gametext": [
+      "When effect reaches",
+      "When Effect reaches"
+    ],
+    "lore": [
+      "in the Force '...as if",
+      "in the Force, '. . . as if"
+    ]
+  },
+  "1001_L6060": {
+    "gametext": [
+      "Whever you verify",
+      "Whenever you verify"
+    ],
+    "lore": [
+      "in the Force '...as if",
+      "in the Force, '. . . as if"
+    ]
+  },
+  "1_227": {
+    "lore": [
+      "The Force '...binds",
+      "The Force '. . . binds"
+    ]
+  },
+  "2_54": {
+    "lore": [
+      "got the tractor beam",
+      "got that tractor beam"
+    ]
+  },
+  "10_16": {
+    "title": [
+      "Out Of Commission &",
+      "Out of Commission &"
+    ],
+    "gametext": [
+      "total destiny> 3",
+      "total destiny > 3"
+    ]
+  },
+  "4_76": {
+    "gametext": [
+      "test completed. Place",
+      "test completed: Place"
+    ]
+  },
+  "4_111": {
+    "gametext": [
+      "Ferocity = destiny - 3",
+      "* Ferocity = destiny - 3"
+    ]
   }
 }

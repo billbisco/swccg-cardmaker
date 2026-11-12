@@ -44,10 +44,16 @@ DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "1
 # reprints of older cards set "TM, ®, &", but those render as their first printing).
 SE_ERA = {"7", "8", "9", "109", "110", "111", "112"}
 PRINT_YEAR = {"8": 1999, "101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
-NO_FINAL_PERIOD = {"11", "12", "14"}   # rev 81 (systems and discs): Reflections III prints "DECIPHER INC." (Stormtrooper Garrison, The Ebb Of Battle, Qui-Gon's Lightsaber photos)
+NO_FINAL_PERIOD = {"11"}
+# Rev 81 (integration): only Tatooine has no final period. Reflections II, Coruscant, Reflections III and Theed Palace DO
+# print it (8x re-read of 4-8 scans a set; Reflections III also on photos of Stormtrooper Garrison, The Ebb Of Battle,
+# Qui-Gon's Lightsaber). Enhanced Cloud City: the 350 px scans read no period, but sharp 700-1600 px photos of five cards
+# (Boba Fett In Slave I, Crush The Rebellion, Dengar, IG-88, Any Methods Necessary) show it, so the photos win.
+# Tatooine sets the line in its own tighter face: the © against the year and the ® against the ampersand
+# ("©2001 … TM, ®& ©2001 DECIPHER INC"); its Epic Events (Boonta Eve Podrace, I Did It!) print the final period.
 
 
-def copyright_for(set_id, decipher: bool = True) -> str:
+def copyright_for(set_id, decipher: bool = True, card_type: str = "") -> str:
     """The vertical Lucasfilm / Decipher line printed beside the art, word for word as each set printed it (rev 80).
     decipher=False: the line as the Players Committee's slips reproduce it (the form before rev 80, kept for their cards)."""
     sid = str(set_id or "")
@@ -63,8 +69,10 @@ def copyright_for(set_id, decipher: bool = True) -> str:
     y = PRINT_YEAR.get(sid) or YEAR.get(sid)
     if not y:
         return ""
-    end = "" if sid in NO_FINAL_PERIOD else "."
+    end = "" if sid in NO_FINAL_PERIOD and not (sid == "11" and card_type == "Epic Event") else "."
     reg = "®," if sid == "12" else "®"
+    if sid == "11":
+        return f"©{y} LUCASFILM LTD. & TM.  TM, ®& ©{y} DECIPHER INC{end}"
     if sid in SE_ERA:
         return f"© LUCASFILM LTD. & TM.  TM, {reg} & © {y} DECIPHER INC{end}"
     if y >= 2000:
@@ -327,7 +335,7 @@ def gemp_to_spec(c: dict) -> dict:
             "deploy": f.get("deploy"), "forfeit": f.get("forfeit"), "scomp": "Scomp Link" in icons,
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
-            "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
+            "copyright": copyright_for(c.get("set"), card_type=f.get("type") or ""), "set_mark": set_mark_for(c.get("set"))}
     if f.get("loreLines"):   # rev 80: the printed lore's own line breaks (gempdata/fill.json "loreLines"; Teemto Pagalies' Podracer)
         spec["lore_lines"] = list(f["loreLines"])
     if c.get("wide"):   # Reflections Gold "wide vision" cards (set 15): landscape per the card data
@@ -680,6 +688,10 @@ def finish(spec: dict) -> dict:
             spec[k] = apostrophes(spec[k])
     if decipher_print(spec):
         spec["decipher_print"] = True   # Rev 80: Decipher's own title setting and ink (editor: "As Decipher printed it")
+        # rev 81: a creature's ferocity formula prints a spaced en dash ("Ferocity = destiny – 1": Bog-wing both sides,
+        # Nudj, Sleen); modifiers keep the hyphen as printed ("destiny -1 > ability", "power -1", "deploy -1")
+        if spec.get("game_text"):
+            spec["game_text"] = re.sub(r"(Ferocity = destiny) ?- ?(\d)", "\\1 – \\2", spec["game_text"])
     return spec
 
 
@@ -732,6 +744,10 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # and copyright line where Decipher printed them (render.DC_PRINT); PC and Virtual Block cards keep the PC's
         # (one definition for both: decipher_print() above; the editor's "As Decipher printed it" box overrides)
         card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
+        if card.get("decipher_print") and card.get("disc2") and str((spec.get("source") or {}).get("set")) in SE_ERA:
+            card["disc2_title_dx"] = -22   # rev 81: Emperor Palpatine (DS2), Mara Jade (EJP) set the title 10 px (745) further left than Ref2 / PC
+        if card.get("decipher_print") and str((spec.get("source") or {}).get("set")) == "11" and card["template"] == "ls-epic-event":
+            card["copyright_ink"] = "#fff"   # rev 81: Boonta Eve Podrace, I Did It! print the line white on the purple (other Light Epic Events black)
         if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":

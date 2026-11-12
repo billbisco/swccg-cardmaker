@@ -815,6 +815,22 @@ def system_library_art(card: dict, im: Image.Image) -> str:
     return data_uri(p)
 
 
+def _edge_trim(idx, n):
+    """Rev 81: drop a stray bright line at the image's very edge, apart from the card body (Decipher's 350 x 490
+    Tatooine GIFs carry a white last column: the Podracer scans mapped 5 % wide, their own frame and copyright line
+    showed inside the window). Only a run that touches the image edge, is under 1 % of it and is cut off from the
+    body by a gap of 3+ px is dropped."""
+    import numpy as np
+    if len(idx) < 2:
+        return idx
+    runs = np.split(idx, np.where(np.diff(idx) > 1)[0] + 1)
+    if len(runs) > 1 and runs[0][0] == 0 and len(runs[0]) < 0.01 * n and runs[1][0] - runs[0][-1] > 3:
+        runs = runs[1:]
+    if len(runs) > 1 and runs[-1][-1] == n - 1 and len(runs[-1]) < 0.01 * n and runs[-1][0] - runs[-2][-1] > 3:
+        runs = runs[:-1]
+    return np.concatenate(runs)
+
+
 def art_crop(card: dict, win=None, tag: str = "") -> str:
     """Crop the art window out of a Decipher scan (any size: the silver frame is located, then mapped)."""
     src = Path(card["art"]["src"])
@@ -851,8 +867,8 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
         fx1, fy1 = fx0 + 1343 * sc, fy0 + 1931 * sc
     else:
         bright = a.sum(axis=2) > 120
-        rows = np.where(bright.mean(axis=1) > 0.5)[0]
-        cols = np.where(bright.mean(axis=0) > 0.5)[0]
+        rows = _edge_trim(np.where(bright.mean(axis=1) > 0.5)[0], a.shape[0])
+        cols = _edge_trim(np.where(bright.mean(axis=0) > 0.5)[0], a.shape[1])
         fx0, fy0, fx1, fy1 = cols.min(), rows.min(), cols.max(), rows.max()   # silver frame bbox in the scan
     cw, ch = (1931, 1343) if TEMPLATES[card["template"]].get("landscape") else (1343, 1931)
     sx = (fx1 - fx0) / cw
@@ -1866,6 +1882,14 @@ _PC_ADV: dict = {}
 # Measured on printed scans (Holotable 745 px and 350 px faces, Decipher archive scans), registered to our render
 # by an affine fit of the whole card (scratch tool m2.py; STANDARD rev 80). Per template: dc_sphere = centre x, y and
 # diameter (master px) of the sphere with its own dark rim; dc_copy = centre x, y (master px) of the copyright line.
+# rev 81: second affiliation disc: the title moves right by this much (was 170 everywhere). Measured title (bullet) start on
+# printed two-disc faces registered to our renders: Dark 235-238 px at 745 (8 cards), Light Rebel frame 229-230 (4),
+# Light Alien frame 231 (4; Tarfful's "original" face 243 is the outlier)
+DISC2_TITLE_SHIFT = {"ls-character-rebel": 114, "ls-character-alien": 127}
+DISC2_TITLE_SHIFT_DEFAULT = 136
+# rev 81: Tatooine (set 11) prints the line in a taller face (cap 11.2 px at 745 against 10.5) with wide oval © / ®
+# the height of the capitals (12.8 x 11.2 px at 745), set against the year / ampersand (8 printed cards, 497 px scans)
+DC_COPY_TAT = {"size": 30, "ls": 0.8, "ring_w": 29, "ring_h": 24, "ring_b": 2.4, "ring_letter": 20, "ring_va": -3}
 DC_COPY = {"size": 28, "ls": 1, "ws": 5, "cond": 0.83, "ring": 25, "ring_w": 2.2, "ring_letter": 18, "ring_va": -2, "ring_m": 1}
 DC_SPHERE_BEVEL = (6, "rgba(104, 108, 112, 0.5)")   # rev 80: width (master px) and fill of the frame's bevel round the hole: it pulls the frame towards mid grey (darker on Light frames, lighter on Dark ones, as printed)
 DC_PRINT: dict = {
@@ -1960,7 +1984,10 @@ def dc_template(t: dict, dc: dict) -> dict:
 
 def dc_copy_html(text: str) -> str:
     """The copyright line as Decipher set it: © and ® as full-size thin circles round a small letter."""
-    return "".join(f'<span class="cr">{"C" if ch == "©" else "R"}</span>' if ch in "©®" else esc(ch) for ch in text)
+    h = "".join(f'<span class="cr">{"C" if ch == "©" else "R"}</span>' if ch in "©®" else esc(ch) for ch in text)
+    if "®&" in text:   # rev 81: Tatooine's own tighter face ("©2001 … TM, ®& ©2001", adapter.copyright_for)
+        h = f'<span class="dctat">{h}</span>'
+    return h
 
 
 def podracer_flag_file(card: dict):
@@ -2301,8 +2328,13 @@ def build_html(card: dict) -> str:
         tx_ = t["podracer_title_x"]; ttl = t["title"]
         t = dict(t, title=(tx_, ttl[1], ttl[0] + ttl[2] - tx_, ttl[3])); t.pop("title_long_left", None); t.pop("decipher_title", None)
     if card.get("disc2"):   # second affiliation disc right of the first, title bar shortened (The Emperor: Dark Jedi Master + Imperial)
-        parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{359}px;top:{174}px">')
-        t = dict(t, title=(t["title"][0] + 170, t["title"][1], t["title"][2] - 170, t["title"][3]))
+        # rev 81: on the Dark frames the printed second disc sits 4 px (745) left of where we had it (6 printed faces,
+        # Decipher and PC: ring's left edge at x 149-152 against our 154)
+        d2x = 350 if card["template"].startswith("ds-") else 359
+        parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{d2x}px;top:{174}px">')
+        # rev 81: the title shift measured on the printed two-disc cards (DISC2_TITLE_SHIFT; was 170 everywhere)
+        d2 = DISC2_TITLE_SHIFT.get(card["template"], DISC2_TITLE_SHIFT_DEFAULT) + int(card.get("disc2_title_dx") or 0)
+        t = dict(t, title=(t["title"][0] + d2, t["title"][1], t["title"][2] - d2, t["title"][3]))
     sec('title')
     # title + destiny
     pre = " pre" if card.get("text_lines") else ""
@@ -2737,8 +2769,9 @@ def build_html(card: dict) -> str:
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         # rev 80: a Decipher card keeps the template's place but takes Decipher's typesetting (full-size ®)
         dc_ = card.get("decipher_print")
+        ink_ = f' style="color:{card["copyright_ink"]}"' if card.get("copyright_ink") else ""   # rev 81: Tatooine's Light Epic Events print white
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
-                     f'<div class="copyin{" dccopy" if dc_ else ""}">{dc_copy_html(card["copyright"]) if dc_ else esc(card["copyright"])}</div></div>')
+                     f'<div class="copyin{" dccopy" if dc_ else ""}"{ink_}>{dc_copy_html(card["copyright"]) if dc_ else esc(card["copyright"])}</div></div>')
     sec('art_credit')
     # PC art credit up the left side of the art ("Image courtesy of Jesus Conde", Endless Legions VS26; swccg-guild/work#100):
     # the copyright line's mirror image about the art window, same face and size
@@ -2949,6 +2982,7 @@ def build_html(card: dict) -> str:
     {f".ltitle .dot:not(.plain), .dtitle .dot:not(.plain){{color:{bullet_colour(card)}}}" if bullet_colour(card) else ""}
     {".ltitle .dot, .dtitle .dot{font-size:0.88em;margin-right:-7px}" if card.get("decipher_print") else ""}
     .ltitle span.lt, .dtitle span.lt{{display:inline-block;white-space:nowrap;transform-origin:center center}}
+    {".ltitle, .dtitle{letter-spacing:1.4px} .ltitle span.lt{-webkit-text-stroke:1px #000}" if card.get("decipher_print") and (t.get("landscape") or t.get("system")) else ""}
     .ltitle{{color:#000;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box}}
     .dtitle{{color:#fff;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box;transform:rotate(180deg)}}
     .ltext{{font-family:AGCn;font-size:56px;color:#000;letter-spacing:1.5px;line-height:58px;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;padding:0 20px}}
@@ -2959,6 +2993,8 @@ def build_html(card: dict) -> str:
     .copyin{{font-family:AGBoldCnA;font-size:{t.get("copy_size", 24)}px;color:{ink};letter-spacing:{t.get("copy_ls", 1)}px;white-space:nowrap;transform:rotate(-90deg)}}
     .copyin.dccopy{{white-space:pre;font-size:{DC_COPY["size"]}px;letter-spacing:{DC_COPY["ls"]}px;word-spacing:{DC_COPY["ws"]}px;transform:rotate(-90deg) scaleX({DC_COPY["cond"]})}}
     .dccopy .cr{{display:inline-block;box-sizing:border-box;width:{DC_COPY["ring"]}px;height:{DC_COPY["ring"]}px;border:{DC_COPY["ring_w"]}px solid currentColor;border-radius:50%;font-size:{DC_COPY["ring_letter"]}px;line-height:{DC_COPY["ring"] - 2 * DC_COPY["ring_w"]}px;text-align:center;vertical-align:{DC_COPY["ring_va"]}px;overflow:hidden;letter-spacing:0;margin:0 {DC_COPY["ring_m"]}px}}
+    .dccopy .dctat{{font-size:{DC_COPY_TAT["size"]}px;letter-spacing:{DC_COPY_TAT["ls"]}px}}
+    .dccopy .dctat .cr{{width:{DC_COPY_TAT["ring_w"]}px;height:{DC_COPY_TAT["ring_h"]}px;border-width:{DC_COPY_TAT["ring_b"]}px;font-size:{DC_COPY_TAT["ring_letter"]}px;line-height:{DC_COPY_TAT["ring_h"] - 2 * DC_COPY_TAT["ring_b"]}px;vertical-align:{DC_COPY_TAT["ring_va"]}px}}
     """
     if card.get("lang") == "ja":
         import lang_ja
