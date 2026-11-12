@@ -1146,5 +1146,9 @@
     "3"
    ]
   ]
+ },
+ "1006_L5619": {
+  "lore": "",
+  "_note": "Jabba, This Is Your Last Chance! (1261_80): the Block 6.1 slip, the PC card image and the Master List print an empty lore box; the PC Legacy JSON carries The Signal's Decipher lore (rev 72, B09 wiki log 2026-11-08; GEMP PR #767)"
  }
 }

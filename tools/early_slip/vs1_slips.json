@@ -1,0 +1,227 @@
+[
+ {
+  "rect": [
+   60.061500549316406,
+   181.02978515625,
+   239.1875,
+   245.02978515625
+  ],
+  "title": "",
+  "lines": [
+   "Adds 3 to power of anything he pilots (and to",
+   "Attack Run total if piloting lead starfighter). If",
+   "piloting at a battleground during your control",
+   "phase, may retrieve 1 Force or take Darklighter",
+   "Spin into hand from Reserve Deck; reshuffle."
+  ],
+  "stats": [
+   "3",
+   "7"
+  ],
+  "number": "1"
+ },
+ {
+  "rect": [
+   60.061500549316406,
+   280.52978515625,
+   239.1875,
+   344.52978515625
+  ],
+  "title": "",
+  "lines": [
+   "Deploys - 2 to Cantina, docking bays, or starships.",
+   "Adds 3 to power of anything he pilots. Twice",
+   "per game, may take a device into hand from",
+   "Reserve Deck; reshuffle. Considered \"matching",
+   "pilot\" for any starship.  Immune to attrition < 3."
+  ],
+  "stats": [
+   "4",
+   "3"
+  ],
+  "number": "2"
+ },
+ {
+  "rect": [
+   60.0620002746582,
+   370.3046875,
+   239.1875,
+   434.3046875
+  ],
+  "title": "",
+  "lines": [
+   "May add 2 pilots or passengers. Once per control",
+   "phase, may use 1 Force (free if Dutch aboard) to",
+   "take the top or bottom card of your Force Pile",
+   "into hand. Power + 2 and immune to attrition",
+   "< 4 while Dutch piloting."
+  ],
+  "stats": [],
+  "number": "3"
+ },
+ {
+  "rect": [
+   60.1870002746582,
+   467.8046875,
+   239.3125,
+   531.8046875
+  ],
+  "title": "",
+  "lines": [
+   "Deploy on Han (except TK-422), even as a 'react'.",
+   "May target a character for free. Draw destiny.",
+   "Target hit (opponent loses 1 Force), and its",
+   "forfeit = 0, if destiny + 1 > defense value. May",
+   "fire once during your control phase for 1 Force."
+  ],
+  "stats": [],
+  "number": "4"
+ },
+ {
+  "rect": [
+   60.4370002746582,
+   567.0936889648438,
+   239.5625,
+   631.0936889648438
+  ],
+  "title": "",
+  "lines": [
+   "Deploy on a docking bay or your capital starship.",
+   "Your unique (\u2022) starships are power, maneuver,",
+   "and hyperspeed + 1. May place this card in Lost",
+   "Pile to cancel Lateral Damage. Place in Used Pile",
+   "if opponent controls this location."
+  ],
+  "stats": [],
+  "number": "5"
+ },
+ {
+  "rect": [
+   59.9370002746582,
+   666.5546875,
+   239.0625,
+   730.5546875
+  ],
+  "title": "",
+  "lines": [
+   "Deploy on table. Once per deploy phase, if you",
+   "just deployed a unique (\u2022) character, you may",
+   "deploy a \"matching weapon\" on that character",
+   "from Reserve Deck; reshuffle. (Immune to Alter.)"
+  ],
+  "stats": [],
+  "number": "6"
+ },
+ {
+  "rect": [
+   367.5614929199219,
+   182.27978515625,
+   546.6875,
+   246.27978515625
+  ],
+  "title": "",
+  "lines": [
+   "Adds 4 to power of anything he pilots. While",
+   "aboard a starship, it is immune to attrition < 5.",
+   "Once per battle at same system (twice if with a",
+   "Black Squadron pilot), may subtract 3 from a just",
+   "drawn destiny. Immune to attrition < 5."
+  ],
+  "stats": [
+   "6",
+   "8"
+  ],
+  "number": "7"
+ },
+ {
+  "rect": [
+   367.6025085449219,
+   281.40478515625,
+   546.728515625,
+   345.40478515625
+  ],
+  "title": "",
+  "lines": [
+   "Deploy - 1 and forfeit +3 at a site. Once per",
+   "turn, you may peek at the top card of",
+   "opponent's Used Pile or Reserve Deck; you",
+   "may then reshuffle. Immune to attrition < 3."
+  ],
+  "stats": [
+   "3",
+   "2"
+  ],
+  "number": "8"
+ },
+ {
+  "rect": [
+   369.6875,
+   369.8046875,
+   548.8125,
+   433.8046875
+  ],
+  "title": "",
+  "lines": [
+   "May add 1 pilot. During your deploy phase, may",
+   "take one Pride Of The Empire into hand from",
+   "Reserve Deck; reshuffle. Organized Attack and All",
+   "Wings Report In may not be played. Immune to",
+   "attrition < 5 while DS-61-2 piloting."
+  ],
+  "stats": [],
+  "number": "9"
+ },
+ {
+  "rect": [
+   368.1875,
+   467.8046875,
+   547.3125,
+   531.8046875
+  ],
+  "title": "",
+  "lines": [
+   "Deploy on any Imperial warrior or Chief Bast.",
+   "May fire during a battle or attack at same or",
+   "adjacent site. May target a character, creature or",
+   "vehicle for 1 Force. Draw destiny. Target",
+   "immediately lost if destiny + 1 > defense value."
+  ],
+  "stats": [],
+  "number": "10"
+ },
+ {
+  "rect": [
+   368.9375,
+   567.3046875,
+   548.0625,
+   631.3046875
+  ],
+  "title": "",
+  "lines": [
+   "Deploy on a docking bay or your capital starship.",
+   "Star Destroyers and unique (\u2022) TIEs are immune",
+   "to attrition < 3. May place this card in Lost Pile",
+   "to cancel Power Pivot or Hyper Escape. Place in",
+   "Used Pile if opponent controls this location."
+  ],
+  "stats": [],
+  "number": "11"
+ },
+ {
+  "rect": [
+   368.1875,
+   666.0546875,
+   547.3125,
+   730.0546875
+  ],
+  "title": "",
+  "lines": [
+   "Deploy on table. Once per deploy phase, if you",
+   "just deployed a unique (\u2022) character, you may",
+   "deploy a \"matching weapon\" on that character",
+   "from Reserve Deck; reshuffle. (Immune to Alter.)"
+  ],
+  "stats": [],
+  "number": "12"
+ }
+]

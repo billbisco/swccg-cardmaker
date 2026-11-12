@@ -11,10 +11,12 @@ sources and script that rebuild it.
 | HolotableTitle/HolotableTitle-Regular.otf | Holotable Title (our own, SIL OFL 1.1) | card titles, deploy / forfeit numbers, caption bullet |
 | HolotableText/HolotableText-Light.ttf | Holotable Text Light (OFL, from Barlow Condensed) | lore |
 | HolotableText/HolotableText-Regular.ttf | Holotable Text Regular (OFL, from Barlow Condensed) | game text (the PC's Holotable size: 62 px / 65 line at 600 DPI), "medium" labels |
+| HolotableText/HolotableTextPC-Regular.ttf, -Bold.ttf | Holotable Text PC (OFL, from Holotable Text) | Virtual Legacy game text and lore (rev 74): the PC slips' Akzidenz-Grotesk BE Condensed advance widths and kerning |
 | HolotableText/HolotableText-Bold.ttf | Holotable Text Bold (OFL, from Barlow Condensed) | stat labels, type banners, © line (landscape bottom strips) |
 | HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros) | destiny, stat values, slip numbers, parsec numbers on systems |
 | LiberationSansNarrow-Bold.ttf | Liberation Sans Narrow Bold (metric twin of Arial Narrow Bold) | bottom-strip caption on portrait cards (the PC slips use Arial Narrow Bold) |
 | HolotableNumbers/HolotableNumbers-BoldItalic.otf | Holotable Numbers Bold Italic (GUST Font License, from TeX Gyre Heros) | bottom-strip card number (the PC's PDF sets it in Akzidenz-Grotesk BE Bold Italic) |
+| NotoSansJP/NotoSansJP-VF.ttf | Noto Sans JP variable (SIL OFL 1.1, Google / Adobe; google/fonts `ofl/notosansjp`) | Japanese printings (rev 77): titles and stat strip (800), lore and game text (500) — stands in for Takara's Morisawa-style gothics |
 
 Until rev 62-66 (3 November 2026) the repository carried commercial fonts from Bardez's community template pack
 (Fiorello CG Condensed, five Akzidenz-Grotesk files, Craft Gothic Heavy Extended) and a digit subset of Akzidenz-Grotesk
@@ -37,6 +39,12 @@ title widths within 1 px (Fiorello CG: 2 px). Fiorello CG is no longer in the re
 Condensed (and Bardez's BE Medium Condensed). It is Barlow Condensed (SIL OFL 1.1, The Barlow Project Authors), narrowed
 and rescaled so CardMaker's sizes, baselines and line breaks carry over; licence, FONTLOG and the script that rebuilds it
 are in `assets/fonts/HolotableText/`. On 24 PC reference cards it breaks lines where Akzidenz-Grotesk did.
+
+**Holotable Text PC** (rev 74) is Holotable Text Regular / Bold with each glyph's advance width set to the
+advance width of the face the PC set its 2009-2014 Virtual Legacy slips in (Akzidenz-Grotesk BE Condensed / Bold
+Condensed) and the PC's kerning pairs, both read as numbers from the PDFs' font dictionaries and text positions
+(`source/pc_widths.json`, built by `source/build_pc.py`). No outline, file or name of the commercial face is used, as
+Liberation Sans carries Arial's metrics. Outlines are Holotable Text's, scaled horizontally per glyph (0.85-1.20).
 
 **Holotable Numbers** (rev 65 / 67, swccg-guild/work#124) replaces Akzidenz-Grotesk Medium Extended and the PC's Akzidenz-Grotesk
 BE Bold Italic digits. It is TeX Gyre Heros Bold / Bold Italic (GUST Font License, a free licence: LPPL 1.3c) widened and

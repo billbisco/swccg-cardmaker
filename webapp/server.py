@@ -127,8 +127,48 @@ for _g in _RG_IDS:   # every Reflections Gold card has its art cut from the Rema
 SETS = {s["id"]: s["name"] for s in json.load(open(ROOT / "gempdata/sets.json", encoding="utf-8"))}
 
 
+
 def norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (s or "").lower().replace("•", ""))
+
+
+# ---------- Virtual Legacy (2009-2014 Virtual Blocks): the Decipher card each was printed on (STANDARD rev 71) ----------
+# legacy_art.json: the library art found in each legacy PC gif (tools/legacy/match_legacy_art.py, r >= 0.93)
+LEGACY_ART = json.load(open(ROOT / "gempdata/legacy_art.json", encoding="utf-8")).get("cards", {}) if (ROOT / "gempdata/legacy_art.json").exists() else {}
+_DECIPHER_BY_TITLE: dict = {}
+for _g, _c in CARDS.items():
+    _sid = str(_c.get("set"))
+    if _sid.isdigit() and int(_sid) < 200 and "^" not in _g:
+        _DECIPHER_BY_TITLE.setdefault(norm(adapter.strip_printing(_c["front"].get("title") or "")), _g)
+
+
+def print_base(gid: str) -> str | None:
+    """The Decipher card a Virtual Block card was printed on: the one whose art is in its gif, else the card named by its
+    original-title strip, else the card of the same title."""
+    if gid in LEGACY_ART:
+        return LEGACY_ART[gid]["gempId"]
+    c = CARDS[gid]
+    lab = adapter.pc_labels_for(c)
+    for t in (lab.get("original_title"), c["front"].get("title")):
+        t = re.sub(r"\s*\((?:Light|Dark|V|Premium|Ref III|Death Star II)\)", "", str(t or ""))
+        g = _DECIPHER_BY_TITLE.get(norm(adapter.strip_printing(t)))
+        if g:
+            return g
+    return None
+
+
+# legacy_versions.json (tools/legacy/build_versions.py): GEMP ids (12xx current cards, 22xx version cards, pc-legacy:<id>)
+# -> legacy card ids, and each published game-text version (swccg-guild legacy-versions-v4), so /api/card/<GEMP id> and
+# ?version=<id> open a Virtual Legacy card with that version's text on its own Virtual Block template
+_LV = json.load(open(ROOT / "gempdata/legacy_versions.json", encoding="utf-8")) if (ROOT / "gempdata/legacy_versions.json").exists() else {}
+LEGACY_ALIAS: dict = _LV.get("aliases", {})
+LEGACY_VERSIONS: dict = _LV.get("versions", {})
+LEGACY_NOTES: dict = _LV.get("notes", {})   # v4 is_version null (capitals / punctuation only, waiting on Bill): shown, not selectable
+for _g, _c in CARDS.items():
+    if _c.get("legacy"):
+        _b = print_base(_g)
+        if _b:
+            _c["_print_base_set"] = str(CARDS[_b].get("set"))
 
 
 # ---------- Original Virtual Sets 1-17 (2002-2008): the remaster transcriptions, GEMP ids 11NN_<slip> ----------
@@ -249,8 +289,9 @@ def fetch(url: str, dest: Path) -> Path:
     return dest
 
 
-def scan_path(gid: str) -> Path | None:
-    u = (CARDS.get(gid) or {}).get("front", {}).get("imageUrl") or ""
+def scan_path(gid: str, face: str = "front") -> Path | None:
+    """The card's printed face (Holotable mirror, else the PC image). face "back": an Objective's second side (rev 77)."""
+    u = ((CARDS.get(gid) or {}).get(face) or {}).get("imageUrl") or ""
     m = re.search(r"/cards/(.+)$", u)
     if m:
         p = HOLOTABLE / m.group(1)
@@ -260,7 +301,23 @@ def scan_path(gid: str) -> Path | None:
     return None
 
 
-def resolve_art(spec: dict) -> dict | None:
+def resolve_art(spec: dict, face: str = "front", split: bool = False) -> dict | None:
+    """`split` (rev 77): a picture of a two-picture window: an upload comes whole (render.split_art frames it with
+    spec split.fit1 / fit2 in its own side of the stripe)."""
+    if face == "back":
+        # rev 77: an Objective's back face has its own picture. spec art_back takes the art shapes (upload / scan / none);
+        # the art library holds front windows only, so the default (and "library") is the scan of the printed back
+        # ("front": the front's own picture; "library" / "upload" / "none" as for art)
+        a = dict(spec.get("art_back") or {}) if isinstance(spec.get("art_back"), dict) and (spec.get("art_back") or {}).get("kind") else {}
+        if a.get("kind") == "front":
+            return resolve_art(spec)
+        if a.get("kind") in (None, "ovs"):
+            a["kind"] = "scan"
+        gid = a.get("gempId") or spec.get("gempId")
+        if a["kind"] == "scan":
+            p = scan_path(gid, "back") if gid else None
+            return {"src": str(p)} if p else None   # render.py maps the frame and cuts the window, as for a front scan
+        return resolve_art(dict(spec, art=a))
     a = spec.get("art") or {}
     kind = a.get("kind") or ("library" if ART_MANIFEST.get(spec.get("gempId") or "", {}).get("status") == "ok" else "scan")
     if kind == "none":
@@ -270,6 +327,8 @@ def resolve_art(spec: dict) -> dict | None:
         h = hashlib.sha1(raw).hexdigest()[:16]; p = CACHE / f"up-{h}.img"
         if not p.exists(): p.write_bytes(raw)
         im = Image.open(p); w, hgt = im.size
+        if split and not a.get("rect"):
+            return {"src": str(p), "rect": [0, 0, w, hgt]}
         if a.get("rect"):
             return {"src": str(p), "rect": list(a["rect"])}
         # framing: zoom >= 1 and a focus point (fx, fy in 0..1) inside the cover-fitted crop of the art window
@@ -355,7 +414,7 @@ def worker():
                     break
                 except Exception as e:   # noqa: BLE001
                     done["err"] = f"{type(e).__name__}: {e}"; traceback.print_exc()
-                    if "crash" in str(e).lower() or "closed" in str(e).lower():
+                    if any(w in str(e).lower() for w in ("crash", "closed", "timeout")):   # a timed-out page is relaunched too (it crashed the next jobs)
                         pg = None; continue
                     break
             for tmp in render.OUT.glob(f"_*{card['id']}*"):   # per-card crops / frames: not kept (disk)
@@ -367,7 +426,7 @@ threading.Thread(target=worker, daemon=True).start()
 
 
 # render cache entries are only valid for the code that made them: a deploy changes this and old entries are ignored
-CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "webapp/adapter.py", "webapp/server.py"))).hexdigest()[:12]
+CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "lang_ja.py", "webapp/adapter.py", "webapp/server.py", "gempdata/legacy_typeset.json", "assets/fonts/HolotableText/HolotableTextPC-Regular.ttf"))).hexdigest()[:12]
 
 
 LAST_BOXES: dict = {}
@@ -389,13 +448,32 @@ def render_spec(spec: dict, size: str, fmt: str) -> tuple[bytes, str]:
         s["_art"], s["_art_kind"], keep_art = None, "ovs", True
     else:
       try:
-        s["_art"] = resolve_art(spec); s["_art_kind"] = (spec.get("art") or {}).get("kind")
+        two = bool((spec.get("art2") or {}).get("kind") not in (None, "none"))   # rev 77: second picture (split window)
+        s["_art"] = resolve_art(spec, split=two); s["_art_kind"] = (spec.get("art") or {}).get("kind")
+        s["_art2"] = resolve_art(dict(spec, art=spec["art2"]), split=True) if two else None
       except Exception as e:   # art source unreachable: still draw the card (blank window), don't cache it
-        print("art failed:", spec.get("gempId"), e, file=sys.stderr); s["_art"] = None; art_ok = False
+        print("art failed:", spec.get("gempId"), e, file=sys.stderr); s["_art"] = None; s["_art2"] = None; art_ok = False
     s["_set_icon_file"] = resolve_set_symbol(spec)
+    if spec.get("podracer_flag_data"):   # rev 77: a custom Podracer's own pilot flag (data URI, like the set symbol)
+        s["_podracer_flag_file"] = resolve_set_symbol({"set_symbol": spec["podracer_flag_data"]})
     card = adapter.spec_to_card(s, build_vs)
     if s["_art"] is None and not keep_art:
         card.pop("art", None)
+    if spec.get("face") == "back" and card.get("back"):
+        # rev 77: an Objective's back face, exactly as build_vs's batch path renders it (front card + card["back"])
+        art_b = (card["back"] or {}).get("art") or {}
+        b = dict(card); b.update(card["back"]); b["id"] = card["id"] + "b"; b.pop("back")
+        b.pop("art", None)
+        if keep_art and art_b.get("src"):
+            b["art"] = art_b   # the remaster's own back picture
+        else:
+            try:
+                ab = resolve_art(spec, "back")
+            except Exception as e:   # noqa: BLE001
+                print("back art failed:", spec.get("gempId"), e, file=sys.stderr); ab = None; art_ok = False
+            if ab:
+                b["art"] = ab
+        card = b
     done = {"ev": threading.Event()}
     JOBS.put((card, done))
     if not done["ev"].wait(120):
@@ -425,7 +503,7 @@ OPTIONS = {
     "sides": ["Light", "Dark"],
     "slip_types": ["Character", "Effect", "Immediate Effect", "Used Interrupt", "Lost Interrupt", "Used Or Lost Interrupt",
                    "Starting Interrupt", "Character Weapon", "Starship Weapon", "Device", "Starfighter", "Starship",
-                   "Vehicle", "Creature", "Defensive Shield", "Site", "System", "Objective", "Epic Event", "Jedi Test", "Admiral's Order"],
+                   "Vehicle", "Creature", "Defensive Shield", "Site", "System", "Objective", "Epic Event", "Jedi Test", "Admiral's Order", "Podracer"],
     "affiliations": ["Rebel", "Imperial", "Alien", "Droid", "Republic", "Jedi Master", "Dark Jedi Master", "Sith",
                      "Alien/Rebel", "Alien/Imperial"],
     "icons": ["pilot", "warrior", "nav", "astromech", "permanent-weapon", "permanent-pilot", "independent", "presence", "episode1"],
@@ -471,14 +549,45 @@ class H(BaseHTTPRequestHandler):
                 return self._json({"spec": spec, "art_sources": ["ovs", "upload", "none"], "art_urls": {}})
             if path.startswith("/api/card/"):
                 gid = urllib.parse.unquote(path.rsplit("/", 1)[1])
+                asked = gid
+                if gid not in CARDS and gid in LEGACY_ALIAS:   # a GEMP id of a Virtual Legacy card (1210_124, 2210_110, pc-legacy:5521)
+                    gid = LEGACY_ALIAS[gid]
                 if gid not in CARDS:
                     return self._json({"error": "unknown card"}, 404)
                 spec = adapter.gemp_to_spec(CARDS[gid])
-                lib = ART_MANIFEST.get(gid, {}).get("status") == "ok"
+                extra = {}
+                lib_gid = gid
+                if CARDS[gid].get("legacy") and gid in LEGACY_ART:
+                    lib_gid = LEGACY_ART[gid]["gempId"]   # rev 71: the printed art = the Decipher card's library art
+                    extra["art_match"] = LEGACY_ART[gid]
+                lib = ART_MANIFEST.get(lib_gid, {}).get("status") == "ok"
                 sys_card = spec.get("slip_type") == "System"   # a system's picture is the whole card: its own scan fits, a crop zooms
-                spec["art"] = {"kind": "library" if lib and not sys_card else "scan", "gempId": gid, "version": "orig"}
-                return self._json({"spec": spec, "art_sources": (["library"] if lib else []) + ["scan", "upload", "none"],
-                                   "art_urls": rg_art_urls(gid) if gid in _RG_IDS else ({"orig": f"{ART_CDN}/orig/{gid}.png", "x4": f"{ART_CDN}/x4/{gid}.webp"} if lib else {})})
+                spec["art"] = {"kind": "library" if lib and not sys_card else "scan", "gempId": lib_gid if lib and not sys_card else gid, "version": "orig"}
+                if CARDS[gid].get("legacy"):
+                    vers = LEGACY_VERSIONS.get(gid, [])
+                    extra["versions"] = [{k: v for k, v in x.items() if k != "text"} for x in vers]
+                    if LEGACY_NOTES.get(gid):
+                        extra["version_notes"] = LEGACY_NOTES[gid]
+                    # an Objective's back class (22xx_n_BACK) opens the same version as its front (gemp_back, V4-GAPS 2026-11-12)
+                    want = q.get("version", [""])[0] or (asked if asked != gid and asked in {x.get(k) for x in vers for k in ("gemp", "gemp_back")} else "")
+                    hit = next((x for x in vers if want and (want in (x["id"], x.get("code"), x.get("gemp"), x.get("gemp_back")) or want.lower() == (x.get("label") or "").lower())), None)
+                    if want and not hit and any(want == x["id"] for x in LEGACY_NOTES.get(gid, [])):
+                        return self._json({"error": f"{want!r} is not a version (capitals / punctuation only, waiting on Bill's ruling)",
+                                           "versions": extra["versions"], "version_notes": LEGACY_NOTES[gid]}, 404)
+                    if want and not hit:
+                        return self._json({"error": f"unknown version {want!r}", "versions": extra["versions"]}, 404)
+                    if hit:
+                        implicit = not q.get("version", [""])[0]   # opened by the GEMP id that carries this version
+                        adapter.apply_version(spec, hit, text=not (implicit and hit.get("icons_missing")))
+                        extra["version"] = {k: v for k, v in hit.items() if k != "text"}
+                        if implicit and hit.get("icons_missing"):
+                            extra["note"] = ("the recorded text of this version lost its inline icons; the card's own text is shown "
+                                             "(ask ?version=" + (hit.get("code") or "original") + " for the recorded text)")
+                        elif hit.get("icons_missing"):
+                            extra["warning"] = ("this version's recorded text lost its inline icons when it was read from the printed sheet: "
+                                                "put them back (CardMaker codes such as {set:hoth} {alter}) in game_text before rendering")
+                return self._json(dict({"spec": spec, "art_sources": (["library"] if lib else []) + ["scan", "upload", "none"],
+                                   "art_urls": rg_art_urls(gid) if gid in _RG_IDS else ({"orig": f"{ART_CDN}/orig/{lib_gid}.png", "x4": f"{ART_CDN}/x4/{lib_gid}.webp"} if lib else {})}, **extra))
             if path == "/api/options":
                 return self._json(OPTIONS)
             # static UI (nginx serves it in production; this is for local runs)

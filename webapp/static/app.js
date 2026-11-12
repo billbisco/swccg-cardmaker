@@ -67,9 +67,15 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark", "border", "language", "podracer_flag"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
+  if (s.language === "en") delete s.language;   // rev 77: printing language (lang_ja.py); English is the default
+  s.printed_breaks = !!fd.get("printed_breaks"); if (!s.printed_breaks) delete s.printed_breaks;
+  // rev 77 printing variants: Eriadu's white dot, Lando In Millennium Falcon's thick forfeit border, Reflections foil
+  if ((fd.get("bullet_colour") || "red") === "red") delete s.bullet_colour; else s.bullet_colour = fd.get("bullet_colour");
+  { const n = parseFloat(fd.get("forfeit_box_border")); if (n > 0) s.forfeit_box_border = Math.min(40, n); else delete s.forfeit_box_border; }
+  if (fd.get("foil")) s.foil = true; else delete s.foil;
   // PC label (Bill 2026-11-01): one free label with a position preset; the errata mark has its own field (errata_mark)
   const lt = (fd.get("label_text") || "").trim();
   s.labels = lt ? [{ preset: fd.get("label_preset") || "concept", text: lt }] : [];
@@ -96,13 +102,108 @@ function readForm() {
   const pick = form.querySelector("input[name=artpick]:checked");
   if (pick) {
     const k = pick.value;
-    if (k === "orig" || k === "x4") s.art = { kind: "library", gempId: s.gempId, version: k };
+    if (k === "orig" || k === "x4") s.art = { kind: "library", gempId: (spec.art && spec.art.kind === "library" && spec.art.gempId) || (lastData && lastData.spec && lastData.spec.art && lastData.spec.art.kind === "library" && lastData.spec.art.gempId) || s.gempId, version: k };   // Virtual Legacy: the Decipher card's art
     else if (k === "upload") s.art = { ...spec.art, zoom: +$("#fZoom").value, fx: +$("#fX").value, fy: +$("#fY").value };
-    else s.art = { kind: k, gempId: s.gempId };
+    else s.art = { kind: k, gempId: (k === "scan" && spec.art && spec.art.kind === "scan" && spec.art.gempId) || s.gempId };   // rev 77: a scan picked as the first picture of a split window
   }
+  // rev 77: Podracer pilot flag: one of the five printed flags, or the uploaded image (podracer_flag_data)
+  if (s.slip_type !== "Podracer") { delete s.podracer_flag; delete s.podracer_flag_data; }
+  else if (s.podracer_flag !== "own") delete s.podracer_flag_data;
+  else if (!s.podracer_flag_data) s.podracer_flag = "";
+  if (!s.podracer_flag) delete s.podracer_flag;
   if (s.deploy === "" && s.forfeit === "") { delete s.deploy; delete s.forfeit; }
+  // rev 77: two-sided Objectives — which face to preview / export, and the back face's picture
+  delete s.art_back_kind;
+  if (s.slip_type === "Objective") {
+    s.face = fd.get("face") === "back" ? "back" : "front";
+    const ab = fd.get("art_back_kind") || "scan";
+    if (ab === "upload" && spec.art_back && spec.art_back.kind === "upload") s.art_back = spec.art_back;   // from an imported card JSON
+    else s.art_back = { kind: ab === "upload" ? "scan" : ab, gempId: s.gempId };
+    if (s.face === "front") delete s.face;   // a front render keeps the spec it always had (same cache key)
+  } else { delete s.face; }
+  readSplit(s);
   return s;
 }
+
+// ---------- split art (rev 77): a second picture beside the first, divided by the Reflections II combo stripe ----------
+function readSplit(s) {
+  const a2 = spec && spec.art2;
+  if (!$("#splitArt").checked || !a2 || a2.kind === "none") { delete s.art2; delete s.split; return; }
+  if (a2.kind !== "upload") {
+    const v = $("#art2Ver").value;
+    s.art2 = v === "scan" ? { kind: "scan", gempId: a2.gempId } : { kind: "library", gempId: a2.gempId, version: v };
+  } else s.art2 = a2;
+  const fit = n => ({ zoom: +$(`#s${n}Zoom`).value, fx: +$(`#s${n}X`).value, fy: +$(`#s${n}Y`).value });
+  const sp = { angle: +$("#sAngle").value || 60, x: +$("#sPos").value, fit1: fit(1), fit2: fit(2), texture: $("#sTexture").value };
+  const w = $("#sWidth").value; if (w !== "") sp.width = Math.max(0, Math.min(200, +w));
+  const c = $("#sColor").value; if (c) sp.color = c === "custom" ? $("#sCustom").value : c;
+  s.split = sp;
+}
+function splitUI(s) {
+  const a2 = s.art2 && s.art2.kind !== "none" ? s.art2 : null;
+  $("#splitArt").checked = !!(a2 || s.no_lore_box);
+  $("#art2Box").hidden = !$("#splitArt").checked;
+  const sp = s.split || {}, f1 = sp.fit1 || {}, f2 = sp.fit2 || {};
+  $("#s1Zoom").value = f1.zoom ?? 1; $("#s1X").value = f1.fx ?? 1; $("#s1Y").value = f1.fy ?? 0.5;
+  $("#s2Zoom").value = f2.zoom ?? 1; $("#s2X").value = f2.fx ?? 0; $("#s2Y").value = f2.fy ?? 0.5;
+  $("#sAngle").value = sp.angle ?? 60; $("#sPos").value = sp.x ?? 0.508; $("#sWidth").value = sp.width ?? "";
+  const col = sp.color || "";
+  $("#sColor").value = !col || ["silver", "red", "none"].includes(col) ? col : "custom";
+  if (/^#[0-9a-f]{6}$/i.test(col)) $("#sCustom").value = col;
+  $("#sTexture").value = sp.texture || "bevel";
+  $("#art2Ver").value = a2 ? (a2.kind === "scan" ? "scan" : (a2.version || "orig")) : "orig";
+  $("#art2Ver").disabled = !!(a2 && a2.kind === "upload");
+  if (!a2) $("#art2Card").value = "";
+  $("#art1Card").value = "";
+  art2Shown(a2);
+}
+async function art2Shown(a2) {
+  const box = $("#art2Shown"); box.hidden = !a2;
+  if (!a2) return;
+  const img = box.querySelector("img"), lbl = box.querySelector("span");
+  if (a2.kind === "upload") { img.src = a2.data; lbl.textContent = "Your picture"; return; }
+  lbl.textContent = a2.gempId; img.removeAttribute("src");
+  try {
+    const d = await j(API + "card/" + encodeURIComponent(a2.gempId));
+    lbl.textContent = `${d.spec.title} (${a2.gempId})`;
+    if (d.art_urls && d.art_urls.orig) img.src = d.art_urls.orig;
+  } catch (_) { lbl.textContent = a2.gempId + " (unknown card)"; }
+}
+let a2Timer = null;
+async function cardId(q) {   // a GEMP id as typed, or the first card whose title matches
+  q = q.trim(); if (!q) return null;
+  if (/^\w+_\w+$/.test(q)) return q;
+  const list = await j(API + "search?q=" + encodeURIComponent(q) + "&limit=1"); return list.length ? list[0].gempId : null;
+}
+$("#art1Card").addEventListener("input", e => { e.stopPropagation(); $("#art2Card").dispatchEvent(new CustomEvent("suggest", { detail: e.target.value })); });
+$("#art1Card").addEventListener("change", async e => {
+  e.stopPropagation();
+  const g = await cardId(e.target.value); if (!g) return;
+  const d = await j(API + "card/" + encodeURIComponent(g));
+  const lib = (d.art_sources || []).includes("library");
+  spec = readForm(); spec.art = lib ? { kind: "library", gempId: d.spec.art.gempId, version: "orig" } : { kind: "scan", gempId: g };
+  artUI({ art_urls: d.art_urls }); changed();
+});
+$("#art2Card").addEventListener("suggest", e => suggest(e.detail));
+function suggest(v) {
+  const q = (v || "").trim(); clearTimeout(a2Timer);
+  if (q.length < 2) return;
+  a2Timer = setTimeout(async () => {
+    const list = await j(API + "search?q=" + encodeURIComponent(q) + "&limit=20");
+    $("#art2List").innerHTML = list.map(c => `<option value="${esc(c.gempId)}">${esc(c.title)} · ${esc(c.set)}</option>`).join("");
+  }, 250);
+}
+$("#art2Card").addEventListener("input", e => { e.stopPropagation(); suggest(e.target.value); });
+$("#art2Card").addEventListener("change", async e => {
+  e.stopPropagation();
+  const q = await cardId(e.target.value); if (!q) return;
+  spec = readForm(); spec.art2 = { kind: $("#art2Ver").value === "scan" ? "scan" : "library", gempId: q, version: $("#art2Ver").value === "scan" ? undefined : $("#art2Ver").value };
+  $("#art2Ver").disabled = false; art2Shown(spec.art2); changed();
+});
+$("#art2File").onchange = e => readFile(e.target, d => { spec = readForm(); spec.art2 = { kind: "upload", data: d }; $("#art2Ver").disabled = true; art2Shown(spec.art2); e.target.value = ""; changed(); });
+$("#art2Clear").onclick = () => { spec.art2 = { kind: "none" }; $("#art2Card").value = ""; $("#art2Ver").disabled = false; art2Shown(null); changed(); };
+$("#splitArt").addEventListener("change", e => { $("#art2Box").hidden = !e.target.checked; });
+$("#splitReset").onclick = () => { const s = readForm(); splitUI({ ...s, split: {} }); changed(); };
 // wide (landscape) layouts: Reflections Gold Interrupts / Effects (both sides); Dark Side weapons (Bardez has only DS)
 const WIDE_OK = s => /Interrupt|Effect/.test(s.slip_type || "") || (/Weapon/.test(s.slip_type || "") && s.side === "Dark");
 const isLoc = s => s.slip_type === "Site" || s.slip_type === "System";
@@ -115,7 +216,15 @@ function writeForm(s, data) {
     else el.value = s[el.name] ?? "";
   }
   if (!s.style) form.elements.style.value = "decipher";
+  if (!s.language) form.elements.language.value = "en";
   if (!s.expansion_style) form.elements.expansion_style.value = "pc";   // the PC's spheres by default (Bill 2026-11-01)
+  form.elements.face.value = s.face === "back" ? "back" : "front";
+  const abk = (s.art_back && s.art_back.kind) || "scan";
+  form.elements.art_back_kind.value = ["scan", "none", "front", "upload"].includes(abk) ? abk : "scan";
+  if (!s.border) form.elements.border.value = "black";   // rev 76: white for Unlimited / Revised / Anthology printings
+  if (!s.bullet_colour) form.elements.bullet_colour.value = "red";   // rev 77
+  if (!s.forfeit_box_border) form.elements.forfeit_box_border.value = "";   // rev 77
+  if (s.podracer_flag_data) form.elements.podracer_flag.value = "own";   // rev 77: an uploaded pilot flag
   const lb = (s.labels || [])[0] || {};
   form.elements.label_text.value = lb.text || ""; form.elements.label_preset.value = lb.preset || "concept";
   form.elements.text_adjust.value = s.text_adjust || 0; form.elements.lore_adjust.value = s.lore_adjust || 0;
@@ -127,6 +236,7 @@ function writeForm(s, data) {
   checks($("#icons"), opts.icons, s.icons || [], "ic-");
   checks($("#locicons"), opts.loc_icons, s.light_icons || [], "li-");
   artUI(data);
+  splitUI(s);
   layoutFor(s);
 }
 
@@ -138,6 +248,7 @@ function layoutFor(s) {
   $(".aff").style.visibility = ch ? "visible" : "hidden";
   $(".wideonly").hidden = !WIDE_OK(s);
   $(".shieldonly").hidden = !/Shield/.test(s.slip_type || "");
+  $(".podonly").hidden = s.slip_type !== "Podracer";
   $(".rgonly").style.visibility = /Interrupt|Effect/.test(s.slip_type || "") ? "visible" : "hidden";
   $(".widelbl").textContent = /Weapon/.test(s.slip_type || "") ? "Wide layout (as Maul's Double-Bladed Lightsaber)" : "Reflections Gold wide layout";
   $("#frameBox").hidden = !(s.art && s.art.kind === "upload");
@@ -200,23 +311,44 @@ async function download(size) {
   try {
     const b = await renderBlob(spec, size, "png");
     const a = document.createElement("a"); a.href = URL.createObjectURL(b);
-    a.download = (spec.title || "card").replace(/[•<>:"/\\|?*]+/g, "").trim().replace(/\s+/g, "_") + (size === "master" ? "_600dpi" : "") + ".png";
+    a.download = (spec.title || "card").replace(/[•<>:"/\\|?*]+/g, "").trim().replace(/\s+/g, "_") + (spec.face === "back" ? "_back" : "") + (size === "master" ? "_600dpi" : "") + ".png";
     a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 5000);
   } catch (e) { alert("Download failed: " + e.message); }
   finally { btn.textContent = t; btn.disabled = false; }
 }
 
-async function loadCard(gid) {
+async function loadCard(gid, version) {
   if ($("#browse").hidden) $("#results").hidden = true;   // browsing: keep the set list open to click through
-  const data = await j(API + "card/" + encodeURIComponent(gid));
-  lastData = data; writeForm(data.spec, data); history.replaceState(null, "", "#card=" + gid); resetHistory(); preview();
+  const data = await j(API + "card/" + encodeURIComponent(gid) + (version ? "?version=" + encodeURIComponent(version) : ""));
+  lastData = data; writeForm(data.spec, data);
+  history.replaceState(null, "", "#card=" + gid + (version ? "&version=" + encodeURIComponent(version) : "")); resetHistory(); preview();
+  versionUI(gid, data);
+}
+
+// Virtual Legacy cards: every published game-text version (STANDARD rev 71), rendered on the card's own Virtual Block template
+function versionUI(gid, data) {
+  const vs = (data && data.versions) || [];
+  $("#versionRow").hidden = !vs.length;
+  if (!vs.length) return;
+  const sel = $("#versionPick"); sel.innerHTML = "";
+  const o0 = document.createElement("option"); o0.value = ""; o0.textContent = "Card data text (the PC's latest)"; sel.appendChild(o0);
+  for (const v of vs) {
+    const o = document.createElement("option"); o.value = v.id;
+    o.textContent = `${v.code || v.label || v.kind}${v.date ? " · " + v.date : ""}${v.latest ? " · latest" : ""}${v.gemp ? " · GEMP " + v.gemp : ""}${v.icons_missing ? " · icons to add" : ""}`;
+    sel.appendChild(o);
+  }
+  sel.value = (data.version && data.version.id) || "";
+  const held = (data.version_notes || []).map(n => `${n.date || "undated"}: ${n.change || "capitals / punctuation"}`).join("; ");
+  $("#versionNote").textContent = (data.warning || (data.version ? `Text of version ${data.version.code || data.version.id}; edit any field to make your own.` : ""))
+    + (held ? ` Not listed (capitals / punctuation only, waiting on Bill's ruling): ${held}.` : "");
+  sel.onchange = () => loadCard(gid, sel.value);
 }
 
 function blank() {
   writeForm({ side: "Light", slip_type: "Character", title: "•New Character", caption: "", destiny: "1",
     lore: "", game_text: "", stats: STAT_DEFAULTS.Character, deploy: "3", forfeit: "3", icons: ["warrior"], affiliation: "Rebel",
     expansion: null, card_type: "", art: { kind: "none" } }, null);
-  lastData = null; history.replaceState(null, "", "#"); resetHistory(); preview();
+  lastData = null; $("#versionRow").hidden = true; history.replaceState(null, "", "#"); resetHistory(); preview();
 }
 
 let qTimer = null;
@@ -302,6 +434,7 @@ function readFile(input, cb) {
 }
 $("#artFile").onchange = e => readFile(e.target, d => { spec = readForm(); spec.art = { kind: "upload", data: d, zoom: 1, fx: 0.5, fy: 0.5 }; artUI(null); changed(); });
 $("#symFile").onchange = e => readFile(e.target, d => { spec = readForm(); spec.set_symbol = d; changed(); });
+$("#podFlagFile").onchange = e => readFile(e.target, d => { spec = readForm(); spec.podracer_flag_data = d; form.elements.podracer_flag.value = "own"; changed(); });
 $("#dlHolo").onclick = () => download("holotable");
 $("#dlMaster").onclick = () => download("master");
 $("#exportJson").onclick = () => {
@@ -336,8 +469,8 @@ document.querySelectorAll('a[href="#help"]').forEach(a => a.onclick = e => { e.p
   fillSelect(form.elements.affiliation, [null, ...opts.affiliations]);
   fillSelect(form.elements.expansion, opts.expansions, v => v ?? "— none —");
   $("#tokens").innerHTML = Object.entries(opts.tokens).map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${esc(v)}</td></tr>`).join("");
-  const m = location.hash.match(/card=([\w-]+)/);
-  if (m) loadCard(m[1]); else loadCard("5_5");
+  const m = location.hash.match(/card=([\w:^-]+)/), mv = location.hash.match(/version=([^&]+)/);
+  if (m) loadCard(m[1], mv ? decodeURIComponent(mv[1]) : ""); else loadCard("5_5");
 })();
 
 

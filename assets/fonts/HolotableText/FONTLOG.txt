@@ -46,6 +46,11 @@ longer, and its g, y, parentheses and quotes differ visibly at large sizes.
 ChangeLog
 ---------
 
+2026-11-10 (swccg-cardmaker contributors) Holotable Text PC Version 1.000
+- Holotable Text PC Regular and Bold (source/build_pc.py): Holotable Text with the advance widths and kerning pairs of
+  the Players Committee's Virtual Legacy slips (numbers read from their PDFs, source/pc_widths.json), so Virtual
+  Legacy text breaks lines where the PC's cards do. Outlines are Holotable Text's own, scaled horizontally per glyph.
+
 2026-11-03 (swccg-cardmaker contributors) Holotable Text Version 1.000
 - First release: Light, Regular and Bold, derived from Barlow Condensed Light, Medium and SemiBold.
 

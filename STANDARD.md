@@ -11,6 +11,12 @@ A V-slip replaces the **bottom half** of the printed Decipher card only. The top
   the icon column, the Original Virtual set symbol at the bottom of the icon column, and the bottom strip:
   "•Title (V)" bottom-left and the slip number bottom-right in the black border.
 
+## Remaster corrections
+Published texts stay exactly as printed on the wiki and in GEMP. Corrections for a remaster (typos, unclear wording,
+attributes to bold, icon/notation slips, image quality, inconsistent titles) are collected on the wiki's
+[Remaster changes list](https://wiki.swccg.com/wiki/Remaster_changes_list) (swccg-guild/work#234). Read it before
+building a remaster and apply the listed correction for the card; add any new finding there.
+
 ## Sources
 - Frames, fonts, layout: Bardez's 600 DPI GIMP templates (wiki: Making Custom SWCCG Cards). Card area 1343×1931 at
   (144,144) on a 1632×2220 black bleed. Fonts from his pack (Fiorello CG Condensed, replaced in rev 62 by our own OFL Holotable Title; Akzidenz-Grotesk BQ Light/Medium/
@@ -691,7 +697,313 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   (436,214,924,115), card type 64 px / spacing 3, game text 66 px, sphere and Episode I disc in red rings
   (`expansion_hole`), coins (1938,1386). Sites print the uniqueness dot and their Planet / Exterior / Episode I icons;
   Executor's subtype italicises _Imperial_.
-- Rev 71 (2026-11-12, swccg-guild/work#52, Characters: Rebel / Imperial plates with the Republic, First Order and
+- Rev 71 (Bill 2026-11-08: "anyone, human or AI, should be able to easily re-create any published version of any Star
+  Wars CCG card from any Era … If you need to make updates to properly do this for Virtual Legacy … please do so"):
+  **Virtual Legacy (2009-2014 Virtual Blocks 1-9 + shields) render from their own card, as printed.** Survey: 42 legacy
+  cards across all blocks, sides and types against the PC's gifs (`res.starwarsccg.org/cards/legacy/…`, the printed
+  layout). Systematic differences found and fixed:
+  - **Art was zoomed/cropped** (art match r 0.14-0.99, median 0.61 on the 41-card sample): the scan path trimmed "silver" edges
+    (`art_trim`/`legacy_scan`) and cover-fitted the rest. A Virtual Block slip keeps the top of the Decipher card it was
+    pasted on, so its art *is* that card's library art. `tools/legacy/match_legacy_art.py` template-matches every
+    library crop into every legacy gif → `gempdata/legacy_art.json` (1,040 of 1,203 cards; r ≥ 0.93, or ≥ 0.85 when the
+    matched card has the card's title or original-title strip; cross-title hits follow the strip: There Is Another on
+    The Way Of Things). Those cards open with `art: {kind: library, gempId: <Decipher card>}`. The rest (new PC art: AI
+    printings, Clone Wars cards) use their own scan, mapped by the frame with **no trim** (trim kept behind
+    `CM_LEGACY_TRIM=1` for comparison only). Sample after: median r 0.975 (27 of 41 ≥ 0.95, was 5), a second random 20: median 0.98, 19 ≥ 0.95; below 0.95 only full-art / no-frame cards
+    whose window the metric cannot isolate (Admiral's Order, VB9 systems) and new-art Missions.
+  - **No copyright line:** the slip keeps the Decipher card's line → `copyright_for(<set of the card it was printed
+    on>)` (art match, else the original-title card, else the same-title card). `card_labels.json` lines (the PC's
+    "Artwork not affiliated…") still win. Systems print none of ours: their picture is the whole scan, which carries
+    its own line and side credits.
+  - **No slip number:** `card_labels.json` `slip_mark` ("123", "85E", "2 • 26", "D60") → `number`.
+  - **Expansion sphere** of renamed cards (Baktoid Armor Workshop): the printed-on card's set when no title match.
+  - **Objective strip:** the original-title strip from the labels is kept ("Invasion (V)", it was overwritten by the
+    front title), and a (V) title keeps its (V) ("Local Uprising (V)").
+  - **Side credits** (`concept_credit_position` side/left side, `edge_text` right side) go into `margin_left` /
+    `margin_right` like the OVS slips (Deep Hatred (V)); **"bottom bar" art credits** ("Image courtesy of …", VB AI
+    cards) use the `concept` bottom-bar preset instead of the copyright's mirror.
+  - **Episode I disc** on Virtual Block Objectives, Missions and Epic Events: left margin by the window top
+    (`disc_left`, (200, 412) master), as printed (A Stunning Move, Hunt Down The Dark Acolyte, Deep Hatred (V)).
+  - **Light Epic Events** keep the normal box (no `text_grow`) on Virtual Block cards: It Is The Future You See (V)
+    prints the EPIC EVENT banner over a normal text box (r 0.29 → 0.97).
+  - **"(Immune to Alter)" without the period** becomes the icon (Baktoid Armor Workshop; 7 cards).
+  - **Virtual Block set mark** redrawn from the gifs: flat black face with a light edge over a white lower bevel, the
+    number standing out of it, 92 % of the rev 41 size, ≈18 px higher and ≈8 px further left (745 px face) on the text
+    box corner (6 cards checked, within ~2 px). Inline `{vb:N}` marks keep their place.
+  - Renderer: a timed-out Chromium page is relaunched (it crashed the following jobs).
+  **Recreating a version:** `GET /api/card/<id>` accepts the legacy id, the current GEMP card (12xx/601_x), a 22xx
+  version card or `pc-legacy:<PC id>` (`gempdata/legacy_versions.json`, built by `tools/legacy/build_versions.py` from
+  legacy-versions-v3.json: 2,783 aliases, 1,502 versions) and returns `versions`; `?version=<id|code|GEMP id>` puts
+  that text on the card (`adapter.apply_version`); a `warning` flags the 143 sheet transcriptions whose inline icons
+  were lost. The editor has a *Published version* picker. How-to: `docs/RECREATE-A-CARD.md`.
+  **Left as found (open):** Virtual Block Mission banner (printed tan with the mission disc; ours silver); Dark
+  Virtual Block shields printed with a red right edge (Death Star Sentry (V) and ~12 others) still use Decipher's cyan
+  frame; Wampa (V) prints its art over the left frame; data-level differences (Galen Marek's blank lore, Padmé's
+  FORCE-SENSITIVE, Kashyyyk "FORREST", Deep Hatred's uniqueness dot) are card-data/version questions, not template ones.
+- Rev 72 (2026-11-08, batch agents' reports on the rev 71 version data): **Virtual Legacy versions follow
+  legacy-versions-v4 and GEMP's version cards.**
+  - `gempdata/legacy_versions.json` is rebuilt from **legacy-versions-v4.json** (v3 + the strict-audit card-list /
+    Master List versions; 91 printings re-coded): 1,569 versions, listed in order (Original, PC-E1, PC-E2 …, v4
+    `version_seq`), `label` = the code or "Original". Darth Vader, Betrayer Of The Jedi (1261_10): Original (2261_10),
+    PC-E1 = the 2012 card-list text (2261_1010), PC-E2 = the Master List text (1261_10).
+  - **22xx ids are read from swccg-gemp**, not computed: `build_versions.py --gemp <clone> --ref origin/master [--ref
+    <open batch PR>]` reads every set22xx class's `LegacyVersion("<current id>", "<code>")` ("" = original); GEMP numbers
+    versions in the order they were added (`n`, `n + 1000` …), so middle versions carry ids like 2261_1010, 2220_1036,
+    2220_1156, 2261_1034, 2261_1065. 261 versions have a 22xx card; retired 22xx ids (blueprintMapping.txt) and back
+    faces open the card. v4's own `gemp_22xx` is stale (it still names 2261_10 as PC-E1) and is used only without
+    `--gemp`. This build: master `582181c1f` + PR #767 head.
+  - **`is_version: null`** entries (82: capitals / punctuation only, waiting on Bill) are not selectable: the API returns
+    them as `version_notes` (a 404 explains if one is asked for) and the editor names them under the picker.
+  - **`[S]` / `[T]` in version texts are ▲ / ▼** (take into hand / deploy from Reserve Deck), as the slips print them;
+    they had rendered as the Immune to Sense icon. The record always spells Immune to Sense out ("(Immune to Sense.)",
+    "[Immune to Sense]", "[Immune To Sense]", the last now also an icon). GEMP / PC card data keep `[S]` as before.
+    Checked against the slips: Rebel Leadership (V) original and PC-E1 (1230_109), Luke Skywalker (V) original (1210_105),
+    •••Rodian (V) original (1210_20).
+  - Version texts: two spaces after a sentence (the 2012-13 card list's style) become one and no longer count as lost
+    icons (`icons_missing` 160 → 121; the warning stays for the real ones); a leading bare "3." on a Character (the pilot
+    icon lost from a sheet / Master List text) is the pilot icon `{pilot:3}`. `?version=original` picks the original.
+  - **"deploy phase" is never the ▼ verb:** the first Reserve Deck shorthand rule matched from "During your deploy
+    phase, may deploy X from Reserve Deck" and printed "During your ▼ phase, may deploy X" (I'm Sorry (V) PC-E1, Boss
+    Nass, every Operative). It now skips "deploy phase" and never runs across a second "deploy", like the #62 rule:
+    116 card texts read "during your deploy phase, may ▼ X", Rebel Infantry "whenever you deploy a Rebel trooper, may
+    immediately ▼ a Blaster Rifle"; Abyssin Ornament's STARTING clause keeps its words.
+  - **Lore:** the PC Legacy JSON carries The Signal's Decipher lore on Jabba, This Is Your Last Chance! (1261_80); the slip,
+    the PC image and the Master List print an empty lore box → `fill.json` `1006_L5619` lore "". Lore comes from the
+    PC Legacy JSON plus `fill.json` (the recorded printed values), never from the Decipher card itself.
+- Rev 73 (2026-11-09, batch agents' reports after B03–B34, swccg-gemp PRs #760–#788): **Virtual Block Missions,
+  the [Vader] disc and the Setup icon as printed; version data rebuilt.** Measured on the PC gifs at 745 px (master
+  px = 2 × (745 px + 35 / 36)), as rev 71 did.
+  - **Mission / Critical Mission frames** (`tools/legacy/refit_mission_frames.py`, reads the rev 72 frames from git
+    `240b511` so it can be re-run): the banner and the text box sat 17–33 px (745) too low and the banner was silver.
+    Now as printed: Light (Hunt Down The Dark Acolyte, Assault On Muunilinst, Rescue On Geonosis, Kessel Run (V)) panel
+    edge 1074, banner 1124–1218, text box from 1240; Dark (In The Hands Of The ISB, Galactic Domination, Spice Mine
+    Operations, Defense Of Muunilinst) panel 1054, banner 1084–1190, text box from 1252 (the text box gains the rows,
+    in mirrored tiles of its texture). Text box top vs the PC after: 0–10 px (745), was 35–45. Banner **cream**
+    (Light 210,200,186) / **pale tan** (Dark 204,182,149) instead of silver, smoother on Dark as printed; panel tan
+    darkened to the printed one (side margins: Light 189,151,112, Dark 164,129,88; ours were 210,177,139 / 204,170,130);
+    MISSION ink grey (Light #322d33, Dark #504b49, measured). Dark: top corners cut at 45° with a lit edge, black text
+    box 30 px wider to the right (the PC's runs to x 660 at 745, ours stopped at 645).
+  - **Banner icon:** the Mission templates had no place for it. Setup (Rebel Aces, In The Hands Of The ISB, Kessel Run
+    (V), the Critical Missions) or, on the Virtual Block 9 Missions, the faction icon (Clone Army: Hunt Down The Dark
+    Acolyte, Assault On Muunilinst, Rescue On Geonosis; Separatist: Rally To Our Cause, Arena Execution, Defense Of Muunilinst),
+    106 px at the banner's right end (Light (1274, 1118), Dark (1314, 1086)); template match on the gifs r 0.83–0.88.
+  - **Left-margin disc:** Rebel Aces and Imperial Aces print the **Objective** icon left of the text box top (template
+    match against the Game Aid icons: objective r 0.83 / 0.81, the next best 0.76); no other Mission does, so it is a
+    per-card printed mark (`adapter.MISSION_DISC`, PC ids 5825, 6389), not derived from the card data (their
+    Death Star II icon is the printed-on card's expansion; the DS2 Critical Missions print no disc).
+  - **[Vader]:** Virtual Block 7 prints it as a round silver-rimmed disc, left of the text box top and inline; ours drew
+    the PC's later square Game Aid icon inline and put it in the column of Darth Vader, More Machine Than Man. New
+    `assets/icons/disc-vader.png` (`make_mission_frames.py --vader`: median of the six printed discs, aligned, from the
+    gifs; no higher-resolution source), 82 px at (190, text box top + 34) (Vader's Bionic Limbs, Cape (V), Cybernetic
+    Enhancements, Helmet, Mask; Darth Vader, More Machine Than Man), inline `{ga:disc-vader}` (legacy cards only; the
+    column no longer carries it). Modern PC cards keep the square icon.
+  - **Setup icon on an Epic Event:** Rise Of The Dark Lord prints it in the right margin at the text box top (47 px box
+    at (664, 623), 745): `epic-event` template `banner_icon` (1398, 1318), 94 px. Only cards with a Setup icon draw it;
+    no Decipher / OVS / modern Epic Event has one. The PC Legacy JSON drops its "Twisted And Evil:" paragraph (opened as
+    1271_19 the API shows the recorded PC-E1 text with it).
+  - **Versions** (`gempdata/legacy_versions.json`, rebuilt from legacy-versions-v4 at ai-team-skills `0ec9e00` and
+    swccg-gemp master `823a035be`): 3,061 aliases, 1,565 versions, 312 with a 22xx card (was 261). Stat-only versions
+    (`part: stats`, Bill B34) are versions: Jedi Survivor (V) Original destiny 1 → PC-E1 destiny 3; each version
+    carries the stats it records and the API prints them. Version texts that lost icons are flagged more completely
+    ("adds one and one .", "always A .", [W2-205]: 90 → 111); opened by the GEMP id alone such a version keeps the
+    card's own text (`note`) instead of printing the lost-icon text on the current card. Straight double quotes in
+    GEMP-copied version texts become curly ones (Rebel Aces' "May add 1 astromech.").
+  - Unchanged: every one of the 4,467 Decipher, Reflections and modern cards builds the same render input as rev 72
+    (card dicts compared one by one); the `epic-event` template only gained an icon position they never use; Original
+    Virtual Set remasters render from their own transcriptions (untouched). Production renders before / after the
+    deploy compared on 11 such cards (HANDOFF).
+  - **Left as found (open):** the PC prints three Missions with a lower panel (Rebel Aces +77 px, Imperial Aces +86,
+    Restore Freedom To The Galaxy +36 at 745: more art, shorter text box); ours keep the common layout. Vader's Mask /
+    Helmet print a raised text box (other Effects' layout question, not the disc). Dark Mission panel bevel is drawn
+    flat apart from the cut corners.
+- Rev 74 (2026-11-10, Bill: "You need to apply more scrutiny to your CardMaker Creations" — Han Solo, Innocent
+  Scoundrel (V) PC-E1: the Cloud City sphere sat on the lore box's edge, "otherwise" wrapped to line 2): **Virtual
+  Legacy cards typeset and laid out as the PC's own cards.** Measured on the PC's vector master lists
+  (`Virtual_Legacy_Final_Master_LS.pdf` / `_DS.pdf`, wiki; 1,050 cards, 337 full cards), not on the 350 px gifs.
+  Tools, numbers and the build: `tools/legacy/typeset/` (README). Applies only to Virtual Legacy cards (`10NN_L…`,
+  `1000d_L…`); Decipher, OVS, Reflections and modern PC cards render exactly as rev 73.
+  - **Type:** the PC set game text and lore in Akzidenz-Grotesk BE Condensed: game text 7.14-7.4 pt on 7.42-7.5 pt
+    lines with -5..+10 / 1000 em tracking, chosen per card; lore 6.2-6.4 pt. Our Holotable Text was fitted to the
+    modern PC's narrower BQ Condensed, so Virtual Legacy lines held fewer words. New face **Holotable Text PC**
+    (Regular / Bold, `assets/fonts/HolotableText/source/build_pc.py`): Holotable Text's own outlines with the PC
+    face's advance widths and kerning pairs read from the PDFs (numbers only; FONTS.md). PC size N pt = N x 8.3333 px.
+  - **Frames:** `gempdata/legacy_typeset.json` = per card (1,021 cards) the text frame's left edge, line width and
+    first baseline, size, tracking, pitch, and the PC's own line breaks; per template defaults for the rest. Line
+    width = the middle of the widths with which a first-fit line breaker reproduces the PC's breaks (841 of 999
+    cards are reproducible that way; a Knuth-Plass composer matched fewer). Long text: size down in 0.05 pt steps
+    and tracking to -6, as the PC did.
+  - **Same words, same lines:** a card whose text has the master list's words breaks where the PC broke (the PC's
+    composer sometimes broke early or kept "Yavin 4 site" together); any other text (a later version) is set by the
+    rules. Check (`check_typeset.py`, game text of the 756 master-list cards whose text we hold, 2026-11-11): rev 73
+    renderer 326 exact (43 %); rev 74 rules alone 540 (71 %), the rest mostly one word off on one line where our
+    widths differ by 0.1-0.2 pt; with the PC's breaks 692 (92 %; most of the rest are check artefacts: the digit
+    inside an inline set mark counts as a word). Lore of the PC-set full cards: 203 / 203 with the PC's breaks.
+  - **Printed lore breaks (`lore_lines`):** the top half of a slip card is the Decipher card as printed, so its lore
+    keeps Decipher's typesetting; a spec may carry the printed card's own lore lines (`lore_lines`, read off the PC
+    image), which then decide the breaks (106 of the 242 uploaded recreations, 2026-11-11).
+  - **Inline icons** take the PC's slot (6.6 pt = 55.5 px, an icon set over a run of spaces), whatever their width
+    (Han Solo's pilot icon took 70 px and pushed "otherwise" to line 2).
+  - **Raised text box:** a sixth line of game text on an Effect / Interrupt / Weapon / Device / shield raises banner
+    and text box one line (first baseline 181.4 pt instead of 189.5 pt) as the PC did (Protocol Failure (V), Imperial
+    Atrocity (V), Cane Adiss (V)), and so does every card the master list prints raised whatever its text (Return Of The
+    Jedi (V) PC-E1 has five lines on the raised card); characters never were (the PC kept them to five lines). The art keeps its top and
+    loses its foot (the slip was pasted over it), so a scan of the PC card no longer shows its own IMMEDIATE EFFECT
+    banner inside the art window (batch B38 had painted two such files by hand).
+  - **Pieces where the PC's card has them** (`render.PC_PIECE_FIX`, template match of each piece of our render into
+    the master list's full cards, median per template, 745 px): expansion sphere (ls-character-alien +11,+10 — Han
+    Solo; Light characters, effects, interrupts, weapons +7..+14 down), icon column (Light characters -4,+6 at 106 %,
+    Dark +4,+6 at 108 %), Virtual Block set mark (effects / interrupts 6-8 px up), destiny and deploy numbers (Dark
+    templates and starships 4-10 px up). After: every measured piece within 3 px (was up to 14).
+- Rev 75 (2026-11-12, Bill: "update CardMaker to be able to create cards utilizing those old (bad) slips"): **Early
+  Virtual slip** (`style: "early-slip"`, `early_slip.py`). The Players Committee's first sheet, Virtual Set #1
+  (decipher.com/starwars/cardlists/virtual/VirtualCards1.pdf, 6 March 2002, Adobe Illustrator 9; VirtualCards1a.pdf
+  the same 12 cards), was not drawn on Decipher's templates: flat vector strips cut out below their title label and
+  laid over the bottom of the printed card. Measured on the vector PDF (all 12 slips): a black U as wide as the card
+  (bar 8.95 pt, legs 8.66 pt, corners 3.8 x 4.5 pt), a flat band — characters a grey panel 55 pt high notched on the
+  right at 32.9 pt (icons stay visible; Light 211/210/210, Dark 94/91/92) with the new deploy (white box) over forfeit
+  (black box), Haettenschweiler 9 pt; starships a 12 pt band under the box (Light 35/140/212, Dark 45/86/174); weapons
+  and devices (93/196/102, 14/131/54) and effects (201/52/93, 161/35/36) a 12 pt band across — a white text box with a
+  0.5 pt rule (124.5 x 44.5 pt; starships 41.6 pt and 2.2 pt lower), game text Akzidenz-Grotesk BE Condensed 8/8 pt
+  ragged right (our HolotableTextPC, the same advance widths), and the set mark "(1)•N" (Wingdings negative circled
+  digit, Bold Italic number, 7 pt, white) in the bottom bar. The card under it is the Decipher printing (title without
+  "(V)"); the slip is cut to its outline by default (`early_slip.paper: true` = the whole printed rectangle with its
+  white paper, as on the sheet). Spec: `early_slip` = {kind, colour, deploy, forfeit, text, lines (printed breaks),
+  set, number, under_text (the original card's own text where it shows), keep_v_title, paper}; a version record with
+  `early_slip` opens on it (`adapter.apply_version`). Not on the VS1 sheet, so not measured: interrupts, locations,
+  vehicles, creatures, objectives (band kind, Effect colours) — and later early sets were not found on Wayback
+  (decipher.com hosted only VS1); every other card, template and style renders exactly as rev 74.
+- Rev 76 (2026-11-12, template survey, ai-team-skills `shared/swccg-cardmaker/TEMPLATE-DIFFERENCES.md`): **White
+  border** for the white-bordered printings (Premiere Unlimited, Revised A New Hope / Hoth / Dagobah, First and Second
+  Anthology previews, the two-player sets). Compared on the wiki scans (Premiere Limited vs Unlimited Luke Skywalker,
+  Raithal vs Raithal (Revised), ESB2P Chewie, Hoth / ANH Revised): only the outer border changes, black → white; frame,
+  boxes, icons, sphere and copyright line are unchanged and stay where they are. Spec `border: "white"` (editor: Border →
+  White; default black; GEMP set 104, ESB Two-Player, opens white): the bleed is white and a black card body (144,144,
+  1343×1931, or 1931×1343 landscape) with corner radius `WHITE_BORDER_RADIUS` = 14 master px (measured on
+  Premiere-U-L-lukeskywalker.png) sits under the frame, so locations keep their black starfield; text printed in the
+  border (caption, number, labels) turns black. Black-border renders are byte-identical to rev 75 (checked on
+  Luke Skywalker, Dejarik Hologameboard, Captain Yorr, Jabba's Palace: Audience Chamber, a Dark interrupt).
+- Rev 77 (2026-11-12, swccg-guild/work#283, Bill: "We also need to be able to re-create Japanese cards in Cardmaker"):
+  **Japanese printings** (Takara 1997-98) as a language layer, `lang_ja.py`. Spec `language: "ja"` (editor: Printing
+  language), default `en`; English renders are byte-identical to rev 76. Compared on the wiki's Japanese scans warped into
+  the master by the frame edges (Darth Vader, Luke Skywalker, Admiral Ozzel; `tools/japanese/compare_ja.py`): Takara kept
+  Decipher's frames, art window, destiny, icons, deploy / forfeit and sphere, and changed: uniqueness `＊` for `•`; title
+  in a heavy gothic condensed to 91 % (Noto Sans JP 800, 67 px, x 395, 27 px higher); the character lore box taller
+  (25 px up, 27 px down, chamfered, English side bevels blended away) with gothic lore 46.6 px / 58 px, justified, the
+  first line pulled in 130 px a side; **one stat strip** instead of three boxes (black on Dark frames, the frame's light
+  well on Light frames, black text), items at the English wells (two stats: the second mid-strip), labels translated
+  (`LABELS`), figures full width; game text Noto Sans JP 500, 47.6 px / 57.5 px, justified, Japanese line breaking, Dark
+  imperial box (335, 1656, 962); banners in katakana / kanji (`CARD_TYPES`) without the English tracking; copyright
+  © 1997 (Premiere, ANH) / 1998 (Hoth) in the light face. Takara broke lines by hand and its leading varies card to
+  card: `lore_lines` / `text_breaks` (editor: Line breaks as printed = each typed line is a printed line) set each line
+  justified and unwrapped, so a line-end 。 hangs as printed. `{u:…}` underlines (Blizzard Walker, Admiral Ozzel).
+  Font: Noto Sans JP (SIL OFL) in `assets/fonts/NotoSansJP`, installed in the container's fontconfig. Not yet: Takara's
+  art shows ~4 % more picture (scale 0.95-0.97; our library art is the English window), types other than characters
+  (they get the same text layer, unmeasured), Japanese location halves.
+- Rev 78 (2026-11-12, template survey fixes; numbered 78 because the Japanese printings layer took rev 77 the same day; code comments say "rev 77"):
+- Rev 78 two-sided Objectives (2026-11-12): the editor and `/api/render` render an Objective's **back face** with spec
+  `face: "back"` (default front; a spec without it renders exactly as before). The back is built exactly as build_vs's
+  batch path builds it (front card dict + `card["back"]`: back title, destiny 7, back game text, id + "b"); its picture
+  is spec `art_back` — default (and `{"kind": "scan"}`) the card's own printed back from the GEMP data's `back.imageUrl`
+  (every GEMP / Legacy Objective has one; the art library holds front windows only), `{"kind": "front"}` the front's
+  picture, `{"kind": "none"}`, `{"kind": "upload", …}` / `library` as for `art`; `art.kind: "ovs"` keeps the remaster's
+  own back art. The back's margin caption follows the front's (Decipher printings: none) instead of build_vs's slip
+  default "<back title> (V)"; spec `caption_back` overrides. Editor (Objectives only): Face Front / Back and Back art
+  (back scan / same as front / none); exports of the back are named `…_back.png`. Compared with the wiki Decipher-archive
+  scans — I Shall Enjoy Watching You Die (EJP 110_6), Systems Will Slip Through Your Fingers (SE 7_136), In The Hands
+  Of The Empire (7_300), Save You It Can (7_138): title, destiny 7, art window and text box sit where the front's do.
+  Found and fixed: `*Place* out of play` and `*Immediately* retrieve` open their own paragraph on the printed Objectives
+  (both faces, 23 cards), as *For* / *While* / *Flip* do (`adapter.objective_text`; unmarked 2010s PC text is marked
+  too), and the back text now gets build_vs's TOKEN_FIX. Fronts without those words are byte-identical to rev 76
+  (md5 checked on Hidden Base, Court Of The Vile Gangster, a character, a Dark site, a system, an interrupt). Not
+  changed: the Light Objective frame (`objective-ls`) draws the expansion sphere lower and further right than the
+  scans (it touches the destiny circle) — front and back alike.
+- Rev 78 printing variants (2026-11-12): three misprint / finish variants, all off by default.
+  **Uniqueness dot colour** — Eriadu (Jedi Pack, GEMP 102_7): first runs printed the Dark bar's uniqueness dot white
+  instead of red (Collecting Encyclopedia 3.2 p.46, both printings side by side; wiki Jedi-D-eriadu-decipher-archive.gif
+  is the corrected red one). Spec `bullet_colour`: `red` / absent = as printed; `white` (or `black`, or a #hex) recolours
+  the location dot on the card's own-side bar (the other bar's plain dot is unchanged) and the leading dots of a card
+  title. Editor: Uniqueness dot → Red / White (Eriadu misprint).
+  **Forfeit box border** — Lando In Millennium Falcon (Enhanced Cloud City, GEMP 109_2): 1 in 20 per sheet printed a
+  thicker black border round the forfeit value (Encyclopedia p.47 photo, normal and variant cards side by side, pdf
+  image 1152×2048). Measured with a 3 px blur on the halftone: the black box is 1.79× the white deploy box's width on
+  the variant against 1.27× on the normal card, i.e. ~12 master px more black each side (photo ≈ 1 master px per px by
+  the game-text pitch); vertically the box grows up to meet the deploy box (~6-8 px, the photo is too soft to separate
+  it). Spec `forfeit_box_border` (extra master px, default 0, max 40) draws a black rectangle that much larger than the
+  frame's forfeit box under the value; use 12 for this variant. Editor: Forfeit box border (extra px).
+  **Foil** — Reflections I-III foils (and any other card): spec `foil: true`, editor checkbox Foil. No wiki scan shows
+  the foil; matched to collector photos of Reflections II foils (PriceCharting: Admiral Ackbar, Chewie With Blaster
+  Rifle, Jodo Kast, Lord Vader, Home One): the silver frame's white splatter and bevels shimmer pastel rainbow (magenta,
+  violet, cyan, green, gold) in broad diagonal bands; dark frames keep their tone with a faint violet / blue cast; the
+  outer black border, the art and the text boxes stay as on a normal card. Drawn (`foil_html`) as three layers over the
+  frame image, each masked by the frame PNG's own alpha (so art windows and location starfields are untouched) and
+  clipped (even-odd path) round the lore / game text / location text boxes: a 118° repeating rainbow (1080 px period)
+  multiplied at 50 %, the same screened at 16 %, and two soft-light gloss streaks at 70 %.
+  Checks: renders without the keys (and with `bullet_colour: red`, `forfeit_box_border: 0`, `foil: false`) are
+  byte-identical to rev 76 (md5 on Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan system 1_121, Charming
+  To The Last 1_236, an objective 7_135, Eriadu 102_7, Lando In Millennium Falcon 109_2).
+- Rev 78 Split art (2026-11-12): **two-picture windows** of the Reflections II combo cards (Do, Or Do Not & Wise
+  Advice, Ghhhk & Those Rebels Won't Escape Us, Sunsdown & Too Cold For Speeders …), for new cards and remasters.
+  Measured on 24 printed combo scans (res.starwarsccg.org ReflectionsII-Light/-Dark large faces: 12 Light, 12 Dark;
+  Ghhhk 745 px true colour, the rest 354 px GIFs): one straight stripe rising from lower left to upper right at 60.0°
+  from horizontal (dx/dy −0.577 on every scan, centre ±1 px at 745 across all 24), its centre line crossing the window's
+  mid-height 0.508 of the window width from the left (master x 821 in the scan window 240..1384 × 372..1150; it meets the
+  top edge at ~0.70 and the bottom edge at ~0.31 of the width); width across the stripe Light 36 master px (20.5 px
+  horizontally at 745), Dark 38 (22 px); two bevel facets split along its middle, soft ~1 px edges, no outline: Light
+  silver, lower-left facet 226/225/222, upper-right 200/200/198 (median of 12); Dark red, lower-left 176/28/45, upper-right
+  214/31/53 (Ghhhk; the GIFs show the same split darker, 138/25/37 and 167/14/40). Each printed picture is at the scale of
+  the whole window and pushed against the stripe (Ghhhk's right edge at the stripe's top end, the TIE picture's left edge at
+  its bottom end). Spec: `art2` = the second picture, same forms as `art` (`{kind: library, gempId, version}`,
+  `{kind: scan, gempId}`, `{kind: upload, data}`; `none` or absent = one picture, rendering unchanged); `split` (optional)
+  = `{angle: 60, x: 0.508, width: 36 Light / 38 Dark, color: "silver" | "red" | "#rrggbb" (two facets ±6/8 %) | "none"
+  (default silver for Light, red for Dark templates), texture: "bevel" | "flat", fit1 / fit2: {zoom ≥ 1, fx, fy}}` — fx 1
+  for picture 1 and 0 for picture 2 by default (pushed against the stripe), fy 0.5. `render.split_art()` composes the
+  window (picture 1 left / lower, picture 2 right / upper, analytic anti-aliasing, stripe over the seam) and places it in
+  whatever window the card has: the raised no-lore window (`_artwin`), the lore-merged window, the frame hole, or a lore
+  card's normal window (Owen Lars & Beru Lars); landscape and system cards ignore `art2`. A scan picture is cut by the
+  template's normal art box (a lore-box card's window). Server: `resolve_art(spec, split=True)` returns uploads whole
+  (framed by fit1 / fit2, not by the upload's own zoom). Editor (Art): "Split art" checkbox (ticked on cards with no lore
+  box or with art2), first / second picture from any card (title or GEMP id, library art, 4× or scan) or uploaded, zoom /
+  left-right / up-down sliders for each picture, stripe angle, position, width, colour (auto / silver / red / own colour /
+  none), finish (bevelled / flat), reset. Checks: md5 of 9 renders identical before / after (Beru Lars 1_2, Death Star:
+  Central Core 1_283, Alderaan system 1_121, Alter 1_234, objective 9_151, and the combos 10_7, 10_39, 10_50, 10_18 with
+  their own scans), and `art2: {kind: none}` = no art2; composed from library art and compared with the scans: 10_7 = 4_21
+  + 7_81, 10_39 = 2_132 + 4_150, 10_50 = 1_230 + 3_113, 10_22 = 5_68 + 2_49 — stripe position, angle, width and colour
+  within ~1 px (745) of the printed cards; Decipher's own crops of each picture differ a little (adjust with fx / zoom).
+- Rev 78 Podracers (2026-11-12): **Episode I Podracers** (Tatooine Anakin's 11_47, Ben Quadinaros' 11_95, Dud Bolt's
+  11_96, Sebulba's 11_97, Teemto Pagalies' 11_98; GEMP has five, not six). Measured on the wiki's 497×692 Decipher
+  archive scans (card body 24..471 × 24..669, master = 144 + (scan − 24) × 3) against our Effect renders: the printed
+  Podracer top differs from the Effect frame — the title bar runs straight across (ridge master y 336..360, no notch) and
+  the lore box is a plain rectangle 276..1350 × 402..603 (Light: silver box 255..1361 × 393..612), lore flush left with no
+  first-line indent (text x 320..~1310); the type disc, destiny, art window, banner "PODRACER" and text box are the
+  Effect's (within 5 px). New templates `ds-podracer` / `ls-podracer` (`build_vs.template_for`: slip type Podracer;
+  frames from `make_podracer_frames.py`, built from our own Effect frames: band refilled from the clean rows under the
+  old lore box, header carried down, the Effect's own ridge profile and box rims; the frame's green Effect icon under the
+  podracer disc darkened). The **pilot flag badge**: the flag picture in a recessed window right of the disc — Dark
+  master 366..552 × 183..327 (scan 98..160 × 37..85), Light 357..546 × 174..327 — drawn with a 14 px CSS bevel; the
+  title then starts at x 611 (printed bullet 618) instead of 403. Flags cut from the wiki scans (the Holotable faces are
+  350×490, lower) by `tools/cut_podracer_flags.py`, 6× Lanczos + unsharp mask → `assets/icons/podracer-flag-<slug>.png`
+  (anakin, sebulba, ben-quadinaros, dud-bolt, teemto-pagalies; the window is ≈4:3, not square). Spec keys:
+  `podracer_flag: "<slug>"` (set by `adapter.finish` from the title for the five cards; `"own"` with
+  `podracer_flag_data`: a data-URI image, resolved by the server like the set symbol → card `podracer_flag_file`);
+  no flag → no badge and the Effect title position. Editor: Card type "Podracer" is now in the list; a Podracer shows
+  "Pilot flag" (the five, None, Your own) and an upload. Checks: before/after sheets of all five against the scans;
+  non-Podracer renders byte-identical to rev 76 (Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan System
+  1_121, A Few Maneuvers 1_70, Carbon Chamber Testing 7_296, A Bright Center To The Universe 7_218, 1_47). Not changed:
+  the printed Podracers set their game text a little larger/narrower than our Effect box (the shared Effect text box).
+- Rev 78 objective sphere (2026-11-12): the expansion sphere on printed Objectives sits in the purple margin right of
+  the art, clear below the destiny circle. Measured (ring fit on body-normalised 745 px scans) on 20 Light faces (Hidden
+  Base / Systems Will Slip, Mind What You Have Learned / Save You It Can, Rescue The Princess, Rebel Strike Team, There Is
+  Good In Him, Watch Your Step, Plead My Case, We'll Handle This, We Have A Plan, Quiet Mining Colony, You Can Either
+  Profit, fronts and backs) and Light Epic Events (Attack Run, Deactivate The Shield Generator, Boonta Eve, Inner
+  Strength): centre (678.5, 159.5) at 745 px = master (1427, 391); 10 Dark faces (Carbon Chamber Testing, Endor
+  Operations, Bring Him Before Me, Coruscant, R3, Theed, Enhanced CC / JP): (676, 166) = master (1422, 404). The sphere
+  with its black ring is ~29 px across at 745 = 58 master. `objective-ls` (and `ls-epic-event`, which copies it)
+  expansion_ring (1412, 295) -> (1398, 362), `objective` -> (1393, 375); expansion_size 70 -> 58. No new spec keys; the
+  Episode I disc under the sphere (Theed-era) follows it down. Every other template is md5-identical (character, Dark
+  site, system, interrupt, effect, Admiral's Order, starship, Dark Epic Events Target The Main Generator / Boonta Eve,
+  a Virtual Objective). Not changed: the Dark Epic Event template (`epic-event`) is in the right place but draws its
+  sphere at 70 px vs ~58 printed; printed Theed Objectives carry the Episode I disc in the LEFT margin, not under the sphere.
+- Rev 79 (2026-11-12, swccg-guild/work#52, Characters: Rebel / Imperial plates with the Republic, First Order and
   Resistance discs; **pending deploy**, not yet on the live CardMaker). Measured with `compare_pc.py` on 10 PC
   characters (VS24-27; Light: Chewbacca Of Kashyyyk (V), Obi-Wan Kenobi Jedi In Exile, Captain Han Solo (V), Finn
   Resistance Hero, Corporal Rushing (V); Dark: Sil Unch (V), Captain Moden Canady, Cardo, Warrant Officer

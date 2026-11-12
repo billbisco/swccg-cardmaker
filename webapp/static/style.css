@@ -106,3 +106,6 @@ button:disabled { opacity: .45; cursor: default; }
 
 .xedit{border-top:1px solid var(--line, #3334);margin-top:8px;padding-top:8px}
 .xedit textarea{width:100%}
+.split { border-top: 1px dashed var(--line); margin-top: 8px; padding-top: 8px; }
+.art2shown { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 12px; color: var(--ink); }
+.art2shown img { width: 120px; height: 70px; object-fit: cover; border-radius: 4px; background: #000; }

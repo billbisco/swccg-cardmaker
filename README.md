@@ -40,6 +40,12 @@ python3 build_vs.py 3          # all of VS3 → out/vs3-NN_1632.png + out/vs3-NN
 python3 render.py cards/tarkin-v-vs3.json
 ```
 
+## Recreate a published card version
+
+Any printed card (Decipher, Reflections Gold, Original Virtual Sets, Virtual Legacy blocks, Virtual Sets 0–27) opens in
+the browser editor (<https://swccg.com/cardmaker/>) or the API; Virtual Legacy cards also open by GEMP id and list every
+published game-text version. Step by step for people and scripts: [docs/RECREATE-A-CARD.md](docs/RECREATE-A-CARD.md).
+
 ## Compare with a PC card
 
 `compare_pc.py` builds a PC Virtual card through the CardMaker API (`/api/card`, `/api/render`) and compares it with the

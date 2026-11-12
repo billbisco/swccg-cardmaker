@@ -36,6 +36,10 @@
         <p id="bCount" class="hint"></p>
       </div>
       <ul id="results" class="results" hidden></ul>
+      <div id="versionRow" hidden>
+        <label>Published version (Virtual Legacy) <select id="versionPick"></select></label>
+        <p id="versionNote" class="hint"></p>
+      </div>
     </div>
 
     <form id="form" autocomplete="off">
@@ -49,8 +53,26 @@
           <label>Frame style <select name="style">
             <option value="decipher">Decipher (as printed)</option>
             <option value="ovs">Original Virtual (2002–2008 remaster slips)</option>
+            <option value="early-slip">Early Virtual slip (2002 VS1 paper slip over the printed card)</option>
           </select></label>
+          <label>Printing language <select name="language">
+            <option value="en">English</option>
+            <option value="ja">Japanese (Takara 1997–98)</option>
+          </select></label>
+          <label class="inline"><input type="checkbox" name="printed_breaks"> Line breaks as printed (Japanese: each typed line in lore / game text is one printed line)</label>
           <label>Set mark (bottom corner) <select id="setMark"></select></label>
+          <label>Border <select name="border">
+            <option value="black">Black (Limited printings)</option>
+            <option value="white">White (Unlimited, Revised, Anthology, two-player sets)</option>
+          </select></label>
+        </div>
+        <div class="grid3">
+          <label>Uniqueness dot <select name="bullet_colour">
+            <option value="red">Red (as printed)</option>
+            <option value="white">White (Eriadu misprint, Jedi Pack first runs)</option>
+          </select></label>
+          <label class="df">Forfeit box border (extra px) <input name="forfeit_box_border" type="number" min="0" max="40" step="1" placeholder="0 (Lando In Millennium Falcon 1-in-20: 12)"></label>
+          <label class="inline"><input type="checkbox" name="foil"> Foil (Reflections I–III sheen)</label>
         </div>
         <label>Title <input name="title" placeholder="•Lando Calrissian"></label>
         <div class="grid2">
@@ -68,6 +90,19 @@
           <label>Destiny <input name="destiny" maxlength="8"></label>
           <label class="df">Deploy <input name="deploy" maxlength="4"></label>
           <label class="df">Forfeit <input name="forfeit" maxlength="4"></label>
+        </div>
+        <div class="podonly" hidden>
+          <label>Pilot flag (Podracer) <select name="podracer_flag">
+            <option value="">None</option>
+            <option value="anakin">Anakin Skywalker</option>
+            <option value="sebulba">Sebulba</option>
+            <option value="ben-quadinaros">Ben Quadinaros</option>
+            <option value="dud-bolt">Dud Bolt</option>
+            <option value="teemto-pagalies">Teemto Pagalies</option>
+            <option value="own">Your own flag (upload)</option>
+          </select></label>
+          <label class="file">Your own pilot flag <input type="file" id="podFlagFile" accept="image/*"></label>
+          <p class="hint">The flag fills the window between the podracer icon and the title (about 4 : 3, wider than tall).</p>
         </div>
         <label class="shieldonly" hidden>Shield frame <select name="shield_style">
           <option value="decipher">Decipher (cyan / Dark cyan)</option>
@@ -88,6 +123,18 @@
           <textarea name="game_text" rows="5"></textarea></label>
         <label class="loconly" hidden>Dark Side text <textarea name="dark_text" rows="3"></textarea></label>
         <div class="objonly" hidden>
+          <div class="grid2">
+            <label>Face <select name="face" id="face">
+              <option value="front">Front</option>
+              <option value="back">Back (destiny 7)</option>
+            </select></label>
+            <label>Back art <select name="art_back_kind" id="artBack">
+              <option value="scan">Card's own back scan</option>
+              <option value="front">Same as the front</option>
+              <option value="none">No art</option>
+              <option value="upload" hidden>Your picture (card JSON art_back)</option>
+            </select></label>
+          </div>
           <label>Back side title <input name="title_back"></label>
           <label>Back side game text <textarea name="game_text_back" rows="4"></textarea></label>
         </div>
@@ -124,6 +171,33 @@
           <label>Up ↕ down <input type="range" id="fY" min="0" max="1" step="0.01" value="0.5"></label>
         </div>
         <p class="hint">Your picture fills the card's art window; use zoom and the sliders to frame it.</p>
+        <label class="splittoggle"><input type="checkbox" id="splitArt"> Split art: two pictures divided by a diagonal stripe (as the Reflections II combo cards)</label>
+        <div id="art2Box" class="split" hidden>
+          <p class="hint">Picture 1 (above) fills the lower-left part of the window, the second picture the upper-right part, with the stripe over the join.</p>
+          <div class="grid3">
+            <label>First picture from card <input id="art1Card" list="art2List" placeholder="title or GEMP id, e.g. Do, Or Do Not"></label>
+            <label>Second picture from card <input id="art2Card" list="art2List" placeholder="title or GEMP id, e.g. Wise Advice"></label>
+            <label>Art <select id="art2Ver"><option value="orig">Printed art</option><option value="x4">AI 4× upscale</option><option value="scan">Card's own scan</option></select></label>
+            <label class="file">Or upload a picture <input type="file" id="art2File" accept="image/*"></label>
+          </div>
+          <datalist id="art2List"></datalist>
+          <div id="art2Shown" class="art2shown" hidden><img alt=""><span></span> <button type="button" id="art2Clear" class="ghost">Remove</button></div>
+          <div class="grid3">
+            <label>Picture 1 zoom <input type="range" id="s1Zoom" min="1" max="4" step="0.05" value="1"></label>
+            <label>Picture 1 left ↔ right <input type="range" id="s1X" min="0" max="1" step="0.01" value="1"></label>
+            <label>Picture 1 up ↕ down <input type="range" id="s1Y" min="0" max="1" step="0.01" value="0.5"></label>
+            <label>Picture 2 zoom <input type="range" id="s2Zoom" min="1" max="4" step="0.05" value="1"></label>
+            <label>Picture 2 left ↔ right <input type="range" id="s2X" min="0" max="1" step="0.01" value="0"></label>
+            <label>Picture 2 up ↕ down <input type="range" id="s2Y" min="0" max="1" step="0.01" value="0.5"></label>
+            <label>Stripe angle (°) <input type="number" id="sAngle" min="15" max="89" step="1" value="60"></label>
+            <label>Stripe position <input type="range" id="sPos" min="0.1" max="0.9" step="0.001" value="0.508"></label>
+            <label>Stripe width <input type="number" id="sWidth" min="0" max="200" step="1" placeholder="auto (36 / 38)"></label>
+            <label>Stripe colour <select id="sColor"><option value="">Auto (silver Light / red Dark)</option><option value="silver">Silver</option><option value="red">Red</option><option value="custom">Your colour</option><option value="none">No stripe</option></select></label>
+            <label>Your colour <input type="color" id="sCustom" value="#c8c8c8"></label>
+            <label>Finish <select id="sTexture"><option value="bevel">Bevelled (as printed)</option><option value="flat">Flat</option></select></label>
+          </div>
+          <button type="button" id="splitReset" class="ghost">Reset stripe and framing to the printed cards</button>
+        </div>
       </fieldset>
 
       <fieldset class="block">
@@ -244,13 +318,13 @@
   <ol>
     <li><b>Pick a starting card</b> with the search box (any Decipher or Players Committee card), or press <i>New blank</i>.</li>
     <li><b>Edit</b> any field. The preview re-renders a moment after you stop typing.</li>
-    <li><b>Art:</b> the printed art (original or 4× upscale), the card's own scan, or upload your own picture.</li>
+    <li><b>Art:</b> the printed art (original or 4× upscale), the card's own scan, or upload your own picture. <b>Split art</b> (ticked for cards with no lore box) adds a second picture beside the first, divided by the diagonal stripe of the Reflections II combo cards; pick either picture from any card or upload it, and frame each with its own sliders.</li>
     <li><b>Download</b> the PNG: 745 × 1039 is the Holotable / GEMP size; print size is 600 dpi.</li>
   </ol>
   <h3>Codes in game text</h3>
   <table id="tokens"></table>
   <h3>For AI assistants and batch work</h3>
-  <p>Export a card as JSON to see the format. <code>POST /cardmaker/api/render</code> with <code>{"spec": …, "size": "holotable"|"master"|"preview", "format": "png"|"webp"}</code> returns the image. <code>GET /cardmaker/api/card/&lt;gempId&gt;</code> returns any existing card as JSON; <code>GET /cardmaker/api/search?q=</code> finds cards.</p>
+  <p>Export a card as JSON to see the format. <code>POST /cardmaker/api/render</code> with <code>{"spec": …, "size": "holotable"|"master"|"preview", "format": "png"|"webp"}</code> returns the image; an Objective's back face renders with <code>"face": "back"</code> (its picture: <code>"art_back"</code>, default the card's own back scan). <code>GET /cardmaker/api/card/&lt;gempId&gt;</code> returns any existing card as JSON; <code>GET /cardmaker/api/search?q=</code> finds cards.</p>
   <form method="dialog"><button class="primary">Close</button></form>
 </dialog>
 

@@ -6,7 +6,7 @@ fields (title, side, slip_type, card_type, stats, game_text, icons, ...) plus an
 AIs and batch jobs can write them directly.
 """
 from __future__ import annotations
-import re
+import os, re
 
 SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring sphere right of the lore box)
     "1": "Premiere", "2": "A New Hope", "3": "Hoth", "4": "Dagobah", "5": "Cloud City", "6": "Jabba's Palace",
@@ -16,6 +16,10 @@ SETS = {   # GEMP set id -> expansion name as build_vs.SET_ICON knows it (ring s
     "109": "Enhanced Cloud City", "110": "Enhanced Jabba's Palace", "111": "Premium", "112": "Jabba's Palace Sealed Deck",
     "15": "Reflections Gold Remastered", "15o": "Reflections Gold",   # set 15 (swccg-guild/work#174): Remastered = 15_N, original playtest = 15_No
 }
+
+# GEMP sets Decipher printed only with a white outer border (rev 76). The Unlimited / Revised reprints (GEMP 5x_N,
+# First / Second Anthology previews) are not separate cards in the data: open the card and pick Border: White.
+WHITE_BORDER_SETS = {"104"}   # The Empire Strikes Back Introductory Two-Player Game (ESB2P-L-chewie-decipher-archive.gif)
 
 EXPANSION_NAMES = {"A New Hope", "Hoth", "Dagobah", "Cloud City", "Jabba's Palace", "Special Edition", "Endor",
                    "Death Star II", "Reflections II", "Tatooine", "Coruscant", "Reflections III", "Theed Palace", "Premium",
@@ -57,7 +61,7 @@ def set_mark_for(set_id) -> str | None:
 
 INLINE = {   # GEMP's bracketed icon names in game text -> renderer tokens
     "[Immune to Alter.]": "{alter}", "[Immune to Alter]": "{alter}", "[Immune to Sense.]": "{sense}",
-    "[Immune to Sense]": "{sense}", "[Immune to Control.]": "{control}", "[Immune to Control]": "{control}",
+    "[Immune to Sense]": "{sense}", "[Immune To Sense]": "{sense}", "[Immune To Sense.]": "{sense}", "[Immune to Control.]": "{control}", "[Immune to Control]": "{control}",
     "[Episode I]": "{episode1}", "[Light Side Force]": "{light-force}", "[Dark Side Force]": "{dark-force}",
     "[Maintenance]": "{maintenance}", "[Independent]": "{independent}", "[Grabber]": "{grabber}",
     "[Republic]": "{icon:republic}", "[Pilot]": "{icon:pilot}", "[Warrior]": "{icon:warrior}",
@@ -93,6 +97,9 @@ ICON_COL = {"Pilot": "pilot", "Warrior": "warrior", "Nav Computer": "nav", "Perm
             "Resistance": "resistance", "First Order": "first-order", "Vader": "vader", "Republic": "republic"}
 FACTION = {"independent", "independent-starship", "trade-federation", "clone-army", "separatist", "resistance",
            "first-order", "republic", "vader"}
+# rev 73: a type disc printed left of the text box top of two Virtual Block 7 Missions (PC id -> icon), as printed:
+# Rebel Aces / Imperial Aces carry the Objective icon there (template match on the PC gifs, r 0.83 / 0.81)
+MISSION_DISC = {"5825": "objective", "6389": "objective"}
 RING = {"Episode I": "episode1", "Episode VII": "episode7", "Sidious": "sidious", "Skywalker": "skywalker", "Personal Force": "personal-force"}
 LOC_ICON = {"Planet": "planet", "Interior": "interior", "Exterior": "exterior", "Mobile": "mobile",
             "Underground": "underground", "Underwater": "underwater", "Starship": "starship", "Vehicle": "vehicle",
@@ -194,11 +201,12 @@ def pc_shorthand(t: str) -> str:
     # "take" first, and "deploy" only as the verb: "take Luke … with printed deploy < 4 into hand from Reserve Deck" is
     # ▲ (PC A New Hope, VS27); matching "deploy" first turned it into "take Luke … printed ▼ < 4 into hand" (#63)
     t = re.sub(r"(?i)\btake ((?:(?!\binto hand\b)[^.;])+?) into hand from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▲ \1", t)
-    t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])([^.;()]+?) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▼ \1", t)
+    t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])(?!phase\b)((?:(?!\bdeploy\b)[^.;()])+?) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\))?", r"▼ \1", t)   # rev 72: not from "deploy phase, may deploy …" (I'm Sorry (V) PC-E1)
     # #62: the object may hold a bracketed aside ("an [Episode I] (or Coruscant) docking bay"), when the Reserve Deck
     # clause ends the sentence; never across a second "deploy" or a "deploy phase"
     t = re.sub(r"(?i)(?<!printed )(?<!total )\bdeploy (?![<>=≤≥])(?!phase\b)((?:(?!\bdeploy\b)[^.;()]|\([^().;]*\))+?)(?<!,) from (?:your )?Reserve Deck(?:; reshuffle| \(reshuffle\)|(?=[.;]))", r"▼ \1", t)
-    t = t.replace("(Immune to {alter}.)", "{alter}")
+    t = re.sub(r"\(Immune to \{alter\}\.?\)", "{alter}", t)
+    t = re.sub(r"\(Immune to Alter\.?\)", "{alter}", t)   # also without the period (Baktoid Armor Workshop, VB7)
     t = re.sub(r"\(Immune to (Sense|Control)\.?\)", lambda m: "{%s}" % m.group(1).lower(), t).replace("(Immune to Alter.)", "{alter}")
     return t
 
@@ -291,19 +299,34 @@ def gemp_to_spec(c: dict) -> dict:
         if lab.get("ai_mark"):   # "(AI)" / "(ALT)" with the PC logo to its left; it moves left of an errata mark
             labels.append(dict({"preset": "ai", "text": lab["ai_mark"] if isinstance(lab["ai_mark"], str) else "(AI)"},
                                **({"x": -228} if lab.get("errata_mark") else {})))
-        for _f in ("concept_credit", "dedication", "bar_text"):   # the line in the frame's bottom bar ("Original concept by …",
-            if lab.get(_f) and not lab.get(_f + "_position"):    # "In memory of …"); edge-printed ones are slip credits
+        for _f in ("concept_credit", "dedication", "bar_text", "edge_text"):   # the line in the frame's bottom bar ("Original concept by …",
+            pos = lab.get(_f + "_position")                                      # "In memory of …"); edge-printed ones run up a side margin
+            if lab.get(_f) and (not pos or pos == "bottom bar") and _f != "edge_text":
                 labels.append({"preset": "concept", "text": lab[_f]})
+            elif lab.get(_f) and pos in ("side", "left side", "right side") and c.get("legacy"):   # rev 71: up the side margins,
+                spec["margin_right" if pos == "right side" else "margin_left"] = lab[_f]           # as the OVS slips (Deep Hatred (V))
         if labels:
             spec["labels"] = labels
-        if lab.get("art_credit"):
+        if lab.get("art_credit") and lab.get("art_credit_position") == "bottom bar":
+            labels.append({"preset": "concept", "text": lab["art_credit"]})   # rev 71: "Image courtesy of …" in the bottom bar (VB AI cards)
+            spec["labels"] = labels
+        elif lab.get("art_credit"):
             spec["art_credit"] = lab["art_credit"]
         if lab.get("copyright"):
             spec["copyright"] = lab["copyright"]
         elif _modern and lab.get("original_title") is not None:   # checked on the PC image: no copyright line printed
             spec["copyright"] = ""
+    if c.get("legacy"):
+        # rev 71: the 2009-14 Virtual Block slips print their sheet number at the strip's right end ("123", "85E", "2 • 26",
+        # "D60"), read off the PC gifs into card_labels.json slip_mark; and keep the copyright line of the Decipher card
+        # they were printed on (the server finds that card: c["_print_base_set"])
+        if lab.get("slip_mark"):
+            spec["number"] = str(lab["slip_mark"])
+        if not lab.get("copyright") and c.get("_print_base_set"):
+            spec["copyright"] = copyright_for(c["_print_base_set"])
     if c.get("legacy") and not lab.get("original_title"):   # 2009-2014 Virtual Blocks print "•Title (V)" in the bottom strip (Holotable faces)
         spec["caption"] = (f.get("title") or "").replace("<>", "◊")
+    if c.get("legacy"):
         if typ == "Defensive Shield":
             # the Virtual Defensive Shields reuse their original card's frame (QA vs the Holotable scans, 2026-10-15):
             # Episode I-style red→cyan with the green swirl (Affect Mind (V), After Her! (V)), else Decipher's cyan
@@ -315,6 +338,8 @@ def gemp_to_spec(c: dict) -> dict:
                 spec["expansion"] = nm; break
     sid = str(c.get("set") or "")
     pc_era = (sid.isdigit() and (200 <= int(sid) <= 399 or int(sid) >= 1000)) or sid in ("200d", "1000d")
+    if not spec.get("expansion") and c.get("legacy") and SETS.get(str(c.get("_print_base_set") or "")) in EXPANSION_NAMES:
+        spec["expansion"] = SETS[str(c["_print_base_set"])]   # rev 71: the sphere of the Decipher card it was printed on (Baktoid Armor Workshop: Coruscant)
     if not spec.get("expansion") and pc_era:   # (V) cards keep the original card's sphere (Overseeing It Personally (V): DS2)
         spec["expansion"] = BASE_EXP.get(re.sub(r"[^a-z0-9]", "", title.lower().replace("•", "")))
     spec["lore"] = quotes(spec["lore"])
@@ -344,18 +369,30 @@ def gemp_to_spec(c: dict) -> dict:
         spec["caption"] = (spec.get("caption") or "").replace("'", "\u2019")
     spec["game_text"] = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", spec["game_text"]) if re.match(r"\s*(USED|LOST|STARTING):", spec["game_text"]) else spec["game_text"]
     if c.get("legacy"):
-        spec["bold_lore"] = False   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
+        spec["game_text"] = spec["game_text"].replace("{ga:vader}", "{ga:disc-vader}")   # rev 73: the round VB7 disc inline
+        spec["bold_lore"] = False
+        if typ in ("Objective", "Mission", "Epic Event"):
+            spec["disc_left"] = True   # rev 71: the Episode I disc in the left margin (A Stunning Move, Hunt Down The Dark Acolyte)   # Virtual Block lore prints characteristics plain (Chief Chirpa (V))
+    if c.get("legacy") and typ == "Location" and sub in ("System", "Sector"):
+        # rev 71: a system's picture is its whole PC scan, which already carries its copyright and side credits
+        spec["copyright"] = ""; spec.pop("margin_left", None); spec.pop("margin_right", None)
     if typ in ("Device",):
         spec["device_frame"] = True
     # modern PC cards print the PC's own redrawn spheres; Decipher, OVS and Virtual Block cards print Decipher's
     # expansion sphere style: the PC's redraws by default (Bill 2026-11-01: the target look is the PC's); Decipher's own
     # as printed is the editor's / API's "decipher". The 2009-14 Virtual Blocks (sets 1000+) printed Decipher's spheres.
     spec["expansion_style"] = "decipher" if (sid.isdigit() and int(sid) >= 1000) or sid == "1000d" else "pc"
+    spec["border"] = "white" if sid in WHITE_BORDER_SETS else "black"   # rev 76: Unlimited / Revised / Anthology printings
     rings = [RING[i] for i in icons if i in RING]
     if rings:
         spec["ring_icons"] = rings   # Episode I / VII, Sidious, Skywalker discs under the expansion sphere (A Close Race, Porg)
     if "Setup" in icons:
         spec["banner_icon"] = "setup"   # in the banner's right end (A Remote Planet (V))
+    elif c.get("legacy") and typ == "Mission" and ("Clone Army" in icons or "Separatist" in icons):
+        # rev 73: Virtual Block 9 Missions print their faction icon there (Hunt Down The Dark Acolyte, Rally To Our Cause)
+        spec["banner_icon"] = "clone-army" if "Clone Army" in icons else "separatist"
+    if c.get("legacy") and typ == "Mission" and str(c.get("id")) in MISSION_DISC:
+        spec["mission_disc"] = MISSION_DISC[str(c.get("id"))]
     if "Scoundrel" in icons:
         spec["margin_icon"] = "scoundrel"   # left margin at the text box (Scoundrel's Bravado)
     col = [ICON_COL[i] for i in icons if i in ICON_COL and i != "Episode I"]
@@ -368,6 +405,11 @@ def gemp_to_spec(c: dict) -> dict:
         col.append("ds2")   # Reflections reprints print the original set's DS2 icon in the column (Luke, Rebel Scout; The Emperor)
     if typ in ("Starship", "Vehicle"):   # starships print their faction icon at the top of the column (Blockade Support Ship)
         col = [c_ for c_ in col if c_ in FACTION] + [c_ for c_ in col if c_ not in FACTION]
+    if c.get("legacy") and "Vader" in icons:
+        # rev 73: Virtual Block 7 prints [Vader] as a round disc left of the text box, not in the column (Darth Vader,
+        # More Machine Than Man; Vader's Mask) and as the same disc inline ("Deploy on [Vader] Vader")
+        col = [c_ for c_ in col if c_ != "vader"]
+        spec["margin_disc"] = "disc-vader"
     rings = [RING[i] for i in icons if i in RING]
     if "Republic" in icons and typ == "Character":
         col = [c_ for c_ in col if c_ != "republic"]   # characters show Republic as the affiliation disc
@@ -483,7 +525,9 @@ def gemp_to_spec(c: dict) -> dict:
             gt = f.get("gametext") or ""
             i = gt.find(bt.replace("•", "").strip() + ":")
             spec["title"] = ft
-            if spec["caption"]: spec["caption"] = ft
+            if spec["caption"] and not lab.get("original_title"):   # rev 71: "Local Uprising (V)", not "Local Uprising"; an
+                cap = spec["caption"]                                # original title from the labels stays (A Stunning Move: "Invasion (V)")
+                spec["caption"] = cap.split(" / ")[0] + (" (V)" if cap.rstrip().endswith("(V)") and not cap.split(" / ")[0].rstrip().endswith("(V)") else "")
             if i > 0:
                 spec["game_text"] = game_text(gt[:i].strip().removeprefix(ft.replace("•", "").strip() + ":").strip())
                 spec["game_text_back"] = game_text(gt[i + len(bt.replace("•", "").strip()) + 1:].strip())
@@ -503,7 +547,7 @@ def gemp_to_spec(c: dict) -> dict:
         spec["card_type"] = spec["slip_type"].upper()
     elif typ == "Epic Event":
         spec["slip_type"] = "Epic Event"
-        if side == "Light":
+        if side == "Light" and not c.get("legacy"):
             spec["text_grow"] = 230 if len(spec["game_text"]) > 600 else (110 if len(spec["game_text"]) > 480 else 0)   # Light Epic Events print a shorter art window over a tall text box (Attack Run, Communing)
         # the printed Epic Events set each step on its own line with a bold run-in label (Communing: "The Living Force:")
         spec["game_text"] = re.sub(r"(?<=[.):'”\"]) ((?:[A-Z][\w'’!-]*,? ){0,6}[A-Z][\w'’!-]*!?):(?= )", r"\n*\1:*", spec["game_text"])
@@ -521,8 +565,10 @@ def objective_text(t: str, front: bool) -> str:
     """Decipher's Objective layout: the setup sentence(s) in italics, then a paragraph per *For* / *While* / *Flip*."""
     # the PC JSON marks the keywords {For} (-> *For*) or not at all: "For remainder of game", "While this side up",
     # "Flip this card" always open a paragraph on the printed Objectives
-    t = re.sub(r"(?<![*\w])(For remainder of game|While this side up|Flip this card)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
-    t = re.sub(r"\s+(\*(?:For|While|Flip)\*)", r"\n\1", t).strip()
+    # rev 77: "Place out of play" and "Immediately retrieve" open their own paragraph too (In The Hands Of The Empire,
+    # Systems Will Slip Through Your Fingers, Save You It Can, Or Be Destroyed); the 2010s PC text leaves them unmarked
+    t = re.sub(r"(?<![*\w])(For remainder of game|While this side up|Flip this card|Place out of play|Immediately retrieve)", lambda m: "*" + m.group(1).split()[0] + "*" + m.group(1)[len(m.group(1).split()[0]):], t)
+    t = re.sub(r"\s+(\*(?:For|While|Flip|Place|Immediately)\*)", r"\n\1", t).strip()
     if front:
         first, sep, rest = t.partition("\n")
         if sep and not first.startswith("*"):
@@ -530,7 +576,16 @@ def objective_text(t: str, front: bool) -> str:
     return t
 
 
+# rev 77: the five printed Podracers' pilot flags (assets/icons/podracer-flag-<slug>.png, tools/cut_podracer_flags.py)
+PODRACER_FLAGS = {"Anakin's Podracer": "anakin", "Sebulba's Podracer": "sebulba", "Ben Quadinaros' Podracer": "ben-quadinaros",
+                  "Dud Bolt's Podracer": "dud-bolt", "Teemto Pagalies' Podracer": "teemto-pagalies"}
+
+
 def finish(spec: dict) -> dict:
+    if spec.get("slip_type") == "Podracer" and not spec.get("podracer_flag"):
+        fl = PODRACER_FLAGS.get(re.sub(r"[•\u2022<>]", "", spec.get("title") or "").replace("(V)", "").strip())
+        if fl:
+            spec["podracer_flag"] = fl
     ps = spec.pop("_printed_stats", None)
     if ps:   # stat boxes transcribed from the printed card (gempdata/fill.json "printedStats")
         spec["stats"] = [list(x) for x in ps]
@@ -584,6 +639,10 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)
         if spec.get("slip_type") == "Podracer":
             card["disc"] = "podracer"   # Episode I Podracers: the podracer type disc (Game Aid icon)
+            if spec.get("_podracer_flag_file"):   # rev 77: the editor's own flag image (podracer_flag_data)
+                card["podracer_flag_file"] = spec["_podracer_flag_file"]
+            elif spec.get("podracer_flag"):
+                card["podracer_flag"] = spec["podracer_flag"]
         if spec.get("gempId") in UNDERCOVER_FRAME and spec.get("side") == "Light" and "rebel" in (spec.get("affiliation") or "").lower():
             card["disc"] = "rebel"   # the Rebel disc on the Dark frame (TK-422, Boushh)
         if card["template"].endswith("-mission"):
@@ -596,8 +655,29 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["template"] = "creature-dc"   # printed Decipher creature: banner + black title
     card["id"] = "cm-" + re.sub(r"[^A-Za-z0-9_-]+", "_", spec.get("title") or "card")[:40]
     card["caption"] = spec.get("caption") if spec.get("caption") is not None else spec.get("title", "")
+    if card.get("back"):   # rev 77: the back face's margin caption follows the front's (Decipher printings: none), not
+        bt = card["back"].get("title") or ""   # build_vs's slip default "<back title> (V)"
+        if spec.get("caption_back") is not None:
+            card["back"]["caption"] = spec["caption_back"]
+        elif not (card["caption"] or "").strip():
+            card["back"]["caption"] = ""
+        else:
+            card["back"]["caption"] = bt + (" (V)" if card["caption"].rstrip().endswith("(V)") and not bt.rstrip().endswith("(V)") else "")
     card["number"] = str(spec.get("number") or "")
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    if spec.get("border") == "white":
+        card["border"] = "white"
+    # rev 77 printing variants: uniqueness dot colour (Eriadu's white dot), Lando In Millennium Falcon's thick forfeit
+    # border, Reflections foil sheen. Absent / default values leave the card exactly as before.
+    if str(spec.get("bullet_colour") or "red").lower() != "red":
+        card["bullet_colour"] = spec["bullet_colour"]
+    try:
+        if float(spec.get("forfeit_box_border") or 0) > 0:
+            card["forfeit_box_border"] = max(0.0, min(40.0, float(spec["forfeit_box_border"])))
+    except (TypeError, ValueError):
+        pass
+    if spec.get("foil"):
+        card["foil"] = True
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines", "text_breaks"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
@@ -607,15 +687,167 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if spec.get("_art"):
         card["art"] = spec["_art"]
         card.pop("art_trim", None)
-        if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100"):
+        if spec.get("_art_kind") == "scan" and str((spec.get("source") or {}).get("set") or "").startswith("100") and os.environ.get("CM_LEGACY_TRIM"):
             card["art_trim"] = True
             if any(k in (spec.get("slip_type") or "") for k in ("Interrupt", "Effect")):
                 card["legacy_scan"] = True   # Virtual Block scans: the PC's slips sit their banner/stat bar a little higher (A Jedi's Patience (V))
+    if spec.get("_art2"):   # rev 77: second picture of a split window (Reflections II combos): spec art2 + split
+        card["art2"] = spec["_art2"]
+        if isinstance(spec.get("split"), dict):
+            card["split"] = spec["split"]
     if spec.get("slip_type") == "Game Aid" and spec.get("_art_kind") != "upload":
         card.pop("art", None)   # the chart's own starfield is drawn (the scan carries the printed chart)
     if not spec.get("expansion"):
         card["expansion_icon"] = None
     src_exp = SETS.get(str((spec.get("source") or {}).get("set")))
     if not ovs and spec.get("expansion"):
-        card["draw_system_ring"] = True   # systems: the scan carries its own sphere; draw ours when there's none or it changed
+        card["draw_system_ring"] = True
+    gid_ = (spec.get("source") or {}).get("gempId") or spec.get("gempId") or ""
+    if (spec.get("language") or "en") != "en":
+        apply_language(spec, card)
+    if spec.get("style") == "early-slip" or spec.get("early_slip"):
+        # rev 75: the original card as Decipher printed it, under the 2002 Virtual Set #1 paper slip (early_slip.py):
+        # the printed title has no "(V)"; the slip carries the virtual deploy / forfeit / game text
+        import early_slip
+        card["early_slip"] = early_slip.resolve(spec, card)
+        es_ = spec.get("early_slip") if isinstance(spec.get("early_slip"), dict) else {}
+        if isinstance(es_.get("under_text"), str):   # the original card's own text, where it shows round the cut slip
+            card["game_text"] = es_["under_text"][:1500]
+        if not es_.get("keep_v_title"):
+            card["title"] = re.sub(r"\s*\(V\)\s*$", "", card.get("title") or "")
+        return card
+    if spec.get("pc_typeset") is not False and re.fullmatch(r"10\d\d[a-z]?_L\d+", gid_ or "") and not ovs \
+            and not card["template"].startswith(("loc-", "ls-jeditest", "objective", "epic-event")):
+        card["pc_type"] = spec["pc_typeset"] if isinstance(spec.get("pc_typeset"), dict) else legacy_typeset(gid_, card["template"], spec.get("side"))   # systems: the scan carries its own sphere; draw ours when there's none or it changed
     return card
+
+
+LANGUAGES = {"en": "English", "ja": "Japanese (Takara 1997-98)"}   # rev 77: printing language; a new one = a lang_<code>.py module
+
+
+def apply_language(spec: dict, card: dict) -> dict:
+    """rev 77: a card printed in another language (spec "language"). The English printing's frame and pieces stay; the
+    language module draws what that printing changed (lang_ja.py: Takara's Japanese cards). Title, lore and game text are
+    typed in that language; English stat labels / banners are translated where the printed word is known."""
+    lang = spec.get("language")
+    if lang != "ja":
+        return card
+    import lang_ja
+    card["lang"] = "ja"
+    card["title"] = lang_ja.title(card.get("title") or "")
+    if card.get("card_type"):
+        card["card_type"] = lang_ja.card_type(card["card_type"])
+    if spec.get("printed_breaks"):   # editor: each typed line is a printed line
+        for key, dest in (("lore", "lore_lines"), ("game_text", "text_breaks")):
+            parts = [x for x in (card.get(key) or "").split("¶") if x.strip()]
+            if len(parts) > 1 and not card.get(dest):
+                card[dest] = parts
+                card[key] = "".join(parts)
+    cr = card.get("copyright") or ""
+    if not spec.get("keep_copyright") and re.search(r"19\d\d LUCASFILM", cr):
+        card["copyright"] = lang_ja.copyright_for(spec.get("expansion")) or cr   # Takara's line: 1997 (Premiere, ANH), 1998 (Hoth)
+    return card
+
+
+def legacy_marks(t: str) -> str:
+    """The Virtual Legacy version record (legacy-versions-v4) writes the printed Reserve Deck arrows as [S] (▲, take into
+    hand) and [T] (▼, deploy), as the slips print them; Immune to Sense is always spelled out there ("(Immune to Sense.)",
+    "[Immune to Sense]"). Only for version texts: in GEMP / PC card data [S] stays the Immune to Sense mark (rev 72)."""
+    t = (t or "").replace("[S]", "▲").replace("[T]", "▼")
+    return re.sub(r"(?<=[.!?:)\"'”’])[ \t]{2,}", " ", t)   # the 2012-13 card list puts two spaces after a sentence
+
+
+def polish_text(t: str, pc_era: bool = True, legacy_version: bool = False) -> str:
+    """GEMP / PC card-list game text -> CardMaker codes, the same steps gemp_to_spec applies to a card's own text."""
+    if legacy_version:
+        t = legacy_marks(t)
+        t = re.sub(r'"([^"]+)"', "\u201c\\1\u201d", t)   # rev 73: GEMP-copied version texts write straight double quotes (Rebel Aces)
+    t = ship_text(maintenance(quotes(game_text(t))))
+    if pc_era:
+        t = pc_shorthand(t)
+    if legacy_version:
+        t = t.replace("{ga:vader}", "{ga:disc-vader}")
+    if re.match(r"\s*(USED|LOST|STARTING):", t):
+        t = re.sub(r"\s+(LOST|STARTING|USED):", r"\n\1:", t)
+    return t
+
+
+def apply_version(spec: dict, v: dict, text: bool = True) -> dict:
+    """Put one published version's text (gempdata/legacy_versions.json, from legacy-versions-v4) on a Virtual Legacy spec
+    (STANDARD rev 71). Everything else (art, frame, title, lore, icons, slip number) stays the printed card's.
+    Rev 73: the version's recorded stats (`stats`: destiny …; stat-only versions such as Jedi Survivor (V) PC-E1) go on
+    too; text=False keeps the card's own text (a recorded text that lost its icons, opened without ?version)."""
+    if v.get("early_slip"):   # rev 75: a VO version whose image is a 2002 paper slip (early_slip.py)
+        spec["style"] = "early-slip"
+        spec["early_slip"] = v["early_slip"] if isinstance(v["early_slip"], dict) else {}
+    for k, val in (v.get("stats") or {}).items():
+        if k in ("destiny", "deploy", "forfeit"):
+            spec[k] = str(val)
+        else:
+            lab = {"hyperspeed": "HYPERSPEED", "landspeed": "LANDSPEED"}.get(k, k.upper())
+            for row in spec.get("stats") or []:
+                if row and row[0] == lab:
+                    row[1] = str(val)
+    spec["version_id"] = v.get("id")
+    if not text:
+        return spec
+    t = polish_text(v.get("text") or "", legacy_version=True)
+    if spec.get("slip_type") == "Character":   # sheets / Master List print the pilot icon as "3." (icon lost): "[Pilot] 3"
+        t = re.sub(r"^\s*\{icon:pilot\}\s*(\d)\.?\s+|^\s*(\d)\.\s+(?=[A-Z])", lambda m: "{pilot:%s}. " % (m.group(1) or m.group(2)), t)
+    part = (v.get("part") or "game_text").lower()
+    if spec.get("slip_type") == "Objective" and part in ("front", "back"):
+        spec["game_text" if part == "front" else "game_text_back"] = objective_text(t, part == "front")
+    elif part in ("ds", "dark"):
+        spec["dark_text"] = t
+    else:   # game_text, ls, and the rotated halves of the few 4-way cards
+        spec["game_text"] = t
+    spec.pop("game_text_lines", None)
+    spec["version_id"] = v.get("id")
+    return spec
+
+
+# rev 74: Virtual Legacy typesetting read from the PC's master list PDFs (tools/legacy/typeset/): each card's text frame,
+# Akzidenz size, tracking and pitch, so the same words land on the same lines as the PC's card (Bill 2026-11-10).
+_TYPESET = None
+
+
+def legacy_typeset(gid: str, template: str, side: str) -> dict | None:
+    global _TYPESET
+    if _TYPESET is None:
+        import json
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gempdata", "legacy_typeset.json")
+        try:
+            _TYPESET = json.load(open(p, encoding="utf-8"))
+        except OSError:
+            _TYPESET = {"templates": {}, "cards": {}}
+    T = _TYPESET["templates"]
+    base = template.replace("-dc", "") if template not in T else template
+    tp = T.get(template) or T.get(base) or {}
+    side_tp = T.get("ls-character-rebel" if side == "Light" else "ds-character-imperial", {})
+    fx = (T.get("ls-effect" if side == "Light" else "ds-effect") or {})
+    card = _TYPESET["cards"].get(gid or "", {})
+    out = {}
+    for b in ("gt", "lore"):
+        c = card.get(b) or {}
+        if b == "lore" and not c:
+            # a slip covers only the card's lower half: title and lore stay the Decipher card's as printed (Decipher's
+            # typesetting). Only a card the PC reprinted whole (a full card in the master list) has PC-set lore.
+            continue
+        d = dict(tp.get(b) or {})
+        if b == "lore" and not d:   # templates the master list shows no full card of: the same side's lore frame
+            d = dict((fx if "character" not in template else side_tp).get("lore") or {})
+        if b == "gt" and "y" not in d and d:
+            d["y"] = (side_tp.get("gt") or {}).get("y", 189.5)
+        for k in ("x", "w", "size", "track", "pitch", "indent", "y"):
+            if c.get(k) is not None:
+                if k == "y" and b == "gt" and d.get("y") is not None and abs(c[k] - d["y"]) > 3:
+                    if 5 < d["y"] - c[k] < 12:
+                        d["raised"] = round(d["y"] - c[k], 2)   # the PC printed this card with its text box one line up
+                    continue   # a raised text box (six lines, no-lore combos): text_grow moves it, from the template's line
+                d[k] = c[k]
+        if d.get("x") is not None and d.get("w"):
+            d.setdefault("y", 189.5 if b == "gt" else 34.3)
+            out[b] = {k: d[k] for k in ("x", "y", "w", "size", "track", "pitch", "indent", "raised") if k in d}
+            if c.get("lines"):
+                out[b]["lines"] = c["lines"]   # the PC's own line breaks (kept when the text is the same words)
+    return out or None
