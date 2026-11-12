@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parent
 ASSETS = ROOT / "assets"
 OUT = Path(os.environ.get("CARDMAKER_OUT") or ROOT / "out")
 W, H = 1632, 2220
+# White-border printings (Premiere Unlimited, Revised, First/Second Anthology, two-player sets): card body corner
+# radius in master px, measured on Premiere Unlimited Luke Skywalker (wiki Premiere-U-L-lukeskywalker.png, ~3 px at 350).
+WHITE_BORDER_RADIUS = 14
 
 # Template geometry (x, y, w, h) in 1632×2220 space.
 TEMPLATES = {
@@ -1574,7 +1577,12 @@ def build_html(card: dict) -> str:
         x, y, w, h = t[key]
         return f"left:{x}px;top:{y}px;width:{w}px;height:{h}px;{style}"
 
-    parts = [f'<div id="card"{' class="inv"' if card.get("invert_text") else ''} style="position:relative;width:{W}px;height:{H}px;background:#000;overflow:hidden">']
+    wb = card.get("border") == "white"   # Unlimited / Revised / Anthology printings: white outer border (rev 76)
+    cls = " ".join(c for c in ("inv" if card.get("invert_text") else "", "wb" if wb else "") if c)
+    parts = [f'<div id="card"{f' class="{cls}"' if cls else ''} style="position:relative;width:{W}px;height:{H}px;background:{"#fff" if wb else "#000"};overflow:hidden">']
+    if wb:   # the card body stays black under the frame (locations' starfield, frame gaps); only the bleed turns white
+        bw_, bh_ = (1931, 1343) if W > H else (1343, 1931)
+        parts.append(f'<div style="position:absolute;left:144px;top:144px;width:{bw_}px;height:{bh_}px;background:#000;border-radius:{WHITE_BORDER_RADIUS}px"></div>')
     marks = []   # (piece, index into parts): card maker layers — each piece is wrapped so it can be moved / resized / hidden
 
     def sec(name):
@@ -2173,6 +2181,7 @@ def build_html(card: dict) -> str:
     .deploy{{font-family:HoloTitle;font-size:70px;color:#000;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .forfeit{{font-family:HoloTitle;font-size:70px;color:#fff;display:flex;align-items:center;justify-content:center;padding-top:14px;box-sizing:border-box}}
     .cap{{font-family:AGBoldCnA;font-size:48px;color:#fff;line-height:52px;white-space:nowrap}}
+    .wb .cap, .wb .num, .wb .label{{color:#000}}   /* white border: text printed in the border turns black */
     .cap .dot{{font-size:40px}}
     .cap.capgrow{{font-family:PCCap}}
     .cap.capgrow .dot{{font-family:HoloTitle;font-size:1.003em}}

@@ -866,3 +866,13 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   `early_slip` opens on it (`adapter.apply_version`). Not on the VS1 sheet, so not measured: interrupts, locations,
   vehicles, creatures, objectives (band kind, Effect colours) — and later early sets were not found on Wayback
   (decipher.com hosted only VS1); every other card, template and style renders exactly as rev 74.
+- Rev 76 (2026-11-12, template survey, ai-team-skills `shared/swccg-cardmaker/TEMPLATE-DIFFERENCES.md`): **White
+  border** for the white-bordered printings (Premiere Unlimited, Revised A New Hope / Hoth / Dagobah, First and Second
+  Anthology previews, the two-player sets). Compared on the wiki scans (Premiere Limited vs Unlimited Luke Skywalker,
+  Raithal vs Raithal (Revised), ESB2P Chewie, Hoth / ANH Revised): only the outer border changes, black → white; frame,
+  boxes, icons, sphere and copyright line are unchanged and stay where they are. Spec `border: "white"` (editor: Border →
+  White; default black; GEMP set 104, ESB Two-Player, opens white): the bleed is white and a black card body (144,144,
+  1343×1931, or 1931×1343 landscape) with corner radius `WHITE_BORDER_RADIUS` = 14 master px (measured on
+  Premiere-U-L-lukeskywalker.png) sits under the frame, so locations keep their black starfield; text printed in the
+  border (caption, number, labels) turns black. Black-border renders are byte-identical to rev 75 (checked on
+  Luke Skywalker, Dejarik Hologameboard, Captain Yorr, Jabba's Palace: Audience Chamber, a Dark interrupt).

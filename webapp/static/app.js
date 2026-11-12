@@ -67,7 +67,7 @@ function readForm() {
   const fd = new FormData(form);
   const s = { ...spec };
   for (const k of ["side", "slip_type", "title", "card_type", "destiny", "deploy", "forfeit", "lore", "game_text", "dark_text",
-                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark"]) {
+                   "title_back", "game_text_back", "caption", "credit_strip", "number", "parsec", "credits", "copyright", "style", "shield_style", "margin_left", "margin_right", "expansion_style", "errata_mark", "border"]) {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
   // PC label (Bill 2026-11-01): one free label with a position preset; the errata mark has its own field (errata_mark)
@@ -115,7 +115,8 @@ function writeForm(s, data) {
     else el.value = s[el.name] ?? "";
   }
   if (!s.style) form.elements.style.value = "decipher";
-  if (!s.expansion_style) form.elements.expansion_style.value = "pc";   // the PC's spheres by default (Bill 2026-11-01)
+  if (!s.expansion_style) form.elements.expansion_style.value = "pc";
+  if (!s.border) form.elements.border.value = "black";   // rev 76: white for Unlimited / Revised / Anthology printings   // the PC's spheres by default (Bill 2026-11-01)
   const lb = (s.labels || [])[0] || {};
   form.elements.label_text.value = lb.text || ""; form.elements.label_preset.value = lb.preset || "concept";
   form.elements.text_adjust.value = s.text_adjust || 0; form.elements.lore_adjust.value = s.lore_adjust || 0;
