@@ -2407,7 +2407,7 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{d2x}px;top:{174}px">')
         # rev 81: the title shift measured on the printed two-disc cards (DISC2_TITLE_SHIFT; was 170 everywhere)
         d2 = DISC2_TITLE_SHIFT.get(card["template"], DISC2_TITLE_SHIFT_DEFAULT) + int(card.get("disc2_title_dx") or 0)
-        t = dict(t, title=(t["title"][0] + d2, t["title"][1], t["title"][2] - d2, t["title"][3]))
+        t = dict(t, title=(t["title"][0] + d2, t["title"][1], t["title"][2] - d2 + int(card.get("disc2_title_dw") or 0), t["title"][3]))
         if card.get("disc2_title_ls") is not None:   # rev 81 (geometry 2): Decipher's 1999-2000 two-disc titles set tighter
             t = dict(t, title_ls=card["disc2_title_ls"])
     sec('title')

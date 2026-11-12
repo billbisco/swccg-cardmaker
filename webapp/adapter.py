@@ -42,6 +42,12 @@ DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "1
 # Decipher archive scans of 8_160-8_178 carry the same digits, Speeder Bike and Tempest Scout 6 included); Reflections II's
 # own cards (the combos: Alter & Collateral Damage, Sense & Recoil In Fear) print the final period and "TM, ® &" (its foil
 # reprints of older cards set "TM, ®, &", but those render as their first printing).
+# rev 81 (geometry 3): Decipher's own two-disc character titles, per set: (title x offset, letter-spacing, extra bar width),
+# master px. Measured against the frame (from the Imperial disc's right edge, 745 px faces): Ref2 / PC print the bullet
+# 28-29 px from the disc (our default); Death Star II (Emperor Palpatine) 20 px, run 3 % tighter; Enhanced Jabba's Palace
+# (Mara Jade, The Emperor's Hand, both wiki faces) 23-25 px, title running to 384 px from the disc (19 px past our bar).
+# No other Decipher two-disc card exists (ECC, Enhanced Premiere and the other premium sets have none).
+DISC2_DECIPHER = {"9": (-17, 0.1, 0), "110": (-8, None, 42)}
 SE_ERA = {"7", "8", "9", "109", "110", "111", "112"}
 PRINT_YEAR = {"8": 1999, "101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
 NO_FINAL_PERIOD = {"11"}
@@ -755,11 +761,9 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # and copyright line where Decipher printed them (render.DC_PRINT); PC and Virtual Block cards keep the PC's
         # (one definition for both: decipher_print() above; the editor's "As Decipher printed it" box overrides)
         card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
-        if card.get("decipher_print") and card.get("disc2") and str((spec.get("source") or {}).get("set")) in SE_ERA:
-            # rev 81: Emperor Palpatine (DS2), Mara Jade (EJP) set the title further left than Ref2 / PC, and tighter: glyph
-            # by glyph on the printed faces (geometry 2) the run is 3 % narrower at the same cap height (31 / 22 px at 745)
-            card["disc2_title_dx"] = -32
-            card["disc2_title_ls"] = 0.1
+        _d2 = DISC2_DECIPHER.get(str((spec.get("source") or {}).get("set")))
+        if card.get("decipher_print") and card.get("disc2") and _d2:
+            card["disc2_title_dx"], card["disc2_title_ls"], card["disc2_title_dw"] = _d2
         if card.get("decipher_print") and str((spec.get("source") or {}).get("set")) == "11" and card["template"] == "ls-epic-event":
             card["copyright_ink"] = "#fff"   # rev 81: Boonta Eve Podrace, I Did It! print the line white on the purple (other Light Epic Events black)
             # rev 81 (geometry 2): line measured against the card body on both printed faces (Boonta Eve Podrace 11_24,

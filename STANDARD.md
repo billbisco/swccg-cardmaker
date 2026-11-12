@@ -1536,3 +1536,16 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     it 62 px across on the same centre (after: r 15.0 both styles); the Episode I disc stays where it was.
   - Checks: md5 identical before / after for 1_19, 1_283, 1_70, 7_135, Alderaan 1_121, Bespin 5_76, Allegations Of
     Corruption 12_128 and Naboo: Battle Plains 12_79; only the Coruscant-set systems change (the sphere).
+- Rev 81 (geometry 3) (2026-11-12): Decipher's two-disc character titles re-measured against the frame instead of the
+  scan's crop. The geometry 2 figures normalised each archive scan by its own crop (white surround), which put the EJP
+  and DS2 faces 6-12 px off; the title is now measured from the Imperial disc's right edge on the same face (745 px).
+  Check of the method on Ref2 / PC faces (The Emperor, Arica, The Emperor, Relentless, Mara Jade (V)): print and ours
+  both 28-29 px. Decipher's own sets: Death Star II, Emperor Palpatine 9_109: bullet 20, run 208 px (print) — ours now
+  21 / 207; Enhanced Jabba's Palace, Mara Jade, The Emperor's Hand 110_10 (both wiki faces, 350 px Holotable gif and
+  367 px archive scan): bullet 23-25, run 362-372 at full width, ending past our bar (the print is not condensed) —
+  ours now 24 / 366 (was 12 px from the disc and condensed to 353). Per-set table `adapter.DISC2_DECIPHER`
+  (x offset, letter-spacing, extra bar width; master px): set 9 (-17, 0.1, 0), set 110 (-8, default, 42); new card key
+  `disc2_title_dw`. No other Decipher card prints two discs (Enhanced Premiere, ECC, the other premium sets have none;
+  Reflections II's The Emperor and Arica keep the default, checked). Sheet: Mara Jade gif / archive / ours, Emperor
+  Palpatine print / ours. md5-identical before / after: Japanese samples (Darth Vader, Luke Skywalker, Admiral Ozzel),
+  223_40, 200_105, 205_14, 213_12, 211_48, 1_3, 1_74, 9_113, 10_51, 10_31, 219_19, 226_8, 15_260o, 11_24.
