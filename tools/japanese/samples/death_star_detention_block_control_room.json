@@ -46,5 +46,15 @@
  },
  "language": "ja",
  "_scan": "Japanese-Premiere-1301-123o-Face.jpg",
- "_page": "Death Star: Detention Block Control Room (Japanese)"
+ "_page": "Death Star: Detention Block Control Room (Japanese)",
+ "_scan_bounds": [
+  106,
+  103,
+  1760,
+  1253
+ ],
+ "text_breaks": [
+  "ここを支配していれば、フォース消耗に＋１。デス・スターに捕まっているキャラクターは、",
+  "すべて解放される。"
+ ]
 }

@@ -1,0 +1,61 @@
+{
+ "side": "Dark",
+ "title": "＊ホス",
+ "caption": "",
+ "number": "",
+ "destiny": "0",
+ "lore": "",
+ "game_text": "ここを支配しているなら、ここにいる自分の宇宙船１隻につき、ホスの位置での戦闘時に、合計戦闘力に＋１。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "Hoth",
+ "card_type": "•HOTH",
+ "gempId": "3_143",
+ "source": {
+  "gempId": "3_143",
+  "imageUrl": "https://res.starwarsccg.org/cards/Hoth-Dark/large/hoth.gif",
+  "set": "3"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "System",
+ "dark_text": "ここを支配しているなら、ここにいる自分の宇宙船１隻につき、ホスの位置での戦闘時に、合計戦闘力に＋１。",
+ "light_icons": [
+  "planet"
+ ],
+ "dark_icons": [
+  "planet"
+ ],
+ "light_force": true,
+ "dark_force": true,
+ "light_force_count": 1,
+ "dark_force_count": 2,
+ "parsec": "5",
+ "_en_title": "•Hoth",
+ "art": {
+  "kind": "scan",
+  "gempId": "3_143",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-Hoth-Hoth-Dark-PSA-148375094.jpg",
+ "_page": "Hoth (Dark) (Japanese)",
+ "_scan_bounds": {
+  "scan": [
+   147,
+   116,
+   1016,
+   1492
+  ],
+  "ref": [
+   238,
+   190,
+   1399,
+   2030
+  ]
+ }
+}

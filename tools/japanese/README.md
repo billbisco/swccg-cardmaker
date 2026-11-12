@@ -23,6 +23,13 @@ Rev 81 (Starships, Vehicles, Weapons, Creatures): samples tie_fighter, x_wing (S
 sandcrawler_dark (Vehicles), jedi_lightsaber, imperial_blaster (Weapons), dianoga, wampa (Creatures). Same printed lines;
 strip items within ~6 px (TIE Fighter's condensed third item ~50 px wider than printed).
 
-Rev 82 (Locations, Epic Events, Reflections II foil): samples kessel, yavin_4_dark (systems; Takara's text boxes are
-taller, not yet drawn), death_star_detention_block_control_room, tatooine_cantina_dark (sites: Takara printed them in
-portrait; the sheets show the gap), attack_run, commence_primary_ignition (Epic Events), darth_vader_ref2_foil.
+Rev 82 (Locations, Epic Events, Reflections II foil): samples attack_run, commence_primary_ignition (Epic Events),
+darth_vader_ref2_foil, and the locations below.
+
+Rev 83 (location frames): Takara's sites are landscape like Decipher's (rev 82 misread them as portrait: this tool
+squeezed every scan into the portrait master; a landscape render now gets its scan warped into the landscape master).
+Samples: sites death_star_detention_block_control_room, tatooine_mos_eisley (Light), tatooine_cantina_dark,
+tatooine_docking_bay_94_dark (Dark; icons in the printed order); systems kessel, alderaan (Light), yavin_4_dark,
+hoth_dark (Dark). Slabbed / photographed scans carry `_scan_bounds` (sites: the frame's outer edge; systems: the two
+text boxes' outer edges onto [238, 190, 1399, 2030]). Result: bars, boxes and printed lines within ~1-8 px of the
+scans; the systems' starfield is the English scan (its own margins show where Takara's art differs).
