@@ -154,6 +154,10 @@
     "lore": [
       "bubblink pink swamps",
       "bubbling pink swamps"
+    ],
+    "gametext": [
+      "May reshuffle without peeking",
+      "May re-shuffle without peeking"
     ]
   },
   "7_227": {
@@ -396,6 +400,64 @@
     "gametext": [
       "Ferocity = destiny - 3",
       "* Ferocity = destiny - 3"
+    ]
+  },
+  "1_96": {
+    "gametext": [
+      "use 1 force to draw destiny",
+      "use 1 Force to draw destiny"
+    ]
+  },
+  "3_104": {
+    "lore": [
+      "are frequent quick-moving",
+      "are frequent, quick-moving"
+    ]
+  },
+  "11_10": {
+    "gametext": [
+      "cause a redraw.",
+      "cause a re-draw."
+    ]
+  },
+  "11_11": {
+    "gametext": [
+      "cause a redraw.",
+      "cause a re-draw."
+    ]
+  },
+  "3_126": {
+    "gametext": [
+      "destiny + 3 > ability",
+      "destiny +3 > ability"
+    ]
+  },
+  "7_71": {
+    "gametext": [
+      "Effect lost at the end of that battle",
+      "Effect lost at end of that battle"
+    ]
+  },
+  "12_24": {
+    "lore": [
+      "break the blockade with a little help",
+      "break the blockade – with a little help"
+    ],
+    "gametext": [
+      "Ric is in, may use X Force",
+      "Ric is in, you may use X Force"
+    ]
+  },
+  "4_96": {
+    "lore": [
+      "Super Star Destroyer Executor.",
+      "Super Star Destroyer _Executor_."
+    ]
+  },
+  "13_42": {
+    "gametext": [
+      "Agenda: order.",
+      "{Agenda}: order."
     ]
   }
 }
