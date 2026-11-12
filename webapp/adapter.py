@@ -643,7 +643,7 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     card["number"] = str(spec.get("number") or "")
     if spec.get("border") == "white":
         card["border"] = "white"
-    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
+    for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines", "text_breaks"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
     if vs is None:
@@ -665,6 +665,8 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if not ovs and spec.get("expansion"):
         card["draw_system_ring"] = True
     gid_ = (spec.get("source") or {}).get("gempId") or spec.get("gempId") or ""
+    if (spec.get("language") or "en") != "en":
+        apply_language(spec, card)
     if spec.get("style") == "early-slip" or spec.get("early_slip"):
         # rev 75: the original card as Decipher printed it, under the 2002 Virtual Set #1 paper slip (early_slip.py):
         # the printed title has no "(V)"; the slip carries the virtual deploy / forfeit / game text
@@ -679,6 +681,33 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     if spec.get("pc_typeset") is not False and re.fullmatch(r"10\d\d[a-z]?_L\d+", gid_ or "") and not ovs \
             and not card["template"].startswith(("loc-", "ls-jeditest", "objective", "epic-event")):
         card["pc_type"] = spec["pc_typeset"] if isinstance(spec.get("pc_typeset"), dict) else legacy_typeset(gid_, card["template"], spec.get("side"))   # systems: the scan carries its own sphere; draw ours when there's none or it changed
+    return card
+
+
+LANGUAGES = {"en": "English", "ja": "Japanese (Takara 1997-98)"}   # rev 77: printing language; a new one = a lang_<code>.py module
+
+
+def apply_language(spec: dict, card: dict) -> dict:
+    """rev 77: a card printed in another language (spec "language"). The English printing's frame and pieces stay; the
+    language module draws what that printing changed (lang_ja.py: Takara's Japanese cards). Title, lore and game text are
+    typed in that language; English stat labels / banners are translated where the printed word is known."""
+    lang = spec.get("language")
+    if lang != "ja":
+        return card
+    import lang_ja
+    card["lang"] = "ja"
+    card["title"] = lang_ja.title(card.get("title") or "")
+    if card.get("card_type"):
+        card["card_type"] = lang_ja.card_type(card["card_type"])
+    if spec.get("printed_breaks"):   # editor: each typed line is a printed line
+        for key, dest in (("lore", "lore_lines"), ("game_text", "text_breaks")):
+            parts = [x for x in (card.get(key) or "").split("¶") if x.strip()]
+            if len(parts) > 1 and not card.get(dest):
+                card[dest] = parts
+                card[key] = "".join(parts)
+    cr = card.get("copyright") or ""
+    if not spec.get("keep_copyright") and re.search(r"19\d\d LUCASFILM", cr):
+        card["copyright"] = lang_ja.copyright_for(spec.get("expansion")) or cr   # Takara's line: 1997 (Premiere, ANH), 1998 (Hoth)
     return card
 
 
