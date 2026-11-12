@@ -1485,3 +1485,33 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
     crop is not reliable enough to follow further. 9_109 keeps the PC sphere (Bill's default).
   - md5-identical before / after: Japanese samples (Darth Vader, Luke Skywalker, Admiral Ozzel), 223_40, 200_105,
     205_14, 213_12, 211_48, 1_3, 1_74, 1_140, 9_113, 9_55, 10_51, 219_19, 15_260, 15_220, 2_42, 11_97.
+- Rev 81 (Decipher text setting) (2026-11-12): **game text and lore set the way Decipher set them** on its own printings
+  (card `decipher_print`, i.e. the editor's "As Decipher printed it" box / adapter `decipher_print()`; PC, VS, OVS,
+  Virtual Legacy and Japanese renders are untouched). Measured on 58 printed faces registered to our renders by the card
+  body (the wiki's 1497 px hires scans of Premiere, A New Hope, Hoth and Dagobah; Decipher's 350-367 px archive / web
+  faces for Cloud City to Theed Palace; the wiki's 745 px gifs of Decipher cards turned out to be the PC's errata
+  re-renders, set in the PC's face, and were not used), lines read by OCR and aligned word-for-word with the card text.
+  - *Face and size:* x-height equals ours (game text 32 px at 62, lore 30 px at 58), so the sizes stay; the printed glyphs
+    are wider than Holotable Text (printed ink width / our advance at tracking 0: game text 1.026, lore 1.044). The box is
+    laid out at width / k and stretched by k (`scaleX`), tracking 0 (was -0.4 / +0.25), inline icons counter-scaled.
+  - *Leading:* game text pitch 63.5 (29 faces, 63.0-64.5; ours 64), first baseline 1 px lower; lore 60.5 (20 faces), and
+    three-line lore keeps that pitch (the lore box grows to 187 px instead of the fitter tightening it to 54 px, as it did
+    on every 3-line character lore). Fitter: fractional pitch (`data-fit-step`).
+  - *Measure:* fitted on the printed line breaks of 56 blocks (layout simulated over the right edge): game text box width
+    -18 px on characters, -33 on Premiere / A New Hope Effects and Interrupts (their lines run a word shorter than Hoth's
+    onward), 0 elsewhere; lore starts at x 317 (ours 319 Dark / 326 Light) with a 75 px first-line indent and ends 6 px
+    short (Dark) / 6 px past (Light) of the PC lore limits. Identical line breaks: 13 → 35 of 56 blocks, 65 → 169 of 224
+    lines. The rest differ by one word at a line end; Decipher tightened tracking card by card (Vote Now!, Organized
+    Attack, Our Only Hope print longer lines than any one measure allows), which no single setting reproduces.
+  - *Ink weight:* printed black text is heavier and white text (reversed out of the Dark boxes) lighter than our faces
+    (ink coverage printed / ours 1.04-1.08 and 1.15 lore on Light, 0.83-0.88 and 0.77-0.90 on Dark): a 0.2 / 0.3 px
+    text-stroke in the text colour on Light, 0.5 / 0.35 px in black on Dark brings both to 0.96-1.06.
+  - *Ellipses:* Decipher printed lore ellipses spaced ". . ." in 31 of 33 checked (Premiere to Reflections III; Boring
+    Conversation Anyway and Jawa print "... "): lore "..." / "…" becomes ". . ." with no-break spaces, no space before,
+    one space before a following word; texts already spaced (corrections.json) stay as they are.
+  - Template data: `render.DC_TEXT` / `DC_EARLY` / `DC_TEXT_FAMILY` (characters, Effects, Interrupts, weapons, devices,
+    starfighters / capital ships, vehicles, creatures); card key `dc_expansion` (adapter). Sites and systems were
+    measured too (Premiere, A New Hope, Hoth): their centred, tracked text is within 1-2 % of the print and unchanged.
+  - **Checks:** md5-identical holotable renders before/after: 223_40 Life Day (PC set mark), 200_1 Aayla Secura (VS0),
+    the OVS spec 1101_1, the three Japanese samples, 2_13 / 1_241 / 3_126 with `decipher_print` false, and the Decipher
+    sites / system 1_283, 2_67, 2_143.

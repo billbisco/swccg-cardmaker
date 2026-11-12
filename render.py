@@ -592,6 +592,46 @@ LORE_CSS = {"ff": "AGLightCn", "fs": 58, "ls": 0.25, "lh": 60, "pt": 4, "ind": 6
 # indent, first-line cut for the window's bevelled corner, tracking)
 LORE_X = {"Dark": (319, 1270, 90, 0, 0.0), "Light": (326, 1290, 75, 40, 0.0)}   # 16/26 Dark, 17/21 Light exact
 
+# Rev 81 (Decipher text setting): game text and lore as Decipher set them on its own printings (card "decipher_print").
+# Measured on printed faces (wiki hires scans 1497 px, Decipher archive / web scans 350-367 px; the wiki's 745 px gifs of
+# Decipher cards are the PC's errata re-renders and were left out), registered to our renders by the card body:
+# x-height = ours (game text 32 px at 62, lore 30 px at 58), so the size stays; the glyphs are WIDER than Holotable Text
+# (printed line ink width / our advance width at tracking 0: game text 1.026, lore 1.044 on the hires faces), so the box is
+# set at width / k and stretched by k (scaleX), which wraps and inks like the wider face; tracking 0 (ours: -0.4 / +0.25);
+# line pitch 63.5 (game text, 29 faces 63.0-64.5) and 60.5 (lore, 20 faces); 3-line lore keeps its pitch (the box grows to
+# min_h instead of the fitter tightening it to 54). The right edge ("dw", added to the box width before the stretch) was fitted
+# on the printed line breaks of 56 text blocks (sim over the measure): characters -18, Effects / Interrupts of Premiere and
+# A New Hope -33 (their printed lines are a word shorter than Hoth's onward), others 0; lore Dark -3, Light +21.
+DC_TEXT_FAMILY = re.compile(r"^(ls|ds)-(character|effect|interrupt|weapon|device|starship-starfighter|vehicle)(-(?!wide)[a-z-]+)?$|^creature(-dc)?$")
+DC_TEXT = {"gt": {"k": 1.026, "lh": 63.5, "dy": 1, "dw": {"character": -18, "early": -33}, "stroke": {"Light": 0.2, "Dark": -0.5}},
+           "lore": {"k": 1.044, "lh": 60.5, "x": 317, "indent": 75, "dw": {"Dark": -6, "Light": 6}, "min_h": 187,
+                    "stroke": {"Light": 0.3, "Dark": -0.35}}}
+DC_EARLY = ("Premiere", "A New Hope")   # sets whose Effects / Interrupts print the narrower measure
+# Ink weight: printed black text (Light cards) is heavier than Holotable Text and printed white text (Dark cards, reversed
+# out of black) lighter: ink coverage printed / ours 1.04-1.08 (game text) and 1.15 (lore) on Light, 0.83-0.88 / 0.77-0.90
+# on Dark (7 hires faces). "stroke" (master px): > 0 = a text-stroke in the text colour, < 0 = in the box's black (thins).
+
+
+def dc_stroke(card: dict, t: dict, box: str) -> str:
+    s = DC_TEXT[box]["stroke"]["Light" if t.get("dark_text") else "Dark"]
+    return f"-webkit-text-stroke:{abs(s)}px {'currentColor' if s > 0 else '#000'}"
+
+
+def dc_text(card: dict, t: dict) -> bool:
+    """Rev 81: set this card's game text and lore the way Decipher set them (its own printings only)."""
+    return bool(card.get("decipher_print") and DC_TEXT_FAMILY.match(card.get("template", "")) and not card.get("pc_type")
+                and card.get("lang") != "ja" and not t.get("landscape") and not t.get("gt_grow") and not t.get("chart"))
+
+
+def dc_gt_box(card: dict, t: dict) -> str:
+    """The game text box's style under dc_text: measure / k, stretched by k, Decipher's pitch and tracking."""
+    p = DC_TEXT["gt"]; x, y, w, h = t["game_text"]; tpl = card.get("template", "")
+    dw = (p["dw"]["character"] if "-character" in tpl else
+          p["dw"]["early"] if re.search(r"-(effect|interrupt)", tpl) and card.get("dc_expansion") in DC_EARLY else 0)
+    k = p["k"]
+    return (f"left:{x}px;top:{y + p['dy']}px;width:{(w + dw) / k:.2f}px;height:{h - p['dy']}px;transform:scaleX({k});"
+            f"transform-origin:left top;letter-spacing:0px;line-height:{p['lh']}px;{dc_stroke(card, t, 'gt')}")
+
 _EDGE_CACHE: dict = {}
 
 
@@ -2472,9 +2512,19 @@ def build_html(card: dict) -> str:
         lore_ = pc_hint_breaks(card["lore"], card.get("lore_lines"))   # rev 74: the printed card's own lore line breaks
         if "\u2029" in lore_:
             rgt += 40; cut = 0
-        parts.append(f'<div class="lore fit"{fit_attrs(card, "lore")} style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
-                     f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
-                     f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(lore_)}</div>')
+        if dc_text(card, t) and not t.get("lore_x") and not card.get("no_lore_box"):
+            # rev 81: Decipher's lore setting (wider face, pitch 60.5, three lines keep their pitch)
+            p = DC_TEXT["lore"]; k = p["k"]
+            side = "Light" if t.get("dark_text") else "Dark"
+            w_ = (rgt - p["x"] + p["dw"][side]) / k
+            parts.append(f'<div class="lore fit dct" data-fit-step="1"{fit_attrs(card, "lore")} style="position:absolute;left:{p["x"]}px;top:{ly_}px;width:{w_:.2f}px;height:{max(lh_, p["min_h"])}px;'
+                         f'transform:scaleX({k});transform-origin:left top;line-height:{p["lh"]}px;'
+                         f'text-indent:{card.get("lore_indent", p["indent"]) / k:.2f}px;letter-spacing:0px;{dc_stroke(card, t, "lore")}">'
+                         f'<span style="float:right;width:{cut / k:.2f}px;height:58px"></span>{game_text_html(lore_)}</div>')
+        else:
+            parts.append(f'<div class="lore fit"{fit_attrs(card, "lore")} style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
+                         f'text-indent:{card.get("lore_indent", ind)}px;letter-spacing:{lsp}px">'
+                         f'<span style="float:right;width:{cut}px;height:58px"></span>{game_text_html(lore_)}</div>')
     sec('stats')
     # stats (character)
     if ja and "stats" in t and card.get("stats"):   # rev 77: one long strip ("戦闘力６　能力値６　ダーク・ジェダイ")
@@ -2565,6 +2615,8 @@ def build_html(card: dict) -> str:
             parts.append(f'<div class="gt fit pctext"{pc_fit_attrs(pcg)} style="position:absolute;left:{l_:.1f}px;top:{tp_:.1f}px;width:{w_:.1f}px;height:{h_:.1f}px;padding:0;{st_}">{game_text_html(gtx_)}</div>')
         elif ja:   # rev 77: Takara's text (printed line breaks when given: text_breaks)
             parts.append(lang_ja.gt_html(card, t, game_text_html, fit_attrs(card, "game_text")))
+        elif dc_text(card, t):   # rev 81: Decipher's own setting (wider face, pitch 63.5, measured measure)
+            parts.append(f'<div class="gt fit dct" data-fit-step="1"{fit_attrs(card, "game_text")} style="position:absolute;{dc_gt_box(card, t)}">{game_text_html(card["game_text"])}</div>')
         else:
             parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
@@ -3009,6 +3061,7 @@ def build_html(card: dict) -> str:
     .pcic{{display:inline-flex;justify-content:center;width:{PC_ICON_W - 6}px;margin:0 3px;overflow:visible;white-space:nowrap}}
     .pcic > *{{flex:none;margin-left:0!important;margin-right:0!important}}
     .gt-icon{{vertical-align:-9px;margin:0 3px}}
+    .dct .gt-icon{{transform:scaleX({1 / DC_TEXT["gt"]["k"]:.4f})}}
     .noicon{{display:inline-block;position:relative;width:62px;height:62px;border:6px solid #e3000f;border-radius:50%;box-sizing:border-box;vertical-align:-16px;margin:0 0 0 4px;overflow:hidden}}
     .noicon::after{{content:"";position:absolute;left:-8px;top:22px;width:70px;height:6px;background:#e3000f;transform:rotate(-45deg)}}
     .nol{{position:absolute;left:0;top:0;width:50px;height:50px;line-height:52px;text-align:center;font-family:AGBoldCnA;font-size:46px;color:{ink}}}

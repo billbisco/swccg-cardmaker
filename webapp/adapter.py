@@ -695,6 +695,14 @@ def finish(spec: dict) -> dict:
     return spec
 
 
+def dc_ellipses(t: str) -> str:
+    """Rev 81: lore ellipses as Decipher printed them: spaced ". . ." (31 of 33 printed lore ellipses checked, Premiere to
+    Reflections III), no space before, one space before a following word ("Luke. . . She", "“. . . I know"). Already
+    spaced ones (corrections.json) are left as they are."""
+    t = re.sub(r"\s*(?:\.{3}|…)", ".\u00a0.\u00a0.", t)   # no-break spaces: the dots never split over a line end
+    return re.sub(r"\.[ \u00a0]\.[ \u00a0]\.(?=[A-Za-z0-9])", lambda m: m.group(0) + " ", t)
+
+
 def decipher_print(spec: dict, card: dict | None = None) -> bool:
     """Rev 80: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
     if spec.get("decipher_print") is not None:
@@ -738,6 +746,9 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # (true / false) decides otherwise (custom cards keep the PC look)
         if decipher_print(spec, card):
             card["decipher_print"] = True
+            card["dc_expansion"] = spec.get("expansion")   # rev 81: Decipher's text setting differs by set (render.DC_EARLY)
+            if card.get("lore"):
+                card["lore"] = dc_ellipses(card["lore"])   # rev 81: Decipher spaced its lore ellipses ". . ."
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
         # rev 80: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
