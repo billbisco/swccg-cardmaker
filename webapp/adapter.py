@@ -629,7 +629,20 @@ def finish(spec: dict) -> dict:
         spec["wide"] = True
     if spec.get("deploy") is None:
         spec.pop("deploy", None); spec.pop("forfeit", None)
+    if decipher_print(spec):
+        spec["decipher_print"] = True   # Rev 80: Decipher's own title setting and ink (editor: "As Decipher printed it")
     return spec
+
+
+def decipher_print(spec: dict, card: dict | None = None) -> bool:
+    """Rev 80: is this spec a Decipher printing (spec "decipher_print", else inferred from its source set)?"""
+    if spec.get("decipher_print") is not None:
+        return bool(spec["decipher_print"])
+    if spec.get("style") == "ovs" or (card or spec).get("set_mark") or spec.get("virtual_set") or (spec.get("language") or "en") != "en":
+        return False   # PC / OVS cards, and Takara's Japanese printings (their own typesetting, lang_ja.py) unless asked
+    sid = str((spec.get("source") or {}).get("set") or "").strip()
+    # a Decipher set's own card, or a new card with no source set and no PC set mark (rev 80 sphere-copyright audit)
+    return sid in DECIPHER_SETS or not sid
 
 
 def spec_to_card(spec: dict, build_vs) -> dict:
@@ -659,12 +672,16 @@ def spec_to_card(spec: dict, build_vs) -> dict:
         # printed Decipher cards with no sphere: the first disc takes the sphere's place. PC Virtual cards keep the disc in
         # the second slot even with no sphere (Aayla Secura VS0, You Know What I've Come For, #63)
         card["ring_fill"] = not str(card.get("set_mark") or "").startswith("pc:")
+        # Rev 80: the card as Decipher printed it (1995-2001): Decipher's title setting and ink on the Effect / Interrupt
+        # frames. Default: a Decipher set's own card (GEMP set 1-199) without a PC set mark; the spec's decipher_print
+        # (true / false) decides otherwise (custom cards keep the PC look)
+        if decipher_print(spec, card):
+            card["decipher_print"] = True
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
         # rev 80: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
         # and copyright line where Decipher printed them (render.DC_PRINT); PC and Virtual Block cards keep the PC's
-        _sid = str((spec.get("source") or {}).get("set") or "")
-        card["decipher_print"] = (_sid in DECIPHER_SETS or (not _sid and not str(card.get("set_mark") or "").startswith("pc")))
+        # (one definition for both: decipher_print() above; the editor's "As Decipher printed it" box overrides)
         card["art_scan"] = spec.get("_art_kind") == "scan"   # the printed face is the picture (full-art cards carry their own line)
         if card["template"] == "ls-jeditest-tall" and (spec.get("slip_type") or "").startswith("Jedi Test"):
             card["template"] = "ls-jeditest-olive"   # printed Jedi Tests are olive throughout (Domain Of Evil)

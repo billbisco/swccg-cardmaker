@@ -1169,3 +1169,37 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Not changed here (other templates' owners / not near the elements):** Jedi Test frame (printed silver with olive
     speckle, art window and banner placement differ), creature frame, ANH site frames (printed blue), the wide
     starship's type icon. Evidence sheets: per template scan | before | after with x4 sphere and x3 copyright zooms.
+- Rev 80 shared Effect / Interrupt frames and title fitter (2026-11-12): measured on 100 printed Decipher Effects and
+  Interrupts (the PC's 2x .png faces / 350 px .gif faces, sets 1-14, both sides, registered to our renders by the card
+  body) and 15 PC Virtual Effects / Interrupts as control.
+  - **Dark Interrupt type disc** (`ds-interrupt.png`, all printings): the swirl was Bardez's Light disc shifted 5.5 px
+    left, leaving red streaks in the disc's right edge. Replaced inside the ring (centre (125.75, 108.54), r 68.6 frame
+    px) by the Light Interrupt disc, centred as the PC and the printed cards centre it. PC Dark Interrupts change only
+    in that 75x75 px (745) square; nothing else in any PC render changes.
+  - **Decipher printings** (card `decipher_print`; spec key `decipher_print` true / false; absent = a Decipher set's
+    own card, GEMP set 1-199, no PC set mark, not OVS, English; the editor's "As Decipher printed it (1995–2001)"
+    checkbox; custom cards and PC / VS / OVS cards keep the PC look and render pixel-identical):
+    - *Title setting* (template key `decipher_title` = (dx, bar end, fit right, lead) on the four templates and
+      `ds-effect-tall`): normal titles were already within ±1 % of the printed width; Light titles start 8 master px
+      left of the PC's (printed ink 3.9 px (745) left on 32 Light cards, the PC 0.8); the bar runs to x 1274 on all four
+      (`ds-interrupt` condensed at 1183: 7_266, 12_156 were 8 % short). A title longer than the bar is not moved left and
+      condensed (the PC's rule) but set smaller with its baseline kept, scale k = (1248 − x + 140) / (w + 140), ending at
+      x 1248 and starting further left the more it shrinks (JS `data-dfit`). 19 long printed titles (combos, 36-46
+      characters): width within 2 % on 14 (There Is No Try & Oppressive Enforcement 436 → 430 px, You Cannot Hide
+      Forever … 435 → 434), height now scales as printed; Decipher hand-set four combos smaller than needed
+      (12_152, 12_135, 12_53, 12_51: 4-16 % narrower printed).
+    - *Ink* (template key `decipher_tone` = (side, disc kind, disc circle)): our frames carry the PC's colours (within
+      5 levels of the PC's cards); Decipher printed the Dark frames a deeper crimson (left margin 181,1,46 against our
+      186,32,55; bright margin 204,64,77 against 214,85,86), silver not cyan chips on the Light red margins, and redder
+      Interrupt / yellower Effect discs. `make_decipher_tone.py` fits `assets/frames/decipher-tone.npz` (a 3D colour
+      offset table per side on frame pixels, blacks pinned; gain-gamma curves per disc) on half the cards;
+      `render.decipher_toned()` recolours the frame once (cached in out/). Held-out half: Dark frame MAD 18.0 → 9.4,
+      Light 19.2 → 17.7 (texture-limited), disc means within 2-4 levels. Podracers (Tatooine) get the frame tone.
+      Note the PC's errata re-renders (Ghhhk & Those Rebels Won't Escape Us 10_39, Ghhhk 2_132) carry the PC's
+      colours, not Decipher's: they are not printed references.
+  - **Checked, unchanged:** left window bevel against the PC +0.4 px (745); against Decipher printings of sets 1-8 our
+    bevel sits 1.4 px right (25 cards, 0.6-3.2), sets 9-14 −0.3 px; printed window and lore-box tops ~2 px lower than
+    ours/the PC's. These are Decipher-only geometry differences of ≤ 1 scan pixel; not warped this rev.
+  - **Regression:** md5 identical before/after for 25 cards of other templates (characters, sites, systems, starships,
+    vehicles, weapons, devices, creatures, Objectives, Epic Events, Admiral's Orders, Jedi Test) and for PC Effects /
+    Light Interrupts; PC Dark Interrupts differ only in the disc.

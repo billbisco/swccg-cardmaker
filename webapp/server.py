@@ -426,7 +426,7 @@ threading.Thread(target=worker, daemon=True).start()
 
 
 # render cache entries are only valid for the code that made them: a deploy changes this and old entries are ignored
-CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "lang_ja.py", "webapp/adapter.py", "webapp/server.py", "gempdata/legacy_typeset.json", "assets/fonts/HolotableText/HolotableTextPC-Regular.ttf"))).hexdigest()[:12]
+CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "lang_ja.py", "webapp/adapter.py", "webapp/server.py", "gempdata/legacy_typeset.json", "assets/fonts/HolotableText/HolotableTextPC-Regular.ttf", "assets/frames/decipher-tone.npz"))).hexdigest()[:12]
 
 
 LAST_BOXES: dict = {}

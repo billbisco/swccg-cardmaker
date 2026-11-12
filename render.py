@@ -44,7 +44,7 @@ TEMPLATES = {
     },
     "ds-effect": {   # #62: frame and boxes fitted to the PC and printed Decipher effects
         "frame": ("frames/ds-effect.png", 141, 141),
-        "lore_x": (319, 1270, 80, 0, 0.0), "nolore_disc": (207, 404), "title_stroke": 0.6, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55,
+        "lore_x": (319, 1270, 80, 0, 0.0), "nolore_disc": (207, 404), "title_stroke": 0.6, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55, "decipher_title": (0, 1274, 1248, 140), "decipher_tone": ("dark", "effect", (125.75, 108.54, 68.6)),
         "art": (254, 663, 1118, 765),
         "title": (403, 196, 871, 100), "title_long_left": 366,   # #62: the PC's bar runs to x 1274; long titles start at 366
         "destiny": (1312, 196, 104, 104),
@@ -57,7 +57,7 @@ TEMPLATES = {
         "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8,
     },
     "ls-interrupt": {
-        "nolore_disc": (200, 415), "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139),
+        "nolore_disc": (200, 415), "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6, "frame": ("frames/ls-interrupt.png", 140, 139), "decipher_title": (-8, 1274, 1248, 140), "decipher_tone": ("light", "interrupt", (119.8, 113.53, 70.9)),
         "art": (254, 663, 1122, 754),
         "title": (408, 194, 880, 90),
         "destiny": (1316, 196, 100, 104),
@@ -125,7 +125,7 @@ TEMPLATES = {
         "expansion_ring": (1380, 405), "copyright_x": 1404,
     },
     "ds-interrupt": {
-        "lore_x": (319, 1270, 80, 0, 0.0), "nolore_disc": (207, 404), "expansion_size": 59, "title_stroke": 0.6, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55, "frame": ("frames/ds-interrupt.png", 141, 141),
+        "lore_x": (319, 1270, 80, 0, 0.0), "nolore_disc": (207, 404), "expansion_size": 59, "title_stroke": 0.6, "margin_disc_dx": 6, "margin_disc_dy": 2, "margin_disc_hole": True, "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.55, "frame": ("frames/ds-interrupt.png", 141, 141), "decipher_title": (0, 1274, 1248, 140), "decipher_tone": ("dark", "interrupt", (125.75, 108.54, 68.6)),
         "art": (245, 661, 1134, 765), "title": (404, 196, 779, 100), "destiny": (1312, 197, 102, 99),
         "lore": (316, 374, 989, 193), "card_type": (272, 1507, 1091, 61), "game_text": (316, 1666, 997, 328),
         "banner_icon": (1292, 1495), "set_icon_abs": (1397, 1954), "set_icon_size": 68, "expansion_ring": (1382, 406), "copyright_x": 1420, "copy_size": 25.9, "copy_ls": 0.8,
@@ -170,7 +170,7 @@ TEMPLATES = {
     },
     "ls-effect": {   # #62: frame and boxes fitted to the PC and printed Decipher effects
         "frame": ("frames/ls-effect.png", 140, 139),
-        "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6,
+        "ctype_size": 62, "ctype_spacing": 11.3, "set_ring": (106, 80, -26), "set_ring_w": 24, "set_digit_size": 160, "title_size": 83.4, "title_ls": 0.6, "decipher_title": (-8, 1274, 1248, 140), "decipher_tone": ("light", "effect", (118.8, 113.5, 70.9)),
         "margin_disc_dx": 9, "margin_disc_dy": 6, "margin_disc_hole": "#b04244", "margin_disc_hole_pad": 8, "ring_disc_dy": 6, "nolore_disc": (201, 415),
         "art": (244, 661, 1143, 755), "title": (407, 194, 867, 100), "title_long_left": 366, "destiny": (1313, 197, 104, 104),
         "lore": (320, 372, 1019, 193), "card_type": (267, 1505, 1109, 61), "game_text": (320, 1658, 997, 328),
@@ -1752,7 +1752,8 @@ for _sd in ("ls", "ds"):
                                         # rev 80: art window 5 px lower (frame band moved); the copyright line 2 % longer,
                                         # printed x 1425..1450 x 735..1352 on both sides
                                         art=(244, 666, 1143, 755) if _sd == "ls" else (254, 668, 1118, 765), copy_ls=1.0,
-                                        copyright=(1420, 666, 36, 755) if _sd == "ls" else (1420, 661, 36, 765))
+                                        copyright=(1420, 666, 36, 755) if _sd == "ls" else (1420, 661, 36, 765),
+                                        decipher_tone=(_e["decipher_tone"][0], None, None))
     if f"{_sd}-effect" in PC_PIECE_FIX:
         PC_PIECE_FIX[f"{_sd}-podracer"] = PC_PIECE_FIX[f"{_sd}-effect"]
     PC_GROW_TEMPLATES.add(f"{_sd}-podracer")
@@ -1957,6 +1958,48 @@ def foil_html(fr, fx: int, fy: int, holes=()) -> str:
             f'<div class="foil" style="{box}background:{gloss};mix-blend-mode:soft-light;opacity:.7"></div>')
 
 
+# Rev 80: Decipher printings of the Effect / Interrupt frames. Our frames carry the PC's colours (within 5 levels of the
+# PC's Virtual cards); Decipher's printed faces are a deeper crimson (Dark margin 181,1,46 against 186,32,55), silver
+# chips on the Light red margins (not cyan) and redder / yellower type discs. make_decipher_tone.py fits, from 100 printed
+# Effects and Interrupts against our renders, a 3D colour offset table per side (17^3 nodes, frame pixels only) and
+# per-channel quantile curves for the two type discs; the frame is recoloured once and cached.
+DECIPHER_TONE = ASSETS / "frames/decipher-tone.npz"
+_TONED: dict = {}
+
+
+def decipher_toned(fr: Path, side: str, disc, circle) -> Path:
+    import hashlib
+    import numpy as np
+    key = (str(fr), side, disc)
+    if key in _TONED and _TONED[key].exists():
+        return _TONED[key]
+    h = hashlib.sha1(fr.read_bytes() + DECIPHER_TONE.read_bytes() + repr(key[1:] + (circle,)).encode()).hexdigest()[:12]
+    out = OUT / f"_frame-{fr.stem}-decipher-{h}.png"
+    if not out.exists():
+        L = np.load(DECIPHER_TONE)
+        a = np.array(Image.open(fr).convert("RGBA")).astype(np.float32)
+        rgb = a[..., :3]; off = L[side]; n = off.shape[0]
+        f = np.clip(rgb / 16.0, 0, n - 1 - 1e-6); i0 = np.floor(f).astype(np.int32); tt = f - i0
+        res = np.zeros_like(rgb)
+        for dx in (0, 1):
+            for dy in (0, 1):
+                for dz in (0, 1):
+                    w = (tt[..., 0] if dx else 1 - tt[..., 0]) * (tt[..., 1] if dy else 1 - tt[..., 1]) * (tt[..., 2] if dz else 1 - tt[..., 2])
+                    res += w[..., None] * off[i0[..., 0] + dx, i0[..., 1] + dy, i0[..., 2] + dz]
+        toned = np.clip(rgb + res, 0, 255)
+        if disc:   # the type disc: its own curves (feathered circle; the ring keeps the frame's)
+            q = L[f"disc_{disc}"]; cx, cy, r = circle
+            dq = np.stack([np.interp(rgb[..., c], np.arange(256), q[c]) for c in range(3)], -1)
+            yy, xx = np.mgrid[:a.shape[0], :a.shape[1]]
+            m = np.clip(r + 0.5 - np.hypot(xx - cx, yy - cy), 0, 1)[..., None]
+            toned = toned * (1 - m) + dq * m
+        a[..., :3] = toned
+        OUT.mkdir(parents=True, exist_ok=True)
+        Image.fromarray((a + 0.5).astype(np.uint8), "RGBA").save(out)
+    _TONED[key] = out
+    return out
+
+
 def build_html(card: dict) -> str:
     t = TEMPLATES[card["template"]]
     if card.get("decipher_print") and DC_PRINT.get(card["template"]):
@@ -1996,6 +2039,8 @@ def build_html(card: dict) -> str:
     else:
         fr, fx, fy = t["frame"]
         fr = ASSETS / fr
+        if card.get("decipher_print") and t.get("decipher_tone"):
+            fr = decipher_toned(fr, *t["decipher_tone"])   # Rev 80: Decipher's ink on the Effect / Interrupt frames
         if t.get("nolore_grow") and card.get("no_lore_box") and not card.get("text_grow"):
             card = dict(card, text_grow=t["nolore_grow"], grow_keep_frame=True)   # as the PC cards (adapter): the Effect frame's own window
         if card.get("captive_noart") and "stats_y" in t:
@@ -2114,7 +2159,7 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{data_uri(_pf)}" style="position:absolute;left:{bx}px;top:{by}px;width:{bw}px;height:{bh}px;object-fit:cover;'
                      f'outline:2px solid rgba(0,0,0,.30)">')
         tx_ = t["podracer_title_x"]; ttl = t["title"]
-        t = dict(t, title=(tx_, ttl[1], ttl[0] + ttl[2] - tx_, ttl[3])); t.pop("title_long_left", None)
+        t = dict(t, title=(tx_, ttl[1], ttl[0] + ttl[2] - tx_, ttl[3])); t.pop("title_long_left", None); t.pop("decipher_title", None)
     if card.get("disc2"):   # second affiliation disc right of the first, title bar shortened (The Emperor: Dark Jedi Master + Imperial)
         parts.append(f'<img src="{data_uri(ASSETS / f"icons/disc-{card["disc2"]}.png")}" style="position:absolute;left:{359}px;top:{174}px">')
         t = dict(t, title=(t["title"][0] + 170, t["title"][1], t["title"][2] - 170, t["title"][3]))
@@ -2183,6 +2228,14 @@ def build_html(card: dict) -> str:
         tll = f' data-ll="{t["title_long_left"]}"' if t.get("title_long_left") else ""   # #62: a title too long for the bar starts further left
         if ja:   # rev 80: Takara condensed a long title further to stay clear of the destiny (Luke Skywalker)
             tll += lang_ja.title_attrs(card)
+        if card.get("decipher_print") and t.get("decipher_title"):
+            # Rev 80: Decipher's own typesetting (printed 1995-2001; 70 printed Effects / Interrupts measured): Light
+            # titles 8 px left of the PC's; the bar runs to x 1274 on all four; a title too long for it is set smaller
+            # (font size, baseline kept), ending by x 1248 and starting further left the more it shrinks (fit_lead)
+            ddx, dend, dright, dlead = t["decipher_title"]
+            tx0, ty0, _, th0 = t["title"]
+            t = dict(t, title=(tx0 + ddx, ty0, dend - tx0 - ddx, th0))
+            tll = f' data-dfit="{dright} {dlead}"'
         parts.append(f'<div class="title{" jatitle" if ja else ""}"{tll} style="position:absolute;{box("title")}">{title_dots(title_html(card["title"]), card)}</div>')
     sec('destiny')
     if card.get("destiny") and "destiny" in t:
@@ -2856,6 +2909,17 @@ def build_html(card: dict) -> str:
       }
       for (const el of document.querySelectorAll('.title')) {   // a title longer than its bar is condensed, as Decipher did
         const w = el.scrollWidth; let avail = el.clientWidth;
+        if (el.dataset.dfit && w > avail + 1) {   // Rev 80: Decipher printings set a long title smaller instead (baseline kept)
+          const [R, A] = el.dataset.dfit.split(' ').map(Number), x0 = el.offsetLeft;
+          const k = Math.min(1, (R - x0 + A) / (w + A)), cs = getComputedStyle(el);
+          const mk = document.createElement('span'); mk.style.cssText = 'display:inline-block;width:0;height:0'; el.appendChild(mk);
+          const b0 = mk.offsetTop;
+          el.style.fontSize = (parseFloat(cs.fontSize) * k) + 'px'; el.style.letterSpacing = (parseFloat(cs.letterSpacing || 0) * k) + 'px';
+          const b1 = mk.offsetTop; mk.remove();
+          el.style.width = 'max-content'; const nw = el.offsetWidth;
+          el.style.top = (el.offsetTop + b0 - b1) + 'px'; el.style.left = (R - nw) + 'px';
+          continue;
+        }
         if (w > avail + 1 && el.dataset.ll) {   // the PC first moves a long title left, to the bar's start (#62)
           const right = el.offsetLeft + avail; el.style.left = el.dataset.ll + 'px'; avail = right - (+el.dataset.ll); el.style.width = avail + 'px';
         }
