@@ -1048,3 +1048,23 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Emergency Deployment (Used), We're Doomed (Used), Warrior's Courage (Lost), Blue Milk (Used Or Lost), Electrobinoculars,
   Droid Detector (Devices), Help Me Obi-Wan Kenobi. Starting Interrupts were never printed in Japanese. English renders
   byte-identical to rev 79. `tools/japanese/make_sample.py` builds a sample from a wiki page "<Card> (Japanese)".
+- Rev 78 leftovers (2026-11-12): two fixes on Objectives / Epic Events, measured on printed scans (body-normalised to
+  745 px; master = 2 × (x + 35), 2 × (y + 36)). **Dark Epic Event sphere** (`epic-event`): ring fit on 7 printed Dark
+  Epic Events (Target The Main Generator, Commence Primary Ignition, Epic Duel, That Thing's Operational, Boonta Eve
+  Podrace (Dark), If The Trace Was Correct, Deep Hatred; the PC's With Thunderous Applause agrees): centre (675, 166.4),
+  ~29 px across incl. its black ring = master (1420, 405), 58 px; `expansion_ring` (1390, 373) -> (1391, 376),
+  `expansion_size` 70 -> 58 (renders now fit (674.5–675, 166), r 14). **Episode I disc in the left margin**: printed
+  Episode I-era Objectives (We Have A Plan, Invasion, Plead My Case, The Hyperdrive Generator's Gone, My Lord Is That
+  Legal?, No Money No Parts No Deal!, We'll Handle This, Let Them Make The First Move, fronts and backs), Epic Events of
+  both sides (Boonta Eve Podrace Light / Dark, I Did It!, Inner Strength, If The Trace Was Correct, Deep Hatred) and the
+  PC's Virtual ones (Hunt For The Droid General, Twin Suns, Communing, How Liberty Dies, Revenge Of The Sith; the
+  Episode VII disc too: Be With Me, Tracked Fleet) print the disc in the left margin under the card-type disc, not under
+  the sphere. Half-level edge on 11 faces: centre x 67.2, Light y 163, Dark y 168.5, 27.5–29 px across = master
+  (205, 397) Light / (204, 410) Dark, 56 px. New template key `ring_disc_left` = (cx, cy, size): `objective-ls` and
+  `ls-epic-event` (205, 397, 56), `objective` and `epic-event` (204, 410, 56); an `episode1` / `episode7` ring icon
+  goes there (one disc), other discs keep their places; legacy `disc_left` (Virtual Block, (200, 412) 58 px) and the
+  no-lore `nolore_disc` are unchanged. No new spec keys or editor controls. Checks: before/after sheets against the
+  scans; renders of every other template md5-identical (Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan
+  1_121, Charming To The Last 1_236, objectives 7_135 / 9_151 / 7_136 back, Light Epic Events Attack Run 2_42 and
+  Deactivate The Shield Generator 8_43, effect 1_72, 4_19, combos 10_18 / 10_22). Not changed: the disc picture
+  itself (`ep1-disc.png` has "EPISODE" lettering; the printed Objective disc shows only the "I").

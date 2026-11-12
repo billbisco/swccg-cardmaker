@@ -278,7 +278,8 @@ TEMPLATES = {
         "frame": ("frames/epic-event.png", 0, 0),
         "art": (238, 372, 1146, 866), "title": (396, 206, 880, 100), "destiny": (1310, 203, 108, 108),
         "game_text": (290, 1340, 1060, 650), "gt_ink": "#fff", "gt_grow": True,
-        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1390, 373), "expansion_size": 70,
+        "set_icon_abs": (1405, 1950), "set_icon_size": 62, "expansion_ring": (1391, 376), "expansion_size": 58,   # rev 78: printed sphere centre (1420, 405), 58 px (7 Dark Epic Event scans)
+        "ring_disc_left": (204, 410, 56),   # rev 78: Episode I disc in the left margin (Boonta Eve, If The Trace Was Correct, Deep Hatred)
         "copyright_x": 1404, "dark_text": False, "no_type": True, "credit_mx": (180, 1411), "credit_ink": "#000",
     },
     # printed cards with no lore box (Jedi Tests, Reflections II combo cards) carry a TALL slip (VS12 #13, #42): Bardez's
@@ -396,6 +397,12 @@ TEMPLATES["ls-jeditest-epic"] = dict(_LS_EFFECT_PRE62, frame=("frames/ls-jedites
 # clear of the destiny circle (the old (1412, 295) 70-px sphere sat on it). Light Epic Events share it (Attack Run, Deactivate)
 for _k, _xy in (("objective-ls", (1398, 362)), ("objective", (1393, 375))):
     TEMPLATES[_k].setdefault("expansion_ring", _xy); TEMPLATES[_k].setdefault("expansion_size", 58)
+# rev 78: printed Episode I-era Objectives and Epic Events (Theed Palace, Coruscant, Tatooine, Reflections III and the
+# PC's Virtual ones) carry the Episode I (or VII) disc in the LEFT margin under the card-type disc, not under the sphere:
+# measured on 18 faces (half-level edge, 745 px): centre x 67.2, Light y 163 / Dark y 168.5, ~28 px across = master
+# (205, 397) Light, (204, 410) Dark, 56 px. Epic Events of both sides print it at the same spot as the Objectives.
+TEMPLATES["objective-ls"]["ring_disc_left"] = (205, 397, 56)
+TEMPLATES["objective"]["ring_disc_left"] = (204, 410, 56)
 TEMPLATES["ls-jeditest-olive"] = dict(TEMPLATES["ls-jeditest-tall"], frame=("frames/ls-jeditest-olive.png", 0, 0))   # printed Jedi Tests: olive throughout
 TEMPLATES["ls-epic-event"] = dict(TEMPLATES["objective-ls"], frame=("frames/ls-epic-event.png", 0, 0))
 # Virtual Block Missions (make_mission_frames.py): full art under the Admiral's Order title bar, tan panel at the foot
@@ -2187,6 +2194,12 @@ def build_html(card: dict) -> str:
                 continue
             # rev 71: Virtual Block Objectives, Missions and Epic Events print it in the left margin too (A Stunning Move, Deep Hatred (V))
             _nd = t.get("_nolore_disc") or ((200, 412) if card.get("disc_left") else None)
+            if nm in ("episode1", "episode7") and not _nd and t.get("ring_disc_left") and not nd_used:
+                # rev 78: printed Objectives / Epic Events: the Episode disc in the left margin under the type disc (We Have A Plan)
+                ncx, ncy, nsz = t["ring_disc_left"]
+                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{ncx - nsz / 2}px;top:{ncy - nsz / 2}px;width:{nsz}px;height:{nsz}px;border-radius:50%">')
+                nd_used = True
+                continue
             if nm in RING_DISCS and _nd and not nd_used:
                 ncx, ncy = _nd
                 parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{ncx - 29}px;top:{ncy - 29}px;width:58px;height:58px;border-radius:50%">')
