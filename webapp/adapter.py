@@ -44,7 +44,7 @@ DECIPHER_SETS = {str(i) for i in range(1, 15)} | {"101", "102", "103", "104", "1
 # reprints of older cards set "TM, ®, &", but those render as their first printing).
 SE_ERA = {"7", "8", "9", "109", "110", "111", "112"}
 PRINT_YEAR = {"8": 1999, "101": 1995, "104": 1996, "109": 1999, "110": 1999, "111": 2000, "112": 2000}   # the year the card prints
-NO_FINAL_PERIOD = {"11", "12", "13", "14"}
+NO_FINAL_PERIOD = {"11", "12", "14"}   # rev 81 (systems and discs): Reflections III prints "DECIPHER INC." (Stormtrooper Garrison, The Ebb Of Battle, Qui-Gon's Lightsaber photos)
 
 
 def copyright_for(set_id, decipher: bool = True) -> str:

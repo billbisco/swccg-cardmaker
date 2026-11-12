@@ -1339,3 +1339,35 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   objective 7_135, starship 1_140, Hoth: Echo Command Center 3_56, Cloud City: Casino (Dark) 7_269, Tatooine Interrupt
   with the Episode I disc 11_26, effect 1_42, Coruscant objective 12_88, PC systems Ahch-To 211_48 and Coruscant (V)
   203_31. Evidence sheets: scan | before | after with x4 zooms of the sphere and each copyright half.
+- Rev 81 (systems and discs) (2026-11-12): five points checked on printed systems / sites (wiki Decipher-archive scans,
+  the wiki's 16 1497 px `-hires.webp` system faces, Decipher's 1039 px Episode I site files, pricecharting photos).
+  - **System art scale** (`render.system_library_art`, `server.resolve_art`): the art library keeps a system's picture as
+    the strip between its bars, cut from the whole card normalised to 350x490 (`art-manifest.json` `box`, e.g. Bespin
+    [14, 96, 336, 395]). It came back as a plain `rect` and was cover-fitted to the whole 1343x1931 art area, so the
+    planet printed 1.4-1.6x too large (Bespin, Fondor, Kessel). Library art of a system now carries `card350` (the box)
+    and is placed where it sits on the printed card: card body = the 745 px face's 37..708.5 x 36..1001.5, i.e.
+    17.38..332.85 x 16.98..472.33 of the 350x490 card (`SYS_BODY_350`); the rows under the bars / beside them are the
+    strip mirrored outward. Checked by registering each render's art (745 px, x 120..625, y 250..790) inside the printed
+    face over scale 0.80-1.25 and both turns: all 59 library systems with a wiki face (Light and Dark, Premiere ..
+    Coruscant, Jedi Pack, OTSD) match at scale 0.97-1.00, median offset 0 / 0 px (745), worst 7 / 8.5 px; the 16
+    independent 1497 px faces 0.97-0.98 (their card outline sits ~1 % differently); before: below 0.80 (search floor).
+    Scans and uploads unchanged; PC systems (Ahch-To 211_48, Coruscant (V) 203_31) md5-identical.
+  - **Location title dot** (Decipher printings only, `decipher_print`): sites and systems print the dot against the
+    first letter (•BESPIN, •KESSEL, •DEATH STAR: CENTRAL CORE: 4-5 px gap at the master, dot ~15 px, centred on the cap
+    height); ours stood 18 px off. `.ltitle/.dtitle .dot` get `font-size:0.88em; margin-right:-7px` (gap 4-6 px, dot
+    14-16 px). Character titles already match print (Darth Vader hires: dot 118-139 / D at 146 vs ours 116.5-138.6 /
+    144.7) and are unchanged. PC / VS slips unchanged.
+  - **Episode I disc on systems and sites**: confirmed, no change. On the sharpest faces (Decipher's 1039 px Naboo:
+    Battle Plains Light / Dark and Theed Palace Generator Core; the 745 px printed scan of Watto's Junkyard; Coruscant
+    systems at 357 px) the disc is the same as everywhere else: tall serif I nearly the disc's height, EPISODE a light
+    bold sans behind it, as `icons/ep1-disc.png` draws it. The "short heavy I over a strong EPISODE bar" was the blur of
+    a ~12 px disc on the 350 px scans.
+  - **Reflections III copyright**: prints the final period ("TM, ® & © 2001 DECIPHER INC."): sharp photos of
+    Stormtrooper Garrison, The Ebb Of Battle, Qui-Gon's Lightsaber, and Decipher's own 1039 px Reflections III / Coruscant
+    files. `NO_FINAL_PERIOD` now 11, 12, 14 (12 and 14 left as rev 81 verify set them: Decipher's Coruscant file also ends
+    "INC.", but no sharp printed Coruscant / Theed photo was found to settle it).
+  - **Tatooine sphere**: round with a round black ring on the sharpest photo found (Padmé Naberrie, 1200x1600); no change.
+  - Checks: md5 identical before / after for Luke Skywalker 1_19, interrupt 1_70, objective 7_135, Darth Vader 1_168,
+    Ahch-To 211_48, Coruscant (V) 203_31 and the three Japanese samples; Death Star: Central Core 1_283, Cloud City:
+    Carbonite Chamber 5_166 and Bespin 5_76 from its scan change only inside the two title bars (the dot, intended);
+    Allegations Of Corruption 13_52 ends "DECIPHER INC.".

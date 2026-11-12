@@ -780,6 +780,41 @@ def esc_i(s: str) -> str:
     return re.sub(r"(?<![A-Za-z0-9])_(.+?)_(?![A-Za-z0-9])", r"<i>\1</i>", esc(s))
 
 
+# rev 81 (systems): the art library keeps a system's picture as the strip between its two bars, cut from the whole printed
+# card normalised to 350x490 (art_library_all.system_box: x 14..336, y ~95..395). The card body (the master's 1343x1931
+# art area) is the 745 px Holotable face's 37..708.5 x 36..1001.5, i.e. 17.38..332.85 x 16.98..472.33 of that 350x490
+# card. Placed there (not cover-fitted to the whole art area, which drew the planet 1.4-1.6x too large: Bespin, Fondor,
+# Kessel); the rows above / below the strip (under the bars, the margins beside them) are the strip mirrored outward.
+SYS_BODY_350 = (37 * 350 / 745, 36 * 490 / 1039, 708.5 * 350 / 745, 1001.5 * 490 / 1039)
+
+
+def system_library_art(card: dict, im: Image.Image) -> str:
+    import numpy as np
+    x0, y0, x1, y1 = card["art"]["card350"]
+    s = im.width / (x1 - x0)                          # library px per card350 unit (orig 1, x4 4)
+    bx0, by0, bx1, by1 = SYS_BODY_350
+    _, _, aw, ah = TEMPLATES[card["template"]]["art"]
+    ext = ((bx0 - x0) * s, (by0 - y0) * s, (bx1 - x0) * s, (by1 - y0) * s)
+    crop = im.transform((aw, ah), Image.EXTENT, ext, Image.BICUBIC)
+    top = max(0, int(np.ceil((y0 - by0) / (by1 - by0) * ah)) + 2)       # first full row of the strip (+2: soft edge)
+    bot = min(ah, int((y0 + im.height / s - by0) / (by1 - by0) * ah) - 2)
+    lft = max(0, int(np.ceil((x0 - bx0) / (bx1 - bx0) * aw)) + 2)
+    rgt = min(aw, int((x1 - bx0) / (bx1 - bx0) * aw) - 2)
+    if lft > 2:
+        crop.paste(crop.crop((lft, 0, 2 * lft, ah)).transpose(Image.FLIP_LEFT_RIGHT), (0, 0))
+    if rgt < aw - 2:
+        w_ = aw - rgt; crop.paste(crop.crop((rgt - w_, 0, rgt, ah)).transpose(Image.FLIP_LEFT_RIGHT), (rgt, 0))
+    y = top                                            # upward from the strip's top, its rows flipped
+    while y > 0:
+        h = min(195, y, bot - top); crop.paste(crop.crop((0, top, aw, top + h)).transpose(Image.FLIP_TOP_BOTTOM), (0, y - h)); y -= h
+    y = bot                                            # downward from its foot
+    while y < ah:
+        h = min(195, ah - y, bot - top); crop.paste(crop.crop((0, bot - h, aw, bot)).transpose(Image.FLIP_TOP_BOTTOM), (0, y)); y += h
+    p = OUT / f"_art_{card['id']}-sys.png"
+    crop.save(p)
+    return data_uri(p)
+
+
 def art_crop(card: dict, win=None, tag: str = "") -> str:
     """Crop the art window out of a Decipher scan (any size: the silver frame is located, then mapped)."""
     src = Path(card["art"]["src"])
@@ -789,6 +824,8 @@ def art_crop(card: dict, win=None, tag: str = "") -> str:
     im = im.convert("RGB")
     import numpy as np
     a = np.array(im).astype(int)
+    if card["art"].get("card350") and TEMPLATES[card["template"]].get("system") and not win:
+        return system_library_art(card, im)
     if card["art"].get("rect") and (not win or tag == "-rect"):
         # the scan's own art rectangle, cover-fitted to the window (tall-slip cards whose window shape differs)
         x0, y0, x1, y1 = card["art"]["rect"]
@@ -2904,6 +2941,7 @@ def build_html(card: dict) -> str:
     .ltitle .dot, .dtitle .dot{{font-family:"DejaVu Sans",sans-serif;color:#d4141c;font-size:0.8em;margin-right:6px;vertical-align:0.05em}}
     .ltitle .dot.plain, .dtitle .dot.plain{{color:inherit}}
     {f".ltitle .dot:not(.plain), .dtitle .dot:not(.plain){{color:{bullet_colour(card)}}}" if bullet_colour(card) else ""}
+    {".ltitle .dot, .dtitle .dot{font-size:0.88em;margin-right:-7px}" if card.get("decipher_print") else ""}
     .ltitle span.lt, .dtitle span.lt{{display:inline-block;white-space:nowrap;transform-origin:center center}}
     .ltitle{{color:#000;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box}}
     .dtitle{{color:#fff;display:flex;align-items:center;justify-content:center;padding-top:6px;box-sizing:border-box;transform:rotate(180deg)}}
