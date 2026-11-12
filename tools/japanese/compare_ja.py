@@ -108,7 +108,10 @@ def main():
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True); os.environ.setdefault("CARDMAKER_OUT", str(out))
     for f in a.specs:
         spec = json.loads(Path(f).read_text(encoding="utf-8")); name = Path(f).stem
-        scan = warp(wiki_file(spec["_scan"], out / spec["_scan"]), spec.get("_scan_bounds"))
+        try:
+            scan = warp(wiki_file(spec["_scan"], out / spec["_scan"]), spec.get("_scan_bounds"))
+        except Exception as e:   # noqa: BLE001 - one bad scan (frame not found) must not stop the batch
+            print(name, "-> scan not usable:", e, "(set _scan_bounds)"); continue
         ours = render(spec, out)
         if a.full:
             scan.save(out / f"{name}-scanw.png"); ours.save(out / f"{name}-ours.png")

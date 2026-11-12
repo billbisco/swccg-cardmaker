@@ -18,3 +18,7 @@ electrobinoculars, droid_detector (Devices), help_me_obi_wan_kenobi (Takara's Ef
 printed lines in lore and game text; text edges within ~3 px of the scans; titles within ~5 px.
 
 Comparison sheets (scan | CardMaker, half size): `sheets/<sample>.jpg`.
+
+Rev 81 (Starships, Vehicles, Weapons, Creatures): samples tie_fighter, x_wing (Starships), sandcrawler,
+sandcrawler_dark (Vehicles), jedi_lightsaber, imperial_blaster (Weapons), dianoga, wampa (Creatures). Same printed lines;
+strip items within ~6 px (TIE Fighter's condensed third item ~50 px wider than printed).
