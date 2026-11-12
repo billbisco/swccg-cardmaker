@@ -1,0 +1,8 @@
+Noto Sans JP (variable, wght 100-900), unmodified.
+Source: https://github.com/google/fonts/tree/main/ofl/notosansjp (NotoSansJP[wght].ttf), downloaded 2026-11-12.
+Licence: SIL Open Font License 1.1 (OFL.txt).
+Used by lang_ja.py (STANDARD rev 77) for Takara's Japanese printings (1997-98). Takara set the cards in commercial
+Japanese gothics (a heavy gothic for titles and the stat strip, a medium gothic for lore and game text); Noto Sans JP at
+800 / 500 is the closest free face. Title glyphs are condensed to 91 % in CSS as Takara printed them; widths otherwise
+match the printed em (Darth Vader (Japanese): 20 full-width characters of 47.6 px per game-text line).
+The container registers the file with fontconfig (webapp/Dockerfile) so Chromium finds it by family name.

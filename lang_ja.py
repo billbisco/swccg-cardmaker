@@ -182,7 +182,7 @@ def lore_html(card: dict, t: dict, text_html, fit_attrs: str = "") -> str:
     pts = f"{L + k},{T} {R - k},{T} {R},{T + k} {R},{B} {L},{B} {L},{T + k}"
     fill, stroke = "#000", "#4d5a5e"
     if t.get("dark_text"):   # Light frames: the lore box is the frame's own light grey with a dark bevel
-        fill, stroke = frame_color(t, lx + lw // 2, ly + lh // 2, lighten=0.2), "#6e6e74"
+        fill, stroke = frame_color(t, lx + lw // 2, ly + lh // 2, lighten=0.45), "#6e6e74"
     svg = (f'<svg style="position:absolute;left:0;top:0" width="1632" height="2220">'
            f'<polygon points="{pts}" fill="{fill}" stroke="{stroke}" stroke-width="3" stroke-linejoin="miter"/></svg>')
     a, b, c, d = g["lore_text"]

@@ -1,0 +1,52 @@
+{
+ "side": "Dark",
+ "title": "•オゼル提督",
+ "caption": "",
+ "number": "",
+ "destiny": "0",
+ "lore": "反乱軍を発見し壊滅させるために皇帝が編成したデス・スコードロンの{u:リーダー}。愚鈍で不器用。ダース・ベイダーに失策を露呈したばかりで、もはや失敗は許されない。",
+ "game_text": "自分の大型艦は同じ星系に－1で配備できる。操縦する宇宙船の戦闘力に2を加える。場にベイダーが出ており、相手がオゼルと同じロケーションにリアクションで移動してきたなら、オゼル提督は即座にロストする。",
+ "icons": [
+  "pilot"
+ ],
+ "stats": [
+  [
+   "POWER",
+   "3"
+  ],
+  [
+   "ABILITY",
+   "2"
+  ]
+ ],
+ "deploy": "0",
+ "forfeit": "4",
+ "scomp": false,
+ "affiliation": "Imperial",
+ "expansion": "Hoth",
+ "card_type": "",
+ "gempId": "3_82",
+ "source": {
+  "gempId": "3_82",
+  "imageUrl": "https://res.starwarsccg.org/cards/Hoth-Dark/large/admiralozzel.gif",
+  "set": "3"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "slip_type": "Character",
+ "dark_text": "",
+ "art": {
+  "kind": "library",
+  "gempId": "3_82",
+  "version": "orig"
+ },
+ "language": "ja",
+ "lore_lines": [
+  "反乱軍を発見し壊滅させるために皇",
+  "帝が編成したデス・スコードロンの{u:リーダー}。",
+  "愚鈍で不器用。ダース・ベイダーに失策を露呈",
+  "したばかりで、もはや失敗は許されない。"
+ ],
+ "_scan": "Japanese-Hoth-Admiral-Ozzel-Encyclopedia32-original.jpg"
+}

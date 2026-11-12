@@ -16,6 +16,7 @@ sources and script that rebuild it.
 | HolotableNumbers/HolotableNumbers-Extended.otf | Holotable Numbers Extended (GUST Font License, from TeX Gyre Heros) | destiny, stat values, slip numbers, parsec numbers on systems |
 | LiberationSansNarrow-Bold.ttf | Liberation Sans Narrow Bold (metric twin of Arial Narrow Bold) | bottom-strip caption on portrait cards (the PC slips use Arial Narrow Bold) |
 | HolotableNumbers/HolotableNumbers-BoldItalic.otf | Holotable Numbers Bold Italic (GUST Font License, from TeX Gyre Heros) | bottom-strip card number (the PC's PDF sets it in Akzidenz-Grotesk BE Bold Italic) |
+| NotoSansJP/NotoSansJP-VF.ttf | Noto Sans JP variable (SIL OFL 1.1, Google / Adobe; google/fonts `ofl/notosansjp`) | Japanese printings (rev 77): titles and stat strip (800), lore and game text (500) — stands in for Takara's Morisawa-style gothics |
 
 Until rev 62-66 (3 November 2026) the repository carried commercial fonts from Bardez's community template pack
 (Fiorello CG Condensed, five Akzidenz-Grotesk files, Craft Gothic Heavy Extended) and a digit subset of Akzidenz-Grotesk
