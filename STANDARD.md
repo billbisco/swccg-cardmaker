@@ -1591,3 +1591,28 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Checks:** md5 identical before / after: 1_19, 1_121, 1_70, 7_135, effect 1_42, combo 10_7 and the three Japanese
     samples. Changed as intended: sites (1_283, 5_78, 4_159, 9_58, 2_66 ...: titles, boxes), Nav cards (4_167, 9_157,
     PC starships), every PC set mark, 200_41 (portrait again), the (ALT) Effects and the Finalizers.
+- Rev 81 (Decipher text setting 2) (2026-11-12): the rest of the Decipher text setting, on `decipher_print` renders only.
+  - **Printed line breaks per card** (`gempdata/decipher_lines.json`, keys `lore` / `game_text` / `game_text_back`;
+    adapter `decipher_lines()` → card `dc_lines`; render `dc_hint()`): the 72 blocks read from the printed faces (the
+    56 of the first part and 16 more below; Allegations Of Corruption's lore and I'll Try Spinning's text read by eye where OCR failed), each line as printed. A text whose words (and line-opening signs such as
+    "+" or "=") no longer match its lines is set normally; with the lines the block does not re-wrap (`nowrap`), so a
+    line Decipher tracked tighter than the measure makes the fitter tighten the tracking, as Decipher did. Paragraph
+    marks follow the printed lines: Organized Attack (7_97) runs "LOST:" on, Our Only Hope (9_53) starts it on a new
+    line. Result (layout check against the print): 72 of 72 blocks break as printed (two show a token split only:
+    ". . .”" and italic "Executor ." — the same visible lines).
+  - **More templates measured** (printed line width / ours, pitch, on 350-1497 px faces):
+    Defensive Shields (6 faces, Reflections III) and Admiral's Orders (5, Death Star II / Theed): widths 1.03-1.04 of
+    our PC setting, as the family → set like the family (`DC_TEXT_FAMILY`); Admiral's Orders print seven lines at pitch
+    64.5 (5 faces 63.5-65), measure 36 px shorter and the box 45 px deeper than the PC's (`DC_TPL`). Objectives (4 fronts, 4 backs; Special Edition, Death Star II, Coruscant): width at 62 px ×1.026 matches,
+    pitch 63.0-64.5 (ours 65 at 63 px, grow) → 62 px, pitch 63.5, no grow; the italic heading line ("Deploy Throne Room,
+    Insignificant Rebellion and Your Destiny.") is condensed onto one line as printed (JS, `.objhead`). Jedi Tests (5,
+    incl. the 1497 px A Jedi's Strength): x-height 30 (ours 31), widths as the family at 58.5 px, pitch 58.0-59.0 (mean
+    58.4; the 57.3 of the rebuilt frame came from the PC's faces) → 58.5 px, pitch 58.4, measure -16. Podracers (5):
+    widths already within 1 % (rev 80); pitch 63.0 (ours 63.75) and lore 60.5 → set for Decipher printings.
+  - **Dark white text tone:** on 14 hires Dark faces the brightest point of each white glyph (median 194-213) equals the
+    brightest paper on the same scan (99.5th percentile 194-213, R = G = B): the letters are unprinted paper, the scans
+    are just exposed ~200. Our white (#fff, like our paper white) stays.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, and 2_13, 7_97,
+    4_75, 9_151, 13_8, 9_3, 11_47 with `decipher_print` false, and the Decipher site / system 1_283, 2_143.
+  - Left for the text-data agent (GEMP text differs from the print): Concentrate All Fire 9_3 ("for remainder", "Once
+    per turn, you"), Plead My Case back 12_88b (bold "order agenda"), More Dangerous Than You Realize 7_135b (“blown away.”).

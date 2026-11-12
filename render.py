@@ -631,7 +631,14 @@ LORE_X = {"Dark": (319, 1270, 90, 0, 0.0), "Light": (326, 1290, 75, 40, 0.0)}   
 # min_h instead of the fitter tightening it to 54). The right edge ("dw", added to the box width before the stretch) was fitted
 # on the printed line breaks of 56 text blocks (sim over the measure): characters -18, Effects / Interrupts of Premiere and
 # A New Hope -33 (their printed lines are a word shorter than Hoth's onward), others 0; lore Dark -3, Light +21.
-DC_TEXT_FAMILY = re.compile(r"^(ls|ds)-(character|effect|interrupt|weapon|device|starship-starfighter|vehicle)(-(?!wide)[a-z-]+)?$|^creature(-dc)?$")
+DC_TEXT_FAMILY = re.compile(r"^(ls|ds)-(character|effect|interrupt|weapon|device|starship-starfighter|vehicle|shield-dc|admirals-order)(-(?!wide)[a-z-]+)?$"
+                            r"|^creature(-dc)?$|^objective(-ls)?$|^ls-jeditest-olive$")
+# Rev 81 (2): per-template Decipher settings where the print differs from the family above (measured on printed faces:
+# Objectives both faces 8, Jedi Tests 5 incl. the 1497 px A Jedi's Strength, Defensive Shields 6 and Admiral's Orders 5
+# take the family values). "size" = the box's starting size (the fitter only shrinks: Decipher's Objectives fill to 62).
+DC_TPL = {"objective": {"size": 62, "lh": 63.5}, "objective-ls": {"size": 62, "lh": 63.5},
+          "ls-jeditest-olive": {"size": 58.5, "lh": 58.4, "dw": -16},
+          "ls-admirals-order": {"dw": -36, "lh": 64.5, "dh": 45}, "ds-admirals-order": {"dw": -36, "lh": 64.5, "dh": 45}}
 DC_TEXT = {"gt": {"k": 1.026, "lh": 63.5, "dy": 1, "dw": {"character": -18, "early": -33}, "stroke": {"Light": 0.2, "Dark": -0.5}},
            "lore": {"k": 1.044, "lh": 60.5, "x": 317, "indent": 75, "dw": {"Dark": -6, "Light": 6}, "min_h": 187,
                     "stroke": {"Light": 0.3, "Dark": -0.35}}}
@@ -642,24 +649,65 @@ DC_EARLY = ("Premiere", "A New Hope")   # sets whose Effects / Interrupts print 
 
 
 def dc_stroke(card: dict, t: dict, box: str) -> str:
-    s = DC_TEXT[box]["stroke"]["Light" if t.get("dark_text") else "Dark"]
+    white = (t.get("gt_ink") or ("#000" if t.get("dark_text") else "#fff")).lower() in ("#fff", "#ffffff") if box == "gt" else not t.get("dark_text")
+    s = DC_TEXT[box]["stroke"]["Dark" if white else "Light"]
     return f"-webkit-text-stroke:{abs(s)}px {'currentColor' if s > 0 else '#000'}"
 
 
 def dc_text(card: dict, t: dict) -> bool:
     """Rev 81: set this card's game text and lore the way Decipher set them (its own printings only)."""
     return bool(card.get("decipher_print") and DC_TEXT_FAMILY.match(card.get("template", "")) and not card.get("pc_type")
-                and card.get("lang") != "ja" and not t.get("landscape") and not t.get("gt_grow") and not t.get("chart"))
+                and card.get("lang") != "ja" and not t.get("landscape") and not t.get("chart")
+                and (not t.get("gt_grow") or card.get("template") in DC_TPL))
+
+
+def _dc_key(tok: str) -> str:
+    w = "".join(_pc_words(tok))
+    return w if w else (tok if tok in ("+", "=", "<", ">", "–", "-", "−", "&") else "")
+
+
+def dc_hint(text: str, card: dict, key: str, fallback=None) -> tuple:
+    """Rev 81 (2): the printed card's own line breaks (card "dc_lines", adapter.decipher_lines) -> (text with U+2029
+    at each printed line start, extra CSS). The words (and signs such as + or =, which may open or close a printed
+    line) must match the text's; otherwise the text is set normally. With the printed breaks the lines do not re-wrap
+    (nowrap): a line Decipher tracked tighter than the measure makes the fitter tighten the tracking, as Decipher did."""
+    dl = card.get("dc_lines") or {}
+    cands = [dl.get(key) or fallback] + ([dl.get("game_text_back")] if key == "game_text" else [])
+    toks = re.split(r"([ \t]+|¶|\n)", text)
+    keys = [(i, _dc_key(x)) for i, x in enumerate(toks) if x and not x.isspace() and x not in "¶\n"]
+    keys = [(i, k) for i, k in keys if k]
+    for lines in cands:
+        if not lines or len(lines) < 2:
+            continue
+        lk = [[k for k in (_dc_key(x) for x in l.split()) if k] for l in lines]
+        if [k for l in lk for k in l] != [k for _, k in keys]:
+            continue
+        starts, n = set(), 0
+        for l in lk[:-1]:
+            n += len(l); starts.add(keys[n][0])
+        out = []
+        for i, x in enumerate(toks):
+            if i in starts:   # this token opens a printed line: the run of spaces / paragraph marks before it becomes the break
+                while out and (not out[-1] or out[-1].isspace() or out[-1] in ("¶", "\n")):
+                    out.pop()
+                out.append("\u2029")
+            elif x in ("¶", "\n"):
+                x = " "   # Decipher ran USED: / LOST: on where its lines say so
+            out.append(x)
+        return "".join(out), ";white-space:nowrap"
+    return text, ""
 
 
 def dc_gt_box(card: dict, t: dict) -> str:
     """The game text box's style under dc_text: measure / k, stretched by k, Decipher's pitch and tracking."""
     p = DC_TEXT["gt"]; x, y, w, h = t["game_text"]; tpl = card.get("template", "")
-    dw = (p["dw"]["character"] if "-character" in tpl else
-          p["dw"]["early"] if re.search(r"-(effect|interrupt)", tpl) and card.get("dc_expansion") in DC_EARLY else 0)
-    k = p["k"]
+    o = DC_TPL.get(tpl, {})
+    dw = o.get("dw", p["dw"]["character"] if "-character" in tpl else
+               p["dw"]["early"] if re.search(r"-(effect|interrupt)", tpl) and card.get("dc_expansion") in DC_EARLY else 0)
+    k = p["k"]; fs = f"font-size:{o['size']}px;" if o.get("size") else ""
+    h += o.get("dh", 0)   # Admiral's Orders print seven lines at full pitch, 45 px further down than the PC's box
     return (f"left:{x}px;top:{y + p['dy']}px;width:{(w + dw) / k:.2f}px;height:{h - p['dy']}px;transform:scaleX({k});"
-            f"transform-origin:left top;letter-spacing:0px;line-height:{p['lh']}px;{dc_stroke(card, t, 'gt')}")
+            f"transform-origin:left top;{fs}letter-spacing:0px;line-height:{o.get('lh', p['lh'])}px;{dc_stroke(card, t, 'gt')}")
 
 _EDGE_CACHE: dict = {}
 
@@ -2278,6 +2326,10 @@ def build_html(card: dict) -> str:
         t = dc_template(t, {k: v for k, v in DC_PRINT[card["template"]].items() if k != "ep1"})   # rev 80: sphere and copyright line where Decipher printed them
         if DC_PRINT[card["template"]].get("ep1") and "episode1" in (card.get("ring_icons") or []):
             t = dc_template(t, DC_PRINT[card["template"]]["ep1"])   # rev 81: Episode I-era sites
+    if card.get("decipher_print") and card["template"] in ("ls-podracer", "ds-podracer"):
+        # rev 81 (2): the five printed Podracers set game text at a 63.0 pitch (ours 63.75) and lore at 60.5 (ours 60);
+        # size and width were right (rev 80: printed / ours line width 0.99-1.00)
+        t = dict(t, gt_lh_add=63.0 - t.get("gt_size", 62), lore_css=dict(t.get("lore_css") or {}, lh=60.5))
     card_ctx.clear(); card_ctx.update(card); card_ctx["_dark_text"] = bool(t.get("dark_text"))
     card_ctx["_pc_icons"] = bool(card.get("pc_type"))
     pcg0 = (card.get("pc_type") or {}).get("gt")
@@ -2551,14 +2603,16 @@ def build_html(card: dict) -> str:
         lore_ = pc_hint_breaks(card["lore"], card.get("lore_lines"))   # rev 74: the printed card's own lore line breaks
         if "\u2029" in lore_:
             rgt += 40; cut = 0
-        if dc_text(card, t) and not t.get("lore_x") and not card.get("no_lore_box"):
+        if dc_text(card, t) and not card.get("no_lore_box"):
             # rev 81: Decipher's lore setting (wider face, pitch 60.5, three lines keep their pitch)
             p = DC_TEXT["lore"]; k = p["k"]
+            lore_, nw_ = dc_hint(card["lore"], card, "lore", card.get("lore_lines"))
+            cut = 0 if nw_ else cut
             side = "Light" if t.get("dark_text") else "Dark"
             w_ = (rgt - p["x"] + p["dw"][side]) / k
             parts.append(f'<div class="lore fit dct" data-fit-step="1"{fit_attrs(card, "lore")} style="position:absolute;left:{p["x"]}px;top:{ly_}px;width:{w_:.2f}px;height:{max(lh_, p["min_h"])}px;'
                          f'transform:scaleX({k});transform-origin:left top;line-height:{p["lh"]}px;'
-                         f'text-indent:{card.get("lore_indent", p["indent"]) / k:.2f}px;letter-spacing:0px;{dc_stroke(card, t, "lore")}">'
+                         f'text-indent:{card.get("lore_indent", p["indent"]) / k:.2f}px;letter-spacing:0px;{dc_stroke(card, t, "lore")}{nw_}">'
                          f'<span style="float:right;width:{cut / k:.2f}px;height:58px"></span>{game_text_html(lore_)}</div>')
         else:
             parts.append(f'<div class="lore fit"{fit_attrs(card, "lore")} style="position:absolute;left:{tx0}px;top:{ly_}px;width:{rgt - tx0}px;height:{lh_}px;'
@@ -2655,7 +2709,9 @@ def build_html(card: dict) -> str:
         elif ja:   # rev 77: Takara's text (printed line breaks when given: text_breaks)
             parts.append(lang_ja.gt_html(card, t, game_text_html, fit_attrs(card, "game_text")))
         elif dc_text(card, t):   # rev 81: Decipher's own setting (wider face, pitch 63.5, measured measure)
-            parts.append(f'<div class="gt fit dct" data-fit-step="1"{fit_attrs(card, "game_text")} style="position:absolute;{dc_gt_box(card, t)}">{game_text_html(card["game_text"])}</div>')
+            gtx_, nw_ = dc_hint(card["game_text"], card, "game_text")
+            obj_ = " objhead" if card["template"].startswith("objective") else ""
+            parts.append(f'<div class="gt fit dct{obj_}" data-fit-step="1"{fit_attrs(card, "game_text")} style="position:absolute;{dc_gt_box(card, t)}{nw_}">{game_text_html(gtx_)}</div>')
         else:
             parts.append(f'<div class="gt fit{" grow" if t.get("gt_grow") else ""}"{fit_attrs(card, "game_text")} style="position:absolute;{box("game_text")}">{game_text_html(card["game_text"])}</div>')
     # deploy / forfeit
@@ -3176,6 +3232,11 @@ def build_html(card: dict) -> str:
       // first tighten the tracking (to ls_min), then the leading (to lh_min x size), and only then try a smaller size.
       // Once a size fits, give back as much tracking as it can spare. Limits per box: data-fit-* (card "text_fit").
       const overflows = (el) => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
+      for (const h of document.querySelectorAll('.dct.objhead > i:first-child')) {   // rev 81 (2): Decipher's Objectives condense the italic heading onto one line
+        const W = h.parentElement.clientWidth; h.style.display = 'inline-block'; h.style.whiteSpace = 'nowrap';
+        const w = h.offsetWidth;
+        if (w > W) { h.style.transform = 'scaleX(' + (W / w) + ')'; h.style.transformOrigin = 'left center'; h.style.marginRight = (W - w) + 'px'; }
+      }
       for (const el of document.querySelectorAll('.fit')) {
         const cs = getComputedStyle(el);
         let size = parseFloat(cs.fontSize), lh = parseFloat(cs.lineHeight);

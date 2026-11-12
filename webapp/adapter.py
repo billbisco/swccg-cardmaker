@@ -791,6 +791,9 @@ def spec_to_card(spec: dict, build_vs) -> dict:
             card["dc_expansion"] = spec.get("expansion")   # rev 81: Decipher's text setting differs by set (render.DC_EARLY)
             if card.get("lore"):
                 card["lore"] = dc_ellipses(card["lore"])   # rev 81: Decipher spaced its lore ellipses ". . ."
+            dl = decipher_lines(spec.get("gempId"))
+            if dl:   # rev 81 (2): the printed card's own line breaks (gempdata/decipher_lines.json)
+                card["dc_lines"] = dl
         card["copyright_split"] = True          # systems print Lucasfilm left / Decipher right (Dagobah)
         card["expansion_icon_in_hole"] = True   # printed Decipher cards: the sphere sits in a black hole of the frame (2-1B)
         # rev 80: a card of one of Decipher's own sets (or a new card with no Players Committee set mark) takes the sphere
@@ -988,6 +991,22 @@ def apply_version(spec: dict, v: dict, text: bool = True) -> dict:
 # rev 74: Virtual Legacy typesetting read from the PC's master list PDFs (tools/legacy/typeset/): each card's text frame,
 # Akzidenz size, tracking and pitch, so the same words land on the same lines as the PC's card (Bill 2026-11-10).
 _TYPESET = None
+_DC_LINES = None
+
+
+def decipher_lines(gid) -> dict | None:
+    """Rev 81 (2): Decipher's printed line breaks of a card's lore / game text ({"lore": [...], "game_text": [...],
+    "game_text_back": [...]}), read from the printed faces (gempdata/decipher_lines.json). Used on decipher_print
+    renders only; a text whose words no longer match the lines is set normally (render.pc_hint_breaks)."""
+    global _DC_LINES
+    if _DC_LINES is None:
+        import json
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gempdata", "decipher_lines.json")
+        try:
+            _DC_LINES = {k: v for k, v in json.load(open(p, encoding="utf-8")).items() if not k.startswith("_")}
+        except OSError:
+            _DC_LINES = {}
+    return _DC_LINES.get(str(gid or "")) or None
 
 
 def legacy_typeset(gid: str, template: str, side: str) -> dict | None:
