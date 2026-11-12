@@ -1048,3 +1048,17 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Emergency Deployment (Used), We're Doomed (Used), Warrior's Courage (Lost), Blue Milk (Used Or Lost), Electrobinoculars,
   Droid Detector (Devices), Help Me Obi-Wan Kenobi. Starting Interrupts were never printed in Japanese. English renders
   byte-identical to rev 79. `tools/japanese/make_sample.py` builds a sample from a wiki page "<Card> (Japanese)".
+- Rev 81 (2026-11-12, swccg-guild/work#283, Japanese printings part 3): **Starships, Vehicles, Weapons, Creatures**
+  measured on the wiki's Japanese scans. Starships and vehicles (`lang_ja.SHIP`, `ls|ds-starship-starfighter`,
+  `ls|ds-vehicle`) keep the Effect lore box; their stat strip items sit at fixed stops x 306 / 708 / 1052 (X-wing,
+  Sandcrawler both sides), and when the last item does not fit at its stop the items run on one em apart and the last
+  is condensed (TIE Fighter: 戦闘力１　回避値３　ハイパードライブ未装備); game text from x 340 (Light), 339 / 349 (Dark
+  starship / vehicle). Weapons share the Effect / Device boxes (Jedi Lightsaber, Imperial Blaster; banner 個人用武器).
+  Creatures (`lang_ja.CREATURE`; Dianoga, Wampa): the English rectangular lore box with small lore (37.5 px, 26-28
+  characters a line, no first-line indent), the second stat mid-strip at x 800, game text from x 342, black title
+  (`title_ink`). Every Japanese title's top at y 173 (glyph tops 186; weapons and devices were 13 px low). Decimal
+  numbers stay half width (12.5m) like numbers of two or more digits; a star stat value prints ＊ (凶暴性＊). New banner
+  and label words: 宇宙戦闘機：Ｘウイング, 個人用武器, 寒冷地生物, 血も凍る叫び声 (VICIOUS HOWL). Samples (same printed lines
+  as the scans): TIE Fighter, X-wing, Sandcrawler (both sides), Jedi Lightsaber, Imperial Blaster, Dianoga, Wampa.
+  English renders byte-identical to rev 80. Not done: Wampa's art breaking out of the window (Hoth Limited prints it
+  too; CardMaker draws the window art only).
