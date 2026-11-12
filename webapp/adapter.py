@@ -273,6 +273,8 @@ def gemp_to_spec(c: dict) -> dict:
             "affiliation": None, "expansion": exp, "card_type": "", "gempId": c.get("gempId"),
             "source": {"gempId": c.get("gempId"), "imageUrl": f.get("imageUrl"), "set": c.get("set")},
             "copyright": copyright_for(c.get("set")), "set_mark": set_mark_for(c.get("set"))}
+    if f.get("loreLines"):   # rev 80: the printed lore's own line breaks (gempdata/fill.json "loreLines"; Teemto Pagalies' Podracer)
+        spec["lore_lines"] = list(f["loreLines"])
     if c.get("wide"):   # Reflections Gold "wide vision" cards (set 15): landscape per the card data
         spec["_wide"] = True
     if f.get("credits"):   # Reflections Gold credit value: gold coins

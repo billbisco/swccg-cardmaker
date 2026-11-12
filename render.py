@@ -1726,9 +1726,33 @@ PC_GROW_TEMPLATES = {"ls-effect", "ds-effect", "ls-interrupt", "ds-interrupt", "
 for _sd in ("ls", "ds"):
     _e = TEMPLATES[f"{_sd}-effect"]
     TEMPLATES[f"{_sd}-podracer"] = dict(_e, frame=(f"frames/{_sd}-podracer.png",) + _e["frame"][1:],
-                                        lore=(313, 404, 1022, 196), lore_x=(320, 1330, 0, 0, 0.0),
+                                        lore=(313, 406, 1022, 196), lore_x=(317, 1330, 0, 0, 0.0),
                                         podracer_flag_box=(357, 174, 189, 153) if _sd == "ls" else (366, 183, 186, 144),
-                                        podracer_title_x=611)
+                                        podracer_title_x=617,   # rev 80: printed bullet at x 621, cap top y 204
+                                        title=(407, 200, 867, 100) if _sd == "ls" else (403, 200, 871, 100),
+                                        title_ls=0.3 if _sd == "ls" else 0.15,   # printed titles ~1.5 % tighter than the Effect's
+                                        # rev 80: the destiny circle moved on the frame (make_podracer_frames DESTINY_SHIFT)
+                                        # (the printed digit sits ~4-6 px above the circle's centre)
+                                        destiny=(1325, 206, 104, 104) if _sd == "ls" else (1312, 197, 104, 104),
+                                        disc_at=(185, 182) if _sd == "ls" else (192, 187),   # the type disc moved with its socket
+                                        # rev 80: the printed Podracers set lore and game text ~3 % larger than the
+                                        # Effect (line pitch unchanged) in their own measured boxes (STANDARD rev 80)
+                                        lore_css={"fs": 59.6}, gt_size=63.9, gt_lh_add=-0.15,
+                                        game_text=(312, 1664, 1050, 330) if _sd == "ls" else (312, 1666, 1006, 335),
+                                        # rev 80: sphere 58 px across (outline incl.), centre Dark (1408, 435.5) / Light
+                                        # (1410, 445); the Episode I disc under it 58 px, centre (1408, 536), Decipher's
+                                        # printed disc (tall I, small EPISODE: tools/make_ep1_disc_decipher.py)
+                                        expansion_size=56, expansion_ring=(1382, 417) if _sd == "ls" else (1380, 407), expansion_inset=2,
+                                        ring_disc_size=58, ring_disc_dx=-3 if _sd == "ls" else -1,
+                                        ring_disc_dy=4 if _sd == "ls" else 14,
+                                        ring_disc_icons={"episode1": "icons/ep1-disc-decipher.png"},
+                                        # rev 80: "PODRACER" printed 4 % smaller, tighter, 5 px lower (x 675..961 x 1521..1562)
+                                        ctype_size=59.5, ctype_spacing=10.8,
+                                        card_type=(269, 1512, 1109, 61) if _sd == "ls" else (269, 1511, 1109, 61),
+                                        # rev 80: art window 5 px lower (frame band moved); the copyright line 2 % longer,
+                                        # printed x 1425..1450 x 735..1352 on both sides
+                                        art=(244, 666, 1143, 755) if _sd == "ls" else (254, 668, 1118, 765), copy_ls=1.0,
+                                        copyright=(1420, 666, 36, 755) if _sd == "ls" else (1420, 661, 36, 765))
     if f"{_sd}-effect" in PC_PIECE_FIX:
         PC_PIECE_FIX[f"{_sd}-podracer"] = PC_PIECE_FIX[f"{_sd}-effect"]
     PC_GROW_TEMPLATES.add(f"{_sd}-podracer")
@@ -2327,7 +2351,7 @@ def build_html(card: dict) -> str:
             hc_, hp_ = t.get("expansion_hole", ("#000", 1))
             parts.append(f'<div style="position:absolute;left:{x - hp_}px;top:{y - hp_}px;width:{sz + 2 * hp_}px;height:{sz + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>' if hp_ > 1 else
                          f'<div style="position:absolute;left:{x - 1}px;top:{y - 1}px;width:{sz + 2}px;height:{sz + 2}px;border-radius:50%;background:#000"></div>')
-            isz = sz - 4
+            isz = sz - t.get("expansion_inset", 4)   # rev 80: Podracers print a thinner black outline (2)
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x + (sz - isz) // 2}px;top:{y + (sz - isz) // 2}px;width:{isz}px;height:{isz}px">')
         else:
             parts.append(f'<img src="{data_uri(ASSETS / card["expansion_icon"])}" style="position:absolute;left:{x}px;top:{y}px;width:{sz}px;height:{sz}px">')
@@ -2379,7 +2403,10 @@ def build_html(card: dict) -> str:
                 if t.get("expansion_hole"):   # same red ring as the sphere (RG-GEMP renders)
                     hc_, hp_ = t["expansion_hole"]
                     parts.append(f'<div style="position:absolute;left:{x + 3 - hp_}px;top:{dy_ - hp_}px;width:{sz - 6 + 2 * hp_}px;height:{sz - 6 + 2 * hp_}px;border-radius:50%;background:{hc_};box-shadow:0 0 0 2px #000"></div>')
-                parts.append(f'<img src="{data_uri(ASSETS / RING_DISCS[nm])}" style="position:absolute;left:{x + 3}px;top:{dy_}px;width:{sz - 6}px;height:{sz - 6}px;border-radius:50%">')
+                # rev 80: a template may set the disc's own size / left offset / picture (Podracers: Decipher's printed disc)
+                dsz_ = t.get("ring_disc_size", sz - 6); ddx_ = t.get("ring_disc_dx", 3)
+                src_ = (t.get("ring_disc_icons") or {}).get(nm, RING_DISCS[nm])
+                parts.append(f'<img src="{data_uri(ASSETS / src_)}" style="position:absolute;left:{x + ddx_}px;top:{dy_}px;width:{dsz_}px;height:{dsz_}px;border-radius:50%">')
                 k += 1
     sec('margin_icon')
     if card.get("margin_icon") and "game_text" in t:   # Scoundrel: a portrait disc in the left margin at the text box top
@@ -2572,7 +2599,7 @@ def build_html(card: dict) -> str:
                                        {"text": "'PCText'", "stat": "'AGBoldCnA'", "mark": "'PCNum'"}) + "</div>")
     parts.append("</div>")
     ink = "#000" if t.get("dark_text") else "#fff"
-    LP = dict(LORE_CSS, **card.get("_lore_css", {}))
+    LP = dict(LORE_CSS, **t.get("lore_css", {}), **card.get("_lore_css", {}))   # rev 80: a template's own lore size (Podracers)
     title_stroke_css = f"-webkit-text-stroke:{t['title_stroke']}px currentColor;" if t.get("title_stroke") else ""   # the PC's white Dark titles print 0.3 px heavier than Holotable Title (#118 stem check)
     css = f"""
     {font_css}

@@ -1104,3 +1104,31 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   carbonite captive 200_16 (no-lore character, keeps the rev 30 shear). Left as found (shared with every card): the
   copyright's ® is set as a small superscript where Decipher prints it full size; the Dark Interrupt frame's type disc
   shows red streaks on its right edge; title widths 2-4 % wider than printed on long combo titles (the fitter).
+- Rev 80 Podracers (2026-11-12): every remaining difference between our five Podracers (11_47, 11_95-98) and the wiki's
+  497x692 Decipher archive scans fixed (master = 72 + 3 x scan px; checked by line boxes, column profiles and template
+  matching on all five). **Frames** (`make_podracer_frames.py`, rebuilt, no seams at 4x): Dark header between the old
+  notch and the new ridge (341..363) is a harmonic (Laplace) fill from the header, disc rims, strips and body (no mirrored
+  rows), the side strips blended straight down, the ridge is the Effect's own straight ridge as a ratio to the header,
+  stretched across; Light silver bar warped down column by column (bar above the Effect's bevel resampled to end at 342;
+  lobe columns only cut), the Effect's straight bevel stretched across (342..360), paint 360..393 from under the old lore
+  box with its big flakes cloned out, the stamped marks under the destiny circle and the arrows by the engine disc
+  inpainted. Printed geometry: destiny circle Dark (-2, +5) / Light (+12, +15), type disc socket Dark (-1, +11) / Light
+  (-8, +6), art window + banner 5 px lower, text box foot 6 px lower (bottom bevel pressed, edge kept). **Templates**
+  (`ds-podracer` / `ls-podracer` only): lore 59.6 px (`lore_css`, new template key merged into LORE_CSS; the Effect's 58),
+  lore x 317, y 406; game text 63.9 px / 63.75 px pitch in its own box Dark (312, 1666, 1006, 335), Light (312, 1664,
+  1050, 330) (printed wrap limit Dark between 1002 and 1010 px of advance; every printed line break of all five now
+  reproduced); title x 617 (bullet 621), y 200, tracking 0.15 / 0.3; destiny box (1312, 197) / (1325, 206) (the printed
+  digit sits 4-6 px above the circle's centre); `disc_at` (192, 187) / (185, 182); expansion sphere 56 px at
+  (1380, 407) / (1382, 417), `expansion_inset` 2 (thin outline; new key, default 4); Episode I disc 58 px centred (1408,
+  536) (`ring_disc_size`, `ring_disc_dx`, `ring_disc_icons` new keys, defaults = before) drawn with
+  `icons/ep1-disc-decipher.png` (`tools/make_ep1_disc_decipher.py`: Decipher's tall heavy I over a small dim EPISODE);
+  banner "PODRACER" 59.5 px, spacing 10.8, box (269, 1511/1512); art (254, 668) / (244, 666); copyright `copy_ls` 1.0 in
+  box (1420, 661 / 666) (printed 735..1352). **Teemto Pagalies' Podracer** lore set by hand ("is designed" starts line
+  2): `gempdata/fill.json` "11_98": "loreLines" -> spec `lore_lines` (adapter.gemp_to_spec: any card's fill.json
+  loreLines now carry the printed lore breaks). Checks: non-Podracer renders md5-identical (Luke Skywalker 1_19, Death
+  Star: Central Core 1_283, Alderaan 1_121, A Few Maneuvers 1_70, Carbon Chamber Testing 7_296, 7_218, 1_47, Tatooine
+  Effect 11_68 and Interrupt 11_26 with the Episode I disc, 14_20). Not changed (outside these templates, for the lead):
+  printed Tatooine copyright reads "... DECIPHER INC" with no period and a full-size circled R (ours "INC.", small R:
+  adapter.copyright_for, all 2000+ sets); printed lore / game text use curly apostrophes (Anakin's, owner's, doesn't);
+  the printed Tatooine sphere is octagonal (our tatooine sphere icon is round); the shared `icons/ep1-disc.png` (VS14,
+  67 px) differs from Decipher's printed disc on every Episode I-era Decipher card.
