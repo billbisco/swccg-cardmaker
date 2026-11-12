@@ -797,8 +797,8 @@ def game_text_html(text: str) -> str:
             out.append(esc(seg))
         name, arg = m.group(1), m.group(2)
         n_out = len(out)
-        if name == "u":   # rev 77: an underlined run as Takara printed some terms ({u:密閉型}, Blizzard Walker (Japanese))
-            out.append(f'<u>{esc(arg or "")}</u>')
+        if name in ("u", "ub"):   # rev 77: an underlined run as Takara printed some terms ({u:密閉型}, Blizzard Walker (Japanese));
+            out.append(f'<u>{esc(arg or "")}</u>' if name == "u" else f'<b><u>{esc(arg or "")}</u></b>')   # rev 82 {ub:…} bold too (Attack Run)
         elif name == "pilot":   # Dark Side cards print the DS (TIE pilot) icon, Light Side the Rebel one (Bill 2026-10-12)
             out.append(icon_img("pilotpower-dark" if card_ctx.get("side") == "Dark" else "pilotpower") + f" {esc(arg or '')}")
         elif name in ("alter", "control", "sense"):
@@ -1495,6 +1495,9 @@ def grown_frame(card: dict, t: dict, fr: Path, fx: int, fy: int):
 def loc_grow(card: dict) -> tuple[int, int]:
     """Two-line site texts: the slips print a taller text box (by ~14 slip px = 28 px here) and move that half's title
     bar and icons toward the art (VS13: Outpost, AT-AT: Deployment Platform, Dungeon, ISB Sector Office)."""
+    if card.get("lang") == "ja":   # rev 83: Takara's taller site text boxes (lang_ja.site_frame_rows; the art window is kept)
+        import lang_ja
+        return lang_ja.SITE_SHIFT, lang_ja.SITE_SHIFT
     if not card.get("text_lines"):
         return 0, 0
     return (28 if "\n" in card.get("game_text", "") else 0), (28 if "\n" in card.get("dark_text", "") else 0)
@@ -1619,7 +1622,11 @@ def loc_frame(card: dict, t: dict) -> Path:
         return img
     frame = extend_bar(frame, len(card.get("light_icons", [])), 1134, 1252, 1574)
     frame = extend_bar(frame.rotate(180), len(card.get("dark_icons", [])), 1155, 1270, 1581).rotate(180)
-    if DL or DD:   # taller text box: slide the title band toward the art, stretch the box interior
+    if card.get("lang") == "ja":   # rev 83: Takara moved the bars, not the art window's edges
+        import numpy as np, lang_ja
+        fa = np.array(frame); lang_ja.site_frame_rows(fa, fa.copy(), DL)
+        frame = Image.fromarray(fa, "RGBA")
+    elif DL or DD:   # taller text box: slide the title band toward the art, stretch the box interior
         import numpy as np
         fa = np.array(frame); old = fa.copy()
         if DL:
@@ -1630,6 +1637,12 @@ def loc_frame(card: dict, t: dict) -> Path:
     if card.get("frame_style") in ("ls-starship", "ds-starship"):
         frame = starship_frame(frame, card, t, DL, DD)
     canvas.alpha_composite(frame, (fx, fy))
+    if card.get("lang") == "ja":   # rev 83: the Force glows moved with the bars; keep their black surround out of the art window
+        import numpy as np
+        ca, fa_ = np.array(canvas), np.array(frame)
+        hole = fa_[383:1096, 188:1884, 3] == 0
+        ca[fy + 383:fy + 1096, fx + 188:fx + 1884, 3][hole] = 0
+        canvas = Image.fromarray(ca, "RGBA")
     ly = t["slot_y"]
     dy = 1479 - ly - 111
     box = Image.open(LOC / "box.png").convert("RGBA")
@@ -1700,7 +1713,12 @@ def sys_frame(card: dict, t: dict) -> Path:
             for k in range(1, n):
                 canvas.alpha_composite(sab, (t["ds_force"][0] - 82 * k, t["ds_force"][1]))
     fx, fy = t["frame_off"]
-    canvas.alpha_composite(Image.open(ASSETS / t["frame_png"]).convert("RGBA"), (fx, fy))
+    sframe = Image.open(ASSETS / t["frame_png"]).convert("RGBA")
+    if card.get("lang") == "ja":   # rev 83: Takara's taller system text boxes (bars moved toward the art)
+        import numpy as np, lang_ja
+        fa = np.array(sframe); lang_ja.system_frame_rows(fa, fa.copy())
+        sframe = Image.fromarray(fa, "RGBA")
+    canvas.alpha_composite(sframe, (fx, fy))
     for half, light in (("light", True), ("dark", False)):
         # a system that prints one half only (Death Star: no Light Side bar or text): open the other half to the art
         if card.get(f"{half}_half_absent"):
@@ -1730,6 +1748,19 @@ def sys_frame(card: dict, t: dict) -> Path:
     p = OUT / f"_frame_{card['id']}.png"
     canvas.save(p)
     return p
+
+
+def loc_text_div(card: dict, light: bool, x, y, w, h, pre: str, ja: bool, system: bool = False) -> str:
+    """A location half's text box (Light: game_text, Dark: dark_text, turned 180° by its CSS). rev 83: a Japanese half
+    with printed line breaks is set at Takara's size for those lines, not fitted."""
+    cls, key = ("ltext", "game_text") if light else ("dtext", "dark_text")
+    if ja:
+        import lang_ja
+        ll = lang_ja.loc_lines(card, light, w, game_text_html, system)
+        if ll:
+            return f'<div class="{cls}" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px{ll[0]}">{ll[1]}</div>'
+    return (f'<div class="{cls} fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px">'
+            f'<span>{game_text_html(card[key])}</span></div>')
 
 
 def inline_set_mark(mark: str) -> str:
@@ -2365,6 +2396,9 @@ def build_html(card: dict) -> str:
         if card.get("light_half_absent"): t = dict(t, art=(134, t["art"][1], 1952, 1494 - t["art"][1]))
         card["_art_box"] = t["art"]
     elif t.get("system"):
+        if card.get("lang") == "ja":   # rev 83: bars, icons, parsec and Force moved with Takara's taller boxes
+            import lang_ja
+            t = lang_ja.system_template(t)
         fr, fx, fy = sys_frame(card, t), 0, 0
     else:
         fr, fx, fy = t["frame"]
@@ -2528,12 +2562,13 @@ def build_html(card: dict) -> str:
         if not DA:
             parts.append(f'<div class="title dtitle" style="position:absolute;left:{dx0}px;top:{dy_}px;width:{dx + dw - dx0}px;height:{dh}px">{loc_title(card, "Dark")}</div>')
         sec('location_text')
-        lx, ly_, lw, lh = t["ls_text"]; ly_ -= DL; lh += DL
+        JO = __import__("lang_ja").SITE_OUT if card.get("lang") == "ja" else 0   # rev 83: Takara's boxes also reach further out
+        lx, ly_, lw, lh = t["ls_text"]; ly_ -= DL; lh += DL + JO
         if not LA:
-            parts.append(f'<div class="ltext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{lx}px;top:{ly_}px;width:{lw}px;height:{lh}px"><span>{game_text_html(card["game_text"])}</span></div>')
-        tx, ty, tw, th = t["ds_text"]; th += DD
+            parts.append(loc_text_div(card, True, lx, ly_, lw, lh, pre, ja))
+        tx, ty, tw, th = t["ds_text"]; th += DD + JO; ty -= JO
         if not DA:
-            parts.append(f'<div class="dtext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{tx}px;top:{ty}px;width:{tw}px;height:{th}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+            parts.append(loc_text_div(card, False, tx, ty, tw, th, pre, ja))
     elif t.get("system"):
         LA, DA = card.get("light_half_absent"), card.get("dark_half_absent")   # one-sided systems (Death Star)
         if not LA:
@@ -2545,10 +2580,10 @@ def build_html(card: dict) -> str:
         sec('location_text')
         if not LA:
             x, y, w, h = t["ls_text"]
-            parts.append(f'<div class="ltext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["game_text"])}</span></div>')
+            parts.append(loc_text_div(card, True, x, y, w, h, pre, ja, system=True))
         if not DA:
             x, y, w, h = t["ds_text"]
-            parts.append(f'<div class="dtext fit{pre}"{fit_attrs(card, "game_text")} style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{game_text_html(card["dark_text"])}</span></div>')
+            parts.append(loc_text_div(card, False, x, y, w, h, pre, ja, system=True))
         sec('parsec')
         if card.get("parsec") is not None:
             if not LA:
@@ -3485,7 +3520,7 @@ def screenshot_card(card: dict, page) -> Image.Image:
         rot.paste(im.crop((0, 0, im.width, 144)), (0, 0))
         rot.paste(im.crop((0, im.height - 145, im.width, im.height)), (0, im.height - 145))
         ax, ay, aw, ah = card.get("_art_box") or TEMPLATES[card["template"]]["art"]   # the picture itself stays upright
-        DL, DD = loc_grow(card) if card["template"] == "loc-site" else (0, 0)
+        DL, DD = loc_grow(card) if card["template"] == "loc-site" and card.get("lang") != "ja" else (0, 0)
         y0, y1 = ay + DD, ay + ah - DL
         box = (im.width - 1 - (ax + aw - 1), im.height - 1 - (y1 - 1), im.width - (ax), im.height - y0)
         rot.paste(rot.crop(box).rotate(180), box[:2])

@@ -1,0 +1,59 @@
+{
+ "side": "Dark",
+ "title": "ダイアノーガ",
+ "caption": "",
+ "number": "",
+ "destiny": "3",
+ "lore": "ヴォドランのジャングルに原生する“ゴミ溜め大イカ”。食べたものによって体の色が変化する。空腹時には透明。ほぼどんなものでも食い尽くす。自在に動く眼柄と、最大６ｍに達する７本の触手を持つ。",
+ "game_text": "＊凶暴性＝（最後に食べたキャラクターか生物の戦闘力／凶暴性）＋運命数。生息地：ダゴバの屋外、「ゴミ圧縮装置」、および「よどみきった汚水」。",
+ "icons": [],
+ "stats": [
+  [
+   "FEROCITY",
+   "✶"
+  ],
+  [
+   "SLITHER",
+   "5"
+  ]
+ ],
+ "deploy": "4",
+ "forfeit": "0",
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "A New Hope",
+ "card_type": "SWAMP CREATURE",
+ "gempId": "2_110",
+ "source": {
+  "gempId": "2_110",
+  "imageUrl": "https://res.starwarsccg.org/cards/ANewHope-Dark/large/dianoga.gif",
+  "set": "2"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Creature",
+ "dark_text": "",
+ "_en_title": "Dianoga",
+ "art": {
+  "kind": "library",
+  "gempId": "2_110",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-ANH-Dianoga-PSA-156625014.jpg",
+ "_page": "Dianoga (Japanese)",
+ "text_breaks": [
+  "＊凶暴性＝（最後に食べたキャラクターか生",
+  "物の戦闘力／凶暴性）＋運命数。生息地：ダ",
+  "ゴバの屋外、「ゴミ圧縮装置」、および「よど",
+  "みきった汚水」。"
+ ],
+ "lore_lines": [
+  "ヴォドランのジャングルに原生する“ゴミ溜め大イカ”。食べ",
+  "たものによって体の色が変化する。空腹時には透明。ほぼど",
+  "んなものでも食い尽くす。自在に動く眼柄と、最大６ｍに達",
+  "する７本の触手を持つ。"
+ ]
+}

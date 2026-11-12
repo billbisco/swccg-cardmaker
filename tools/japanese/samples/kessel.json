@@ -1,0 +1,65 @@
+{
+ "side": "Light",
+ "title": "＊ケッセル",
+ "caption": "",
+ "number": "",
+ "destiny": "0",
+ "lore": "",
+ "game_text": "ここを支配していれば、フォース消耗に＋１。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "Premiere",
+ "card_type": "•KESSEL",
+ "gempId": "1_126",
+ "source": {
+  "gempId": "1_126",
+  "imageUrl": "https://res.starwarsccg.org/cards/Premiere-Light/large/kessel.gif",
+  "set": "1"
+ },
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "System",
+ "dark_text": "ここを支配していれば、「ケッセル・ラン」を阻止（キャンセル）できる。",
+ "light_icons": [
+  "planet"
+ ],
+ "dark_icons": [
+  "planet"
+ ],
+ "light_force": true,
+ "dark_force": true,
+ "light_force_count": 1,
+ "dark_force_count": 2,
+ "parsec": "8",
+ "_en_title": "•Kessel",
+ "art": {
+  "kind": "scan",
+  "gempId": "1_126",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-Premiere-1301-126o-Face.jpg",
+ "_page": "Kessel (Japanese)",
+ "_scan_bounds": {
+  "scan": [
+   173,
+   134,
+   1169,
+   1719
+  ],
+  "ref": [
+   238,
+   190,
+   1399,
+   2030
+  ]
+ },
+ "dark_breaks": [
+  "ここを支配していれば、「ケッセル・ラン」を阻止",
+  "（キャンセル）できる。"
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "side": "Light",
+ "title": "＊アタック・ラン",
+ "caption": "",
+ "number": "",
+ "destiny": "0",
+ "lore": "",
+ "game_text": "「デス・スター：トレンチ」に配備する。自分の移動フェイズに、以下の方法でアタック・ランを試みられる：\n{ub:トレンチへの突入}：自分の宇宙戦闘機を最大で3機まで「トレンチ」に移動させる（フォースは不要）。ダークサイドは即座に3機までのタイを追跡に向かわせられる（フォースは不要）。\n{ub:編隊を組む}：宇宙戦闘機のうち1機を先頭機（「プロトン魚雷」＊が必要）に指定し、残りがいるなら編隊僚機とする。「ターボレーザー砲塔」および兵器を配備しているタイは、この時点で反乱軍（ライトサイド）の宇宙戦闘機に向けて武器の使用を行う（最初は編隊僚機を狙い、それが全滅してから先頭機を攻撃する）。命中した宇宙戦闘機は即座にロストする。\n{ub:発射したぞ！}：運命数を2つ引く。\n{ub:逃げろ、引き上げだ}：宇宙戦闘機はすべて「デス・スター」星系カード上に移動する（フォースは不要）。\nもし、（運命数の合計＋X＋Y－Z）＞15なら、デス・スターは“壊滅”する。\nX＝先頭機パイロットの能力値。ただし「照準コンピュータ」が配備されている場合には3。\nY＝反乱軍の基地（ヤヴィン4またはホス）のうち最大のものにある位置カードの合計数。\nZ＝その位置にいるタイのパイロットのうち最も能力値の高いものの値。\n＊アタック・ラン中には「オーバーロード」の影響を受けない。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "A New Hope",
+ "card_type": "",
+ "gempId": "2_42",
+ "source": {
+  "gempId": "2_42",
+  "imageUrl": "https://res.starwarsccg.org/cards/ANewHope-Light/large/attackrun.gif",
+  "set": "2"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Epic Event",
+ "text_grow": 230,
+ "dark_text": "",
+ "_en_title": "•Attack Run",
+ "art": {
+  "kind": "scan",
+  "gempId": "2_42",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-ANH-Attack-Run-SWCA-67653.jpg",
+ "_page": "Attack Run (Japanese)"
+}

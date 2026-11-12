@@ -1,0 +1,36 @@
+{
+ "side": "Dark",
+ "title": "発射準備開始せよ",
+ "caption": "",
+ "number": "",
+ "destiny": "0",
+ "lore": "",
+ "game_text": "自分の支配フェイズに以下の手順でスーパーレーザーを発射する：\n{ub:星系を指定する}：Xフォース消費してデス・スターが軌道上にいる星系（惑星のみ）を目標に選ぶ。\n{ub:発射準備よし}：運命数を引く。\n{ub:発射}：（運命数＋Y－Z）＞8なら目標の星系は“壊滅”し、このカードはロストデッキ行きとなる。さもなくば、このカードはユーズドデッキに行き、場にいる「デス・スター砲手」が一人ロストする（誰をロストするかは自分で選べる）。\nX＝目標星系に配備された位置カードの枚数。\nY＝敵の人員が配備されていないデス・スターの位置カードの枚数。\nZ＝敵がどちらかを選ぶ。Xまたは、どこか一箇所の反乱軍基地（「ヤヴィン４」または「ホス」）の位置カードの枚数。",
+ "icons": [],
+ "stats": [],
+ "scomp": false,
+ "affiliation": null,
+ "expansion": "A New Hope",
+ "card_type": "",
+ "gempId": "2_130",
+ "source": {
+  "gempId": "2_130",
+  "imageUrl": "https://res.starwarsccg.org/cards/ANewHope-Dark/large/commenceprimaryignition.gif",
+  "set": "2"
+ },
+ "copyright": "TM & © 1996 LUCASFILM LTD. TM, ® & © 1996 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Epic Event",
+ "dark_text": "",
+ "_en_title": "Commence Primary Ignition",
+ "art": {
+  "kind": "scan",
+  "gempId": "2_130",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-ANH-Commence-Primary-Ignition-PSA-161939281.jpg",
+ "_page": "Commence Primary Ignition (Japanese)"
+}

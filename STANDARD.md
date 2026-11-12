@@ -1713,3 +1713,49 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   ship name in GEMP's texts). decipher_lines.json 10_1 / 10_28 now hold the printed words (they had GEMP's). The 13_75
   printed lore ("to weld") moved into the tool so regeneration keeps it. Checks: card-dict md5 against 0412e82 changes
   only the cards named (ja: the corrections and 10_28's line data); hints apply on 79 of 82 blocks (the 3 that never did).
+- Rev 81 (2026-11-12, swccg-guild/work#283, Japanese printings part 3): **Starships, Vehicles, Weapons, Creatures**
+  measured on the wiki's Japanese scans. Starships and vehicles (`lang_ja.SHIP`, `ls|ds-starship-starfighter`,
+  `ls|ds-vehicle`) keep the Effect lore box; their stat strip items sit at fixed stops x 306 / 708 / 1052 (X-wing,
+  Sandcrawler both sides), and when the last item does not fit at its stop the items run on one em apart and the last
+  is condensed (TIE Fighter: 戦闘力１　回避値３　ハイパードライブ未装備); game text from x 340 (Light), 339 / 349 (Dark
+  starship / vehicle). Weapons share the Effect / Device boxes (Jedi Lightsaber, Imperial Blaster; banner 個人用武器).
+  Creatures (`lang_ja.CREATURE`; Dianoga, Wampa): the English rectangular lore box with small lore (37.5 px, 26-28
+  characters a line, no first-line indent), the second stat mid-strip at x 800, game text from x 342, black title
+  (`title_ink`). Every Japanese title's top at y 173 (glyph tops 186; weapons and devices were 13 px low). Decimal
+  numbers stay half width (12.5m) like numbers of two or more digits; a star stat value prints ＊ (凶暴性＊). New banner
+  and label words: 宇宙戦闘機：Ｘウイング, 個人用武器, 寒冷地生物, 血も凍る叫び声 (VICIOUS HOWL). Samples (same printed lines
+  as the scans): TIE Fighter, X-wing, Sandcrawler (both sides), Jedi Lightsaber, Imperial Blaster, Dianoga, Wampa.
+  English renders byte-identical to rev 80. Not done: Wampa's art breaking out of the window (Hoth Limited prints it
+  too; CardMaker draws the window art only).
+- Rev 82 (2026-11-12, swccg-guild/work#283, Japanese printings part 4): **Locations, Epic Events, the Reflections II
+  Japanese foil**. Locations: the bars carry the Japanese title (`adapter.apply_language`: card type = title, ＊ red on
+  the card's own bar), Noto Sans JP 800 at 44 px condensed to 85 %, black on the Light bar; both halves' text in the
+  Japanese gothic, left-aligned, 41.5 px, full width figures (`dark_text` too). Found and **not yet drawn** (frame work,
+  logged in TEMPLATE-DIFFERENCES): Takara's systems have taller text boxes (bars ~25 px nearer the picture; Yavin 4
+  prints three 47 px lines where CardMaker fits three smaller ones), and Takara printed **sites in portrait**, laid
+  out like systems with a framed portrait picture (Tatooine: Cantina, Death Star: Detention Block Control Room) — the
+  English Decipher sites are landscape. Epic Events (`epic-event`, `ls-epic-event`): text 35 px on a 50 px pitch; the
+  step names bold and underlined with the new inline code `{ub:…}` (Attack Run トレンチへの突入, Commence Primary
+  Ignition 星系を指定する). Reflections II Japanese foil (Darth Vader): expansion Reflections II gives © 2000; the icon
+  column prints warrior above pilot (spec `icons` order); no foil look. Not printed in Japanese: Starting Interrupts,
+  Objectives, Admiral's Orders. `compare_ja.py`: `_scan_bounds` may be {"scan": [...], "ref": [...]} (the two text
+  boxes' outer edges, for systems whose starfield hides the frame), non-library art goes through the server's
+  resolver. English renders byte-identical to rev 81.
+- Rev 83 (2026-11-12, swccg-guild/work#283, Japanese printings part 5): **location frames**. Correction to rev 82:
+  Takara printed **sites landscape**, laid out as Decipher's (the wiki scans are landscape files; rev 82's "portrait"
+  came from `compare_ja.py` squeezing every scan into the portrait master; it now warps a landscape render's scan into
+  the landscape master, frame edges found turned upright). Measured on Death Star: Detention Block Control Room,
+  Tatooine: Cantina (Dark), Tatooine: Mos Eisley, Tatooine: Docking Bay 94 (Dark) (sites) and Kessel, Yavin 4 (Dark),
+  Alderaan, Hoth (Dark) (systems). **Sites:** same art window; each title bar with its Force slot and icon boxes sits
+  15 px nearer the art, its text box follows it and reaches 8 px further out (`lang_ja.site_frame_rows`, frame rows
+  moved; the moved Force glows are kept out of the art window); text Noto Sans JP 48 px on a 60 px pitch, centred in
+  the box (one line centred, two lines fill the measure); a text that fits one line at 40 px or more is set on one line
+  (Mos Eisley ~44 px); the white Dark-box text in weight 500. **Systems:** each text box 48 px taller toward the art,
+  outer edges kept (Kessel 218 / 230 px against 166 / 175); bar, planet icon, parsec and Force move with it
+  (`lang_ja.system_template`, `system_frame_rows`); text 47 px on a 60 px pitch from the box's top left, the Light
+  half's first line 15 px nearer its bar, the Dark half's 7 px further from it. Printed line breaks for both halves:
+  `text_breaks` (Light) and the new `dark_breaks` (Dark; editor "Line breaks as printed" covers the Dark text too), set
+  at the size Takara chose for them (Detention Block's 41-character line at ~41 px). Numbers of two or more digits and
+  decimals print half width even when typed full width (`lang_ja.half_numbers`: ベイ９４ -> ベイ94, ６５, １２．５), in
+  titles too. Result: bars, boxes and text lines within ~1-8 px of the eight scans. English renders byte-identical to
+  rev 82 (31 cards incl. 8 locations).

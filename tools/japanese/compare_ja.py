@@ -4,7 +4,8 @@
   python3 tools/japanese/compare_ja.py [samples/*.json] --out <dir>
 
 Each sample is an editor spec with `language: "ja"` plus `_scan` (the wiki File name of the printed face) and optional
-`_scan_bounds` (x0,y0,x1,y1 of the frame's outer edge in the scan when the slab or a light frame defeats detection).
+`_scan_bounds` (x0,y0,x1,y1 of the frame's outer edge in the scan when the slab or a light frame defeats detection,
+or "bars": a location is mapped by its two bars onto the render's).
 The scan is warped into the 1632x2220 master by the frame edges (the card's black border inside edge), so pieces line up
 pixel for pixel with the render. Output per card: <name>-sheet.png (scan | render) and <name>-top.png / -bottom.png
 (the lore / stat / text areas, scan above render). Art: the library art (English crop); Takara's shows ~4 % more.
@@ -29,8 +30,11 @@ def wiki_file(name: str, dest: Path) -> Path:
     return dest
 
 
-def frame_bounds(im: Image.Image):
-    """Inner edge of the card's black border (the frame's outer edge)."""
+def frame_bounds(im: Image.Image, land: bool = False):
+    """Inner edge of the card's black border (the frame's outer edge). A landscape card (site) is found turned upright."""
+    if land:
+        x0, y0, x1, y1 = frame_bounds(im.transpose(Image.ROTATE_90))   # rotated 90° counter-clockwise: (x, y) <- (W-1-y', x')
+        return im.width - 1 - y1, x0, im.width - 1 - y0, x1
     a = np.asarray(im.convert("L")).astype(float); h, w = a.shape
     colk = (a[int(h * .25):int(h * .75)] < 60).mean(0); rowk = (a[:, int(w * .3):int(w * .7)] < 60).mean(1)
     def edge(fr, lo, hi, step):
@@ -74,23 +78,54 @@ def frame_bounds_inside(a):
     return x0, walk(rk, h // 2, 1, -1), x1, walk(rk, h // 2, h - 2, 1)
 
 
-def warp(scan: Path, bounds=None) -> Image.Image:
-    im = Image.open(scan).convert("RGB"); x0, y0, x1, y1 = bounds or frame_bounds(im)
-    X0, Y0, X1, Y1 = 146, 145, 1484, 2073   # the frame's outer edge in a portrait render
+def bars_box(im: Image.Image):
+    """A location's two bars (light grey) bound the printed layout: (x0, y0, x1, y1) of the bright rows / columns in
+    the top and bottom thirds. Used for systems, whose starfield runs into the black border (no frame edge to find)."""
+    a = np.asarray(im.convert("L")).astype(float); h, w = a.shape
+    br = a > 150
+    rows = br.mean(1) > 0.3
+    def longest(lo, hi):   # the longest run of bright rows (text box + bar), not a slab's edge
+        best, cur = (0, 0), None
+        for i in range(lo, hi):
+            if rows[i] and cur is None: cur = i
+            if (not rows[i] or i == hi - 1) and cur is not None:
+                best = max(best, (i - cur, cur)); cur = None
+        return best[1], best[1] + best[0]
+    t0, t1 = longest(int(h * .02), int(h * .4)); b0, b1 = longest(int(h * .6), int(h * .98))
+    cols = br[np.r_[t0:t1, b0:b1]].mean(0) > 0.5
+    xs = np.where(cols)[0]
+    return xs.min(), t0, xs.max(), b1
+
+
+def warp(scan: Path, bounds=None, ref: Image.Image | None = None) -> Image.Image:
+    if isinstance(bounds, dict) or (bounds == "bars" and ref is not None):   # map the scan's bars onto the render's bars
+        im = Image.open(scan).convert("RGB")   # {"scan": [x0, y0, x1, y1], "ref": [...]}: the two text boxes' outer edges, read by hand
+        sx0, sy0, sx1, sy1 = bounds["scan"] if isinstance(bounds, dict) else bars_box(im)
+        rx0, ry0, rx1, ry1 = bounds["ref"] if isinstance(bounds, dict) else bars_box(ref)
+        kx, ky = (rx1 - rx0) / (sx1 - sx0), (ry1 - ry0) / (sy1 - sy0)
+        out = Image.new("RGB", (1632, 2220)); out.paste(im.resize((round(im.width * kx), round(im.height * ky)), Image.LANCZOS), (round(rx0 - sx0 * kx), round(ry0 - sy0 * ky)))
+        return out
+    land = ref is not None and ref.width > ref.height   # rev 83: sites are landscape (Takara printed them as Decipher did)
+    im = Image.open(scan).convert("RGB"); x0, y0, x1, y1 = bounds or frame_bounds(im, land)
+    X0, Y0, X1, Y1 = (145, 146, 2073, 1484) if land else (146, 145, 1484, 2073)   # the frame's outer edge in the render
     sx, sy = (X1 - X0) / (x1 - x0), (Y1 - Y0) / (y1 - y0)
-    out = Image.new("RGB", (1632, 2220)); out.paste(im.resize((round(im.width * sx), round(im.height * sy)), Image.LANCZOS), (round(X0 - x0 * sx), round(Y0 - y0 * sy)))
+    out = Image.new("RGB", (2220, 1632) if land else (1632, 2220)); out.paste(im.resize((round(im.width * sx), round(im.height * sy)), Image.LANCZOS), (round(X0 - x0 * sx), round(Y0 - y0 * sy)))
     return out
 
 
 def render(spec: dict, cache: Path) -> Image.Image:
     import render as R, build_vs, adapter
     gid = (spec.get("art") or {}).get("gempId") or spec.get("gempId")
-    art = cache / f"art-{gid}.png"
-    if not art.exists():
-        art.write_bytes(urllib.request.urlopen(urllib.request.Request(f"https://raw.githubusercontent.com/billbisco/swccg-card-art/main/decipher/orig/{gid}.png", headers=UA), timeout=60).read())
-    w, h = Image.open(art).size
     s = {k: v for k, v in spec.items() if not k.startswith("_")}
-    s.update(_art={"src": str(art), "rect": [0, 0, w, h]}, _art_kind="library", _set_icon_file=None)
+    if (spec.get("art") or {}).get("kind", "library") != "library":   # a system's picture is the whole scan: the server's own route
+        import server
+        s.update(_art=server.resolve_art(s), _art_kind=spec["art"]["kind"], _set_icon_file=None)
+    else:
+        art = cache / f"art-{gid}.png"
+        if not art.exists():
+            art.write_bytes(urllib.request.urlopen(urllib.request.Request(f"https://raw.githubusercontent.com/billbisco/swccg-card-art/main/decipher/orig/{gid}.png", headers=UA), timeout=60).read())
+        w, h = Image.open(art).size
+        s.update(_art={"src": str(art), "rect": [0, 0, w, h]}, _art_kind="library", _set_icon_file=None)
     card = adapter.spec_to_card(s, build_vs)
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
@@ -108,13 +143,19 @@ def main():
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True); os.environ.setdefault("CARDMAKER_OUT", str(out))
     for f in a.specs:
         spec = json.loads(Path(f).read_text(encoding="utf-8")); name = Path(f).stem
-        scan = warp(wiki_file(spec["_scan"], out / spec["_scan"]), spec.get("_scan_bounds"))
         ours = render(spec, out)
+        try:
+            scan = warp(wiki_file(spec["_scan"], out / spec["_scan"]), spec.get("_scan_bounds"), ours)
+        except Exception as e:   # noqa: BLE001 - one bad scan (frame not found) must not stop the batch
+            print(name, "-> scan not usable:", e, "(set _scan_bounds, or \"bars\" for a location)"); continue
         if a.full:
             scan.save(out / f"{name}-scanw.png"); ours.save(out / f"{name}-ours.png")
-        sheet = Image.new("RGB", (1632 * 2 + 10, 2220), "white"); sheet.paste(scan, (0, 0)); sheet.paste(ours, (1642, 0))
+        W_, H_ = ours.size
+        sheet = Image.new("RGB", (W_ * 2 + 10, H_), "white"); sheet.paste(scan, (0, 0)); sheet.paste(ours, (W_ + 10, 0))
         sheet.resize((sheet.width // 2, sheet.height // 2), Image.LANCZOS).save(out / f"{name}-sheet.png")
-        for part, box in (("top", (140, 140, 1500, 640)), ("bottom", (140, 1440, 1500, 2090))):
+        boxes = ((("top", (140, 140, 2080, 520)), ("bottom", (140, 1100, 2080, 1500))) if W_ > H_ else
+                 (("top", (140, 140, 1500, 640)), ("bottom", (140, 1440, 1500, 2090))))
+        for part, box in boxes:
             x, y = scan.crop(box), ours.crop(box); c = Image.new("RGB", (x.width, x.height * 2 + 6), "red")
             c.paste(x, (0, 0)); c.paste(y, (0, x.height + 6)); c.save(out / f"{name}-{part}.png")
         print(name, "->", out / f"{name}-sheet.png")

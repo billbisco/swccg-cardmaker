@@ -29,16 +29,17 @@ FONT = '"Noto Sans JP"'   # assets/fonts/NotoSansJP (SIL OFL); installed into th
 LABELS = {
     "POWER": "戦闘力", "ABILITY": "能力値", "MANEUVER": "回避値", "HYPERSPEED": "航行速度", "ARMOR": "装甲値",
     "LANDSPEED": "移動速度", "FORCE-SENSITIVE": "フォース感知者", "DARK JEDI": "ダーク・ジェダイ",
-    "NO HYPERDRIVE": "ハイパードライブ未装備", "FEROCITY": "凶暴性", "SLITHER": "粘膜",
+    "NO HYPERDRIVE": "ハイパードライブ未装備", "FEROCITY": "凶暴性", "SLITHER": "粘膜", "VICIOUS HOWL": "血も凍る叫び声",
 }
 CARD_TYPES = {
     "EFFECT": "エフェクト", "LOST INTERRUPT": "ロスト・インタラプト", "USED INTERRUPT": "ユーズド・インタラプト",
     "DEVICE": "アイテム", "AUTOMATED WEAPON": "自動化兵器", "SWAMP CREATURE": "沼沢地生物",
     "TRANSPORT VEHICLE": "運搬用ビークル", "STARFIGHTER: TIE/LN": "宇宙戦闘機：ＴＩＥ／ＬＮ",
-    "STARFIGHTER: MODIFIED LIGHT FREIGHTER": "宇宙戦闘機：改造小型貨物船", "COMBAT VEHICLE: AT-AT": "戦闘用ビークル：ＡＴ－ＡＴ",
+    "STARFIGHTER: MODIFIED LIGHT FREIGHTER": "宇宙戦闘機：改造小型貨物船", "STARFIGHTER: X-WING": "宇宙戦闘機：Ｘウイング",
+    "CHARACTER WEAPON": "個人用武器", "SNOW CREATURE": "寒冷地生物", "COMBAT VEHICLE: AT-AT": "戦闘用ビークル：ＡＴ－ＡＴ",
 }
 # Takara's copyright line (1997 for Premiere / A New Hope, 1998 for Hoth; the Reflections II foils say 2000)
-COPYRIGHT = {"Premiere": 1997, "A New Hope": 1997, "Hoth": 1998}
+COPYRIGHT = {"Premiere": 1997, "A New Hope": 1997, "Hoth": 1998, "Reflections II": 2000}
 
 # Per-template geometry at the master (1632x2220). Measured: ds-character-imperial (Darth Vader). Other templates use
 # the same offsets from their own boxes until measured (DEFAULT).
@@ -55,7 +56,8 @@ DEFAULT = {
     "strip_items": (-5, -15),         # item x = well x + a + b * i (Vader: 300, 598, 889)
     "strip_items2": (-5, 90),         # two stats: the second sits mid-strip (Admiral Ozzel 703, Nalan Cheel ~690)
     "strip_size": 58,
-    "title_left": 386, "title_max": 790, "title_dy": -27, "title_size": 79, "title_sx": 0.78,   # rev 80: Takara's titles are condensed (長体); glyphs 73 px tall
+    "title_left": 386, "title_max": 790, "title_dy": -27, "title_top": 173, "title_size": 79, "title_sx": 0.78,
+    # rev 80: Takara's titles are condensed (長体), glyphs 73 px tall; rev 81: their tops at y 186 on every type
     "lore_ratio": 1.245, "gt_ratio": 1.21,   # leading / size when printed lines set a smaller size (Takara fitted each card)
     "gt": (-19, -6, 20, 11),          # game text offsets from the English box as rendered (left, top, width, height)
     "gt_size": 47.6, "gt_lh": 57.5,
@@ -68,15 +70,95 @@ TEXT = {
     "gt_abs": (284, 1652, 1054, 360), "title_dy": -22,
 }
 TEXT_TEMPLATES = re.compile(r"^(ls|ds)-(effect|interrupt|device|weapon)$")
+# rev 81: starships and vehicles keep the same lore box; the stat strip items sit at fixed stops (X-wing 302 / 704 / 1050,
+# Sandcrawler 306 / 710 / 1054); an item too long for its stop moves left to end at the strip's end and is condensed
+# (TIE Fighter's ハイパードライブ未装備). Measured: TIE Fighter, X-wing, Sandcrawler (both sides).
+SHIP = dict({k: v for k, v in TEXT.items() if k != "gt_abs"}, strip_mode="tabs", strip_tabs=(306, 708, 1052), strip_pad=26,
+            gt_abs=(340, 1712, 975, 290), strip=(0, -8, -10, 62))   # X-wing, Sandcrawler (Light)
+SHIP_TEMPLATES = re.compile(r"^(ls|ds)-(starship-starfighter|vehicle)$")
+# Creatures (Dianoga, Wampa): the English rectangular lore box, small lore (~37 px, 26 characters a line) with no
+# first-line indent; the second stat starts mid-strip (as Admiral Ozzel's); game text inset to 343.
+CREATURE = {
+    "lore_box_abs": (281, 398, 1344, 601), "lore_chamfer": 0, "lore_text_abs": (325, 404, 1301, 596), "lore_cut": 0,
+    "lore_size": 37.5, "lore_lh": 46.8, "lore_ratio": 1.25,
+    "gt_abs": (342, 1716, 950, 286), "strip": (-5, -2, -2, 71), "strip_mode": "tabs", "strip_tabs": (322, 800), "strip_pad": 26,
+}
 JA_GEOM: dict[str, dict] = {
+    # rev 82: Epic Events (Attack Run, Commence Primary Ignition): Takara set the long text at ~35 px on a 50 px pitch
+    "epic-event": {"gt_size": 35, "gt_lh": 50, "gt_ratio": 1.43}, "ls-epic-event": {"gt_size": 35, "gt_lh": 50, "gt_ratio": 1.43},
+    "ds-starship-starfighter": {"gt_abs": (339, 1712, 955, 290), "strip": (0, -17, 14, 56)},   # TIE Fighter
+    "ds-vehicle": {"gt_abs": (349, 1709, 952, 295), "strip": (0, -16, 10, 53)},               # Sandcrawler (Dark)
     "ds-character-imperial": {"gt_abs": (335, 1650, 958, 362), "strip": (-26, -10, 27, 62)},   # rev 80: refit after #52 moved the stat boxes
     "ls-character-rebel": {"strip": (-34, -6, 8, 66)},   # Luke Skywalker (Japanese)   # Darth Vader (Japanese): 20 characters of 47.6 px a line
 }
 
 
+# rev 83: locations. Takara printed sites landscape like Decipher (the "portrait" seen in rev 82 was compare_ja.py
+# squeezing the landscape scans into the portrait master). Measured on Death Star: Detention Block Control Room and
+# Tatooine: Cantina (Dark) (sites) and Kessel, Yavin 4 (Dark) (systems), scans warped into the master:
+# - sites: same art window; each title bar (with its Force slot and icon boxes) sits SITE_SHIFT nearer the art and its
+#   text box follows it, reaching SITE_OUT further out too (box 120-125 px tall against Decipher's 86 / 99);
+# - systems: each text box is SYS_GROW taller toward the art (Kessel 218 / 230 px against 166 / 175), outer edges kept,
+#   the bar assembly (title, planet icon, parsec, Force) moved with it.
+SITE_SHIFT, SITE_OUT = 15, 8
+SYS_GROW = 48
+ONE_LINE_MIN = 40
+SITE_TEXT = (48, 60)    # font size / line pitch: one line centred, two lines fill the measure (Detention Block)
+SYS_TEXT = (47, 60)     # systems: set from the box's top left (Kessel, Yavin 4); first line 15 px nearer the Light bar,
+SYS_TEXT_UP, SYS_DTEXT_DOWN = 15, 7   # 7 px further from the Dark bar than Decipher's boxes put them
+
+
+def site_frame_rows(fa, old, S: int = SITE_SHIFT, O: int = SITE_OUT) -> None:
+    """Move the landscape site frame's rows (frame px, loc-site.png 2073x1497) as Takara printed them. Light half: the
+    band from below the art's bevel to the text box's top (1128-1268) moves S up, the box stretches from its interior,
+    and its bottom bevel moves O down into the margin (the margin's outer bevel kept). Dark half mirrored (bar band
+    219-360 down S; the box hole 120-216 grows S down and O up)."""
+    fa[1128 - S:1268 - S] = old[1128:1268]; fa[1268 - S:1268] = old[1290:1290 + S]
+    fa[1356 + O:1390] = old[1356:1390 - O]; fa[1356:1356 + O] = old[1300:1300 + O]
+    fa[219 + S:360 + S] = old[219:360]; fa[219:219 + S] = old[150:150 + S]
+    fa[87:120 - O] = old[87 + O:120]; fa[120 - O:120] = old[150:150 + O]
+
+
+def system_frame_rows(fa, old, G: int = SYS_GROW) -> None:
+    """Portrait system bar assemblies (frame px, loc-system.png 1167x1842): the Dark bar band (160-294) moves G down,
+    the Light bar band (1549-1687, with the bevel's shadow) G up, each box stretched from its own interior."""
+    fa[160 + G:294 + G] = old[160:294]; fa[160:160 + G] = old[60:60 + G]
+    fa[1549 - G:1687 - G] = old[1549:1687]; fa[1687 - G:1687] = old[1720:1720 + G]
+
+
+def system_template(t: dict, G: int = SYS_GROW) -> dict:
+    """A system's pieces moved with its bars (before sys_frame draws the Force glows, icon and parsec boxes)."""
+    t = dict(t)
+    for k, d in (("ls_bar", -G), ("ls_parsec", -G), ("ds_bar", G), ("ds_parsec", G)):
+        x, y, w, h = t[k]; t[k] = (x, y + d, w, h)
+    for k, d in (("ls_icon", -G), ("ls_force", -G), ("ds_icon", G), ("ds_force", G)):
+        x, y = t[k]; t[k] = (x, y + d)
+    x, y, w, h = t["ls_text"]; t["ls_text"] = (x, y - G - SYS_TEXT_UP, w, h + G + SYS_TEXT_UP)
+    x, y, w, h = t["ds_text"]; t["ds_text"] = (x, y, w, h + G - SYS_DTEXT_DOWN)   # (turned 180°: its first line is at the box's bottom)
+    return t
+
+
+def loc_lines(card: dict, light: bool, w: float, text_html, system: bool = False):
+    """rev 83: a location half's printed lines (spec text_breaks for the Light half, dark_breaks for the Dark half): the
+    size Takara chose for them (Detention Block Control Room: its 41-character first line at ~41 px), each line justified.
+    Returns (style, inner html) or None when no printed lines are given."""
+    text, br = (card.get("game_text"), card.get("text_breaks")) if light else (card.get("dark_text"), card.get("dark_breaks"))
+    lines = printed_lines(text, br)
+    size, pitch = SYS_TEXT if system else SITE_TEXT
+    if not lines:   # a text that fits one line at ONE_LINE_MIN or more is set on one line (Mos Eisley: 38 characters at ~44 px)
+        em = em_width(text or "")
+        need = (w - 40) / em * 0.99 if em else 0
+        if text and "\n" not in text and ONE_LINE_MIN <= need < size:
+            return f";font-size:{need:.2f}px;line-height:{pitch}px", f'<span style="white-space:nowrap">{text_html(text)}</span>'
+        return None
+    fs, lh, _ = fitted(lines, w - 40, size, pitch / size)   # the box's 20 px side padding
+    return f";font-size:{fs}px;line-height:{lh}px", f'<span style="display:block;width:100%">{lines_html(lines, text_html)}</span>'
+
+
 def geom(template: str) -> dict:
-    fam = TEXT if TEXT_TEMPLATES.match(template or "") else {}
-    return dict(DEFAULT, **fam, **JA_GEOM.get(template, {}))
+    t = template or ""
+    fam = TEXT if TEXT_TEMPLATES.match(t) else SHIP if SHIP_TEMPLATES.match(t) else CREATURE if t.startswith("creature") else {}
+    return {**DEFAULT, **fam, **JA_GEOM.get(template, {})}
 
 
 _FW = {c: chr(ord(c) + 0xFEE0) for c in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+=<>/%#&?!"}
@@ -92,7 +174,7 @@ def fullwidth(s):
     for part in re.split(r"(\{[^{}]*\})", s):
         if part.startswith("{") and part.endswith("}"):
             m = re.match(r"\{([a-z]+):(.*)\}$", part, re.S)
-            out.append("{%s:%s}" % (m.group(1), _fw_run(m.group(2))) if m and m.group(1) in ("u", "b", "i") else part)
+            out.append("{%s:%s}" % (m.group(1), _fw_run(m.group(2))) if m and m.group(1) in ("u", "ub", "b", "i") else part)
         else:
             out.append(_fw_run(part))
     return "".join(out)
@@ -100,7 +182,17 @@ def fullwidth(s):
 
 def _fw_run(s: str) -> str:
     """Single figures full width, figures of two or more digits half width (We're Doomed: ライフフォースが15より, Ｒ２－Ｄ２)."""
-    return "".join(p if re.fullmatch(r"\d{2,}", p) else p.translate(str.maketrans(_FW)) for p in re.split(r"(\d{2,})", s))
+    return "".join(p if re.fullmatch(r"\d+(?:\.\d+)+|\d{2,}", p or "") else p.translate(str.maketrans(_FW))
+                   for p in re.split(r"(\d+(?:\.\d+)+|\d{2,})", s))
+
+
+def half_numbers(s):
+    """rev 83: a number of two or more digits, or a decimal, prints half width even when typed full width (the wiki gives
+    ベイ９４ / ６５ / １２．５; the cards print ベイ94, 65, 12.5). Single figures stay as typed."""
+    if not isinstance(s, str):
+        return s
+    tr = str.maketrans("０１２３４５６７８９．", "0123456789.")
+    return re.sub(r"[０-９]{2,}(?:．[０-９]+)*|[０-９]+(?:．[０-９]+)+", lambda m: m.group(0).translate(tr), s)
 
 
 def em_width(line: str) -> float:
@@ -135,7 +227,7 @@ def label(s: str) -> str:
 
 def wide_digits(s: str) -> str:
     """Stat values print in full-width figures (戦闘力６)."""
-    return s.translate({ord(c): 0xFF10 + i for i, c in enumerate("0123456789")})
+    return s.translate({**{ord(c): 0xFF10 + i for i, c in enumerate("0123456789")}, ord("✶"): "＊", ord("*"): "＊"})
 
 
 def card_type(s: str) -> str:
@@ -157,7 +249,8 @@ def template(card: dict, t: dict) -> dict:
     if "title" in t and not t.get("landscape"):
         x, y, w, h = t["title"]
         left = g["title_left"]
-        t["title"] = (left, y + g["title_dy"], w + (x - left), h)
+        top = g["title_top"] if g.get("title_top") is not None else y + g["title_dy"]
+        t["title"] = (left, top, w + (x - left), h)
     return t
 
 
@@ -223,7 +316,7 @@ def frame(fr, fx: int, fy: int, card: dict, t: dict, wells) -> "Path":
     if strip:
         y = t["stats_y"]; a, b, c, d = g["strip"]
         X0, X1 = wells[0][0] + a - 14, wells[-1][0] + wells[-1][1] + c + 14
-        Y0, Y1 = y + b - 12, y + d + 22
+        Y0, Y1 = y + b - 12, y + d + 36
     else:
         y = b = d = 0; X0 = X1 = Y0 = Y1 = 0
     out = Path(os.environ.get("CARDMAKER_OUT") or Path(__file__).resolve().parent / "out")
@@ -283,6 +376,20 @@ def stats_html(card: dict, t: dict, wells: list, esc) -> str:
         fill = frame_color(t, wells[0][0] + 30, y + 34, lighten=0.5)
     out = [f'<div class="jastrip{" light" if t.get("dark_text") else ""}" style="position:absolute;left:{x0}px;top:{y + b}px;width:{x1 - x0}px;height:{d - b}px;background:{fill}"></div>']
     stats = [s_ for s_ in (card.get("stats") or []) if (s_[0] or "").strip() or str(s_[1] or "").strip()]
+    if g.get("strip_mode") == "tabs":   # rev 81: items at fixed stops (X-wing, Sandcrawler); when the last one does not fit
+        tabs, pad, fs = g["strip_tabs"], g["strip_pad"], g["strip_size"]   # at its stop they run on one em apart (TIE Fighter)
+        items = [label(lab) + wide_digits(str(val or "")) for lab, val in stats[:len(tabs)]]
+        wide = [em_width(t_) * fs for t_ in items]
+        xs = list(tabs[:len(items)])
+        if items and xs[-1] + 0.9 * wide[-1] > x1 - pad:   # (Takara's figures run a little narrower than an em)
+            for i in range(1, len(items)):
+                xs[i] = min(tabs[i], round(xs[i - 1] + wide[i - 1] + fs))
+        for i, t_ in enumerate(items):
+            right = (xs[i + 1] - 16) if i + 1 < len(items) else x1 - pad
+            out.append(f'<div class="jastat jatab" style="position:absolute;left:{xs[i]}px;top:{y + b}px;height:{d - b}px;width:{right - xs[i]}px">'
+                       f'<span class="fitlab" data-avail="{right - xs[i]}" style="display:inline-block;white-space:nowrap;transform-origin:left center">'
+                       f'{esc(t_)}</span></div>')
+        return "".join(out)
     ia, ib = g["strip_items2"] if len(stats) == 2 else g["strip_items"]
     for i, (lab, val) in enumerate(stats[:len(wells)]):
         x = wells[i][0] + ia + ib * i
@@ -295,8 +402,12 @@ def stats_html(card: dict, t: dict, wells: list, esc) -> str:
 def css(card: dict, t: dict) -> str:
     g = geom(card["template"])
     ink = "#dcdcdc" if not t.get("dark_text") else "#111"
+    # rev 83: site text centred in its box (one line centred, more lines justified); system text from the top left
+    lfs, llh = SYS_TEXT if t.get("system") else SITE_TEXT
+    lalign = (";text-align:left!important;justify-content:flex-start!important;align-items:flex-start!important;padding-top:0!important"
+              if t.get("system") else "")
     return f"""
-    .title{{font-family:{FONT}!important;font-weight:800;font-size:{g["title_size"]}px;letter-spacing:0!important;-webkit-text-stroke:0!important;color:{"#dedede" if not t.get("dark_text") else "#1a1a1a"}!important;}}
+    .title{{font-family:{FONT}!important;font-weight:800;font-size:{g["title_size"]}px;letter-spacing:0!important;-webkit-text-stroke:0!important;color:{t.get("title_ink") or ("#dedede" if not t.get("dark_text") else "#1a1a1a")}!important;}}
     .title:not(.ltitle):not(.dtitle){{transform:scaleX({g["title_sx"]});transform-origin:left center}}
     .title .dot{{font-family:{FONT}}}
     .lore.jalore{{font-family:{FONT}!important;font-weight:600;font-size:{g["lore_size"]}px;line-height:{g["lore_lh"]}px;letter-spacing:0!important;color:{ink};text-indent:0!important;padding:0;
@@ -312,5 +423,11 @@ def css(card: dict, t: dict) -> str:
     .jastat{{display:flex;align-items:center;font-family:{FONT};font-weight:800;font-size:{g["strip_size"]}px;color:{"#e8e8e8" if not t.get("dark_text") else "#1c1c1c"};padding-bottom:2px;box-sizing:border-box}}
     .ctype{{font-family:{FONT}!important;font-weight:800;letter-spacing:0!important}}
     .ctype .ct{{display:inline-block;transform:scaleX(0.95);transform-origin:center}}
+    .ltext, .dtext{{font-family:{FONT}!important;font-weight:600;font-size:{lfs}px;line-height:{llh}px;letter-spacing:0!important;
+      line-break:strict;word-break:normal;overflow-wrap:anywhere{lalign}}}
+    .ltext span, .dtext span{{text-align:justify;text-align-last:left}}
+    .dtext{{font-weight:500}}
+    .ltitle .lt, .dtitle .lt{{font-family:{FONT}!important;font-weight:800;font-size:44px!important;letter-spacing:0!important;display:inline-block;transform:scaleX(0.85);transform-origin:center}}
+    .ltitle .lt{{color:#161616!important;-webkit-text-stroke:0!important}}
     .copyin{{font-family:AGCn!important;font-weight:normal;color:{"#c4c4c4" if not t.get("dark_text") else "#333"}!important;letter-spacing:0.6px!important}}
     """

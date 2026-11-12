@@ -1,0 +1,59 @@
+{
+ "side": "Dark",
+ "title": "＊タトゥイーン：ドッキング・ベイ９４",
+ "caption": "",
+ "number": "",
+ "destiny": "0",
+ "lore": "",
+ "game_text": "ここから、他のドッキング・ベイに移動するには、２フォース必要。",
+ "icons": [],
+ "stats": [],
+ "scomp": true,
+ "affiliation": null,
+ "expansion": "Premiere",
+ "card_type": "•TATOOINE: DOCKING BAY 94",
+ "gempId": "1_291",
+ "source": {
+  "gempId": "1_291",
+  "imageUrl": "https://res.starwarsccg.org/cards/Premiere-Dark/large/tatooinedockingbay94.gif",
+  "set": "1"
+ },
+ "copyright": "TM & © 1995 LUCASFILM LTD. TM, ® & © 1995 DECIPHER INC.",
+ "set_mark": null,
+ "expansion_style": "pc",
+ "border": "black",
+ "slip_type": "Site",
+ "dark_text": "ここから、他のドッキング・ベイに移動するには、１フォース必要。",
+ "light_icons": [
+  "scomp",
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "dark_icons": [
+  "scomp",
+  "planet",
+  "exterior",
+  "interior"
+ ],
+ "light_force": true,
+ "dark_force": true,
+ "light_force_count": 1,
+ "dark_force_count": 1,
+ "_en_title": "•Tatooine: Docking Bay 94",
+ "art": {
+  "kind": "library",
+  "gempId": "1_291",
+  "version": "orig"
+ },
+ "language": "ja",
+ "_scan": "Japanese-Premiere-1301-291o-Video.jpg",
+ "_page": "Tatooine: Docking Bay 94 (Dark) (Japanese)",
+ "_scan_bounds": [
+  38,
+  47,
+  904,
+  651
+ ],
+ "_note": "icons in the printed order (the English printing has the same order; GEMP lists interior before exterior)"
+}

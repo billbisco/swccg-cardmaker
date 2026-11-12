@@ -42,6 +42,16 @@ def build(title: str) -> dict:
         v = section(t, sec)
         if v:
             spec[key] = v
+    m = re.search(r"<h2>Card Text</h2>(.*?)(?=<h2>)", t, re.S)
+    halves = dict(re.findall(r"'''(Light|Dark) Side:'''\s*<span lang=\"ja\">(.*?)</span>", m.group(1) if m else "", re.S))
+    if not halves and spec.get("slip_type") in ("Site", "System") and re.match(r"^(ライトサイド|ダークサイド)：", spec.get("game_text") or ""):
+        # rev 83: some pages give one Japanese block, "ライトサイド：…ダークサイド：…" (a half printed blank is left out)
+        jm = re.match(r"^(?:ライトサイド：(.*?))?(?:ダークサイド：(.*))?$", spec.get("game_text") or "", re.S)
+        if jm and (jm.group(1) is not None or jm.group(2) is not None):
+            halves = {"Light": jm.group(1) or "", "Dark": jm.group(2) or ""}
+    if halves:   # a location: the Light half is game_text, the Dark half dark_text (as in the English spec)
+        spec["game_text"] = html.unescape(halves.get("Light", "")).strip()
+        spec["dark_text"] = html.unescape(halves.get("Dark", "")).strip()
     dots = len(re.match(r"^[•●]*", server.CARDS[gid].get("front", server.CARDS[gid]).get("title", "") or "").group(0)) or \
         len(re.match(r"^[•●]*", spec.get("_en_title", "")).group(0))
     if dots and not re.match(r"^[＊•*]", spec.get("title", "")):
