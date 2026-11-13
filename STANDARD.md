@@ -1862,3 +1862,14 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Checks:** md5 identical: 1_3, 1_74, 223_40, 13_9 (glyphs untouched) and the Japanese samples darth_vader,
     attack_run, commence_primary_ignition. Changed as intended: 12_179, 12_55, 14_52, 12_148, 13_45, 200_3, 210_17,
     200_34, 211_59.
+- Rev 84 (Decipher printed text 5) (2026-11-12): **a scan of the physical card beats Decipher's website face.** The wiki's
+  600 dpi scans (477 now OCR'd, 163 newly fetched) were set against every decipher_printed.json field, and the printing
+  of each scan was read off its copyright line (all first printings except Reserve Pilot). Changed to the print: Gold 5
+  1_142 (no "Must have pilot aboard…" line; entry dropped), Disarmed 1_48 "deploy on the opponent's character",
+  LIN-V8M 1_186 "'diffuse'", Leia Seeker 2_160 "When at same location as Leia or warrior of ability < 3, choose one to
+  be immediately lost.", Artoo 6_3 "at same and related sites", Lieutenant Telsij 9_23 "may subtact" (Decipher's typo),
+  Restricted Access 5_122 lore "Captain" (back to GEMP). Reserve Pilot 2_103 keeps the first printing (ANH Limited,
+  archive face): its scan is a 2000 reprint with the errata wording, a separate printed version. This batch's
+  corrections.json entries (9_3, 9_92, 10_1, 10_2, 10_30, 10_47, 7_84, 14_113, 2_135, 3_137, 10_29, 7_296) confirmed
+  on their scans. pricecharting photos were tried for the cards with no scan: mostly 214-350 px re-shoots or the wrong
+  printing, not usable. md5: only the 7 cards named change; hints 128 / 128.

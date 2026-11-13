@@ -140,7 +140,7 @@
   "_label": "Decipher final (Glossary Supplement)"
  },
  "1_48": {
-  "gametext": "If both players have a character with a weapon at same site, deploy on that opponent's character during any control phase (even opponent's control phase). Character loses weapon, is power -1 and may no longer carry weapons. (Immune to Alter.)",
+  "gametext": "If both players have a character with a weapon at same site, deploy on the opponent's character during any control phase (even opponent's control phase). Character loses weapon, is power -1 and may no longer carry weapons. (Immune to Alter.)",
   "_page": "Disarmed",
   "_image": "Premiere-L-disarmed-decipher-archive.gif",
   "_label": "printed"
@@ -463,7 +463,7 @@
   "_label": "Decipher final (Glossary Version 2.0)"
  },
  "1_186": {
-  "gametext": "Lays mines. OR At any time during your turn, may use 1 Force to 'defuse' (lose) any one mine at same site.",
+  "gametext": "Lays mines. OR At any time during your turn, may use 1 Force to 'diffuse' (lose) any one mine at same site.",
   "_page": "LIN-V8M (Elleyein-Veeateemm)",
   "_image": "Premiere-D-linv8m-decipher-archive.gif",
   "_label": "printed"
@@ -1290,7 +1290,7 @@
   "_label": "Decipher final (Glossary Version 2.0)"
  },
  "2_160": {
-  "gametext": "Use 1 Force to deploy on opponent's side at any unoccupied site. Moves during your control phase, like a character, at normal use of the Force. When present with Leia or a warrior of ability < 3, choose one to be lost. Seeker also lost.",
+  "gametext": "Use 1 Force to deploy on opponent's side at any unoccupied site. Moves during your control phase, like a character, at normal use of the Force. When at same location as Leia or warrior of ability < 3, choose one to be immediately lost. Seeker also lost.",
   "_page": "Leia Seeker",
   "_image": "ANH-D-leiaseeker-decipher-archive.gif",
   "_label": "printed"
@@ -2245,7 +2245,6 @@
  },
  "5_122": {
   "gametext": "Insert in your Reserve Deck. When Effect reaches top it is lost, along with all opponent's insert cards there. Reshuffle. (Immune to Alter.) OR Deploy between two mobile sites. Opponent's characters may pass only if aboard a Lift Tube or opponent uses +1 Force each.",
-  "lore": "In an effort to direct Luke toward Vader, Lieutenant Bewil used his control of hatchways and lift tubes to cut off Luke's support, limiting his options and resources.",
   "_page": "Restricted Access",
   "_image": "CloudCity-D-restrictedaccess-decipher-archive.gif",
   "_label": "printed"
@@ -2335,7 +2334,7 @@
   "_label": "Decipher final (Glossary Supplement)"
  },
  "6_3": {
-  "gametext": "During your control phase, may search Reserve Deck, take one Hero Of A Thousand Devices or A Gift into hand and reshuffle. If with C-3PO at any battleground site, may subtract 1 from each opponent's battle destiny at related sites.",
+  "gametext": "During your control phase, may search Reserve Deck, take one Hero Of A Thousand Devices or A Gift into hand and reshuffle. If with C-3PO at any battleground site, may subtract 1 from each opponent's battle destiny at same and related sites.",
   "_page": "Artoo (Original)",
   "_image": "JP-L-artoo-decipher-archive.gif",
   "_label": "printed (Decipher archive)"
@@ -2692,7 +2691,7 @@
   "_label": "printed"
  },
  "9_23": {
-  "gametext": "Adds 2 to power of anything he pilots. When at a system, sector or docking bay, once during each of your deploy phases, may subtract 2 from deploy cost of your unique (*) Y-wing deploying here.",
+  "gametext": "Adds 2 to power of anything he pilots. When at a system, sector or docking bay, once during each of your deploy phases, may subtact 2 from deploy cost of your unique (*) Y-wing deploying here.",
   "_page": "Lieutenant Telsij",
   "_image": "DeathStarII-L-lieutenanttelsij-decipher-archive.gif",
   "_label": "printed"
@@ -2878,11 +2877,6 @@
   "gametext": "Light: If you control, Force Drain +1 here and all captured characters on Death Star are released. Dark: -",
   "_label": "read off the printed face (PRINTED_SEEN)",
   "_page": "Death Star: Detention Block Control Room"
- },
- "1_142": {
-  "gametext": "May add 2 pilots or passengers, and 1 astromech. Must have pilot aboard to use power, maneuver or hyperspeed.",
-  "_label": "read off the printed face (PRINTED_SEEN)",
-  "_page": "Gold 5"
  },
  "1_288": {
   "gametext": "Dark: Your starships deploy -1 here, -2 if Tarkin is present. If you control, Kessel Run is prevented (canceled). Light: Total ability of 6 or more required for you to draw battle destiny here.",

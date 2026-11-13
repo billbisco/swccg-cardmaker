@@ -62,7 +62,8 @@ PRINTED_SEEN = {
     "106_7": "Deploy -2 at Yavin 4 or to same location as Red Leader. Permanent pilot aboard provides ability of 2 and adds 2 to power. Proton Torpedoes deploy and fire free here.",
     "1_117": "Sacrifice (forfeit) a droid to cancel all attrition against you at same site this turn. OR Re-target an opponent's weapon to one of your droids at same site. If droid is lost, use original target's forfeit number.",
     "1_123": {"gametext": [("all imprisoned characters", "all captured characters")]},
-    "1_142": "May add 2 pilots or passengers, and 1 astromech. Must have pilot aboard to use power, maneuver or hyperspeed.",
+    # 1_142 Gold 5: the Decipher archive face adds "Must have pilot aboard…"; the printed card (600 dpi scan,
+    # Premiere-L-gold5-hires.webp, 1995) prints GEMP's text: no entry (rev 84, physical print wins)
     "1_288": "Dark: Your starships deploy -1 here, -2 if Tarkin is present. If you control, Kessel Run is prevented (canceled). Light: Total ability of 6 or more required for you to draw battle destiny here.",
     "1_312": "Use 2 Force to deploy on any warrior. May target using 2 Force. Draw destiny. Character hit if destiny +1 > ability. Vehicle hit if destiny +1 > maneuver or armor.",
     "2_23": "Adds 3 to power of any starship he pilots. On Red 2, also adds 2 to maneuver and draws one battle destiny if not able to otherwise. May use 1 Force to search your Reserve Deck and take one Corellian Slip into hand. Shuffle, cut and replace.",
@@ -147,6 +148,15 @@ WIKI_FIX = {
     "1_212": {"gametext": [("'nighttime conditions.'", "“nighttime conditions.”"), ("'game text'", "“game text”")]},
     "1_13": {"gametext": [("On Red 6 also", "On Red 6, also")]},                 # Jek Porkins: comma on the print
     "5_45": {"lore": [("to prevent their", "to _prevent_ their")]},       # Dodge: "prevent" italic on the print
+    # 2_103 Reserve Pilot keeps the first printing's text (archive face, A New Hope Limited 1996: "any starship he
+    # pilots. On Black 2, Black 3 or Black 4"): the wiki's 600 dpi scan is a 2000 Decipher reprint ("© LUCASFILM LTD. &
+    # TM. TM, ® & © 2000 DECIPHER INC.") carrying the errata wording, a separate printed version
+    # rev 84 (5): read on the 600 dpi scans of the printed cards (physical print beats the website face)
+    "1_48": {"gametext": [("deploy on that opponent's character", "deploy on the opponent's character")]},
+    "1_186": {"gametext": [("'defuse'", "'diffuse'")]},
+    "2_160": {"gametext": [("When present with Leia or a warrior of ability < 3, choose one to be lost.", "When at same location as Leia or warrior of ability < 3, choose one to be immediately lost.")]},
+    "6_3": {"gametext": [("battle destiny at related sites", "battle destiny at same and related sites")]},
+    "9_23": {"gametext": [("may subtract 2 from deploy", "may subtact 2 from deploy")]},   # Decipher's own typo, as printed
     "4_121": {"gametext": [("gains leader skill", "gains {leader} skill")]},  # Field Promotion: "leader" bold
     # rev 84 (inline icons): the faces print the skill icon the wiki dropped (Ellorrs Madak, Sai'torr Kal Fas, Ket Maliss)
     "1_49": {"gametext": [("character pilot skill", "character pilot [Pilot] skill")]},
@@ -156,7 +166,7 @@ WIKI_FIX = {
 # lore: the wiki's printed pages copy lore from Decipher's card lists, which differ from the print (Dark Hours prints
 # "Interrogator droid", the list "Interceptor"; Imperial Blaster "power packs", the page "packagedProduct"); only lore
 # the printed face confirms is taken (read on the wiki's hires / archive faces)
-LORE_OK = {"1_112", "1_168", "1_309", "2_16", "2_32", "3_16", "4_15", "4_110", "5_122", "6_75",
+LORE_OK = {"1_112", "1_168", "1_309", "2_16", "2_32", "3_16", "4_15", "4_110", "6_75",   # 5_122: scan prints "Captain"
            # rev 84 (2): read on the hires / archive faces (the wiki's lore was right)
            "1_22", "1_150", "1_155", "1_164", "1_211", "1_256", "2_25", "2_116", "2_129", "2_136", "2_161", "3_4", "4_39",
            "4_108", "5_15", "5_45", "5_65", "6_10", "6_124", "6_125", "6_173", "7_12", "13_53"}
