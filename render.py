@@ -798,6 +798,16 @@ def data_uri(path: Path) -> str:
 
 def icon_img(name: str, h: int = 64) -> str:
     f = (dc_inline(name) or ICON_FILES[name])
+    if name == "episode1" and not card_ctx.get("lang") == "ja":
+        if card_ctx.get("decipher_print") and not card_ctx.get("_pc_icons"):
+            # rev 84 (inline icons 2): Decipher printed its own Episode I disc inline (tall I, dim EPISODE; We Have A
+            # Plan 14_52, Jedi Council Summons 12_55, My Lord, Is That Legal? 12_179 hires) with a thin light ring on its
+            # black text boxes (12_179)
+            ring = "box-shadow:0 0 0 3px #d8d8d4;" if not card_ctx.get("_dark_text") else ""
+            css = DC_ICON_CSS if card_ctx.get("_dc_text") else f"height:{h * 29 // 37}px"
+            return f'<img class="gt-icon" src="{data_uri(ASSETS / "icons/ep1-disc.png")}" style="{css};border-radius:50%;{ring}margin:0 6px">'
+        if str(card_ctx.get("set_mark") or "").startswith("pc:"):
+            f = "icons/inline-episode1-pc.png"   # the PC's printed circle (median of 15 faces, tools/inline_icons)
     if card_ctx.get("_dc_text") and h == 64:
         return f'<img class="gt-icon" src="{data_uri(ASSETS / f)}" style="{DC_ICON_CSS}">'
     if h == 64 and str(card_ctx.get("set_mark") or "").startswith("pc:") and card_ctx.get("lang") != "ja" and not card_ctx.get("decipher_print"):

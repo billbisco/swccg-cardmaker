@@ -1840,3 +1840,25 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   - **Left as found:** the PC's inline Episode I circle prints a whiter, heavier EPISODE than `inline-episode1.png`
     (the Game Aid g033); Reflections III maintenance glyphs, the Republic and Trade Federation inline icons on
     Decipher cards had no hires face to check (Reflections III / Theed are not on the wiki in hires).
+- Rev 84 (inline icons 2) (2026-11-12): the items left open by Rev 84 (inline icons).
+  - **PC inline Episode I circle**: `assets/icons/inline-episode1-pc.png`, cut from the median of 15 PC 745 px hires faces
+    (200_3, 203_19, 208_25, 210_17, 210_19, 209_20, 200_22, 204_21, 210_23, 211_36, 210_25, 201_10, 213_44, 215_17,
+    217_28; registered by cross-correlation, `tools/inline_icons/make_inline_icons.py` + its stack PNGs): whiter, heavier
+    EPISODE than the Game Aid g033 file, which stays for the other uses. Picked on PC Virtual Set cards (set mark `pc:`).
+  - **Decipher inline Episode I**: Decipher printed its own disc inline (tall I, small dim EPISODE: We Have A Plan 14_52,
+    Jedi Council Summons 12_55, My Lord, Is That Legal? 12_179 hires), with a thin light ring on its black text boxes
+    (12_179): `ep1-disc.png` (rev 80) + ring, on `decipher_print` cards.
+  - **Permanent weapon**: Decipher (Imperial Artillery 12_148 hires) and the PC (9 faces) print the same icon: green
+    blade, brown hilt, in a black square with a light frame; ours was a green-to-white blade in a different frame.
+    `inline-permanent-weapon.png` re-cut from the median of those 10 faces (all printings).
+  - **Checked, left as they are** (only 357 px faces exist for Theed / Reflections III / later Coruscant; no sharper
+    pricecharting / retrotcg images: those are 300-490 px): Reflections III maintenance glyphs (star, flag, skull: same
+    shapes, Doallyn 13_9); Decipher's inline Republic (light grey square with the crest, 14_2 / 14_52) and Trade
+    Federation (orange ring, dark centre, light frame, 14_67 / 14_109 / 14_113) match our files at that resolution.
+  - **Twilight Is Upon Me 9_46**: Decipher's own face (DS2-L-twilightisuponme-decipher-archive) prints "take one The Force
+    Is Strong With This One or Anakin Skywalker … ; reshuffle" with no [Death Star II] icon; the icon belongs to the PC's
+    errata text (its 745 px re-render). Both sides were already right: GEMP keeps the errata (icon) and the Decipher
+    printing renders the printed text from decipher_printed.json (no icon). No change.
+  - **Checks:** md5 identical: 1_3, 1_74, 223_40, 13_9 (glyphs untouched) and the Japanese samples darth_vader,
+    attack_run, commence_primary_ignition. Changed as intended: 12_179, 12_55, 14_52, 12_148, 13_45, 200_3, 210_17,
+    200_34, 211_59.
