@@ -1048,6 +1048,671 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   Emergency Deployment (Used), We're Doomed (Used), Warrior's Courage (Lost), Blue Milk (Used Or Lost), Electrobinoculars,
   Droid Detector (Devices), Help Me Obi-Wan Kenobi. Starting Interrupts were never printed in Japanese. English renders
   byte-identical to rev 79. `tools/japanese/make_sample.py` builds a sample from a wiki page "<Card> (Japanese)".
+- Rev 84 leftovers (2026-11-12): two fixes on Objectives / Epic Events, measured on printed scans (body-normalised to
+  745 px; master = 2 × (x + 35), 2 × (y + 36)). **Dark Epic Event sphere** (`epic-event`): ring fit on 7 printed Dark
+  Epic Events (Target The Main Generator, Commence Primary Ignition, Epic Duel, That Thing's Operational, Boonta Eve
+  Podrace (Dark), If The Trace Was Correct, Deep Hatred; the PC's With Thunderous Applause agrees): centre (675, 166.4),
+  ~29 px across incl. its black ring = master (1420, 405), 58 px; `expansion_ring` (1390, 373) -> (1391, 376),
+  `expansion_size` 70 -> 58 (renders now fit (674.5–675, 166), r 14). **Episode I disc in the left margin**: printed
+  Episode I-era Objectives (We Have A Plan, Invasion, Plead My Case, The Hyperdrive Generator's Gone, My Lord Is That
+  Legal?, No Money No Parts No Deal!, We'll Handle This, Let Them Make The First Move, fronts and backs), Epic Events of
+  both sides (Boonta Eve Podrace Light / Dark, I Did It!, Inner Strength, If The Trace Was Correct, Deep Hatred) and the
+  PC's Virtual ones (Hunt For The Droid General, Twin Suns, Communing, How Liberty Dies, Revenge Of The Sith; the
+  Episode VII disc too: Be With Me, Tracked Fleet) print the disc in the left margin under the card-type disc, not under
+  the sphere. Half-level edge on 11 faces: centre x 67.2, Light y 163, Dark y 168.5, 27.5–29 px across = master
+  (205, 397) Light / (204, 410) Dark, 56 px. New template key `ring_disc_left` = (cx, cy, size): `objective-ls` and
+  `ls-epic-event` (205, 397, 56), `objective` and `epic-event` (204, 410, 56); an `episode1` / `episode7` ring icon
+  goes there (one disc), other discs keep their places; legacy `disc_left` (Virtual Block, (200, 412) 58 px) and the
+  no-lore `nolore_disc` are unchanged. No new spec keys or editor controls. Checks: before/after sheets against the
+  scans; renders of every other template md5-identical (Luke Skywalker 1_19, Death Star: Central Core 1_283, Alderaan
+  1_121, Charming To The Last 1_236, objectives 7_135 / 9_151 / 7_136 back, Light Epic Events Attack Run 2_42 and
+  Deactivate The Shield Generator 8_43, effect 1_72, 4_19, combos 10_18 / 10_22). **Episode I disc picture**
+  (second commit): the printed disc (left margin and under the sphere alike: We Have A Plan, Hunt For The Droid
+  General, Communing, I Did It!, A Tragedy Has Occurred, Boss Nass, Captain Panaka, A Remote Planet) is a black disc with
+  a tall serif "I" (0.80 of the disc, stem ~0.09, serifs ~0.29 wide) over bright white, heavy, wide "EPISODE" (cap height
+  ~0.14, ~0.88 wide, centred at 0.48) that reads as a white bar at card size; our old `ep1-disc.png` had a short "I"
+  (0.61) and thin grey serif lettering that vanished. Redrawn by `tools/make_ep1_disc.py` (232 px, Holotable Text Bold
+  stretched to width, stem cut through the S with a thin black gap); one picture serves every place the disc prints.
+  Cards without an Episode I disc render md5-identical (1_19, 1_283, 1_121, 1_236, 7_135, 9_151, 2_42, 3_115, 10_22).
+- Rev 84 Combo template (2026-11-12, Bill: Do, Or Do Not & Wise Advice against its printed card — window corner,
+  sphere, copyright line): the **no-lore combo cards** (Reflections II and Coruscant Effects / Interrupts, and the
+  PC's reissues, which print the same corners) now follow the printed frame. Measured on the 745 px true-colour scans
+  (Ghhhk & Those Rebels Won't Escape Us, Houjix & Out Of Nowhere) and checked on the 354 px GIFs of all 24 Reflections II
+  combos, the four Coruscant combos and four PC reissues (master = 2 × (745 px + 35 / 36)):
+  - **Window top corners** (`combo_corners()`, replacing the rev 30 45° shear on these templates): each corner column of
+    the merged window is moved down by a drop profile from the top of the window's edge band, so the frame's own bevel
+    bends into the corner with its shading; the opened rows are filled with the side margin's per-row median colour and
+    grain, blended into the row above. Dark: straight 30° chamfers, left 82 px down × 144 wide, right 78 × 136 (printed
+    (83,192)→(155,151) and (590,151)→(658,190) at 745). Light: a rounded step under each lobe, 74 / 70 px down, flat 12,
+    S-curve over 118 (printed: rounded step at y 182, ~40° rise to the top edge at x 155).
+  - **Light title-bar lobes** (`combo_lobes()`): the printed silver bar bulges round the type disc and the destiny circle
+    (rim lower edge at 745 y 157 / 152; the Effect / Interrupt frame's bar runs flat at 141): circles (264, 216, R 170)
+    and (1366, 228, R 148) painted below the bar, silver body from the bar above, 12 px white rim.
+  - **Expansion sphere**: centre Dark (1420, 404), Light (1425, 411), 56 px with its own black ring and no extra hole
+    (printed ring 28 px, purple 22 px at 745; it sat 15 px (745) low, 5 left and ~10 % heavy), with the frame's ring
+    round it (Light red paint, Dark lighter rim) — template keys `expansion_bare`, `expansion_halo`.
+  - **Copyright line**: centred at master y 798 (printed run 210..519 at 745; it ran 333..618), same face, size and x.
+  - **Art**: the window art covers the frame's whole opening (no black sliver at the right edge), and the card's own
+    combo scan (Holotable face, 745 × 1039 or scaled) is mapped by the Holotable card body (37, 36)..(708.5, 1001.5)
+    instead of the detected silver bbox, which was 3-4 % small on the 354 px GIFs (the printed frame and copyright
+    showed inside the window).
+  No new spec keys: the templates `ls-effect`, `ls-interrupt`, `ds-effect`, `ds-interrupt`, `ds-effect-tall` carry
+  `combo_corners` (light / dark), used only with `no_lore_box`; constants `COMBO_CORNERS`, `COMBO_LOBES`, `COMBO_SPHERE`,
+  `COMBO_SPHERE_HALO`, `COMBO_COPYRIGHT_CY` in render.py. Checks: md5 of renders identical before / after for Luke
+  Skywalker 1_19, Dark site 1_283, Alderaan system 1_121, Effects with lore 1_42 / 1_208, Interrupts 1_70 / 1_234,
+  objective 7_135, starships 1_140 / 1_299, the lore combos Owen Lars & Beru Lars 10_18 / Artoo & Threepio 10_2 and the
+  carbonite captive 200_16 (no-lore character, keeps the rev 30 shear). Left as found (shared with every card): the
+  copyright's ® is set as a small superscript where Decipher prints it full size; the Dark Interrupt frame's type disc
+  shows red streaks on its right edge; title widths 2-4 % wider than printed on long combo titles (the fitter).
+- Rev 84 Podracers (2026-11-12): every remaining difference between our five Podracers (11_47, 11_95-98) and the wiki's
+  497x692 Decipher archive scans fixed (master = 72 + 3 x scan px; checked by line boxes, column profiles and template
+  matching on all five). **Frames** (`make_podracer_frames.py`, rebuilt, no seams at 4x): Dark header between the old
+  notch and the new ridge (341..363) is a harmonic (Laplace) fill from the header, disc rims, strips and body (no mirrored
+  rows), the side strips blended straight down, the ridge is the Effect's own straight ridge as a ratio to the header,
+  stretched across; Light silver bar warped down column by column (bar above the Effect's bevel resampled to end at 342;
+  lobe columns only cut), the Effect's straight bevel stretched across (342..360), paint 360..393 from under the old lore
+  box with its big flakes cloned out, the stamped marks under the destiny circle and the arrows by the engine disc
+  inpainted. Printed geometry: destiny circle Dark (-2, +5) / Light (+12, +15), type disc socket Dark (-1, +11) / Light
+  (-8, +6), art window + banner 5 px lower, text box foot 6 px lower (bottom bevel pressed, edge kept). **Templates**
+  (`ds-podracer` / `ls-podracer` only): lore 59.6 px (`lore_css`, new template key merged into LORE_CSS; the Effect's 58),
+  lore x 317, y 406; game text 63.9 px / 63.75 px pitch in its own box Dark (312, 1666, 1006, 335), Light (312, 1664,
+  1050, 330) (printed wrap limit Dark between 1002 and 1010 px of advance; every printed line break of all five now
+  reproduced); title x 617 (bullet 621), y 200, tracking 0.15 / 0.3; destiny box (1312, 197) / (1325, 206) (the printed
+  digit sits 4-6 px above the circle's centre); `disc_at` (192, 187) / (185, 182); expansion sphere 56 px at
+  (1380, 407) / (1382, 417), `expansion_inset` 2 (thin outline; new key, default 4); Episode I disc 58 px centred (1408,
+  536) (`ring_disc_size`, `ring_disc_dx`, `ring_disc_icons` new keys, defaults = before) drawn with
+  `icons/ep1-disc.png` (the one measured disc of the text-and-icons pass; the pod2 `ep1-disc-decipher.png` was dropped);
+  banner "PODRACER" 59.5 px, spacing 10.8, box (269, 1511/1512); art (254, 668) / (244, 666); copyright `copy_ls` 1.0 in
+  box (1420, 661 / 666) (printed 735..1352). **Teemto Pagalies' Podracer** lore set by hand ("is designed" starts line
+  2): `gempdata/fill.json` "11_98": "loreLines" -> spec `lore_lines` (adapter.gemp_to_spec: any card's fill.json
+  loreLines now carry the printed lore breaks). Checks: non-Podracer renders md5-identical (Luke Skywalker 1_19, Death
+  Star: Central Core 1_283, Alderaan 1_121, A Few Maneuvers 1_70, Carbon Chamber Testing 7_296, 7_218, 1_47, Tatooine
+  Effect 11_68 and Interrupt 11_26 with the Episode I disc, 14_20). Not changed (outside these templates, for the lead):
+  printed Tatooine copyright reads "... DECIPHER INC" with no period and a full-size circled R (ours "INC.", small R:
+  adapter.copyright_for, all 2000+ sets); printed lore / game text use curly apostrophes (Anakin's, owner's, doesn't);
+  the printed Tatooine sphere is octagonal (our tatooine sphere icon is round); the shared `icons/ep1-disc.png` (VS14,
+  67 px) differs from Decipher's printed disc on every Episode I-era Decipher card.
+- Rev 84 sphere and copyright audit (2026-11-12): the expansion sphere and the vertical copyright line of every
+  Decipher-printed template other than the no-lore combos, Objectives and Epic Events, measured against the printed
+  cards. 166 cards (2-6 a template, every era: Premiere, ANH-JP, SE-DSII and the premium sets, Reflections II-Theed)
+  rendered and compared with their printed faces (Holotable 350 / 745 px faces and the wiki's Decipher archive scans),
+  each scan registered to our render by an affine ECC fit of the whole card; sphere found by multi-scale template match
+  of Decipher's own sphere, copyright line by its ink extent and by template-matching our line into the scan.
+  - **Scope switch:** new card key `decipher_print` (set by `adapter.spec_to_card` for a card of a Decipher set, or a new
+    card with no Players Committee set mark). Only those cards change: VS remasters, PC and Virtual Block cards keep
+    the templates as fitted to the PC (md5-identical, 13 cards checked: VS0-27 characters / interrupts / sites /
+    starships / effects, four Virtual Block legacy cards, Reflections Gold).
+  - **Sphere** (`render.DC_PRINT[template]["dc_sphere"]` = centre x, y and diameter, master px): Decipher prints it
+    56 px across with its own dark rim, in a hole only 1 px wider, the frame's bevel (`DC_SPHERE_BEVEL`, a 6 px ring
+    pulling the frame to mid grey) round it; we drew 58-66 px inside a 3 px black ring. Positions moved by up to
+    29 master px (Light alien characters: 14.7 px (745) right, 4 down); Light devices, weapons, vehicles, starships,
+    shields, Dark vehicles and creatures 4-5 px (745) down; Dark starships 5.5 px left; Jedi Tests 6 / 5.5 px right /
+    down; wide starships / weapon 8-10 px down; sites 3 px right and 50 → 56 px; systems 8 px left / 4 up, in a dark
+    grey ring (`dc_system_ring`). Episode I discs under the sphere follow it (`dc_template`). Residual on the sample
+    after the fix: ≤ 1 px (745) on every portrait template, ≤ 2 px on wide / site / system.
+  - **Copyright line** (`DC_PRINT[...]["dc_copy"]` = centre x, y; `dc_copy_ink`, `dc_copy_size`, `dc_split` for
+    systems, `dc_copy_unless_scan` for full-art Admiral's Orders): Decipher's line is taller and more condensed than
+    ours and centred beside the art. New typesetting `DC_COPY` (applies to every Decipher-printed card, the combos,
+    Objectives and Epic Events included, at their own positions): Holotable Text Bold 28 px condensed to 83 %,
+    word-spacing +5, © and ® as full-size circles (25 px, 2.2 px ring, 18 px letter) where we printed a small superscript
+    ®; run length now within 2-3 px (745) of the crisp scans (was 15-25 px short). Centres moved: Dark characters,
+    devices, weapons 8-9 px (745) right (Imperial 16 px: rev 79 had fitted it to the PC), Dark shields 5.5, Light 1-4;
+    Dark effects / interrupts / shields 4-5 px up; Jedi Tests white (was black) and 11 px right; creatures black (was
+    white); sites black (was white), 20 px lower and slightly larger; systems' split halves 3 px lower. Residual ≤ 3 px.
+  - **Wording** (`adapter.copyright_for`, read on ≥ 4 scans a set): 1995-98 `TM & © y LUCASFILM LTD.  TM, ® & © y
+    DECIPHER INC.`; Special Edition, Endor, Death Star II, Enhanced Cloud City / Jabba's Palace, Third Anthology, JP
+    Sealed Deck `© LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC.` (we printed "TM & © 1998 LUCASFILM" on all of
+    them); Reflections II-Theed `© y LUCASFILM LTD. & TM.  TM, ® & © y DECIPHER INC` with no final period; Coruscant
+    `TM, ®, & ©`; Enhanced Cloud City no final period. Years corrected: Premiere Two-Player 1995, ESB Two-Player 1996,
+    Enhanced Cloud City / Jabba's Palace 1999, Third Anthology and JP Sealed Deck 2000. Two spaces before the Decipher
+    half on every printing. PC slips keep their own form (`copyright_for(set, decipher=False)`).
+  - **Not changed here (other templates' owners / not near the elements):** Jedi Test frame (printed silver with olive
+    speckle, art window and banner placement differ), creature frame, ANH site frames (printed blue), the wide
+    starship's type icon. Evidence sheets: per template scan | before | after with x4 sphere and x3 copyright zooms.
+- Rev 84 shared Effect / Interrupt frames and title fitter (2026-11-12): measured on 100 printed Decipher Effects and
+  Interrupts (the PC's 2x .png faces / 350 px .gif faces, sets 1-14, both sides, registered to our renders by the card
+  body) and 15 PC Virtual Effects / Interrupts as control.
+  - **Dark Interrupt type disc** (`ds-interrupt.png`, all printings): the swirl was Bardez's Light disc shifted 5.5 px
+    left, leaving red streaks in the disc's right edge. Replaced inside the ring (centre (125.75, 108.54), r 68.6 frame
+    px) by the Light Interrupt disc, centred as the PC and the printed cards centre it. PC Dark Interrupts change only
+    in that 75x75 px (745) square; nothing else in any PC render changes.
+  - **Decipher printings** (card `decipher_print`; spec key `decipher_print` true / false; absent = a Decipher set's
+    own card, GEMP set 1-199, no PC set mark, not OVS, English; the editor's "As Decipher printed it (1995–2001)"
+    checkbox; custom cards and PC / VS / OVS cards keep the PC look and render pixel-identical):
+    - *Title setting* (template key `decipher_title` = (dx, bar end, fit right, lead) on the four templates and
+      `ds-effect-tall`): normal titles were already within ±1 % of the printed width; Light titles start 8 master px
+      left of the PC's (printed ink 3.9 px (745) left on 32 Light cards, the PC 0.8); the bar runs to x 1274 on all four
+      (`ds-interrupt` condensed at 1183: 7_266, 12_156 were 8 % short). A title longer than the bar is not moved left and
+      condensed (the PC's rule) but set smaller with its baseline kept, scale k = (1248 − x + 140) / (w + 140), ending at
+      x 1248 and starting further left the more it shrinks (JS `data-dfit`). 19 long printed titles (combos, 36-46
+      characters): width within 2 % on 14 (There Is No Try & Oppressive Enforcement 436 → 430 px, You Cannot Hide
+      Forever … 435 → 434), height now scales as printed; Decipher hand-set four combos smaller than needed
+      (12_152, 12_135, 12_53, 12_51: 4-16 % narrower printed).
+    - *Ink* (template key `decipher_tone` = (side, disc kind, disc circle)): our frames carry the PC's colours (within
+      5 levels of the PC's cards); Decipher printed the Dark frames a deeper crimson (left margin 181,1,46 against our
+      186,32,55; bright margin 204,64,77 against 214,85,86), silver not cyan chips on the Light red margins, and redder
+      Interrupt / yellower Effect discs. `make_decipher_tone.py` fits `assets/frames/decipher-tone.npz` (a 3D colour
+      offset table per side on frame pixels, blacks pinned; gain-gamma curves per disc) on half the cards;
+      `render.decipher_toned()` recolours the frame once (cached in out/). Held-out half: Dark frame MAD 18.0 → 9.4,
+      Light 19.2 → 17.7 (texture-limited), disc means within 2-4 levels. Podracers (Tatooine) get the frame tone.
+      Note the PC's errata re-renders (Ghhhk & Those Rebels Won't Escape Us 10_39, Ghhhk 2_132) carry the PC's
+      colours, not Decipher's: they are not printed references.
+  - **Checked, unchanged:** left window bevel against the PC +0.4 px (745); against Decipher printings of sets 1-8 our
+    bevel sits 1.4 px right (25 cards, 0.6-3.2), sets 9-14 −0.3 px; printed window and lore-box tops ~2 px lower than
+    ours/the PC's. These are Decipher-only geometry differences of ≤ 1 scan pixel; not warped this rev.
+  - **Regression:** md5 identical before/after for 25 cards of other templates (characters, sites, systems, starships,
+    vehicles, weapons, devices, creatures, Objectives, Epic Events, Admiral's Orders, Jedi Test) and for PC Effects /
+    Light Interrupts; PC Dark Interrupts differ only in the disc.
+- Rev 84 text and icons (2026-11-12): three findings from the printed cards, fixed together.
+  - **Quotes and apostrophes** (`webapp/adapter.py`; gempdata unchanged, converted when the spec is built). Checked on
+    printed faces from Premiere to Theed Palace, the PC's Virtual Sets 1-27 and a Virtual Block 3 slip (Admiral Ackbar
+    (V)): every era prints typographic marks, so the rule is the same for all cards that come from GEMP data
+    (the Original Virtual remasters keep their own transcribed text). Titles, captions, lore and game text print ’
+    for every apostrophe (Han’s Heavy Blaster Pistol, Don’t Get Cocky, opponent’s, Let ’er go!, Twi’lek). Lore quotes
+    print double curly “…” (“What was that?” … “affect mind”, Affect Mind; “It’s a good bet …”, Perimeter Scan (V)).
+    Game text: a quoted term prints single curly ‘…’ (‘insert’, A Tremor In The Force; ‘react’, Admiral Ackbar (V);
+    ‘credits.’, Credits Will Do Fine (V); ‘BEEP-BOOP’), a quoted run naming words a card carries (“… with ‘X’ in
+    title / lore / game text / name / persona”) double curly (“Death Star”, Put All Sections On Alert; “Bad Feeling”;
+    “sabacc”; “Mara”, Mara Jade (V); “Trade Federation”, Darth Maul (V)). Decipher printed two such runs single (Death
+    Star II: Coolant Shaft ‘Occupation’, Invasion ‘Trade Federation’) and one term double (Death Star “blown away.”);
+    the data cannot tell those apart, the commoner form wins. New `gt_quotes()` / `apostrophes()`; `quotes()` stays
+    for lore; Objective front/back texts and version texts (`polish_text`) get the same treatment; a leading backtick
+    (`credits.') opens a single quote. All fonts in assets/fonts carry U+2018/2019/201C/201D.
+  - **Expansion spheres re-cut from the printed cards** (`tools/set_spheres/cut_set_spheres.py`, sources in
+    `tools/set_spheres/sources.json`; no AI, no retouching). Each `set-<key>-decipher.png` and `set-<key>-pc.png` is
+    the per-pixel median of the sphere on many printed faces, each centred on its own black ring to sub-pixel and
+    scaled by the ring radius, then registered to the PC stack by cross-correlation (the soft Decipher scans) and cut
+    at 0.92 of the ring's centre line (312 px, as rev 32/33). Sources: `decipher` = Decipher's faces of that set
+    (wiki 745 px Holotable gifs, topped up with wiki decipher-archive scans; A New Hope the wiki's 1497 px hires),
+    `pc` = the PC's 745 px Virtual faces that carry that sphere. Audit result (scan | before | after sheets): the
+    wiki Icon-set-* discs used since rev 32 for A New Hope, Hoth, Dagobah, Cloud City, Jabba's Palace, Special
+    Edition, Endor, Death Star II and premium were NOT the printed spheres (zoomed-in inner crops, wrong colours; Cloud
+    City was a different picture altogether, a yellow-red cloud car instead of the printed orange banded planet; Hoth
+    a flat grey ball instead of the dark sphere lit white from below). The PC's printed Virtual cards (VS0-27) carry
+    exactly the same sphere art as Decipher's cards, not the Game Aid redraws the `pc` files were made from in rev
+    45 (those differed most on Endor: a white blob for the printed blue sky with the grey speeder), so `pc` is now
+    cut from the PC's own printed faces too. Kept: the Decipher files of Coruscant, Reflections II, Reflections III,
+    Theed Palace, Tatooine and Enhanced Jabba's Palace (the rev 32/33 scan cuts match the print and are sharper than
+    their stacks); `set-reflections3-pc.png` = the Decipher file (only two PC faces carry it). Provenance table:
+    assets/icons/SET-ICONS-PROVENANCE.md. Shape: every sphere is round with a black ring; the Tatooine sphere
+    only looks octagonal at the ~20 px of the 497 px scans (staircase of a 9-px-radius ring): a circle fits the
+    ring better than an octagon on every scan tried (3 Decipher, 1 printed scan, 1 PC face) and the PC's 745 px
+    faces print it round. Rim: black on every set; Theed Palace's olive rim on res.starwarsccg.org's face of
+    Panaka, Protector Of The Queen (14_24) is that one image only: Decipher's own face of the same card and five
+    other Theed cards print it black. Coruscant's gold ring is inside the black ring (part of the picture) and kept.
+  - **Episode I disc** (`assets/icons/ep1-disc.png`, `tools/make_ep1_disc.py`, 232 px): one disc for every place
+    (under the sphere, left margin, Podracers). Measured on two median stacks of printed discs (40 PC faces at 745 px,
+    30 Decipher Tatooine faces at 497 px), which agree: serif I 0.79 of the disc tall, stem 0.085, bracketed serifs
+    0.26 wide; EPISODE behind it in a bold sans, light grey (dimmer than the I), cap 0.125, 0.88 wide, centred
+    (0.495), a 0.018 black gap each side of the stem (it runs through the S). Replaces the 67 px VS14 disc; the two
+    candidate discs from other branches were each wrong in part (cm-left: the closest, but EPISODE pure white, too heavy
+    and a little high; cm-pod2 `ep1-disc-decipher.png`: EPISODE in a serif face, cap 0.19 and set low at 0.53).
+  - Also fixed on the way: the ring finder took the Episode I disc for the sphere on Episode I-era faces (the tool
+    now takes the uppermost good hit and skips black-inside hits).
+  - **Checks:** md5-identical before/after (holotable PNG) on six cards with no apostrophe, no quote, no sphere and no
+    Episode I disc: 1_3 Biggs Darklighter, 1_74 Collision!, 1_122 Dantooine, 1_140 Corellian Corvette, 1_49 Ellorrs
+    Madak (Premiere: no sphere printed) and 223_40 Life Day (VS23). Changed as intended on 16 others (quotes, title
+    apostrophes, spheres, Episode I disc), each looked at against its printed face.
+  - **Left as found (other scopes):** GEMP text differs from the print in places (A Tremor In The Force: "When effect"
+    for printed "When Effect", "Stand By..." for "Stand by . . ."); sphere placement / rim / bevel belong to the
+    integration branch's DC_PRINT / DC_SPHERE_BEVEL work; Decipher's web (decipher-archive) images show Cloud City and
+    Theed Palace spheres more saturated (red-yellow, yellow ship) than the printed-card scans and the PC's faces
+    (orange): the files follow the printed scans.
+- Rev 84 frames (2026-11-12): four printed-frame differences found by the rev 84 sphere / copyright audit, fixed against
+  the printed faces (GEMP / Holotable 745 px, card body registered to the master), plus everything else seen on the same
+  templates. No new spec keys; new template keys only where noted. Untouched templates md5-identical (see the check).
+  - **Jedi Test** (`ls-jeditest-olive`, Dagobah #1-#5, Death Star II #6 You Must Confront Vader, the PC's It Is The Future
+    You See (V)): the frame is **olive paint (58, 61, 15) chipped to silver** (silver ground with olive, not olive with
+    silver speckle), with a silver title bar bulging round the stone disc and the destiny circle. Rebuilt from the
+    per-pixel median of the six printed faces by `tools/make_jeditest_frame.py` (window from where the faces differ,
+    plates re-textured with the Light Effect frame's crisp silver over the printed shading, paint mask re-drawn crisp).
+    Measured: window 243..1386 x 387..1107 with 18 px rounded lower corners (ours 240..1386 x 372..1088), banner
+    1160..1258 (was 1170), text box 1290..2015, text left 310, first line 1318, a fixed 57.3 px pitch on all six (the
+    fitter no longer grows it: `gt_grow` False, 60 px on 57.3 lines). Title box (405, 196), destiny (1308, 201).
+    The step keyword icon is the bare stone (no disc), 36 px, kept on the line with its word
+    (`assets/icons/jedi-test-stone.png`, cut from the Game Aid icon); the adapter now also marks "test completed:
+    Place" and You Must Confront Vader's "Leave". `ls-jeditest-tall` (VS slips) and `ls-jeditest-epic` unchanged.
+  - **Creatures** (`creature-dc`, Decipher's sets only; PC creatures such as Porg keep the previous layout as
+    `creature-dc-pc`): frame within 2 px of print; the text was off. Title box from x 402 (29 px right, 5 up); lore
+    flush left 318..1300 (no first-line indent), box from 410; banner 8 px higher, 54.5 px heavy (`ctype_stroke` 1.4)
+    and tight (`ctype_spacing` 3.2: AVIAN CREATURE 353 px, GIGANTIC PREDATOR CREATURE 653, within 10 px of print);
+    second stat value 19 px after its label (`stat_val_gap`); FEROCITY ✶ and the "✶ Ferocity = ..." note print
+    Decipher's eight-point star (`dc_star_img`); hyphenated names never break (Bog-wing); the creature icon box sits
+    beside the text box top (icon slots (1357, 1715) / (1357, 1820), printed centre (1402, 1758)).
+  - **Starship / vehicle sites**: GEMP names the vehicle-site icon "Vehicle Site", so Sandcrawler: Loading Bay /
+    Droid Junkheap and Jabba's Sail Barge: Passenger Deck missed the blue frame and the vehicle icon box. Both mapped
+    (also "Starship Site", "Creature Site": Big One's creature box). Decipher printings (`decipher_print`) take the
+    printed blue sampled on nine site margins: Light (32, 98, 149) worn, Dark (33, 91, 131) (VS slips keep theirs);
+    margin colour now within 3-6 levels of print (was 20-30 too bright / saturated). The ship's name in Executor and
+    Home One site bars is italic as printed (_EXECUTOR_: COMM STATION); the mobile icon sits outside the starship icon
+    (Executor, Home One, Star Destroyer, Blockade Flagship sites). Checked: Death Star, Death Star II, Cloud City and
+    Big One sites print silver (unchanged); Blockade Flagship, Star Destroyer: Launch Bay, Executor: Docking Bay blue.
+  - **Wide capital starships** (`ds-starship-wide`, `-nolore`: Executor, Flagship Executor, Finalizer (AI)): the
+    frame carried Bardez's square type-icon crop; Decipher printed the round starship disc in its ring with the bar's
+    bevel bending into a V under it, as on the portrait starships. `tools/fix_starship_wide_disc.py` inpaints the
+    square and sets the portrait DS starship corner in, aligned on the V tip (disc centre (317, 279)). Banner 60 px
+    tight (`ctype_spacing` 0.5), centred between the title's end and x 1845 (`ctype_centre_to`); game text at the
+    printed 62 px in a box ending at 1992 (lines ended on the bevel); destiny number 12 px higher. Portrait capitals
+    (Devastator, Home One, Corellian Corvette) checked: disc and ring as printed, unchanged.
+  - **Banners of Decipher starships / vehicles**: the class name is italic (CAPITAL: _IMPERIAL_-CLASS STAR DESTROYER,
+    STARFIGHTER: _LAMBDA_-CLASS SHUTTLE; YV-CLASS stays roman as printed).
+  - Checks: md5 identical before / after for Luke Skywalker 1_19, Dark site 1_283, system 1_121, interrupt 1_70,
+    objective 7_135, Corellian Corvette 1_140, effect 1_42, combo 10_7, Death Star: Docking Bay 327 1_124, Cloud City:
+    Carbonite Chamber 5_78, Porg 223_43 (PC creature), Home One 9_74 and YV-class 7_144 (no italic class name);
+    Devastator 1_301 changes only by its italic banner (intended). Evidence sheets (scan | before | after, zooms) in the batch report.
+- Rev 84 verify (2026-11-12): the three points the rev 84 sphere / copyright audit could not settle, measured.
+  - **Systems, Light and Dark** (`loc-system`): 33 printed systems (16 Light, 17 Dark, Premiere .. Coruscant, Jedi
+    Pack, OTSD) registered to our render on the two bar assemblies (the picture differs from the library art; the
+    350 px faces are cropped up to 2.5 % inside the card edge, so the card outline is no reference); Dark scans turned
+    180° and measured in Light coordinates. The Dark system is the Light layout turned whole, as rendered, but rev 84's
+    numbers were off on both sides: the sphere sits 8.7 / 6.1 px (745) right / down of rev 84's spot on Light systems
+    and 9.8 / 7.8 on Dark ones (`dc_system_ring` (166, 200, 56); new key `dc_system_ring_dark` (169, 204, 56), pre-turn
+    coordinates; median of 10 / 9 centroid fits, spread ±1.5 px); the copyright halves 9.5 px in (Lucasfilm) / 4 px in
+    (Decipher) and 9-12 px higher (`dc_split` ((216, 1884), (1427, 1880)), 14-16 halves a side, sd ≤ 1.8 px across).
+    The printed left half reads top to bottom (letters facing the card, like the right half; real Alderaan, Kessel,
+    Fondor, Corellia printings): new key `dc_split_left_down` turns it (`rotate(90deg)`), Decipher-printed cards only.
+    Coruscant-set systems (Coruscant, Naboo, Malastare, Tatooine, both sides) print the sphere bare on the starfield
+    (no grey ring) and Decipher's Episode I disc under it, which we did not draw: centre 2 / 100 px (master) from the
+    sphere's, 56 px in a 74 px ring 6 px wide, grey #5f6163 (new key `dc_system_ep1`, drawn when the card's `ring_icons`
+    hold `episode1`; 8 printed systems, ≤ 1.5 px (745)).
+    Dark sites (`loc-site`, the whole card turned): sphere and line where the Light measurement puts them (11 Dark sites,
+    ≤ 2 px), no change, except Episode I-era sites.
+  - **Episode I-era sites** (Tatooine .. Theed, Light and Dark, 13 printed sites): Decipher's Episode I disc
+    (`icons/ep1-disc-decipher.png`) 56 px across, centred 99 px under the sphere (ours: the VS disc, 44 px, 77 px under,
+    lying over the end of the copyright line); the sphere 4 px higher; the line 12 % smaller and centred 110 px further
+    from the sphere, ending ~40 px (745) short of the disc. `DC_PRINT["loc-site"]["ep1"]` (applied when the card's
+    `ring_icons` hold `episode1`): `dc_sphere` (2022, 476, 56), `dc_copy` (2017, 950), `dc_copy_size` 25.5,
+    `ring_disc_size` 56, `ring_disc_dx` -2, `ring_disc_dy` 16, `ring_disc_icons`.
+  - **Coruscant** (GEMP 12_*, 18 characters, effects, interrupts, weapons, starships, sites, systems): the template
+    positions hold (centre within 1 px on every template); the weak rev 84 match came from the picture: our Coruscant
+    spheres (the PC redraw `set-coruscant-pc.png`, the default, and Decipher's) carry a black rim outside the gold ring,
+    the printed one has the gold ring at the disc's edge (radial profiles: gold peak r 12.5-13 px (745), no dark ring).
+    `DC_SPHERE_ZOOM` (render.py) draws those pictures 1.23x / 1.16x inside a round clip (`dc_sphere_img`), on
+    Decipher-printed cards, sites and systems.
+  - **Wording** (`adapter.copyright_for`), settled on sharp photos of printed cards (pricecharting.com, 700-1600 px):
+    Enhanced Cloud City prints the final period (5 cards); Endor prints "TM, ® & © 1999 DECIPHER INC." on every card
+    (4 photos; Speeder Bike and Tempest Scout 6 carry the same digits as the rest of the set on the Decipher archive
+    scans): `PRINT_YEAR["8"]` 1999; Reflections II's own cards print the final period ("… 2000 DECIPHER INC.", Alter &
+    Collateral Damage, Sense & Recoil In Fear; its foil reprints set "TM, ®, &" but render as their first printing).
+    `NO_FINAL_PERIOD` now 11-14.
+  Checks: md5 identical before / after for Luke Skywalker 1_19, Death Star: Central Core 1_283, A Few Maneuvers 1_70,
+  objective 7_135, starship 1_140, Hoth: Echo Command Center 3_56, Cloud City: Casino (Dark) 7_269, Tatooine Interrupt
+  with the Episode I disc 11_26, effect 1_42, Coruscant objective 12_88, PC systems Ahch-To 211_48 and Coruscant (V)
+  203_31. Evidence sheets: scan | before | after with x4 zooms of the sphere and each copyright half.
+- Rev 84 (systems and discs) (2026-11-12): five points checked on printed systems / sites (wiki Decipher-archive scans,
+  the wiki's 16 1497 px `-hires.webp` system faces, Decipher's 1039 px Episode I site files, pricecharting photos).
+  - **System art scale** (`render.system_library_art`, `server.resolve_art`): the art library keeps a system's picture as
+    the strip between its bars, cut from the whole card normalised to 350x490 (`art-manifest.json` `box`, e.g. Bespin
+    [14, 96, 336, 395]). It came back as a plain `rect` and was cover-fitted to the whole 1343x1931 art area, so the
+    planet printed 1.4-1.6x too large (Bespin, Fondor, Kessel). Library art of a system now carries `card350` (the box)
+    and is placed where it sits on the printed card: card body = the 745 px face's 37..708.5 x 36..1001.5, i.e.
+    17.38..332.85 x 16.98..472.33 of the 350x490 card (`SYS_BODY_350`); the rows under the bars / beside them are the
+    strip mirrored outward. Checked by registering each render's art (745 px, x 120..625, y 250..790) inside the printed
+    face over scale 0.80-1.25 and both turns: all 59 library systems with a wiki face (Light and Dark, Premiere ..
+    Coruscant, Jedi Pack, OTSD) match at scale 0.97-1.00, median offset 0 / 0 px (745), worst 7 / 8.5 px; the 16
+    independent 1497 px faces 0.97-0.98 (their card outline sits ~1 % differently); before: below 0.80 (search floor).
+    Scans and uploads unchanged; PC systems (Ahch-To 211_48, Coruscant (V) 203_31) md5-identical.
+  - **Location title dot** (Decipher printings only, `decipher_print`): sites and systems print the dot against the
+    first letter (•BESPIN, •KESSEL, •DEATH STAR: CENTRAL CORE: 4-5 px gap at the master, dot ~15 px, centred on the cap
+    height); ours stood 18 px off. `.ltitle/.dtitle .dot` get `font-size:0.88em; margin-right:-7px` (gap 4-6 px, dot
+    14-16 px). Character titles already match print (Darth Vader hires: dot 118-139 / D at 146 vs ours 116.5-138.6 /
+    144.7) and are unchanged. PC / VS slips unchanged.
+  - **Episode I disc on systems and sites**: confirmed, no change. On the sharpest faces (Decipher's 1039 px Naboo:
+    Battle Plains Light / Dark and Theed Palace Generator Core; the 745 px printed scan of Watto's Junkyard; Coruscant
+    systems at 357 px) the disc is the same as everywhere else: tall serif I nearly the disc's height, EPISODE a light
+    bold sans behind it, as `icons/ep1-disc.png` draws it. The "short heavy I over a strong EPISODE bar" was the blur of
+    a ~12 px disc on the 350 px scans.
+  - **Reflections III copyright**: prints the final period ("TM, ® & © 2001 DECIPHER INC."): sharp photos of
+    Stormtrooper Garrison, The Ebb Of Battle, Qui-Gon's Lightsaber, and Decipher's own 1039 px Reflections III / Coruscant
+    files. `NO_FINAL_PERIOD` now 11, 12, 14 (12 and 14 left as rev 84 verify set them: Decipher's Coruscant file also ends
+    "INC.", but no sharp printed Coruscant / Theed photo was found to settle it).
+  - **Tatooine sphere**: round with a round black ring on the sharpest photo found (Padmé Naberrie, 1200x1600); no change.
+  - Checks: md5 identical before / after for Luke Skywalker 1_19, interrupt 1_70, objective 7_135, Darth Vader 1_168,
+    Ahch-To 211_48, Coruscant (V) 203_31 and the three Japanese samples; Death Star: Central Core 1_283, Cloud City:
+    Carbonite Chamber 5_166 and Bespin 5_76 from its scan change only inside the two title bars (the dot, intended);
+    Allegations Of Corruption 13_52 ends "DECIPHER INC.".
+- Rev 84 (Coruscant sphere) (2026-11-12): `DC_SPHERE_ZOOM` re-measured per picture and per place; the default
+  `expansion_style` "pc" (Bill 2026-11-01) is unchanged. Ring fit (least-squares circle on the dark ring, 8x upsampled,
+  then a radial yellowness / lightness profile) on Decipher's own 745 / 1039 px faces of Allegations Of Corruption, A
+  Tragedy Has Occurred and Naboo: Battle Plains (Light and Dark): the gold ring peaks at r 11.0 px (745) of the 14 px seat
+  and a black ring runs from r 12.5 to 14.5 (all four faces alike). The rev 84 zoom (PC 1.23, Decipher 1.16) pushed the
+  gold out of the clip on cards and sites: no gold showed at all. The pictures: Decipher's has its gold peak at 0.80 of
+  the radius and its own black ring 0.88-0.97; the PC redraw's gold peaks at 0.94 with no black ring. Cards and sites
+  now draw Decipher's 1:1 and the PC's at 0.87 (gold at 0.82, the black hole behind it shows as the printed black ring);
+  measured after: gold peak r 11.0 and black ring from r 12.0-12.5 on all three cards, both styles. Systems print the
+  sphere larger on the bare starfield (Coruscant, Tatooine, Naboo, Malastare systems: gold peak r 13 px of the 14 px
+  seat, its black ring lost in the starfield): systems keep Decipher's at 1.16 and draw the PC's 1:1 (gold r 13.0 after;
+  was clipped at 1.23). Values are (cards and sites, systems); `dc_sphere_img(..., system=True)` takes the second. Only
+  Coruscant's two pictures are in the table: every other set's sphere is drawn whole and unclipped, so none loses its rim.
+  Checks: md5 identical before / after for 1_19, 1_70, 7_135, 3_56, 1_283, 5_76, Tatooine: City Outskirts 11_42, Naboo:
+  Boss Nass' Chambers 14_49 (Theed sphere) and the Tatooine system 12_84 in Decipher style; Coruscant cards change only
+  in the sphere.
+- Rev 84 (geometry and copyright) (2026-11-12): measured on the printed faces on wiki.swccg.com (Decipher archive scans,
+  hires 1497 px faces of sets 1-4, the PC's 745 px faces), each registered to our render.
+  - **Two-disc title** (`render.DISC2_TITLE_SHIFT`): the title moved 170 px right of the one-disc title on every
+    template; printed bullets start at x 235-238 (745) on Dark two-disc cards (The Emperor 10_51, Arica 10_31, The
+    Emperor, Relentless, Palpatine, Galactic Emperor, Mara Jade (V), Arica (V)), 229-230 on the Light Rebel frame
+    (Bail Organa, Mon Mothma, Cal Kestis, Kelleran Beq), 231 on the Light Alien frame (Chewie With Bowcaster, Solo,
+    Chewbacca, Defender Of Kashyyyk, Grakchawwaa); we set them at 253-254 / 240 / 235. Now Dark 136, `ls-character-rebel`
+    114, `ls-character-alien` 127 (all within 1 px). Decipher's 1999-2000 printings (Emperor Palpatine 9_109, Mara Jade,
+    The Emperor's Hand 110_10) set it 10 px (745) further left again: card key `disc2_title_dx` = -22 (adapter, Decipher
+    prints of the SE-era sets). The second disc on the Dark frames sits 4 px (745) left of ours on all six measured faces:
+    x 350 (was 359). Tarfful's "original" face (243) is an outlier, not followed.
+  - **Copyright wording** (`adapter.copyright_for`, re-read at 8x on 4-8 scans a set): Reflections II, Coruscant,
+    Reflections III and Theed Palace print the final period ("… DECIPHER INC.", rev 84 had dropped it); only Tatooine
+    and Enhanced Cloud City print none (`NO_FINAL_PERIOD` = 11, 109). Tatooine sets the line in its own tighter face:
+    `©2001 LUCASFILM LTD. & TM.  TM, ®& ©2001 DECIPHER INC`; its Epic Events (Boonta Eve Podrace, I Did It!) print the
+    period. `copyright_for(set, card_type=…)`. Render: a line containing "®&" takes `DC_COPY_TAT` (30 px, letter-spacing
+    0.8, oval rings 29 x 24 px, 2.4 px rim, 20 px letter): print cap 11.2 px (745) against our 10.5, © / ® 12.8 x 11.2;
+    run length now 310.0 / 309.5 against 309.5 / 308.5 printed (Sebulba's Podracer, Losing Track), centre within 2 px.
+    Tatooine's Light Epic Events print the line white on the purple (`copyright_ink`, others black as before).
+  - **Scan mapping** (`render._edge_trim`): Decipher's 350 x 490 Tatooine GIFs carry a white last column, so the frame
+    bbox ran to the image edge and the Podracer scans mapped 5 % wide: their own red frame and copyright line showed
+    inside the window (two copyright lines). A run of bright columns / rows touching the image edge, under 1 % of it and
+    3+ px from the body is dropped. All five Podracers checked with library and scan art: one line, at the printed spot.
+  - **Location bar titles on Decipher prints** (decipher_print sites and systems only): letter-spacing 1.4 px (was 2) and
+    the black-on-grey title a 1 px stroke heavier. Death Star: Central Core (hires): printed caps 40 / 42 px (white on
+    black / black on grey), widths 21.5 / 23, stem 6 / 7, run 586 / 588 px; ours now 40 / 41, 21 / 22, 6 / 7, 589 / 589
+    (was 601 / 601, black caps 40 x 21, stem 6). Kessel's white title was already 40 px, as printed.
+  - **Reflections Gold Dark Interrupt disc**: printed references exist (the 2001 playtest photos, e.g. Atmospheric
+    Assault, Blow Parried): a round swirl disc with a thin dark rim in the red lobe. Bardez's layer clipped it to a
+    chamfered square; `make_rg_frames.round_ds_interrupt_disc()` keeps the swirl inside r 82 round (318.5, 288), draws
+    a 5 px dark rim and inpaints the square's corners from the lobe (`python3 make_rg_frames.py round-disc`).
+  - **Text** (gempdata/corrections.json; the same fixes are listed for GEMP / wiki): A Tremor In The Force "When
+    Effect", lore “Stand by . . .” (1_42 and its VB1 printing); A Disturbance In The Force "When Effect", lore "in the
+    Force, “. . . as if" (1_208 and VB1, whose game text also had "Whever"); Presence Of The Force "“. . . binds";
+    Out Of Commission lore "got that tractor beam"; Out of Commission & Transmission Terminated (title "of",
+    "destiny > 3"); Domain Of Evil "test completed: Place" (the other Jedi Tests had it); Sleen "✶ Ferocity". Adapter,
+    Decipher prints only: "Ferocity = destiny – N" with a spaced en dash (Bog-wing both sides, Nudj, Sleen print it so;
+    modifiers such as "destiny -1 > ability", "power -1", "deploy -1" print a hyphen and stay).
+  - **Checked, not changed — Decipher window / lore-box geometry (sets 1-8)**: 20 hires faces (sets 1-4, eight
+    templates) warped into the 1632 x 2220 master by ECC affine fit and measured edge by edge against our master renders
+    (gradient peaks): window top −2 px master on Light Effects / Interrupts / Rebels, +0.3 on Aliens / starships, ~0 on
+    Dark; lore-box top within ±1 px (median −0.5); window left edge +1.3..+2.2 px master (print RIGHT of ours) on Light
+    Effects / Interrupts and scattered elsewhere. No consistent offset of the size or direction reported in rev 84
+    (bevel 1.4 px (745) right, tops 2 px) shows at master resolution; all are ≤ 1 px at 745 and differ in sign between
+    templates, so nothing was warped. PC and Japanese renders are untouched by this revision: md5-identical before /
+    after for the Japanese samples Darth Vader, Luke Skywalker, Admiral Ozzel, PC cards 223_40, 200_105, 205_14, 213_12,
+    211_48, 211_47, and Decipher 1_3, 1_74, 1_140, 9_113, 9_55.
+- Rev 84 (site wear and PC wide starships) (2026-11-12): two follow-ups to rev 84 frames, measured on printed faces.
+  - **Light starship / vehicle site wear** (`ls-starship`, Decipher printings only, `decipher_print`): the procedural
+    fine speckle is replaced by Decipher's worn paint as printed: large scratched patches, heaviest on the strips
+    between the title bars and the picture, a silver outer rim and window rim. `tools/make_site_wear.py` registers
+    four printed Light faces (wiki: Sandcrawler: Loading Bay hi-res 2073 px; Decipher archive images of Home One: War
+    Room, Home One: Docking Bay, Blockade Flagship: Docking Bay) to the site frame by ECC (affine), classifies each
+    pixel of the frame's paint zone as blue / silver / ink (Otsu on blue - red per face), and takes the per-pixel
+    median (ink left out) -> `assets/frames/site-wear-light.png` (frame coordinates, 255 = worn; 44 % of the zone).
+    No smoothing or retouching; under the copyright line (ink on all four) the paint stays. Rows move with a taller
+    text box exactly as the frame does. The Light colour (32.4, 97.7, 149) is unchanged. Each Light card has its own
+    patches on the print (the hi-res and archive Loading Bay agree, so the wear is printed, not handling damage); the
+    median gives the shared character, not any one card's pattern. Dark blue sites: the six hi-res Dark faces (Droid
+    Junkheap, five Executor sites) show smooth unworn paint, as we render it: unchanged. PC / non-Decipher Light
+    starship sites (Profundity: Docking Bay) keep the previous speckle (unchanged).
+  - **PC landscape starships** (Finalizer 204_54 and Finalizer (AI) 204_54^AI, both printed 1039 x 745): Finalizer
+    (AI) was missing from WIDE_PRINTED (its printing id carries ^AI) and rendered on the portrait starfighter frame;
+    now on the wide frame without lore box. The PC printed the round type disc too (no square icon): kept. Both take
+    new templates `ds-starship-wide-pc` / `ds-starship-wide-nolore-pc` (adapter: wide starship with a `pc:` set mark),
+    measured on wiki V4-D-finalizer.gif / V4-D-finalizer_ai.gif (745 px; x 2 + Holotable offset = master): banner
+    left-set 108 px after the title's end (`ctype_after_title`, printed 345..837, ours 344..837), `ctype_spacing`
+    0.95, y 233; title y 219 (printed cap top 76); class name italic (_RESURGENT_-CLASS) as printed; the Episode VII
+    disc in the left margin (`ring_disc_left` (252, 476, 82), not under the destiny) with the PC's broad blue ring
+    (`assets/icons/ep7-disc-blue.png`, ring profile measured on the two faces by `tools/make_ep7_disc_blue.py`); the
+    Virtual Set 4 mark after the icon boxes (`set_icon_abs` (1916, 1104), size 70: digit 924..947 x 524..558 printed,
+    926..946 x 524..557 ours); icon boxes 10 px lower and 6 px left (within 1 px of print); the PC labels turned a
+    quarter left into the right margin (`labels_rotated`: caption "Executor", the (AI) stamp and logo, the art credit,
+    within 2-3 px of print; the credit upright at 51 px, `label_presets`). Executor and Flagship Executor (Decipher)
+    unchanged.
+  - **Checks:** md5 identical before / after (holotable PNG): 1_19, 1_283, 1_121, 1_70, 7_135, Dark blue sites 4_159,
+    2_149, 12_164, Executor 4_167, Flagship Executor 9_157, Profundity: Docking Bay 217_44, Death Star: Docking Bay 1_124
+    and the Japanese samples darth_vader / luke_skywalker / admiral_ozzel (tools/japanese/samples). Changed as intended:
+    2_66, 9_57, 9_58, 14_48 (wear), 204_54, 204_54^AI.
+- Rev 84 (geometry 2) (2026-11-12): the three items left open by Rev 84 (geometry and copyright).
+  - **Reflections Gold original playtest cards (set 15o), wide Effects / Interrupts**: the 2001 photos (Local Trouble
+    1957 px, Strangle, Weapon Malfunction, Atmospheric Assault) print the copyright line split over the black border,
+    white, in Decipher's typesetting: "© 2001 LUCASFILM LTD. & TM." down the left edge (reading top to bottom) and
+    "TM, ®, & © 2001 DECIPHER INC." up the right edge (with the comma after ®, as Coruscant). Template key `rg_copy`
+    (centres (112, 352) and (2116, 348) master, from the photos mapped to the card body) and `rg_copy_size` 31.5 (the
+    printed run is 12 % longer than our 28 px Decipher line). Remastered set 15 keeps no line (md5-identical).
+  - **Tatooine Light Epic Events** (Boonta Eve Podrace 11_24, I Did It! 11_25): third measurement, the line against the
+    card body on the same face (the black border on both sides, the scan's stray white last column excluded): ours sat
+    1.3 px (745) left and 2.6 px high. Card key `copyright_dxy` = (3, 6) master; now x 0.9596-0.9600 of the body width
+    (print 0.9598) and centre 0.3410-0.3420 of its height (print 0.3421).
+  - **Decipher 1999-2000 two-disc titles** (Emperor Palpatine 9_109, Mara Jade, The Emperor's Hand 110_10): glyph by
+    glyph on the printed faces (card normalised to 745 x 1039) the caps are the same height (31 / 22 px) but the run is
+    3 % narrower and starts further left: `disc2_title_dx` −32 (was −22) and new `disc2_title_ls` 0.1 (letter-spacing,
+    was 1). 9_109 now bullet 221, E 234, end 428 against the print's 221 / 234 / 429. Mara Jade's long title still
+    starts ~5 px right of the print's and is condensed 2 % more; the EJP archive scan sits 10 px off vertically, so its
+    crop is not reliable enough to follow further. 9_109 keeps the PC sphere (Bill's default).
+  - md5-identical before / after: Japanese samples (Darth Vader, Luke Skywalker, Admiral Ozzel), 223_40, 200_105,
+    205_14, 213_12, 211_48, 1_3, 1_74, 1_140, 9_113, 9_55, 10_51, 219_19, 15_260, 15_220, 2_42, 11_97.
+- Rev 84 (Decipher text setting) (2026-11-12): **game text and lore set the way Decipher set them** on its own printings
+  (card `decipher_print`, i.e. the editor's "As Decipher printed it" box / adapter `decipher_print()`; PC, VS, OVS,
+  Virtual Legacy and Japanese renders are untouched). Measured on 58 printed faces registered to our renders by the card
+  body (the wiki's 1497 px hires scans of Premiere, A New Hope, Hoth and Dagobah; Decipher's 350-367 px archive / web
+  faces for Cloud City to Theed Palace; the wiki's 745 px gifs of Decipher cards turned out to be the PC's errata
+  re-renders, set in the PC's face, and were not used), lines read by OCR and aligned word-for-word with the card text.
+  - *Face and size:* x-height equals ours (game text 32 px at 62, lore 30 px at 58), so the sizes stay; the printed glyphs
+    are wider than Holotable Text (printed ink width / our advance at tracking 0: game text 1.026, lore 1.044). The box is
+    laid out at width / k and stretched by k (`scaleX`), tracking 0 (was -0.4 / +0.25), inline icons counter-scaled.
+  - *Leading:* game text pitch 63.5 (29 faces, 63.0-64.5; ours 64), first baseline 1 px lower; lore 60.5 (20 faces), and
+    three-line lore keeps that pitch (the lore box grows to 187 px instead of the fitter tightening it to 54 px, as it did
+    on every 3-line character lore). Fitter: fractional pitch (`data-fit-step`).
+  - *Measure:* fitted on the printed line breaks of 56 blocks (layout simulated over the right edge): game text box width
+    -18 px on characters, -33 on Premiere / A New Hope Effects and Interrupts (their lines run a word shorter than Hoth's
+    onward), 0 elsewhere; lore starts at x 317 (ours 319 Dark / 326 Light) with a 75 px first-line indent and ends 6 px
+    short (Dark) / 6 px past (Light) of the PC lore limits. Identical line breaks: 13 → 35 of 56 blocks, 65 → 169 of 224
+    lines. The rest differ by one word at a line end; Decipher tightened tracking card by card (Vote Now!, Organized
+    Attack, Our Only Hope print longer lines than any one measure allows), which no single setting reproduces.
+  - *Ink weight:* printed black text is heavier and white text (reversed out of the Dark boxes) lighter than our faces
+    (ink coverage printed / ours 1.04-1.08 and 1.15 lore on Light, 0.83-0.88 and 0.77-0.90 on Dark): a 0.2 / 0.3 px
+    text-stroke in the text colour on Light, 0.5 / 0.35 px in black on Dark brings both to 0.96-1.06.
+  - *Ellipses:* Decipher printed lore ellipses spaced ". . ." in 31 of 33 checked (Premiere to Reflections III; Boring
+    Conversation Anyway and Jawa print "... "): lore "..." / "…" becomes ". . ." with no-break spaces, no space before,
+    one space before a following word; texts already spaced (corrections.json) stay as they are.
+  - Template data: `render.DC_TEXT` / `DC_EARLY` / `DC_TEXT_FAMILY` (characters, Effects, Interrupts, weapons, devices,
+    starfighters / capital ships, vehicles, creatures); card key `dc_expansion` (adapter). Sites and systems were
+    measured too (Premiere, A New Hope, Hoth): their centred, tracked text is within 1-2 % of the print and unchanged.
+  - **Checks:** md5-identical holotable renders before/after: 223_40 Life Day (PC set mark), 200_1 Aayla Secura (VS0),
+    the OVS spec 1101_1, the three Japanese samples, 2_13 / 1_241 / 3_126 with `decipher_print` false, and the Decipher
+    sites / system 1_283, 2_67, 2_143.
+- Rev 84 (Episode I spheres) (2026-11-12): two leftovers of the Coruscant sphere work, measured.
+  - **Portrait cards (Effect, Interrupt, Character, Weapon, Shield, Starship) of Tatooine, Coruscant, Theed Palace and
+    Reflections III: no change.** Each face registered to our render on the frame round the sphere (top-right corner,
+    destiny area, right margin; NCC, sub-pixel), the sphere matched by its own picture and by a ring fit; print minus
+    ours, px at 745. Decipher's 745 px files (25 faces): Dark Effects / Interrupts / Shields dx -0.1..+0.8, dy +2.1..+3.0;
+    Light Effects / Interrupts dx -0.3..-1.0, dy -1.2..-2.2. The same files of classic sets (ANH .. DS II, 10 Effects /
+    Interrupts) give the same: Dark dy +0.1..+3.2, Light dy -1.4..-2.2, dx within 0.7. Scans of printed cards (3
+    printed-scan PNGs, 33 Decipher-archive scans at 357 / 497 px) give dx -1.5..-2.1, dy -0.8..+0.8, and the classic
+    archive scans the same again. So the Episode I-era sphere sits where the classic one does (within 0.5 px per source);
+    the 2-3 px spread is between sources (the same card differs that much: I Will Find Them Quickly, Master printed
+    -1.95 / -0.09 vs Decipher's file +0.65 / +1.40; Booma -1.49 / +0.54 vs +0.29 / -2.62), and the rev 84 positions,
+    fitted on all sources, stay. Tables: m745.txt, m357.txt, mclassic745.txt, mclassic-archive.txt in the batch sheets.
+  - **Coruscant-set systems (Coruscant, Naboo, Tatooine, Malastare): no grey ring round the sphere; the sphere is larger.**
+    Sharpest faces found: the PC's 742 px faces (2x of the printed scans; pricecharting and the wiki only have 350 px).
+    Radial profiles: the Episode I disc's grey ring shows as a peak (L 50 at r 16 px, dip to 30 inside, 9 outside); round
+    the sphere the profile falls smoothly from the gold (L 152 at r 12 to 8 at r 20) and stays below the disc ring's at
+    r 17-18 (41 / 28 against 44 / 33) although the gold's blur adds to it: no ring. The sphere's bright edge (half level
+    of a blurred-disc fit) is at r 15.0-15.3 on all four (ours 13.5 at 56 px): new key `dc_system_ep1_sphere` 62 draws
+    it 62 px across on the same centre (after: r 15.0 both styles); the Episode I disc stays where it was.
+  - Checks: md5 identical before / after for 1_19, 1_283, 1_70, 7_135, Alderaan 1_121, Bespin 5_76, Allegations Of
+    Corruption 12_128 and Naboo: Battle Plains 12_79; only the Coruscant-set systems change (the sphere).
+- Rev 84 (geometry 3) (2026-11-12): Decipher's two-disc character titles re-measured against the frame instead of the
+  scan's crop. The geometry 2 figures normalised each archive scan by its own crop (white surround), which put the EJP
+  and DS2 faces 6-12 px off; the title is now measured from the Imperial disc's right edge on the same face (745 px).
+  Check of the method on Ref2 / PC faces (The Emperor, Arica, The Emperor, Relentless, Mara Jade (V)): print and ours
+  both 28-29 px. Decipher's own sets: Death Star II, Emperor Palpatine 9_109: bullet 20, run 208 px (print) — ours now
+  21 / 207; Enhanced Jabba's Palace, Mara Jade, The Emperor's Hand 110_10 (both wiki faces, 350 px Holotable gif and
+  367 px archive scan): bullet 23-25, run 362-372 at full width, ending past our bar (the print is not condensed) —
+  ours now 24 / 366 (was 12 px from the disc and condensed to 353). Per-set table `adapter.DISC2_DECIPHER`
+  (x offset, letter-spacing, extra bar width; master px): set 9 (-17, 0.1, 0), set 110 (-8, default, 42); new card key
+  `disc2_title_dw`. No other Decipher card prints two discs (Enhanced Premiere, ECC, the other premium sets have none;
+  Reflections II's The Emperor and Arica keep the default, checked). Sheet: Mara Jade gif / archive / ours, Emperor
+  Palpatine print / ours. md5-identical before / after: Japanese samples (Darth Vader, Luke Skywalker, Admiral Ozzel),
+  223_40, 200_105, 205_14, 213_12, 211_48, 1_3, 1_74, 9_113, 10_51, 10_31, 219_19, 226_8, 15_260o, 11_24.
+- Rev 84 (sites 2) (2026-11-12): the leftovers of rev 84 (site wear and PC wide starships), measured on printed faces.
+  - **Site icon boxes** (Decipher sites, all): the Mobile, Starship and Vehicle boxes were the Holotable icon on box.png
+    (a brown-speckled surround, ~10 px too large, which read as a dark shadow block on the blue sites). New
+    `assets/loc/scanbox-{mobile,starship,vehicle}.png` (100 x 94, as the existing interior / exterior / planet /
+    underground scanboxes) cut by `tools/make_site_scanboxes.py` from 10 wiki hi-res faces (five Executor sites, Death
+    Star: Docking Bay 327 / Central Core / War Room, Sandcrawler: Loading Bay / Droid Junkheap): each face registered to
+    the frame (make_site_wear.register; silver sites too), the row of square boxes matched by the scanbox rim and fitted,
+    each kind's crops rim-colour matched, ECC-aligned and per-pixel median'd (mobile 15, starship 10, vehicle 4). The
+    rows sit within 5 px of print. Decipher prints the exterior icon outside the interior one (Hoth: Echo Docking Bay,
+    Death Star: Docking Bay 327): adapter now orders them so.
+  - **Site title position** (Decipher printings, `dc_title_cx` 1110 on loc-site): Decipher centres the title on the
+    card's centre line in both bars, moving it only to clear the boxes / Force slot; ours centred it in the free bar
+    (Home One: War Room / Docking Bay, Executor: Comm Station, Hoth: Echo Docking Bay up to 70 px off). Now within a
+    few px on the 9 faces checked (Home One x2, Sandcrawler x2, Executor: Comm Station, Cloud City: Lower Corridor,
+    Death Star: Central Core, Hoth: Echo Docking Bay / Command Center).
+  - **Nav Computer box** (`BOX_ICON_FILES`, `assets/icons/col-nav.png`, `tools/make_col_nav.py`): was the in-text icon
+    (grey inner frame) inside icon-box.png; no printing shows the double frame (Executor, Ghost, Azure Angel, Blue
+    Squadron 1, Bright Hope, Finalizer): red field to a thin silver rim, median of five PC faces. The in-text icon is
+    unchanged.
+  - **WIDE_PRINTED by printing id** (`adapter.is_wide_printed`): the PC's alternate-image printings carry ^ ids. The
+    GEMP gifs show I Must Be Allowed To Speak (V) 200_41 and Bow To The First Order 204_47 are portrait and only their
+    (ALT) printings landscape: the set now lists 204_54, 204_54^AI, 200_41^ALT, 204_47^ALT (the old 200_41 / 204_47
+    entries turned the portrait cards landscape). The (ALT) Effects take `rg-{ls,ds}-{effect,interrupt}-pc`: banner
+    55 px, 18 px left (printed 652..726 at 745); text 8 px lower; sphere in its red ring at the printed place (925..961 x
+    183..219); Episode VII disc in the left margin in a red ring (`ep7-disc-red.png`, `tools/make_ep7_disc.py`, which
+    also makes the blue one); the PC set mark at the text box's lower right; labels turned into the right margin;
+    "Original concept by" 19 px (745) higher in the bottom bar.
+  - **Finalizer (AI) credit doubled**: the (AI) face prints its art credit 46 px (745) higher than Finalizer's; the redraw
+    sat beside the scan's own. `adapter.LABEL_PLACE` per printing ({"204_54^AI": concept x 95}); both now lie on the
+    scan's credit. Label kinds: art credits are tagged `kind: art_credit` (template `label_presets` by kind or preset).
+  - **PC set mark** (all PC cards): the ring was long and thin (57 x 39 px at 745 for a 35 px digit); printed 46.5 x 42,
+    a rounder band tilted 38 degrees with a dark navy (gold: brown) edge; digit 18 % wider. Portrait PC starships
+    (`ls-/ds-starship-starfighter`, `pc_set_icon_abs`, `pc_set_digit_size`, `pc_stack`): the mark 8 px lower (digit
+    centre (664.5, 961) at 745), and 3-4 icon boxes stacked up from a fixed foot at the printed 43 px / 48 px pitch with
+    the mark below (Azure Angel, Booster In Pulsar Skate, Bravo Fighter (V), Acclamator, Blockade Support Ship), not
+    shrunk to fit above it.
+  - **Sandcrawler text**: no transcription error. GEMP 2_66 / 2_149 is the PC errata printing ("Deploy on your
+    sandcrawler. Each Jawa is forfeit +2 here.", •••), matching the PC face; Decipher printed "Deploy on your
+    Sandcrawler. Jawas forfeit +2 here." with one dot (wiki 2_66o / 2_149o). corrections.json unchanged.
+  - **Checks:** md5 identical before / after: 1_19, 1_121, 1_70, 7_135, effect 1_42, combo 10_7 and the three Japanese
+    samples. Changed as intended: sites (1_283, 5_78, 4_159, 9_58, 2_66 ...: titles, boxes), Nav cards (4_167, 9_157,
+    PC starships), every PC set mark, 200_41 (portrait again), the (ALT) Effects and the Finalizers.
+- Rev 84 (Decipher text setting 2) (2026-11-12): the rest of the Decipher text setting, on `decipher_print` renders only.
+  - **Printed line breaks per card** (`gempdata/decipher_lines.json`, keys `lore` / `game_text` / `game_text_back`;
+    adapter `decipher_lines()` → card `dc_lines`; render `dc_hint()`): the 72 blocks read from the printed faces (the
+    56 of the first part and 16 more below; Allegations Of Corruption's lore and I'll Try Spinning's text read by eye where OCR failed), each line as printed. A text whose words (and line-opening signs such as
+    "+" or "=") no longer match its lines is set normally; with the lines the block does not re-wrap (`nowrap`), so a
+    line Decipher tracked tighter than the measure makes the fitter tighten the tracking, as Decipher did. Paragraph
+    marks follow the printed lines: Organized Attack (7_97) runs "LOST:" on, Our Only Hope (9_53) starts it on a new
+    line. Result (layout check against the print): 72 of 72 blocks break as printed (two show a token split only:
+    ". . .”" and italic "Executor ." — the same visible lines).
+  - **More templates measured** (printed line width / ours, pitch, on 350-1497 px faces):
+    Defensive Shields (6 faces, Reflections III) and Admiral's Orders (5, Death Star II / Theed): widths 1.03-1.04 of
+    our PC setting, as the family → set like the family (`DC_TEXT_FAMILY`); Admiral's Orders print seven lines at pitch
+    64.5 (5 faces 63.5-65), measure 36 px shorter and the box 45 px deeper than the PC's (`DC_TPL`). Objectives (4 fronts, 4 backs; Special Edition, Death Star II, Coruscant): width at 62 px ×1.026 matches,
+    pitch 63.0-64.5 (ours 65 at 63 px, grow) → 62 px, pitch 63.5, no grow; the italic heading line ("Deploy Throne Room,
+    Insignificant Rebellion and Your Destiny.") is condensed onto one line as printed (JS, `.objhead`). Jedi Tests (5,
+    incl. the 1497 px A Jedi's Strength): x-height 30 (ours 31), widths as the family at 58.5 px, pitch 58.0-59.0 (mean
+    58.4; the 57.3 of the rebuilt frame came from the PC's faces) → 58.5 px, pitch 58.4, measure -16. Podracers (5):
+    widths already within 1 % (rev 84); pitch 63.0 (ours 63.75) and lore 60.5 → set for Decipher printings.
+  - **Dark white text tone:** on 14 hires Dark faces the brightest point of each white glyph (median 194-213) equals the
+    brightest paper on the same scan (99.5th percentile 194-213, R = G = B): the letters are unprinted paper, the scans
+    are just exposed ~200. Our white (#fff, like our paper white) stays.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, and 2_13, 7_97,
+    4_75, 9_151, 13_8, 9_3, 11_47 with `decipher_print` false, and the Decipher site / system 1_283, 2_143.
+  - Left for the text-data agent (GEMP text differs from the print): Concentrate All Fire 9_3 ("for remainder", "Once
+    per turn, you"), Plead My Case back 12_88b (bold "order agenda"), More Dangerous Than You Realize 7_135b (“blown away.”).
+- Rev 84 (Decipher printed text) (2026-11-12): a card rendered as Decipher printed it (`decipher_print`, English) now
+  carries the text, title / bullets, lore and icons Decipher printed where GEMP's text is an errata (Decipher Glossary
+  Version 2.0 / Glossary Supplement, or the Players Committee's AR 2023 Appendix A). 514 cards.
+  - *Source:* `gempdata/decipher_printed.json` (GEMP id -> the GEMP front fields that differ, raw GEMP conventions,
+    `_page` / `_image` / `_label` provenance), made by `tools/make_decipher_printed.py` from a dump of wiki.swccg.com.
+    Wiki conventions: the printed face's page has `card_uid` = GEMP id + "o" (Jek Porkins 1_13o, version_label "printed"
+    or "Decipher final (Glossary …)"); the errata page carries the GEMP id, "<Title> (Errata)" (Decipher errata, label
+    "errata (Decipher Glossary …)") or "<Title> (PC Errata)" (label "PC Errata (AR 2023 Appendix A)"); "<Title>
+    (Original)" is a redirect to the printed page or a second printed page (label "printed (Decipher archive)", which
+    wins). Cards without errata have one page (uid = GEMP id). The printed pages' uniqueness field is copied from the
+    errata page (equal on all 491), so printed bullets come from Errata.wiki ("Errata face (• unique)", Appendix A
+    "print: (non-unique)") and the faces: Beru Stew, Limited Resources, Spaceport Speeders, Innocent Scoundrel, Pride Of
+    The Empire print none; Sandcrawler: Loading Bay / Droid Junkheap print one (GEMP •••). Only words count as a
+    difference (quote style, ellipses, markup and the wiki's missing / spurious stat fields do not).
+  - *Checked against the print:* every printed text was OCR'd (tesseract) on the wiki's Decipher-archive face of the card
+    (hires 1497 px scan for lore) and scored against both texts; the 31 not clearly decided were read by eye: the wiki was
+    right on all game text (OCR's three "GEMP" votes were misreads); fixes `WIKI_FIX` (Exposure "missing", Special
+    Modifications _Millenium Falcon_, Field Promotion bold *leader*, Jek Porkins "On Red 6, also", Decipher's double quotes
+    on the Sandcrawler sites and Dark Hours). Lore: the wiki's printed pages copy Decipher's card lists, not the print (Dark
+    Hours prints "Interrogator", the page "Interceptor"; Imperial Blaster "packagedProduct"), so only the 10 lore texts a
+    face confirms are taken (`LORE_OK`: Darth Vader "Servant of Emperor.", RA-7 "menial", Retractable Arm ".85", …).
+    50 errata'd cards the wiki keeps no printed page for (or whose page copied the errata) were read off their faces
+    (`PRINTED_SEEN`: Run Luke, Run!, the Jedi Pack / ECC cards, Wedge Antilles, Sense & Uncertain Is The Future, Kessel,
+    Lord Maul, …; Desperate Times' Episode I disc), plus two non-errata printing details (Dantooine Base Operations
+    “blown away.” / italic _site_, Plead My Case To The Senate "with with").
+  - *Adapter:* `gemp_to_spec` builds the spec twice (GEMP card, and the card with the printed fields) and keeps the
+    differing spec keys as `dc_printed` / `dc_errata`; `dc_printed_spec` (first thing in `spec_to_card`) puts the printed
+    values on when `decipher_print` and English, for every field still equal to its errata value (an edited field is
+    kept), before dc_bold / dc_ellipses run; the dc_* keys never reach the card. Editor: "As Decipher printed it" swaps the
+    form between printed and errata text (`dcSwap`, app.js); a card opens with the printed text.
+  - *Also:* dc_bold bolds a named agenda ("order agenda") on Political Effects and senate Objectives (Ascertaining The
+    Truth, Plea To The Court, Plead My Case, My Lord, Is That Legal?; characters and Interrupts print it regular);
+    corrections.json: Concentrate All Fire "for remainder of battle. Once per turn, you", Battle Deployment "present,
+    that player's" / "from your Reserve Deck" (transcription, read on the DS2 archive faces); decipher_lines.json 4_17
+    Asteroid Sanctuary holds the printed lines (the stored ones had GEMP's errata words).
+  - **Checks:** card-dict md5 over all 8116 CARDS × en/ja: 528 change = the 514 cards (en) + 9 agenda cards + 9_3 / 9_92
+    (corrections, en and ja) + 4_17 ja (dc_lines data); no PC / VS / OVS / Legacy card and no other Japanese card
+    changes. Holotable renders md5-identical: 1_70, 1_283, 200_1, 223_40, 2_66 and 7_135 with the box off, Japanese
+    2_66 / 1_13. decipher_lines hints: all 69 that applied before still apply (4_17 now too).
+- Rev 84 (Decipher printed text 2) (2026-11-12): the leftovers of Rev 84 (Decipher printed text), closed on the faces.
+  - *No wiki face:* pricecharting.com card photos (web.archive.org was unreachable from here) for For Luck, I Find Your
+    Lack Of Faith Disturbing, WED15-I7 'Septoid' Droid, Cloud City: Chasm Walkway (both), Hindsight, Vibro-Ax, Sienar
+    Fleet Systems: all print GEMP's words except Hindsight ("Also, at the end of every turn," for "during each draw
+    phase"); the rest of their errata lies outside the printed text (bullets / PC rules notes).
+  - *Objective backs* (Decipher-archive faces of Garrison Destroyed, I Can Save Him, Systems Will Slip Through Your
+    Fingers, No Love For The Empire, Fearless And Inventive): Hidden Base / Systems Will Slip whole text (Reserve Deck,
+    "draw phase", “Hidden Base”, italic _system(s)_, "'probed;'"), Garrison Destroyed punctuation and “blown away”, I
+    Can Save Him "if present."; the JPSD backs match GEMP.
+  - *Errata not in the words:* the title strips of all 512 faces set against ours: Come Here You Big Coward! prints no
+    bullet and the "!", Do, Or Do Not / Legendary Starfighter / Floating Refinery print no bullet (Glossary made them
+    unique); every stat box OCR'd against GEMP: DFS Squadron Starfighter prints ARMOR 2 (GEMP maneuver 2), Rebel Guard
+    POWER * (GEMP 0); the other 30 cards' errata are PC rules notes (Appendix A "your warrior" etc.) already printed
+    as GEMP holds them, or pure clarifications.
+  - *Lore:* the 33 unconfirmed wiki lore texts read on the hires / archive faces: 23 confirmed (`LORE_OK`), 8 rejected
+    (GEMP kept: LIN-V8K, Rebel Guard, Luke's X-34, DS-61-2, DS-61-3, Dark Hours, Nevar Yalnal, Imperial Blaster); Dodge
+    prints _prevent_ italic. Golan Laser Battery ("DF.9") and Beedo ("wrath") were already in corrections.json.
+  - *Punctuation:* the 314 hires faces OCR'd (text box and lore) and every printed / served field compared token by
+    token incl. trailing punctuation; the 206 flags read by eye where not OCR noise: DS-61-4 2_88 and Blast The Door,
+    Kid! 2_45: the wiki held list wording (print "into your hand. Shuffle, cut and replace.", "After a battle at an
+    interior _site_ is initiated, use 1 Force…"); corrections.json Monnok "hunters;", That's It, The Rebels Are There!
+    "system, and". Quote style is left to the text-setting rule (cases listed in the batch report).
+  - **Checks:** card-dict md5 over all CARDS en / ja against 6eaa4c9: 39 change, all listed cards (ja only 2_135, 3_137:
+    corrections); decipher_lines hints unchanged (69 of 72).
+- Rev 84 (Decipher text setting 3) (2026-11-12):
+  - **Game-text quote style** (`adapter.gt_quotes(t, dset)`, `_dset()`: the Decipher set 1-14 of a Decipher card's own
+    text; PC / Virtual / Legacy texts keep the rule above). Read on 148 quoted runs of 177 printed faces (Premiere to
+    Theed Palace; hires 1497 px for sets 1-6, Decipher 350-367 px scans after), sampled across every set and phrase:
+    the style follows the PHRASE, not the era. A quoted run of two or more words prints double (“nighttime
+    conditions,” “break cover” “blown away” “blow away” “Hidden Base” “game text” “highest-ability character.”
+    “Dejarik Rules” “suck up” “jump off” “snub fighter” “cover charge.” “salt consumption.” “crazy wizard”); a quoted
+    single word prints single (‘react’ ‘hit’ ‘insert’ ‘sleeps’ ‘patient’ ‘fly’ ‘steal’ ‘frozen’ ‘escape’ ‘charm’ …: every
+    one of 100). A word named "in title / lore" prints single to Tatooine (‘levitation’, ‘Rebel’, ‘Ewok’, ‘Rebellion’,
+    Death Star II ‘Occupation’) and double on Coruscant / Reflections III (“Podracer(s)”, “sabacc”, “door”); Theed Palace
+    prints every quote single (‘blow away’, ‘Trade Federation’ in lore). Quotes the printed-text data (decipher_printed.json)
+    set double by hand are re-set by the same rule (they all agree). 96 Decipher cards change (93 single → double, 3
+    double → single: 9_144, 14_113, 7_299), every one as its print shows.
+  - **Reflections II measure:** its combo Effects / Interrupts (tall box, no lore) print lines to x 1337-1349 (ours
+    1315-1326) on 15 faces: the game-text measure is 32 px wider for Reflections II Effects / Interrupts
+    (`render.DC_WIDE`); and their printed line breaks (10 blocks) join decipher_lines.json: 10 of 10 break as printed
+    (Sense & Uncertain Is The Future 10_46: 7 lines as printed, was 8).
+  - **13_75 Maul's Double-Bladed Lightsaber lore:** Decipher's own face (497 px archive scan) prints "training to weld
+    properly" (no i between w and e; the PC's D-E1 re-render prints "wield"). corrections.json keeps "to wield"
+    (GEMP / PC text); decipher_printed.json carries the printed "weld" for Decipher printings.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, the PC quote cards
+    203_7, 208_14, 217_46 (“in title” runs), and 2_13, 4_75, 9_151, 13_8 with `decipher_print` false.
+- Rev 84 (Decipher printed text 3) (2026-11-12): all 27 Reflections II combos (set 10) read on their Decipher-archive faces
+  (Ref2-<side>-<name>-decipher-archive.gif) against GEMP, since GEMP marks few of them errata'd and the wiki keeps no
+  printed page for them. Printed text (`PRINTED_SEEN`, Decipher printings only): Sense & Recoil In Fear 10_21 (LOST as
+  Sense & Uncertain Is The Future prints it), Out Of Commission & Transmission Terminated 10_16, Path Of Least Resistance
+  & Revealed 10_19 ("just deployed a spy to a site where"), Abyssin Ornament & Wounded Wookiee 10_28 ("one Rebel
+  present"), Nar Shaddaa Wind Chimes & Out Of Somewhere 10_13 ("(immune to Sense)", no "immediately"), Houjix & Out Of
+  Nowhere 10_8 ("damage (immune to Sense)."). Transcription fixes (corrections.json, every printing): 10_1 "If destiny <
+  number", 10_2 "take one card", 10_18 "Deploys free", 10_30 "Draw destiny.", 10_47 final period; and from the quote
+  sheet 7_84 Balanced Attack "B-wing", 14_113 Invasion "there, Naboo: Swamp, and Droid Racks" (no other hyphen-dropped
+  ship name in GEMP's texts). decipher_lines.json 10_1 / 10_28 now hold the printed words (they had GEMP's). The 13_75
+  printed lore ("to weld") moved into the tool so regeneration keeps it. Checks: card-dict md5 against 0412e82 changes
+  only the cards named (ja: the corrections and 10_28's line data); hints apply on 79 of 82 blocks (the 3 that never did).
 - Rev 81 (2026-11-12, swccg-guild/work#283, Japanese printings part 3): **Starships, Vehicles, Weapons, Creatures**
   measured on the wiki's Japanese scans. Starships and vehicles (`lang_ja.SHIP`, `ls|ds-starship-starfighter`,
   `ls|ds-vehicle`) keep the Effect lore box; their stat strip items sit at fixed stops x 306 / 708 / 1052 (X-wing,
@@ -1094,3 +1759,117 @@ ANH = `icons/set-anh-grainy.png` (from ANH-D-astromechshortage.gif). Do the same
   decimals print half width even when typed full width (`lang_ja.half_numbers`: ベイ９４ -> ベイ94, ６５, １２．５), in
   titles too. Result: bars, boxes and text lines within ~1-8 px of the eight scans. English renders byte-identical to
   rev 82 (31 cards incl. 8 locations).
+- Rev 84 (Decipher text setting 4) (2026-11-12):
+  - **No break inside a designation** (`render.dc_nobreak`, Decipher setting only): on 746 printed lines read so far,
+    0 of 58 hyphenated words break inside a designation or name (Z-95, X-wing, B-wing, R2-D2, 2-1B, TIE/ln, AT-AT,
+    Obi-Wan); Decipher does break ordinary compounds at the hyphen (A Jedi Test's "upside-" / "down", "non-" /
+    "unique"). A hyphen or slash token with a digit, a one-letter part, an all-capitals part or capitalised parts is
+    kept on one line (`white-space:nowrap` span); "cross-train", "quick-moving", "non-unique" still may break. The PC's
+    Virtual Legacy slips break inside names too ("R2-" / "D2", "Obi-" / "Wan", 22 hyphen line ends in
+    legacy_typeset.json), so PC renders are unchanged. Snub Fighter 7_84: "(Z-95," stays together.
+  - **Objective headings:** of 24 Decipher Objective fronts, a heading 1.09-1.15 of the measure prints condensed on one
+    line (9_151, 10_29, 12_89); every longer one (1.38 and up: 13_46, 13_73, 14_52, 14_113, 9_61, 7_136 …) wraps at full
+    size. The condensing now applies only up to 1.25 of the measure.
+  - Printed line data re-aligned to the printed texts the printed-text agent put on 7 cards (11_10 "re-draw", 12_24,
+    13_42, 1_215, 3_126 "+3", 4_17, 7_71 "at end"): all 82 blocks of decipher_lines.json apply again.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 7_84,
+    9_151, 14_52 with `decipher_print` false.
+- Rev 84 (Decipher text setting 5) (2026-11-12): **Decipher Objectives**.
+  - *Heading face:* Decipher set the italic heading in a narrower italic than ours: printed width 0.87 of our oblique
+    Holotable Text on 15 heading lines of 13 Objective fronts (body lines on the same faces 0.99). The heading is now a
+    block laid out at measure / 0.87 and drawn at 0.87 (JS, `.objhead`, inside an overflow-clipped wrapper so the wider
+    layout box is never taken for overflow). With it, a heading still a little too long for one line (12_89: 1.01 of
+    the measure) is condensed onto it and longer ones wrap at full size (14_113 from 1.21): 9_151, 10_29 now fit one
+    line naturally as printed, 14_52 sets "…Theed Palace Hallway, and" on line 1 as printed.
+  - *Printed line breaks:* 39 Objective faces (fronts and backs, Special Edition to Theed Palace, Decipher 350-367 px
+    scans) read by OCR and fitted line by line to the card text (dynamic-programming alignment, per-line similarity;
+    faces whose OCR is too poor were left out: 7_135, 7_137, 7_139 both faces, 9_61 both, 10_29 both, 7_296 back) are
+    in decipher_lines.json (`game_text` / `game_text_back`), 119 blocks in all; every block renders with the printed
+    lines (layout check 119 / 119), including the 14_113 and 12_89 body measure.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 14_52,
+    12_89, 9_151, 2_13 with `decipher_print` false.
+- Rev 84 (Decipher text setting 6) (2026-11-12):
+  - *Objective faces OCR could not read*, read by eye at 3× on the sharpest faces available (Decipher's 354-367 px
+    archive faces; the wiki has no hires or Decipher 745 / 1039 px file for these, and its 745 px 7_136 back is the PC's
+    re-render with different wording): 7_135, 7_137, 7_139 front and back, 9_61 front and back, 10_29 front and back,
+    7_296 back → decipher_lines.json (128 blocks). 125 render line for line as printed; 10_29 (both faces) and the
+    7_139 back wait on their text data (print: "Emperor or [icon] starships", "Black Sun agent in a battle", a closing
+    "Place out of play if Leia is lost from table.").
+  - `render.dc_hint` now also takes a printed break *inside* a hyphenated word ("non-" / "frozen captive", 9_61 back):
+    a line ending in a hyphen joins the next line's first word and the break goes after the hyphen.
+  - *7_136 back, "system":* Decipher's own face (Decipher.com card list image, 367 px) prints system / systems in italic
+    on both faces, as decipher_printed.json and tools/make_decipher_printed.py have it; the upright "system" seen before
+    is the PC's 745 px re-render (which also reads "any deploy phase"). Nothing to change.
+  - **Checks:** md5-identical before/after: 223_40, 200_1, OVS 1101_1, the three Japanese samples, PC 203_7, and 7_135,
+    9_61, 4_76 with `decipher_print` false.
+- Rev 84 (Decipher printed text 4) (2026-11-12): five points from the text agent's reading, checked on the Decipher-archive
+  faces (Ref2-D-agentsofblacksun / -vengeanceofthedarkprince, SE-L-rescuetheprincess / -sometimesiamazeevenmyself,
+  SE-D-myfavoritedecoration-hires). None is a documented erratum (no errata symbol, no Errata.wiki / Glossary / Appendix A
+  entry; the wiki's "printed" pages copy the same text), so (a)-(d) are transcription fixes in corrections.json, front
+  and back field: 10_29 Agents Of Black Sun "(with Xizor there)", "Black Sun agents", "Emperor or [Independent]
+  starships", back "Black Sun agent in a battle", "if Xizor is not on table"; 7_139 Sometimes I Amaze Even Myself gains
+  its last line "Place out of play if Leia is lost from table."; 7_296 My Favorite Decoration "your aliens and
+  [Independent] starships". (e) is typesetting of the Decipher print only (decipher_printed.json): Rescue The Princess
+  sets "Place out of play if Leia is lost from table (…)" regular on its own line; a U+2060 before a keyword now keeps
+  `objective_text` from bolding it. The stored printed lines of 10_29 (both faces), 7_139 (both) and 7_296 (both) now
+  all apply (hints 128 of 128). md5: only 10_29, 7_139, 7_296 change (en and ja: the corrections).
+- Rev 84 (inline icons) (2026-11-12): the inline game-text icons against printed faces (Decipher: the wiki's 1497 px
+  hires faces; the PC: its 745 px hires faces), per printing.
+  - **Decipher's own printings** (card `decipher_print`, not PC / Japanese): the Independent icon ([Independent],
+    [Independent Starship]) prints as a dark slate square with the wheel barely showing and a light grey border, not the
+    PC's bright blue (Gela Yeens 7_178, Outer Rim Scout 7_195, Thul Fain 6_125, My Favorite Decoration 7_296 back; inside
+    median ≈ (65, 73, 73) against our (107, 134, 154)); the selective-creature icon a duller green ((88, 135, 84) against
+    (76, 193, 124), Ithorian 6_20). New files `inline-independent-decipher.png`, `selective-creature-decipher.png`
+    (`tools/make_inline_decipher.py`), picked by `render.DC_INLINE` / `dc_inline()`. Light / Dark Side Force icons, pilot,
+    warrior and the inline set spheres match in colour and shape.
+  - **Size on Decipher's text setting** (`dc_text`): printed inline icons are 23-26 px tall at 745 (ours 28-33), from
+    about the baseline to the cap height: square icons 48 master px, `vertical-align:-3px` (`DC_ICON_CSS`); inline set
+    spheres 42 px with a 4 px dark ring (printed 20-24 px, heavier ring; `DC_SPHERE_CSS`).
+  - **PC Virtual Sets** (set mark `pc:`): the icons drawn at 64 px print 28 px tall at 745 (Light / Dark Side Force,
+    Independent, Maintenance, Republic, pilot power; 211_31, 202_3, 200_50, 207_3, 210_12, 200_59, 200_2): now 56; the
+    Episode I circle prints 36 px (Captain Rex, 501st Legion): 72. Game Aid icons (56) already matched (Clone Trooper).
+  - **Text**: a Light card's inline pilot icon is the Light one (Ellorrs Madak; it was always the Dark helmet). The
+    wiki's printed text dropped the skill icons of Ellorrs Madak, Sai'torr Kal Fas and Ket Maliss (`decipher_printed.json`
+    and `tools/make_decipher_printed.py` WIKI_FIX); You Will Go To The Dagobah System and Rendezvous Point On Tatooine
+    print "[icon] icon characters … [icon] icon location" (`corrections.json`; the same fix belongs on the wiki and in
+    swccg-gemp).
+  - **Checks:** md5 identical (holotable PNG) on cards without inline icons 1_3, 1_74, 1_122, 1_140, 223_40 and the
+    Japanese samples darth_vader, luke_skywalker, admiral_ozzel, attack_run, commence_primary_ignition (two of them carry
+    inline icons: Japanese printings keep their size). Changed as intended: 1_49, 1_64, 3_54, 5_66, 6_20, 6_136, 7_178,
+    7_195, 8_4, 8_8, 211_31, 202_3, 200_50, 207_3, 200_3; Clone Trooper 210_9 (Game Aid icon) unchanged.
+  - **Left as found:** the PC's inline Episode I circle prints a whiter, heavier EPISODE than `inline-episode1.png`
+    (the Game Aid g033); Reflections III maintenance glyphs, the Republic and Trade Federation inline icons on
+    Decipher cards had no hires face to check (Reflections III / Theed are not on the wiki in hires).
+- Rev 84 (inline icons 2) (2026-11-12): the items left open by Rev 84 (inline icons).
+  - **PC inline Episode I circle**: `assets/icons/inline-episode1-pc.png`, cut from the median of 15 PC 745 px hires faces
+    (200_3, 203_19, 208_25, 210_17, 210_19, 209_20, 200_22, 204_21, 210_23, 211_36, 210_25, 201_10, 213_44, 215_17,
+    217_28; registered by cross-correlation, `tools/inline_icons/make_inline_icons.py` + its stack PNGs): whiter, heavier
+    EPISODE than the Game Aid g033 file, which stays for the other uses. Picked on PC Virtual Set cards (set mark `pc:`).
+  - **Decipher inline Episode I**: Decipher printed its own disc inline (tall I, small dim EPISODE: We Have A Plan 14_52,
+    Jedi Council Summons 12_55, My Lord, Is That Legal? 12_179 hires), with a thin light ring on its black text boxes
+    (12_179): `ep1-disc.png` (rev 80) + ring, on `decipher_print` cards.
+  - **Permanent weapon**: Decipher (Imperial Artillery 12_148 hires) and the PC (9 faces) print the same icon: green
+    blade, brown hilt, in a black square with a light frame; ours was a green-to-white blade in a different frame.
+    `inline-permanent-weapon.png` re-cut from the median of those 10 faces (all printings).
+  - **Checked, left as they are** (only 357 px faces exist for Theed / Reflections III / later Coruscant; no sharper
+    pricecharting / retrotcg images: those are 300-490 px): Reflections III maintenance glyphs (star, flag, skull: same
+    shapes, Doallyn 13_9); Decipher's inline Republic (light grey square with the crest, 14_2 / 14_52) and Trade
+    Federation (orange ring, dark centre, light frame, 14_67 / 14_109 / 14_113) match our files at that resolution.
+  - **Twilight Is Upon Me 9_46**: Decipher's own face (DS2-L-twilightisuponme-decipher-archive) prints "take one The Force
+    Is Strong With This One or Anakin Skywalker … ; reshuffle" with no [Death Star II] icon; the icon belongs to the PC's
+    errata text (its 745 px re-render). Both sides were already right: GEMP keeps the errata (icon) and the Decipher
+    printing renders the printed text from decipher_printed.json (no icon). No change.
+  - **Checks:** md5 identical: 1_3, 1_74, 223_40, 13_9 (glyphs untouched) and the Japanese samples darth_vader,
+    attack_run, commence_primary_ignition. Changed as intended: 12_179, 12_55, 14_52, 12_148, 13_45, 200_3, 210_17,
+    200_34, 211_59.
+- Rev 84 (Decipher printed text 5) (2026-11-12): **a scan of the physical card beats Decipher's website face.** The wiki's
+  600 dpi scans (477 now OCR'd, 163 newly fetched) were set against every decipher_printed.json field, and the printing
+  of each scan was read off its copyright line (all first printings except Reserve Pilot). Changed to the print: Gold 5
+  1_142 (no "Must have pilot aboard…" line; entry dropped), Disarmed 1_48 "deploy on the opponent's character",
+  LIN-V8M 1_186 "'diffuse'", Leia Seeker 2_160 "When at same location as Leia or warrior of ability < 3, choose one to
+  be immediately lost.", Artoo 6_3 "at same and related sites", Lieutenant Telsij 9_23 "may subtact" (Decipher's typo),
+  Restricted Access 5_122 lore "Captain" (back to GEMP). Reserve Pilot 2_103 keeps the first printing (ANH Limited,
+  archive face): its scan is a 2000 reprint with the errata wording, a separate printed version. This batch's
+  corrections.json entries (9_3, 9_92, 10_1, 10_2, 10_30, 10_47, 7_84, 14_113, 2_135, 3_137, 10_29, 7_296) confirmed
+  on their scans. pricecharting photos were tried for the cards with no scan: mostly 214-350 px re-shoots or the wrong
+  printing, not usable. md5: only the 7 cards named change; hints 128 / 128.

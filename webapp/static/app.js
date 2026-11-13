@@ -76,6 +76,7 @@ function readForm() {
   if ((fd.get("bullet_colour") || "red") === "red") delete s.bullet_colour; else s.bullet_colour = fd.get("bullet_colour");
   { const n = parseFloat(fd.get("forfeit_box_border")); if (n > 0) s.forfeit_box_border = Math.min(40, n); else delete s.forfeit_box_border; }
   if (fd.get("foil")) s.foil = true; else delete s.foil;
+  s.decipher_print = !!fd.get("decipher_print");   // Rev 84: Decipher's title setting and frame ink (Effects / Interrupts)
   // PC label (Bill 2026-11-01): one free label with a position preset; the errata mark has its own field (errata_mark)
   const lt = (fd.get("label_text") || "").trim();
   s.labels = lt ? [{ preset: fd.get("label_preset") || "concept", text: lt }] : [];
@@ -224,6 +225,11 @@ function writeForm(s, data) {
   if (!s.border) form.elements.border.value = "black";   // rev 76: white for Unlimited / Revised / Anthology printings
   if (!s.bullet_colour) form.elements.bullet_colour.value = "red";   // rev 77
   if (!s.forfeit_box_border) form.elements.forfeit_box_border.value = "";   // rev 77
+  if (s.decipher_print === undefined) {   // Rev 84: a spec saved before: a Decipher set's own card or a new one (no PC mark)
+    const sid = String((s.source || {}).set || "").trim();   // same rule as adapter.decipher_print (DECIPHER_SETS)
+    const dec = !sid || /^([1-9]|1[0-4]|10[1-4]|106|108|109|11[0-2])$/.test(sid);
+    form.elements.decipher_print.checked = s.style !== "ovs" && !s.set_mark && !s.virtual_set && (s.language || "en") === "en" && dec;
+  }
   if (s.podracer_flag_data) form.elements.podracer_flag.value = "own";   // rev 77: an uploaded pilot flag
   const lb = (s.labels || [])[0] || {};
   form.elements.label_text.value = lb.text || ""; form.elements.label_preset.value = lb.preset || "concept";
@@ -317,9 +323,22 @@ async function download(size) {
   finally { btn.textContent = t; btn.disabled = false; }
 }
 
+// rev 84 (Decipher printed text): an errata'd Decipher card carries Decipher's printed fields (dc_printed) and the errata
+// ones (dc_errata); "As Decipher printed it" shows the printed text, off shows the errata. A field the user changed is kept.
+function dcSwap(s, on) {
+  if (!s || !s.dc_printed) return s;
+  const from = on ? (s.dc_errata || {}) : s.dc_printed, to = on ? s.dc_printed : (s.dc_errata || {}), r = { ...s };
+  for (const k of Object.keys(s.dc_printed)) {
+    if (JSON.stringify(r[k] ?? null) !== JSON.stringify(from[k] ?? null)) continue;
+    if (to[k] === null || to[k] === undefined) delete r[k]; else r[k] = JSON.parse(JSON.stringify(to[k]));
+  }
+  return r;
+}
+
 async function loadCard(gid, version) {
   if ($("#browse").hidden) $("#results").hidden = true;   // browsing: keep the set list open to click through
   const data = await j(API + "card/" + encodeURIComponent(gid) + (version ? "?version=" + encodeURIComponent(version) : ""));
+  if (data.spec && data.spec.decipher_print) data.spec = dcSwap(data.spec, true);   // rev 84: Decipher's printed text
   lastData = data; writeForm(data.spec, data);
   history.replaceState(null, "", "#card=" + gid + (version ? "&version=" + encodeURIComponent(version) : "")); resetHistory(); preview();
   versionUI(gid, data);
@@ -382,6 +401,9 @@ form.addEventListener("change", e => {
     if (STAT_DEFAULTS[st] && !(spec.stats || []).length) statsUI(STAT_DEFAULTS[st]);
     if (st === "Site" || st === "System") $("#icons").querySelectorAll("input:checked").forEach(i => i.checked = false);   // pilot/warrior… don't belong on a location
     if (!spec.card_type || spec.card_type === spec.card_type.toUpperCase()) form.elements.card_type.value = BANNER(st);
+  }
+  if (e.target.name === "decipher_print" && spec && spec.dc_printed) {   // rev 84: printed text <-> errata text
+    writeForm(dcSwap(readForm(), e.target.checked), lastData);
   }
   if (e.target.name === "wide" && e.target.checked && !form.elements.expansion.value && /Interrupt|Effect/.test(form.elements.slip_type.value)) form.elements.expansion.value = "Reflections Gold";
   if (e.target.type !== "file") changed();

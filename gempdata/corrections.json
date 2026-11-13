@@ -154,6 +154,10 @@
     "lore": [
       "bubblink pink swamps",
       "bubbling pink swamps"
+    ],
+    "gametext": [
+      "May reshuffle without peeking",
+      "May re-shuffle without peeking"
     ]
   },
   "7_227": {
@@ -334,6 +338,276 @@
     "lore": [
       "inciting his wraith.",
       "inciting his wrath."
+    ]
+  },
+  "1_42": {
+    "lore": [
+      "'Stand By...'",
+      "'Stand by . . .'"
+    ]
+  },
+  "1001_L5309": {
+    "lore": [
+      "'Stand By...'",
+      "'Stand by . . .'"
+    ]
+  },
+  "1_208": {
+    "lore": [
+      "in the Force '...as if",
+      "in the Force, '. . . as if"
+    ]
+  },
+  "1001_L6060": {
+    "gametext": [
+      "Whever you verify",
+      "Whenever you verify"
+    ],
+    "lore": [
+      "in the Force '...as if",
+      "in the Force, '. . . as if"
+    ]
+  },
+  "1_227": {
+    "lore": [
+      "The Force '...binds",
+      "The Force '. . . binds"
+    ]
+  },
+  "2_54": {
+    "lore": [
+      "got the tractor beam",
+      "got that tractor beam"
+    ]
+  },
+  "10_16": {
+    "title": [
+      "Out Of Commission &",
+      "Out of Commission &"
+    ],
+    "gametext": [
+      "total destiny> 3",
+      "total destiny > 3"
+    ]
+  },
+  "4_76": {
+    "gametext": [
+      "test completed. Place",
+      "test completed: Place"
+    ]
+  },
+  "4_111": {
+    "gametext": [
+      "Ferocity = destiny - 3",
+      "* Ferocity = destiny - 3"
+    ]
+  },
+  "1_96": {
+    "gametext": [
+      "use 1 force to draw destiny",
+      "use 1 Force to draw destiny"
+    ]
+  },
+  "3_104": {
+    "lore": [
+      "are frequent quick-moving",
+      "are frequent, quick-moving"
+    ]
+  },
+  "11_10": {
+    "gametext": [
+      "cause a redraw.",
+      "cause a re-draw."
+    ]
+  },
+  "11_11": {
+    "gametext": [
+      "cause a redraw.",
+      "cause a re-draw."
+    ]
+  },
+  "3_126": {
+    "gametext": [
+      "destiny + 3 > ability",
+      "destiny +3 > ability"
+    ]
+  },
+  "7_71": {
+    "gametext": [
+      "Effect lost at the end of that battle",
+      "Effect lost at end of that battle"
+    ]
+  },
+  "12_24": {
+    "lore": [
+      "break the blockade with a little help",
+      "break the blockade – with a little help"
+    ],
+    "gametext": [
+      "Ric is in, may use X Force",
+      "Ric is in, you may use X Force"
+    ]
+  },
+  "4_96": {
+    "lore": [
+      "Super Star Destroyer Executor.",
+      "Super Star Destroyer _Executor_."
+    ]
+  },
+  "9_3": {
+    "gametext": [
+      [
+        "power +3 for the remainder of battle. Once per turn you may",
+        "power +3 for remainder of battle. Once per turn, you may"
+      ]
+    ]
+  },
+  "9_92": {
+    "gametext": [
+      [
+        "capital starship present that player's",
+        "capital starship present, that player's"
+      ],
+      [
+        "combat vehicle from Reserve Deck",
+        "combat vehicle from your Reserve Deck"
+      ]
+    ]
+  },
+  "2_135": {
+    "lore": [
+      "Soccorran hunters, considered",
+      "Soccorran hunters; considered"
+    ]
+  },
+  "3_137": {
+    "lore": [
+      "That is the system and I'm",
+      "That is the system, and I'm"
+    ]
+  },
+  "10_1": {
+    "gametext": [
+      "If destiny is < number",
+      "If destiny < number"
+    ]
+  },
+  "10_2": {
+    "gametext": [
+      "may take on card",
+      "may take one card"
+    ]
+  },
+  "10_18": {
+    "gametext": [
+      "Deploy free to Lars'",
+      "Deploys free to Lars'"
+    ]
+  },
+  "10_30": {
+    "gametext": [
+      "Draw Destiny.",
+      "Draw destiny."
+    ]
+  },
+  "10_47": {
+    "gametext": [
+      "character in Lost Pile",
+      "character in Lost Pile."
+    ]
+  },
+  "7_84": {
+    "gametext": [
+      "Bwing",
+      "B-wing"
+    ]
+  },
+  "14_113": {
+    "gametext": [
+      "there, swamp, and Droid Racks",
+      "there, Naboo: Swamp, and Droid Racks"
+    ]
+  },
+  "10_29": {
+    "gametext": [
+      [
+        "(With Xizor there)",
+        "(with Xizor there)"
+      ],
+      [
+        "are Black Sun Agents. You may not deploy cards with ability except Black Sun Agents, Emperor, or Independent starships.",
+        "are Black Sun agents. You may not deploy cards with ability except Black Sun agents, Emperor or [Independent] starships."
+      ],
+      [
+        "For each Black Sun Agent in battle,",
+        "For each Black Sun agent in a battle,"
+      ],
+      [
+        "or if Xizor not on table.",
+        "or if Xizor is not on table."
+      ]
+    ],
+    "back.gametext": [
+      [
+        "(With Xizor there)",
+        "(with Xizor there)"
+      ],
+      [
+        "are Black Sun Agents. You may not deploy cards with ability except Black Sun Agents, Emperor, or Independent starships.",
+        "are Black Sun agents. You may not deploy cards with ability except Black Sun agents, Emperor or [Independent] starships."
+      ],
+      [
+        "For each Black Sun Agent in battle,",
+        "For each Black Sun agent in a battle,"
+      ],
+      [
+        "or if Xizor not on table.",
+        "or if Xizor is not on table."
+      ]
+    ]
+  },
+  "7_139": {
+    "gametext": [
+      [
+        "{Flip} this card if Leia is captured.",
+        "{Flip} this card if Leia is captured. {Place} out of play if Leia is lost from table."
+      ]
+    ],
+    "back.gametext": [
+      [
+        "{Flip} this card if Leia is captured.",
+        "{Flip} this card if Leia is captured. {Place} out of play if Leia is lost from table."
+      ]
+    ]
+  },
+  "7_296": {
+    "gametext": [
+      [
+        "your aliens and starships are immune",
+        "your aliens and [Independent] starships are immune"
+      ]
+    ],
+    "back.gametext": [
+      [
+        "your aliens and starships are immune",
+        "your aliens and [Independent] starships are immune"
+      ]
+    ]
+  },
+  "3_54": {
+    "gametext": [
+      [
+        "your [Hoth] characters of ability > 1 to any [Dagobah] location",
+        "your [Hoth] icon characters of ability > 1 to any [Dagobah] icon location"
+      ]
+    ]
+  },
+  "5_66": {
+    "gametext": [
+      [
+        "your [Cloud City] characters of ability > 1 to any [Jabba's Palace] location",
+        "your [Cloud City] icon characters of ability > 1 to any [Jabba's Palace] icon location"
+      ]
     ]
   }
 }

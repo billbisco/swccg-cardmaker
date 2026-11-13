@@ -350,6 +350,10 @@ def resolve_art(spec: dict, face: str = "front", split: bool = False) -> dict | 
                 b_, v_, g_ = art_base(base, gid, ver); ext = "png" if v_ == "orig" else "webp"
                 p = fetch(f"{b_}/{v_}/{g_}.{ext}", CACHE / f"art-{b_.rsplit('/', 1)[-1]}-{v_}-{g_}.{ext}")
                 w, h = Image.open(p).size
+                e_ = ART_MANIFEST.get(gid, {})
+                if e_.get("system") and e_.get("box") and e_.get("box_space") in ("card350", "card normalised to 350x490 (490x350 landscape)"):
+                    # rev 84: a system's strip between the bars, placed where it sits on the printed card (render.system_library_art)
+                    return {"src": str(p), "rect": [0, 0, w, h], "card350": list(e_["box"])}
                 return {"src": str(p), "rect": [0, 0, w, h]}
             except Exception as e:   # noqa: BLE001
                 print("art source failed:", base, gid, e, file=sys.stderr)
@@ -426,7 +430,7 @@ threading.Thread(target=worker, daemon=True).start()
 
 
 # render cache entries are only valid for the code that made them: a deploy changes this and old entries are ignored
-CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "lang_ja.py", "webapp/adapter.py", "webapp/server.py", "gempdata/legacy_typeset.json", "assets/fonts/HolotableText/HolotableTextPC-Regular.ttf"))).hexdigest()[:12]
+CODE_VERSION = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("render.py", "build_vs.py", "lang_ja.py", "webapp/adapter.py", "webapp/server.py", "gempdata/legacy_typeset.json", "assets/fonts/HolotableText/HolotableTextPC-Regular.ttf", "assets/frames/decipher-tone.npz"))).hexdigest()[:12]
 
 
 LAST_BOXES: dict = {}

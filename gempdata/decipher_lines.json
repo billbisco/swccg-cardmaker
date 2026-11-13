@@ -1,0 +1,1266 @@
+{
+ "_comment": "Rev 84 (2): Decipher's printed line breaks, read (OCR, aligned word for word with the card text) from the printed faces on wiki.swccg.com (hires 1497 px scans, Decipher archive 350-367 px). Objective faces 7_135, 7_137, 7_139, 9_61, 10_29, 7_296 (back) read by eye at zoom (rev 84 text setting 6). Keys: lore, game_text, game_text_back (an Objective's back face). Used for decipher_print renders only (render.dc_hint).",
+ "1_7": {
+  "game_text": [
+   "If present where an opponent’s character just",
+   "fired a weapon, may use 1 Force to utilize Dice’s",
+   "poison stinger (once per turn). Target that",
+   "character and draw destiny. If destiny = ability,",
+   "target is ‘hit.’"
+  ]
+ },
+ "1_96": {
+  "lore": [
+   "Obi-Wan used Jedi “affect mind” power to convince",
+   "stormtroopers, “These aren’t the droids you’re looking for.”"
+  ]
+ },
+ "1_169": {
+  "game_text": [
+   "To deploy, requires 2 Force from each players’",
+   "Force Pile. Cannot deploy otherwise. Deploy only",
+   "on Tatooine, but may move elsewhere. Power +2",
+   "at non-Tatooine sites."
+  ],
+  "lore": [
+   "Jawa adventurer and trader. Famous for taunting a",
+   "krayt dragon and escaping to tell the tale. Wants to leave",
+   "Tatooine to explore the galaxy."
+  ]
+ },
+ "1_177": {
+  "game_text": [
+   "When at same location as a Rebel of ability > 2,",
+   "deploy -1 there for any Imperials, and during",
+   "your move phase, Imperials at an adjacent site",
+   "may move there for free."
+  ],
+  "lore": [
+   "Long-nosed, male Kubaz from Kubindi. Spy . Squealed",
+   "on Obi-Wan and Luke outside Docking Bay 94. Works for",
+   "Jabba the Hutt or the highest bidder. Not particularly brave."
+  ]
+ },
+ "1_213": {
+  "game_text": [
+   "Use 2 Force to deploy on any Death Star site.",
+   "Declare one of the following to affect that site and",
+   "adjacent sites while ‘sentry’ present: Opponent’s",
+   "deploy +1. OR Opponent’s ability required for",
+   "battle destiny +1. OR Your total power +1."
+  ],
+  "lore": [
+   "Death Star troopers on sentry duty observe and",
+   "direct incoming starships and monitor other critical sites.",
+   "They perform sensor scans for life forms and weapons."
+  ]
+ },
+ "1_215": {
+  "game_text": [
+   "Deploy on any site. ‘Expands’ your “game text” for",
+   "that site to add to your “game text” at the",
+   "adjacent sites."
+  ]
+ },
+ "1_234": {
+  "game_text": [
+   "Cancel one Effect (or Utinni Effect) by drawing a",
+   "destiny < ability of your highest-ability character",
+   "on table. OR Cancel one Sense card just played."
+  ],
+  "lore": [
+   "A user of the Force can subjugate the will of others",
+   "or alter the environment at a distance, as when Vader",
+   "“disciplines” those whose lack of faith disturbs him."
+  ]
+ },
+ "1_237": {
+  "game_text": [
+   "An accident occurs at the beginning of a battle at",
+   "any site where opponent has at least two",
+   "characters and one weapon. Draw destiny. If",
+   "destiny < number of opponent’s characters at that",
+   "site, one is lost. (Opponent’s choice.)"
+  ],
+  "lore": [
+   "Blast vests and helmets with blast shields cannot",
+   "protect Rebel soldiers from grenades, panel explosions and",
+   "other combat hazards."
+  ]
+ },
+ "1_241": {
+  "game_text": [
+   "Add 2 to maneuver and 1 to power of any",
+   "starfighter for the remainder of this turn. If it has",
+   "hyperdrive, also add 2 to hyperspeed. (Interrupt",
+   "may even affect the result immediately after a",
+   "destiny draw targeting the starfighter’s maneuver.)"
+  ],
+  "lore": [
+   "Imperial TIE fighters, while easily damaged, are very",
+   "fast and agile. Sophisticated tactics are executed to take",
+   "advantage of Rebel X-wing and Y-wing weaknesses."
+  ]
+ },
+ "1_249": {
+  "game_text": [
+   "Use 1 Force to prevent any character or starship",
+   "just deployed by the opponent from battling or",
+   "moving for the remainder of this turn."
+  ]
+ },
+ "1_301": {
+  "game_text": [
+   "May add 6 pilots, 8 passengers, 2 vehicles and",
+   "4 TIEs. Has ship-docking capability. Permanent",
+   "pilot aboard provides ability of 2."
+  ]
+ },
+ "2_7": {
+  "game_text": [
+   "For each other musician at same site, the ability",
+   "required to draw battle destiny here increases",
+   "by 1 for both players."
+  ],
+  "lore": [
+   "Male Bith musician . Plays Fizz (Dorenian Beshniquel)",
+   "in Figrin D’an’s band. Frustrated by sentients, especially",
+   "humans, he prefers to work with droids."
+  ]
+ },
+ "2_13": {
+  "lore": [
+   "Male Bith musician . Though he enjoys playing his",
+   "Bandfill in Figrin D’an’s band, he misses the bubbling pink",
+   "swamps of his homeworld, Clak’dor VII."
+  ]
+ },
+ "2_37": {
+  "game_text": [
+   "Deploy on your side of table. Radar Scanner is",
+   "immune to Sense. If Radar Scanner is played",
+   "against an opponent who has more than 13 cards",
+   "in hand, opponent loses all Jawas, Tusken Raiders",
+   "and stormtroopers found there."
+  ],
+  "lore": [
+   "Specialized scanner technicians examine scanner",
+   "output to identify the presence of life forms. Experienced",
+   "operators can even identify species and gender."
+  ]
+ },
+ "2_43": {
+  "lore": [
+   "Early warning and careful planning allow the Rebels",
+   "to achieve maximum readiness while still maintaining",
+   "optimal flexibility."
+  ]
+ },
+ "2_47": {
+  "game_text": [
+   "If opponent just initiated a Tallon Roll, add your",
+   "maneuver + ability of one pilot on your targeted",
+   "starfighter to your total. OR Decrease the",
+   "maneuver of an opponent’s starfighter by 1 for",
+   "remainder of this turn."
+  ],
+  "lore": [
+   "First perfected by Corellian starship battle tacticians,",
+   "this dangerous counter-maneuver has saved numerous",
+   "hot-shot pilots in life-or-death situations."
+  ]
+ },
+ "2_55": {
+  "lore": [
+   "Smugglers and other rogues frequent spaceports",
+   "along trade routes. “Your friend is quite a mercenary.",
+   "I wonder if he really cares about anything, or anybody.”"
+  ]
+ },
+ "2_73": {
+  "lore": [
+   "Royal House of Alderaan consular ship. Used by",
+   "Princess Leia for Imperial Senate business (and secret Rebel",
+   "espionage). Captured by the Devastator over Tatooine."
+  ]
+ },
+ "2_137": {
+  "game_text": [
+   "If Nabrun Leids just completed a transport, use 2",
+   "Force. Nabrun is lost and all Rebels transported",
+   "are captured. (Immune to Sense.) OR Prevent a",
+   "just-deployed smuggler from moving this turn.",
+   "OR Cancel a Kessel Run."
+  ],
+  "lore": [
+   "Greedo cheskopokuta klees ruya Solo. Hoko yanee",
+   "boopa gush Cantina. Cheeco wa Solo’s anye nyuma Greedo",
+   "vakee. Jabba kul steeka et en anpaw."
+  ]
+ },
+ "3_104": {
+  "game_text": [
+   "Deploy at outermost marker. All characters present",
+   "at same exterior site are missing. Each turn, during",
+   "your control phase, storm moves to next marker,",
+   "reversing direction if at innermost marker. Mobile",
+   "Effect lost when moved beyond outermost marker."
+  ]
+ },
+ "3_119": {
+  "lore": [
+   "The Imperial Navy boasts the best communications",
+   "network in the galaxy. Sophisticated control technology",
+   "allows the Empire to dispatch armed forces without delay."
+  ]
+ },
+ "3_122": {
+  "lore": [
+   "Snowspeeders move much faster than AT-AT cannons",
+   "can track, but if approaching on a poor attack vector, the",
+   "snowspeeder is at the mercy of the well-trained AT-AT gunner."
+  ]
+ },
+ "3_126": {
+  "game_text": [
+   "During your control phase, target any character",
+   "alone at one of your exterior planet sites (except a",
+   "docking bay). Draw destiny. Target is missing if",
+   "destiny +3 > ability."
+  ]
+ },
+ "4_17": {
+  "game_text": [
+   "Deploy on any asteroid sector. During each of",
+   "opponent’s control phases, opponent loses X Force,",
+   "where X = total number of asteroid sectors at same",
+   "system that are not occupied by opponent. Effect",
+   "canceled if opponent controls this location."
+  ]
+ },
+ "4_75": {
+  "game_text": [
+   "Deploy on an unoccupied Dagobah site. At the",
+   "beginning of each of your move phases, opponent may",
+   "relocate this Jedi Test to an adjacent site. Target a",
+   "mentor on Dagobah and an apprentice who has",
+   "completed Jedi Test #1. Apprentice may move only by",
+   "using personal landspeed. Attempt when apprentice",
+   "is present at the beginning of your control phase. Draw",
+   "training destiny. If destiny + apprentice’s ability > 13,",
+   "test completed: Place on apprentice. Apprentice is",
+   "power +1 and may move normally. Total ability of 6 or",
+   "more is required for opponent to draw battle destiny."
+  ]
+ },
+ "4_76": {
+  "game_text": [
+   "Deploy on Dagobah: Jungle or Dagobah: Cave.",
+   "Target a mentor on Dagobah and an apprentice who",
+   "has completed Jedi Test #2. Attempt when",
+   "apprentice is present at the end of your turn and none",
+   "of your cards participated in battles, Force drains or Jedi",
+   "Tests during that turn. Draw training destiny. If destiny +",
+   "apprentice’s ability > 14, test completed: Place on",
+   "apprentice. You may subtract 1 from each of opponent’s",
+   "destiny draws."
+  ]
+ },
+ "4_96": {
+  "game_text": [
+   "If aboard Executor (even at an Executor site),",
+   "once during each of your deploy phases, may",
+   "use 2 Force to search your Reserve Deck and",
+   "take any one Executor site into hand. Shuffle, cut",
+   "and replace."
+  ],
+  "lore": [
+   "Deck officer aboard the Super Star Destroyer Executor",
+   ". Responsible for preventing unauthorized access to sensitive",
+   "areas of the Empire’s flagship. Hand-picked by Captain Piett."
+  ]
+ },
+ "4_115": {
+  "game_text": [
+   "Deploy on a landed starship (not at a docking bay).",
+   "Starship may not move. OR Deploy on a starship or",
+   "vehicle on Dagobah. Starship or vehicle may not",
+   "move. At the start of you next control phase,",
+   "starship or vehicle ‘sinks’ to the Used Pile."
+  ],
+  "lore": [
+   "“Listen, friend, we didn’t mean to land in that puddle,",
+   "and if we could get our ship out, we would, but we can’t so",
+   "why don’t you just...”"
+  ]
+ },
+ "4_137": {
+  "game_text": [
+   "At the end of any battle phase, lose one of your",
+   "Imperials of ability < 6 who survived a battle you",
+   "lost this turn. Activate Force up to either that",
+   "character’s forfeit value or the amount of your battle",
+   "damage in that battle."
+  ]
+ },
+ "4_175": {
+  "game_text": [
+   "Use 2 Force to deploy on Bossk, 4 on any other",
+   "warrior. May fire using 2 Force. Draw destiny. If",
+   "destiny > 0, one card with that destiny number at",
+   "same site is lost (your choice). If destiny = 0,",
+   "mortar gun explodes and warrior firing it is lost."
+  ]
+ },
+ "5_70": {
+  "game_text": [
+   "During a battle at a site, just before drawing battle",
+   "destiny, if opponent has less than double your total",
+   "power, use 4 Force to switch your total power with",
+   "opponent’s. OR If both players just drew one battle",
+   "destiny, use 1 Force to switch numbers."
+  ]
+ },
+ "5_91": {
+  "lore": [
+   "Feared bounty hunter . Collected bounties on Solo from",
+   "both the Empire and Jabba the Hutt. Took exquisite pleasure",
+   "in using Solo’s friend to capture him."
+  ]
+ },
+ "6_28": {
+  "game_text": [
+   "Power +2 on Hoth. If at same site as another of",
+   "you musicians, you may play Bith Shuffle to",
+   "cancel a Force drain at an adjacent site. While",
+   "at Audience Chamber, all your other musicians",
+   "are deploy -1 and forfeit +3."
+  ]
+ },
+ "7_47": {
+  "game_text": [
+   "While at a Tibrin site: adds 1 to your Force drains",
+   "there, is forfeit +1 (and power +1 if your Ishi Tib",
+   "is on Tibrin) and, once during each of your",
+   "deploy phases, may deploy one site to Tibrin",
+   "from Reserve Deck; reshuffle."
+  ]
+ },
+ "7_71": {
+  "game_text": [
+   "Deploy on your character of ability > 3 (Effect lost if",
+   "that character battles this turn). On a subsequent",
+   "turn, if in a battle at a site, character’s total weapon",
+   "destiny is +3 and character adds one battle destiny.",
+   "Effect lost at end of that battle."
+  ]
+ },
+ "7_97": {
+  "game_text": [
+   "USED: If a battle was just initiated, each of your",
+   "X-wings and Y-wings present is power +1 and immune to",
+   "attrition for remainder of turn. LOST: Lose 1 Force to",
+   "take up to three non-unique X-wings and/or non-unique",
+   "Y-wings into hand from Reserve Deck; reshuffle."
+  ]
+ },
+ "7_135": {
+  "game_text_back": [
+   "While this side up, opponent’s Force drains are -1.",
+   "At Dantooine locations, each Imperial is deploy +2.",
+   "Your squadrons may deploy to Dantooine (deploy",
+   "cost = squadron’s power -3), are immune to",
+   "attrition < 4 and may draw one battle destiny if",
+   "not able to otherwise. Your Force drains are +1 at",
+   "systems where you have a squadron present.",
+   "Flip this card if opponent controls at least two",
+   "Dantooine locations.",
+   "Place out of play if Dantooine is “blown away.”"
+  ],
+  "game_text": [
+   "Deploy Dantooine system.",
+   "While this side up, once during each of your deploy",
+   "phases, may deploy from Reserve Deck to Dantooine",
+   "one site or non-unique Rebel; reshuffle. At Dantooine",
+   "locations, each Imperial is deploy +2.",
+   "Flip this card if Rebels control at least three",
+   "Dantooine sites and opponent controls no Dantooine",
+   "locations.",
+   "Place out of play if Dantooine is “blown away.”"
+  ]
+ },
+ "7_136": {
+  "game_text": [
+   "Deploy Rendezvous Point. Place a planet system (with a",
+   "parsec number from 1 to 8) from Reserve Deck face down",
+   "on your side of table (not in play); that card indicates the",
+   "planet where your “Hidden Base” is located.",
+   "While this side up, once during each of your deploy",
+   "phases, may deploy one system from Reserve Deck;",
+   "reshuffle. Opponent loses no more than 1 Force from",
+   "each of your Force drains at systems and sectors.",
+   "Flip this card any time after the system matching",
+   "your “Hidden Base” indicator has been deployed."
+  ],
+  "game_text_back": [
+   "While this side up, to draw a card from Force Pile,",
+   "opponent must first use 1 Force. For each battleground",
+   "system you control, you may cancel one opponent’s",
+   "Force drain (limit twice per turn). You may not deploy",
+   "any systems . At each system opponent occupies during",
+   "any draw phase, opponent may ‘probe’ there by placing",
+   "one card from hand face down beneath that system .",
+   "Place out of play if “Hidden Base” system is ‘probed;’",
+   "Dark Side places ‘probe’ cards in Used Pile (and may",
+   "retrieve 1 Force for each Probe Droid used to ‘probe’)."
+  ]
+ },
+ "7_137": {
+  "game_text_back": [
+   "While this side up, opponent’s Force drains are -1.",
+   "You may retrieve 1 Force whenever you deploy a",
+   "matching operative to the Subjugated planet. Your",
+   "matching operatives on that planet are each forfeit",
+   "+2 and, when at the same site as an Imperial or AT-AT",
+   ", are each power +2. When you have at least one",
+   "matching operative in a battle on the Subjugated",
+   "planet, you may add one battle destiny.",
+   "Flip this card if you do not occupy at least two",
+   "battleground sites related to the Subjugated planet."
+  ],
+  "game_text": [
+   "Deploy any planet system and one ◊ site to that system.",
+   "This system is the Subjugated planet.",
+   "While this side up, once during each of your deploy",
+   "phases, you may deploy one ◊ site to the Subjugated",
+   "planet from Reserve Deck; reshuffle.",
+   "Flip this card if your matching operatives control",
+   "at least three battleground sites related to the",
+   "Subjugated planet."
+  ]
+ },
+ "7_138": {
+  "game_text": [
+   "Deploy Dagobah system (may not be converted).",
+   "While this side up, during your deploy phase, may",
+   "deploy Luke, Yoda (deploy -2), Yoda’s Hope, At Peace",
+   "and/or Luke’s Backpack to Dagobah from Reserve",
+   "Deck; reshuffle. Whenever you draw training destiny,",
+   "draw two and choose one. Place Luke’s completed",
+   "Jedi Tests on table. Your cards at Dagobah may not",
+   "Force drain or contribute to Force retrieval. Add 4 to",
+   "each player’s destiny draw for Sense and Alter.",
+   "Flip this card when Luke completes Jedi Test #5."
+  ],
+  "game_text_back": [
+   "Immediately retrieve 10 Force and place destiny card",
+   "from Jedi Test #5 on that Jedi Test.",
+   "While this side up, during your move phase, may use",
+   "3 Force to take Luke into hand from a location you",
+   "control (cards on Luke go to owner’s Used Pile). Luke’s",
+   "Jedi Test are suspended (not lost) whenever Luke",
+   "not on table. Luke may ignore location deployment",
+   "restrictions. Opponent may not play Sense or Alter.",
+   "Place out of play if you Force drain at Dagobah or if",
+   "Luke is placed out of play. Cancel Luke’s Jedi Tests."
+  ]
+ },
+ "7_139": {
+  "game_text": [
+   "Deploy Detention Block Corridor (with Leia of ability < 4",
+   "imprisoned there), Docking Bay 327, Yavin 4: Docking Bay",
+   "and Yavin 4: War Room.",
+   "While this side up, your spies, 8D8, Revolution, Death",
+   "Star Plans and Detention Block Control Room may not",
+   "deploy to Death Star. Cards that release captives are",
+   "immune to Sense and Alter. May not play Nabrun Leids.",
+   "Flip this card if you move Leia to Yavin 4: War Room.",
+   "Place out of play if Leia is lost from table (you may",
+   "not deploy Death Star Plans for remainder of game)."
+  ],
+  "game_text_back": [
+   "While this side up, for opponent to initiate a Force",
+   "drain, opponent must use +1 Force. During battle,",
+   "opponent’s unique (•) characters, vehicles and",
+   "starships lost from table are placed out of play; Leia",
+   "adds one battle destiny; attrition against opponent is",
+   "+2; and Imperials, Dark Jedi and Imperial starships",
+   "lose all immunity to attrition.",
+   "Flip this card if Leia is captured.",
+   "Place out of play if Leia is lost from table."
+  ]
+ },
+ "7_167": {
+  "game_text": [
+   "Adds 2 to power and 1 to maneuver of anything",
+   "he pilots. May deploy -1 as a ‘react’ to same site",
+   "as a gangster or smuggler. When firing weapons,",
+   "any ‘hit’ characters are forfeit = 0.",
+   "May ‘fly’ (landspeed = 3). Immune to attrition < 3."
+  ]
+ },
+ "7_296": {
+  "game_text": [
+   "Deploy Carbonite Chamber, Carbonite Chamber Console",
+   "and Security Tower with a Rebel (opponent’s choice) from",
+   "opponent’s Reserve Deck (if possible) imprisoned there.",
+   "While this side up, once during each of your deploy",
+   "phases, you may deploy from Reserve Deck one",
+   "Audience Chamber, Docking Bay 94 or East Platform;",
+   "reshuffle. You may not play Dark Deal.",
+   "Flip this card if you move a frozen captive to",
+   "Audience Chamber (or if no Rebel was in opponent’s",
+   "Reserve Deck at start of game)."
+  ],
+  "game_text_back": [
+   "While this side up, your aliens and starships are",
+   "immune to attrition < 4 and, once during each of",
+   "your control phases, you may retrieve 1 Force. While",
+   "you have a frozen captive at Audience Chamber,",
+   "Scum And Villainy is immune to Alter and during your",
+   "deploy phase, you may deploy Scum And Villainy from",
+   "Reserve Deck; reshuffle.",
+   "Place out of play if there are no frozen captives on",
+   "table (unless no Rebel was in opponent’s Reserve",
+   "Deck at start of game)."
+  ]
+ },
+ "7_297": {
+  "game_text": [
+   "Deploy Holotheatre and Visage Of The Emperor. May deploy",
+   "Meditation Chamber and/or Epic Duel.",
+   "While this side up, during your move phase, may use",
+   "4 Force to take Vader into hand from a location you",
+   "control (cards on him go to owner’s Used Pile). Add",
+   "4 to each player’s destiny draw for Sense and Alter.",
+   "Flip this card if Vader is at a battleground site and",
+   "no Light Jedi or Luke is at a battleground site.",
+   "Place out of play if you play Scanning Crew, initiate",
+   "a non-Epic duel or Force drain at an Executor site."
+  ],
+  "game_text_back": [
+   "While this side up, opponent cannot initiate battles or",
+   "Force drains where opponent has a Jedi or Skywalker.",
+   "You lose no Force from Visage Of The Emperor. While",
+   "Vader at Meditation Chamber, subtract 2 from each",
+   "of opponent’s battle destiny draws. Opponent may",
+   "not play Sense or Alter.",
+   "Flip this card if opponent has Luke or a Jedi at a",
+   "battleground site or if Vader is not on table.",
+   "Place out of play if you play Scanning Crew, initiate",
+   "a non-Epic duel or Force drain at an Executor site."
+  ]
+ },
+ "7_298": {
+  "game_text": [
+   "Deploy any planet system and one ◊ site to that system.",
+   "This system is the Renegade planet.",
+   "While this side up, once during each of your deploy",
+   "phases, you may deploy one ◊ site to the Renegade",
+   "planet from Reserve Deck; reshuffle.",
+   "Flip this card if your matching operatives control",
+   "at least three battleground sites related to the",
+   "Renegade planet."
+  ],
+  "game_text_back": [
+   "While this side up, opponent’s Force drains are -1.",
+   "You may retrieve 1 Force whenever you deploy a",
+   "matching operative to the Renegade planet. Your",
+   "matching operatives on that planet are each forfeit",
+   "+2 and, when at same site as a Rebel, are each",
+   "power +2. When you have at least one matching",
+   "operative in a battle on the Renegade planet, you",
+   "may add one battle destiny.",
+   "Flip this card if you do not occupy at least two",
+   "battleground sites related to the Renegade planet."
+  ]
+ },
+ "7_299": {
+  "game_text": [
+   "Deploy any Coruscant location.",
+   "For remainder of game, your characters with",
+   "‘ISB,’ ‘Rebel’ or ‘Rebellion’ in lore are ISB agents and spies,",
+   "and may deploy regardless of deployment restrictions",
+   "listed in their game text.",
+   "Flip this card if ISB agents control at least two Rebel",
+   "Base locations or if four ISB agents are on table."
+  ],
+  "game_text_back": [
+   "While this side up, once during each of your draw",
+   "phases, you may retrieve one ISB agent. When you",
+   "have a non-Undercover ISB agent at a battleground",
+   "site, your Force drains are +1 there and opponent’s",
+   "Force drains are -1 at same and related locations.",
+   "Flip this card if no ISB agents are on table."
+  ]
+ },
+ "7_300": {
+  "game_text": [
+   "Deploy Ralltiir system.",
+   "While this side up, once during each of your deploy",
+   "phases, may deploy from Reserve Deck to Ralltiir",
+   "one site or non-unique Imperial; reshuffle. At Ralltiir",
+   "locations, each Rebel is deploy +2.",
+   "Flip this card if Imperials control at least three Ralltiir",
+   "sites and opponent controls no Ralltiir locations.",
+   "Place out of play if Ralltiir is “blown away.”"
+  ],
+  "game_text_back": [
+   "While this side up, opponent’s Force drains are -1.",
+   "At Ralltiir locations, each Rebel is deploy +2. At all",
+   "locations, add X to your total battle destiny, where",
+   "X = number of Ralltiir locations your Imperials occupy.",
+   "Once during each of your control phases, you may",
+   "use 2 Force to take any one card into hand from",
+   "Reserve Deck; reshuffle.",
+   "Flip this card if opponent controls at least two",
+   "Ralltiir locations.",
+   "Place out of play if Ralltiir is ’blown away."
+  ]
+ },
+ "8_78": {
+  "game_text": [
+   "Deploy Endor system and Rebel Landing Site.",
+   "While this side up, opponent loses no more than",
+   "1 Force from each of your Force drains at Endor",
+   "locations. Once during each of your deploy phases,",
+   "may use 2 Force to take one Bunker or Deactivate",
+   "The Shield Generator into hand; reshuffle.",
+   "Flip this card if Bunker “blown away” or if, during",
+   "your move phase, you control three exterior Endor",
+   "sites (with two Rebel scouts at each).",
+   "Place out of play if Endor “blown away.”"
+  ],
+  "game_text_back": [
+   "While this side up, at each Endor site where you have",
+   "a Rebel scout, your Force drains may not be modified",
+   "or canceled by opponent, except by a ‘react.’ Rebel",
+   "scouts are immune to attrition < 4. Once during each",
+   "of your draw phases, may retrieve one Rebel scout of",
+   "ability < 3. Your Epic Event destiny draws are each +2.",
+   "Flip this card (unless Bunker “blown away”) if, during",
+   "opponent’s move phase, opponent controls three",
+   "exterior Endor sites or Endor system.",
+   "Place out of play if Endor is “blown away.”"
+  ]
+ },
+ "8_124": {
+  "game_text": [
+   "Deploy on Endor system if your biker scouts and/or",
+   "AT-STs control three Endor sites. Your Force drain",
+   "here is +1 for each Endor site your biker scout or",
+   "AT-ST controls (limit +3). Place Effect in Used Pile if",
+   "opponent controls this system. (Immune to Alter.)"
+  ]
+ },
+ "8_167": {
+  "game_text": [
+   "Deploy Endor system, Bunker and Landing Platform.",
+   "While this side up, once during each of your control",
+   "phases, may take one Ominous Rumors or Establish",
+   "Secret Base into hand from Reserve Deck; reshuffle.",
+   "Flip this card if Ominous Rumors and Establish",
+   "Secret Base are both on table.",
+   "Place out of play if an Endor location is “blown away”."
+  ],
+  "game_text_back": [
+   "While this side up, at each Endor site where you",
+   "have a biker scout or a piloted AT-ST , your Force",
+   "drains may not be modified or canceled by opponent,",
+   "except by a ‘react’. Opponent draws no more than",
+   "one battle destiny in each battle. Your AT-STs are",
+   "immune to attrition < 3. Once during each of your",
+   "draw phases, you may retrieve one biker scout.",
+   "Flip this card if Ominous Rumors and Establish",
+   "Secret Base are not both on table.",
+   "Place out of play if an Endor location is “blown away.”"
+  ]
+ },
+ "9_53": {
+  "game_text": [
+   "USED: If your Rebel of ability > 2 just won a battle",
+   "or duel, randomly take into hand one card stacked",
+   "on Insignificant Rebellion. (Immune to Sense.)",
+   "LOST: If Luke is in battle (except with Vader), subtract",
+   "2 from each of opponent’s battle destiny draws."
+  ]
+ },
+ "9_61": {
+  "game_text": [
+   "Deploy Chief Chirpa’s Hut (with Luke and Luke’s Lightsaber",
+   "there), Endor: Landing Platform and I Feel The Conflict.",
+   "For remainder of game, you may not play Alter, Strangle",
+   "or Captive Fury.",
+   "While this side up, your Force generation is +2 at Luke’s",
+   "site. While an Imperial is at Landing Platform, you may",
+   "not Force drain or generate Force at Luke’s location.",
+   "When any Imperial is at Luke’s site, Luke is captured",
+   "(seized by an Imperial, if possible, even if not a warrior).",
+   "Flip this card if Luke captured."
+  ],
+  "game_text_back": [
+   "While this side up, at end of each of opponent’s",
+   "turns, opponent loses 2 Force unless Vader is",
+   "escorting Luke. At any time, an Imperial escorting",
+   "Luke may transfer Luke to Vader, if present. Vader",
+   "may not transfer Luke. Once during each of your",
+   "turns, if Vader present with Luke (even as a non-",
+   "frozen captive), may shuffle Reserve Deck and draw",
+   "destiny. If destiny > 14, Vader crosses to Light Side,",
+   "totally depleting opponent’s Life Force.",
+   "Flip if Luke neither present with Vader nor a captive."
+  ]
+ },
+ "9_151": {
+  "game_text": [
+   "Deploy Throne Room, Insignificant Rebellion and Your Destiny.",
+   "For remainder of game, Scanning Crew may not be",
+   "played. Opponent’s cards that place a character out",
+   "of play may not target Luke. You may deploy Emperor",
+   "(deploy -2) from Reserve Deck; reshuffle. Opponent",
+   "may deploy Luke from Reserve Deck (deploy -2;",
+   "reshuffle) or Lost Pile. If Luke is present with Vader",
+   "and Vader is not escorting a captive, Luke is captured",
+   "and seized by Vader. Vader may not transfer Luke.",
+   "Flip this card if Luke captured."
+  ],
+  "game_text_back": [
+   "While this side up, lose 1 Force at end of each of your",
+   "turns. Once during each of your turns, when Vader,",
+   "Luke (even as a non-frozen captive) and Emperor are",
+   "all present at your Throne Room, you may initiate a",
+   "Luke/Vader duel: Each player draws two destiny. Add",
+   "ability. Highest total wins. If Vader wins, opponent loses",
+   "3 Force. If Luke wins, shuffle Reserve Deck and draw",
+   "destiny; if destiny > 12, Luke crosses to Dark Side,",
+   "totally depleting opponent’s Life Force.",
+   "Flip if Luke neither present with Vader nor a captive."
+  ]
+ },
+ "10_1": {
+  "game_text": [
+   "USED: Target your highest-ability character and one",
+   "Effect. Draw destiny. If destiny < ability of target",
+   "character, cancel target Effect.",
+   "LOST: If a battle was just initiated at a site where",
+   "opponent has at least two characters and one",
+   "weapon, draw destiny. If destiny < number of",
+   "opponent’s characters at that site, opponent chooses",
+   "one to be lost."
+  ]
+ },
+ "10_4": {
+  "game_text": [
+   "Cancel one Sense or Alter card. (Immune to Sense.)",
+   "OR Cancel one Immediate Effect, Mobile Effect, or",
+   "Force drain. OR Take one card into hand from Force",
+   "Pile; reshuffle."
+  ]
+ },
+ "10_6": {
+  "game_text": [
+   "Adds 3 to power of anything he pilots. When",
+   "piloting Outrider , draws one battle destiny if not able",
+   "to otherwise, and once per battle, may reduce",
+   "power of one opponent’s starship in same battle",
+   "by power of Outrider for remainder of battle."
+  ]
+ },
+ "10_7": {
+  "game_text": [
+   "Deploy on table. Sense and Alter are now Lost",
+   "Interrupts. When any player makes a destiny draw for",
+   "Sense or Alter, and that destiny draw is successful,",
+   "that player loses 2 Force. Your Immediate Effects may",
+   "deploy for free. Whenever opponent cancels your",
+   "card with Sense or Alter, place that canceled card in",
+   "Used Pile. (Immune to Alter.)"
+  ]
+ },
+ "10_25": {
+  "game_text": [
+   "Shuffle any player’s Reserve Deck or Used Pile.",
+   "OR During your move phase, relocate one of your",
+   "characters (unless Disarmed) from Weather Vane",
+   "to any Cloud City site. Character may not move for",
+   "remainder of turn. OR Cancel Imperial Barrier or The",
+   "Shield Doors Must Be Closed."
+  ]
+ },
+ "10_26": {
+  "game_text": [
+   "Deploy Cantina, Docking Bay 94 and Tatooine System.",
+   "For remainder of game, opponent activates no Force",
+   "at your Cantina. Your cards with ability are deploy +6",
+   "except Luke, smugglers, freighters, and starships.",
+   "Opponent’s game text on Kessel is canceled.",
+   "While this side up, once during each of your deploy",
+   "phases, may take Corellia or Kessel into hand from",
+   "Reserve Deck; reshuffle.",
+   "Flip this card if you occupy two battlegrounds with",
+   "smugglers or have completed two Kessel Runs."
+  ],
+  "game_text_back": [
+   "While this side up, your Force generation is +1 at each",
+   "system you control with a smuggler. Opponent’s Force",
+   "generation at non-battleground locations is limited to 1. When",
+   "you have two or more smugglers in a battle, add one",
+   "battle destiny. Each of your smugglers is forfeit +2.",
+   "Once during each turn, may play one interrupt from",
+   "Lost Pile as if from hand (then place that card out of play). Sense,",
+   "Alter, and Keep Your Eyes Open may not be played.",
+   "Flip this card if you do not occupy two battlegrounds",
+   "(unless you have completed two Kessel Runs)."
+  ]
+ },
+ "10_28": {
+  "game_text": [
+   "USED: Take one non-unique alien into hand from",
+   "Reserve Deck; reshuffle.",
+   "LOST: During a battle, if opponent drew more than",
+   "two battle destiny, cancel all but two of those",
+   "destiny draws (your choice). OR If your non-unique",
+   "alien is in a battle, cancel game text of one Rebel",
+   "present for remainder of turn."
+  ]
+ },
+ "10_29": {
+  "game_text": [
+   "Deploy Imperial City (with Xizor there) and Coruscant system.",
+   "For remainder of game, your aliens with “Black Sun”",
+   "in lore, bounty hunters, and information brokers are",
+   "Black Sun agents. You may not deploy cards with ability",
+   "except Black Sun agents, Emperor or starships.",
+   "During your control phase, each of your bounty hunters",
+   "may make a regular move to an adjacent site where",
+   "there is a bounty. Scanning Crew may not be played.",
+   "Flip this card if Xizor is at a battleground site and Luke",
+   "is not at a battleground site."
+  ],
+  "game_text_back": [
+   "While this side up, once per turn, may place a card",
+   "from hand in Used Pile to peek at cards in your Force",
+   "Pile. Once during each of your battle phases, may peek",
+   "at top X cards of any Reserve Deck, where X = number",
+   "of locations you occupy. For each Black Sun agent in a",
+   "battle, attrition against opponent is +1. During your",
+   "control phase, opponent loses 1 Force for each",
+   "battleground location occupied by Xizor or Emperor.",
+   "Flip this card if Luke is at a battleground site or if",
+   "Xizor is not on table."
+  ]
+ },
+ "10_30": {
+  "game_text": [
+   "USED: Target your highest-ability character and one",
+   "Effect. Draw Destiny. If destiny < ability of target",
+   "character, cancel target Effect.",
+   "LOST: If a battle was just initiated at a site where",
+   "opponent has at least two characters and",
+   "one weapon, draw destiny. If destiny < number of",
+   "opponent’s characters at that site, opponent chooses",
+   "one to be lost."
+  ]
+ },
+ "10_35": {
+  "game_text": [
+   "Add 2 to maneuver and 1 to power of any TIE for the",
+   "remainder of this turn. (Interrupt may even affect the",
+   "result immediately after a destiny draw targeting the",
+   "TIE’s maneuver.) OR Target two starfighters (your",
+   "TIE/ln and any Rebel starfighter) present at same",
+   "system or sector. Each player draws destiny. Opponent",
+   "totals destiny and starship’s power. You total destiny,",
+   "TIE’s power, and TIE’s maneuver. Lowest total loses",
+   "starfighter (if tied, neither starfighter is lost)."
+  ]
+ },
+ "10_44": {
+  "game_text": [
+   "USED: Shuffle any player’s Reserve Deck or Lost Pile.",
+   "LOST: If It Could Be Worse was just played, it is",
+   "canceled and you may use X Force to raise damage",
+   "against opponent by X amount. OR If opponent just lost",
+   "Force from a battle, play to increase loss by 1 Force."
+  ]
+ },
+ "10_46": {
+  "game_text": [
+   "USED: Target your highest-ability character and one",
+   "just-played Interrupt. Draw destiny. If destiny < ability",
+   "of target character, cancel target Interrupt.",
+   "LOST: Use 3 Force. Each player counts cards in hand,",
+   "then places entire hand and Used Pile onto Reserve",
+   "Deck; reshuffle. Each player then draws from Reserve",
+   "Deck the counted number of cards to create a new hand."
+  ]
+ },
+ "10_52": {
+  "game_text": [
+   "Deploy on table. Sense and Alter are now Lost",
+   "Interrupts. When any player makes a destiny draw for",
+   "Sense or Alter, and that destiny draw is successful,",
+   "that player loses 2 Force. Your Immediate Effects may",
+   "deploy for free. Whenever opponent cancels your",
+   "card with Sense or Alter, place that canceled card in",
+   "Used Pile. (Immune to Alter.)"
+  ]
+ },
+ "11_10": {
+  "game_text": [
+   "Deploys -2 to Tatooine. Power +1 at same site",
+   "as Maul. Once during a duel Qui-Gon is in, may",
+   "cancel a duel destiny just drawn and cause a",
+   "re-draw. Opponent’s aliens are power -1 at same",
+   "site. Immune to attrition."
+  ]
+ },
+ "11_36": {
+  "game_text": [
+   "If opponent just initiated a duel against one of your",
+   "non-captive Jedi at a site, use 1 Force to cancel",
+   "the duel and you may relocate any number of your",
+   "characters there to an adjacent site."
+  ]
+ },
+ "11_47": {
+  "game_text": [
+   "Deploy on Podrace Arena. Draws 2 race destiny instead",
+   "of 1. During your draw phase, if opponent has a higher",
+   "race total than Anakin’s Podracer, draw 3 race destiny",
+   "next turn and choose 2. Once per game may take I Did",
+   "It! into hand from Reserve Deck; reshuffle."
+  ]
+ },
+ "11_96": {
+  "game_text": [
+   "Deploy on Podrace Arena. Adds 1 to each of your",
+   "race destinies here. If Sebulba’s Podracer on table,",
+   "may lose this Podracer to cancel Losing Track or",
+   "Neck And Neck; place all race destinies here in",
+   "owner’s Used Pile."
+  ],
+  "lore": [
+   "RS 557 Podracer. Secretly hired by Sebulba to protect him",
+   "during Podraces."
+  ]
+ },
+ "11_97": {
+  "game_text": [
+   "Deploy on Podrace Arena. Adds 3 to each of your",
+   "race destinies here. If you and your opponent have",
+   "the same race total, may use 2 Force. Opponent",
+   "draws no race destiny for remainder of turn (may",
+   "only be used once for any race total)."
+  ]
+ },
+ "11_98": {
+  "game_text": [
+   "Deploy on Podrace Arena. Adds 2 to each of your",
+   "race destinies here. Once during each of your turns,",
+   "may use 1 Force to place a race destiny here",
+   "(random selection) in owner’s Used Pile, draw one",
+   "race destiny and place it here."
+  ]
+ },
+ "12_24": {
+  "game_text": [
+   "Adds 3 to power of anything he pilots (or adds 4",
+   "if Queen’s Royal Starship). While piloting Queen’s",
+   "Royal Starship, once during a battle Ric is in, you",
+   "may use X Force to reduce attrition against you",
+   "by X."
+  ]
+ },
+ "12_71": {
+  "game_text": [
+   "During your control phase, draw destiny. If destiny > 2,",
+   "draw up to X cards (maximum 4) from Reserve Deck,",
+   "where X = your total politics at Galactic Senate minus",
+   "opponent’s total politics at Galactic Senate."
+  ]
+ },
+ "12_88": {
+  "game_text_back": [
+   "While this side up, once during your control phase",
+   "may use 3 Force to place up to two random cards from",
+   "opponent’s hand into their Used Pile. Once per turn may",
+   "take a Political Effect into hand from Reserve Deck;",
+   "reshuffle. Your senators are destiny +2 (or +3 for any",
+   "character with an order agenda ) when drawn for battle",
+   "or weapon destiny. May use 2 Force at end of a turn to",
+   "place all cards on your Political Effects into Used Pile.",
+   "Flip this card if you have less than two senators at",
+   "Galactic Senate."
+  ],
+  "game_text": [
+   "Deploy Galactic Senate and any other location.",
+   "For remainder of game, Rebel and Imperial leaders",
+   "of ability < 4 are politics +2. Counter Assault and",
+   "Surprise Assault are canceled. You may deploy cards",
+   "on your Political Effects to table. At Galactic Senate,",
+   "weapon destiny draws are -6, creatures are lost and",
+   "game text of non-Republic characters is canceled.",
+   "Flip this card if you have 3 senators (or 2 senators,",
+   "at least one with with a peace agenda ) at Galactic",
+   "Senate."
+  ]
+ },
+ "12_89": {
+  "game_text": [
+   "Deploy Watto’s Junkyard, City Outskirts, and Credits Will Do Fine.",
+   "For remainder of game, you may not deploy cards with",
+   "ability except unique ( • ) aliens, Republic characters",
+   "and starships, and Jedi. Your Destiny is suspended.",
+   "While this side up, once per game may take",
+   "Coruscant and/or Tatooine system into hand from",
+   "Reserve Deck; reshuffle. You may not deploy any",
+   "systems. Maul is immune to attrition.",
+   "Flip this card if there are 4 or more cards beneath",
+   "Credits Will Do Fine."
+  ],
+  "game_text_back": [
+   "While this side up, your unique ( • ) Republic characters",
+   "are power +1 and forfeit +2. Aliens may not have",
+   "their deploy cost modified and Imperials deploy +1 to",
+   "Tatooine sites. Whenever you draw battle destiny (unless canceled), may",
+   "retrieve 1 Force (Force retrieved in this way may be",
+   "taken into hand.) While Queen’s Royal Starship at a",
+   "planet system, once during each of opponent’s control",
+   "phases may activate up to 2 Force. Once during each",
+   "of your control phases, opponent loses 1 Force for each",
+   "battleground site you occupy with a senator."
+  ]
+ },
+ "12_179": {
+  "game_text": [
+   "Deploy Galactic Senate and any other location.",
+   "For remainder of game, Rebel and Imperial leaders of",
+   "ability < 4 are politics +2. Counter Assault and Surprise",
+   "Assault are canceled. Your Republic characters are",
+   "immune to Goo Nee Tay. Cards on your Political Effects",
+   "may deploy to table. At Galactic Senate, weapon",
+   "destiny draws are -6, creatures are lost and game text",
+   "of non-Republic characters is canceled.",
+   "Flip this card if you have 3 senators (or 2 senators, at",
+   "least 1 with a blockade agenda ) at Galactic Senate."
+  ],
+  "game_text_back": [
+   "While this side up, once during your control phase may",
+   "use 3 Force to place up to two random cards from",
+   "opponent’s hand into their Used Pile. Once per turn may",
+   "take a Political Effect into hand from Reserve Deck;",
+   "reshuffle. Your senators are destiny +2 (or +3 if senator",
+   "has an ambition agenda ) when drawn for weapon or",
+   "battle destiny. May use 2 Force at end of any turn to",
+   "place all cards on your Political Effects into Used Pile.",
+   "Flip this card if you have less than two senators at",
+   "Galactic Senate."
+  ]
+ },
+ "12_180": {
+  "game_text": [
+   "Deploy Watto’s Junkyard and Mos Espa.",
+   "For remainder of game, Watto’s Junkyard is immune",
+   "to Revolution. If Watto at Watto’s Junkyard, opponent",
+   "may use 8 Force to place Watto in Used Pile and you",
+   "may retrieve up to 4 Force.",
+   "While this side up, Qui-Gon is power +3. Opponent",
+   "loses no more than 1 Force from your Force drains at",
+   "Tatooine sites.",
+   "Flip this card if Watto present at Watto’s Junkyard",
+   "and you occupy Mos Espa."
+  ],
+  "game_text_back": [
+   "While this side up, once during each of your deploy",
+   "phases, may place a card from hand face down on",
+   "your side of the table and opponent must choose to",
+   "lose 2 Force (you place card in Used Pile) or use 2",
+   "Force (you deploy that card for free). If opponent",
+   "uses 2 Force and you cannot deploy card, lose 2 Force",
+   "and card is lost. Opponent’s non-unique aliens are",
+   "each deploy +3.",
+   "Flip this card if Watto not present at Watto’s",
+   "Junkyard or you do not occupy Mos Espa."
+  ]
+ },
+ "13_1": {
+  "game_text": [
+   "Plays on table. If you just lost a Podrace, your Force",
+   "loss is limited to half the difference between the",
+   "winning race total and your highest race total (round",
+   "up). While you occupy three battlegrounds, Watto’s",
+   "Box is suspended."
+  ]
+ },
+ "13_6": {
+  "game_text": [
+   "Plays on table. While opponent has a non-unique",
+   "alien or non-unique starfighter in battle, opponent",
+   "may not draw more than two battle destiny."
+  ]
+ },
+ "13_8": {
+  "game_text": [
+   "Plays on table. For either player to initiate a Force",
+   "drain, that player must first use 3 Force unless",
+   "that player occupies a battleground site and a",
+   "battleground system."
+  ]
+ },
+ "13_15": {
+  "game_text": [
+   "Plays on table. Sense and Alter are now Lost",
+   "Interrupts. When any player makes a destiny draw",
+   "for Sense or Alter, and that destiny draw is",
+   "successful, that player loses 2 Force."
+  ]
+ },
+ "13_42": {
+  "game_text": [
+   "Agenda : order. While at same site as Amidala,",
+   "your Force generation is +2 here. While on",
+   "Naboo, subtracts one from opponent’s Force",
+   "drains at adjacent sites, and your other Republic",
+   "characters present are power +1."
+  ]
+ },
+ "13_46": {
+  "game_text": [
+   "Deploy Theed Palace Generator Core, Theed Palace",
+   "Generator, and Inner Strength.",
+   "While this side up, opponent may not Force drain",
+   "where opponent has a Dark Jedi, and your Force",
+   "drains at Naboo sites where you have a Jedi may not",
+   "be canceled. Once during your control phase, may",
+   "target one opponent’s character present with your",
+   "Jedi at an interior Theed Palace site. Target is lost.",
+   "Flip this card if an opponent’s Dark Jedi is present at",
+   "an interior Naboo battleground site."
+  ],
+  "game_text_back": [
+   "While this side up, you may not Force drain or",
+   "initiate battle at any location where you have a Jedi.",
+   "Once during your move phase, your Jedi may initiate",
+   "lightsaber combat against an opponent’s Dark Jedi",
+   "present: Each player draws 2 destiny. Loser (lowest",
+   "total) loses 2 Force (cannot be reduced). If difference",
+   "is 5 or greater, lost Force must come from Reserve",
+   "Deck, and losing character is lost.",
+   "Flip this card and retrieve 1 Force if opponent has no",
+   "Dark Jedi present at any interior Naboo battleground."
+  ]
+ },
+ "13_52": {
+  "game_text": [
+   "Plays on table. Once per game, may use 1 Force to",
+   "stack one Interrupt just played here. To play any new",
+   "Interrupt of the same name, player must first stack it",
+   "here and use +1 Force for each Interrupt in stack,",
+   "even if Interrupt is normally free."
+  ],
+  "lore": [
+   "With the Republic groaning under the weight of its",
+   "own bureaucracy, senators accuse, bicker, and fight to further",
+   "their own agendas."
+  ]
+ },
+ "13_73": {
+  "game_text": [
+   "Deploy Theed Palace Generator Core, Theed Palace",
+   "Generator, and Deep Hatred.",
+   "While this side up, opponent may not Force drain",
+   "where opponent has a Jedi, and your Force drains at",
+   "Naboo sites where you have a Dark Jedi may not be",
+   "canceled. Once during your control phase, may target",
+   "one opponent’s character present with your Dark Jedi",
+   "at an interior Theed Palace site. Target is lost.",
+   "Flip this card if an opponent’s Jedi present at an",
+   "interior Naboo battleground site."
+  ],
+  "game_text_back": [
+   "While this side up, you may not Force drain or",
+   "initiate battle at any location where you have a Dark",
+   "Jedi. Once during your move phase, your Dark Jedi",
+   "may initiate lightsaber combat against an opponent’s",
+   "Jedi present: Each player draws 2 destiny. Loser",
+   "(lowest total) loses 2 Force (cannot be reduced). If",
+   "difference is 5 or greater, lost Force must come from",
+   "Reserve Deck, and losing character is lost.",
+   "Flip this card and retrieve 1 Force if opponent has no",
+   "Jedi present at any interior Naboo battleground."
+  ]
+ },
+ "14_1": {
+  "game_text": [
+   "Landed starfighters and vehicles aboard starships",
+   "are forfeit = 0. Once during your control phase may",
+   "target your N-1 starfighter and opponent’s starfighter",
+   "present at same system. Both players draw destiny.",
+   "You add your starfighter’s power and maneuver.",
+   "Opponent adds starfighter’s power. Starship with",
+   "lowest total is lost."
+  ]
+ },
+ "14_52": {
+  "game_text": [
+   "Deploy Theed Palace Throne Room, Theed Palace Hallway, and",
+   "Theed Palace Courtyard.",
+   "For remainder of game, you may not deploy cards with",
+   "ability except Jedi, aliens, vehicles, Republic",
+   "characters and starships. Your Destiny is suspended.",
+   "You lose no Force to Vengeance Of The Dark Prince.",
+   "While this side up, you may not deploy characters to",
+   "interior Naboo sites. Once per turn, may activate 1 Force.",
+   "Flip this card if you control Theed Palace Throne Room",
+   "(with Amidala there)."
+  ],
+  "game_text_back": [
+   "While this side up, you lose no more than 2 Force to",
+   "any Force drain. Your starships are power +2 and",
+   "immunity to attrition of starships is canceled.",
+   "If opponent just drew a battle destiny greater than",
+   "three, you may use 1 Force to cancel that battle",
+   "destiny. During your control phase, opponent loses 2",
+   "Force for each battleground site you control with",
+   "Amidala or Panaka.",
+   "Flip this card if opponent controls Theed Palace",
+   "Throne Room."
+  ]
+ },
+ "14_65": {
+  "game_text": [
+   "Deploy on your Gungan. May target a character",
+   "for free. Draw destiny. If destiny > defense",
+   "value, character is power -4 for remainder of turn. At the",
+   "end of battle here, may place this electropole on",
+   "top of Reserve Deck."
+  ]
+ },
+ "14_113": {
+  "game_text": [
+   "Deploy Naboo system with Blockade Flagship there, Naboo:",
+   "Swamp, and Droid Racks.",
+   "For remainder of game, you may not deploy cards",
+   "with ability except starships and characters with",
+   "‘Trade Federation’ in lore. Civil Disorder is canceled.",
+   "While this side up, once during your deploy phase",
+   "may deploy a Naboo site from Reserve Deck; reshuffle.",
+   "Opponent’s Force icons at Naboo system are canceled.",
+   "Flip this card if you control Theed Palace Throne",
+   "Room (with a Neimoidian there) and Naboo system."
+  ],
+  "game_text_back": [
+   "While this side up, you lose no more than 2 Force to",
+   "any Force drain. Your battle droids deploy -1. If you",
+   "have two droids with different card titles (or a",
+   "droid and a Neimoidian) in battle at a site, draw",
+   "two battle destiny if unable to otherwise. Your droid",
+   "starfighters are immune to attrition < 3. If opponent",
+   "just drew an Interrupt for battle destiny, once per",
+   "battle you may place that card out of play.",
+   "Flip this card if opponent controls Naboo system or",
+   "Theed Palace Throne Room."
+  ]
+ }
+}

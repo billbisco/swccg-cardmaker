@@ -1150,5 +1150,13 @@
  "1006_L5619": {
   "lore": "",
   "_note": "Jabba, This Is Your Last Chance! (1261_80): the Block 6.1 slip, the PC card image and the Master List print an empty lore box; the PC Legacy JSON carries The Signal's Decipher lore (rev 72, B09 wiki log 2026-11-08; GEMP PR #767)"
+ },
+ "11_98": {
+  "_note": "rev 80: the printed lore's line breaks (Decipher set this lore by hand: \"is designed\" starts line 2)",
+  "loreLines": [
+   "IPG-X1131 Longtail Podracer. Unusual circular shape",
+   "is designed around an internal metal cycling ring which",
+   "stabilizes the non-aerodynamic vehicle."
+  ]
  }
 }
