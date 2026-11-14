@@ -8,6 +8,8 @@ Regenerate from the repository root:
 python tools/export_set_symbols.py
 ```
 
+The exporter records the checkout's current Git commit. For a staged source bundle outside that checkout, pass `--root`, `--output` and an explicit40-character `--source-commit`; it will not silently attribute a parent repository's commit to CardMaker.
+
 The96px files have true alpha and a lossless WebP encoding of the deterministic display resize. The script verifies decoded RGBA equality with that resize. This is not a claim that the96px derivative contains every pixel of the312px master; the original PNG remains authoritative and is retained. No palette substitution, generative reconstruction or background-color guess is used.
 
 These files contain sphere artwork, as CardMaker's existing masters do. A complete printed symbol also needs its correct ring. CardMaker's classic inline recipe is the sphere at42px with a4px `#111` external ring (`render.py`, `DC_SPHERE_CSS`). A20px total display therefore uses a16.8px sphere and1.6px ring. Use a round clipping boundary so invisible RGB in source corners never shows. Infoboxes should place a linked expansion name alongside the icon.
