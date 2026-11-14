@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "master_repository": "https://github.com/billbisco/swccg-cardmaker",
+  "master_commit": "a41df94fc32c197757650f03ae64f6c096342124",
+  "master_policy": "Existing CardMaker PNG masters and current superseding provenance remain authoritative. WebP files are reproducible display derivatives; do not maintain separate wiki artwork.",
+  "ring_recipe": {
+    "source": "render.py DC_SPHERE_CSS",
+    "inner_height": 42,
+    "black_ring_width": 4,
+    "black_ring_color": "#111",
+    "note": "This completes the inline symbol, not the card frame. Preserve verified silver/gold/AI ring variants separately."
+  },
+  "symbols": [
+    {
+      "key": "anh",
+      "label": "A New Hope",
+      "style": "decipher",
+      "source": "assets/icons/set-anh-decipher.png",
+      "source_sha256": "ce05ff85305aef607be3fe527a2d374700dabf30cc966fcacde330a984110c47",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 124234,
+      "file": "set-anh-decipher.webp",
+      "sha256": "6e0734da15e60085ac6aa9c207081a33128045180f1822873f448c5c5d7bb501",
+      "bytes": 13096,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "anh",
+      "label": "A New Hope",
+      "style": "pc",
+      "source": "assets/icons/set-anh-pc.png",
+      "source_sha256": "368fd4a0988ab98108cd669e9de34eb545f6a45cb0cbf656bd8430b9e991146c",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 111146,
+      "file": "set-anh-pc.webp",
+      "sha256": "3f9891b3ddd64c4e1a20d0bbfc48dceb7ee638c5bf47de5a61d0d07ec559d81c",
+      "bytes": 11324,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "hoth",
+      "label": "Hoth",
+      "style": "decipher",
+      "source": "assets/icons/set-hoth-decipher.png",
+      "source_sha256": "25ae35e83537cbeb8dfaf3cc0b523134e744343f61832602bee5954dedbfbc11",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 102005,
+      "file": "set-hoth-decipher.webp",
+      "sha256": "0bb5818d98eefddd92095c6912276276b2df35bb59eb886f46084d09e842b742",
+      "bytes": 10530,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "hoth",
+      "label": "Hoth",
+      "style": "pc",
+      "source": "assets/icons/set-hoth-pc.png",
+      "source_sha256": "f81560429b8f32e8b905138da40db9fe6cda39ebcb455a151f7a696c803a7051",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 103637,
+      "file": "set-hoth-pc.webp",
+      "sha256": "6de49316311c60181f424bd57ed7bcbee5554af2209681b936e6126b2ed151d0",
+      "bytes": 10970,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "dagobah",
+      "label": "Dagobah",
+      "style": "decipher",
+      "source": "assets/icons/set-dagobah-decipher.png",
+      "source_sha256": "9f9c43224feaee57c423750952bca362bc986fdb3ac1542ad903a7c950f0413b",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 105142,
+      "file": "set-dagobah-decipher.webp",
+      "sha256": "60fe4236a619af1c557a5bd08007827a17a2d479f504654dd5498db7058258cd",
+      "bytes": 10822,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "dagobah",
+      "label": "Dagobah",
+      "style": "pc",
+      "source": "assets/icons/set-dagobah-pc.png",
+      "source_sha256": "34d15a6d2691dfd7148d4a33d8f19121e479caf63ad7a0adba4a82eb3b256bb3",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 109066,
+      "file": "set-dagobah-pc.webp",
+      "sha256": "34bbf73d64fdd337b60811036905c641ae4caa275bcf7cd089108d90646f2a54",
+      "bytes": 11210,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "cloudcity",
+      "label": "Cloud City",
+      "style": "decipher",
+      "source": "assets/icons/set-cloudcity-decipher.png",
+      "source_sha256": "1082f9fa656fb6fcb12e5a2b57e78b077aacb8562c6e120abca84cd48a34ef11",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 115327,
+      "file": "set-cloudcity-decipher.webp",
+      "sha256": "258a23ee8a66952f6e21fd3499f6bbb4d948db3b94260736debd945ee658b764",
+      "bytes": 12112,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "cloudcity",
+      "label": "Cloud City",
+      "style": "pc",
+      "source": "assets/icons/set-cloudcity-pc.png",
+      "source_sha256": "54047db7cea19b4185f72fb5368eaba069f1616d4820592ab5645c5a266821b9",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 115166,
+      "file": "set-cloudcity-pc.webp",
+      "sha256": "500809874728c5870c6378412d0c6d5fd56173f23ee00b6921b0a14cd64f7445",
+      "bytes": 12592,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "jabbaspalace",
+      "label": "Jabba’s Palace",
+      "style": "decipher",
+      "source": "assets/icons/set-jabbaspalace-decipher.png",
+      "source_sha256": "5928262824db8fe9f30ff7a989b28f61054c739635ea4402801322ceda0275ea",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 123890,
+      "file": "set-jabbaspalace-decipher.webp",
+      "sha256": "0a17dddb1402cde1ffa156b0ad9adc56dae4d2ce48d35f74305abda6bd24a2d8",
+      "bytes": 12942,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "jabbaspalace",
+      "label": "Jabba’s Palace",
+      "style": "pc",
+      "source": "assets/icons/set-jabbaspalace-pc.png",
+      "source_sha256": "7c21301889b5371ce70edf24ce4c39d56189cbfa07614a3cce7e6046540deed8",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 123681,
+      "file": "set-jabbaspalace-pc.webp",
+      "sha256": "475ff632c2791eb50abc2eee1564408073b15c007d9a542535c68054264fb2c8",
+      "bytes": 13462,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "se",
+      "label": "Special Edition",
+      "style": "decipher",
+      "source": "assets/icons/set-se-decipher.png",
+      "source_sha256": "b248d52862a5b16d36474e2448f087c311efea64b1591313386541e47888c8d3",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 112963,
+      "file": "set-se-decipher.webp",
+      "sha256": "dd629a9870982194f6c390859d4da5683773572ef7d634917e751b0b1d805d72",
+      "bytes": 12370,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "se",
+      "label": "Special Edition",
+      "style": "pc",
+      "source": "assets/icons/set-se-pc.png",
+      "source_sha256": "425e5f0ab1935a7d48ee2be5b71d254351dad81b0cd06cefde3f0002f3b96742",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 114979,
+      "file": "set-se-pc.webp",
+      "sha256": "ff02ec963bd746afbcad6be433d0b9fd30fbd499a5a865e4f06a35d2d58ed350",
+      "bytes": 12514,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "endor",
+      "label": "Endor",
+      "style": "decipher",
+      "source": "assets/icons/set-endor-decipher.png",
+      "source_sha256": "89ee5ff5d3b1f4d3f0a8e69e0c2e3c5d9dcb54818e828dc2f62f1d89ab9a001a",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 107546,
+      "file": "set-endor-decipher.webp",
+      "sha256": "8af68f021a1a133b6c619a56d3ea776b64ec31cdfdb6e3416b532ba8757c3481",
+      "bytes": 11900,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "endor",
+      "label": "Endor",
+      "style": "pc",
+      "source": "assets/icons/set-endor-pc.png",
+      "source_sha256": "f7504d8786d072bcc0bc8593e329604b992f6f554e8bb86eed670e9a387f9d51",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 114937,
+      "file": "set-endor-pc.webp",
+      "sha256": "4422556f7187855a27e5788d7baf32a393525bccb6b5bd1800ecb0fdf06d1d1c",
+      "bytes": 11796,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "ds2",
+      "label": "Death Star II",
+      "style": "decipher",
+      "source": "assets/icons/set-ds2-decipher.png",
+      "source_sha256": "f88c081bb1f5fba33304e7f68bfed7c071c4cae22a416f55ec18cc1d586210ed",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 116677,
+      "file": "set-ds2-decipher.webp",
+      "sha256": "218b27277307316584fb7856d7ea5af2d87986034d490334b541b8e7f5686daf",
+      "bytes": 12930,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "ds2",
+      "label": "Death Star II",
+      "style": "pc",
+      "source": "assets/icons/set-ds2-pc.png",
+      "source_sha256": "c4f257f146803bd6b4f2b3175536f5de24986a9f8fee466345964d83b9d0e9af",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 127146,
+      "file": "set-ds2-pc.webp",
+      "sha256": "2fe99b4e9bed3665fa13ccd36a6941a8830b5054203fe4a5aaf4b8df5ca6f0d2",
+      "bytes": 12980,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "premium",
+      "label": "Premium",
+      "style": "decipher",
+      "source": "assets/icons/set-premium-decipher.png",
+      "source_sha256": "f94cbefdbfb027689a5810d7062c0a6339a3c76f2dcb69b51ca19a9d0e52a227",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 120180,
+      "file": "set-premium-decipher.webp",
+      "sha256": "c37a70dd0dc2bb6ddfd8b5e7d2f8dae08f2b14723e31f726dc511424415bcd1d",
+      "bytes": 12466,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "premium",
+      "label": "Premium",
+      "style": "pc",
+      "source": "assets/icons/set-premium-pc.png",
+      "source_sha256": "cf341f2fb54d8dc1975379456a2f8867e45b0ef431b984277aee9b1e785820d4",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 112383,
+      "file": "set-premium-pc.webp",
+      "sha256": "823531aaa285383da2b03d7a67795944c352ffbb6cab8c0a368dc176bcc7f2a6",
+      "bytes": 11650,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "reflections2",
+      "label": "Reflections II",
+      "style": "decipher",
+      "source": "assets/icons/set-reflections2-decipher.png",
+      "source_sha256": "182071a044d296a75b6f9590b5b9eaa7b8c974ed59a851063c5f34648d40f2a5",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 99103,
+      "file": "set-reflections2-decipher.webp",
+      "sha256": "db5d3dfc5c0ad1260d874c88b8a67ee76750ddd871ad28d46618c1a559b128ec",
+      "bytes": 9866,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "reflections2",
+      "label": "Reflections II",
+      "style": "pc",
+      "source": "assets/icons/set-reflections2-pc.png",
+      "source_sha256": "a90155c9279e08471db614e8dc231798a0907d393d6f2203556e6a9cfb149ec4",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 108690,
+      "file": "set-reflections2-pc.webp",
+      "sha256": "d4b2ceb3714b16529068acb479b75b62d4ac368c06b77aaf33af1ae279ebe94d",
+      "bytes": 12678,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "reflections3",
+      "label": "Reflections III",
+      "style": "decipher",
+      "source": "assets/icons/set-reflections3-decipher.png",
+      "source_sha256": "d18fec0ac0f8d0dfb2b2338d4af7acc8ea70712f59d36f1a80b0f887fc523010",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 115993,
+      "file": "set-reflections3-decipher.webp",
+      "sha256": "ff7626f97a7c8c14c3a34873059e0bf60f9acc4e41f123be72aa6c4f56521c37",
+      "bytes": 12224,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "reflections3",
+      "label": "Reflections III",
+      "style": "pc",
+      "source": "assets/icons/set-reflections3-pc.png",
+      "source_sha256": "d18fec0ac0f8d0dfb2b2338d4af7acc8ea70712f59d36f1a80b0f887fc523010",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 115993,
+      "file": "set-reflections3-pc.webp",
+      "sha256": "ff7626f97a7c8c14c3a34873059e0bf60f9acc4e41f123be72aa6c4f56521c37",
+      "bytes": 12224,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "tatooine",
+      "label": "Tatooine",
+      "style": "decipher",
+      "source": "assets/icons/set-tatooine-decipher.png",
+      "source_sha256": "a47ac5825b506a0334c4f795d4adb82527b9b4505899d0b145580eecebf11ded",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 108567,
+      "file": "set-tatooine-decipher.webp",
+      "sha256": "408dc4eb7c823380ec5b6231d938b28e75f33f792d59384631671e3dfc325426",
+      "bytes": 11650,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "tatooine",
+      "label": "Tatooine",
+      "style": "pc",
+      "source": "assets/icons/set-tatooine-pc.png",
+      "source_sha256": "2e2b33422c4c8bd72af6256c31d5ccc6d49d8c886e3549c44f938943590b9e51",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 117192,
+      "file": "set-tatooine-pc.webp",
+      "sha256": "1412c80cbcae0b819a8e4f9bc5587e1ada6780e663bf7c48a252eb5149a8d7ae",
+      "bytes": 11978,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "coruscant",
+      "label": "Coruscant",
+      "style": "decipher",
+      "source": "assets/icons/set-coruscant-decipher.png",
+      "source_sha256": "7835d6b5d5dfd92b2bb4eed193a5045e5a08bbf113f613e0c7a577f1fe410253",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 119277,
+      "file": "set-coruscant-decipher.webp",
+      "sha256": "1c3e95b9559549d7d829f98714afa79fd5c50b110920a4982e4bb15a7ff7a0d8",
+      "bytes": 13238,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "ring variant requires physical-card verification; do not use for regular Coruscant by default"
+    },
+    {
+      "key": "coruscant",
+      "label": "Coruscant",
+      "style": "pc",
+      "source": "assets/icons/set-coruscant-pc.png",
+      "source_sha256": "132862b5b8b7eb57738d4492871bb570e5f11f26d091da3e3092c51f9173c2a0",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 126162,
+      "file": "set-coruscant-pc.webp",
+      "sha256": "1f5c5b3bf62df3ca0236e1e2463a289ba6cabf0b4a38b465b13c44b2748c33c6",
+      "bytes": 13208,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "ring variant requires physical-card verification; do not use for regular Coruscant by default"
+    },
+    {
+      "key": "theed",
+      "label": "Theed Palace",
+      "style": "decipher",
+      "source": "assets/icons/set-theed-decipher.png",
+      "source_sha256": "a1c4e24616e395aae432f42b5d82c48cb0c47e128404dac991483a69a3c3a074",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 106091,
+      "file": "set-theed-decipher.webp",
+      "sha256": "83e026d24f51a1fbbfcab40c1f1377cd0471e5d048c8841e6506e8c383950ba1",
+      "bytes": 11352,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "theed",
+      "label": "Theed Palace",
+      "style": "pc",
+      "source": "assets/icons/set-theed-pc.png",
+      "source_sha256": "8ddd89c3079059141cc93505efea91cd5930005699fc5666cb95b95f8cd7a3ec",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 119612,
+      "file": "set-theed-pc.webp",
+      "sha256": "d143cb2983e46e46505893f250aaef9569b8bb2c94882312ae3e5c21c1c866be",
+      "bytes": 13166,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "ejp",
+      "label": "Enhanced Jabba’s Palace",
+      "style": "decipher",
+      "source": "assets/icons/set-ejp-decipher.png",
+      "source_sha256": "50b84b1e6439c4d5201df632ed1d259aaea0bacc9e6fb52308396bf093f37f96",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 102345,
+      "file": "set-ejp-decipher.webp",
+      "sha256": "4f77c75d4cf1b229fb733b3cb047cc3c09fb270aa9631fe4472290b0e4d4e735",
+      "bytes": 10784,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    },
+    {
+      "key": "reflections-gold",
+      "label": "Reflections Gold",
+      "style": "decipher",
+      "source": "assets/icons/set-reflections-gold-decipher.png",
+      "source_sha256": "85a8025332073d01fe0353bc65e90127c3747e1ad97fd277754a8ecb1ca618fd",
+      "source_dimensions": [
+        312,
+        312
+      ],
+      "source_bytes": 118093,
+      "file": "set-reflections-gold-decipher.webp",
+      "sha256": "6fe463d8cadd0e8b82d629a8d63c2a7508116c9d52b8683cabf144377857cc67",
+      "bytes": 12926,
+      "dimensions": [
+        96,
+        96
+      ],
+      "true_alpha": true,
+      "lossless_webp_round_trip": true,
+      "source_unchanged": true,
+      "presentation": "inner sphere; apply the existing CardMaker inline black-ring recipe when that printed variant requires it",
+      "printing_status": "reuse subject to per-printing verification; style is not a set-identity or AI-ring override"
+    }
+  ]
+}
