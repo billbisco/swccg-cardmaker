@@ -71,6 +71,11 @@ function readForm() {
     const v = fd.get(k); if (v !== null) s[k] = v;
   }
   if (s.language === "en") delete s.language;   // rev 77: printing language (lang_ja.py); English is the default
+  // maker's mark (swccg-guild/work#1306): " · swccg.com 2026" (+ " · ES") at the end of the legal line; off by default
+  if (fd.get("maker_mark")) {
+    s.maker_mark = true;
+    for (const k of ["maker_mark_text", "maker_mark_lang"]) { const v = (fd.get(k) || "").trim(); if (v) s[k] = v; else delete s[k]; }
+  } else { delete s.maker_mark; delete s.maker_mark_text; delete s.maker_mark_lang; }
   s.printed_breaks = !!fd.get("printed_breaks"); if (!s.printed_breaks) delete s.printed_breaks;
   // rev 77 printing variants: Eriadu's white dot, Lando In Millennium Falcon's thick forfeit border, Reflections foil
   if ((fd.get("bullet_colour") || "red") === "red") delete s.bullet_colour; else s.bullet_colour = fd.get("bullet_colour");

@@ -947,6 +947,11 @@ def spec_to_card(spec: dict, build_vs) -> dict:
     for k in ("labels", "errata_mark", "text_fit", "text_adjust", "lore_adjust", "art_credit", "caption_italic", "disc_left", "mission_disc", "margin_disc", "lore_lines", "text_breaks", "dark_breaks"):   # PC labels (D-E1 …) and text-fit limits (Bill 2026-11-01)
         if spec.get(k):
             card[k] = spec[k]
+    if spec.get("maker_mark"):   # swccg-guild/work#1306: " · swccg.com 2026" (+ " · ES") at the end of the legal line
+        card["maker_mark"] = True
+        for k in ("maker_mark_text", "maker_mark_year", "maker_mark_lang"):
+            if spec.get(k):
+                card[k] = spec[k]
     if vs is None:
         card.pop("virtual_set", None)
     if spec.get("_set_icon_file"):
