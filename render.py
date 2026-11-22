@@ -2247,6 +2247,57 @@ def dc_template(t: dict, dc: dict) -> dict:
     return t
 
 
+# Maker's mark (Bill 2026-11-22, swccg-guild/work#1306): a card we build ourselves ends Decipher's legal line with a quiet
+# " · swccg.com 2026" (and " · ES" etc. for a translation), set in the line's own face and centred on the same column as
+# the printed line. Off unless the card asks (maker_mark: true) or a batch turns it on (--maker-mark / CM_MAKER_MARK=1);
+# a stand-in for a real printing sets maker_mark: false so a batch switch leaves it unmarked.
+MAKER_MARK_SITE = "swccg.com"
+MAKER_MARK_YEAR = 2026
+
+
+def maker_mark_suffix(card: dict) -> str:
+    """The text appended to the legal line: "  ·  swccg.com 2026" (+ " · ES"); "" when the card carries no mark.
+    Card keys: maker_mark (bool), maker_mark_text (default "swccg.com <maker_mark_year or 2026>"), maker_mark_lang
+    (language code, e.g. "es"; default the card's printing language when it is not English; "" for none)."""
+    if not card.get("maker_mark"):
+        return ""
+    txt = str(card.get("maker_mark_text") or f'{MAKER_MARK_SITE} {card.get("maker_mark_year") or MAKER_MARK_YEAR}').strip()
+    lang = card.get("maker_mark_lang")
+    if lang is None:
+        lang = card.get("lang") or ""
+    lang = str(lang).strip().upper()
+    return "  ·  " + txt + (f" · {lang}" if lang and lang != "EN" else "")
+
+
+def apply_batch_maker_mark(card: dict, opts: dict) -> dict:
+    """Batch switch (render.py / build_vs.py --maker-mark[=TEXT] [--maker-mark-lang=XX], or CM_MAKER_MARK=1): turns the
+    mark on for every card that does not say maker_mark itself (a stand-in for a printing keeps maker_mark: false)."""
+    if opts.get("maker_mark") and "maker_mark" not in card:
+        card["maker_mark"] = True
+        for k in ("maker_mark_text", "maker_mark_lang"):
+            if opts.get(k) is not None and k not in card:
+                card[k] = opts[k]
+    return card
+
+
+def maker_mark_args(argv: list[str]) -> tuple[list[str], dict]:
+    """Strip --maker-mark[=TEXT] / --maker-mark-lang=XX from argv; CM_MAKER_MARK=1 (and CM_MAKER_MARK_TEXT,
+    CM_MAKER_MARK_LANG) do the same from the environment."""
+    opts = {"maker_mark": os.environ.get("CM_MAKER_MARK", "") not in ("", "0", "false", "no"),
+            "maker_mark_text": os.environ.get("CM_MAKER_MARK_TEXT"), "maker_mark_lang": os.environ.get("CM_MAKER_MARK_LANG")}
+    rest = []
+    for a in argv:
+        if a == "--maker-mark":
+            opts["maker_mark"] = True
+        elif a.startswith("--maker-mark="):
+            opts["maker_mark"] = True; opts["maker_mark_text"] = a.split("=", 1)[1]
+        elif a.startswith("--maker-mark-lang="):
+            opts["maker_mark_lang"] = a.split("=", 1)[1]
+        else:
+            rest.append(a)
+    return rest, opts
+
+
 def dc_copy_html(text: str) -> str:
     """The copyright line as Decipher set it: © and ® as full-size thin circles round a small letter."""
     h = "".join(f'<span class="cr">{"C" if ch == "©" else "R"}</span>' if ch in "©®" else esc(ch) for ch in text)
@@ -3052,8 +3103,9 @@ def build_html(card: dict) -> str:
         parts.append(f'<img src="{data_uri(ASSETS / "icons" / (card["margin_disc"] + ".png"))}" style="position:absolute;left:{mx_ - 41}px;top:{my_ - 41}px;width:82px;height:82px;border-radius:50%">')
     sec('copyright')
     # vertical Lucasfilm / Decipher line on the right margin of the art, as on the printed card
-    if card.get("copyright") and t.get("copyright_split") and card.get("copyright_split"):   # systems (card maker): split over the two bottom margins
-        txt = card["copyright"]
+    copy_txt = (card.get("copyright") or "") + maker_mark_suffix(card) if card.get("copyright") else ""   # swccg-guild/work#1306: the maker's mark ends the line
+    if copy_txt and t.get("copyright_split") and card.get("copyright_split"):   # systems (card maker): split over the two bottom margins
+        txt = copy_txt
         cut = txt.find("TM, ®")
         halves = (txt[:cut].strip(), txt[cut:].strip()) if cut > 0 else (txt, "")
         dc_ = card.get("decipher_print")
@@ -3066,11 +3118,11 @@ def build_html(card: dict) -> str:
                 down_ = ";transform:rotate(90deg) scaleX(%g)" % DC_COPY["cond"] if dc_ and k_ == 0 and t.get("dc_split_left_down") else ""
                 parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
                              f'<div class="copyin{" dccopy" if dc_ else ""}" style="color:#fff{down_}">{dc_copy_html(part) if dc_ else esc(part)}</div></div>')
-    elif card.get("copyright") and t.get("rg_copy"):
+    elif copy_txt and t.get("rg_copy"):
         # rev 84 (geometry 2): Reflections Gold's 2001 playtest prints (wide Effects / Interrupts) split the line over the
         # black border, white, Decipher's typesetting: "© 2001 LUCASFILM LTD. & TM." down the left edge reading top to
         # bottom, "TM, ®, & © 2001 DECIPHER INC." up the right edge (Local Trouble, Strangle, Weapon Malfunction photos)
-        txt = card["copyright"]
+        txt = copy_txt
         cut = txt.find("TM, ®")
         halves = (txt[:cut].strip(), txt[cut:].strip()) if cut > 0 else ("", txt)
         for k_, ((cx, cy), part) in enumerate(zip(t["rg_copy"], halves)):
@@ -3078,15 +3130,15 @@ def build_html(card: dict) -> str:
                 rot_ = "90deg" if k_ == 0 else "-90deg"
                 parts.append(f'<div class="copy" style="position:absolute;left:{cx - 30:g}px;top:{cy - 400:g}px;width:60px;height:800px">'
                              f'<div class="copyin dccopy" style="color:#fff;font-size:{t.get("rg_copy_size", DC_COPY["size"])}px;transform:rotate({rot_}) scaleX({DC_COPY["cond"]})">{dc_copy_html(part)}</div></div>')
-    elif card.get("copyright") and t.get("dc_copy") and card.get("decipher_print") and not (t.get("dc_copy_unless_scan") and card.get("art_scan")):
+    elif copy_txt and t.get("dc_copy") and card.get("decipher_print") and not (t.get("dc_copy_unless_scan") and card.get("art_scan")):
         # rev 84: Decipher's typesetting of the line (taller, condensed, full-size circled © and ®), centred on dc_copy;
         # full-art Admiral's Orders print it over the picture (a scan already carries it: dc_copy_unless_scan)
         dcx, dcy = t["dc_copy"]
         ink_ = (f'color:{t["dc_copy_ink"]};' if t.get("dc_copy_ink") else "") + (f'font-size:{t["dc_copy_size"]}px;' if t.get("dc_copy_size") else "")
         ink_ = f' style="{ink_}"' if ink_ else ""
         parts.append(f'<div class="copy" style="position:absolute;left:{dcx - 30:g}px;top:{dcy - 600:g}px;width:60px;height:1200px">'
-                     f'<div class="copyin dccopy"{ink_}>{dc_copy_html(card["copyright"])}</div></div>')
-    elif card.get("copyright") and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
+                     f'<div class="copyin dccopy"{ink_}>{dc_copy_html(copy_txt)}</div></div>')
+    elif copy_txt and not t.get("no_copyright"):   # full-art Admiral's Orders keep the scan's own line
         cx, cy, cw, ch = t.get("copyright", (t.get("copyright_x", 1404), ay, 36, ah))
         if card.get("copyright_dxy"):   # rev 84: a printing's own offset of the line (Tatooine's Light Epic Events)
             cx, cy = cx + card["copyright_dxy"][0], cy + card["copyright_dxy"][1]
@@ -3094,7 +3146,7 @@ def build_html(card: dict) -> str:
         dc_ = card.get("decipher_print")
         ink_ = f' style="color:{card["copyright_ink"]}"' if card.get("copyright_ink") else ""   # rev 84: Tatooine's Light Epic Events print white
         parts.append(f'<div class="copy" style="position:absolute;left:{cx}px;top:{cy}px;width:{cw}px;height:{ch}px">'
-                     f'<div class="copyin{" dccopy" if dc_ else ""}"{ink_}>{dc_copy_html(card["copyright"]) if dc_ else esc(card["copyright"])}</div></div>')
+                     f'<div class="copyin{" dccopy" if dc_ else ""}"{ink_}>{dc_copy_html(copy_txt) if dc_ else esc(copy_txt)}</div></div>')
     sec('art_credit')
     # PC art credit up the left side of the art ("Image courtesy of Jesus Conde", Endless Legions VS26; swccg-guild/work#100):
     # the copyright line's mirror image about the art window, same face and size
@@ -3641,7 +3693,8 @@ def render(card: dict) -> tuple[Path, Path]:
 
 
 if __name__ == "__main__":
-    for f in sys.argv[1:]:
-        card = json.loads(Path(f).read_text(encoding="utf-8"))
+    args, mm = maker_mark_args(sys.argv[1:])
+    for f in args:
+        card = apply_batch_maker_mark(json.loads(Path(f).read_text(encoding="utf-8")), mm)
         m, h = render(card)
         print(card["id"], m.stat().st_size // 1024, "KB", h.stat().st_size // 1024, "KB")

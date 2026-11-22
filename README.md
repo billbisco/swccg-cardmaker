@@ -46,6 +46,21 @@ Any printed card (Decipher, Reflections Gold, Original Virtual Sets, Virtual Leg
 the browser editor (<https://swccg.com/cardmaker/>) or the API; Virtual Legacy cards also open by GEMP id and list every
 published game-text version. Step by step for people and scripts: [docs/RECREATE-A-CARD.md](docs/RECREATE-A-CARD.md).
 
+## Maker's mark
+
+Cards we build ourselves carry a quiet mark at the end of Decipher's legal line (Bill 2026-11-22, swccg-guild/work#1306):
+`TM & © 1998 LUCASFILM LTD.  TM, ® & © 1998 DECIPHER INC.  ·  swccg.com 2026`, and ` · ES` etc. on a translation. It is
+set in the line's own face and the longer line stays centred on the same column. It is **off by default**, so
+recreations of real printings stay as printed.
+
+- Per card (card JSON, VS transcription or editor spec): `"maker_mark": true`; optional `"maker_mark_text"` (default
+  `"swccg.com 2026"`), `"maker_mark_year"` (only changes the default text's year) and `"maker_mark_lang"` (`"es"` →
+  ` · ES`; default: the card's printing language when not English; `""` for none).
+- Per batch: `python3 render.py --maker-mark cards/*.json`, `python3 build_vs.py 3 --maker-mark`, with
+  `--maker-mark="swccg.com 2027"` and `--maker-mark-lang=es`, or `CM_MAKER_MARK=1` (`CM_MAKER_MARK_TEXT`,
+  `CM_MAKER_MARK_LANG`). A card that says `"maker_mark": false` (a stand-in for a real printing) stays unmarked.
+- Web editor: *Set & caption* → "Maker's mark at the end of the copyright line", with the text and language code.
+
 ## Compare with a PC card
 
 `compare_pc.py` builds a PC Virtual card through the CardMaker API (`/api/card`, `/api/render`) and compares it with the

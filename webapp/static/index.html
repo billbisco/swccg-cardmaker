@@ -205,6 +205,11 @@
         <legend>Set &amp; caption</legend>
         <label class="file">Your own set symbol (lower icon corner) <input type="file" id="symFile" accept="image/png,image/*"></label>
         <label>Copyright line (beside the art) <input name="copyright" placeholder="TM &amp; © 1997 LUCASFILM LTD. …"></label>
+        <label class="inline" title="Cards we build ourselves end the legal line with ' · swccg.com 2026' (swccg-guild/work#1306). Leave off for a stand-in of a real printing."><input type="checkbox" name="maker_mark"> Maker's mark at the end of the copyright line (our own cards)</label>
+        <div class="grid2">
+          <label>Mark text <input name="maker_mark_text" maxlength="40" placeholder="swccg.com 2026"></label>
+          <label>Language code <input name="maker_mark_lang" maxlength="5" placeholder="ES (blank: none / the printing language)"></label>
+        </div>
         <div class="grid2">
           <label>Credit, left margin <input name="margin_left" placeholder="Image courtesy of …"></label>
           <label>Credit, right margin <input name="margin_right"></label>

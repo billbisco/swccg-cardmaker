@@ -210,16 +210,20 @@ def convert(c: dict, vs) -> dict:
         card["back"] = {"title": c.get("title_back") or "", "caption": c.get("caption_back") or f"{c.get('title_back','')} (V)",
                         "destiny": c.get("destiny_back") or "7", "game_text": _token_fix(c.get("game_text_back_lines") or c.get("game_text_back") or ""),
                         "art": {"src": (c.get("art_back") or {}).get("modern") or (c.get("art_back") or {}).get("src")}}
+    for k in ("maker_mark", "maker_mark_text", "maker_mark_year", "maker_mark_lang"):   # swccg-guild/work#1306
+        if k in c:
+            card[k] = c[k]
     return card
 
 
 if __name__ == "__main__":
     from ovs_sets import parse
-    vs = parse(sys.argv[1])
-    nums = [f"{int(n):02d}" if n.isdigit() else n for n in sys.argv[2:]] or sorted(p.stem for p in (ROOT / f"cards/vs{vs}").glob("[0-9][0-9]*.json") if re.fullmatch(r"\d\d[a-z]?", p.stem))
+    argv, mm = render.maker_mark_args(sys.argv[1:])   # --maker-mark[=TEXT] / --maker-mark-lang=XX (swccg-guild/work#1306)
+    vs = parse(argv[0])
+    nums = [f"{int(n):02d}" if n.isdigit() else n for n in argv[1:]] or sorted(p.stem for p in (ROOT / f"cards/vs{vs}").glob("[0-9][0-9]*.json") if re.fullmatch(r"\d\d[a-z]?", p.stem))
     for n in nums:
         c = json.loads((ROOT / f"cards/vs{vs}/{n}.json").read_text(encoding="utf-8"))
-        card = convert(c, vs)
+        card = render.apply_batch_maker_mark(convert(c, vs), mm)
         (ROOT / f"cards/vs{vs}/{n}.card.json").write_text(json.dumps(card, ensure_ascii=False, indent=1), encoding="utf-8")
         try:
             m, h = render.render(card)
